@@ -33,6 +33,25 @@
 <meta name="apple-mobile-web-app-title" content="BALL">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
+  /* THE FONTS, at the top level: for years these sat inside :root{ … } (its brace
+     was missing), where an @font-face is invalid, so none of them loaded and every
+     heading was a faked bold italic of the system font. assets/fonts/font-face.css
+     is the source of truth; _tests/fonts-test.js holds this. */
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:800;font-display:swap;src:url(assets/fonts/barlow-semicondensed-800i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:800;font-display:swap;src:url(assets/fonts/barlow-semicondensed-800i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:900;font-display:swap;src:url(assets/fonts/barlow-semicondensed-900i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:900;font-display:swap;src:url(assets/fonts/barlow-semicondensed-900i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/barlow-semicondensed-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/barlow-semicondensed-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/barlow-semicondensed-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/barlow-semicondensed-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-400i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-400i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Silkscreen';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/silkscreen-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
   :root{
     --bg:#edf4ee;
     --card:#ffffff;
@@ -48,16 +67,6 @@
     --blue:#2563eb;
     --ok:#0a9e5c;
     --bad:#dc2626;
-  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:800;font-display:swap;src:url(assets/fonts/barlow-semicondensed-800i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:800;font-display:swap;src:url(assets/fonts/barlow-semicondensed-800i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:900;font-display:swap;src:url(assets/fonts/barlow-semicondensed-900i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:900;font-display:swap;src:url(assets/fonts/barlow-semicondensed-900i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-  @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-400i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-  @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-400i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-  /* the pixel face: numbers on the scorebug and the tier keys */
-  @font-face{font-family:'Silkscreen';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/silkscreen-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 
     /* one place for the interface face; everything else says var(--ui) */
     --serif:"Lora",Georgia,"Times New Roman",serif;
@@ -5744,9 +5753,9 @@
   .pgcolours{position:absolute;left:50%;top:-6px;transform:translateX(-50%) rotate(90deg);opacity:.95;z-index:-1}
 
   /* the League tab (board League) */
-  .lgpage .b6band{height:300px}
-  .lkpage .b6band{height:236px}
-  .pgme:has(.pgtop) .b6band{height:400px}
+  .lgpage .b6band{height:226px}
+  .lkpage .b6band{height:200px}
+  .pgme:has(.pgtop) .b6band{height:292px}
   .lghead{display:flex;justify-content:space-between;align-items:center;gap:10px}
   .lgh1{margin:0;font:italic 900 36px/1 'Barlow Semi Condensed',sans-serif;color:#F8F1DD;text-shadow:1.2px 1.2px 0 #c99a2e,2.4px 2.4px 0 rgba(0,0,0,.35)}
   .lgsub{display:block;margin:8px 0 12px;font:italic 400 14px/1.3 'Lora',Georgia,serif;color:#cfe0d2}
@@ -5938,9 +5947,12 @@
   }
   /* ---------- THE FRONT PAGE REFRESH (_plans/home-page-refresh.md, layout C) ---------- */
   /* the grass: "Matchday pitch", mowing stripes and the centre circle at the bottom edge */
-  .b6band{background:#1d5232 url(assets/grass-match.jpg) center top / cover!important;overflow:hidden}
-  .b6band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 30%,transparent 70%,rgba(0,0,0,.18))}
-  .b6.step .b6band,.b6.b6m .b6band,.pgme .b6band,.lgpage .b6band,.lkpage .b6band{background-position:center 30%!important}
+  /* the grass at its own size everywhere (780 px wide is the texture's native
+     width), repeated rather than stretched, so the blades never blow up on a
+     tall band; a darkening layer keeps the text on it readable */
+  .b6band,.penband{background:#1d5232 url(assets/grass-match.jpg) center top / 780px auto repeat!important;overflow:hidden}
+  .b6band::after,.penband::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,20,10,.45),rgba(5,20,10,.15) 45%,rgba(5,20,10,.35))}
+  .penband{left:50%!important;right:auto!important;width:100vw!important;transform:translateX(-50%);height:330px!important}
   /* your day, over the grass */
   .b6chipsw{position:absolute;left:0;right:0;top:calc(14px + env(safe-area-inset-top,0px));z-index:2;display:flex;justify-content:center;gap:6px;padding:0 12px;flex-wrap:nowrap;overflow:hidden}
   .b6chipsw:empty{display:none}
@@ -6003,6 +6015,97 @@
     .b6cmain b{font-size:15px}
     .b6cmain{padding-left:12px}
   }
+  /* ---------- ME, polished to the canvas board (polish pass step 3) ---------- */
+  .meme .b6body{padding-top:calc(30px + env(safe-area-inset-top,0px))}
+  .metop{display:flex;gap:18px;align-items:flex-start;margin:0 6px 18px}
+  .mepen{flex:none;width:112px;height:176px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.45))}
+  .mepen svg{width:112px;height:176px;display:block}
+  .mewho{display:flex;flex-direction:column;align-items:flex-start;gap:9px;padding-top:14px;min-width:0}
+  .meat{font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8FB79E}
+  .merank{font:italic 900 40px/.9 'Barlow Semi Condensed',sans-serif;color:#F8F1DD;text-transform:uppercase;text-shadow:1.2px 1.2px 0 #c99a2e,2.4px 2.4px 0 rgba(0,0,0,.35);
+    overflow-wrap:anywhere}
+  .melv{transform:skewX(-14deg);background:#e9b84c;color:#0a1f13;padding:6px 12px;box-shadow:3px 3px 0 rgba(0,0,0,.35)}
+  .melv span{display:inline-block;transform:skewX(14deg);font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.22em;text-transform:uppercase}
+  .metitle{min-height:28px;padding:0;border:0;background:none;cursor:pointer;text-align:left;font:italic 900 17px/1.1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
+  .mesince{font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#cfe0d2}
+  .mexp{margin-bottom:10px}
+  .merate{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;width:100%;padding:14px 16px;border-radius:16px;background:#F8F1DD;border:2px solid #fff;
+    box-shadow:0 5px 0 rgba(0,0,0,.08),0 12px 24px rgba(18,61,36,.18);color:#123D24;cursor:pointer;text-align:left;font:inherit}
+  .mer-l{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .mer-l small{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#5b6b56}
+  .mer-l b{font:italic 900 28px/1 'Barlow Semi Condensed',sans-serif}
+  .menum{display:flex;gap:8px;align-items:center;font:700 14px/1 'Barlow Semi Condensed',sans-serif}
+  .menum em{font-style:normal}.menum em.up{color:#1d7a45}.menum em.down{color:#b3261e}
+  .meshield{display:flex;gap:6px;align-items:center;font:600 12px/1 'Barlow Semi Condensed',sans-serif;color:#5b6b56}
+  .mepips{display:flex;gap:4px;margin-top:2px}
+  .mepips i{width:16px;height:7px;border-radius:4px;background:rgba(18,61,36,.15)}
+  .mepips i.on{background:#e9b84c}
+  .menote{font:600 12.5px/1.25 'Barlow Semi Condensed',sans-serif;color:#5b6b56}
+  .metwo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+  .mesmall{display:flex;gap:10px;align-items:center;min-width:0;padding:12px 14px;border-radius:14px;background:#F8F1DD;border:2px solid #fff;box-shadow:0 4px 0 rgba(0,0,0,.08);
+    color:#123D24;cursor:pointer;text-align:left;font:inherit}
+  .mesmall>span:last-child{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .mesmall b{font:italic 900 19px/1 'Barlow Semi Condensed',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mesmall small{font:600 12px/1.1 'Barlow Semi Condensed',sans-serif;color:#5b6b56}
+  .mepos{flex:none;width:34px;height:34px;border-radius:50%;background:#123D24;color:#f3cd6b;display:grid;place-items:center;font:italic 900 19px/1 'Barlow Semi Condensed',sans-serif}
+  .mepos.ghost{background:rgba(18,61,36,.1);color:#123D24}
+  .mepos svg{width:18px;height:18px}
+  .merack{position:relative;padding-top:4px}
+  .merail{position:absolute;left:0;right:0;top:4px;height:8px;border-radius:4px;background:linear-gradient(180deg,#c08a44,#5c3a12);box-shadow:0 3px 6px rgba(0,0,0,.25)}
+  .merack>div{position:relative;display:flex;justify-content:space-between;padding:0 6px}
+  .memenu{display:flex;flex-direction:column;margin-top:18px;border-radius:14px;overflow:hidden;background:rgba(18,61,36,.06);border:1px solid rgba(18,61,36,.12)}
+  .merow{display:flex;align-items:center;gap:12px;min-height:50px;padding:0 14px;border:0;border-bottom:1px solid rgba(18,61,36,.1);background:none;color:#123D24;cursor:pointer;text-align:left;
+    font:700 16px/1 'Barlow Semi Condensed',sans-serif}
+  .merow:last-child{border-bottom:0}
+  .merow:active{background:rgba(18,61,36,.06)}
+  .merow>span:nth-child(2){flex:1}
+  .merow i{font:900 18px/1 'Barlow Semi Condensed',sans-serif;font-style:normal;color:#a8740a}
+  .mei{width:22px;height:22px;color:#123D24;opacity:.8}
+  .mei svg{width:100%;height:100%;display:block}
+  .meme .b6band{height:292px!important}
+  /* ---------- LOCKER, polished (step 4): empty states that look like the real thing ---------- */
+  .lkpage .lkhdr.lkfirst{margin-top:64px}
+  .lkpage .lkhdr.lkfirst{color:#123D24}
+  .lkpage .lkhdr.lkfirst small{color:#5b6b56}
+  .lgseg{background:#0b2416!important;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+  .lkhdr .lklink{order:3;margin-left:auto;padding:6px 0 6px 8px;border:0;background:none;cursor:pointer;color:#a8740a;font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;text-transform:none}
+  .lkscarf.ghost{opacity:.18;cursor:default;width:auto;padding:0 4px}
+  .lkrack .lkscarves{justify-content:space-around;min-height:126px;padding-top:6px}
+  .lkwait{margin:8px 4px 0;font:italic 400 14px/1.4 'Lora',Georgia,serif;color:#3d4a38;text-align:center}
+  .lkwait.dark{grid-column:1/-1;margin:2px 0 0;color:#e6ecd9}
+  .lkwall.empty{flex-direction:column;align-items:center;gap:4px;padding:14px 12px 14px}
+  .lkhooks{display:flex;justify-content:space-around;width:100%}
+  .lkshelf.empty{grid-template-columns:repeat(3,minmax(0,1fr));padding-top:16px}
+  .lktro.ghost{opacity:1}
+  .lkpage .lkempty{display:none}
+  .penfr small{display:block;margin-top:3px;font:600 11px/1.2 'Barlow Semi Condensed',sans-serif;color:#5b6b56}
+  .penfr{height:auto;min-height:44px;padding:6px 12px}
+  .mesmall b{font-size:16px!important;white-space:normal!important;line-height:1.05!important}
+  .penpage .b6stephead{margin-bottom:0}
+  .penprev{margin:-14px 0 28px!important}
+  .penband{height:410px!important}
+  /* ---------- the house page for Higher or Lower and Career Path (polish 6-7) ---------- */
+  .b6game{color:#123D24}
+  .b6game .kick{display:none}
+  .b6game .b6body>.b6stephead.m{height:184px}
+  .b6.b6game .b6band{height:166px}
+  .b6game .drq{color:#123D24;text-shadow:none;margin-top:4px}
+  .b6game .drq small{color:#5b6b56}
+  .b6game .hint{color:#4b5a47}
+  .b6game .drleave{color:#4b5a47}
+  .b6game .cpq b{color:#123D24}
+  .b6game .cpq small{color:#5b6b56;opacity:1}
+  .b6game .cpdrop{color:#a8740a}
+  .b6game .cproute{background:transparent;box-shadow:none;border-radius:0;margin-left:-6px;margin-right:-6px;width:calc(100% + 12px)}
+  .b6game .cpopt.out{border-color:rgba(18,61,36,.35);color:rgba(18,61,36,.45)}
+  .b6game .cpwon small{color:#4b5a47}.b6game .cpwon small.ok{color:#1d7a45}
+  .b6game .cpwon b.careername{color:#123D24;text-shadow:1px 1px 0 #e9b84c}
+  .b6game .cpwon span{color:#3d4a38}
+  .b6game .cpsum span{background:rgba(18,61,36,.1)}
+  .b6game .cpsum .g{background:linear-gradient(180deg,#f6d57c,#c99a2e)}
+  .b6game .whobar .cpopt{min-height:46px}
+  .cpboard:not(.hid){width:calc(58% - 10px);max-width:none}
+  .cproute.two .cpboard:not(.hid){width:calc(30% - 4px)}
   body:has(.pgfull) .toast{bottom:auto;top:calc(18px + env(safe-area-inset-top,0px))}
   .b6grp{display:flex;flex-direction:column;gap:8px}
   .b6grp h3.b6hdr{margin:4px 0 0}
@@ -9436,7 +9539,12 @@ function dressShirtSVG(kit, name, no){
   const n = ++DRESS_UID, id = s => "dr" + s + n, k = kit;
   name = String(name || "").toUpperCase();
   if(name.length > 10) name = name.split(/\s+/).pop();
-  const nameSize = name.length > 8 ? 15 : name.length > 6 ? 17 : 19, nameLs = name.length > 10 ? 1.4 : 2.4;
+  /* the arc is about 112 units long; at roughly .66 em a letter, letter-spacing
+     comes in first, then the size, until the name fits (MARQUINHOS was
+     clipped to ARQUINHO) */
+  let nameSize = 19, nameLs = 2.4;
+  const fits = () => name.length * .66 * nameSize + nameLs * (name.length - 1) <= 108;
+  while(!fits() && nameSize > 8){ if(nameLs > 0.6) nameLs = Math.round((nameLs - .4) * 10) / 10; else nameSize -= .5; }
   const font = "Barlow Semi Condensed, Arial Narrow, sans-serif";
   const pattern = k.pattern === "pin" ? '<g opacity=".18" stroke="' + k.trim + '" stroke-width="1.6">' + Array.from({length: 14}, (_, i) => '<line x1="' + (34 + i * 10) + '" y1="20" x2="' + (34 + i * 10) + '" y2="220"/>').join("") + '</g>'
     : k.pattern === "stripes" ? '<g fill="' + k.trim + '">' + [20, 68, 116, 164].map(x => '<rect x="' + x + '" y="0" width="22" height="230"/>').join("") + '</g>'
@@ -10667,7 +10775,7 @@ function renderBug(){
   /* THE DAILY HAS NO SCORE AND NO OPPONENT, so the match scorebug on top of
      it is two players and a running total that mean nothing. It has a ladder
      of its own, which is the only score it has. */
-  if(!S || S.phase==="setup" || S.play==="daily"){ bug.hidden=true; bug.innerHTML=""; return; }
+  if(!S || S.phase==="setup" || S.play==="daily" || /^(cp_|c_)/.test(S.phase || "")){ bug.hidden=true; bug.innerHTML=""; return; }
   bug.hidden=false;
   const home = `<button class="homeball" onclick="toMenu()" aria-label="Back to the menu" title="Back to the menu">${ballSVG("")}</button>`;
   const best=Math.max(...S.players.map(p=>p.score));
@@ -12348,11 +12456,25 @@ function h2Sel(name){ audio(); const H = h2(); if(!H || H.teams.includes(name)) 
 function b6Paper(on){ try{ document.body.classList[on ? "add" : "remove"]("b6paper"); }catch(e){} }
 /* the green top of a match screen: back, MATCHDAY, the context on the gold bar,
    and Leave on the right once a match exists to leave */
-function b6MatchHead(ctx, back, leave){
+/* THE HOUSE PAGE FOR A GAME (polish pass steps 6-7): the green band with the
+   game's name and the gold context bar, back and Leave, cream paper below. The
+   old score bar is hidden for these screens (renderBug); the score is on the bar. */
+function b6GameWrap(st, title){
+  b6Paper(true);
+  let ctx = "";
+  try{
+    const many = S.players.length > 1, t = many && S.turn >= 0 ? S.turn : 0;
+    if(S.mode === "caps" || S.mode === "goals") ctx = (S.mode === "caps" ? "Caps" : "Goals") + " · " + (many ? S.players[t].name + "'s run" : "your run") + " · score " + S.players[t].score;
+    else if(!many) ctx = (S.mode === "mgr" ? "Manager " : "Career ") + S.round + " of " + CAREER_SOLO_ROUNDS + " · score " + S.players[0].score;
+    else ctx = "Round " + S.round + " · " + S.players.map(p => p.name + " " + p.score).join(" · ");
+  }catch(e){}
+  st.innerHTML = '<div class="b6 step b6m b6game"><div class="b6band"></div><div class="b6body">' + b6MatchHead(ctx, "toMenu()", "askEnd()", title) + st.innerHTML + '</div></div>';
+}
+function b6MatchHead(ctx, back, leave, title){
   return '<div class="b6stephead m">' +
     (back ? '<button class="b6backbtn" onclick="' + back + '" aria-label="Back">‹</button>' : '') +
     (leave ? '<button class="b6quit" onclick="' + leave + '">Leave</button>' : '') +
-    '<div class="b6stitle">Matchday</div>' +
+    '<div class="b6stitle">' + esc(title || "Matchday") + '</div>' +
     (ctx ? '<div class="b6ctx"><span>' + esc(ctx) + '</span></div>' : '') + '</div>';
 }
 /* back from the team pick to where the match was chosen */
@@ -21913,38 +22035,66 @@ function progSpark(hist){
 }
 function progPennant(level){
   const p = progLoad();
-  return pennantSVG(p.pennant || pennantDefault(acct().username || "BALL"), 120, { level }).replace('class="pennant"', 'class="pgpennant"');
+  return pennantSVG(p.pennant || pennantDefault(acct().username || "MY TEAM"), 112, { level }).replace('class="pennant"', 'class="pgpennant"');
 }
 function renderMe(st){
   b6Paper(true);
-  const p = progLoad(), L = levelOf(p.xp), rk = rankOf(L.level), m = mine(), streak = (m.streak || {});
-  const today = dayKey(new Date()), yd = new Date(); yd.setDate(yd.getDate() - 1);
-  const live = streak.played > 0 && (streak.last === today || streak.last === dayKey(yd));
   if(ME_VIEW === "titles") return renderTitles(st);
   if(ME_VIEW === "settings") return renderSettings(st);
-  const div = divisionOf(p.rating), week = p.hist.filter(h => h.t > Date.now() - 7 * 864e5).reduce((a, h) => a + h.d, 0);
+  /* THE ME PAGE, built to the canvas board "Me" (_plans/polish-pass.md step 3):
+     your pennant big on the grass with who you are beside it, the XP card, the
+     rating card, two small cards (streak, league), your scarves, your record
+     only once there is one, and the rest as a quiet list. A new player sees
+     invitations, never a row of zeroes. */
+  const p = progLoad(), L = levelOf(p.xp), rk = rankOf(L.level), m = mine(), streak = (m.streak || {}), a = acct();
+  const today = dayKey(new Date()), yd = new Date(); yd.setDate(yd.getDate() - 1);
+  const live = streak.played > 0 && (streak.last === today || streak.last === dayKey(yd));
+  const div = divisionOf(p.rating), week = p.hist.filter(h => h.t > Date.now() - 7 * 864e5).reduce((s, h) => s + h.d, 0);
   const since = new Date(p.since || Date.now());
-  st.innerHTML = '<div class="b6 step pgme"><div class="b6band"></div><div class="b6body">' +
-    '<div class="pgtop">' + progPennant(L.level) +
-      '<div class="pgwho"><span class="pgrank">' + esc(rk.name) + '</span>' +
-      '<span class="pglv"><span>Level ' + L.level + (L.stars ? " · ★" + L.stars : "") + '</span></span>' +
-      '<button class="pgtitle" onclick="openTitles()">' + (p.title ? '★ ' + esc(titleName(p.title, p.titles[p.title])) : 'Choose a title ›') + '</button>' +
-      '<span class="pgsince">Playing since ' + since.toLocaleString("en-GB", { month: "long", year: "numeric" }) + '</span></div></div>' +
-    '<div class="pgxp"><div class="pghead"><b>Level ' + L.level + ' · ' + esc(rk.name) + '</b><span>' + nf(L.into) + ' / ' + nf(L.need) + ' XP</span></div>' +
-      '<div class="pgbar"><i style="width:' + (L.into / L.need * 100).toFixed(1) + '%"></i></div>' +
-      '<small>' + nf(L.need - L.into) + ' XP to level ' + (L.level + 1) + (rk.next ? ' · ' + esc(rk.next.name) + ' at level ' + rk.next.at : '') + '</small></div>' +
-    '<button class="pgrate" onclick="progDivisions()"><span class="pgr-l"><small>BALL rating</small><b>' + esc(p.rated < 10 ? "Trialist" : div.label.toUpperCase()) + '</b>' +
-      '<span>' + (p.rated < 10 ? "Placement · " + p.rated + " of 10 played" : nf(p.rating)) + (week ? ' <em class="' + (week > 0 ? "up" : "down") + '">' + (week > 0 ? "▲ " : "▼ ") + Math.abs(week) + ' this week</em>' : "") + '</span>' +
-      (p.shield > 0 ? '<span class="pgshieldline">Promotion shield · ' + p.shield + ' match' + (p.shield === 1 ? "" : "es") + ' left</span>' : "") + '</span>' + progSpark(p.hist) + '</button>' +
-    '<div class="pgstats"><div><b>' + (live ? streak.played : 0) + ' day' + ((live ? streak.played : 0) === 1 ? "" : "s") + '</b><span>Daily streak · ' + (p.freeze.left || 0) + ' freeze</span></div>' +
-      '<div><b>' + nf(p.wins) + '</b><span>Wins vs the computer</span></div></div>' +
-    (Object.keys(p.scarves || {}).length ? '<div class="b6hdr">Scarves</div><div class="pgscarves">' + Object.keys(p.scarves).sort((a, b) => p.scarves[b] - p.scarves[a]).slice(0, 5).map(t => scarfMiniSVG(t, 34)).join("") + '</div>' : "") +
-    (!acct().linked ? acctSaveHTML(false) : "") +
-    '<div class="b6hdr">Your record</div>' +
-    '<div class="pgstats"><div><b>' + (bestOf().career != null ? bestOf().career : "–") + '</b><span>Best Career Path</span></div>' +
-      '<div><b>' + Math.max(bestOf().caps ?? -1, bestOf().goals ?? -1, -1) .toString().replace("-1", "–") + '</b><span>Best Higher or Lower</span></div></div>' +
-    '<div class="pgacts"><button class="b6dark pgsmall" onclick="openPennant()">Your pennant</button><button class="b6dark pgsmall" onclick="openSettings()">Settings</button></div>' +
-    '<button class="b6dark pgsmall" onclick="b4HowTo()">How to play</button>' +
+  const who = a.username ? "@" + a.username : a.linked ? "Signed in" : "Guest";
+  const shield = '<svg viewBox="0 0 14 16" width="14" height="16" aria-hidden="true"><path d="M7 1 L13 3.5 V8 C13 11.5 10.5 14 7 15 C3.5 14 1 11.5 1 8 V3.5 Z" fill="#e9b84c" stroke="#a8740a"/></svg>';
+  const flame = '<svg viewBox="0 0 28 34" width="28" height="34" aria-hidden="true"><path d="M14 2 C18 9 25 13 25 21 C25 28 20 32 14 32 C8 32 3 28 3 21 C3 15 8 12 9 6 C11 10 13 11 14 2 Z" fill="' + (live ? "#e8762b" : "#c9bfa3") + '"/><path d="M14 16 C16 20 19 22 19 25.5 C19 29 16.8 31 14 31 C11.2 31 9 29 9 25.5 C9 22 12 20 14 16 Z" fill="' + (live ? "#f6c34a" : "#e6dcc0") + '"/></svg>';
+  /* the rating card: a division and its line, or placement pips while it is still finding you */
+  const rating = p.rated < 10
+    ? '<button class="merate" onclick="progDivisions()"><span class="mer-l"><small>BALL rating</small><b>Trialist</b>' +
+        '<span class="mepips" aria-label="' + p.rated + ' of 10 placement matches">' + Array.from({ length: 10 }, (_, i) => '<i class="' + (i < p.rated ? "on" : "") + '"></i>').join("") + '</span>' +
+        '<span class="menote">' + (p.rated ? p.rated + " of 10 placement matches. " : "") + 'Play Matchday against the computer</span></span></button>'
+    : '<button class="merate" onclick="progDivisions()"><span class="mer-l"><small>BALL rating</small><b>' + esc(div.label.toUpperCase()) + '</b>' +
+        '<span class="menum">' + nf(p.rating) + (week ? ' <em class="' + (week > 0 ? "up" : "down") + '">' + (week > 0 ? "▲ " : "▼ ") + Math.abs(week) + ' this week</em>' : "") + '</span>' +
+        (p.shield > 0 ? '<span class="meshield">' + shield + 'Promotion shield · ' + p.shield + ' match' + (p.shield === 1 ? "" : "es") + ' left</span>' : "") + '</span>' + progSpark(p.hist) + '</button>';
+  /* the league card: where you stand, or the way in */
+  const lgs = (typeof LG !== "undefined" && LG.list) || null, myL = lgs && lgs.length ? (lgs.find(l => l.id === LG.cur) || lgs[0]) : null;
+  const league = myL
+    ? '<button class="mesmall" onclick="openLeague()"><span class="mepos">' + (myL.my_pos || "–") + '</span><span><b>' + esc(myL.name) + '</b><small>' + (myL.my_pos ? ordinal(myL.my_pos) + " this week" : "This week") + '</small></span></button>'
+    : '<button class="mesmall" onclick="openLeague()"><span class="mepos ghost">' + (B6_TAB.league || "") + '</span><span><b>Friends league</b><small>Join a league ›</small></span></button>';
+  const streakCard = live
+    ? '<button class="mesmall" onclick="b4Explain(\'daily\', dailyStart)">' + flame + '<span><b>' + streak.played + ' day' + (streak.played === 1 ? "" : "s") + '</b><small>Daily streak · ' + (p.freeze.left || 0) + ' freeze</small></span></button>'
+    : '<button class="mesmall" onclick="b4Explain(\'daily\', dailyStart)">' + flame + '<span><b>Start a streak</b><small>Play today’s Daily ›</small></span></button>';
+  const sc = Object.keys(p.scarves || {}).sort((x, y) => p.scarves[y] - p.scarves[x]).slice(0, 6);
+  const best = bestOf(), hilo = Math.max(best.caps ?? -1, best.goals ?? -1);
+  const record = [best.career != null ? ['<b>' + best.career + '</b><span>Best Career Path</span>'] : null,
+    hilo >= 0 ? ['<b>' + hilo + '</b><span>Best Higher or Lower</span>'] : null, p.wins ? ['<b>' + nf(p.wins) + '</b><span>Wins vs the computer</span>'] : null].filter(Boolean);
+  const row = (icon, label, go) => '<button class="merow" onclick="' + go + '"><span class="mei" aria-hidden="true">' + icon + '</span><span>' + label + '</span><i aria-hidden="true">›</i></button>';
+  const IC = {
+    pen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h14l-7 17z"/><path d="M5 4h14"/></svg>',
+    star: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-3-5.4 3 1.1-6L3.2 9.4l6.1-.8z"/></svg>',
+    cog: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>',
+    help: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>' };
+  st.innerHTML = '<div class="b6 step pgme meme"><div class="b6band"></div><div class="b6body">' +
+    '<div class="metop"><div class="mepen">' + progPennant(L.level) + '</div>' +
+      '<div class="mewho"><span class="meat">' + esc(who) + '</span><span class="merank">' + esc(rk.name) + '</span>' +
+      '<span class="melv"><span>Level ' + L.level + (L.stars ? " · ★" + L.stars : "") + '</span></span>' +
+      '<button class="metitle" onclick="openTitles()">' + (p.title ? '<span aria-hidden="true">★</span> ' + esc(titleName(p.title, p.titles[p.title])) : 'Choose a title ›') + '</button>' +
+      '<span class="mesince">Playing since ' + since.toLocaleString("en-GB", { month: "long", year: "numeric" }) + '</span></div></div>' +
+    '<div class="pgxp mexp"><div class="pghead"><b>Level ' + L.level + ' · ' + esc(rk.name) + '</b><span>' + nf(L.into) + ' / ' + nf(L.need) + ' XP</span></div>' +
+      '<div class="pgbar"><i style="width:' + Math.max(L.into ? 2 : 0, L.into / L.need * 100).toFixed(1) + '%"></i></div>' +
+      '<small>' + nf(L.need - L.into) + ' XP to level ' + (L.level + 1) + (rk.next ? ' · ' + esc(rk.next.name) + ' at ' + rk.next.at : '') + '</small></div>' +
+    rating +
+    '<div class="metwo">' + streakCard + league + '</div>' +
+    (sc.length ? '<div class="b6hdr">Scarves</div><div class="merack"><i class="merail"></i><div>' + sc.map(t => scarfMiniSVG(t, 34)).join("") + '</div></div>' : "") +
+    (record.length ? '<div class="b6hdr">Your record</div><div class="pgstats">' + record.map(r => '<div>' + r[0] + '</div>').join("") + '</div>' : "") +
+    (a.server && !a.linked ? acctSaveHTML(false) : "") +
+    '<div class="memenu">' + row(IC.pen, "Your pennant", "openPennant()") + row(IC.star, "Titles", "openTitles()") + row(IC.cog, "Settings", "openSettings()") + row(IC.help, "How to play", "b4HowTo()") + '</div>' +
   '</div></div>';
 }
 function renderTitles(st){
@@ -22856,25 +23006,34 @@ async function lockerLoad(){
 function renderLocker(st){
   b6Paper(true);
   if(LOCKER_VIEW === "pennant") return renderPennantEditor(st);
+  /* THE LOCKER (canvas board "Locker", polish pass step 4). An empty section
+     is the real thing waiting for its first piece: the rail with ghost
+     scarves, the wall with empty hooks, the cabinet with ghost trophies. */
   const p = progLoad(), sc = Object.keys(p.scarves || {}).sort((a, b) => p.scarves[b] - p.scarves[a]);
   const tr = Object.values(p.trophies || {}).sort((a, b) => (METAL_RANK[b.metal] || 0) - (METAL_RANK[a.metal] || 0) || b.last - a.last);
   const wall = p.wall || [];
   const total = (() => { const s = new Set(); for(const k of Object.keys(TEAMS)) if(/^(wc|euro)\d{4}$/.test(k)) for(const t of Object.keys(TEAMS[k] || {})) s.add(t); return s.size; })();
+  const n = (v, one, many) => v + " " + (v === 1 ? one : many);
+  const counts = [sc.length ? n(sc.length, "scarf", "scarves") : "", wall.length ? n(wall.length, "pennant", "pennants") : "", tr.length ? n(tr.length, "trophy", "trophies") : ""].filter(Boolean);
+  const ghostScarf = '<svg class="lkghost" viewBox="0 0 46 140" width="40" height="122" aria-hidden="true"><rect x="7" y="2" width="32" height="122" rx="3" fill="none" stroke="#123D24" stroke-width="2" stroke-dasharray="4 3"/><path d="M10 124 V137 M18 124 V136 M26 124 V137 M34 124 V136" stroke="#123D24" stroke-width="2" stroke-linecap="round"/></svg>';
+  const hook = '<svg viewBox="0 0 30 40" width="30" height="40" aria-hidden="true"><circle cx="15" cy="6" r="4" fill="#a8742c"/><path d="M15 9 V24 C15 32 6 32 6 25" fill="none" stroke="#8a5d2c" stroke-width="3" stroke-linecap="round"/></svg>';
   st.innerHTML = '<div class="b6 step lkpage"><div class="b6band"></div><div class="b6body">' +
     '<div class="lghead"><h1 class="lgh1">Locker</h1></div>' +
-    '<span class="lgsub">' + sc.length + (sc.length === 1 ? ' scarf' : ' scarves') + ' · ' + wall.length + ' pennant' + (wall.length === 1 ? "" : "s") + ' · ' + tr.length + ' troph' + (tr.length === 1 ? "y" : "ies") + '</span>' +
-    '<div class="lkhdr light">Scarves' + (total ? ' <small>' + sc.length + ' of ' + total + ' nations</small>' : "") + '</div>' +
-    (sc.length
-      ? '<div class="lkrack"><div class="lkrail"></div><div class="lkscarves">' + sc.map(t => '<button class="lkscarf" onclick="lockerScarf(\'' + esc(t).replace(/'/g, "\\'") + '\')" aria-label="' + esc(t) + ' scarf">' + scarfMiniSVG(t, 40) + '<span>' + esc(t) + '</span></button>').join("") + '</div></div>'
-      : '<div class="lkempty dark">Win a Matchday with a nation or a club and its scarf hangs here.</div>') +
-    '<div class="lkhdr">Pennant wall <small>swapped after an online match</small></div>' +
-    (wall.length
-      ? '<div class="lkwall">' + wall.map(w => '<div class="lkpen">' + pennantSVG(w.pennant, 56) + '<span>' + esc(w.from) + '</span></div>').join("") + '</div>'
-      : '<div class="lkempty">Play a friend online to swap pennants. Theirs hangs here, yours on their wall.</div>') +
+    '<span class="lgsub">' + (counts.length ? counts.join(" · ") : "Your collection starts with your first win") + '</span>' +
+    '<div class="lkhdr light lkfirst">Scarves' + (sc.length && total ? ' <small>' + sc.length + ' of ' + total + ' nations</small>' : "") + '</div>' +
+    '<div class="lkrack"><div class="lkrail"></div><div class="lkscarves">' +
+      (sc.length ? sc.map(t => '<button class="lkscarf" onclick="lockerScarf(\'' + esc(t).replace(/'/g, "\\'") + '\')" aria-label="' + esc(t) + ' scarf">' + scarfMiniSVG(t, 40) + '<span>' + esc(t) + '</span></button>').join("")
+        : Array.from({ length: 5 }, () => '<span class="lkscarf ghost">' + ghostScarf + '</span>').join("")) + '</div>' +
+      (sc.length ? "" : '<p class="lkwait">Win a Matchday with a nation or club to hang its scarf.</p>') + '</div>' +
+    '<div class="lkhdr">Pennant wall <button class="lklink" onclick="openPennant()">Your pennant ›</button></div>' +
+    '<div class="lkwall' + (wall.length ? "" : " empty") + '">' +
+      (wall.length ? wall.map(w => '<div class="lkpen">' + pennantSVG(w.pennant, 56) + '<span>' + esc(w.from) + '</span></div>').join("")
+        : '<div class="lkhooks">' + Array.from({ length: 4 }, () => hook).join("") + '</div><p class="lkwait">Play a friend online to swap pennants.</p>') + '</div>' +
     '<div class="lkhdr">Trophies</div>' +
-    '<div class="lkshelf">' + (tr.length ? tr.map(t => '<div class="lktro">' + trophySVG(t.shape, t.metal, 50) + '<b>' + esc(t.name) + '</b><span>' + esc(String(t.metal).toUpperCase()) + (t.count > 1 ? ' ×' + t.count : "") + '</span></div>').join("")
-      : '<div class="lkempty dark">Win The Cup, a league week or keep a streak going.</div>') + '<i class="lkplank"></i></div>' +
-    '<button class="b6dark pgsmall" onclick="openPennant()">Design your pennant</button>' +
+    '<div class="lkshelf' + (tr.length ? "" : " empty") + '">' +
+      (tr.length ? tr.map(t => '<div class="lktro">' + trophySVG(t.shape, t.metal, 50) + '<b>' + esc(t.name) + '</b><span>' + esc(String(t.metal).toUpperCase()) + (t.count > 1 ? ' ×' + t.count : "") + '</span></div>').join("")
+        : ["star", "shield", "plate"].map(s => '<div class="lktro ghost">' + trophySVG(s, "rgba(248,241,221,.14)", 50) + '</div>').join("") +
+          '<p class="lkwait dark">Win The Cup, a league week or keep a streak going.</p>') + '<i class="lkplank"></i></div>' +
     '</div></div>';
 }
 function lockerScarf(team){
@@ -22897,7 +23056,7 @@ let PEN_DRAFT = null;
 function openPennant(){
   audio();
   const p = progLoad();
-  PEN_DRAFT = pennantClean(p.pennant || pennantDefault(acct().username || "BALL"));
+  PEN_DRAFT = pennantClean(p.pennant || pennantDefault(acct().username || "MY TEAM"));
   LOCKER_VIEW = "pennant"; ME_VIEW = null; LEAGUE_VIEW = null;
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
@@ -22939,7 +23098,7 @@ function renderPennantEditor(st){
       PEN_EMBLEMS.map(e => '<button aria-pressed="' + (d.emblem === e) + '" aria-label="' + e + '" onclick="penSet(\'emblem\',\'' + e + '\')">' +
         (e === "ball" ? ballSVG("penball") : '<svg width="24" height="24" viewBox="0 0 24 26" fill="#123D24" color="#123D24" aria-hidden="true">' + PEN_EMB[e] + '</svg>') + '</button>').join("") + '</div></div>' +
     '<div class="pentwo"><label class="pengrp"><span class="penlbl">Text</span><input class="pentxt" maxlength="12" value="' + esc(d.text) + '" oninput="penSet(\'text\',this.value)"></label>' +
-      '<div class="pengrp"><span class="penlbl">Fringe</span><span class="penfr"><i style="background:' + (PEN_FRINGE[rk.i] || "transparent") + '"></i>' + esc(PEN_FRINGE_NAME[rk.i]) + ' · ' + esc(rk.name) + '</span></div></div>' +
+      '<div class="pengrp"><span class="penlbl">Fringe</span><span class="penfr"><i style="background:' + (PEN_FRINGE[rk.i] || "transparent") + '"></i>' + '<span>' + esc(PEN_FRINGE_NAME[rk.i]) + ' · ' + esc(rk.name) + (rk.next ? '<small>' + esc(PEN_FRINGE_NAME[rk.i + 1].toLowerCase()) + ' at ' + esc(rk.next.name) + ' (level ' + rk.next.at + ')</small>' : '') + '</span></span></div></div>' +
     '<button class="b6cta" onclick="penSave()">Save pennant</button>' +
   '</div></div>';
 }
@@ -23613,8 +23772,7 @@ function render(){
     const mgr = S.mode==="mgr";
     const solo = !!S.career.opts;
     const revealAll = S.phase==="c_judge" || S.phase==="c_dead";
-    const shownNow = hideIdx>=0 ? hideIdx : S.career.shown;
-    const route = routeHTML(C, {shown: shownNow, fresh: popIdx>=0 ? popIdx : null, revealAll, anim: revealAnim, shownBefore: S.career.shown, solo});
+    const route = routeHTML(C, {shown: S.career.shown, fresh: popIdx>=0 ? popIdx : (hideIdx>=0 ? hideIdx : null), revealAll, anim: revealAnim, shownBefore: S.career.shown, solo});
     popIdx=-1; revealAnim=false;
     const words = ["Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve"];
     const count = (words[C.c.length-2] || C.c.length) + (mgr ? " jobs" : " clubs") + ", in order.";
@@ -23642,7 +23800,7 @@ function render(){
           : `<div class="hint" style="text-align:center">Full career on the table. Last chance…</div>`}
         <button class="cpquiet" onclick="cGiveUp()">Nobody knows, reveal it</button>
         <div class="foot"><button class="cpquiet" onclick="askEnd()">Full-time whistle</button></div>`}`;
-      return;
+      b6GameWrap(st, mgr ? "Manager Path" : "Career Path"); return;
     }
     if(S.phase==="c_who"){
       st.innerHTML = `
@@ -23654,7 +23812,7 @@ function render(){
           ${S.players.map((p,i)=>S.career.locked.includes(i)?"":`<button class="cpopt" onclick="cPick(${i})">${esc(p.name)}</button>`).join("")}
         </div>
         <button class="cpquiet" onclick="cBack()">Back</button>`;
-      return;
+      b6GameWrap(st, mgr ? "Manager Path" : "Career Path"); return;
     }
     const won = S.phase==="c_dead" && (S.career.won || 0);
     const reveal = `<div class="cpreveal"><div class="cpwon">
@@ -23669,7 +23827,7 @@ function render(){
           <button class="bigbtn ok" onclick="cJudge(true)">Correct +${cpot()}<kbd>C</kbd></button>
           <button class="bigbtn bad" onclick="cJudge(false)">Wrong −2<kbd>W</kbd></button>
         </div>`;
-      return;
+      b6GameWrap(st, mgr ? "Manager Path" : "Career Path"); return;
     }
     // c_dead: the whole road, his shirt, and what it added up to
     const nc = routeCountries(C);
@@ -23678,7 +23836,7 @@ function render(){
       ${route}
       <div class="cpsum"><span><b>${C.c.length}</b>${mgr ? "jobs" : "clubs"}</span>${nc ? `<span><b>${nc}</b>countr${nc===1?"y":"ies"}</span>` : ""}${won ? `<span class="g"><b>+${won}</b>points</span>` : ""}</div>
       <button class="bigbtn" onclick="cAfter()">${solo && S.round>=CAREER_SOLO_ROUNDS ? "See your score" : "Next "+(mgr?"manager":"career")}<kbd>Space</kbd></button>`;
-    return;
+    b6GameWrap(st, mgr ? "Manager Path" : "Career Path"); return;
   }
 
   if(["sp_q","sp_a"].includes(S.phase)){
@@ -24018,6 +24176,7 @@ function render(){
           ? `<button class="bigbtn drcta" onclick="soloFinish()">See your score<kbd>Space</kbd></button>`
           : `<button class="bigbtn drcta" onclick="capsNextPlayer()">Next player<kbd>Space</kbd></button>`)
         : `<button class="drleave" onclick="askEnd()">Leave the match</button>`}`;
+    b6GameWrap(st, "Higher or Lower");
     if(shown) dressCount();
     return;
   }

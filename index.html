@@ -6003,6 +6003,39 @@
   /* the tab bar, edge to edge, its items in the column */
   .b6tabbar{max-width:none!important;margin:0!important;left:0!important;right:0!important;
     padding-left:max(18px,calc((100vw - 480px) / 2 + 18px))!important;padding-right:max(18px,calc((100vw - 480px) / 2 + 18px))!important}
+  /* THE TAB BAR ON GRASS, the band at the top turned upside down: the same
+     mowed pitch under a dark wash, the slant on its top edge, cream labels
+     and the open tab in gold */
+  .b6tabbar{background:#1d5232 url(assets/grass-match.jpg) center top / 780px auto repeat!important;border-top:0!important;
+    padding-top:20px!important;clip-path:polygon(0 12px,100% 0,100% 100%,0 100%);box-shadow:none}
+  .b6tabbar::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(0deg,rgba(5,20,10,.6),rgba(5,20,10,.3) 60%,rgba(5,20,10,.45))}
+  .b6tabbar .b6tab{position:relative;z-index:1;color:rgba(248,241,221,.78);text-shadow:0 1px 2px rgba(0,0,0,.45)}
+  .b6tabbar .b6tab svg{filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))}
+  .b6tabbar .b6tab.on{color:#f3cd6b}
+  /* who's playing (Say it, with friends) */
+  .partynames{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 6px}
+  .partyname{min-width:0;box-sizing:border-box;height:46px;border-radius:12px;border:2px solid #fff;background:#F8F1DD;color:#123D24;padding:0 12px;
+    font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif;box-shadow:0 2px 0 rgba(18,61,36,.12)}
+  .partyname::placeholder{color:#8a9a85;font-style:italic}
+  .partysheet{text-align:left;margin:4px 0 10px}
+  .partysheet .b6hdr{color:#8FB79E}
+  .partysheet .b6seg{border-color:rgba(248,241,221,.7)}
+  .partysheet .b6seg button{color:#F8F1DD}
+  .partysheet .b6seg button[aria-pressed="true"]{background:#F8F1DD;color:#123D24}
+  .partyscores{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .partyscores span{display:inline-flex;align-items:baseline;gap:6px;padding:6px 11px;border-radius:999px;background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;
+    color:#F8F1DD;font:italic 900 15px/1 'Barlow Semi Condensed',sans-serif;box-shadow:0 3px 0 rgba(0,0,0,.12)}
+  .partyscores span b{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8FB79E;font-style:normal}
+  .partyscores span.top{border-color:#e9b84c}
+  .partyscores span.top b{color:#f3cd6b}
+  .partywho{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:6px 0 4px}
+  .partywho .b4btn{margin:0;height:52px;font-size:18px}
+  .partytally>span{display:block;margin-bottom:8px;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8FB79E}
+  .partytally div{display:flex;justify-content:space-between;align-items:baseline;padding:6px 2px;border-top:1px solid rgba(255,255,255,.12)}
+  .partytally div:first-of-type{border-top:0}
+  .partytally b{font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;color:#F8F1DD}
+  .partytally i{font:italic 900 20px/1 'Barlow Semi Condensed',sans-serif;color:#F8F1DD}
+  .partytally .top b,.partytally .top i{color:#f3cd6b}
   .acbuild{cursor:pointer}
   @media (max-width:360px){
     .b6fix{grid-template-columns:54px minmax(0,1fr) 74px}
@@ -12873,6 +12906,7 @@ function b6GameWrap(st, title){
     const many = S.players.length > 1, t = many && S.turn >= 0 ? S.turn : 0;
     if(S.mode === "caps" || S.mode === "goals") ctx = (S.mode === "caps" ? "Caps" : "Goals") + " · " + (many ? S.players[t].name + "'s run" : "your run") + " · score " + S.players[t].score;
     else if(!many) ctx = (S.mode === "mgr" ? "Manager " : "Career ") + S.round + " of " + CAREER_SOLO_ROUNDS + " · score " + S.players[0].score;
+    else if(S.party && (S.mode === "career" || S.mode === "mgr")) ctx = "Career " + S.round + " of " + CAREER_SOLO_ROUNDS;
     else ctx = "Round " + S.round + " · " + S.players.map(p => p.name + " " + p.score).join(" · ");
   }catch(e){}
   st.innerHTML = '<div class="b6 step b6m b6game b4page"><div class="b6band"></div><div class="b6body">' + b6MatchHead(ctx, "toMenu()", "askEnd()", title) + st.innerHTML + '</div></div>';
@@ -13355,6 +13389,35 @@ function h2McOptionsHTML(shown){
 }
 
 function h2Reveal(){ stopTimer(); S.phase = "h_judge"; render(); }
+/* THE PARTY ON THE PITCH: a question for the human side asks who knows it
+   instead of revealing straight away; the one tapped gets the credit when the
+   group says they were right. side is the seat answering. */
+const partyOn = side => !!(S && S.party && S.mc === false && S.players[side] && !S.players[side].ai);
+function partyWhoHTML(reveal){
+  return '<div class="h2hintline">Who knows it? Say it out loud first, then tap who.</div><div class="partywho">' +
+    S.party.names.map((n, i) => '<button class="b4btn dark" onclick="partyCall(' + i + ',\'' + reveal + '\')">' + esc(n) + '</button>').join("") + '</div>' +
+    '<button class="b4btn quiet" onclick="partyCall(-1,\'' + reveal + '\')">Nobody knows</button>';
+}
+function partyCall(i, reveal){ audio(); const H = h2(); H.caller = i; (reveal === "h2TackleReveal" ? h2TackleReveal : h2Reveal)(); }
+function partyJudgeHTML(judge){
+  const H = h2(), i = H.caller;
+  if(i == null || i < 0) return '<div class="h2hintline">Nobody had it.</div><button class="bigbtn" onclick="partyJudge(false,\'' + judge + '\')">Play on</button>';
+  return '<div class="h2hintline">' + esc(S.party.names[i]) + ' said it. Was it right?</div><div class="row2">' +
+    '<button class="bigbtn ok" onclick="partyJudge(true,\'' + judge + '\')">Right</button>' +
+    '<button class="bigbtn bad" onclick="partyJudge(false,\'' + judge + '\')">Wrong</button></div>';
+}
+function partyJudge(ok, judge){
+  const H = h2();
+  if(ok && S.party && H.caller >= 0) S.party.pts[H.caller] = (S.party.pts[H.caller] || 0) + 1;
+  H.caller = null;
+  (judge === "h2TackleJudge" ? h2TackleJudge : h2Judge)(ok);
+}
+/* full time: who knew most */
+function partyTallyHTML(){
+  if(!S || !S.party || !isPitch(S.play)) return "";
+  const rows = S.party.names.map((n, i) => ({ n, p: S.party.pts[i] || 0 })).sort((a, b) => b.p - a.p);
+  return b4Card('<div class="partytally"><span>Who knew it</span>' + rows.map((r, k) => '<div class="' + (k === 0 && r.p > 0 ? "top" : "") + '"><b>' + esc(r.n) + '</b><i>' + r.p + '</i></div>').join("") + '</div>');
+}
 function h2TimeUp(){ if(S.phase === "h_q"){ h2Expired = true; if(h2IsMC()) h2().pick = null; h2Reveal(); } }
 
 /* Whoever is nearest to the spot the ball was just lost on.
@@ -16106,6 +16169,7 @@ function cupPlay(){
   S.cup = {round: c.round, v: them, year: c.year};
   S.players[1].ai = cupStyle(them);
   S.players[1].level = cupLevel(them, c.round);
+  partyAttach();
   h2Start();
   /* BOTH SIDES AT ONCE, which is the one place in the app that is neither seat.
      h2PickTeam now refuses a pick that belongs to the computer, and the second
@@ -21927,12 +21991,14 @@ function h2Render(st){
             : '<div class="h2hintline">' + (aiIsOn(H.who)
             ? esc(me.name) + ' has one tap to find it.'
             : 'Tap the one you think it is. Nobody has to judge anything.') + '</div>')
-        : (shown
+        : (shown && partyOn(H.who)
+            ? partyJudgeHTML("h2Judge")
+            : shown
             ? '<div class="row2">' +
                 '<button class="bigbtn ok" onclick="h2Judge(true)">' + (H.shooting ? "Struck it" : "Got it") + '</button>' +
                 '<button class="bigbtn bad" onclick="h2Judge(false)">Missed</button>' +
               '</div>'
-            : '<button class="bigbtn" onclick="h2Reveal()">Reveal the answer</button>' +
+            : partyOn(H.who) ? partyWhoHTML("h2Reveal") : '<button class="bigbtn" onclick="h2Reveal()">Reveal the answer</button>' +
               '<div class="h2hintline">' + esc(them.name) + ' reads it out.</div>')) +
       foot;
     if(!shown && S.timed) startTimer(15, h2TimeUp, clockKey());
@@ -21974,13 +22040,15 @@ function h2Render(st){
             : '<div class="h2hintline">' + esc(them.name) + ' has one tap to win it. ' + (isTackle
                 ? "Miss and it is a foul" + (pen ? " in the box." : ".")
                 : "Miss and the pass is on.") + '</div>')
-        : (shown
+        : (shown && partyOn(1 - H.who)
+            ? partyJudgeHTML("h2TackleJudge")
+            : shown
             ? '<div class="row2">' +
                 '<button class="bigbtn ok" onclick="h2TackleJudge(true)">He won it</button>' +
                 '<button class="bigbtn bad" onclick="h2TackleJudge(false)">' +
                   (isTackle ? "He fouled him" : "He missed") + '</button>' +
               '</div>'
-            : '<button class="bigbtn" onclick="h2TackleReveal()">Reveal the answer</button>' +
+            : partyOn(1 - H.who) ? partyWhoHTML("h2TackleReveal") : '<button class="bigbtn" onclick="h2TackleReveal()">Reveal the answer</button>' +
               '<div class="h2hintline">' + (isTackle
                 ? "Get it and the ball is yours, collected where the pass was going. Miss it and it is a foul, a booking" +
                   (pen ? " and a PENALTY." : " and a free kick.")
@@ -24192,7 +24260,10 @@ function render(){
     const words = ["Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve"];
     const count = (words[C.c.length-2] || C.c.length) + (mgr ? " jobs" : " clubs") + ", in order.";
     const drop = routeDrop && Date.now()-routeDrop.at < 4000 ? `<span class="cpdrop">−3 · Next stop: ${esc(routeDrop.club)}</span>` : "";
-    const head = `<div class="cphead"><div class="cpq"><b>Who is it?</b><small>${count}</small>${drop}</div>
+    /* a party sees everyone's score under the band, not crammed into the bar */
+    const scores = S.party && S.players.length > 1 ? `<div class="partyscores">${[...S.players].map((p, i) => ({ p, i })).sort((a, b) => b.p.score - a.p.score)
+      .map(({ p }, k) => `<span class="${k === 0 && p.score > 0 ? "top" : ""}"><b>${esc(p.name)}</b>${p.score}</span>`).join("")}</div>` : "";
+    const head = `${scores}<div class="cphead"><div class="cpq"><b>Who is it?</b><small>${count}</small>${drop}</div>
       <div class="cpticket" aria-label="Guess now for ${cpot()} points"><span class="l"><small>TICKET</small><b>Guess now</b></span><span class="r">+${cpot()}</span></div></div>`;
 
     if(S.phase==="c_play"){
@@ -24227,7 +24298,7 @@ function render(){
         <div class="kick">Who says they know it?</div>
         ${head}
         ${route}
-        <div class="hint" style="text-align:center">Say the name out loud FIRST, then ${reader()} checks. Right: +${cpot()}. Wrong: −2 and locked out of this career.</div>
+        <div class="hint" style="text-align:center">${S.party ? "Who shouted it first? They say the name, then you all check the answer." : "Say the name out loud FIRST, then " + reader() + " checks."} Right: +${cpot()}. Wrong: −2 and locked out of this career.</div>
         <div class="whobar cpwho">
           ${S.players.map((p,i)=>S.career.locked.includes(i)?"":`<button class="cpopt" onclick="cPick(${i})">${esc(p.name)}</button>`).join("")}
         </div>
@@ -24743,7 +24814,7 @@ function render(){
     st.innerHTML = b4Page({ title: "Full time", ctx: comp, score, cls: "b4ft", body:
       (two ? '<div class="b4vs"><span><i class="me">You</i>' + esc(sideOf(ME).name) + '</span><span>' + esc(sideOf(OP).name) + '<i>' + (sum.ai ? "Computer · " + nf(AI_RATING[sum.ai]) : esc(S.players[OP].name)) + '</i></span></div>' : "") +
       (!two && S.prevBest != null && S.players[0].score > S.prevBest ? '<div class="pgbest">New best! The old one was ' + S.prevBest + '.</div>' : "") +
-      progSummaryHTML(sum) +
+      partyTallyHTML() + progSummaryHTML(sum) +
       '<div class="pgbtns"><button class="b4btn gold" onclick="progContinue()">Continue</button>' +
       (isGuest() ? "" : '<button class="b4btn dark" onclick="rematch()">Play again</button>') +
       '<button class="b4btn quiet" onclick="progShowReport=true;render()">Match report</button></div>' });
@@ -27847,10 +27918,56 @@ function b4Toggle(k){ audio(); b4Open = b4Open === k ? null : k; render(); }
 const ANSWER_KEY = "ball4-answer";
 const answerPref = () => { try{ return localStorage.getItem(ANSWER_KEY) === "say" ? "say" : "mc"; }catch(e){ return "mc"; } };
 function setAnswerPref(v){ try{ localStorage.setItem(ANSWER_KEY, v === "say" ? "say" : "mc"); }catch(e){} render(); }
-const answerSegHTML = () => '<div class="b6hdr">How you answer</div><div class="b6seg b6ans" role="group" aria-label="How you answer">' +
+/* WHO'S PLAYING. "Say it" is for a few friends round one phone, not for
+   marking yourself: the question goes up, whoever knows it shouts it out
+   first, you tap who called it, the answer shows and the group says whether
+   it was right. Two to four names, kept on this phone. Matchday and The Cup
+   play it as one side against the computer with a tally of who knew most;
+   Career Path is everyone for themselves. Never rated: the computer can't
+   hear who was right. */
+const PARTY_KEY = "ball4-party";
+function partyRaw(){ let p = null; try{ p = JSON.parse(localStorage.getItem(PARTY_KEY) || "null"); }catch(e){} return p && typeof p === "object" ? p : {}; }
+function partyNames(){
+  const p = partyRaw(), n = p.n >= 2 && p.n <= 4 ? p.n : 2, names = Array.isArray(p.names) ? p.names : [];
+  return Array.from({ length: n }, (_, i) => String(names[i] || "").trim().slice(0, 16) || "Player " + (i + 1));
+}
+function partySave(p){ try{ localStorage.setItem(PARTY_KEY, JSON.stringify(p)); }catch(e){} }
+function setPartyCount(n){
+  audio(); const p = partyRaw(); p.n = n; partySave(p);
+  const box = typeof document !== "undefined" && document.querySelector && document.querySelector(".partysheet");
+  if(box) box.innerHTML = partyHTML(); else render();
+}
+function setPartyName(i, v){ const p = partyRaw(); p.names = Array.isArray(p.names) ? p.names : []; p.names[i] = String(v || "").trim().slice(0, 16); partySave(p); }
+const partyHTML = () => {
+  const names = partyNames(), raw = partyRaw().names || [];
+  return '<div class="b6hdr">Who\'s playing</div><div class="b6seg b6ans" role="group" aria-label="How many players">' +
+    [2, 3, 4].map(n => '<button aria-pressed="' + (names.length === n) + '" onclick="setPartyCount(' + n + ')">' + n + ' players</button>').join("") + '</div>' +
+    '<div class="partynames">' + names.map((n, i) => '<input class="partyname" maxlength="16" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' +
+      esc(String(raw[i] || "")) + '" onchange="setPartyName(' + i + ',this.value)">').join("") + '</div>';
+};
+/* the answer choice; with the party under it when it applies (not vs a friend
+   on this phone, where the two sides already are the players) */
+const answerSegHTML = party => '<div class="b6hdr">How you answer</div><div class="b6seg b6ans" role="group" aria-label="How you answer">' +
   '<button aria-pressed="' + (answerPref() === "mc") + '" onclick="setAnswerPref(\'mc\')">Multiple choice</button>' +
   '<button aria-pressed="' + (answerPref() === "say") + '" onclick="setAnswerPref(\'say\')">Say it</button></div>' +
-  '<div class="b6qs b6anshint">' + (answerPref() === "say" ? "Say your answer out loud, then see it and mark yourself. Not rated against the computer." : "Four options, tap the one you think it is.") + '</div>';
+  '<div class="b6qs b6anshint">' + (answerPref() === "say"
+    ? "For two to four of you on one phone. Whoever knows it shouts it out first: tap who, see the answer, and say if it was right. Not rated."
+    : "Four options, tap the one you think it is.") + '</div>' + (answerPref() === "say" && party !== false ? partyHTML() : "");
+/* Career Path's "Say it": who's playing first, then the game */
+function careerPartySheet(){
+  audio();
+  try{ localStorage.setItem(ANSWER_KEY, "say"); }catch(e){}
+  sheet('<h2>Who\'s playing?</h2><p>Whoever knows the player shouts the name first. Tap who it was, then see if they were right: the pot if so, minus two and out of that career if not. Ten careers.</p>' +
+    '<div class="partysheet">' + partyHTML() + '</div>' +
+    '<button class="bigbtn" onclick="closeSheet();b4Explain(\'career\', ()=>b4Go(\'career\',\'board\'))">Kick off</button>');
+}
+/* the party joins a match against the computer when Say it is chosen */
+function partyAttach(){
+  if(S && S.mc === false && isPitch(S.play) && S.players[1] && S.players[1].ai && answerPref() === "say"){
+    const names = partyNames();
+    S.party = { names, pts: names.map(() => 0) };
+  }
+}
 function b4Go(mode, play, opts){
   opts = opts || {};
   setupMode = mode; setupPlay = play; setupMc = answerPref() !== "say"; setupSrc = opts.src || "own"; setupRef = false;
@@ -28051,7 +28168,7 @@ function b6Steps(){
     '<div class="b6q">Who are you playing?</div><div class="b6qs">You take turns with the ball.</div><div class="b6opts">' +
     b6Opt(!b4Mate, B6_ART.cpu, "vs the computer", '<small>Play on your own against BALL\'s computer side.</small>', "b4Mate=false;render()") +
     b6Opt(b4Mate, B6_ART.friend, "vs a friend", '<small>Two players, one phone. Pass it back and forth.</small>', "b4Mate=true;render()") +
-    '</div>' + answerSegHTML() + '<button class="b6cta" onclick="b6Next()">Next ›</button>';
+    '</div>' + answerSegHTML(!b4Mate) + '<button class="b6cta" onclick="b6Next()">Next ›</button>';
   if(b4Step === "lvl") return b6StepHead(2, steps, "Matchday") +
     '<div class="b6q">How good is the computer?</div><div class="b6qs">You can change it before every match.</div><div class="b6opts">' +
     LV.map((k, i) => b6Opt(setupAiLevel === k, b6Bars(i + 1), LVN[i] || esc(AI_LEVELS[k].label),
@@ -28160,7 +28277,7 @@ function b6Front(saved){
         <div class="m"><b>Career Path</b><small>Guess the player</small></div><div class="art">${B6_ART.route}<span class="chev">›</span></div></button>
       ${b4Open === "career" ? `<div class="b6sub">
         <button onclick="setAnswerPref('mc');b4Explain('career', ()=>b4Go('career','board'))">Pick from four<small>multiple choice</small></button>
-        <button onclick="setAnswerPref('say');b4Explain('career', ()=>b4Go('career','board'))">Say it<small>then check yourself</small></button></div>` : ""}
+        <button onclick="careerPartySheet()">Say it<small>with friends</small></button></div>` : ""}
       <button class="b6fix" onclick="openCup()">${cups ? newOrBest(cups, "WON") : newOrBest(null)}
         <div class="m"><b>The Cup</b><small>A whole World Cup, round by round</small></div><div class="art">${trophySVG("star", "gold", 40)}<span class="chev">›</span></div></button>
       <button class="b6fix" onclick="openTT()">${(() => { const n = ttPrefs().played; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
@@ -28299,7 +28416,9 @@ function startGame(){
      against the computer it is one man and a name he does not have to type */
   const solo = isPitch(setupPlay) && !!setupAi;
   const count = isPitch(setupPlay) ? (solo ? 1 : 2) : (setupRef ? 2 : setupCount);
-  const names=Array.from({length:count},(_,i)=>{
+  /* SAY IT WITH FRIENDS on a quiz board: the party are the players */
+  const party = b4Solo && !isPitch(setupPlay) && !setupMc && answerPref() === "say" ? partyNames() : null;
+  const names = party || Array.from({length:count},(_,i)=>{
     const el=document.getElementById("n"+i);
     const v=el ? el.value.trim() : "";
     return v || (b4Solo && count===1 ? "You" : b4Solo && i===0 ? "You" : "Player "+(i+1));
@@ -28323,6 +28442,8 @@ function startGame(){
     S.players[1].ai = setupAi;
     S.players[1].level = setupAiLevel;
   }
+  if(party) S.party = { names: party, pts: party.map(() => 0) };
+  else partyAttach();
   if(setupRef && !isPitch(setupPlay)){
     const el=document.getElementById("n2");
     S.ref=(el && el.value.trim()) || "The ref";
@@ -28742,6 +28863,7 @@ function cJudge(correct){
     confetti(cdeck()[S.career.ci].c.length>=8 ? 80 : 52);
     toast(`⚽ ${who.name} nails it! +${pts}`);
     if(maybeFinish()) return;
+    if(cPartyDone()) return;
     if(S.rr) return rrNext();
     S.round++;
     newCareer(); render();
@@ -28777,8 +28899,14 @@ function cSolo(i){
     render();
   }
 }
+/* a party plays ten careers too, then the table */
+function cPartyDone(){
+  if(!(S.party && S.players.length > 1 && S.round >= CAREER_SOLO_ROUNDS)) return false;
+  stopTimer(); S.phase = "results"; recordMatch(); render(); confetti(64);
+  return true;
+}
 function cAfter(){
-  if(maybeFinish()) return; if(S.rr) return rrNext();
+  if(maybeFinish()) return; if(cPartyDone()) return; if(S.rr) return rrNext();
   if(S.players.length === 1 && S.round >= CAREER_SOLO_ROUNDS) return soloFinish();
   S.round++; newCareer(); render();
 }
@@ -29210,8 +29338,10 @@ function rematch(){
      evening, so it has to carry all of them. */
   const usedQ=S.usedQ;
   const rr=S.rr;
+  const party=S.party;
   S=freshState(names, S.timed, S.mode, S.target, S.play, S.mc); S.used=used; S.usedC=usedC; S.ref=ref;
   S.usedM=usedM||[]; S.usedX=usedX||[]; S.usedT=usedT||[]; S.usedQ=usedQ||{};
+  if(party) S.party={names:party.names, pts:party.names.map(()=>0)};
   if(rr){                              // a Rainbow Road rematch is another Rainbow Road
     S.rr=true; S.rrTurn=0;
     modeIntro(MODE_LABEL.rr);

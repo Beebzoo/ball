@@ -1,0 +1,221 @@
+{
+ "easy": [
+  {
+   "q": "Which club won the 2024-25 Challenger Pro League?",
+   "a": "Zulte Waregem",
+   "o": [
+    "Cercle Brugge KSV",
+    "Beveren",
+    "KAA Gent",
+    "Zulte Waregem"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2025-26 Challenger Pro League?",
+   "a": "Beveren",
+   "o": [
+    "Club Brugge KV",
+    "Cercle Brugge KSV",
+    "Beveren",
+    "RSC Anderlecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "The Challenger Pro League is the second tier of which country?",
+   "a": "Belgium",
+   "o": [
+    "Czechoslovakia",
+    "Austria",
+    "Belgium",
+    "Albania"
+   ],
+   "k": 2
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 2010-11 Challenger Pro League?",
+   "a": "OH Leuven",
+   "o": [
+    "KV Kortrijk",
+    "OH Leuven",
+    "Cercle Brugge KSV",
+    "Beveren"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2011-12 Challenger Pro League?",
+   "a": "Charleroi",
+   "o": [
+    "KV Kortrijk",
+    "KAA Gent",
+    "Lommel",
+    "Charleroi"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2013-14 Challenger Pro League?",
+   "a": "Westerlo",
+   "o": [
+    "Royal Antwerp",
+    "Beveren",
+    "Westerlo",
+    "Club Brugge KV"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Challenger Pro League?",
+   "a": "Beveren",
+   "o": [
+    "KRC Genk",
+    "Cercle Brugge KSV",
+    "Beveren",
+    "Royal Charleroi"
+   ],
+   "k": 2
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 2009-10 Challenger Pro League?",
+   "a": "Lommel",
+   "o": [
+    "Lommel",
+    "KAA Gent",
+    "KV Kortrijk",
+    "KRC Genk"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2010-11 Challenger Pro League?",
+   "a": "Lommel",
+   "o": [
+    "KRC Genk",
+    "KAA Gent",
+    "Club Brugge KV",
+    "Lommel"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2014-15 Challenger Pro League?",
+   "a": "Lommel",
+   "o": [
+    "Cercle Brugge KSV",
+    "RSC Anderlecht",
+    "Lommel",
+    "Beveren"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2022-23 Challenger Pro League?",
+   "a": "Lommel",
+   "o": [
+    "KAA Gent",
+    "KV Kortrijk",
+    "Beveren",
+    "Lommel"
+   ],
+   "k": 3
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club conceded the fewest goals in the 2009-10 Challenger Pro League?",
+   "a": "Lommel",
+   "o": [
+    "Royal Charleroi",
+    "KRC Genk",
+    "Lommel",
+    "RSC Anderlecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2012-13 Challenger Pro League?",
+   "a": "Westerlo",
+   "o": [
+    "RSC Anderlecht",
+    "Royal Charleroi",
+    "Beveren",
+    "Westerlo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2014-15 Challenger Pro League?",
+   "a": "Lommel",
+   "o": [
+    "Cercle Brugge KSV",
+    "KV Kortrijk",
+    "Lommel",
+    "RAAL La Louvière"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2015-16 Challenger Pro League?",
+   "a": "Antwerp",
+   "o": [
+    "Lommel",
+    "Beveren",
+    "Antwerp",
+    "KRC Genk"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2015-16 Challenger Pro League?",
+   "a": "Antwerp",
+   "o": [
+    "Club Brugge KV",
+    "Beveren",
+    "KRC Genk",
+    "Antwerp"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2022-23 Challenger Pro League?",
+   "a": "Beveren",
+   "o": [
+    "KAA Gent",
+    "Beveren",
+    "Club Brugge KV",
+    "Royal Charleroi"
+   ],
+   "k": 1
+  }
+ ],
+ "ball": [
+  {
+   "q": "Club NXT, in the Belgian second tier, is the under-23 side of which club?",
+   "a": "Club Brugge",
+   "o": [
+    "Club Brugge",
+    "Lommel",
+    "Royal Charleroi",
+    "Royal Antwerp"
+   ],
+   "k": 0
+  },
+  {
+   "q": "RSCA Futures is the under-23 side of which Brussels club?",
+   "a": "Anderlecht",
+   "o": [
+    "Royal Charleroi",
+    "Anderlecht",
+    "Lommel",
+    "Cercle Brugge KSV"
+   ],
+   "k": 1
+  }
+ ]
+}

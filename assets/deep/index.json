@@ -1,0 +1,6309 @@
+{
+ "hard": [
+  {
+   "q": "Which country did the Netherlands beat in the 1988 European Championship final?",
+   "a": "the Soviet Union (2-0)",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored the volley in the 1988 European Championship final?",
+   "a": "Marco van Basten",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which stadium hosted the 1988 European Championship final?",
+   "a": "the Olympiastadion, Munich",
+   "cat": "grounds"
+  },
+  {
+   "q": "Who captained the Netherlands to their 1988 European Championship title?",
+   "a": "Ruud Gullit"
+  },
+  {
+   "q": "Which country knocked the Netherlands out of the 1990 World Cup?",
+   "a": "West Germany",
+   "cat": "champions"
+  },
+  {
+   "q": "Which two players were sent off in the Netherlands v West Germany second-round tie at the 1990 World Cup?",
+   "a": "Frank Rijkaard and Rudi Völler",
+   "cat": "stories"
+  },
+  {
+   "q": "Who missed the decisive penalty for the Netherlands in the Euro 2000 semi-final shoot-out against Italy?",
+   "a": "Paul Bosvelt (Frank de Boer and Jaap Stam also missed)",
+   "cat": "champions"
+  },
+  {
+   "q": "How many penalties did the Netherlands miss in total against Italy at Euro 2000, in normal time and the shoot-out?",
+   "a": "Five",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country beat the Netherlands in the 1998 World Cup semi-final?",
+   "a": "Brazil, on penalties",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored the last-minute goal against Argentina in the 1998 World Cup quarter-final?",
+   "a": "Dennis Bergkamp",
+   "cat": "scorers"
+  },
+  {
+   "q": "Who crossed for Bergkamp's famous goal against Argentina in 1998?",
+   "a": "Frank de Boer",
+   "cat": "scorers"
+  },
+  {
+   "q": "How many minutes into the 1974 World Cup final did Johan Neeskens score his penalty?",
+   "a": "Inside the second minute, before West Germany had touched the ball",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which Dutch player hit the post in the last minute of normal time in the 1978 World Cup final?",
+   "a": "Rob Rensenbrink",
+   "cat": "stories"
+  },
+  {
+   "q": "Why did Johan Cruyff not play at the 1978 World Cup?",
+   "a": "He withdrew from the squad; he later cited a kidnapping attempt on his family in Barcelona",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country did the Netherlands lose to in the 2010 World Cup final?",
+   "a": "Spain",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored the winning goal in the 2010 World Cup final?",
+   "a": "Andrés Iniesta",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which Dutch player was shown a yellow card for a chest-high challenge on Xabi Alonso in the 2010 World Cup final?",
+   "a": "Nigel de Jong",
+   "cat": "stories"
+  },
+  {
+   "q": "What was the score when the Netherlands beat Spain in their opening game of the 2014 World Cup?",
+   "a": "5-1",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored the diving header against Spain at the 2014 World Cup?",
+   "a": "Robin van Persie",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which goalkeeper did Louis van Gaal bring on for the last seconds of extra time against Costa Rica at the 2014 World Cup?",
+   "a": "Tim Krul",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country knocked the Netherlands out of the 2014 World Cup?",
+   "a": "Argentina, on penalties in the semi-final",
+   "cat": "champions"
+  },
+  {
+   "q": "Who did Memphis Depay overtake in 2025 to become the Netherlands' all-time leading scorer?",
+   "a": "Robin van Persie, who finished on 50 goals",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which Dutchman won the Ballon d'Or three times?",
+   "a": "Johan Cruyff",
+   "cat": "records"
+  },
+  {
+   "q": "Which Dutchman won the Ballon d'Or in 1987, the year he moved to Milan?",
+   "a": "Ruud Gullit"
+  },
+  {
+   "q": "How many Ballons d'Or did Marco van Basten win?",
+   "a": "Three (1988, 1989, 1992)",
+   "cat": "records"
+  },
+  {
+   "q": "Which injury ended Marco van Basten's playing career?",
+   "a": "A chronic right ankle injury",
+   "cat": "stories"
+  },
+  {
+   "q": "At what age did Marco van Basten play his last competitive match?",
+   "a": "28",
+   "cat": "records"
+  },
+  {
+   "q": "Which Dutch manager coined the term 'Total Football' in practice at Ajax in the early 1970s?",
+   "a": "Rinus Michels",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club won the European Cup three years running from 1971 to 1973?",
+   "a": "Ajax",
+   "cat": "europe"
+  },
+  {
+   "q": "Who did PSV beat in the 1988 European Cup final, and how?",
+   "a": "Benfica, on penalties after 0-0",
+   "cat": "europe"
+  },
+  {
+   "q": "Which trophy did Ajax win in 1995, beating Milan in the final?",
+   "a": "The Champions League",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored the winning goal for Ajax in the 1995 Champions League final?",
+   "a": "Patrick Kluivert",
+   "cat": "europe"
+  },
+  {
+   "q": "How old was Patrick Kluivert when he scored the 1995 Champions League final winner?",
+   "a": "18",
+   "cat": "records"
+  },
+  {
+   "q": "Which club beat Ajax on penalties in the 1996 Champions League final?",
+   "a": "Juventus",
+   "cat": "europe"
+  },
+  {
+   "q": "Which English club won the European Cup in 1979 and 1980?",
+   "a": "Nottingham Forest",
+   "cat": "europe"
+  },
+  {
+   "q": "Which manager led Nottingham Forest to their two European Cups?",
+   "a": "Brian Clough",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club won the first five European Cups?",
+   "a": "Real Madrid",
+   "cat": "europe"
+  },
+  {
+   "q": "What was the score in the 1960 European Cup final at Hampden Park?",
+   "a": "Real Madrid 7-3 Eintracht Frankfurt",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored four goals in the 1960 European Cup final?",
+   "a": "Ferenc Puskás",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Celtic beat to become the first British winners of the European Cup, in 1967?",
+   "a": "Inter Milan",
+   "cat": "europe"
+  },
+  {
+   "q": "What nickname was given to Celtic's 1967 European Cup-winning side?",
+   "a": "The Lisbon Lions",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch club were the first from the Netherlands to win the European Cup?",
+   "a": "Feyenoord, in 1970",
+   "cat": "europe"
+  },
+  {
+   "q": "Who did Feyenoord beat in the 1970 European Cup final?",
+   "a": "Celtic",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the Champions League in 2005 after being 3-0 down at half time?",
+   "a": "Liverpool",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Liverpool beat in the 2005 Champions League final?",
+   "a": "Milan",
+   "cat": "europe"
+  },
+  {
+   "q": "Where was the 2005 Champions League final played?",
+   "a": "Istanbul",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which goalkeeper saved Andriy Shevchenko's penalty in the 2005 Champions League shoot-out?",
+   "a": "Jerzy Dudek",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won its 15th European Cup in 2024, beating Borussia Dortmund at Wembley?",
+   "a": "Real Madrid",
+   "cat": "europe"
+  },
+  {
+   "q": "Which German club won the European Cup three years running from 1974 to 1976?",
+   "a": "Bayern Munich",
+   "cat": "europe"
+  },
+  {
+   "q": "Which disaster led to English clubs being banned from European competition in 1985?",
+   "a": "The Heysel Stadium disaster",
+   "cat": "stories"
+  },
+  {
+   "q": "How many years did the ban on English clubs in Europe last?",
+   "a": "Five years (six for Liverpool)",
+   "cat": "stories"
+  },
+  {
+   "q": "Which competition did Ajax win in 1987, beating Lokomotive Leipzig in the final?",
+   "a": "The European Cup Winners' Cup",
+   "cat": "europe"
+  },
+  {
+   "q": "Which European competition was abolished in 1999?",
+   "a": "The Cup Winners' Cup",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch club won the UEFA Cup in 1992?",
+   "a": "Ajax",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch club won the UEFA Cup in 2002?",
+   "a": "Feyenoord",
+   "cat": "europe"
+  },
+  {
+   "q": "In which stadium did Feyenoord win the 2002 UEFA Cup final?",
+   "a": "De Kuip, their own ground",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club won the first Europa Conference League, in 2022?",
+   "a": "Roma",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch club lost the 2022 Europa Conference League final?",
+   "a": "Feyenoord",
+   "cat": "europe"
+  },
+  {
+   "q": "Which holders did Ajax beat 4-1 at the Bernabeu in the 2019 Champions League last 16?",
+   "a": "Real Madrid, going through 5-3 on aggregate",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club knocked Ajax out in the 2019 Champions League semi-final, with a last-minute goal?",
+   "a": "Tottenham",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored the hat-trick that took Tottenham past Ajax in 2019?",
+   "a": "Lucas Moura",
+   "cat": "europe"
+  },
+  {
+   "q": "Which three clubs have won every Eredivisie title but a handful since it began in 1956?",
+   "a": "Ajax, PSV and Feyenoord",
+   "cat": "champions"
+  },
+  {
+   "q": "Which club won the first Eredivisie title, in 1956/57?",
+   "a": "Ajax",
+   "cat": "champions"
+  },
+  {
+   "q": "Which club broke the Ajax, PSV and Feyenoord grip on the Eredivisie in 2009/10?",
+   "a": "Twente",
+   "cat": "champions"
+  },
+  {
+   "q": "Which manager led Twente to the 2010 Eredivisie title?",
+   "a": "Steve McClaren",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club from Alkmaar won the Eredivisie in 1980/81 and 2008/09?",
+   "a": "AZ",
+   "cat": "champions"
+  },
+  {
+   "q": "Which manager won the Eredivisie with AZ in 2009?",
+   "a": "Louis van Gaal",
+   "cat": "managers"
+  },
+  {
+   "q": "What is the name of Ajax's stadium, opened in 1996?",
+   "a": "The Johan Cruijff ArenA (originally the Amsterdam ArenA)",
+   "cat": "grounds"
+  },
+  {
+   "q": "What was Ajax's home ground before the ArenA?",
+   "a": "De Meer Stadion",
+   "cat": "grounds"
+  },
+  {
+   "q": "What is Feyenoord's stadium properly called?",
+   "a": "Stadion Feijenoord, known as De Kuip",
+   "cat": "grounds"
+  },
+  {
+   "q": "What does 'De Kuip' mean?",
+   "a": "The Tub",
+   "cat": "grounds"
+  },
+  {
+   "q": "What is PSV's stadium called?",
+   "a": "The Philips Stadion",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which company founded PSV?",
+   "a": "Philips",
+   "cat": "records"
+  },
+  {
+   "q": "What do the letters PSV stand for?",
+   "a": "Philips Sport Vereniging",
+   "cat": "records"
+  },
+  {
+   "q": "Which Dutch club is nicknamed 'de Superfriezen'?",
+   "a": "sc Heerenveen",
+   "cat": "records"
+  },
+  {
+   "q": "Which Dutch club plays in the Galgenwaard stadium?",
+   "a": "FC Utrecht",
+   "cat": "grounds"
+  },
+  {
+   "q": "In which city do Vitesse play?",
+   "a": "Arnhem",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which Dutch club plays at the Euroborg?",
+   "a": "FC Groningen",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which Dutch club is nicknamed 'de Superboeren'?",
+   "a": "De Graafschap",
+   "cat": "records"
+  },
+  {
+   "q": "What is the Dutch domestic cup called?",
+   "a": "The KNVB Beker (KNVB Cup)",
+   "cat": "cups"
+  },
+  {
+   "q": "What is the Dutch season-opening match between the league and cup winners called?",
+   "a": "The Johan Cruijff Schaal",
+   "cat": "cups"
+  },
+  {
+   "q": "What is the name of the fixture between Ajax and Feyenoord?",
+   "a": "De Klassieker",
+   "cat": "records"
+  },
+  {
+   "q": "Which Ajax youth academy produced Cruyff, Bergkamp and Kluivert?",
+   "a": "De Toekomst",
+   "cat": "grounds"
+  },
+  {
+   "q": "What does 'De Toekomst' mean?",
+   "a": "The Future",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Johan Cruyff join in 1983, having left Ajax?",
+   "a": "Feyenoord",
+   "cat": "transfers"
+  },
+  {
+   "q": "What did Johan Cruyff win with Feyenoord in his single season there?",
+   "a": "The league and cup double, in 1983/84",
+   "cat": "champions"
+  },
+  {
+   "q": "Which shirt number did Johan Cruyff make famous?",
+   "a": "14",
+   "cat": "records"
+  },
+  {
+   "q": "Cruyff wore two stripes, not three, at the 1974 World Cup. Which brand was he personally contracted to?",
+   "a": "Puma, while the rest of the Dutch squad wore Adidas",
+   "cat": "stories"
+  },
+  {
+   "q": "Which Dutch club did Ronald Koeman play for before joining PSV?",
+   "a": "Ajax",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who scored the free kick that won Barcelona their first European Cup, in 1992?",
+   "a": "Ronald Koeman",
+   "cat": "europe"
+  },
+  {
+   "q": "Where was the 1992 European Cup final played?",
+   "a": "Wembley",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which Dutch goalkeeper played over 100 times for the Netherlands?",
+   "a": "Edwin van der Sar",
+   "cat": "records"
+  },
+  {
+   "q": "Which two Dutch brothers both played in the 1998 World Cup?",
+   "a": "Frank and Ronald de Boer",
+   "cat": "stories"
+  },
+  {
+   "q": "Which Dutch twins played together for PSV and the Netherlands in the 1970s?",
+   "a": "Willy and René van de Kerkhof",
+   "cat": "stories"
+  },
+  {
+   "q": "Which Dutch striker was known as 'the Non-Flying Dutchman' for his fear of flying?",
+   "a": "Dennis Bergkamp",
+   "cat": "records"
+  },
+  {
+   "q": "Which club did Daley Sinkgraven join after leaving Ajax?",
+   "a": "Bayer Leverkusen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Michel Vorm join after leaving Swansea City?",
+   "a": "Tottenham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rio Ferdinand join after leaving Leeds United?",
+   "a": "Manchester United",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Martins Indi join after leaving Stoke City?",
+   "a": "AZ Alkmaar",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kalidou Koulibaly join after leaving Genk?",
+   "a": "Napoli",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jermain Defoe join after leaving Bournemouth?",
+   "a": "Rangers",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Leroy Sané join after leaving Manchester City?",
+   "a": "Bayern München",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Damien Duff join after leaving Chelsea?",
+   "a": "Newcastle",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jude Bellingham join after leaving Borussia Dortmund?",
+   "a": "Real Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Niklas Süle join after leaving Bayern München?",
+   "a": "Borussia Dortmund",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Guimarães join after leaving Athletico Paranaense?",
+   "a": "Lyon",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rudi Völler join after leaving 1860 Munich?",
+   "a": "Werder Bremen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Marc Overmars join after leaving Arsenal?",
+   "a": "Barcelona",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nathan Aké join after leaving Bournemouth?",
+   "a": "Manchester City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Christian Ziege join after leaving Bayern München?",
+   "a": "Milan",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Steve McManaman join after leaving Real Madrid?",
+   "a": "Manchester City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Alexandre Lacazette join after leaving Arsenal?",
+   "a": "Lyon",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Juan Román Riquelme join after leaving Barcelona?",
+   "a": "Villarreal",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Fernando Hierro join after leaving Valladolid?",
+   "a": "Real Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Patrick Kluivert join after leaving Valencia?",
+   "a": "PSV",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Donyell Malen join after leaving Borussia Dortmund?",
+   "a": "Aston Villa",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Steven Bergwijn join after leaving PSV?",
+   "a": "Tottenham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sergio Agüero join after leaving Atletico Madrid?",
+   "a": "Manchester City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kasper Schmeichel join after leaving Anderlecht?",
+   "a": "Celtic",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Diego Milito join after leaving Inter?",
+   "a": "Racing",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Emmanuel Adebayor join after leaving Crystal Palace?",
+   "a": "Basaksehir",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Martins Indi join after leaving AZ Alkmaar?",
+   "a": "Sparta Rotterdam",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Santi Cazorla join after leaving Al Sadd?",
+   "a": "Oviedo",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kalidou Koulibaly join after leaving Chelsea?",
+   "a": "Al Hilal",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Damien Duff join after leaving Melbourne City?",
+   "a": "Shamrock Rovers",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bas Dost join after leaving FC Utrecht?",
+   "a": "NEC Nijmegen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Patrick Kluivert join after leaving PSV?",
+   "a": "Lille",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Davor Šuker join after leaving West Ham?",
+   "a": "1860 Munich",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cláudio Taffarel join after leaving Galatasaray?",
+   "a": "Parma",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rui Patrício join after leaving Atalanta?",
+   "a": "Al Ain",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Axel Witsel join after leaving Atletico Madrid?",
+   "a": "Girona",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Antonio Cassano join after leaving Parma?",
+   "a": "Sampdoria",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Miralem Sulejmani join after leaving Benfica?",
+   "a": "Young Boys",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rubén Castro join after leaving Cartagena?",
+   "a": "Malaga",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did David Villa join after leaving New York City FC?",
+   "a": "Vissel Kobe",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nwankwo Kanu join after leaving West Bromwich Albion?",
+   "a": "Portsmouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Mario Götze join after leaving PSV?",
+   "a": "Eintracht Frankfurt",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Laurent Koscielny join after leaving Arsenal?",
+   "a": "Bordeaux",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jean-Pierre Papin join after leaving Bordeaux?",
+   "a": "Guingamp",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Blaise Matuidi join after leaving Juventus?",
+   "a": "Inter Miami CF",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Diego Milito leave to sign for Inter?",
+   "a": "Genoa",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jarrod Bowen leave to sign for West Ham?",
+   "a": "Hull City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Emmanuel Adebayor leave to sign for AS Monaco?",
+   "a": "FC Metz",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Michel Vorm leave to sign for Tottenham?",
+   "a": "Swansea City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Martins Indi leave to sign for AZ Alkmaar?",
+   "a": "Stoke City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Santi Cazorla leave to sign for Villarreal?",
+   "a": "Recreativo Huelva",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kalidou Koulibaly leave to sign for Napoli?",
+   "a": "Genk",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Gianluca Vialli leave to sign for Juventus?",
+   "a": "Sampdoria",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jermain Defoe leave to sign for Tottenham?",
+   "a": "Portsmouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Damien Duff leave to sign for Chelsea?",
+   "a": "Blackburn Rovers",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jude Bellingham leave to sign for Borussia Dortmund?",
+   "a": "Birmingham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Dominik Szoboszlai leave to sign for Liverpool?",
+   "a": "RB Leipzig",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Niklas Süle leave to sign for Bayern München?",
+   "a": "Hoffenheim",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Guimarães leave to sign for Lyon?",
+   "a": "Athletico Paranaense",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rudi Völler leave to sign for Werder Bremen?",
+   "a": "1860 Munich",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Marc Overmars leave to sign for Ajax?",
+   "a": "Willem Ii",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nathan Aké leave to sign for Manchester City?",
+   "a": "Bournemouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Christian Ziege leave to sign for Liverpool?",
+   "a": "Middlesbrough",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bas Dost leave to sign for SC Heerenveen?",
+   "a": "Heracles",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sylvain Wiltord leave to sign for Arsenal?",
+   "a": "Bordeaux",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Fernando Hierro leave to sign for Real Madrid?",
+   "a": "Valladolid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bryan Mbeumo leave to sign for Manchester United?",
+   "a": "Brentford",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sergio Agüero leave to sign for Atletico Madrid?",
+   "a": "Independiente",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Shinji Kagawa leave to sign for Borussia Dortmund?",
+   "a": "Cerezo Osaka",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kasper Schmeichel leave to sign for Leeds United?",
+   "a": "Notts County",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Davor Šuker leave to sign for Sevilla?",
+   "a": "Dinamo Zagreb",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Riyad Mahrez leave to sign for Manchester City?",
+   "a": "Leicester",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cláudio Taffarel leave to sign for Galatasaray?",
+   "a": "Atletico Mineiro",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 10 for Brazil, World Cup final 1970?",
+   "a": "Pelé"
+  },
+  {
+   "q": "Brazil, World Cup final 1970 lined up in which formation?",
+   "a": "4-2-4"
+  },
+  {
+   "q": "Who wore number 10 for Ajax, Champions League final 1995?",
+   "a": "Jari Litmanen"
+  },
+  {
+   "q": "Which club did Ashley Young join after leaving Everton?",
+   "a": "Ipswich",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Boudewijn Zenden join after leaving Marseille?",
+   "a": "Sunderland",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Victor Osimhen leave to sign for Napoli?",
+   "a": "Lille",
+   "cat": "transfers"
+  },
+  {
+   "q": "Ajax, Champions League final 1995 lined up in which formation?",
+   "a": "3-3-1-3"
+  },
+  {
+   "q": "Who wore number 10 for Celtic, European Cup final 1967?",
+   "a": "Bertie Auld"
+  },
+  {
+   "q": "Bradley Carnell is the only player from which country ever to appear for Mönchengladbach?",
+   "a": "South Africa",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Estadio Azteca?",
+   "a": "Mexico City, Mexico",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Mohammed Kudus and Jack Wilshere played for?",
+   "a": "West Ham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club have both Erik ten Hag and Sami Hyypiä managed?",
+   "a": "Bayer Leverkusen",
+   "cat": "managers"
+  },
+  {
+   "q": "Henrikh Mkhitaryan is the only Armenia player ever to turn out for which club?",
+   "a": "Arsenal",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Antoine Griezmann join after leaving Barcelona?",
+   "a": "Atletico Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Mohamed Salah leave to sign for Chelsea?",
+   "a": "Basel",
+   "cat": "transfers"
+  },
+  {
+   "q": "Celtic, European Cup final 1967 lined up in which formation?",
+   "a": "4-2-4"
+  },
+  {
+   "q": "Who wore number 10 for France, World Cup final 2018?",
+   "a": "Kylian Mbappé"
+  },
+  {
+   "q": "Henrikh Mkhitaryan is the only player from which country ever to appear for Arsenal?",
+   "a": "Armenia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Nelson Mandela Bay Stadium?",
+   "a": "Gqeberha, South Africa",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Karim Benzema and Mathieu Valbuena played for?",
+   "a": "Lyon",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club have both Giovanni Trapattoni and Thomas Tuchel managed?",
+   "a": "Bayern München",
+   "cat": "managers"
+  },
+  {
+   "q": "Yuki Otsu is the only Japan player ever to turn out for which club?",
+   "a": "Mönchengladbach",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Aldair join after leaving Flamengo?",
+   "a": "Benfica",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cesc Fàbregas join after leaving AS Monaco?",
+   "a": "Como 1907",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rui Patrício leave to sign for Roma?",
+   "a": "Wolves",
+   "cat": "transfers"
+  },
+  {
+   "q": "Greece, Euro final 2004 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for West Germany, World Cup final 1990?",
+   "a": "Lothar Matthäus"
+  },
+  {
+   "q": "Orestis Karnezis is the only player from which country ever to appear for Napoli?",
+   "a": "Greece",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Ak Bars Arena?",
+   "a": "Kazan, Russia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Naohiro Takahara is the only Japan player ever to turn out for which club?",
+   "a": "Boca Juniors",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Victor Osimhen join after leaving Lille?",
+   "a": "Napoli",
+   "cat": "transfers"
+  },
+  {
+   "q": "France, World Cup final 2018 lined up in which formation?",
+   "a": "4-4-2"
+  },
+  {
+   "q": "Who wore number 10 for Barcelona, Champions League final 2011?",
+   "a": "Lionel Messi"
+  },
+  {
+   "q": "Yuki Otsu is the only player from which country ever to appear for Mönchengladbach?",
+   "a": "Japan",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Khalifa International Stadium?",
+   "a": "Ar Rayyan, Qatar",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Mario Mandžukić and Federico Chiesa played for?",
+   "a": "Juventus",
+   "cat": "transfers"
+  },
+  {
+   "q": "Aurelio Vidmar is the only Australia player ever to turn out for which club?",
+   "a": "Tenerife",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Mohamed Salah join after leaving Chelsea?",
+   "a": "Fiorentina",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Mathieu Valbuena join after leaving Olympiacos?",
+   "a": "Apollon Limassol",
+   "cat": "transfers"
+  },
+  {
+   "q": "West Germany, World Cup final 1990 lined up in which formation?",
+   "a": "5-3-2"
+  },
+  {
+   "q": "Who wore number 10 for AC Milan, European Cup final 1989?",
+   "a": "Ruud Gullit"
+  },
+  {
+   "q": "Juan Guillermo Castillo is the only player from which country ever to appear for Peñarol?",
+   "a": "People's Republic of China",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find St James’ Park?",
+   "a": "Newcastle upon Tyne, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Gary Lineker and John Heitinga played for?",
+   "a": "Everton",
+   "cat": "transfers"
+  },
+  {
+   "q": "Joel Campbell is the only Costa Rica player ever to turn out for which club?",
+   "a": "Villarreal",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Luciano Spalletti taken charge of?",
+   "a": "Italy",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Nick Pope join after leaving Burnley?",
+   "a": "Newcastle",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nick Pope leave to sign for Newcastle?",
+   "a": "Burnley",
+   "cat": "transfers"
+  },
+  {
+   "q": "Barcelona, Champions League final 2011 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for Netherlands, World Cup final 2010?",
+   "a": "Wesley Sneijder"
+  },
+  {
+   "q": "McDonald Mariga is the only player from which country ever to appear for Inter?",
+   "a": "Kenya",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find BC Place?",
+   "a": "Vancouver, Canada",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Edwin van der Sar and Nemanja Matić played for?",
+   "a": "Manchester United",
+   "cat": "transfers"
+  },
+  {
+   "q": "Takashi Inui is the only Japan player ever to turn out for which club?",
+   "a": "Real Betis",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Mats Hummels join after leaving Bayern München?",
+   "a": "Borussia Dortmund",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Marcos Alonso join after leaving Barcelona?",
+   "a": "Celta",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Zlatan Ibrahimović leave to sign for Ajax?",
+   "a": "Malmo",
+   "cat": "transfers"
+  },
+  {
+   "q": "AC Milan, European Cup final 1989 lined up in which formation?",
+   "a": "4-4-2"
+  },
+  {
+   "q": "Who wore number 10 for Germany, Euro final 1996?",
+   "a": "Thomas Häßler"
+  },
+  {
+   "q": "Naohiro Takahara is the only player from which country ever to appear for Boca Juniors?",
+   "a": "Japan",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Castelão?",
+   "a": "Fortaleza, Brazil",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Carlo Ancelotti and Liam Rosenior managed?",
+   "a": "Chelsea",
+   "cat": "managers"
+  },
+  {
+   "q": "Aleksei Miranchuk is the only Russia player ever to turn out for which club?",
+   "a": "Atalanta",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Sergio González Soriano taken charge of?",
+   "a": "Catalonia",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Zlatan Ibrahimović join after leaving Malmo?",
+   "a": "Ajax",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Gennaro Gattuso join after leaving Milan?",
+   "a": "Sion",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nicolò Barella leave to sign for Inter?",
+   "a": "Cagliari",
+   "cat": "transfers"
+  },
+  {
+   "q": "Netherlands, World Cup final 2010 lined up in which formation?",
+   "a": "4-2-3-1"
+  },
+  {
+   "q": "Who wore number 10 for Liverpool, Champions League final 2005?",
+   "a": "Luis García"
+  },
+  {
+   "q": "Colin Kâzım-Richards is the only player from which country ever to appear for Corinthians?",
+   "a": "Turkey",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Anfield?",
+   "a": "Liverpool, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Eldor Shomurodov is the only Uzbekistan player ever to turn out for which club?",
+   "a": "Roma",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Antonio Cassano join after leaving Roma?",
+   "a": "Real Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Axel Witsel leave to sign for Benfica?",
+   "a": "Standard Liege",
+   "cat": "transfers"
+  },
+  {
+   "q": "Germany, Euro final 1996 lined up in which formation?",
+   "a": "3-5-2"
+  },
+  {
+   "q": "Who wore number 10 for Portugal, Euro final 2016?",
+   "a": "João Mário"
+  },
+  {
+   "q": "Luther Blissett is the only player from which country ever to appear for AC Milan?",
+   "a": "Jamaica",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Mineirão?",
+   "a": "Belo Horizonte, Brazil",
+   "cat": "grounds"
+  },
+  {
+   "q": "Stephan El Shaarawy is the only Venezuela player ever to turn out for which club?",
+   "a": "Monaco",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Christoph Daum taken charge of?",
+   "a": "Romania",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Mario Mandžukić join after leaving Bayern München?",
+   "a": "Atletico Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Wayne Rooney join after leaving DC United?",
+   "a": "Derby County",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Antonio Cassano leave to sign for Roma?",
+   "a": "Bari",
+   "cat": "transfers"
+  },
+  {
+   "q": "Spain, World Cup final 2010 lined up in which formation?",
+   "a": "4-2-3-1"
+  },
+  {
+   "q": "Who wore number 10 for Netherlands, Euro final 1988?",
+   "a": "Ruud Gullit"
+  },
+  {
+   "q": "Aurelio Vidmar is the only player from which country ever to appear for Tenerife?",
+   "a": "Australia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Estádio Nacional de Brasília?",
+   "a": "Brasília, Brazil",
+   "cat": "grounds"
+  },
+  {
+   "q": "Dimitar Berbatov is the only Bulgaria player ever to turn out for which club?",
+   "a": "Monaco",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Robin van Persie join after leaving Feyenoord?",
+   "a": "Arsenal",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sócrates join after leaving Santos?",
+   "a": "Botafogo Sp",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Mario Mandžukić leave to sign for Bayern München?",
+   "a": "Wolfsburg",
+   "cat": "transfers"
+  },
+  {
+   "q": "Italy, World Cup final 1982 lined up in which formation?",
+   "a": "5-2-3"
+  },
+  {
+   "q": "Who wore number 10 for Brazil, World Cup final 2002?",
+   "a": "Rivaldo"
+  },
+  {
+   "q": "Milan Borjan is the only player from which country ever to appear for River Plate?",
+   "a": "Canada",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find International Stadium Yokohama?",
+   "a": "Yokohama, Japan",
+   "cat": "grounds"
+  },
+  {
+   "q": "Michal Kadlec is the only Czech Republic player ever to turn out for which club?",
+   "a": "Fenerbahçe",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Marco van Basten taken charge of?",
+   "a": "the Netherlands",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Youssef En-Nesyri join after leaving Fenerbahce?",
+   "a": "Al Ittihad",
+   "cat": "transfers"
+  },
+  {
+   "q": "Liverpool, Champions League final 2005 lined up in which formation?",
+   "a": "4-4-1-1"
+  },
+  {
+   "q": "Who wore number 10 for Manchester United, European Cup final 1968?",
+   "a": "David Sadler"
+  },
+  {
+   "q": "Gianluca Lapadula is the only player from which country ever to appear for Juventus?",
+   "a": "Peru",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Maracanã Stadium?",
+   "a": "Rio de Janeiro, Brazil",
+   "cat": "grounds"
+  },
+  {
+   "q": "Mario Lemina is the only Gabon player ever to turn out for which club?",
+   "a": "Galatasaray",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Morten Olsen taken charge of?",
+   "a": "Denmark",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Olivier Giroud join after leaving Los Angeles FC?",
+   "a": "Lille",
+   "cat": "transfers"
+  },
+  {
+   "q": "Ajax, European Cup final 1972 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for Spain, Euro final 2008?",
+   "a": "Cesc Fàbregas"
+  },
+  {
+   "q": "Joel Campbell is the only player from which country ever to appear for Villarreal?",
+   "a": "Costa Rica",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Bernabéu?",
+   "a": "Madrid, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Darwin Núñez and Ederson played for?",
+   "a": "Benfica",
+   "cat": "transfers"
+  },
+  {
+   "q": "Blaise Matuidi is the only Angola player ever to turn out for which club?",
+   "a": "PSG",
+   "cat": "imports"
+  },
+  {
+   "q": "Portugal, Euro final 2016 lined up in which formation?",
+   "a": "4-1-3-2"
+  },
+  {
+   "q": "Who wore number 10 for Argentina, World Cup final 2022?",
+   "a": "Lionel Messi"
+  },
+  {
+   "q": "Alfredo Morelos is the only player from which country ever to appear for Rangers?",
+   "a": "Colombia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Wembley Stadium?",
+   "a": "London, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Vlad Chiricheș is the only Romania player ever to turn out for which club?",
+   "a": "Napoli",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Serhii Rebrov taken charge of?",
+   "a": "Ukraine",
+   "cat": "managers"
+  },
+  {
+   "q": "Netherlands, Euro final 1988 lined up in which formation?",
+   "a": "4-4-2"
+  },
+  {
+   "q": "Who wore number 10 for Barcelona, European Cup final 1992?",
+   "a": "Pep Guardiola"
+  },
+  {
+   "q": "Kalusha Bwalya is the only player from which country ever to appear for PSV?",
+   "a": "Zambia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Villa Park?",
+   "a": "Birmingham, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Joaquín and Rui Costa played for?",
+   "a": "Fiorentina",
+   "cat": "transfers"
+  },
+  {
+   "q": "Keisuke Honda is the only Japan player ever to turn out for which club?",
+   "a": "AC Milan",
+   "cat": "imports"
+  },
+  {
+   "q": "Brazil, World Cup final 2002 lined up in which formation?",
+   "a": "3-4-1-2"
+  },
+  {
+   "q": "Who wore number 10 for Real Madrid, European Cup final 1960?",
+   "a": "Ferenc Puskás"
+  },
+  {
+   "q": "Takashi Inui is the only player from which country ever to appear for Real Betis?",
+   "a": "Japan",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Samara Arena?",
+   "a": "Samara, Russia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Miralem Pjanić is the only Luxembourg player ever to turn out for which club?",
+   "a": "Juventus",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Siniša Mihajlović taken charge of?",
+   "a": "Serbia",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Kieran Trippier join after leaving Newcastle?",
+   "a": "Wolves",
+   "cat": "transfers"
+  },
+  {
+   "q": "Netherlands, World Cup final 1974 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for France, Euro final 2000?",
+   "a": "Zinedine Zidane"
+  },
+  {
+   "q": "Vitali Kutuzov is the only player from which country ever to appear for Sporting CP?",
+   "a": "Belarus",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find RheinEnergie Stadion?",
+   "a": "Cologne, Germany",
+   "cat": "grounds"
+  },
+  {
+   "q": "Bryan Ruiz is the only Costa Rica player ever to turn out for which club?",
+   "a": "PSV",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Julian Nagelsmann taken charge of?",
+   "a": "Germany",
+   "cat": "managers"
+  },
+  {
+   "q": "Manchester United, Champions League final 1999 lined up in which formation?",
+   "a": "4-4-2"
+  },
+  {
+   "q": "Who wore number 10 for Argentina, World Cup final 1986?",
+   "a": "Diego Maradona"
+  },
+  {
+   "q": "Édison Méndez is the only player from which country ever to appear for PSV?",
+   "a": "Ecuador",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find De Kuip?",
+   "a": "Rotterdam, Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Gregory van der Wiel and Ronald Koeman played for?",
+   "a": "Ajax",
+   "cat": "transfers"
+  },
+  {
+   "q": "Alphonso Davies is the only Liberia player ever to turn out for which club?",
+   "a": "Bayern Munich",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Juan Mata join after leaving Western Sydney?",
+   "a": "Melbourne Victory",
+   "cat": "transfers"
+  },
+  {
+   "q": "Manchester United, European Cup final 1968 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for Barcelona, Champions League final 2006?",
+   "a": "Ronaldinho"
+  },
+  {
+   "q": "Aleksei Miranchuk is the only player from which country ever to appear for Atalanta?",
+   "a": "Russia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Rams Park?",
+   "a": "Sarıyer, Turkey",
+   "cat": "grounds"
+  },
+  {
+   "q": "Alexander Sørloth is the only Norway player ever to turn out for which club?",
+   "a": "Atlético Madrid",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Akira Nishino taken charge of?",
+   "a": "Japan",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Roberto Baggio join after leaving Inter?",
+   "a": "Brescia",
+   "cat": "transfers"
+  },
+  {
+   "q": "Spain, Euro final 2008 lined up in which formation?",
+   "a": "4-1-4-1"
+  },
+  {
+   "q": "Who wore number 10 for PSV Eindhoven, European Cup final 1988?",
+   "a": "Wim Kieft"
+  },
+  {
+   "q": "Bojan Jokić is the only player from which country ever to appear for Villarreal?",
+   "a": "Slovenia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Johan Cruyff Arena?",
+   "a": "Amsterdam, Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Mikel Merino and Ian Wright played for?",
+   "a": "Arsenal",
+   "cat": "transfers"
+  },
+  {
+   "q": "Hristo Stoichkov is the only Bulgaria player ever to turn out for which club?",
+   "a": "Barcelona",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Antonio Conte taken charge of?",
+   "a": "Italy",
+   "cat": "managers"
+  },
+  {
+   "q": "Argentina, World Cup final 2022 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for Italy, Euro final 2020?",
+   "a": "Lorenzo Insigne"
+  },
+  {
+   "q": "Giorgi Demetradze is the only player from which country ever to appear for Feyenoord?",
+   "a": "Georgia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Cape Town Stadium?",
+   "a": "City of Cape Town, South Africa",
+   "cat": "grounds"
+  },
+  {
+   "q": "Eduardo Camavinga is the only Angola player ever to turn out for which club?",
+   "a": "Real Madrid",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Jacinto Quincoces taken charge of?",
+   "a": "Spain",
+   "cat": "managers"
+  },
+  {
+   "q": "Brazil, World Cup final 1994 lined up in which formation?",
+   "a": "4-4-2"
+  },
+  {
+   "q": "Who wore number 10 for Italy, World Cup final 2006?",
+   "a": "Francesco Totti"
+  },
+  {
+   "q": "Eldor Shomurodov is the only player from which country ever to appear for Roma?",
+   "a": "Uzbekistan",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Stadion Maksimir?",
+   "a": "Zagreb, Croatia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Ryan Gravenberch join after leaving Ajax?",
+   "a": "Bayern München",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Emile Heskey join after leaving Newcastle Jets?",
+   "a": "Bolton",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Pepe leave to sign for FC Porto?",
+   "a": "Maritimo",
+   "cat": "transfers"
+  },
+  {
+   "q": "Real Madrid, Champions League final 2014 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for Argentina, World Cup final 1978?",
+   "a": "Mario Kempes"
+  },
+  {
+   "q": "Aïssa Mandi is the only player from which country ever to appear for Villarreal?",
+   "a": "Algeria",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find London Stadium?",
+   "a": "Stratford, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Mateo Kovačić and Fernando Hierro played for?",
+   "a": "Real Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club have both Louis van Gaal and Carlo Ancelotti managed?",
+   "a": "Bayern München",
+   "cat": "managers"
+  },
+  {
+   "q": "Wilson Palacios is the only Honduras player ever to turn out for which club?",
+   "a": "Tottenham",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Johan Cruyff taken charge of?",
+   "a": "Catalonia",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Pepe join after leaving Maritimo?",
+   "a": "FC Porto",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bebeto join after leaving Sevilla?",
+   "a": "Botafogo",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jan Oblak leave to sign for Benfica?",
+   "a": "Olimpija",
+   "cat": "transfers"
+  },
+  {
+   "q": "Barcelona, European Cup final 1992 lined up in which formation?",
+   "a": "3-4-3"
+  },
+  {
+   "q": "Who wore number 10 for Real Madrid, Champions League final 2002?",
+   "a": "Luís Figo"
+  },
+  {
+   "q": "Lassina Traoré is the only player from which country ever to appear for Ajax?",
+   "a": "Burkina Faso",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Stade Vélodrome?",
+   "a": "Marseille, France",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Antonio Cassano and Ruud van Nistelrooy played for?",
+   "a": "Real Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club have both Siniša Mihajlović and Carlos Queiroz managed?",
+   "a": "Sporting CP",
+   "cat": "managers"
+  },
+  {
+   "q": "Kazimierz Deyna is the only Poland player ever to turn out for which club?",
+   "a": "Manchester City",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Jon Dahl Tomasson taken charge of?",
+   "a": "Sweden",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Jan Oblak join after leaving Benfica?",
+   "a": "Atletico Madrid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did James Milner join after leaving Liverpool?",
+   "a": "Brighton",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Fernandes leave to sign for Sporting CP?",
+   "a": "Sampdoria",
+   "cat": "transfers"
+  },
+  {
+   "q": "Real Madrid, European Cup final 1960 lined up in which formation?",
+   "a": "3-2-5"
+  },
+  {
+   "q": "Who wore number 10 for Feyenoord, European Cup final 1970?",
+   "a": "Wim van Hanegem"
+  },
+  {
+   "q": "Henrik Ojamaa is the only player from which country ever to appear for Fortuna Sittard?",
+   "a": "Estonia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Beijing National Stadium?",
+   "a": "Beijing, People's Republic of China",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Denzel Dumfries and Diego Forlán played for?",
+   "a": "Inter",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club have both Ronald Koeman and Ruud Gullit managed?",
+   "a": "Feyenoord",
+   "cat": "managers"
+  },
+  {
+   "q": "Giorgos Samaras is the only Greece player ever to turn out for which club?",
+   "a": "Heerenveen",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Mark Hughes taken charge of?",
+   "a": "Wales",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Bruno Fernandes join after leaving Sporting CP?",
+   "a": "Manchester United",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Olivier Giroud leave to sign for Arsenal?",
+   "a": "Montpellier",
+   "cat": "transfers"
+  },
+  {
+   "q": "France, Euro final 2000 lined up in which formation?",
+   "a": "4-2-3-1"
+  },
+  {
+   "q": "Who wore number 10 for Spain, Euro final 2012?",
+   "a": "Cesc Fàbregas"
+  },
+  {
+   "q": "Stephan El Shaarawy is the only player from which country ever to appear for Monaco?",
+   "a": "Venezuela",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Mas Monumental Stadium?",
+   "a": "Buenos Aires, Argentina",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Clint Dempsey and Son Heung-min played for?",
+   "a": "Tottenham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Benjamin Šeško is the only Slovenia player ever to turn out for which club?",
+   "a": "Manchester United",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Walter Samuel taken charge of?",
+   "a": "Argentina",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Emile Heskey join after leaving Leicester?",
+   "a": "Liverpool",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Ronaldinho join after leaving Flamengo?",
+   "a": "Atletico Mineiro",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Simon Mignolet leave to sign for Liverpool?",
+   "a": "Sunderland",
+   "cat": "transfers"
+  },
+  {
+   "q": "Germany, World Cup final 2014 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Who wore number 10 for Argentina, Copa América final 2021?",
+   "a": "Lionel Messi"
+  },
+  {
+   "q": "Goran Vlaović is the only player from which country ever to appear for Valencia?",
+   "a": "Croatia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Melbourne Cricket Ground?",
+   "a": "Melbourne, Australia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Leon Goretzka and Mark van Bommel played for?",
+   "a": "Bayern München",
+   "cat": "transfers"
+  },
+  {
+   "q": "Winston Reid is the only New Zealand player ever to turn out for which club?",
+   "a": "West Ham",
+   "cat": "imports"
+  },
+  {
+   "q": "Which national side has Laurent Blanc taken charge of?",
+   "a": "France",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Julián Álvarez join after leaving River Plate?",
+   "a": "Manchester City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Hristo Stoichkov join after leaving Chicago Fire FC?",
+   "a": "DC United",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Emile Heskey leave to sign for Liverpool?",
+   "a": "Leicester",
+   "cat": "transfers"
+  },
+  {
+   "q": "Argentina, World Cup final 1986 lined up in which formation?",
+   "a": "3-5-2"
+  },
+  {
+   "q": "Who wore number 10 for France, World Cup final 1998?",
+   "a": "Zinedine Zidane"
+  },
+  {
+   "q": "Leonardo Balerdi is the only player from which country ever to appear for Borussia Dortmund?",
+   "a": "Italy",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Claude Makélélé join after leaving Nantes?",
+   "a": "Marseille",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Ivan Rakitić join after leaving Al Shabab?",
+   "a": "Hajduk Split",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Claude Makélélé leave to sign for Marseille?",
+   "a": "Nantes",
+   "cat": "transfers"
+  },
+  {
+   "q": "Barcelona, Champions League final 2006 lined up in which formation?",
+   "a": "4-3-3"
+  },
+  {
+   "q": "Marvelous Nakamba is the only player from which country ever to appear for Vitesse?",
+   "a": "Zimbabwe",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Rostov Arena?",
+   "a": "Rostov-on-Don, Russia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both David de Gea and Paul Pogba played for?",
+   "a": "Manchester United",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore the armband for Brazil, World Cup final 1994?",
+   "a": "Dunga"
+  },
+  {
+   "q": "Who wore the armband for Manchester United, European Cup final 1968?",
+   "a": "Bobby Charlton"
+  },
+  {
+   "q": "Who wore the armband for Manchester United, Champions League final 1999?",
+   "a": "Peter Schmeichel"
+  },
+  {
+   "q": "Who wore the armband for Netherlands, Euro final 1988?",
+   "a": "Ruud Gullit"
+  },
+  {
+   "q": "Who wore the armband for Italy, World Cup final 1982?",
+   "a": "Dino Zoff"
+  },
+  {
+   "q": "Who wore number 2 for Brazil, World Cup final 2002?",
+   "a": "Cafu"
+  },
+  {
+   "q": "Who wore the armband for Germany, Euro final 1996?",
+   "a": "Jürgen Klinsmann"
+  },
+  {
+   "q": "Who wore number 2 for Netherlands, World Cup final 2010?",
+   "a": "Gregory van der Wiel"
+  },
+  {
+   "q": "Who wore the armband for AC Milan, European Cup final 1989?",
+   "a": "Franco Baresi"
+  },
+  {
+   "q": "Who wore the armband for Barcelona, Champions League final 2011?",
+   "a": "Xavi"
+  },
+  {
+   "q": "Who wore number 2 for Barcelona, Champions League final 2011?",
+   "a": "Dani Alves"
+  },
+  {
+   "q": "Who wore number 2 for France, World Cup final 2018?",
+   "a": "Benjamin Pavard"
+  },
+  {
+   "q": "Who wore the armband for Greece, Euro final 2004?",
+   "a": "Theodoros Zagorakis"
+  },
+  {
+   "q": "Who wore the armband for Celtic, European Cup final 1967?",
+   "a": "Billy McNeill"
+  },
+  {
+   "q": "Who wore number 2 for Ajax, Champions League final 1995?",
+   "a": "Michael Reiziger"
+  },
+  {
+   "q": "Who wore the armband for Ajax, Champions League final 1995?",
+   "a": "Danny Blind"
+  },
+  {
+   "q": "Who wore the armband for Brazil, World Cup final 1970?",
+   "a": "Carlos Alberto"
+  }
+ ],
+ "ball": [
+  {
+   "q": "The Jules Rimet trophy was stolen in England in 1966. Who found it?",
+   "a": "A dog called Pickles, wrapped in newspaper under a hedge in south London",
+   "cat": "stories"
+  },
+  {
+   "q": "Brazil were given the Jules Rimet trophy permanently in 1970. What happened to it in 1983?",
+   "a": "It was stolen in Rio and never recovered, most likely melted down",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country hosted and won the first World Cup, in 1930?",
+   "a": "Uruguay",
+   "cat": "champions"
+  },
+  {
+   "q": "Why did only four European teams travel to the 1930 World Cup?",
+   "a": "The boat crossing to Uruguay took weeks, so most European nations refused to go",
+   "cat": "stories"
+  },
+  {
+   "q": "Two different balls were used in the 1930 World Cup final. Why?",
+   "a": "Argentina and Uruguay each wanted their own, so they used one per half",
+   "cat": "stories"
+  },
+  {
+   "q": "What is the 1950 defeat of Brazil by Uruguay in the deciding match at the Maracanã known as?",
+   "a": "The Maracanazo",
+   "cat": "champions"
+  },
+  {
+   "q": "Which country did England lose 1-0 to at the 1950 World Cup, in one of the great upsets?",
+   "a": "the United States",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored the goal that knocked Italy out of the 1966 World Cup?",
+   "a": "Pak Doo-ik of North Korea",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which Zaire player famously charged out of the wall to boot away a Brazilian free kick in 1974?",
+   "a": "Mwepu Ilunga",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country beat West Germany 1-0 in the group stage of the 1974 World Cup, on West German soil?",
+   "a": "East Germany",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored East Germany's winner against West Germany in 1974?",
+   "a": "Jürgen Sparwasser",
+   "cat": "scorers"
+  },
+  {
+   "q": "What is the West Germany v Austria game at the 1982 World Cup remembered as?",
+   "a": "The Disgrace of Gijón, after a result that suited both sides led to 80 minutes of nothing",
+   "cat": "stories"
+  },
+  {
+   "q": "What rule change did the Disgrace of Gijón bring about?",
+   "a": "Final group matches are now played simultaneously",
+   "cat": "stories"
+  },
+  {
+   "q": "Which African side beat holders Argentina in the opening game of the 1990 World Cup?",
+   "a": "Cameroon",
+   "cat": "champions"
+  },
+  {
+   "q": "How old was Roger Milla when he scored at the 1994 World Cup, making him the oldest scorer in the tournament's history?",
+   "a": "42",
+   "cat": "scorers"
+  },
+  {
+   "q": "What did Roger Milla do at the corner flag after scoring?",
+   "a": "He danced",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country reached the 2002 World Cup semi-finals as co-hosts?",
+   "a": "South Korea",
+   "cat": "champions"
+  },
+  {
+   "q": "Which country did Luis Suárez deny with a handball on the line at the 2010 World Cup?",
+   "a": "Ghana",
+   "cat": "stories"
+  },
+  {
+   "q": "Who missed the resulting penalty for Ghana?",
+   "a": "Asamoah Gyan, in the last minute of extra time",
+   "cat": "stories"
+  },
+  {
+   "q": "What message was on the shirt Andrés Iniesta revealed after scoring the 2010 World Cup final winner?",
+   "a": "A tribute to Dani Jarque, his friend who had died the year before",
+   "cat": "stories"
+  },
+  {
+   "q": "What was the score when Germany beat Brazil in the 2014 World Cup semi-final?",
+   "a": "7-1",
+   "cat": "champions"
+  },
+  {
+   "q": "How many goals did Germany score in the first half hour against Brazil in 2014?",
+   "a": "Five",
+   "cat": "champions"
+  },
+  {
+   "q": "Which country did Iceland knock out of Euro 2016?",
+   "a": "England",
+   "cat": "champions"
+  },
+  {
+   "q": "Which country won Euro 1992 after being called up as a late replacement?",
+   "a": "Denmark, who came in when Yugoslavia were excluded",
+   "cat": "champions"
+  },
+  {
+   "q": "Which country won Euro 2004 at odds of 150-1?",
+   "a": "Greece",
+   "cat": "champions"
+  },
+  {
+   "q": "Which country did Greece beat in both the opening game and the final of Euro 2004?",
+   "a": "Portugal",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored the penalty that won Czechoslovakia Euro 1976, and how did he take it?",
+   "a": "Antonín Panenka, with a chipped penalty down the middle",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which country did Czechoslovakia beat in the Euro 1976 final?",
+   "a": "West Germany",
+   "cat": "champions"
+  },
+  {
+   "q": "What did Marco Tardelli do after scoring in the 1982 World Cup final?",
+   "a": "He ran off screaming, in one of football's most famous celebrations",
+   "cat": "stories"
+  },
+  {
+   "q": "What was Bebeto's celebration at the 1994 World Cup?",
+   "a": "Rocking an imaginary baby, for his newborn son",
+   "cat": "stories"
+  },
+  {
+   "q": "Who saved a Pelé header at the 1970 World Cup in what is often called the greatest save ever?",
+   "a": "Gordon Banks",
+   "cat": "stories"
+  },
+  {
+   "q": "What did Pelé attempt from the halfway line against Czechoslovakia in 1970?",
+   "a": "A shot from inside his own half, which drifted just wide",
+   "cat": "stories"
+  },
+  {
+   "q": "Which goalkeeper saved all four penalties in the 1986 European Cup final shoot-out?",
+   "a": "Helmuth Duckadam of Steaua Bucharest",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Steaua Bucharest beat to win the 1986 European Cup?",
+   "a": "Barcelona",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Yugoslav club won the European Cup in 1991, just before the country broke apart?",
+   "a": "Red Star Belgrade",
+   "cat": "europe"
+  },
+  {
+   "q": "How did Red Star Belgrade win the 1991 European Cup final?",
+   "a": "On penalties after a goalless 120 minutes against Marseille",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the 1983 European Cup, beating a Juventus side full of Italy's World Cup winners?",
+   "a": "Hamburg",
+   "cat": "europe"
+  },
+  {
+   "q": "Who came on for Aston Villa after nine minutes of the 1982 European Cup final, having played once before?",
+   "a": "Nigel Spink",
+   "cat": "europe"
+  },
+  {
+   "q": "Which manager ran down the Old Trafford touchline celebrating a late Porto goal in 2004?",
+   "a": "José Mourinho",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club knocked Manchester United out on that night in 2004?",
+   "a": "Porto",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club came back from 3-0 down against Milan to win the 2004 Champions League quarter-final 4-0 at home?",
+   "a": "Deportivo La Coruña",
+   "cat": "europe"
+  },
+  {
+   "q": "What is the Barcelona 6-1 win over PSG in 2017 usually called?",
+   "a": "La Remontada",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored Barcelona's sixth goal against PSG in 2017, in the 95th minute?",
+   "a": "Sergi Roberto",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club beat Barcelona 4-0 at Anfield in 2019 to overturn a 3-0 first leg?",
+   "a": "Liverpool",
+   "cat": "europe"
+  },
+  {
+   "q": "How was Liverpool's fourth goal against Barcelona in 2019 created?",
+   "a": "Trent Alexander-Arnold's quickly taken corner, finished by Divock Origi",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club knocked Barcelona out in 2018 after losing the first leg 4-1?",
+   "a": "Roma",
+   "cat": "europe"
+  },
+  {
+   "q": "Which English club won the league in 2016 having started the season at 5000-1?",
+   "a": "Leicester City",
+   "cat": "champions"
+  },
+  {
+   "q": "Which two Manchester United players scored in stoppage time of the 1999 Champions League final?",
+   "a": "Teddy Sheringham and Ole Gunnar Solskjær",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Manchester United beat in the 1999 Champions League final?",
+   "a": "Bayern Munich",
+   "cat": "europe"
+  },
+  {
+   "q": "What ruling in 1995 allowed players to leave at the end of a contract for no fee?",
+   "a": "The Bosman ruling",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which player gave his name to that ruling, and which club was he trying to leave?",
+   "a": "Jean-Marc Bosman, at RFC Liège",
+   "cat": "transfers"
+  },
+  {
+   "q": "How long did the Bosman case take to reach its conclusion?",
+   "a": "Five years, from 1990 to 1995",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which curse is Benfica said to be under, and who is said to have laid it?",
+   "a": "The Curse of Béla Guttmann, the manager who left in 1962 after being refused a pay rise",
+   "cat": "stories"
+  },
+  {
+   "q": "What did Béla Guttmann reportedly say when he left Benfica?",
+   "a": "That Benfica would not win a European trophy again for 100 years",
+   "cat": "stories"
+  },
+  {
+   "q": "Which goalkeeper played on with a broken neck to finish the 1956 FA Cup final?",
+   "a": "Bert Trautmann of Manchester City",
+   "cat": "stories"
+  },
+  {
+   "q": "What was unusual about Bert Trautmann's background as a Manchester City hero?",
+   "a": "He had been a German paratrooper and a prisoner of war in England",
+   "cat": "stories"
+  },
+  {
+   "q": "Which club's team was destroyed in the Superga air disaster of 1949?",
+   "a": "Torino, who had won five straight Italian titles",
+   "cat": "stories"
+  },
+  {
+   "q": "Which club lost eight players in the Munich air disaster of 1958?",
+   "a": "Manchester United",
+   "cat": "stories"
+  },
+  {
+   "q": "What were the young Manchester United side of the 1950s known as?",
+   "a": "The Busby Babes",
+   "cat": "stories"
+  },
+  {
+   "q": "Which manager survived the Munich air disaster and rebuilt Manchester United to win the 1968 European Cup?",
+   "a": "Matt Busby",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Manchester United beat in the 1968 European Cup final?",
+   "a": "Benfica",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Hungarian side beat England 6-3 at Wembley in 1953?",
+   "a": "Hungary, the Magical Magyars",
+   "cat": "stories"
+  },
+  {
+   "q": "What was the score in the return match in Budapest in 1954?",
+   "a": "Hungary 7-1 England",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country did Hungary lose to in the 1954 World Cup final, having beaten them 8-3 in the group stage?",
+   "a": "West Germany",
+   "cat": "champions"
+  },
+  {
+   "q": "What is the 1954 World Cup final known as in Germany?",
+   "a": "Das Wunder von Bern, the Miracle of Bern",
+   "cat": "champions"
+  },
+  {
+   "q": "Which Hungarian forward joined Real Madrid in 1958 after fleeing the 1956 uprising?",
+   "a": "Ferenc Puskás",
+   "cat": "imports"
+  },
+  {
+   "q": "Which award is named after Ferenc Puskás?",
+   "a": "The FIFA award for the best goal of the year"
+  },
+  {
+   "q": "Which Swedish defender was on the wrong end of the Cruyff turn at the 1974 World Cup?",
+   "a": "Jan Olsson",
+   "cat": "stories"
+  },
+  {
+   "q": "In which match did Johan Cruyff first perform the Cruyff turn?",
+   "a": "Netherlands v Sweden at the 1974 World Cup",
+   "cat": "stories"
+  },
+  {
+   "q": "Which Ajax side went a whole Eredivisie season unbeaten?",
+   "a": "Louis van Gaal's Ajax, in 1994/95",
+   "cat": "champions"
+  },
+  {
+   "q": "Which trophy did that unbeaten Ajax side also win in 1995?",
+   "a": "The Champions League",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Finn top-scored in the 1995/96 Champions League with nine goals?",
+   "a": "Jari Litmanen of Ajax",
+   "cat": "europe"
+  },
+  {
+   "q": "Which goalkeeper played in the 1995 Champions League final for Ajax at the age of 24?",
+   "a": "Edwin van der Sar",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Ajax winger of the 1990s was known for his pace and later joined Arsenal?",
+   "a": "Marc Overmars",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which two Dutch clubs did Johan Cruyff win league titles with as a player?",
+   "a": "Ajax and Feyenoord",
+   "cat": "champions"
+  },
+  {
+   "q": "How did Ajax fans react when Cruyff signed for Feyenoord in 1983?",
+   "a": "With fury; he then won the double with Feyenoord that season",
+   "cat": "stories"
+  },
+  {
+   "q": "Which Dutch club reached the Champions League group stage in 1999/2000 as a surprise qualifier from Tilburg?",
+   "a": "Willem II",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Limburg club won the KNVB Cup in 1997 and 2000?",
+   "a": "Roda JC Kerkrade",
+   "cat": "cups"
+  },
+  {
+   "q": "Which two clubs merged in 1962 to form Roda JC?",
+   "a": "Rapid JC and Roda Sport",
+   "cat": "records"
+  },
+  {
+   "q": "Which Limburg club did Mark van Bommel start his senior career at?",
+   "a": "Fortuna Sittard",
+   "cat": "transfers"
+  },
+  {
+   "q": "Willy Brokamp is an MVV legend. Which club did he leave MVV for, before returning?",
+   "a": "Ajax",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which amateur club did Willy Brokamp start at, before MVV?",
+   "a": "RKVV Chèvremont, in Kerkrade",
+   "cat": "transfers"
+  },
+  {
+   "q": "Bert van Marwijk managed the Netherlands to the 2010 World Cup final. Which two clubs did he play for at the end of his career?",
+   "a": "MVV Maastricht and Fortuna Sittard",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Japanese playmaker began his European career at VVV-Venlo?",
+   "a": "Keisuke Honda",
+   "cat": "imports"
+  },
+  {
+   "q": "What is MVV Maastricht's stadium called?",
+   "a": "De Geusselt",
+   "cat": "grounds"
+  },
+  {
+   "q": "In which year was MVV Maastricht founded?",
+   "a": "1902",
+   "cat": "records"
+  },
+  {
+   "q": "Name the four professional clubs from the province of Limburg.",
+   "a": "MVV Maastricht, Roda JC Kerkrade, Fortuna Sittard and VVV-Venlo",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which Dutch manager took Feyenoord to the 2002 UEFA Cup, won in their own stadium?",
+   "a": "Bert van Marwijk",
+   "cat": "managers"
+  },
+  {
+   "q": "Who scored twice for Feyenoord in the 2002 UEFA Cup final?",
+   "a": "Pierre van Hooijdonk",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Feyenoord beat in the 2002 UEFA Cup final?",
+   "a": "Borussia Dortmund",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch striker scored a famous free kick for Nottingham Forest and later won the UEFA Cup with Feyenoord?",
+   "a": "Pierre van Hooijdonk",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which Dutch club has won the Eredivisie the most times?",
+   "a": "Ajax",
+   "cat": "champions"
+  },
+  {
+   "q": "Which Dutchman managed Barcelona to their first European Cup, and in what year?",
+   "a": "Johan Cruyff, in 1992",
+   "cat": "managers"
+  },
+  {
+   "q": "What was Cruyff's great Barcelona side of the early 1990s called?",
+   "a": "The Dream Team",
+   "cat": "records"
+  },
+  {
+   "q": "Which Dutch manager won the Champions League with Ajax in 1995 and later managed Barcelona and Bayern Munich?",
+   "a": "Louis van Gaal",
+   "cat": "managers"
+  },
+  {
+   "q": "Which manager led PSV to the 1988 European Cup?",
+   "a": "Guus Hiddink",
+   "cat": "managers"
+  },
+  {
+   "q": "PSV won a treble in 1988. What were the three trophies?",
+   "a": "The European Cup, the Eredivisie and the KNVB Cup",
+   "cat": "champions"
+  },
+  {
+   "q": "Which national side did Guus Hiddink take to a World Cup semi-final in 2002?",
+   "a": "South Korea, the co-hosts",
+   "cat": "managers"
+  },
+  {
+   "q": "Which country did Guus Hiddink take to the Euro 2008 semi-finals?",
+   "a": "Russia",
+   "cat": "managers"
+  },
+  {
+   "q": "Which Dutch defender captained Milan and later managed the Netherlands?",
+   "a": "Frank Rijkaard",
+   "cat": "managers"
+  },
+  {
+   "q": "Which three Dutchmen formed Milan's famous trio in the late 1980s?",
+   "a": "Ruud Gullit, Marco van Basten and Frank Rijkaard",
+   "cat": "imports"
+  },
+  {
+   "q": "How many foreign players were Italian clubs allowed at the time the Dutch trio played for Milan?",
+   "a": "Three",
+   "cat": "stories"
+  },
+  {
+   "q": "Which Dutch club did Ruud Gullit leave to join PSV in 1985?",
+   "a": "Feyenoord",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Dutch player was sold by Ajax to Milan in 1987 and won three Ballons d'Or there?",
+   "a": "Marco van Basten",
+   "cat": "transfers"
+  },
+  {
+   "q": "What did Johan Cruyff famously say about playing simple football?",
+   "a": "That playing simple football is the hardest thing there is",
+   "cat": "stories"
+  },
+  {
+   "q": "Which number did Dennis Bergkamp wear at Arsenal?",
+   "a": "10"
+  },
+  {
+   "q": "Why is Dennis Bergkamp said to be named after a Manchester United player?",
+   "a": "After Denis Law; the extra n was added because Dutch registrars would not accept Denis",
+   "cat": "stories"
+  },
+  {
+   "q": "Which Dutch club did Luis Suárez play for before Ajax?",
+   "a": "FC Groningen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Dutch club did Arjen Robben play for before PSV?",
+   "a": "FC Groningen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Dutch club sold both Arjen Robben and Luis Suárez early in their careers?",
+   "a": "FC Groningen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Eredivisie club is based in Deventer and is one of the oldest in the Netherlands?",
+   "a": "Go Ahead Eagles",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which Dutch club plays in Rotterdam alongside Feyenoord and Excelsior?",
+   "a": "Sparta Rotterdam",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which is the oldest professional football club in the Netherlands?",
+   "a": "Sparta Rotterdam, founded 1888",
+   "cat": "records"
+  },
+  {
+   "q": "Which club did Diego Milito join after leaving Real Zaragoza?",
+   "a": "Genoa",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jarrod Bowen join after leaving Hereford?",
+   "a": "Hull City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cristhian Stuani join after leaving Espanyol?",
+   "a": "Middlesbrough",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Arne Slot join after leaving Pec Zwolle?",
+   "a": "NAC Breda",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Gianluca Vialli join after leaving Cremonese?",
+   "a": "Sampdoria",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Dominik Szoboszlai join after leaving Salzburg?",
+   "a": "RB Leipzig",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bas Dost join after leaving FC Emmen?",
+   "a": "Heracles",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bryan Mbeumo join after leaving Troyes?",
+   "a": "Brentford",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Riyad Mahrez join after leaving Le Havre AC?",
+   "a": "Leicester",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cláudio Taffarel join after leaving Parma?",
+   "a": "Reggiana",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rui Patrício join after leaving Sporting CP?",
+   "a": "Wolves",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Axel Witsel join after leaving Benfica?",
+   "a": "Zenit",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Alan Shearer join after leaving Southampton?",
+   "a": "Blackburn Rovers",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jack Wilshere join after leaving West Ham?",
+   "a": "Bournemouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Marco Verratti join after leaving Al Arabi?",
+   "a": "Al Duhail",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Michael Ballack join after leaving Chemnitzer FC?",
+   "a": "FC Kaiserslautern",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Laurent Koscielny join after leaving Tours?",
+   "a": "Lorient",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Joško Gvardiol join after leaving Dinamo Zagreb?",
+   "a": "RB Leipzig",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Andrey Arshavin join after leaving Arsenal?",
+   "a": "Zenit",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Karim Benzema join after leaving Real Madrid?",
+   "a": "Al Ittihad",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Diego Milito start his senior career at?",
+   "a": "Racing",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jarrod Bowen start his senior career at?",
+   "a": "Hereford",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Emmanuel Adebayor start his senior career at?",
+   "a": "FC Metz",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cristhian Stuani start his senior career at?",
+   "a": "Levante",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Arne Slot start his senior career at?",
+   "a": "Pec Zwolle",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kalidou Koulibaly start his senior career at?",
+   "a": "FC Metz",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Gianluca Vialli start his senior career at?",
+   "a": "Cremonese",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Damien Duff start his senior career at?",
+   "a": "Blackburn Rovers",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jude Bellingham start his senior career at?",
+   "a": "Birmingham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Dominik Szoboszlai start his senior career at?",
+   "a": "Salzburg",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Niklas Süle start his senior career at?",
+   "a": "Hoffenheim",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Guimarães start his senior career at?",
+   "a": "Athletico Paranaense",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rudi Völler start his senior career at?",
+   "a": "Kickers Offenbach",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bas Dost start his senior career at?",
+   "a": "FC Emmen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sylvain Wiltord start his senior career at?",
+   "a": "Rennes",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Fernando Hierro start his senior career at?",
+   "a": "Valladolid",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bryan Mbeumo start his senior career at?",
+   "a": "Troyes",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sergio Agüero start his senior career at?",
+   "a": "Independiente",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Shinji Kagawa start his senior career at?",
+   "a": "Cerezo Osaka",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Davor Šuker start his senior career at?",
+   "a": "Osijek",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Riyad Mahrez start his senior career at?",
+   "a": "Le Havre AC",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cláudio Taffarel start his senior career at?",
+   "a": "Internacional",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Victor Osimhen start his senior career at?",
+   "a": "Wolfsburg",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Mohamed Salah start his senior career at?",
+   "a": "Basel",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nick Pope start his senior career at?",
+   "a": "Charlton",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Zlatan Ibrahimović start his senior career at?",
+   "a": "Malmo",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Axel Witsel start his senior career at?",
+   "a": "Standard Liege",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Antonio Cassano start his senior career at?",
+   "a": "Bari",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Michel Vorm play for between FC Utrecht and Tottenham?",
+   "a": "Swansea City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Martins Indi play for between FC Porto and AZ Alkmaar?",
+   "a": "Stoke City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Santi Cazorla play for between Villarreal and Villarreal?",
+   "a": "Recreativo Huelva",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jermain Defoe play for between Tottenham and Tottenham?",
+   "a": "Portsmouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Marc Overmars play for between Go Ahead Eagles and Ajax?",
+   "a": "Willem Ii",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nathan Aké play for between Chelsea and Manchester City?",
+   "a": "Bournemouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Christian Ziege play for between Milan and Liverpool?",
+   "a": "Middlesbrough",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bas Dost play for between SC Heerenveen and Sporting CP?",
+   "a": "Wolfsburg",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sylvain Wiltord play for between Lyon and Marseille?",
+   "a": "Rennes",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kasper Schmeichel play for between Manchester City and Leeds United?",
+   "a": "Notts County",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rui Patrício play for between Sporting CP and Roma?",
+   "a": "Wolves",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Zlatan Ibrahimović play for between Manchester United and Milan?",
+   "a": "LA Galaxy",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Axel Witsel play for between Benfica and Borussia Dortmund?",
+   "a": "Zenit",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Antonio Cassano play for between Real Madrid and Milan?",
+   "a": "Sampdoria",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rubén Castro play for between Las Palmas and Real Betis?",
+   "a": "Deportivo LA Coruna",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Michael Reiziger play for between Barcelona and PSV?",
+   "a": "Middlesbrough",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Lorenzo Insigne join after leaving Toronto FC?",
+   "a": "Pescara",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Mario Mandžukić start his senior career at?",
+   "a": "NK Zagreb",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Diego Forlán play for between Inter and Penarol?",
+   "a": "Internacional",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Brazil, World Cup final 1970?",
+   "a": "Félix"
+  },
+  {
+   "q": "Which side lined up with Carlos Alberto, Clodoaldo and Gérson?",
+   "a": "Brazil, World Cup final 1970"
+  },
+  {
+   "q": "Carlos Gruezo is the only player from which country ever to appear for VfB Stuttgart?",
+   "a": "Ecuador",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Vasil Levski National Stadium?",
+   "a": "Sofia, Bulgaria",
+   "cat": "grounds"
+  },
+  {
+   "q": "Samuel Galindo is the only Bolivia player ever to turn out for which club?",
+   "a": "Arsenal",
+   "cat": "imports"
+  },
+  {
+   "q": "Sultan Qaboos Sports Complex is a ground in which city?",
+   "a": "Muscat, Oman",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Stefan de Vrij join after leaving Inter?",
+   "a": "Panathinaikos",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Raúl García start his senior career at?",
+   "a": "Osasuna",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Ajax, Champions League final 1995?",
+   "a": "Edwin van der Sar"
+  },
+  {
+   "q": "Which side lined up with Frank de Boer, Edgar Davids and Frank Rijkaard?",
+   "a": "Ajax, Champions League final 1995"
+  },
+  {
+   "q": "Samuel Galindo is the only player from which country ever to appear for Arsenal?",
+   "a": "Bolivia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Estadio Cuscatlán?",
+   "a": "San Salvador, El Salvador",
+   "cat": "grounds"
+  },
+  {
+   "q": "Jeanvion Yulu-Matondo is the only Democratic Republic of the Congo player ever to turn out for which club?",
+   "a": "Roda JC",
+   "cat": "imports"
+  },
+  {
+   "q": "Stadionul Dr. Constantin Rădulescu is a ground in which city?",
+   "a": "Cluj-Napoca, Romania",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Careca join after leaving Guarani?",
+   "a": "Sao Paulo",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kevin De Bruyne play for between Chelsea and Manchester City?",
+   "a": "Wolfsburg",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Celtic, European Cup final 1967?",
+   "a": "Ronnie Simpson"
+  },
+  {
+   "q": "Which side lined up with Billy McNeill, John Clark and Bobby Murdoch?",
+   "a": "Celtic, European Cup final 1967"
+  },
+  {
+   "q": "Jeanvion Yulu-Matondo is the only player from which country ever to appear for Roda JC?",
+   "a": "Democratic Republic of the Congo",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Olympic Stadium?",
+   "a": "Phnom Penh, Cambodia",
+   "cat": "grounds"
+  },
+  {
+   "q": "José Machín is the only Equatorial Guinea player ever to turn out for which club?",
+   "a": "Roma",
+   "cat": "imports"
+  },
+  {
+   "q": "Stadion Galgenwaard is a ground in which city?",
+   "a": "Utrecht, Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Alan Shearer start his senior career at?",
+   "a": "Southampton",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Greece, Euro final 2004?",
+   "a": "Antonios Nikopolidis"
+  },
+  {
+   "q": "Which side lined up with Traianos Dellas, Theodoros Zagorakis and Angelos Basinas?",
+   "a": "Greece, Euro final 2004"
+  },
+  {
+   "q": "José Machín is the only player from which country ever to appear for Roma?",
+   "a": "Equatorial Guinea",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Moi International Sports Centre?",
+   "a": "Nairobi, Kenya",
+   "cat": "grounds"
+  },
+  {
+   "q": "Balázs Rabóczki is the only Hungary player ever to turn out for which club?",
+   "a": "Vitesse",
+   "cat": "imports"
+  },
+  {
+   "q": "Aleppo International Stadium is a ground in which city?",
+   "a": "Aleppo, Syria",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Simon Mignolet join after leaving Liverpool?",
+   "a": "Club Brugge",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Miralem Sulejmani start his senior career at?",
+   "a": "Partizan",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Roy Makaay play for between Tenerife and Bayern München?",
+   "a": "Deportivo LA Coruna",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for France, World Cup final 2018?",
+   "a": "Hugo Lloris"
+  },
+  {
+   "q": "Which side lined up with Samuel Umtiti, Raphaël Varane and Paul Pogba?",
+   "a": "France, World Cup final 2018"
+  },
+  {
+   "q": "Ebewa-Yam Mimbala is the only player from which country ever to appear for Schalke 04?",
+   "a": "Democratic Republic of the Congo",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Mandela National Stadium?",
+   "a": "Kampala, Uganda",
+   "cat": "grounds"
+  },
+  {
+   "q": "Ildo Maneiro is the only Uruguay player ever to turn out for which club?",
+   "a": "Lyon",
+   "cat": "imports"
+  },
+  {
+   "q": "Accra Sports Stadium is a ground in which city?",
+   "a": "Accra, Ghana",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did John Heitinga join after leaving Fulham?",
+   "a": "Hertha BSC",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kolo Touré start his senior career at?",
+   "a": "Asec Mimosas",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Gary Medel play for between Sevilla and Inter?",
+   "a": "Cardiff City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for West Germany, World Cup final 1990?",
+   "a": "Bodo Illgner"
+  },
+  {
+   "q": "Which side lined up with Klaus Augenthaler, Guido Buchwald and Jürgen Kohler?",
+   "a": "West Germany, World Cup final 1990"
+  },
+  {
+   "q": "Balázs Rabóczki is the only player from which country ever to appear for Vitesse?",
+   "a": "Hungary",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Estádio 11 de Novembro?",
+   "a": "Luanda, Angola",
+   "cat": "grounds"
+  },
+  {
+   "q": "Yuki Kobayashi is the only Japan player ever to turn out for which club?",
+   "a": "Heerenveen",
+   "cat": "imports"
+  },
+  {
+   "q": "Estadio Nacional de Costa Rica is a ground in which city?",
+   "a": "San José, Costa Rica",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Cafu join after leaving Sao Paulo?",
+   "a": "Real Zaragoza",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did David Villa start his senior career at?",
+   "a": "Sporting Gijon",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Barcelona, Champions League final 2011?",
+   "a": "Víctor Valdés"
+  },
+  {
+   "q": "Which side lined up with Andrés Iniesta, Xavi and David Villa?",
+   "a": "Barcelona, Champions League final 2011"
+  },
+  {
+   "q": "Ildo Maneiro is the only player from which country ever to appear for Lyon?",
+   "a": "Uruguay",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Kim Il-sung Stadium?",
+   "a": "Pyongyang, North Korea",
+   "cat": "grounds"
+  },
+  {
+   "q": "Christopher Martins is the only Cape Verde player ever to turn out for which club?",
+   "a": "Lyon",
+   "cat": "imports"
+  },
+  {
+   "q": "Estadio Municipal de Anduva is a ground in which city?",
+   "a": "Miranda de Ebro, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Luis Díaz start his senior career at?",
+   "a": "Atletico Junior",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Boudewijn Zenden play for between Chelsea and Liverpool?",
+   "a": "Middlesbrough",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for AC Milan, European Cup final 1989?",
+   "a": "Giovanni Galli"
+  },
+  {
+   "q": "Which side lined up with Alessandro Costacurta, Franco Baresi and Roberto Donadoni?",
+   "a": "AC Milan, European Cup final 1989"
+  },
+  {
+   "q": "Abednigo Ngcobo is the only player from which country ever to appear for Peñarol?",
+   "a": "South Africa",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Aleppo International Stadium?",
+   "a": "Aleppo, Syria",
+   "cat": "grounds"
+  },
+  {
+   "q": "Igor Gluščević is the only Montenegro player ever to turn out for which club?",
+   "a": "FC Utrecht",
+   "cat": "imports"
+  },
+  {
+   "q": "Estadio Defensores del Chaco is a ground in which city?",
+   "a": "Asunción, Paraguay",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Kevin Kurányi join after leaving Schalke 04?",
+   "a": "Dynamo Moscow",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Ederson start his senior career at?",
+   "a": "Rio Ave",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Mathieu Valbuena play for between Marseille and Lyon?",
+   "a": "Dynamo Moscow",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Netherlands, World Cup final 2010?",
+   "a": "Maarten Stekelenburg"
+  },
+  {
+   "q": "Which side lined up with Giovanni van Bronckhorst, Joris Mathijsen and Mark van Bommel?",
+   "a": "Netherlands, World Cup final 2010"
+  },
+  {
+   "q": "Yuki Kobayashi is the only player from which country ever to appear for Heerenveen?",
+   "a": "Japan",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Al-Merrikh Stadium?",
+   "a": "Omdurman, Sudan",
+   "cat": "grounds"
+  },
+  {
+   "q": "Robby Langers is the only Luxembourg player ever to turn out for which club?",
+   "a": "Marseille",
+   "cat": "imports"
+  },
+  {
+   "q": "Estadio Nueva Condomina is a ground in which city?",
+   "a": "Murcia, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Marco Verratti start his senior career at?",
+   "a": "Pescara",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Dani Alves play for between Paris Saint Germain and Barcelona?",
+   "a": "Sao Paulo",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Germany, Euro final 1996?",
+   "a": "Andreas Köpke"
+  },
+  {
+   "q": "Which side lined up with Matthias Sammer, Thomas Helmer and Mehmet Scholl?",
+   "a": "Germany, Euro final 1996"
+  },
+  {
+   "q": "Christopher Martins is the only player from which country ever to appear for Lyon?",
+   "a": "Cape Verde",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Eden Park?",
+   "a": "Auckland, New Zealand",
+   "cat": "grounds"
+  },
+  {
+   "q": "Keith Gumbs is the only Saint Kitts and Nevis player ever to turn out for which club?",
+   "a": "FC Twente",
+   "cat": "imports"
+  },
+  {
+   "q": "Sportpaleis Alkmaar is a ground in which city?",
+   "a": "Alkmaar, Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Lilian Thuram play for between AS Monaco and Juventus?",
+   "a": "Parma",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Spain, World Cup final 2010?",
+   "a": "Iker Casillas"
+  },
+  {
+   "q": "Which side lined up with Joan Capdevila, Carles Puyol and Andrés Iniesta?",
+   "a": "Spain, World Cup final 2010"
+  },
+  {
+   "q": "Luis Carlos Fernandes is the only player from which country ever to appear for Santos?",
+   "a": "South Korea",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Lagos National Stadium?",
+   "a": "Lagos, Nigeria",
+   "cat": "grounds"
+  },
+  {
+   "q": "Henri Bienvenu is the only Cameroon player ever to turn out for which club?",
+   "a": "Fenerbahçe",
+   "cat": "imports"
+  },
+  {
+   "q": "M-Scores Stadion is a ground in which city?",
+   "a": "Dordrecht, Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Edwin van der Sar play for between Juventus and Manchester United?",
+   "a": "Fulham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Italy, World Cup final 1982?",
+   "a": "Dino Zoff"
+  },
+  {
+   "q": "Which side lined up with Antonio Cabrini, Fulvio Collovati and Gaetano Scirea?",
+   "a": "Italy, World Cup final 1982"
+  },
+  {
+   "q": "Igor Gluščević is the only player from which country ever to appear for FC Utrecht?",
+   "a": "Montenegro",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Camp de Les Corts?",
+   "a": "Barcelona, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Dorin Rotariu is the only Romania player ever to turn out for which club?",
+   "a": "AZ",
+   "cat": "imports"
+  },
+  {
+   "q": "Old Stadion is a ground in which city?",
+   "a": "Amsterdam, Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Gennaro Gattuso play for between Rangers and Milan?",
+   "a": "Salernitana",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Liverpool, Champions League final 2005?",
+   "a": "Jerzy Dudek"
+  },
+  {
+   "q": "Which side lined up with Sami Hyypiä, John Arne Riise and Steven Gerrard?",
+   "a": "Liverpool, Champions League final 2005"
+  },
+  {
+   "q": "Robby Langers is the only player from which country ever to appear for Marseille?",
+   "a": "Luxembourg",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Estadio Defensores del Chaco?",
+   "a": "Asunción, Paraguay",
+   "cat": "grounds"
+  },
+  {
+   "q": "Mickey Walsh is the only Ireland player ever to turn out for which club?",
+   "a": "Porto",
+   "cat": "imports"
+  },
+  {
+   "q": "Korman Stadium is a ground in which city?",
+   "a": "Port Vila, Vanuatu",
+   "cat": "grounds"
+  },
+  {
+   "q": "Who kept goal for Ajax, European Cup final 1972?",
+   "a": "Heinz Stuy"
+  },
+  {
+   "q": "Which side lined up with Barry Hulshoff, Ruud Krol and Johan Neeskens?",
+   "a": "Ajax, European Cup final 1972"
+  },
+  {
+   "q": "Grigoriy Matuzkov is the only player from which country ever to appear for Flamengo?",
+   "a": "Kazakhstan",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find National Stadium of Peru?",
+   "a": "Lima, Peru",
+   "cat": "grounds"
+  },
+  {
+   "q": "Modou Barrow is the only The Gambia player ever to turn out for which club?",
+   "a": "Nottingham Forest",
+   "cat": "imports"
+  },
+  {
+   "q": "Stade Linité is a ground in which city?",
+   "a": "Victoria, Seychelles",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Daley Blind play for between Bayern München and Ajax?",
+   "a": "Girona",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Portugal, Euro final 2016?",
+   "a": "Rui Patrício"
+  },
+  {
+   "q": "Which side lined up with Raphaël Guerreiro, José Fonte and João Mário?",
+   "a": "Portugal, Euro final 2016"
+  },
+  {
+   "q": "Keith Gumbs is the only player from which country ever to appear for FC Twente?",
+   "a": "Saint Kitts and Nevis",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Polideportivo Cachamay?",
+   "a": "Ciudad Guayana, Venezuela",
+   "cat": "grounds"
+  },
+  {
+   "q": "Daniel Kenedy is the only Guinea-Bissau player ever to turn out for which club?",
+   "a": "PSG",
+   "cat": "imports"
+  },
+  {
+   "q": "Samuel Kanyon Doe Sports Complex is a ground in which city?",
+   "a": "Monrovia, Liberia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Who kept goal for Netherlands, Euro final 1988?",
+   "a": "Hans van Breukelen"
+  },
+  {
+   "q": "Which side lined up with Berry van Aerle, Ronald Koeman and Gerald Vanenburg?",
+   "a": "Netherlands, Euro final 1988"
+  },
+  {
+   "q": "Henri Bienvenu is the only player from which country ever to appear for Fenerbahçe?",
+   "a": "Cameroon",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Stade Tata Raphaël?",
+   "a": "Kinshasa, Democratic Republic of the Congo",
+   "cat": "grounds"
+  },
+  {
+   "q": "Janoi Donacien is the only Saint Lucia player ever to turn out for which club?",
+   "a": "Aston Villa",
+   "cat": "imports"
+  },
+  {
+   "q": "Setsoto Stadium is a ground in which city?",
+   "a": "Maseru, Lesotho",
+   "cat": "grounds"
+  },
+  {
+   "q": "Who kept goal for Brazil, World Cup final 2002?",
+   "a": "Marcos"
+  },
+  {
+   "q": "Which side lined up with Edmílson, Roque Júnior and Roberto Carlos?",
+   "a": "Brazil, World Cup final 2002"
+  },
+  {
+   "q": "Shen Menglu is the only player from which country ever to appear for Sporting CP?",
+   "a": "People's Republic of China",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Stade Ahmadou Ahidjo?",
+   "a": "Yaoundé, Cameroon",
+   "cat": "grounds"
+  },
+  {
+   "q": "Azar Karadaş is the only Norway player ever to turn out for which club?",
+   "a": "Benfica",
+   "cat": "imports"
+  },
+  {
+   "q": "Yanmar Stadion is a ground in which city?",
+   "a": "Almere, Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Who kept goal for Manchester United, Champions League final 1999?",
+   "a": "Peter Schmeichel"
+  },
+  {
+   "q": "Which side lined up with Ronny Johnsen, Jaap Stam and Nicky Butt?",
+   "a": "Manchester United, Champions League final 1999"
+  },
+  {
+   "q": "Dorin Rotariu is the only player from which country ever to appear for AZ?",
+   "a": "Romania",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find National Heroes Stadium?",
+   "a": "Lusaka, Zambia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Brian Montenegro is the only Paraguay player ever to turn out for which club?",
+   "a": "Leeds United",
+   "cat": "imports"
+  },
+  {
+   "q": "Nicosia Atatürk Stadium is a ground in which city?",
+   "a": "Nicosia, Northern Cyprus",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Sol Campbell play for between Arsenal and Arsenal?",
+   "a": "Portsmouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who kept goal for Manchester United, European Cup final 1968?",
+   "a": "Alex Stepney"
+  },
+  {
+   "q": "Which side lined up with Bill Foulkes, David Sadler and Pat Crerand?",
+   "a": "Manchester United, European Cup final 1968"
+  },
+  {
+   "q": "Mickey Walsh is the only player from which country ever to appear for Porto?",
+   "a": "Ireland",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Estadio Benito Villamarín?",
+   "a": "Seville, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Kundai Benyu is the only Zimbabwe player ever to turn out for which club?",
+   "a": "Celtic",
+   "cat": "imports"
+  },
+  {
+   "q": "Cicero Stadium is a ground in which city?",
+   "a": "Asmara, Eritrea",
+   "cat": "grounds"
+  },
+  {
+   "q": "Who kept goal for Spain, Euro final 2008?",
+   "a": "Iker Casillas"
+  },
+  {
+   "q": "Which side lined up with Joan Capdevila, Carles Puyol and Carlos Marchena?",
+   "a": "Spain, Euro final 2008"
+  },
+  {
+   "q": "Diego Giaretta is the only player from which country ever to appear for Tenerife?",
+   "a": "South Korea",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Olympic Stadium of Radès?",
+   "a": "Radès, Tunisia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Chris Wood is the only New Zealand player ever to turn out for which club?",
+   "a": "Newcastle",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Diego Costa join after leaving Botafogo?",
+   "a": "Gremio",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Pepe start his senior career at?",
+   "a": "Maritimo",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Claude Makélélé play for between Marseille and Real Madrid?",
+   "a": "Celta",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which side lined up with Rodrigo De Paul, Ángel Di María and Julián Álvarez?",
+   "a": "Argentina, World Cup final 2022"
+  },
+  {
+   "q": "Who kept goal for Brazil, World Cup final 1994?",
+   "a": "Taffarel"
+  },
+  {
+   "q": "Modou Barrow is the only player from which country ever to appear for Nottingham Forest?",
+   "a": "The Gambia",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Julio Martínez Prádanos National Stadium?",
+   "a": "Santiago, Chile",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Ruy Ramos and Osvaldo Ardiles managed?",
+   "a": "Tokyo Verdy",
+   "cat": "managers"
+  },
+  {
+   "q": "Steinar Nilsen is the only Norway player ever to turn out for which club?",
+   "a": "Napoli",
+   "cat": "imports"
+  },
+  {
+   "q": "Guillermo Prospero Trinidad Stadium is a ground in which city?",
+   "a": "Oranjestad, Aruba",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Olivier Giroud join after leaving Grenoble Foot 38?",
+   "a": "Tours",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jan Oblak start his senior career at?",
+   "a": "Olimpija",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Roberto Baggio play for between Milan and Inter?",
+   "a": "Bologna",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which side lined up with Branco, Mauro Silva and Dunga?",
+   "a": "Brazil, World Cup final 1994"
+  },
+  {
+   "q": "Who kept goal for Real Madrid, Champions League final 2014?",
+   "a": "Iker Casillas"
+  },
+  {
+   "q": "Daniel Kenedy is the only player from which country ever to appear for PSG?",
+   "a": "Guinea-Bissau",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Thuwunna Stadium?",
+   "a": "Yangon, Myanmar",
+   "cat": "grounds"
+  },
+  {
+   "q": "Idan Tal is the only Israel player ever to turn out for which club?",
+   "a": "Everton",
+   "cat": "imports"
+  },
+  {
+   "q": "Bairiki National Stadium is a ground in which city?",
+   "a": "South Tarawa, Kiribati",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club did Freddie Ljungberg join after leaving West Ham?",
+   "a": "Seattle Sounders FC",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Fernandes start his senior career at?",
+   "a": "Novara",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jordan Henderson play for between Liverpool and Ajax?",
+   "a": "Al Ettifaq",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which side lined up with Fábio Coentrão, Sergio Ramos and Sami Khedira?",
+   "a": "Real Madrid, Champions League final 2014"
+  },
+  {
+   "q": "Who kept goal for Barcelona, European Cup final 1992?",
+   "a": "Andoni Zubizarreta"
+  },
+  {
+   "q": "Nebojša Šćepanović is the only player from which country ever to appear for Villarreal?",
+   "a": "Montenegro",
+   "cat": "imports"
+  },
+  {
+   "q": "In which city would you find Dinamo Arena?",
+   "a": "Tbilisi, Georgia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Albert Guðmundsson is the only Iceland player ever to turn out for which club?",
+   "a": "AC Milan",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Jay-Jay Okocha join after leaving Paris Saint Germain?",
+   "a": "Bolton",
+   "cat": "transfers"
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which country hosted the 1934 World Cup and won it?",
+   "a": "Italy",
+   "cat": "champions"
+  },
+  {
+   "q": "Who was the manager of Italy's 1934 and 1938 World Cup winners?",
+   "a": "Vittorio Pozzo",
+   "cat": "managers"
+  },
+  {
+   "q": "Which was the only World Cup decided by a final group stage rather than a final?",
+   "a": "1950, in Brazil",
+   "cat": "records"
+  },
+  {
+   "q": "How many teams contested the first World Cup in 1930?",
+   "a": "Thirteen",
+   "cat": "records"
+  },
+  {
+   "q": "Who scored the first goal in World Cup history?",
+   "a": "Lucien Laurent of France",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which country knocked Brazil out of the 1966 World Cup, with Pelé kicked out of the tournament?",
+   "a": "Portugal",
+   "cat": "champions"
+  },
+  {
+   "q": "Who was Portugal's leading scorer at the 1966 World Cup, with nine goals?",
+   "a": "Eusébio",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which country did England beat in the 1966 World Cup semi-final?",
+   "a": "Portugal",
+   "cat": "champions"
+  },
+  {
+   "q": "Who was the Soviet linesman who gave England's controversial third goal in the 1966 final?",
+   "a": "Tofiq Bahramov, from Azerbaijan",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country finished third at the 1974 World Cup?",
+   "a": "Poland",
+   "cat": "champions"
+  },
+  {
+   "q": "Who was the top scorer at the 1974 World Cup?",
+   "a": "Grzegorz Lato of Poland",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which country did Argentina need to beat by four goals to reach the 1978 World Cup final, and by how much did they win?",
+   "a": "Peru, and they won 6-0",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored twice for Argentina in the 1978 World Cup final?",
+   "a": "Mario Kempes",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which country did Italy beat in the 1982 World Cup final?",
+   "a": "West Germany",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored a hat-trick against Brazil for Italy at the 1982 World Cup?",
+   "a": "Paolo Rossi",
+   "cat": "scorers"
+  },
+  {
+   "q": "Why had Paolo Rossi only just returned to football before the 1982 World Cup?",
+   "a": "He had served a ban over a betting scandal",
+   "cat": "stories"
+  },
+  {
+   "q": "How old was Dino Zoff when he captained Italy to the 1982 World Cup?",
+   "a": "40",
+   "cat": "records"
+  },
+  {
+   "q": "Who was the first player sent off in a World Cup final?",
+   "a": "Pedro Monzón of Argentina, in 1990",
+   "cat": "records"
+  },
+  {
+   "q": "How many goals were scored in the whole of the 1990 World Cup final?",
+   "a": "One, an Andreas Brehme penalty",
+   "cat": "records"
+  },
+  {
+   "q": "Which country did Brazil beat on penalties in the 1994 World Cup final?",
+   "a": "Italy",
+   "cat": "champions"
+  },
+  {
+   "q": "Who missed the final penalty in the 1994 World Cup final?",
+   "a": "Roberto Baggio, over the bar",
+   "cat": "stories"
+  },
+  {
+   "q": "Which country reached the 1998 World Cup semi-finals in their first tournament as an independent nation?",
+   "a": "Croatia",
+   "cat": "champions"
+  },
+  {
+   "q": "Who was Croatia's top scorer at the 1998 World Cup, winning the Golden Boot?",
+   "a": "Davor Šuker",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which country did Brazil beat in the 2002 World Cup final?",
+   "a": "Germany",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored both goals in the 2002 World Cup final?",
+   "a": "Ronaldo",
+   "cat": "scorers"
+  },
+  {
+   "q": "What was unusual about Ronaldo's haircut at the 2002 World Cup?",
+   "a": "He shaved his head except for a wedge at the front",
+   "cat": "stories"
+  },
+  {
+   "q": "Who scored the opening penalty for France in the 2006 World Cup final?",
+   "a": "Zinedine Zidane, off the bar and in",
+   "cat": "scorers"
+  },
+  {
+   "q": "Who was the only player to win three World Cups?",
+   "a": "Pelé",
+   "cat": "records"
+  },
+  {
+   "q": "Which African country was the first to reach a World Cup quarter-final?",
+   "a": "Cameroon, in 1990",
+   "cat": "records"
+  },
+  {
+   "q": "Which country did Ghana lose to on penalties in the 2010 World Cup quarter-final?",
+   "a": "Uruguay",
+   "cat": "champions"
+  },
+  {
+   "q": "Who scored the goal that won Spain the 2010 World Cup semi-final against Germany?",
+   "a": "Carles Puyol, a header from a corner",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which club won the first European Cup final, in 1956, and who did they beat?",
+   "a": "Real Madrid, who beat Reims 4-3",
+   "cat": "europe"
+  },
+  {
+   "q": "In which city was the first European Cup final played?",
+   "a": "Paris",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which Scottish club reached the 1961 European Cup Winners' Cup final?",
+   "a": "Rangers",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Portuguese club won the European Cup in 1961 and 1962?",
+   "a": "Benfica",
+   "cat": "europe"
+  },
+  {
+   "q": "Which manager built the Inter side that won the European Cup in 1964 and 1965?",
+   "a": "Helenio Herrera",
+   "cat": "managers"
+  },
+  {
+   "q": "What was the defensive system Helenio Herrera made famous at Inter called?",
+   "a": "Catenaccio",
+   "cat": "managers"
+  },
+  {
+   "q": "Which English club were the first to win the European Cup Winners' Cup, in 1963?",
+   "a": "Tottenham",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Manchester United beat 10-0 in a European Cup tie in 1956?",
+   "a": "Anderlecht",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch club knocked Liverpool out of the European Cup in 1966, winning 5-1 in Amsterdam?",
+   "a": "Ajax",
+   "cat": "europe"
+  },
+  {
+   "q": "Who managed Ajax to their first European Cup in 1971?",
+   "a": "Rinus Michels",
+   "cat": "managers"
+  },
+  {
+   "q": "Which manager took charge of Ajax for the 1972 and 1973 European Cup wins?",
+   "a": "Ștefan Kovács",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Ajax beat in the 1971 European Cup final?",
+   "a": "Panathinaikos",
+   "cat": "europe"
+  },
+  {
+   "q": "Which manager led Panathinaikos to the 1971 European Cup final?",
+   "a": "Ferenc Puskás",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Ajax beat in the 1972 European Cup final?",
+   "a": "Inter Milan",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Ajax beat in the 1973 European Cup final?",
+   "a": "Juventus",
+   "cat": "europe"
+  },
+  {
+   "q": "Which English club won the UEFA Cup in 1972, the first year it was played?",
+   "a": "Tottenham",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the European Cup in 1978 and again in 1981?",
+   "a": "Liverpool",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored the winner in the 1981 European Cup final for Liverpool?",
+   "a": "Alan Kennedy",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Liverpool beat in the 1981 European Cup final?",
+   "a": "Real Madrid",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Romanian club won the European Cup in 1986?",
+   "a": "Steaua Bucharest",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the European Cup in 1987, beating Bayern Munich?",
+   "a": "Porto",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored the backheel in the 1987 European Cup final for Porto?",
+   "a": "Rabah Madjer",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the European Cup in 1989 and 1990?",
+   "a": "Milan",
+   "cat": "europe"
+  },
+  {
+   "q": "Which manager led Milan to those back-to-back European Cups?",
+   "a": "Arrigo Sacchi",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club won the Champions League in 1993, the first season under that name?",
+   "a": "Marseille",
+   "cat": "europe"
+  },
+  {
+   "q": "What happened to Marseille's 1993 domestic title after their European win?",
+   "a": "It was stripped over a match-fixing scandal",
+   "cat": "stories"
+  },
+  {
+   "q": "Which club won the Champions League in 1994, beating Barcelona 4-0?",
+   "a": "Milan",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the Champions League in 1997, beating Juventus?",
+   "a": "Borussia Dortmund",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the Champions League in 2004 as huge outsiders?",
+   "a": "Porto",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club did Porto beat in the 2004 Champions League final?",
+   "a": "Monaco",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Spanish club won the UEFA Cup three years running from 2014 to 2016?",
+   "a": "Sevilla",
+   "cat": "europe"
+  },
+  {
+   "q": "Which English club won the Cup Winners' Cup in 1994, beating Parma?",
+   "a": "Arsenal",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored the winner for Arsenal in the 1994 Cup Winners' Cup final?",
+   "a": "Alan Smith",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club beat Arsenal in the 1995 Cup Winners' Cup final with a lob from the halfway line?",
+   "a": "Real Zaragoza, through Nayim",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Italian club won the UEFA Cup in 1995 and 1999?",
+   "a": "Parma",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the last Cup Winners' Cup, in 1999?",
+   "a": "Lazio",
+   "cat": "europe"
+  },
+  {
+   "q": "Which competition replaced the Cup Winners' Cup from 1999?",
+   "a": "It was absorbed into the UEFA Cup",
+   "cat": "europe"
+  },
+  {
+   "q": "Which club won the 1963/64 Eredivisie in their first season after promotion, the only side ever to do it?",
+   "a": "DWS Amsterdam",
+   "cat": "champions"
+  },
+  {
+   "q": "How many Eredivisie titles did Ajax win in a row from 1993/94?",
+   "a": "Three, to 1995/96",
+   "cat": "champions"
+  },
+  {
+   "q": "Who was the manager when Ajax won the 1987 Cup Winners' Cup?",
+   "a": "Johan Cruyff",
+   "cat": "managers"
+  },
+  {
+   "q": "Which Ajax player scored the only goal of the 1987 Cup Winners' Cup final?",
+   "a": "Marco van Basten",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch club won the KNVB Cup in 1978 and 1981 as an Alkmaar side on the rise?",
+   "a": "AZ'67",
+   "cat": "cups"
+  },
+  {
+   "q": "Which Dutch club reached the UEFA Cup final in 1981?",
+   "a": "AZ'67",
+   "cat": "europe"
+  },
+  {
+   "q": "Which English club beat AZ in that 1981 UEFA Cup final?",
+   "a": "Ipswich Town",
+   "cat": "europe"
+  },
+  {
+   "q": "Who managed Ipswich Town to the 1981 UEFA Cup?",
+   "a": "Bobby Robson",
+   "cat": "managers"
+  },
+  {
+   "q": "Which Dutch club won the UEFA Cup in 1974?",
+   "a": "Feyenoord",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutchman was the first to be named European Footballer of the Year?",
+   "a": "Johan Cruyff, in 1971",
+   "cat": "records"
+  },
+  {
+   "q": "In which years did Johan Cruyff win the Ballon d'Or?",
+   "a": "1971, 1973 and 1974"
+  },
+  {
+   "q": "Who captained the Netherlands at the 1974 World Cup final?",
+   "a": "Johan Cruyff"
+  },
+  {
+   "q": "Who was the Netherlands manager at the 1974 World Cup?",
+   "a": "Rinus Michels",
+   "cat": "managers"
+  },
+  {
+   "q": "Who was the Netherlands manager at the 1988 European Championship?",
+   "a": "Rinus Michels",
+   "cat": "managers"
+  },
+  {
+   "q": "Which English referee awarded the penalty inside a minute of the 1974 World Cup final?",
+   "a": "Jack Taylor",
+   "cat": "stories"
+  },
+  {
+   "q": "How many touches had West Germany had when the Netherlands won that penalty in 1974?",
+   "a": "None",
+   "cat": "stories"
+  },
+  {
+   "q": "Which West German scored the winner in the 1974 World Cup final?",
+   "a": "Gerd Müller",
+   "cat": "scorers"
+  },
+  {
+   "q": "Who scored West Germany's equalising penalty in the 1974 World Cup final?",
+   "a": "Paul Breitner",
+   "cat": "scorers"
+  },
+  {
+   "q": "Which Dutch club did Ruud Krol spend most of his career at?",
+   "a": "Ajax",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Italian club did Ruud Krol join in 1980?",
+   "a": "Napoli",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Dutch club did Ronald Koeman play for before Ajax?",
+   "a": "FC Groningen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which two Koeman brothers both played for the Netherlands?",
+   "a": "Ronald and Erwin Koeman",
+   "cat": "stories"
+  },
+  {
+   "q": "Which club did Erwin Koeman play for in Belgium?",
+   "a": "Mechelen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Belgian club beat Ajax to win the Cup Winners' Cup in 1988?",
+   "a": "Mechelen",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Dutch manager was in charge of Barcelona when they lost the 1994 Champions League final 4-0?",
+   "a": "Johan Cruyff",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club beat Barcelona 4-0 in that 1994 final?",
+   "a": "Milan",
+   "cat": "europe"
+  },
+  {
+   "q": "Who scored twice for Milan in the 1994 Champions League final?",
+   "a": "Daniele Massaro",
+   "cat": "europe"
+  },
+  {
+   "q": "Which Spanish club did Frank Rijkaard spend 1987/88 at, after walking out on Ajax?",
+   "a": "Real Zaragoza",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which Dutchman managed Barcelona to the 2006 Champions League?",
+   "a": "Frank Rijkaard",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Barcelona beat in the 2006 Champions League final?",
+   "a": "Arsenal",
+   "cat": "europe"
+  },
+  {
+   "q": "Who succeeded Louis van Gaal as Ajax manager in 1997?",
+   "a": "Morten Olsen",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did the Eredivisie begin?",
+   "a": "1956",
+   "cat": "records"
+  },
+  {
+   "q": "In which year did Dutch football turn professional?",
+   "a": "1954",
+   "cat": "records"
+  },
+  {
+   "q": "Which job did Sean Dyche take after Burnley?",
+   "a": "Everton",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Stefano Pioli take after Al Nassr?",
+   "a": "Fiorentina",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Arne Slot take after Feyenoord?",
+   "a": "Liverpool",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Mircea Lucescu take after Pisa?",
+   "a": "Brescia",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Alberto Aquilani take after Pisa?",
+   "a": "Catanzaro",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Osvaldo Ardiles take after Shimizu S Pulse?",
+   "a": "Yokohama F Marinos",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Peter Bosz take after Ajax?",
+   "a": "Lyon",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Claude Makelélé take after Eupen?",
+   "a": "Asteras",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Thiago Motta take after Genoa?",
+   "a": "Spezia",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Kunishige Kamamoto take after Cerezo Osaka?",
+   "a": "Gamba Osaka",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Sergio González Soriano take after Valladolid?",
+   "a": "Cadiz",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Ronald Koeman take after Benfica?",
+   "a": "PSV",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Josep Samitier take after Atletico Madrid?",
+   "a": "Nice",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Christoph Daum take after Bayer Leverkusen?",
+   "a": "Besiktas",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Marco van Basten take after Ajax?",
+   "a": "SC Heerenveen",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Walter Mazzarri take after Napoli?",
+   "a": "Inter",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Fabrizio Ravanelli take after Juventus?",
+   "a": "Ajaccio",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Morten Olsen take after Brondby?",
+   "a": "Köln",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Steve McClaren take after Newcastle?",
+   "a": "Derby County",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Albert Riera take after Olimpija?",
+   "a": "Celje",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Sean Dyche take his first coaching job?",
+   "a": "Watford",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Stefano Pioli take his first coaching job?",
+   "a": "Salernitana",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Mircea Lucescu take his first coaching job?",
+   "a": "Corvinul Hunedoara",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Luciano Spalletti take his first coaching job?",
+   "a": "Empoli",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Osvaldo Ardiles take his first coaching job?",
+   "a": "Shimizu S Pulse",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Thiago Motta take his first coaching job?",
+   "a": "Genoa",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Ronald Koeman take his first coaching job?",
+   "a": "Barcelona",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Christoph Daum take his first coaching job?",
+   "a": "Köln",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Walter Mazzarri take his first coaching job?",
+   "a": "Acireale Calcio",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Steve McClaren take his first coaching job?",
+   "a": "Middlesbrough",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Albert Riera take his first coaching job?",
+   "a": "Olimpija",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Serhii Rebrov take his first coaching job?",
+   "a": "Dynamo Kyiv",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Andoni Iraola take his first coaching job?",
+   "a": "Aek Larnaca",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Fabio Grosso take his first coaching job?",
+   "a": "Bari",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Fernando Santos take his first coaching job?",
+   "a": "Estoril",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Siniša Mihajlović take his first coaching job?",
+   "a": "Bologna",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Takuya Takagi take his first coaching job?",
+   "a": "Yokohama FC",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Akira Nishino take his first coaching job?",
+   "a": "Kashiwa Reysol",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did this happen: Johan Cruyff joins Barcelona?",
+   "a": "1973",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Mestalla opens in Valencia?",
+   "a": "1923",
+   "cat": "grounds"
+  },
+  {
+   "q": "In which year did this happen: Rio Ferdinand joins Leeds United?",
+   "a": "2000",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Marco van Basten joins AC Milan?",
+   "a": "1987",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Diego Maradona joins Napoli?",
+   "a": "1984",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Adidas Telstar ball debuts?",
+   "a": "1970",
+   "cat": "stories"
+  },
+  {
+   "q": "In which year did this happen: Real Madrid 11-1 Barcelona cup rout?",
+   "a": "1943",
+   "cat": "cups"
+  },
+  {
+   "q": "In which year did this happen: Barcelona win the first ever La Liga?",
+   "a": "1929",
+   "cat": "champions"
+  },
+  {
+   "q": "In which year did this happen: Feyenoord win the European Cup?",
+   "a": "1970",
+   "cat": "europe"
+  },
+  {
+   "q": "In which year did this happen: Cristiano Ronaldo joins Manchester United?",
+   "a": "2003",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Neymar joins Barcelona?",
+   "a": "2013",
+   "cat": "transfers"
+  },
+  {
+   "q": "Faiq Bolkiah is the only player from which country ever to appear for Arsenal?",
+   "a": "Brunei",
+   "cat": "imports"
+  },
+  {
+   "q": "Alexander Merkel is the only player from which country ever to appear for VfB Stuttgart?",
+   "a": "Kazakhstan",
+   "cat": "imports"
+  },
+  {
+   "q": "Russell Latapy is the only player from which country ever to appear for Porto?",
+   "a": "Trinidad and Tobago",
+   "cat": "imports"
+  },
+  {
+   "q": "Collin Benjamin is the only player from which country ever to appear for Hamburger SV?",
+   "a": "Namibia",
+   "cat": "imports"
+  },
+  {
+   "q": "Julio Dely Valdés is the only player from which country ever to appear for PSG?",
+   "a": "Panama",
+   "cat": "imports"
+  },
+  {
+   "q": "Lee Dong-gook is the only player from which country ever to appear for Werder Bremen?",
+   "a": "South Korea",
+   "cat": "imports"
+  },
+  {
+   "q": "Leo Brian Kokubo is the only player from which country ever to appear for Benfica?",
+   "a": "Japan",
+   "cat": "imports"
+  },
+  {
+   "q": "Mitchell Weiser is the only player from which country ever to appear for Werder Bremen?",
+   "a": "Algeria",
+   "cat": "imports"
+  },
+  {
+   "q": "Dmitri Kharine is the only player from which country ever to appear for Celtic?",
+   "a": "Russia",
+   "cat": "imports"
+  },
+  {
+   "q": "Jordan Larsson is the only player from which country ever to appear for Schalke 04?",
+   "a": "Cape Verde",
+   "cat": "imports"
+  },
+  {
+   "q": "Amir Rrahmani is the only player from which country ever to appear for Napoli?",
+   "a": "Kosovo",
+   "cat": "imports"
+  },
+  {
+   "q": "Steve Gohouri is the only player from which country ever to appear for Mönchengladbach?",
+   "a": "Ivory Coast",
+   "cat": "imports"
+  },
+  {
+   "q": "Yann M'Vila is the only player from which country ever to appear for Inter?",
+   "a": "Republic of the Congo",
+   "cat": "imports"
+  },
+  {
+   "q": "Dejan Petković is the only player from which country ever to appear for Santos?",
+   "a": "Serbia",
+   "cat": "imports"
+  },
+  {
+   "q": "Vikash Dhorasoo is the only player from which country ever to appear for AC Milan?",
+   "a": "Mauritius",
+   "cat": "imports"
+  },
+  {
+   "q": "Dejan Petković is the only player from which country ever to appear for Flamengo?",
+   "a": "Serbia",
+   "cat": "imports"
+  },
+  {
+   "q": "Eddy Silvestre Pascual Israfilov is the only player from which country ever to appear for AC Milan?",
+   "a": "Azerbaijan",
+   "cat": "imports"
+  },
+  {
+   "q": "Daniel Cousin is the only player from which country ever to appear for Rangers?",
+   "a": "Gabon",
+   "cat": "imports"
+  },
+  {
+   "q": "Grigoris Kastanos is the only player from which country ever to appear for Juventus?",
+   "a": "Cyprus",
+   "cat": "imports"
+  },
+  {
+   "q": "Lukas Spalvis is the only player from which country ever to appear for Sporting CP?",
+   "a": "Lithuania",
+   "cat": "imports"
+  },
+  {
+   "q": "Abel Xavier is the only player from which country ever to appear for PSV?",
+   "a": "Mozambique",
+   "cat": "imports"
+  },
+  {
+   "q": "Samuele Longo is the only player from which country ever to appear for Tenerife?",
+   "a": "Italy",
+   "cat": "imports"
+  },
+  {
+   "q": "Terence Kongolo is the only player from which country ever to appear for Feyenoord?",
+   "a": "Switzerland",
+   "cat": "imports"
+  },
+  {
+   "q": "Carlos Martínez is the only player from which country ever to appear for Villarreal?",
+   "a": "Dominican Republic",
+   "cat": "imports"
+  },
+  {
+   "q": "Hatem Trabelsi is the only player from which country ever to appear for Ajax?",
+   "a": "Tunisia",
+   "cat": "imports"
+  },
+  {
+   "q": "Vitālijs Maksimenko is the only player from which country ever to appear for VVV-Venlo?",
+   "a": "Latvia",
+   "cat": "imports"
+  },
+  {
+   "q": "Marius Stankevičius is the only player from which country ever to appear for Valencia?",
+   "a": "Lithuania",
+   "cat": "imports"
+  },
+  {
+   "q": "Daniel Svensson is the only player from which country ever to appear for Borussia Dortmund?",
+   "a": "Sweden",
+   "cat": "imports"
+  },
+  {
+   "q": "Andres Oper is the only player from which country ever to appear for Roda JC?",
+   "a": "Estonia",
+   "cat": "imports"
+  },
+  {
+   "q": "Mark González is the only player from which country ever to appear for Real Betis?",
+   "a": "South Africa",
+   "cat": "imports"
+  },
+  {
+   "q": "Mohamed Zidan is the only player from which country ever to appear for Borussia Dortmund?",
+   "a": "Egypt",
+   "cat": "imports"
+  },
+  {
+   "q": "Nikos Machlas is the only player from which country ever to appear for Vitesse?",
+   "a": "Greece",
+   "cat": "imports"
+  },
+  {
+   "q": "Fernando Amorebieta is the only player from which country ever to appear for Athletic Bilbao?",
+   "a": "Venezuela",
+   "cat": "imports"
+  },
+  {
+   "q": "Nestor Irankunda is the only player from which country ever to appear for Bayern Munich?",
+   "a": "Australia",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Daley Sinkgraven join after leaving Bayer Leverkusen?",
+   "a": "Las Palmas",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Emmanuel Adebayor join after leaving Tottenham?",
+   "a": "Crystal Palace",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rio Ferdinand join after leaving Manchester United?",
+   "a": "Queens Park Rangers",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Martins Indi join after leaving FC Porto?",
+   "a": "Stoke City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Cristhian Stuani join after leaving Middlesbrough?",
+   "a": "Girona",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Arne Slot join after leaving Sparta Rotterdam?",
+   "a": "Pec Zwolle",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Kalidou Koulibaly join after leaving Napoli?",
+   "a": "Chelsea",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Gianluca Vialli join after leaving Juventus?",
+   "a": "Chelsea",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Jermain Defoe join after leaving Sunderland?",
+   "a": "Bournemouth",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Leroy Sané join after leaving Bayern München?",
+   "a": "Galatasaray",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Damien Duff join after leaving Fulham?",
+   "a": "Melbourne City",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bruno Guimarães join after leaving Newcastle?",
+   "a": "Arsenal",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Rudi Völler join after leaving Marseille?",
+   "a": "Bayer Leverkusen",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Marc Overmars join after leaving Barcelona?",
+   "a": "Go Ahead Eagles",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Nathan Aké join after leaving Manchester City?",
+   "a": "Fenerbahce",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Christian Ziege join after leaving Tottenham?",
+   "a": "Borussia Monchengladbach",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Bas Dost join after leaving Club Brugge?",
+   "a": "FC Utrecht",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Sylvain Wiltord join after leaving Lyon?",
+   "a": "Rennes",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Juan Román Riquelme join after leaving Villarreal?",
+   "a": "Boca Juniors",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Fernando Hierro join after leaving Al Rayyan?",
+   "a": "Bolton",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Patrick Kluivert join after leaving Newcastle?",
+   "a": "Valencia",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Donyell Malen join after leaving Aston Villa?",
+   "a": "Roma",
+   "cat": "transfers"
+  },
+  {
+   "q": "Which club did Steven Bergwijn join after leaving Ajax?",
+   "a": "Al Ittihad",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 5 for Brazil, World Cup final 1970?",
+   "a": "Clodoaldo"
+  },
+  {
+   "q": "Who wore number 5 for Ajax, Champions League final 1995?",
+   "a": "Frank de Boer"
+  },
+  {
+   "q": "Who wore number 5 for Celtic, European Cup final 1967?",
+   "a": "Billy McNeill"
+  },
+  {
+   "q": "Who wore number 5 for Greece, Euro final 2004?",
+   "a": "Traianos Dellas"
+  },
+  {
+   "q": "Who wore number 5 for France, World Cup final 2018?",
+   "a": "Samuel Umtiti"
+  },
+  {
+   "q": "Who wore number 5 for West Germany, World Cup final 1990?",
+   "a": "Klaus Augenthaler"
+  },
+  {
+   "q": "Who wore number 7 for Barcelona, Champions League final 2011?",
+   "a": "David Villa"
+  },
+  {
+   "q": "Who wore number 5 for AC Milan, European Cup final 1989?",
+   "a": "Alessandro Costacurta"
+  },
+  {
+   "q": "Who wore number 5 for Netherlands, World Cup final 2010?",
+   "a": "Giovanni van Bronckhorst"
+  },
+  {
+   "q": "Who wore number 5 for Germany, Euro final 1996?",
+   "a": "Thomas Helmer"
+  },
+  {
+   "q": "Who wore number 5 for Spain, World Cup final 2010?",
+   "a": "Carles Puyol"
+  },
+  {
+   "q": "Who wore number 5 for Italy, World Cup final 1982?",
+   "a": "Fulvio Collovati"
+  },
+  {
+   "q": "Who wore number 5 for Liverpool, Champions League final 2005?",
+   "a": "Milan Baroš"
+  },
+  {
+   "q": "Who wore number 5 for Ajax, European Cup final 1972?",
+   "a": "Ruud Krol"
+  },
+  {
+   "q": "Who wore number 5 for Portugal, Euro final 2016?",
+   "a": "Raphaël Guerreiro"
+  },
+  {
+   "q": "Who wore number 7 for Netherlands, Euro final 1988?",
+   "a": "Gerald Vanenburg"
+  },
+  {
+   "q": "Who wore number 5 for Brazil, World Cup final 2002?",
+   "a": "Edmílson"
+  },
+  {
+   "q": "Who wore number 6 for Netherlands, World Cup final 1974?",
+   "a": "Wim Jansen"
+  },
+  {
+   "q": "Who wore number 5 for Manchester United, Champions League final 1999?",
+   "a": "Ronny Johnsen"
+  },
+  {
+   "q": "Who wore number 5 for Manchester United, European Cup final 1968?",
+   "a": "Bill Foulkes"
+  },
+  {
+   "q": "Who wore number 5 for Spain, Euro final 2008?",
+   "a": "Carles Puyol"
+  },
+  {
+   "q": "Who wore number 9 for Argentina, World Cup final 2022?",
+   "a": "Julián Álvarez"
+  },
+  {
+   "q": "Who wore number 5 for Brazil, World Cup final 1994?",
+   "a": "Mauro Silva"
+  },
+  {
+   "q": "Who wore number 5 for Real Madrid, Champions League final 2014?",
+   "a": "Fábio Coentrão"
+  },
+  {
+   "q": "Who wore number 5 for Barcelona, European Cup final 1992?",
+   "a": "Juan Carlos"
+  },
+  {
+   "q": "Who wore number 5 for Real Madrid, European Cup final 1960?",
+   "a": "José Santamaría"
+  },
+  {
+   "q": "Who wore number 5 for France, Euro final 2000?",
+   "a": "Laurent Blanc"
+  },
+  {
+   "q": "Who wore number 5 for Germany, World Cup final 2014?",
+   "a": "Mats Hummels"
+  },
+  {
+   "q": "Who wore number 5 for Argentina, World Cup final 1986?",
+   "a": "José Luis Brown"
+  },
+  {
+   "q": "In which year did this happen: Zlatan joins Juventus?",
+   "a": "2004",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Gary Lineker joins Barcelona?",
+   "a": "1986",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Luís Figo joins Real Madrid?",
+   "a": "2000",
+   "cat": "transfers"
+  },
+  {
+   "q": "In which year did this happen: Real Betis, their only title?",
+   "a": "1935",
+   "cat": "champions"
+  },
+  {
+   "q": "In which year did this happen: Sol Campbell joins Arsenal?",
+   "a": "2001",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 5 for Barcelona, Champions League final 2006?",
+   "a": "Carles Puyol"
+  },
+  {
+   "q": "Who wore number 5 for PSV Eindhoven, European Cup final 1988?",
+   "a": "Jan Heintze"
+  },
+  {
+   "q": "Who wore number 6 for Italy, Euro final 2020?",
+   "a": "Marco Verratti"
+  },
+  {
+   "q": "Who wore number 9 for Denmark, Euro final 1992?",
+   "a": "Flemming Povlsen"
+  },
+  {
+   "q": "Who wore number 5 for Italy, World Cup final 2006?",
+   "a": "Fabio Cannavaro"
+  },
+  {
+   "q": "Puskás Aréna is a ground in which country?",
+   "a": "Hungary",
+   "cat": "grounds"
+  },
+  {
+   "q": "Korman Stadium is a ground in which country?",
+   "a": "Vanuatu",
+   "cat": "grounds"
+  },
+  {
+   "q": "Stade Linité is a ground in which country?",
+   "a": "Seychelles",
+   "cat": "grounds"
+  },
+  {
+   "q": "Samuel Kanyon Doe Sports Complex is a ground in which country?",
+   "a": "Liberia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Setsoto Stadium is a ground in which country?",
+   "a": "Lesotho",
+   "cat": "grounds"
+  },
+  {
+   "q": "Yanmar Stadion is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Nicosia Atatürk Stadium is a ground in which country?",
+   "a": "Northern Cyprus",
+   "cat": "grounds"
+  },
+  {
+   "q": "Cicero Stadium is a ground in which country?",
+   "a": "Eritrea",
+   "cat": "grounds"
+  },
+  {
+   "q": "In which year did this happen: Penalties vs Brazil in semi-final?",
+   "a": "1998",
+   "cat": "champions"
+  },
+  {
+   "q": "Faysal Shayesteh is the only player from which country ever to appear for Heerenveen?",
+   "a": "Afghanistan",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Sergio Agüero join after leaving Manchester City?",
+   "a": "Barcelona",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 5 for Argentina, World Cup final 1978?",
+   "a": "Ubaldo Fillol"
+  },
+  {
+   "q": "Guillermo Prospero Trinidad Stadium is a ground in which country?",
+   "a": "Aruba",
+   "cat": "grounds"
+  },
+  {
+   "q": "Faiq Bolkiah is the only Brunei player ever to turn out for which club?",
+   "a": "Arsenal",
+   "cat": "imports"
+  },
+  {
+   "q": "Camp Nou is a ground in which city?",
+   "a": "Barcelona, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Where did Sergio González Soriano take his first coaching job?",
+   "a": "Espanyol",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did this happen: Brazil humiliated 7-1 by Germany?",
+   "a": "2014",
+   "cat": "champions"
+  },
+  {
+   "q": "Alexander Callens is the only player from which country ever to appear for Real Sociedad?",
+   "a": "Peru",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Shinji Kagawa join after leaving Manchester United?",
+   "a": "Borussia Dortmund",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 5 for Real Madrid, Champions League final 2002?",
+   "a": "Zinedine Zidane"
+  },
+  {
+   "q": "Bairiki National Stadium is a ground in which country?",
+   "a": "Kiribati",
+   "cat": "grounds"
+  },
+  {
+   "q": "Alexander Merkel is the only Kazakhstan player ever to turn out for which club?",
+   "a": "VfB Stuttgart",
+   "cat": "imports"
+  },
+  {
+   "q": "Estadio Nuevo Los Cármenes is a ground in which city?",
+   "a": "Granada, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "In which year did this happen: Carlos Alberto caps Brazil's masterpiece?",
+   "a": "1970",
+   "cat": "scorers"
+  },
+  {
+   "q": "Ludwig Augustinsson is the only player from which country ever to appear for Sevilla?",
+   "a": "Sweden",
+   "cat": "imports"
+  },
+  {
+   "q": "Who wore number 5 for Feyenoord, European Cup final 1970?",
+   "a": "Theo van Duivenbode"
+  },
+  {
+   "q": "Lawson Tama Stadium is a ground in which country?",
+   "a": "Solomon Islands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Aitor Karanka and Terry Venables managed?",
+   "a": "Middlesbrough",
+   "cat": "managers"
+  },
+  {
+   "q": "Russell Latapy is the only Trinidad and Tobago player ever to turn out for which club?",
+   "a": "Porto",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Sean Dyche hold between Watford and Everton?",
+   "a": "Burnley",
+   "cat": "managers"
+  },
+  {
+   "q": "Kim Il-sung Stadium is a ground in which city?",
+   "a": "Pyongyang, North Korea",
+   "cat": "grounds"
+  },
+  {
+   "q": "Where did Marco van Basten take his first coaching job?",
+   "a": "the Netherlands",
+   "cat": "managers"
+  },
+  {
+   "q": "Luka Đorđević is the only player from which country ever to appear for FC Twente?",
+   "a": "Montenegro",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Sergio Ramos join after leaving Paris Saint Germain?",
+   "a": "Sevilla",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 6 for Spain, Euro final 2012?",
+   "a": "Andrés Iniesta"
+  },
+  {
+   "q": "Chang Arena is a ground in which country?",
+   "a": "Thailand",
+   "cat": "grounds"
+  },
+  {
+   "q": "Collin Benjamin is the only Namibia player ever to turn out for which club?",
+   "a": "Hamburger SV",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Stefano Pioli hold between Salernitana and Parma?",
+   "a": "Modena",
+   "cat": "managers"
+  },
+  {
+   "q": "Campos de Sport de El Sardinero is a ground in which city?",
+   "a": "Santander, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Where did Thierry Henry take his first coaching job?",
+   "a": "Belgium",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did this happen: First ever international, vs Belgium?",
+   "a": "1905",
+   "cat": "records"
+  },
+  {
+   "q": "Tayfun Korkut is the only player from which country ever to appear for Real Sociedad?",
+   "a": "Germany",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Kasper Schmeichel join after leaving Nice?",
+   "a": "Anderlecht",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 5 for Argentina, Copa América final 2021?",
+   "a": "Leandro Paredes"
+  },
+  {
+   "q": "Rat Verlegh Stadion is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Julio Dely Valdés is the only Panama player ever to turn out for which club?",
+   "a": "PSG",
+   "cat": "imports"
+  },
+  {
+   "q": "Stožice Stadium is a ground in which city?",
+   "a": "Ljubljana, Slovenia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Where did Morten Olsen take his first coaching job?",
+   "a": "Brondby",
+   "cat": "managers"
+  },
+  {
+   "q": "Ari is the only player from which country ever to appear for AZ?",
+   "a": "Russia",
+   "cat": "imports"
+  },
+  {
+   "q": "Who wore number 9 for France, World Cup final 1998?",
+   "a": "Stéphane Guivarc'h"
+  },
+  {
+   "q": "Tripoli Stadium International is a ground in which country?",
+   "a": "Libya",
+   "cat": "grounds"
+  },
+  {
+   "q": "Lee Dong-gook is the only South Korea player ever to turn out for which club?",
+   "a": "Werder Bremen",
+   "cat": "imports"
+  },
+  {
+   "q": "Alfredo di Stéfano Stadium is a ground in which city?",
+   "a": "Madrid, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Where did Julian Nagelsmann take his first coaching job?",
+   "a": "Hoffenheim",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did this happen: First international: Scotland v England?",
+   "a": "1872",
+   "cat": "records"
+  },
+  {
+   "q": "Miguel Layún is the only player from which country ever to appear for Atalanta?",
+   "a": "Mexico",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Antoine Griezmann join after leaving Atletico Madrid?",
+   "a": "Barcelona",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 11 for Brazil, World Cup final 1970?",
+   "a": "Rivellino"
+  },
+  {
+   "q": "Stade de l'Amitié is a ground in which country?",
+   "a": "Benin",
+   "cat": "grounds"
+  },
+  {
+   "q": "Leo Brian Kokubo is the only Japan player ever to turn out for which club?",
+   "a": "Benfica",
+   "cat": "imports"
+  },
+  {
+   "q": "San Marino Stadium is a ground in which city?",
+   "a": "Serravalle, San Marino",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Mircea Lucescu take after Dynamo Kyiv?",
+   "a": "Romania",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Kenny Dalglish take his first coaching job?",
+   "a": "Liverpool",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did this happen: USA shock England 1-0?",
+   "a": "1950",
+   "cat": "stories"
+  },
+  {
+   "q": "Roony Bardghji is the only player from which country ever to appear for Barcelona?",
+   "a": "Syria",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Davor Šuker join after leaving Arsenal?",
+   "a": "West Ham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 11 for Ajax, Champions League final 1995?",
+   "a": "Marc Overmars"
+  },
+  {
+   "q": "Hasely Crawford Stadium is a ground in which country?",
+   "a": "Trinidad and Tobago",
+   "cat": "grounds"
+  },
+  {
+   "q": "Mitchell Weiser is the only Algeria player ever to turn out for which club?",
+   "a": "Werder Bremen",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Arne Slot hold between AZ Alkmaar and Liverpool?",
+   "a": "Feyenoord",
+   "cat": "managers"
+  },
+  {
+   "q": "Estadio de la Cerámica is a ground in which city?",
+   "a": "Villarreal, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Where did Antonio Conte take his first coaching job?",
+   "a": "Arezzo",
+   "cat": "managers"
+  },
+  {
+   "q": "Sead Hakšabanović is the only player from which country ever to appear for West Ham?",
+   "a": "Montenegro",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Riyad Mahrez join after leaving Manchester City?",
+   "a": "Al Ahli",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 11 for Celtic, European Cup final 1967?",
+   "a": "Bobby Lennox"
+  },
+  {
+   "q": "Changlimithang Stadium is a ground in which country?",
+   "a": "Bhutan",
+   "cat": "grounds"
+  },
+  {
+   "q": "Dmitri Kharine is the only Russia player ever to turn out for which club?",
+   "a": "Celtic",
+   "cat": "imports"
+  },
+  {
+   "q": "Ta' Qali National Stadium is a ground in which city?",
+   "a": "Ta' Qali, Malta",
+   "cat": "grounds"
+  },
+  {
+   "q": "Where did Diego Simeone take his first coaching job?",
+   "a": "Racing Club",
+   "cat": "managers"
+  },
+  {
+   "q": "Maxime Lopez is the only player from which country ever to appear for Fiorentina?",
+   "a": "Algeria",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Cláudio Taffarel join after leaving Atletico Mineiro?",
+   "a": "Galatasaray",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 11 for AC Milan, European Cup final 1989?",
+   "a": "Carlo Ancelotti"
+  },
+  {
+   "q": "Stade 5 Juillet 1962 is a ground in which country?",
+   "a": "Algeria",
+   "cat": "grounds"
+  },
+  {
+   "q": "Jordan Larsson is the only Cape Verde player ever to turn out for which club?",
+   "a": "Schalke 04",
+   "cat": "imports"
+  },
+  {
+   "q": "Cairo International Stadium is a ground in which city?",
+   "a": "Cairo, Egypt",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Ronald Koeman take after the Netherlands?",
+   "a": "Barcelona",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Jacinto Quincoces take his first coaching job?",
+   "a": "Real Zaragoza",
+   "cat": "managers"
+  },
+  {
+   "q": "Jordan Larsson is the only player from which country ever to appear for Barcelona?",
+   "a": "Cape Verde",
+   "cat": "imports"
+  },
+  {
+   "q": "Which club did Victor Osimhen join after leaving Napoli?",
+   "a": "Galatasaray",
+   "cat": "transfers"
+  },
+  {
+   "q": "Who wore number 11 for Netherlands, World Cup final 2010?",
+   "a": "Arjen Robben"
+  },
+  {
+   "q": "Estádio 11 de Novembro is a ground in which country?",
+   "a": "Angola",
+   "cat": "grounds"
+  },
+  {
+   "q": "Amir Rrahmani is the only Kosovo player ever to turn out for which club?",
+   "a": "Napoli",
+   "cat": "imports"
+  },
+  {
+   "q": "Tofiq Bahramov Stadium is a ground in which city?",
+   "a": "Baku, Azerbaijan",
+   "cat": "grounds"
+  },
+  {
+   "q": "Estadio Municipal de Butarque is a ground in which country?",
+   "a": "Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Steve Gohouri is the only Ivory Coast player ever to turn out for which club?",
+   "a": "Mönchengladbach",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Mircea Lucescu hold between Corvinul Hunedoara and Dinamo Bucuresti?",
+   "a": "Romania",
+   "cat": "managers"
+  },
+  {
+   "q": "Strawberry Arena is a ground in which city?",
+   "a": "Solna, Sweden",
+   "cat": "grounds"
+  },
+  {
+   "q": "My Dinh National Stadium is a ground in which country?",
+   "a": "Vietnam",
+   "cat": "grounds"
+  },
+  {
+   "q": "Yann M'Vila is the only Republic of the Congo player ever to turn out for which club?",
+   "a": "Inter",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Luciano Spalletti hold between Empoli and Venezia?",
+   "a": "Sampdoria",
+   "cat": "managers"
+  },
+  {
+   "q": "Astana Arena is a ground in which city?",
+   "a": "Astana, Kazakhstan",
+   "cat": "grounds"
+  },
+  {
+   "q": "Estadio Municipal de Anduva is a ground in which country?",
+   "a": "Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Dejan Petković is the only Serbia player ever to turn out for which club?",
+   "a": "Santos",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Alberto Aquilani hold between Pisa and Sassuolo?",
+   "a": "Catanzaro",
+   "cat": "managers"
+  },
+  {
+   "q": "Panathenaic Stadium is a ground in which city?",
+   "a": "Athens, Greece",
+   "cat": "grounds"
+  },
+  {
+   "q": "National Stadium of Peru is a ground in which country?",
+   "a": "Peru",
+   "cat": "grounds"
+  },
+  {
+   "q": "Vikash Dhorasoo is the only Mauritius player ever to turn out for which club?",
+   "a": "AC Milan",
+   "cat": "imports"
+  },
+  {
+   "q": "Parc Olympique Lyonnais is a ground in which city?",
+   "a": "Metropolis of Lyon, France",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Thierry Henry take after AS Monaco?",
+   "a": "CF Montreal",
+   "cat": "managers"
+  },
+  {
+   "q": "Estadio Nueva Condomina is a ground in which country?",
+   "a": "Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Eddy Silvestre Pascual Israfilov is the only Azerbaijan player ever to turn out for which club?",
+   "a": "AC Milan",
+   "cat": "imports"
+  },
+  {
+   "q": "Loftus Versfeld Stadium is a ground in which city?",
+   "a": "Pretoria, South Africa",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Steve McClaren take after Nottingham Forest?",
+   "a": "Twente",
+   "cat": "managers"
+  },
+  {
+   "q": "Bunyodkor Stadium is a ground in which country?",
+   "a": "Uzbekistan",
+   "cat": "grounds"
+  },
+  {
+   "q": "Daniel Cousin is the only Gabon player ever to turn out for which club?",
+   "a": "Rangers",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Osvaldo Ardiles hold between Shimizu S Pulse and Tokyo Verdy?",
+   "a": "Yokohama F Marinos",
+   "cat": "managers"
+  },
+  {
+   "q": "Millennium Stadium is a ground in which city?",
+   "a": "Cardiff, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Campos de Sport de El Sardinero is a ground in which country?",
+   "a": "Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Grigoris Kastanos is the only Cyprus player ever to turn out for which club?",
+   "a": "Juventus",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Peter Bosz hold between Ajax and PSV?",
+   "a": "Lyon",
+   "cat": "managers"
+  },
+  {
+   "q": "BC Place is a ground in which city?",
+   "a": "Vancouver, Canada",
+   "cat": "grounds"
+  },
+  {
+   "q": "Stožice Stadium is a ground in which country?",
+   "a": "Slovenia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Lukas Spalvis is the only Lithuania player ever to turn out for which club?",
+   "a": "Sporting CP",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Claude Makelélé hold between Bastia and Asteras?",
+   "a": "Eupen",
+   "cat": "managers"
+  },
+  {
+   "q": "Rostec Arena is a ground in which city?",
+   "a": "Kaliningrad, Russia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Serhii Rebrov take after Al Ahli?",
+   "a": "Ferencvaros",
+   "cat": "managers"
+  },
+  {
+   "q": "Alfredo di Stéfano Stadium is a ground in which country?",
+   "a": "Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Abel Xavier is the only Mozambique player ever to turn out for which club?",
+   "a": "PSV",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Thiago Motta hold between Genoa and Bologna?",
+   "a": "Spezia",
+   "cat": "managers"
+  },
+  {
+   "q": "Mordovia Arena is a ground in which city?",
+   "a": "Saransk, Russia",
+   "cat": "grounds"
+  },
+  {
+   "q": "San Marino Stadium is a ground in which country?",
+   "a": "San Marino",
+   "cat": "grounds"
+  },
+  {
+   "q": "Samuele Longo is the only Italy player ever to turn out for which club?",
+   "a": "Tenerife",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Kunishige Kamamoto hold between Cerezo Osaka and Fujieda Myfc?",
+   "a": "Gamba Osaka",
+   "cat": "managers"
+  },
+  {
+   "q": "Hampden Park is a ground in which city?",
+   "a": "Glasgow, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Andoni Iraola take after Mirandes?",
+   "a": "Rayo Vallecano",
+   "cat": "managers"
+  },
+  {
+   "q": "Stadion De Boschpoort is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Terence Kongolo is the only Switzerland player ever to turn out for which club?",
+   "a": "Feyenoord",
+   "cat": "imports"
+  },
+  {
+   "q": "FNB Stadium is a ground in which city?",
+   "a": "Johannesburg, South Africa",
+   "cat": "grounds"
+  },
+  {
+   "q": "Ta' Qali National Stadium is a ground in which country?",
+   "a": "Malta",
+   "cat": "grounds"
+  },
+  {
+   "q": "Carlos Martínez is the only Dominican Republic player ever to turn out for which club?",
+   "a": "Villarreal",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Sergio González Soriano hold between Espanyol and Valladolid?",
+   "a": "Catalonia",
+   "cat": "managers"
+  },
+  {
+   "q": "London Stadium is a ground in which city?",
+   "a": "Stratford, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Fabio Grosso take after Lyon?",
+   "a": "Sassuolo",
+   "cat": "managers"
+  },
+  {
+   "q": "Atik Stadion is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Hatem Trabelsi is the only Tunisia player ever to turn out for which club?",
+   "a": "Ajax",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Ronald Koeman hold between the Netherlands and Vitesse?",
+   "a": "Barcelona",
+   "cat": "managers"
+  },
+  {
+   "q": "Wembley Stadium is a ground in which city?",
+   "a": "London, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Fernando Santos take after FC Porto?",
+   "a": "Aek Athens",
+   "cat": "managers"
+  },
+  {
+   "q": "Cairo International Stadium is a ground in which country?",
+   "a": "Egypt",
+   "cat": "grounds"
+  },
+  {
+   "q": "Vitālijs Maksimenko is the only Latvia player ever to turn out for which club?",
+   "a": "VVV-Venlo",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Josep Samitier hold between Atletico Madrid and Barcelona?",
+   "a": "Nice",
+   "cat": "managers"
+  },
+  {
+   "q": "Metropolitano Stadium is a ground in which city?",
+   "a": "Madrid, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Stadion De Braak is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Marius Stankevičius is the only Lithuania player ever to turn out for which club?",
+   "a": "Valencia",
+   "cat": "imports"
+  },
+  {
+   "q": "Zayed Sports City Stadium is a ground in which city?",
+   "a": "Abu Dhabi, United Arab Emirates",
+   "cat": "grounds"
+  },
+  {
+   "q": "Tofiq Bahramov Stadium is a ground in which country?",
+   "a": "Azerbaijan",
+   "cat": "grounds"
+  },
+  {
+   "q": "Daniel Svensson is the only Sweden player ever to turn out for which club?",
+   "a": "Borussia Dortmund",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Christoph Daum hold between Köln and Besiktas?",
+   "a": "VFB Stuttgart",
+   "cat": "managers"
+  },
+  {
+   "q": "Campo de Fútbol de Vallecas is a ground in which city?",
+   "a": "Madrid, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "De Vliert is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Andres Oper is the only Estonia player ever to turn out for which club?",
+   "a": "Roda JC",
+   "cat": "imports"
+  },
+  {
+   "q": "Stade Josy Barthel is a ground in which city?",
+   "a": "Luxembourg City, Luxembourg",
+   "cat": "grounds"
+  },
+  {
+   "q": "De Geusselt is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Mark González is the only South Africa player ever to turn out for which club?",
+   "a": "Real Betis",
+   "cat": "imports"
+  },
+  {
+   "q": "Estadio Municipal de Abanca Riazor is a ground in which city?",
+   "a": "A Coruña, Spain",
+   "cat": "grounds"
+  },
+  {
+   "q": "Diekman Stadion is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Mohamed Zidan is the only Egypt player ever to turn out for which club?",
+   "a": "Borussia Dortmund",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Marco van Basten hold between the Netherlands and SC Heerenveen?",
+   "a": "Ajax",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Dennis Wise take his first coaching job?",
+   "a": "Millwall",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Diego Costa join after leaving Wolves?",
+   "a": "Botafogo",
+   "cat": "transfers"
+  },
+  {
+   "q": "BUKO Stadion is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Vincenzo Montella and Luciano Spalletti managed?",
+   "a": "Sampdoria",
+   "cat": "managers"
+  },
+  {
+   "q": "Nikos Machlas is the only Greece player ever to turn out for which club?",
+   "a": "Vitesse",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Johan Cruyff hold between Ajax and Catalonia?",
+   "a": "Barcelona",
+   "cat": "managers"
+  },
+  {
+   "q": "Air Albania Stadium is a ground in which city?",
+   "a": "Tirana, Albania",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Dennis Wise take after Swindon Town?",
+   "a": "Leeds United",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Oliver Glasner take his first coaching job?",
+   "a": "Ried",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Pepe join after leaving Besiktas?",
+   "a": "FC Porto",
+   "cat": "transfers"
+  },
+  {
+   "q": "Mahamasina Municipal Stadium is a ground in which country?",
+   "a": "Madagascar",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Brendan Rodgers and Roberto Martínez managed?",
+   "a": "Swansea City",
+   "cat": "managers"
+  },
+  {
+   "q": "Fernando Amorebieta is the only Venezuela player ever to turn out for which club?",
+   "a": "Athletic Bilbao",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Dennis Wise hold between Millwall and Swindon Town?",
+   "a": "Southampton",
+   "cat": "managers"
+  },
+  {
+   "q": "GSP Stadium is a ground in which city?",
+   "a": "Nicosia, Cyprus",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Oliver Glasner take after Crystal Palace?",
+   "a": "Nottingham Forest",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Michel Preud'homme take his first coaching job?",
+   "a": "Standard Liege",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Bruno Fernandes join after leaving Sampdoria?",
+   "a": "Sporting CP",
+   "cat": "transfers"
+  },
+  {
+   "q": "Estádio Nacional 12 de Julho is a ground in which country?",
+   "a": "São Tomé and Príncipe",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Luis Fernandez and Ricardo Zamora managed?",
+   "a": "Espanyol",
+   "cat": "managers"
+  },
+  {
+   "q": "Nestor Irankunda is the only Australia player ever to turn out for which club?",
+   "a": "Bayern Munich",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Oliver Glasner hold between Ried and Wolfsburg?",
+   "a": "LASK",
+   "cat": "managers"
+  },
+  {
+   "q": "Podgorica City Stadium is a ground in which city?",
+   "a": "Podgorica, Montenegro",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Tuncay Şanlı take after Sakaryaspor?",
+   "a": "Umraniyespor",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Enzo Maresca take his first coaching job?",
+   "a": "Parma",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Olivier Giroud join after leaving Milan?",
+   "a": "Los Angeles FC",
+   "cat": "transfers"
+  },
+  {
+   "q": "Tuvalu Sports Ground is a ground in which country?",
+   "a": "Tuvalu",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Fabio Grosso and Alberto Aquilani managed?",
+   "a": "Sassuolo",
+   "cat": "managers"
+  },
+  {
+   "q": "Faysal Shayesteh is the only Afghanistan player ever to turn out for which club?",
+   "a": "Heerenveen",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Tuncay Şanlı hold between Sakaryaspor and Corum?",
+   "a": "Umraniyespor",
+   "cat": "managers"
+  },
+  {
+   "q": "Hrazdan Stadium is a ground in which city?",
+   "a": "Yerevan, Armenia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Michel Preud'homme take after Al Shabab?",
+   "a": "Club Brugge",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Jon Dahl Tomasson take his first coaching job?",
+   "a": "Excelsior Rotterdam",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Simon Mignolet join after leaving Sunderland?",
+   "a": "Liverpool",
+   "cat": "transfers"
+  },
+  {
+   "q": "Stade du 28 Septembre is a ground in which country?",
+   "a": "Guinea",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which club have both Alberto Gilardino and Filippo Inzaghi managed?",
+   "a": "Pisa",
+   "cat": "managers"
+  },
+  {
+   "q": "Alexander Callens is the only Peru player ever to turn out for which club?",
+   "a": "Real Sociedad",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Michel Preud'homme hold between Standard Liege and Twente?",
+   "a": "Gent",
+   "cat": "managers"
+  },
+  {
+   "q": "King Baudouin Stadium is a ground in which city?",
+   "a": "Brussels, Belgium",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Enzo Maresca take after Parma?",
+   "a": "Leicester",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Scott Parker take his first coaching job?",
+   "a": "Fulham",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Emile Heskey join after leaving Aston Villa?",
+   "a": "Newcastle Jets",
+   "cat": "transfers"
+  },
+  {
+   "q": "Kras Stadion is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Ludwig Augustinsson is the only Sweden player ever to turn out for which club?",
+   "a": "Sevilla",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Albert Riera hold between Olimpija and Bordeaux?",
+   "a": "Celje",
+   "cat": "managers"
+  },
+  {
+   "q": "Aviva Stadium is a ground in which city?",
+   "a": "Dublin, Ireland",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Jon Dahl Tomasson take after Roda Jc Kerkrade?",
+   "a": "Malmo",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Mark Hughes take his first coaching job?",
+   "a": "Wales",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Claude Makélélé join after leaving Chelsea?",
+   "a": "Paris Saint Germain",
+   "cat": "transfers"
+  },
+  {
+   "q": "De Oude Meerdijk is a ground in which country?",
+   "a": "Netherlands",
+   "cat": "grounds"
+  },
+  {
+   "q": "Luka Đorđević is the only Montenegro player ever to turn out for which club?",
+   "a": "FC Twente",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Enzo Maresca hold between Parma and Chelsea?",
+   "a": "Leicester",
+   "cat": "managers"
+  },
+  {
+   "q": "Melbourne Cricket Ground is a ground in which city?",
+   "a": "Melbourne, Australia",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Scott Parker take after Fulham?",
+   "a": "Bournemouth",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Laurent Blanc take his first coaching job?",
+   "a": "Bordeaux",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Robbie Fowler join after leaving Manchester City?",
+   "a": "Liverpool",
+   "cat": "transfers"
+  },
+  {
+   "q": "Tayfun Korkut is the only Germany player ever to turn out for which club?",
+   "a": "Real Sociedad",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Jon Dahl Tomasson hold between Excelsior Rotterdam and Malmo?",
+   "a": "Roda Jc Kerkrade",
+   "cat": "managers"
+  },
+  {
+   "q": "AT&T Stadium is a ground in which city?",
+   "a": "Arlington, United States",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Mark Hughes take after Fulham?",
+   "a": "Queens Park Rangers",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Jupp Heynckes take his first coaching job?",
+   "a": "Borussia Monchengladbach",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Roy Makaay join after leaving Bayern München?",
+   "a": "Feyenoord",
+   "cat": "transfers"
+  },
+  {
+   "q": "Igor Dobrovolski is the only Russia player ever to turn out for which club?",
+   "a": "Atlético Madrid",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Scott Parker hold between Fulham and Club Brugge?",
+   "a": "Bournemouth",
+   "cat": "managers"
+  },
+  {
+   "q": "Free State Stadium is a ground in which city?",
+   "a": "Bloemfontein, South Africa",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Sami Hyypiä take after Brighton?",
+   "a": "Zürich",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Gennaro Gattuso take his first coaching job?",
+   "a": "Palermo",
+   "cat": "managers"
+  },
+  {
+   "q": "Which club did Clint Dempsey join after leaving Tottenham?",
+   "a": "Seattle Sounders FC",
+   "cat": "transfers"
+  },
+  {
+   "q": "Ari is the only Russia player ever to turn out for which club?",
+   "a": "AZ",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Mark Hughes hold between Wales and Manchester City?",
+   "a": "Blackburn Rovers",
+   "cat": "managers"
+  },
+  {
+   "q": "Selhurst Park is a ground in which city?",
+   "a": "South Norwood, United Kingdom",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Takuya Takagi take after Tokyo Verdy?",
+   "a": "Roasso Kumamoto",
+   "cat": "managers"
+  },
+  {
+   "q": "Which job did Johan Cruyff take after Ajax?",
+   "a": "Barcelona",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Lothar Matthäus take his first coaching job?",
+   "a": "Rapid Vienna",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did this happen: Italy thrashed 4-0 in Kyiv final?",
+   "a": "2012",
+   "cat": "champions"
+  },
+  {
+   "q": "Which club did Roberto Baggio join after leaving Bologna?",
+   "a": "Inter",
+   "cat": "transfers"
+  },
+  {
+   "q": "Miguel Layún is the only Mexico player ever to turn out for which club?",
+   "a": "Atalanta",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Sami Hyypiä hold between Bayer Leverkusen and Zürich?",
+   "a": "Brighton",
+   "cat": "managers"
+  },
+  {
+   "q": "Moses Mabhida Stadium is a ground in which city?",
+   "a": "Durban, South Africa",
+   "cat": "grounds"
+  },
+  {
+   "q": "Which job did Walter Samuel take after Lugano?",
+   "a": "Argentina",
+   "cat": "managers"
+  },
+  {
+   "q": "Where did Aitor Karanka take his first coaching job?",
+   "a": "Middlesbrough",
+   "cat": "managers"
+  },
+  {
+   "q": "In which year did this happen: Fourth place in Brazil?",
+   "a": "1950",
+   "cat": "champions"
+  },
+  {
+   "q": "Which club did Freddie Ljungberg join after leaving Arsenal?",
+   "a": "West Ham",
+   "cat": "transfers"
+  },
+  {
+   "q": "Roony Bardghji is the only Syria player ever to turn out for which club?",
+   "a": "Barcelona",
+   "cat": "imports"
+  },
+  {
+   "q": "Which job did Takuya Takagi hold between Yokohama FC and Roasso Kumamoto?",
+   "a": "Tokyo Verdy",
+   "cat": "managers"
+  },
+  {
+   "q": "Waldstadion is a ground in which city?",
+   "a": "Frankfurt, Germany",
+   "cat": "grounds"
+  },
+  {
+   "q": "Who wore number 2 for Real Madrid, Champions League final 2002?",
+   "a": "Míchel Salgado"
+  },
+  {
+   "q": "Who wore number 2 for Argentina, World Cup final 1978?",
+   "a": "Osvaldo Ardiles"
+  },
+  {
+   "q": "Who wore number 2 for Denmark, Euro final 1992?",
+   "a": "John Sivebæk"
+  },
+  {
+   "q": "Who wore number 2 for Italy, Euro final 2020?",
+   "a": "Giovanni Di Lorenzo"
+  },
+  {
+   "q": "Who wore number 2 for PSV Eindhoven, European Cup final 1988?",
+   "a": "Eric Gerets"
+  },
+  {
+   "q": "Who wore number 2 for Argentina, World Cup final 1986?",
+   "a": "Sergio Batista"
+  },
+  {
+   "q": "Who wore number 2 for Real Madrid, European Cup final 1960?",
+   "a": "Marquitos"
+  },
+  {
+   "q": "Who wore number 2 for Barcelona, European Cup final 1992?",
+   "a": "Nando"
+  },
+  {
+   "q": "Who wore number 2 for Real Madrid, Champions League final 2014?",
+   "a": "Raphaël Varane"
+  },
+  {
+   "q": "Who wore number 2 for Brazil, World Cup final 1994?",
+   "a": "Jorginho"
+  },
+  {
+   "q": "Who wore the armband for Ajax, European Cup final 1972?",
+   "a": "Piet Keizer"
+  },
+  {
+   "q": "Who wore number 2 for Manchester United, European Cup final 1968?",
+   "a": "Shay Brennan"
+  },
+  {
+   "q": "Who wore number 2 for Netherlands, World Cup final 1974?",
+   "a": "Arie Haan"
+  },
+  {
+   "q": "Who wore number 2 for Netherlands, Euro final 1988?",
+   "a": "Adri van Tiggelen"
+  },
+  {
+   "q": "Who wore number 2 for AC Milan, European Cup final 1989?",
+   "a": "Mauro Tassotti"
+  },
+  {
+   "q": "Who wore number 2 for Greece, Euro final 2004?",
+   "a": "Giourkas Seitaridis"
+  },
+  {
+   "q": "Who wore number 2 for Celtic, European Cup final 1967?",
+   "a": "Jim Craig"
+  },
+  {
+   "q": "Who wore number 2 for Brazil, World Cup final 1970?",
+   "a": "Brito"
+  }
+ ],
+ "easy": [
+  {
+   "q": "Who wore the armband for Argentina, World Cup final 2022?",
+   "a": "Lionel Messi"
+  },
+  {
+   "q": "Who wore the armband for Portugal, Euro final 2016?",
+   "a": "Cristiano Ronaldo"
+  }
+ ],
+ "normal": [
+  {
+   "q": "Who wore the armband for Spain, Euro final 2008?",
+   "a": "Iker Casillas"
+  },
+  {
+   "q": "Who wore the armband for Netherlands, World Cup final 1974?",
+   "a": "Johan Cruyff"
+  },
+  {
+   "q": "Who wore the armband for Brazil, World Cup final 2002?",
+   "a": "Cafu"
+  },
+  {
+   "q": "Who wore the armband for Liverpool, Champions League final 2005?",
+   "a": "Steven Gerrard"
+  },
+  {
+   "q": "Who wore number 2 for Manchester United, Champions League final 1999?",
+   "a": "Gary Neville"
+  },
+  {
+   "q": "Who wore the armband for Spain, World Cup final 2010?",
+   "a": "Iker Casillas"
+  },
+  {
+   "q": "Who wore the armband for Netherlands, World Cup final 2010?",
+   "a": "Giovanni van Bronckhorst"
+  },
+  {
+   "q": "Who wore the armband for West Germany, World Cup final 1990?",
+   "a": "Lothar Matthäus"
+  },
+  {
+   "q": "Who wore the armband for France, World Cup final 2018?",
+   "a": "Hugo Lloris"
+  },
+  {
+   "q": "What was Ferenc Puskás nicknamed?",
+   "a": "The Galloping Major",
+   "cat": "records"
+  },
+  {
+   "q": "Who managed Greece to the Euro 2004 title?",
+   "a": "Otto Rehhagel",
+   "cat": "managers"
+  }
+ ]
+}

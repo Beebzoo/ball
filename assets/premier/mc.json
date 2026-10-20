@@ -1,0 +1,4852 @@
+{
+ "easy": [
+  {
+   "q": "Which club won the Premier League in 2019-20, ending a thirty-year wait for a league title?",
+   "a": "Liverpool",
+   "o": [
+    "Leeds United",
+    "Manchester City",
+    "Liverpool",
+    "Aston Villa"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the Premier League in 2011-12 on goal difference, with the last kick of the season?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Manchester United",
+    "Manchester City",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won back-to-back Premier League titles in 2004-05 and 2005-06 under Jose Mourinho?",
+   "a": "Chelsea",
+   "o": [
+    "Manchester City",
+    "Leeds United",
+    "Everton",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 1994-95 Premier League, their only title of the Premier League era?",
+   "a": "Blackburn Rovers",
+   "o": [
+    "Birmingham City",
+    "Derby County",
+    "Blackburn Rovers",
+    "Bristol City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2016-17 Premier League?",
+   "a": "Harry Kane",
+   "o": [
+    "Harry Kane",
+    "Kingsley Coman",
+    "Danny Welbeck",
+    "Nathan Redmond"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2017-18 Premier League?",
+   "a": "Mohamed Salah",
+   "o": [
+    "Mohamed Salah",
+    "Sadio Mané",
+    "Álvaro Morata",
+    "Danny Welbeck"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2019-20 Premier League?",
+   "a": "Jamie Vardy",
+   "o": [
+    "Gabriel Agbonlahor",
+    "Danny Welbeck",
+    "Jamie Vardy",
+    "Jermain Defoe"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2020-21 Premier League?",
+   "a": "Harry Kane",
+   "o": [
+    "Ivan Toney",
+    "Harry Kane",
+    "Wilfried Zaha",
+    "Kingsley Coman"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2021-22 Premier League?",
+   "a": "Mohamed Salah",
+   "o": [
+    "Federico Bernardeschi",
+    "Ante Rebić",
+    "Mohamed Salah",
+    "Sadio Mané"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2022-23 Premier League?",
+   "a": "Erling Haaland",
+   "o": [
+    "Alexander Isak",
+    "Erling Haaland",
+    "Julián Álvarez",
+    "Benjamin Šeško"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2023-24 Premier League?",
+   "a": "Erling Haaland",
+   "o": [
+    "Alexander Isak",
+    "Liam Delap",
+    "Karim Adeyemi",
+    "Erling Haaland"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the top scorer in the 2024-25 Premier League?",
+   "a": "Mohamed Salah",
+   "o": [
+    "Mohamed Salah",
+    "Danny Welbeck",
+    "Mario Balotelli",
+    "Pierre-Emerick Aubameyang"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2025-26 Premier League?",
+   "a": "Erling Haaland",
+   "o": [
+    "Alexander Isak",
+    "Julián Álvarez",
+    "Erling Haaland",
+    "Gabriel Jesus"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spaniard took over at Manchester City in 2016?",
+   "a": "Pep Guardiola",
+   "o": [
+    "Mark van Bommel",
+    "Deco",
+    "Robert Prosinečki",
+    "Pep Guardiola"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which striker scored thirty-four goals in 1994-95 and won the title with Blackburn Rovers?",
+   "a": "Alan Shearer",
+   "o": [
+    "Dwight Yorke",
+    "Steve McManaman",
+    "Patrick Kluivert",
+    "Alan Shearer"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Norwegian striker scored thirty-six league goals in his first Premier League season with Manchester City?",
+   "a": "Erling Haaland",
+   "o": [
+    "Fábio Silva",
+    "Gabriel Jesus",
+    "Erling Haaland",
+    "Karim Adeyemi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Egyptian forward scored thirty-two league goals for Liverpool in 2017-18?",
+   "a": "Mohamed Salah",
+   "o": [
+    "Andrea Belotti",
+    "Ricky van Wolfswinkel",
+    "Mohamed Salah",
+    "Danny Welbeck"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Frenchman won the Premier League Golden Boot four times with Arsenal?",
+   "a": "Thierry Henry",
+   "o": [
+    "Sylvain Wiltord",
+    "Luca Toni",
+    "Robin van Persie",
+    "Thierry Henry"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which England striker won the Premier League Golden Boot three times while at Tottenham?",
+   "a": "Harry Kane",
+   "o": [
+    "Ivan Toney",
+    "Nathan Redmond",
+    "Raheem Sterling",
+    "Harry Kane"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Manchester United winger scored thirty-one league goals in 2007-08 before leaving for Real Madrid?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Arjen Robben",
+    "Cristiano Ronaldo",
+    "Emmanuel Adebayor",
+    "Fernando Llorente"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Cristiano Ronaldo join from Manchester United in 2009?",
+   "a": "Real Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Real Sociedad",
+    "Sevilla",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Frenchman did Manchester United re-sign from Juventus in 2016?",
+   "a": "Paul Pogba",
+   "o": [
+    "Thomas Lemar",
+    "Antoine Griezmann",
+    "Paul Pogba",
+    "Yannick Carrasco"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Watford 6-0 in the 2019 FA Cup final?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Manchester City",
+    "Aston Villa",
+    "Arsenal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "By the end of the 2024-25 season, which club had won the FA Cup more times than any other?",
+   "a": "Arsenal",
+   "o": [
+    "Manchester United",
+    "Chelsea",
+    "Arsenal",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Manchester City 1-0 in the 2025 FA Cup final to win their first major trophy?",
+   "a": "Crystal Palace",
+   "o": [
+    "Fulham",
+    "Crystal Palace",
+    "Brentford",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "In which city were the FA Cup finals played from 2001 to 2006, while Wembley was being rebuilt?",
+   "a": "Cardiff",
+   "o": [
+    "Birmingham City",
+    "Cardiff",
+    "Lincoln City",
+    "Bristol City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2020 FA Cup final 2-1 against Chelsea, in an empty Wembley?",
+   "a": "Arsenal",
+   "o": [
+    "Leeds United",
+    "Arsenal",
+    "Liverpool",
+    "Everton"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2025 League Cup final, their first major domestic trophy since 1955?",
+   "a": "Newcastle United",
+   "o": [
+    "Newcastle United",
+    "Nottingham Forest",
+    "Aston Villa",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club beat Manchester City 2-1 in the 2024 FA Cup final?",
+   "a": "Manchester United",
+   "o": [
+    "Arsenal",
+    "Everton",
+    "Manchester United",
+    "Liverpool"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2023 FA Cup final, the first to be contested by both Manchester clubs?",
+   "a": "Manchester City",
+   "o": [
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Manchester City",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Chelsea beat 1-0 in the 2018 FA Cup final?",
+   "a": "Manchester United",
+   "o": [
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Manchester City",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2014 FA Cup final 3-2 against Hull City after extra time?",
+   "a": "Arsenal",
+   "o": [
+    "Everton",
+    "Manchester City",
+    "Liverpool",
+    "Arsenal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2012 FA Cup final, beating Liverpool 2-1 at Wembley?",
+   "a": "Chelsea",
+   "o": [
+    "Manchester United",
+    "Newcastle United",
+    "Chelsea",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which German club did Manchester United beat 2-1 in the 1999 Champions League final?",
+   "a": "Bayern Munich",
+   "o": [
+    "Hamburger",
+    "1. FC Union Berlin",
+    "Bayern Munich",
+    "Schalke 04"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English club trailed 3-0 at half time in the 2005 Champions League final and still lifted the trophy?",
+   "a": "Liverpool",
+   "o": [
+    "Manchester United",
+    "Arsenal",
+    "Nottingham Forest",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club won the 2012 Champions League final on penalties in Bayern Munich's own stadium?",
+   "a": "Chelsea",
+   "o": [
+    "Nottingham Forest",
+    "Chelsea",
+    "Tottenham Hotspur",
+    "Manchester United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the Champions League in 2022-23, the first European Cup in their history?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester United",
+    "Manchester City",
+    "Chelsea",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club did Brian Clough lead to two European Cups, in 1979 and 1980?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Newcastle United",
+    "Nottingham Forest",
+    "Leeds United",
+    "Aston Villa"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club lost the 2026 Champions League final to Paris Saint-Germain on penalties?",
+   "a": "Arsenal",
+   "o": [
+    "Newcastle United",
+    "Arsenal",
+    "Nottingham Forest",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club became the first English winners of the European Cup, in 1968?",
+   "a": "Manchester United",
+   "o": [
+    "Leeds United",
+    "Manchester United",
+    "Manchester City",
+    "Aston Villa"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club won the Europa Conference League in 2023?",
+   "a": "West Ham United",
+   "o": [
+    "Blackburn Rovers",
+    "Charlton Athletic",
+    "Lincoln City",
+    "West Ham United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club won the 2026 Conference League, their first European trophy?",
+   "a": "Crystal Palace",
+   "o": [
+    "Crystal Palace",
+    "Coventry City",
+    "Brentford",
+    "Ipswich Town"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Liverpool captain started the comeback in the 2005 Champions League final?",
+   "a": "Steven Gerrard",
+   "o": [
+    "Kevin Nolan",
+    "Frank Lampard",
+    "Steven Gerrard",
+    "David Beckham"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club plays its home games at Stamford Bridge?",
+   "a": "Chelsea",
+   "o": [
+    "Newcastle United",
+    "Leeds United",
+    "Chelsea",
+    "Arsenal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club played its home games at the Etihad Stadium in 2024-25?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester City",
+    "Aston Villa",
+    "Nottingham Forest",
+    "Liverpool"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club played at Goodison Park until 2025?",
+   "a": "Everton",
+   "o": [
+    "Newcastle United",
+    "Chelsea",
+    "Everton",
+    "Arsenal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club plays its home games at Craven Cottage, on the bank of the Thames?",
+   "a": "Fulham",
+   "o": [
+    "Brentford",
+    "Fulham",
+    "Sunderland",
+    "Crystal Palace"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club moved into the London Stadium, built for the 2012 Olympics, in 2016?",
+   "a": "West Ham United",
+   "o": [
+    "Cardiff City",
+    "Birmingham City",
+    "West Ham United",
+    "Burnley"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club has a cannon on its crest?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club has a liver bird on its crest?",
+   "a": "Liverpool",
+   "o": [
+    "Liverpool",
+    "Arsenal",
+    "Manchester City",
+    "Manchester United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club has a cockerel standing on a ball on its crest?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Leeds United",
+    "Aston Villa",
+    "Arsenal",
+    "Tottenham Hotspur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which French forward did Manchester United sign from Leeds United in November 1992?",
+   "a": "Eric Cantona",
+   "o": [
+    "George Weah",
+    "Andy Cole",
+    "Eric Cantona",
+    "Rudi Völler"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch forward did Arsenal sign from Inter Milan in 1995?",
+   "a": "Dennis Bergkamp",
+   "o": [
+    "Giovanni van Bronckhorst",
+    "Paul Ince",
+    "Matthias Sammer",
+    "Dennis Bergkamp"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Italian forward did Chelsea sign from Parma in November 1996?",
+   "a": "Gianfranco Zola",
+   "o": [
+    "Marcel Desailly",
+    "Emmanuel Petit",
+    "Roberto Mancini",
+    "Gianfranco Zola"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German striker did Tottenham Hotspur sign from Monaco in 1994?",
+   "a": "Jurgen Klinsmann",
+   "o": [
+    "Jurgen Klinsmann",
+    "Salvatore Schillaci",
+    "Gianluca Vialli",
+    "Jean-Pierre Papin"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Czech goalkeeper did Chelsea sign from Rennes in 2004?",
+   "a": "Petr Cech",
+   "o": [
+    "Thiago Silva",
+    "Petr Cech",
+    "Alexander Hleb",
+    "Santi Cazorla"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Dutch defender did Liverpool sign from Southampton in January 2018?",
+   "a": "Virgil van Dijk",
+   "o": [
+    "Martin Kelly",
+    "Virgil van Dijk",
+    "Stefan de Vrij",
+    "Bruno Martins Indi"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Senegalese forward did Liverpool sign from Southampton in 2016?",
+   "a": "Sadio Mane",
+   "o": [
+    "Mohamed Salah",
+    "Harry Kane",
+    "Theo Walcott",
+    "Sadio Mane"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which French midfielder did Arsenal sign from AC Milan in 1996 and later make club captain?",
+   "a": "Patrick Vieira",
+   "o": [
+    "Zinedine Zidane",
+    "Patrick Vieira",
+    "Robert Pirès",
+    "Gennaro Gattuso"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Frenchman won the Premier League with Leicester City in 2015-16 and with Chelsea in 2016-17?",
+   "a": "N'Golo Kante",
+   "o": [
+    "Jordan Henderson",
+    "Eden Hazard",
+    "Mateo Kovačić",
+    "N'Golo Kante"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Algerian winger was named PFA Players' Player of the Year in 2016 while at Leicester City?",
+   "a": "Riyad Mahrez",
+   "o": [
+    "Jean-Philippe Mateta",
+    "Sergio Agüero",
+    "Riyad Mahrez",
+    "Edin Džeko"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Belgian defender captained Manchester City to the Premier League title in 2011-12?",
+   "a": "Vincent Kompany",
+   "o": [
+    "Ben Mee",
+    "Gaël Clichy",
+    "Vincent Kompany",
+    "Jérôme Boateng"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Serbian defender did Manchester United sign from Spartak Moscow, joining in January 2006?",
+   "a": "Nemanja Vidic",
+   "o": [
+    "Diego Godín",
+    "Fabio Grosso",
+    "Nemanja Vidic",
+    "Rio Ferdinand"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which South Korean did Manchester United sign from PSV Eindhoven in 2005?",
+   "a": "Park Ji-sung",
+   "o": [
+    "Gary O'Neil",
+    "Dries Mertens",
+    "Park Ji-sung",
+    "Darren Fletcher"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the Premier League in 2025-26, ending a wait of twenty-two years?",
+   "a": "Arsenal",
+   "o": [
+    "Everton",
+    "Manchester City",
+    "Newcastle United",
+    "Arsenal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won four Premier League titles in a row from 2020-21 to 2023-24?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester City",
+    "Tottenham Hotspur",
+    "Newcastle United",
+    "Arsenal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the Premier League in 2013-14 under Manuel Pellegrini?",
+   "a": "Manchester City",
+   "o": [
+    "Tottenham Hotspur",
+    "Everton",
+    "Chelsea",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the Premier League in 2016-17 under Antonio Conte?",
+   "a": "Chelsea",
+   "o": [
+    "Newcastle United",
+    "Everton",
+    "Chelsea",
+    "Aston Villa"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the Premier League three seasons in a row from 2006-07 to 2008-09?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester United",
+    "Manchester City",
+    "Leeds United",
+    "Tottenham Hotspur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which year did the Premier League replace the First Division as England's top flight?",
+   "a": "1992",
+   "o": [
+    "1996",
+    "1992",
+    "1986",
+    "1989"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Dutchman took over as Liverpool manager in 2024?",
+   "a": "Arne Slot",
+   "o": [
+    "Mark van Bommel",
+    "Arne Slot",
+    "David Beckham",
+    "Ronaldinho"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Pep Guardiola manage before joining Manchester City?",
+   "a": "Bayern Munich",
+   "o": [
+    "Hamburger",
+    "Bayern Munich",
+    "1. FC Union Berlin",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Harry Kane join from Tottenham Hotspur in 2023?",
+   "a": "Bayern Munich",
+   "o": [
+    "Hamburger",
+    "Bayer 04 Leverkusen",
+    "VfB Stuttgart",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Declan Rice join from West Ham United in 2023?",
+   "a": "Arsenal",
+   "o": [
+    "Newcastle United",
+    "Arsenal",
+    "Leeds United",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Jack Grealish leave for Manchester City in 2021?",
+   "a": "Aston Villa",
+   "o": [
+    "Liverpool",
+    "Bournemouth",
+    "Aston Villa",
+    "Brighton & Hove Albion"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which striker scored 260 Premier League goals for Blackburn Rovers and Newcastle United?",
+   "a": "Alan Shearer",
+   "o": [
+    "James Beattie",
+    "Teddy Sheringham",
+    "Alan Shearer",
+    "David Ginola"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Manchester City striker scored five goals against Newcastle United in October 2015?",
+   "a": "Sergio Aguero",
+   "o": [
+    "Sergio Aguero",
+    "Carlos Tevez",
+    "Pierre-Emerick Aubameyang",
+    "Robert Lewandowski"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Manchester United striker scored a hat-trick in the 8-2 win over Arsenal in August 2011?",
+   "a": "Wayne Rooney",
+   "o": [
+    "Matty James",
+    "Wayne Rooney",
+    "Fabian Delph",
+    "Tom Cleverley"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which forward returned to Manchester United in 2021 and was their leading league scorer that season?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Edinson Cavani",
+    "Klaas-Jan Huntelaar",
+    "Cristiano Ronaldo",
+    "Mario Mandžukić"
+   ],
+   "k": 2
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club finished second to Leicester City in 2015-16?",
+   "a": "Arsenal",
+   "o": [
+    "Arsenal",
+    "Manchester United",
+    "Leeds United",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Manchester City reached a hundred points in a Premier League season. Which season was it?",
+   "a": "2017-18",
+   "o": [
+    "2016-19",
+    "2017-19",
+    "2018-18",
+    "2017-18"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Manchester City pip to the 2018-19 title by a single point?",
+   "a": "Liverpool",
+   "o": [
+    "Liverpool",
+    "Aston Villa",
+    "Arsenal",
+    "Everton"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the title in 1997-98 and again in 2001-02, both times under Arsene Wenger?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Arsenal",
+    "Leeds United",
+    "Nottingham Forest"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 1992-93 Premier League?",
+   "a": "Teddy Sheringham",
+   "o": [
+    "Davor Šuker",
+    "Teddy Sheringham",
+    "Jürgen Klinsmann",
+    "Mark Hughes"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 1993-94 Premier League?",
+   "a": "Andy Cole",
+   "o": [
+    "Sylvain Wiltord",
+    "Michael Owen",
+    "Vincenzo Montella",
+    "Andy Cole"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the top scorer in the 1994-95 Premier League?",
+   "a": "Alan Shearer",
+   "o": [
+    "David Ginola",
+    "Alan Shearer",
+    "Marc Overmars",
+    "Patrick Kluivert"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 1995-96 Premier League?",
+   "a": "Alan Shearer",
+   "o": [
+    "Luís Figo",
+    "Alan Shearer",
+    "Dwight Yorke",
+    "Marc Overmars"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 1996-97 Premier League?",
+   "a": "Alan Shearer",
+   "o": [
+    "Patrick Kluivert",
+    "Steve McManaman",
+    "Alan Shearer",
+    "Dwight Yorke"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 1998-99 Premier League?",
+   "a": "Jimmy Floyd Hasselbaink",
+   "o": [
+    "Christian Vieri",
+    "Roy Makaay",
+    "Jimmy Floyd Hasselbaink",
+    "Alessandro Del Piero"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2000-01 Premier League?",
+   "a": "Jimmy Floyd Hasselbaink",
+   "o": [
+    "Alessandro Del Piero",
+    "Harry Kewell",
+    "Jimmy Floyd Hasselbaink",
+    "George Weah"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2001-02 Premier League?",
+   "a": "Thierry Henry",
+   "o": [
+    "Robin van Persie",
+    "Ludovic Giuly",
+    "Thierry Henry",
+    "Nicolas Anelka"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2002-03 Premier League?",
+   "a": "Ruud van Nistelrooy",
+   "o": [
+    "Patrick Kluivert",
+    "Ruud van Nistelrooy",
+    "Jon Dahl Tomasson",
+    "Michael Owen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2006-07 Premier League?",
+   "a": "Didier Drogba",
+   "o": [
+    "Djibril Cissé",
+    "Damien Duff",
+    "Shaun Wright-Phillips",
+    "Didier Drogba"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the top scorer in the 2007-08 Premier League?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Edinson Cavani",
+    "Alexis Sánchez",
+    "Fernando Llorente",
+    "Cristiano Ronaldo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the top scorer in the 2008-09 Premier League?",
+   "a": "Nicolas Anelka",
+   "o": [
+    "Nicolas Anelka",
+    "Zlatan Ibrahimović",
+    "Thierry Henry",
+    "Andriy Shevchenko"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2009-10 Premier League?",
+   "a": "Didier Drogba",
+   "o": [
+    "Samuel Eto'o",
+    "Franck Ribéry",
+    "Damien Duff",
+    "Didier Drogba"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the top scorer in the 2010-11 Premier League?",
+   "a": "Dimitar Berbatov",
+   "o": [
+    "Damien Duff",
+    "Louis Saha",
+    "Dimitar Berbatov",
+    "Robin van Persie"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2011-12 Premier League?",
+   "a": "Robin van Persie",
+   "o": [
+    "Olivier Giroud",
+    "Cristiano Ronaldo",
+    "Robin van Persie",
+    "Dimitar Berbatov"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2012-13 Premier League?",
+   "a": "Robin van Persie",
+   "o": [
+    "Robin van Persie",
+    "Arjen Robben",
+    "Carlos Tevez",
+    "Cristiano Ronaldo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2013-14 Premier League?",
+   "a": "Luis Suárez",
+   "o": [
+    "Luis Suárez",
+    "Diego Costa",
+    "Robert Lewandowski",
+    "Radamel Falcao"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2014-15 Premier League?",
+   "a": "Sergio Agüero",
+   "o": [
+    "Mario Mandžukić",
+    "Robert Lewandowski",
+    "Sergio Agüero",
+    "Edin Džeko"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2015-16 Premier League?",
+   "a": "Harry Kane",
+   "o": [
+    "Harry Kane",
+    "Jarrod Bowen",
+    "Vincent Janssen",
+    "Sadio Mané"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2016-17 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Nottingham Forest",
+    "Leeds United",
+    "Aston Villa",
+    "Tottenham Hotspur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club was Harry Kane playing for when he top scored in the 2016-17 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Chelsea",
+    "Nottingham Forest",
+    "Newcastle United",
+    "Tottenham Hotspur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2017-18 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Aston Villa",
+    "Nottingham Forest",
+    "Chelsea",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club was Mohamed Salah playing for when he top scored in the 2017-18 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Everton",
+    "Nottingham Forest",
+    "Liverpool",
+    "Newcastle United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2018-19 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Arsenal",
+    "Aston Villa",
+    "Liverpool",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2019-20 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester City",
+    "Liverpool",
+    "Aston Villa",
+    "Manchester United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2020-21 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Newcastle United",
+    "Manchester United",
+    "Arsenal",
+    "Leeds United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Harry Kane playing for when he top scored in the 2020-21 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Tottenham Hotspur",
+    "Liverpool",
+    "Manchester City",
+    "Everton"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2021-22 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Chelsea",
+    "Everton",
+    "Liverpool",
+    "Nottingham Forest"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club was Mohamed Salah playing for when he top scored in the 2021-22 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Liverpool",
+    "Tottenham Hotspur",
+    "Leeds United",
+    "Everton"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Arsenal",
+    "Nottingham Forest",
+    "Tottenham Hotspur",
+    "Liverpool"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club was Erling Haaland playing for when he top scored in the 2022-23 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Nottingham Forest",
+    "Tottenham Hotspur",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2023-24 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Manchester City",
+    "Arsenal",
+    "Leeds United",
+    "Everton"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Erling Haaland playing for when he top scored in the 2023-24 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Arsenal",
+    "Manchester City",
+    "Everton",
+    "Aston Villa"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2024-25 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Aston Villa",
+    "Arsenal",
+    "Manchester United",
+    "Everton"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Mohamed Salah playing for when he top scored in the 2024-25 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Leeds United",
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2025-26 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club was Erling Haaland playing for when he top scored in the 2025-26 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester United",
+    "Nottingham Forest",
+    "Aston Villa",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Italian managed Chelsea to the double in 2009-10?",
+   "a": "Carlo Ancelotti",
+   "o": [
+    "Carlo Ancelotti",
+    "Frank Rijkaard",
+    "Peter Reid",
+    "Ruud Gullit"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Dutchman scored thirty league goals for Arsenal in 2011-12 and then joined Manchester United?",
+   "a": "Robin van Persie",
+   "o": [
+    "Robin van Persie",
+    "Carlos Tevez",
+    "Klaas-Jan Huntelaar",
+    "Zlatan Ibrahimović"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Uruguayan scored thirty-one league goals for Liverpool in 2013-14?",
+   "a": "Luis Suarez",
+   "o": [
+    "Gonzalo Higuaín",
+    "Luis Suarez",
+    "Edinson Cavani",
+    "Pierre-Emerick Aubameyang"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Ivorian striker won the Golden Boot at Chelsea in 2006-07 and again in 2009-10?",
+   "a": "Didier Drogba",
+   "o": [
+    "Arjen Robben",
+    "Didier Drogba",
+    "Shaun Wright-Phillips",
+    "Harry Kewell"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Leicester City striker top scored in the Premier League in 2019-20?",
+   "a": "Jamie Vardy",
+   "o": [
+    "Gabriel Agbonlahor",
+    "Shaun Wright-Phillips",
+    "Jamie Vardy",
+    "Wilfried Zaha"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Newcastle striker scored thirty-four league goals in 1993-94 before joining Manchester United?",
+   "a": "Andy Cole",
+   "o": [
+    "Andy Cole",
+    "Alan Shearer",
+    "Teddy Sheringham",
+    "Les Ferdinand"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Dutch striker top scored in the Premier League in 2002-03, playing for Manchester United?",
+   "a": "Ruud van Nistelrooy",
+   "o": [
+    "Ruud van Nistelrooy",
+    "Patrick Kluivert",
+    "Louis Saha",
+    "Jan Vennegoor of Hesselink"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which striker did Manchester United sign from Newcastle United in January 1995?",
+   "a": "Andy Cole",
+   "o": [
+    "Michael Owen",
+    "Dwight Yorke",
+    "Les Ferdinand",
+    "Andy Cole"
+   ],
+   "k": 3
+  },
+  {
+   "q": "From which club did Chelsea sign Didier Drogba in 2004?",
+   "a": "Marseille",
+   "o": [
+    "Le Havre",
+    "Monaco",
+    "Olympique Lyonnais",
+    "Marseille"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Robin van Persie leave Arsenal for in 2012?",
+   "a": "Manchester United",
+   "o": [
+    "Everton",
+    "Chelsea",
+    "Tottenham Hotspur",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "From which club did Arsenal sign Thierry Henry in 1999?",
+   "a": "Juventus",
+   "o": [
+    "Lazio",
+    "Inter Milan",
+    "Juventus",
+    "ACF Fiorentina"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club sold Luis Suarez to Barcelona in 2014?",
+   "a": "Liverpool",
+   "o": [
+    "Chelsea",
+    "Liverpool",
+    "Newcastle United",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "From which club did Manchester City sign Sergio Aguero in 2011?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Real Madrid",
+    "Real Sociedad",
+    "Atletico Madrid",
+    "Sevilla"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Gareth Bale join from Tottenham Hotspur in 2013?",
+   "a": "Real Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Deportivo Alavés",
+    "Villarreal",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which south coast club won the 2008 FA Cup final under Harry Redknapp?",
+   "a": "Portsmouth",
+   "o": [
+    "Portsmouth",
+    "Charlton Athletic",
+    "Middlesbrough",
+    "Bristol City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club beat Bradford City 5-0 in the 2013 League Cup final?",
+   "a": "Swansea City",
+   "o": [
+    "Charlton Athletic",
+    "Burnley",
+    "Swansea City",
+    "Middlesbrough"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2004 League Cup, the first major trophy in their history?",
+   "a": "Middlesbrough",
+   "o": [
+    "Bolton Wanderers",
+    "Lincoln City",
+    "Middlesbrough",
+    "Birmingham City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored the only goal of the 2011 FA Cup final, Manchester City's first trophy in 35 years?",
+   "a": "Yaya Toure",
+   "o": [
+    "Yaya Toure",
+    "Alexander Hleb",
+    "Ronaldinho",
+    "Gareth Barry"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Chelsea beat 2-0 in the 1997 FA Cup final?",
+   "a": "Middlesbrough",
+   "o": [
+    "Middlesbrough",
+    "Derby County",
+    "Birmingham City",
+    "Bristol City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club beat Arsenal 2-1 in the 2011 League Cup final, then known as the Carling Cup?",
+   "a": "Birmingham City",
+   "o": [
+    "Blackburn Rovers",
+    "Cardiff City",
+    "Middlesbrough",
+    "Birmingham City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club beat Chelsea 4-0 in the 1994 FA Cup final to complete their first league and cup double?",
+   "a": "Manchester United",
+   "o": [
+    "Liverpool",
+    "Manchester United",
+    "Everton",
+    "Leeds United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club beat Manchester United 1-0 in the 1995 FA Cup final?",
+   "a": "Everton",
+   "o": [
+    "Chelsea",
+    "Everton",
+    "Arsenal",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Arsenal beat 2-1 in the 2017 FA Cup final?",
+   "a": "Chelsea",
+   "o": [
+    "Chelsea",
+    "Everton",
+    "Manchester United",
+    "Aston Villa"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Liverpool won both domestic cups in 2021-22, beating the same club on penalties in both finals. Which club?",
+   "a": "Chelsea",
+   "o": [
+    "Leeds United",
+    "Aston Villa",
+    "Arsenal",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Chelsea beat 1-0 in the 2010 FA Cup final, completing the double?",
+   "a": "Portsmouth",
+   "o": [
+    "Portsmouth",
+    "Bolton Wanderers",
+    "Derby County",
+    "Middlesbrough"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the Premier League, the FA Cup and the League Cup all in 2018-19?",
+   "a": "Manchester City",
+   "o": [
+    "Everton",
+    "Nottingham Forest",
+    "Newcastle United",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2007 FA Cup final, the first played at the new Wembley?",
+   "a": "Chelsea",
+   "o": [
+    "Arsenal",
+    "Chelsea",
+    "Manchester City",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Arsenal beat 4-0 in the 2015 FA Cup final?",
+   "a": "Aston Villa",
+   "o": [
+    "Aston Villa",
+    "Brentford",
+    "Liverpool",
+    "Tottenham Hotspur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Arsenal beat 1-0 in the 2003 FA Cup final?",
+   "a": "Southampton",
+   "o": [
+    "Cardiff City",
+    "Bolton Wanderers",
+    "Charlton Athletic",
+    "Southampton"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Liverpool beat 2-0 in the 2003 League Cup final?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester United",
+    "Chelsea",
+    "Arsenal",
+    "Manchester City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club beat Bolton Wanderers 2-1 in the 1995 League Cup final?",
+   "a": "Liverpool",
+   "o": [
+    "Manchester United",
+    "Tottenham Hotspur",
+    "Manchester City",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored Liverpool's penalty in the opening minutes of the 2019 Champions League final?",
+   "a": "Mohamed Salah",
+   "o": [
+    "Ricky van Wolfswinkel",
+    "Pierre-Emerick Aubameyang",
+    "Stephan El Shaarawy",
+    "Mohamed Salah"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German club did Liverpool beat 3-1 in the 1977 European Cup final in Rome?",
+   "a": "Borussia Monchengladbach",
+   "o": [
+    "Elversberg",
+    "1. FC Union Berlin",
+    "Borussia Monchengladbach",
+    "RB Leipzig"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English club won the 1982 European Cup, beating Bayern Munich 1-0 in Rotterdam?",
+   "a": "Aston Villa",
+   "o": [
+    "Liverpool",
+    "Everton",
+    "Chelsea",
+    "Aston Villa"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 1963 Cup Winners' Cup and became the first English club to win a European trophy?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Liverpool",
+    "Tottenham Hotspur",
+    "Chelsea",
+    "Nottingham Forest"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Spanish club did Manchester United beat 2-1 in the 1991 Cup Winners' Cup final?",
+   "a": "Barcelona",
+   "o": [
+    "Real Madrid",
+    "Villarreal",
+    "Barcelona",
+    "Valencia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Chelsea substitute scored the only goal of the 1998 Cup Winners' Cup final?",
+   "a": "Gianfranco Zola",
+   "o": [
+    "Dennis Bergkamp",
+    "Roberto Baggio",
+    "Didier Deschamps",
+    "Gianfranco Zola"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club won the 2001 UEFA Cup final 5-4 against Alaves in Dortmund?",
+   "a": "Liverpool",
+   "o": [
+    "Manchester United",
+    "Aston Villa",
+    "Liverpool",
+    "Nottingham Forest"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch club did Manchester United beat 2-0 in the 2017 Europa League final in Stockholm?",
+   "a": "Ajax",
+   "o": [
+    "Utrecht",
+    "Ajax",
+    "Cambuur",
+    "PSV Eindhoven"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Spanish club did Chelsea beat 4-1 in the 2025 Conference League final?",
+   "a": "Real Betis",
+   "o": [
+    "Celta de Vigo",
+    "Real Betis",
+    "Athletic Bilbao",
+    "Barcelona"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club did West Ham beat 2-1 in the 2023 Conference League final in Prague?",
+   "a": "Fiorentina",
+   "o": [
+    "Cagliari Calcio",
+    "Fiorentina",
+    "Napoli",
+    "Genoa CFC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club won the 1981 UEFA Cup under Bobby Robson?",
+   "a": "Ipswich Town",
+   "o": [
+    "Hull City",
+    "Ipswich Town",
+    "Crystal Palace",
+    "Brentford"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club beat Arsenal 2-1 in the 2006 Champions League final?",
+   "a": "Barcelona",
+   "o": [
+    "Real Betis",
+    "Valencia",
+    "Real Madrid",
+    "Barcelona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Italian club beat Liverpool 2-1 in the 2007 Champions League final in Athens?",
+   "a": "AC Milan",
+   "o": [
+    "Milan",
+    "Roma",
+    "ACF Fiorentina",
+    "Cagliari Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "English clubs returned to European competition in which season after the Heysel ban?",
+   "a": "1990-91",
+   "o": [
+    "1990-91",
+    "1989-91",
+    "1989-90",
+    "1989-92"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Manchester City midfielder scored the only goal of the 2023 Champions League final?",
+   "a": "Rodri",
+   "o": [
+    "Rodri",
+    "Brahim Díaz",
+    "Sergio Gómez",
+    "Jack Grealish"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Chelsea player scored the only goal of the 2021 Champions League final?",
+   "a": "Kai Havertz",
+   "o": [
+    "Martín Zubimendi",
+    "Declan Rice",
+    "Julian Brandt",
+    "Kai Havertz"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club lost the 2016 Europa League final 3-1 to Sevilla in Basel?",
+   "a": "Liverpool",
+   "o": [
+    "Aston Villa",
+    "Manchester City",
+    "Everton",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German club did Nottingham Forest beat 1-0 in the 1980 European Cup final in Madrid?",
+   "a": "Hamburger SV",
+   "o": [
+    "Hamburger",
+    "VfB Stuttgart",
+    "Schalke 04",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club played its home games at the bet365 Stadium in 2024-25?",
+   "a": "Stoke City",
+   "o": [
+    "Middlesbrough",
+    "Cardiff City",
+    "Stoke City",
+    "Blackburn Rovers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club switched to red shirts in 1902, when it stopped being called Newton Heath?",
+   "a": "Manchester United",
+   "o": [
+    "Chelsea",
+    "Nottingham Forest",
+    "Manchester United",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which French winger did Newcastle United sign from Paris Saint-Germain in 1995?",
+   "a": "David Ginola",
+   "o": [
+    "Les Ferdinand",
+    "George Weah",
+    "Jean-Pierre Papin",
+    "David Ginola"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Colombian forward did Newcastle United sign from Parma in February 1996?",
+   "a": "Faustino Asprilla",
+   "o": [
+    "Alan Shearer",
+    "Michael Owen",
+    "Radamel Falcao",
+    "Faustino Asprilla"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutch defender did Manchester United sign from PSV Eindhoven in 1998 for 10.6 million pounds?",
+   "a": "Jaap Stam",
+   "o": [
+    "Jaap Stam",
+    "Rio Ferdinand",
+    "Marco Materazzi",
+    "Gianluca Zambrotta"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Dutch winger did Arsenal sign from Ajax in 1997?",
+   "a": "Marc Overmars",
+   "o": [
+    "Robin van Persie",
+    "Ruud van Nistelrooy",
+    "Marc Overmars",
+    "Luís Figo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch goalkeeper did Fulham sign from Juventus in 2001?",
+   "a": "Edwin van der Sar",
+   "o": [
+    "Marc Overmars",
+    "Brian Laudrup",
+    "Edwin van der Sar",
+    "Oliver Kahn"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Croatian midfielder did Tottenham Hotspur sign from Dinamo Zagreb in 2008?",
+   "a": "Luka Modric",
+   "o": [
+    "Clint Dempsey",
+    "Luka Modric",
+    "Rafael van der Vaart",
+    "Ivan Rakitić"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Argentine striker did West Ham United sign from Corinthians in August 2006?",
+   "a": "Carlos Tevez",
+   "o": [
+    "Zlatan Ibrahimović",
+    "Fernando Llorente",
+    "Carlos Tevez",
+    "Cristiano Ronaldo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Manchester City sign Robinho from in 2008 for 32.5 million pounds?",
+   "a": "Real Madrid",
+   "o": [
+    "Valencia",
+    "Real Madrid",
+    "Celta de Vigo",
+    "Real Betis"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Frenchman did Manchester United sign from Monaco in January 2006, going on to win five league titles?",
+   "a": "Patrice Evra",
+   "o": [
+    "Bacary Sagna",
+    "Patrice Evra",
+    "Stephan Lichtsteiner",
+    "Nemanja Vidić"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian replaced Ruud Gullit as Chelsea player-manager in February 1998?",
+   "a": "Gianluca Vialli",
+   "o": [
+    "Jürgen Klinsmann",
+    "Paolo Rossi",
+    "Gianluca Vialli",
+    "Filippo Inzaghi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Ghanaian striker joined Leeds United from Eintracht Frankfurt in January 1995?",
+   "a": "Tony Yeboah",
+   "o": [
+    "Raphinha",
+    "Robbie Fowler",
+    "Tony Yeboah",
+    "Largie Ramazani"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Nigerian midfielder joined Bolton Wanderers on a free transfer from Paris Saint-Germain in 2002?",
+   "a": "Jay-Jay Okocha",
+   "o": [
+    "Pavel Nedvěd",
+    "Claude Makélélé",
+    "Jay-Jay Okocha",
+    "Ariel Ortega"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Gianfranco Zola join when he left Chelsea in 2003?",
+   "a": "Cagliari",
+   "o": [
+    "Frosinone Calcio",
+    "US Lecce",
+    "Torino",
+    "Cagliari"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Ukrainian did Chelsea sign from AC Milan in 2006 for 30.8 million pounds?",
+   "a": "Andriy Shevchenko",
+   "o": [
+    "Ronaldo",
+    "Andriy Shevchenko",
+    "Samuel Eto'o",
+    "Filippo Inzaghi"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Argentine did Manchester United sign from Lazio in 2001 for 28.1 million pounds?",
+   "a": "Juan Sebastian Veron",
+   "o": [
+    "Deco",
+    "Juan Román Riquelme",
+    "Hidetoshi Nakata",
+    "Juan Sebastian Veron"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Bulgarian did Tottenham Hotspur sign from Bayer Leverkusen in 2006?",
+   "a": "Dimitar Berbatov",
+   "o": [
+    "Carlos Tevez",
+    "Dimitar Berbatov",
+    "Diego Forlán",
+    "Andrew Johnson"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the Premier League and the Champions League in the same season in 2022-23?",
+   "a": "Manchester City",
+   "o": [
+    "Arsenal",
+    "Manchester City",
+    "Manchester United",
+    "Chelsea"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was the first to retain the Premier League title, winning it again in 1993-94?",
+   "a": "Manchester United",
+   "o": [
+    "Nottingham Forest",
+    "Liverpool",
+    "Manchester United",
+    "Everton"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Southampton forward scored a hat-trick in under three minutes against Aston Villa in 2015?",
+   "a": "Sadio Mane",
+   "o": [
+    "Éric Maxim Choupo-Moting",
+    "Raheem Sterling",
+    "Sadio Mane",
+    "Divock Origi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Southampton striker scored at Watford in April 2019 in under eight seconds from the kick-off?",
+   "a": "Shane Long",
+   "o": [
+    "Shane Long",
+    "Theo Walcott",
+    "Gareth Bale",
+    "Aiden McGeady"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Leicester City striker scored in eleven consecutive Premier League games in 2015-16?",
+   "a": "Jamie Vardy",
+   "o": [
+    "Theo Walcott",
+    "Jamie Vardy",
+    "Shaun Wright-Phillips",
+    "Gabriel Agbonlahor"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Bulgarian scored five goals for Manchester United against Blackburn Rovers in 2010?",
+   "a": "Dimitar Berbatov",
+   "o": [
+    "Dimitar Berbatov",
+    "Louis Saha",
+    "Damien Duff",
+    "Carlos Tevez"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Manchester United striker scored five goals in the 9-0 win over Ipswich Town in 1995?",
+   "a": "Andy Cole",
+   "o": [
+    "Marc Overmars",
+    "Thierry Henry",
+    "Dwight Yorke",
+    "Andy Cole"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which former Chelsea midfielder was appointed Everton manager in January 2022?",
+   "a": "Frank Lampard",
+   "o": [
+    "Scott Parker",
+    "Frank Lampard",
+    "David Beckham",
+    "Gareth Barry"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Liverpool sign Luis Suarez from in January 2011?",
+   "a": "Ajax",
+   "o": [
+    "Ajax",
+    "Go Ahead Eagles",
+    "Cambuur",
+    "Twente"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Luka Modric join from Tottenham Hotspur in 2012?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Betis",
+    "Valencia",
+    "Villarreal",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Ashley Cole join from Arsenal in 2006?",
+   "a": "Chelsea",
+   "o": [
+    "Newcastle United",
+    "Chelsea",
+    "Liverpool",
+    "Leeds United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Alexis Sanchez join in January 2018 in a swap deal involving Henrikh Mkhitaryan?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester United",
+    "Everton",
+    "Nottingham Forest",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Kai Havertz join from Chelsea in 2023?",
+   "a": "Arsenal",
+   "o": [
+    "Newcastle United",
+    "Arsenal",
+    "Nottingham Forest",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "By the end of 2024-25, which club had won the most Premier League titles?",
+   "a": "Manchester United",
+   "o": [
+    "Aston Villa",
+    "Manchester United",
+    "Liverpool",
+    "Arsenal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which midfielder made over six hundred Premier League appearances for six clubs, from Leeds in 2002 to Brighton?",
+   "a": "James Milner",
+   "o": [
+    "James Milner",
+    "Scott Parker",
+    "Alan Smith",
+    "Kevin Nolan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club set a new Premier League record for goals conceded in a season in 2023-24?",
+   "a": "Sheffield United",
+   "o": [
+    "Cardiff City",
+    "Blackburn Rovers",
+    "Sheffield United",
+    "Burnley"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded only fifteen goals across the 2004-05 Premier League season?",
+   "a": "Chelsea",
+   "o": [
+    "Chelsea",
+    "Nottingham Forest",
+    "Liverpool",
+    "Everton"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2024-25 Championship title to return to the Premier League?",
+   "a": "Leeds United",
+   "o": [
+    "Aston Villa",
+    "Leeds United",
+    "Newcastle United",
+    "Liverpool"
+   ],
+   "k": 1
+  }
+ ],
+ "hard": [
+  {
+   "q": "Who scored the goal that won Manchester City the 2011-12 title in stoppage time?",
+   "a": "Sergio Aguero",
+   "o": [
+    "Carlos Tevez",
+    "Luis Suárez",
+    "Sergio Aguero",
+    "Lionel Messi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second to Manchester United in 1998-99, a point behind?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Newcastle United",
+    "Arsenal",
+    "Leeds United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished as runners-up in 2013-14, a season decided in the final weeks?",
+   "a": "Liverpool",
+   "o": [
+    "Arsenal",
+    "Nottingham Forest",
+    "Liverpool",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 1992-93 Premier League?",
+   "a": "Aston Villa",
+   "o": [
+    "Leeds United",
+    "Aston Villa",
+    "Brentford",
+    "Chelsea"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 1993-94 Premier League?",
+   "a": "Blackburn Rovers",
+   "o": [
+    "Birmingham City",
+    "Burnley",
+    "Blackburn Rovers",
+    "Millwall"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 1994-95 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Everton",
+    "Manchester United",
+    "Liverpool",
+    "Nottingham Forest"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 1995-96 Premier League?",
+   "a": "Newcastle United",
+   "o": [
+    "Aston Villa",
+    "Liverpool",
+    "Newcastle United",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 1996-97 Premier League?",
+   "a": "Newcastle United",
+   "o": [
+    "Chelsea",
+    "Manchester City",
+    "Arsenal",
+    "Newcastle United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1997-98 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Tottenham Hotspur",
+    "Liverpool",
+    "Aston Villa",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club was Dion Dublin playing for when he top scored in the 1997-98 Premier League?",
+   "a": "Coventry City",
+   "o": [
+    "Coventry City",
+    "Aston Villa",
+    "Brighton & Hove Albion",
+    "Fulham"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1998-99 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Arsenal",
+    "Everton",
+    "Leeds United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Jimmy Floyd Hasselbaink playing for when he top scored in the 1998-99 Premier League?",
+   "a": "Leeds United",
+   "o": [
+    "Newcastle United",
+    "Manchester City",
+    "Aston Villa",
+    "Leeds United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1999-00 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Arsenal",
+    "Manchester United",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2000-01 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Newcastle United",
+    "Aston Villa",
+    "Arsenal",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2001-02 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Liverpool",
+    "Nottingham Forest",
+    "Arsenal",
+    "Leeds United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club was Thierry Henry playing for when he top scored in the 2001-02 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Arsenal",
+    "Everton",
+    "Chelsea",
+    "Leeds United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2002-03 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Liverpool",
+    "Manchester City",
+    "Arsenal",
+    "Nottingham Forest"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2003-04 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Newcastle United",
+    "Chelsea",
+    "Liverpool",
+    "Arsenal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2004-05 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Manchester United",
+    "Arsenal",
+    "Aston Villa",
+    "Manchester City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2005-06 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Aston Villa",
+    "Manchester United",
+    "Newcastle United",
+    "Arsenal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2006-07 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Manchester City",
+    "Chelsea",
+    "Leeds United",
+    "Everton"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2007-08 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Tottenham Hotspur",
+    "Liverpool",
+    "Chelsea",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2008-09 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Leeds United",
+    "Tottenham Hotspur",
+    "Aston Villa",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2009-10 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester United",
+    "Everton",
+    "Newcastle United",
+    "Tottenham Hotspur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club was Didier Drogba playing for when he top scored in the 2009-10 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Everton",
+    "Chelsea",
+    "Liverpool",
+    "Aston Villa"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2010-11 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Manchester City",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2011-12 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Leeds United",
+    "Manchester United",
+    "Chelsea",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Robin van Persie playing for when he top scored in the 2011-12 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Nottingham Forest",
+    "Liverpool",
+    "Everton",
+    "Arsenal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2012-13 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Manchester United",
+    "Manchester City",
+    "Everton"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club was Robin van Persie playing for when he top scored in the 2012-13 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Liverpool",
+    "Aston Villa",
+    "Manchester United",
+    "Leeds United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2013-14 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Everton",
+    "Newcastle United",
+    "Liverpool",
+    "Arsenal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club was Luis Suárez playing for when he top scored in the 2013-14 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Newcastle United",
+    "Leeds United",
+    "Tottenham Hotspur",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2014-15 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester City",
+    "Aston Villa",
+    "Liverpool",
+    "Arsenal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club was Sergio Agüero playing for when he top scored in the 2014-15 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester City",
+    "Manchester United",
+    "Newcastle United",
+    "Arsenal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2015-16 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Arsenal",
+    "Newcastle United",
+    "Leeds United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Harry Kane playing for when he top scored in the 2015-16 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Chelsea",
+    "Tottenham Hotspur",
+    "Liverpool",
+    "Leeds United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2016-17 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Manchester City",
+    "Arsenal",
+    "Nottingham Forest"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2017-18 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Tottenham Hotspur",
+    "Everton",
+    "Leeds United",
+    "Newcastle United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2018-19 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Chelsea",
+    "Manchester United",
+    "Tottenham Hotspur",
+    "Liverpool"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2019-20 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Aston Villa",
+    "Chelsea",
+    "Manchester United",
+    "Nottingham Forest"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2020-21 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Liverpool",
+    "Aston Villa",
+    "Tottenham Hotspur",
+    "Nottingham Forest"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2021-22 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Arsenal",
+    "Manchester City",
+    "Chelsea",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2022-23 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Nottingham Forest",
+    "Everton",
+    "Chelsea",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2023-24 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Newcastle United",
+    "Manchester United",
+    "Everton",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2024-25 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Aston Villa",
+    "Everton",
+    "Manchester City",
+    "Newcastle United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2025-26 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Everton",
+    "Nottingham Forest",
+    "Liverpool",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which manager led Everton for eleven seasons before joining Manchester United?",
+   "a": "David Moyes",
+   "o": [
+    "David Moyes",
+    "Arthur Numan",
+    "Mick McCarthy",
+    "Lee Dixon"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which striker did Manchester United sign in 2012 to help win Ferguson's final title?",
+   "a": "Robin van Persie",
+   "o": [
+    "Klaas-Jan Huntelaar",
+    "Robin van Persie",
+    "Carlos Tevez",
+    "Eljero Elia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Frenchman top scored for Chelsea in 2008-09 with nineteen league goals?",
+   "a": "Nicolas Anelka",
+   "o": [
+    "Nicolas Anelka",
+    "Thierry Henry",
+    "Sylvain Wiltord",
+    "Didier Drogba"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Dutch striker won the Golden Boot in 2000-01 while at Chelsea?",
+   "a": "Jimmy Floyd Hasselbaink",
+   "o": [
+    "Jimmy Floyd Hasselbaink",
+    "Harry Kewell",
+    "Marc Overmars",
+    "Didier Drogba"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Liverpool sign Fernando Torres from in 2007?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Valencia",
+    "Real Sociedad",
+    "Celta de Vigo",
+    "Atletico Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "From which club did Tottenham Hotspur sign Son Heung-min in 2015?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayer Leverkusen",
+    "VfB Stuttgart",
+    "Bayern Munich",
+    "1. FC Köln"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Manchester United sign Bruno Fernandes from in January 2020?",
+   "a": "Sporting CP",
+   "o": [
+    "Casa Pia",
+    "Porto",
+    "Sporting",
+    "Académico de Viseu"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored the winning penalty in the 2005 FA Cup final shootout against Manchester United?",
+   "a": "Patrick Vieira",
+   "o": [
+    "Javier Zanetti",
+    "Gennaro Gattuso",
+    "Robert Pirès",
+    "Patrick Vieira"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The 2006 FA Cup final, Liverpool against West Ham, is remembered by whose name?",
+   "a": "Steven Gerrard",
+   "o": [
+    "Scott Parker",
+    "Danny Murphy",
+    "Xabi Alonso",
+    "Steven Gerrard"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored twice late on for Liverpool to beat Arsenal 2-1 in the 2001 FA Cup final?",
+   "a": "Michael Owen",
+   "o": [
+    "Diego Forlán",
+    "Patrick Kluivert",
+    "Michael Owen",
+    "Robbie Fowler"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored Manchester United's 85th minute winner against Liverpool in the 1996 FA Cup final?",
+   "a": "Eric Cantona",
+   "o": [
+    "Mark Hughes",
+    "Eric Cantona",
+    "Romário",
+    "George Weah"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored Portsmouth's winner in the 2008 FA Cup final against Cardiff City?",
+   "a": "Nwankwo Kanu",
+   "o": [
+    "Ronaldo",
+    "Christian Vieri",
+    "Nwankwo Kanu",
+    "Marc Overmars"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored Tottenham's extra-time winner in the 2008 League Cup final against Chelsea?",
+   "a": "Jonathan Woodgate",
+   "o": [
+    "Ashley Young",
+    "Phil Jagielka",
+    "Ashley Cole",
+    "Jonathan Woodgate"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club beat Tottenham 2-1 in the 2002 League Cup final, then known as the Worthington Cup?",
+   "a": "Blackburn Rovers",
+   "o": [
+    "Burnley",
+    "Bristol City",
+    "Blackburn Rovers",
+    "Cardiff City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Manchester United 3-1 in the 1994 League Cup final?",
+   "a": "Aston Villa",
+   "o": [
+    "Chelsea",
+    "Nottingham Forest",
+    "Aston Villa",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Manchester United defender was sent off in extra time in the 2016 FA Cup final?",
+   "a": "Chris Smalling",
+   "o": [
+    "Joel Ward",
+    "Harry Maguire",
+    "Micah Richards",
+    "Chris Smalling"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored both Manchester City goals in the 2023 FA Cup final against Manchester United?",
+   "a": "Ilkay Gundogan",
+   "o": [
+    "Toni Kroos",
+    "Mario Götze",
+    "Ilkay Gundogan",
+    "Marco Reus"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored Chelsea's opening goal in the 2020 FA Cup final against Arsenal?",
+   "a": "Christian Pulisic",
+   "o": [
+    "Enzo Fernández",
+    "Niklas Süle",
+    "Christian Pulisic",
+    "Gianluigi Donnarumma"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored the only goal of the 2021 FA Cup final for Leicester City?",
+   "a": "Youri Tielemans",
+   "o": [
+    "Bruno Fernandes",
+    "Thorgan Hazard",
+    "Youri Tielemans",
+    "Jadon Sancho"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club chose not to defend the FA Cup in 1999-2000, going to the Club World Championship instead?",
+   "a": "Manchester United",
+   "o": [
+    "Leeds United",
+    "Manchester United",
+    "Aston Villa",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored both Chelsea goals in the 2007 League Cup final against Arsenal?",
+   "a": "Didier Drogba",
+   "o": [
+    "Djibril Cissé",
+    "Carlos Tevez",
+    "Didier Drogba",
+    "Damien Duff"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Liverpool won the 1984 European Cup final on penalties in their opponents' own stadium. Which club?",
+   "a": "Roma",
+   "o": [
+    "Juventus",
+    "Milan",
+    "Roma",
+    "ACF Fiorentina"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Arsenal goalkeeper was sent off in the 2006 Champions League final?",
+   "a": "Jens Lehmann",
+   "o": [
+    "Jens Lehmann",
+    "Alex Manninger",
+    "Oliver Bierhoff",
+    "Cláudio Taffarel"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored Arsenal's goal in the 2006 Champions League final?",
+   "a": "Sol Campbell",
+   "o": [
+    "Sol Campbell",
+    "Ashley Cole",
+    "Roberto Carlos",
+    "Jonathan Woodgate"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Arsenal striker scored the only goal at the Santiago Bernabeu in February 2006?",
+   "a": "Thierry Henry",
+   "o": [
+    "Thierry Henry",
+    "Robin van Persie",
+    "Louis Saha",
+    "Nicolas Anelka"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Chelsea captain was sent off in the 2012 Champions League semi-final at Camp Nou?",
+   "a": "John Terry",
+   "o": [
+    "Phil Jagielka",
+    "John Terry",
+    "Sol Campbell",
+    "Jamie Carragher"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored Liverpool's second goal in the 2019 Champions League final?",
+   "a": "Divock Origi",
+   "o": [
+    "Divock Origi",
+    "Victor Osimhen",
+    "Federico Chiesa",
+    "Diogo Jota"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Tottenham forward scored a hat-trick in Amsterdam to put them in the 2019 Champions League final?",
+   "a": "Lucas Moura",
+   "o": [
+    "Lucas Moura",
+    "Leandro Paredes",
+    "Philippe Coutinho",
+    "Casemiro"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which English club knocked Manchester City out of the 2019 Champions League on away goals?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Leeds United",
+    "Tottenham Hotspur",
+    "Nottingham Forest",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Spanish club beat Middlesbrough 4-0 in the 2006 UEFA Cup final in Eindhoven?",
+   "a": "Sevilla",
+   "o": [
+    "Valencia",
+    "Villarreal",
+    "Real Betis",
+    "Sevilla"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Fulham beat which Italian club 4-1 at Craven Cottage in 2010 after losing the first leg 3-1?",
+   "a": "Juventus",
+   "o": [
+    "Lazio",
+    "Juventus",
+    "Milan",
+    "Bologna FC 1909"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Portuguese club did Chelsea beat 2-1 in the 2013 Europa League final?",
+   "a": "Benfica",
+   "o": [
+    "Arouca",
+    "Casa Pia",
+    "Famalicão",
+    "Benfica"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Spanish club beat Manchester United 11-10 on penalties in the 2021 Europa League final?",
+   "a": "Villarreal",
+   "o": [
+    "Villarreal",
+    "Celta de Vigo",
+    "Real Madrid",
+    "Sevilla"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Manchester United goalkeeper had his penalty saved to lose the 2021 Europa League final?",
+   "a": "David de Gea",
+   "o": [
+    "Koke",
+    "Wojciech Szczęsny",
+    "David de Gea",
+    "Thibaut Courtois"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spanish club knocked Leicester City out of the 2017 Champions League quarter-finals?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Barcelona",
+    "Celta de Vigo",
+    "Atletico Madrid",
+    "Sevilla"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored a hat-trick in Arsenal's final match at Highbury in 2006?",
+   "a": "Thierry Henry",
+   "o": [
+    "Sylvain Wiltord",
+    "John Hartson",
+    "Luca Toni",
+    "Thierry Henry"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club beat Manchester City 1-0 in the last match at Maine Road in May 2003?",
+   "a": "Southampton",
+   "o": [
+    "Cardiff City",
+    "Bolton Wanderers",
+    "Southampton",
+    "Burnley"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Southampton player scored the last competitive goal at The Dell?",
+   "a": "Matt Le Tissier",
+   "o": [
+    "David Platt",
+    "Roberto Baggio",
+    "Matt Le Tissier",
+    "David Batty"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did West Ham United beat 3-2 in the final match at the Boleyn Ground?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester United",
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Newcastle United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored the last goal at White Hart Lane, in May 2017?",
+   "a": "Wayne Rooney",
+   "o": [
+    "Ángel Di María",
+    "Wayne Rooney",
+    "Fabian Delph",
+    "Matty James"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored the first competitive goal at the Tottenham Hotspur Stadium, in April 2019?",
+   "a": "Son Heung-min",
+   "o": [
+    "Sardar Azmoun",
+    "Steven Bergwijn",
+    "Ivan Perišić",
+    "Son Heung-min"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club adopted red and blue striped shirts in 1973, inspired by Barcelona?",
+   "a": "Crystal Palace",
+   "o": [
+    "Hull City",
+    "Ipswich Town",
+    "Crystal Palace",
+    "Brighton & Hove Albion"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club has a song thrush perched on a hawthorn branch on its crest?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "Derby County",
+    "Birmingham City",
+    "Burnley",
+    "West Bromwich Albion"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Juninho returned to Middlesbrough on loan in 1999-2000. Which Spanish club was he on loan from?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Real Madrid",
+    "Atletico Madrid",
+    "Sevilla",
+    "Real Betis"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club did Fabrizio Ravanelli join on a free transfer in 2001, four years after leaving Middlesbrough?",
+   "a": "Derby County",
+   "o": [
+    "Burnley",
+    "Lincoln City",
+    "Blackburn Rovers",
+    "Derby County"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Faustino Asprilla score a Champions League hat-trick against for Newcastle United in 1997?",
+   "a": "Barcelona",
+   "o": [
+    "Athletic Bilbao",
+    "Barcelona",
+    "Valencia",
+    "Atlético Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club did Manchester United sell Jaap Stam to in 2001?",
+   "a": "Lazio",
+   "o": [
+    "Como 1907",
+    "Lazio",
+    "Cagliari Calcio",
+    "Napoli"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Arsenal forward scored three times in fifteen minutes at Chelsea in October 1999 to turn 2-0 down into a 3-2 win?",
+   "a": "Nwankwo Kanu",
+   "o": [
+    "Sylvain Wiltord",
+    "Nicolas Anelka",
+    "Nwankwo Kanu",
+    "John Hartson"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Ivorian defender did Arsenal sign from ASEC Mimosas in 2002 for 150,000 pounds?",
+   "a": "Kolo Toure",
+   "o": [
+    "Kolo Toure",
+    "Vincent Kompany",
+    "Bacary Sagna",
+    "Stephan Lichtsteiner"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Brazilian midfielder did Arsenal sign from Atletico Mineiro in 2002, nicknamed the invisible wall?",
+   "a": "Gilberto Silva",
+   "o": [
+    "Andrey Arshavin",
+    "Júlio Baptista",
+    "Gilberto Silva",
+    "Edu"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which American club did Thierry Henry rejoin Arsenal on loan from in January 2012?",
+   "a": "New York Red Bulls",
+   "o": [
+    "New York Red Bulls",
+    "New England Revolution",
+    "Cincinnati",
+    "Charlotte"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Thierry Henry's 2012 loan at Arsenal ended with a stoppage-time league winner against which club?",
+   "a": "Sunderland",
+   "o": [
+    "Hull City",
+    "Brighton & Hove Albion",
+    "Aston Villa",
+    "Sunderland"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Papiss Cisse score the BBC Goal of the Season against in May 2012?",
+   "a": "Chelsea",
+   "o": [
+    "Chelsea",
+    "Arsenal",
+    "Leeds United",
+    "Everton"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Georgian did Manchester City sign from Dinamo Tbilisi in 1995?",
+   "a": "Georgi Kinkladze",
+   "o": [
+    "Georgi Kinkladze",
+    "Juan Sebastián Verón",
+    "Giorgi Kochorashvili",
+    "Gary Medel"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Costa Rican scored for Derby County at Old Trafford in April 1997, beating four Manchester United players?",
+   "a": "Paulo Wanchope",
+   "o": [
+    "Ian Wright",
+    "Paulo Wanchope",
+    "Teddy Sheringham",
+    "Riyad Mahrez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Dane became the first goalkeeper to score a Premier League goal, playing for Aston Villa in October 2001?",
+   "a": "Peter Schmeichel",
+   "o": [
+    "Árni Gautur Arason",
+    "Michael Laudrup",
+    "Peter Schmeichel",
+    "Brad Friedel"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spaniard did Arsenal sign from Barcelona in 2003 and make club captain five years later?",
+   "a": "Cesc Fabregas",
+   "o": [
+    "Miralem Pjanić",
+    "Cesc Fabregas",
+    "Sergio Busquets",
+    "İlkay Gündoğan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Newcastle United winger played the trumpet and formed a salsa band called the Geordie Latinos?",
+   "a": "Nolberto Solano",
+   "o": [
+    "Philippe Coutinho",
+    "Georginio Wijnaldum",
+    "Nolberto Solano",
+    "James Milner"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Trinidad and Tobago striker did Manchester United sign from Aston Villa in 1998 for 12.6 million pounds?",
+   "a": "Dwight Yorke",
+   "o": [
+    "Dwight Yorke",
+    "Éric Cantona",
+    "Marc Overmars",
+    "Luís Figo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Colombian striker spent the 2014-15 season on loan at Manchester United from Monaco?",
+   "a": "Radamel Falcao",
+   "o": [
+    "Gonzalo Higuaín",
+    "Radamel Falcao",
+    "Franck Ribéry",
+    "Sergio Agüero"
+   ],
+   "k": 1
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club finished third behind Leicester City and Arsenal in 2015-16?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Tottenham Hotspur",
+    "Manchester United",
+    "Newcastle United",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Manchester United beat on the final day of 1995-96 to seal the title, having been twelve points behind Newcastle in January?",
+   "a": "Middlesbrough",
+   "o": [
+    "Middlesbrough",
+    "Bristol City",
+    "Millwall",
+    "Birmingham City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 1992-93 Premier League?",
+   "a": "Norwich City",
+   "o": [
+    "Blackburn Rovers",
+    "Bristol City",
+    "Bolton Wanderers",
+    "Norwich City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 1992-93 Premier League?",
+   "a": "Blackburn Rovers",
+   "o": [
+    "Derby County",
+    "Birmingham City",
+    "Charlton Athletic",
+    "Blackburn Rovers"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1993-94 Premier League?",
+   "a": "Newcastle United",
+   "o": [
+    "Tottenham Hotspur",
+    "Leeds United",
+    "Everton",
+    "Newcastle United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 1993-94 Premier League?",
+   "a": "Newcastle United",
+   "o": [
+    "Chelsea",
+    "Newcastle United",
+    "Leeds United",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1993-94 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Liverpool",
+    "Nottingham Forest",
+    "Arsenal",
+    "Newcastle United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1994-95 Premier League?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Nottingham Forest",
+    "Arsenal",
+    "Everton",
+    "Newcastle United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1994-95 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester City",
+    "Manchester United",
+    "Aston Villa",
+    "Everton"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 1995-96 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Newcastle United",
+    "Liverpool",
+    "Leeds United",
+    "Nottingham Forest"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1995-96 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Leeds United",
+    "Manchester United",
+    "Liverpool",
+    "Arsenal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1996-97 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Liverpool",
+    "Manchester City",
+    "Arsenal",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1996-97 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Everton",
+    "Manchester City",
+    "Arsenal",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1997-98 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Nottingham Forest",
+    "Manchester City",
+    "Everton",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 1997-98 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester United",
+    "Nottingham Forest",
+    "Manchester City",
+    "Leeds United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1997-98 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Newcastle United",
+    "Chelsea",
+    "Everton",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1998-99 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Manchester United",
+    "Liverpool",
+    "Tottenham Hotspur",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1998-99 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Liverpool",
+    "Chelsea",
+    "Arsenal",
+    "Newcastle United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1999-00 Premier League?",
+   "a": "Leeds United",
+   "o": [
+    "Chelsea",
+    "Leeds United",
+    "Newcastle United",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1999-00 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Aston Villa",
+    "Liverpool",
+    "Leeds United",
+    "Manchester United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2000-01 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Arsenal",
+    "Liverpool",
+    "Manchester City",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2001-02 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Arsenal",
+    "Chelsea",
+    "Leeds United",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2001-02 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Nottingham Forest",
+    "Manchester United",
+    "Manchester City",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2001-02 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Chelsea",
+    "Manchester City",
+    "Leeds United",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2002-03 Premier League?",
+   "a": "Newcastle United",
+   "o": [
+    "Arsenal",
+    "Liverpool",
+    "Newcastle United",
+    "Leeds United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2002-03 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Nottingham Forest",
+    "Aston Villa",
+    "Everton",
+    "Arsenal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2003-04 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Leeds United",
+    "Manchester United",
+    "Everton",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2004-05 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Aston Villa",
+    "Leeds United",
+    "Liverpool",
+    "Manchester United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2004-05 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Arsenal",
+    "Newcastle United",
+    "Chelsea",
+    "Nottingham Forest"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2005-06 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Aston Villa",
+    "Chelsea",
+    "Tottenham Hotspur",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2006-07 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Arsenal",
+    "Liverpool",
+    "Manchester City",
+    "Everton"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2006-07 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Chelsea",
+    "Newcastle United",
+    "Leeds United",
+    "Everton"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2007-08 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Liverpool",
+    "Arsenal",
+    "Nottingham Forest",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2008-09 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Chelsea",
+    "Manchester United",
+    "Everton",
+    "Arsenal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2008-09 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Arsenal",
+    "Manchester United",
+    "Everton",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2009-10 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Chelsea",
+    "Manchester City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2009-10 Premier League?",
+   "a": "Manchester United",
+   "o": [
+    "Manchester United",
+    "Leeds United",
+    "Aston Villa",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2010-11 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Arsenal",
+    "Nottingham Forest",
+    "Manchester City",
+    "Aston Villa"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2010-11 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Leeds United",
+    "Liverpool",
+    "Chelsea",
+    "Newcastle United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2011-12 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Manchester United",
+    "Nottingham Forest",
+    "Arsenal",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "The 2011-12 Premier League was decided on goal difference. Which club took it?",
+   "a": "Manchester City",
+   "o": [
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Liverpool",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2012-13 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Leeds United",
+    "Nottingham Forest",
+    "Chelsea",
+    "Liverpool"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2012-13 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Chelsea",
+    "Everton",
+    "Leeds United",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2013-14 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Manchester United",
+    "Liverpool",
+    "Nottingham Forest",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2013-14 Premier League?",
+   "a": "Chelsea",
+   "o": [
+    "Everton",
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2014-15 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Leeds United",
+    "Chelsea",
+    "Arsenal",
+    "Manchester City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2014-15 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Manchester City",
+    "Nottingham Forest",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2015-16 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Tottenham Hotspur",
+    "Liverpool",
+    "Newcastle United",
+    "Leeds United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2015-16 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Manchester United",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2015-16 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Tottenham Hotspur",
+    "Manchester United",
+    "Arsenal",
+    "Leeds United"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2016-17 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Manchester United",
+    "Aston Villa",
+    "Nottingham Forest",
+    "Tottenham Hotspur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2016-17 Premier League?",
+   "a": "Tottenham Hotspur",
+   "o": [
+    "Aston Villa",
+    "Liverpool",
+    "Tottenham Hotspur",
+    "Manchester City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2018-19 Premier League?",
+   "a": "Liverpool",
+   "o": [
+    "Manchester United",
+    "Liverpool",
+    "Aston Villa",
+    "Leeds United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2019-20 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Liverpool",
+    "Aston Villa",
+    "Manchester City",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2023-24 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Nottingham Forest",
+    "Liverpool",
+    "Arsenal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2024-25 Premier League?",
+   "a": "Arsenal",
+   "o": [
+    "Chelsea",
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Liverpool"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2025-26 Premier League?",
+   "a": "Manchester City",
+   "o": [
+    "Leeds United",
+    "Nottingham Forest",
+    "Manchester City",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "From which club did Newcastle United sign Alan Shearer in 1996?",
+   "a": "Blackburn Rovers",
+   "o": [
+    "Millwall",
+    "Blackburn Rovers",
+    "Burnley",
+    "Middlesbrough"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Arsenal sign Nicolas Anelka from as a teenager in 1997?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Lille OSC",
+    "Paris Saint-Germain",
+    "Olympique Lyonnais",
+    "Monaco"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Chelsea buy Nemanja Matic back from in 2014, having sold him three years earlier?",
+   "a": "Benfica",
+   "o": [
+    "Famalicão",
+    "Casa Pia",
+    "Estoril Praia",
+    "Benfica"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did League Two side Bradford City beat on penalties in the 2012-13 League Cup quarter-final?",
+   "a": "Arsenal",
+   "o": [
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Chelsea",
+    "Aston Villa"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Championship club knocked Chelsea and Arsenal out of the 2008-09 League Cup?",
+   "a": "Burnley",
+   "o": [
+    "Burnley",
+    "Birmingham City",
+    "Middlesbrough",
+    "Bolton Wanderers"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Barnsley beat Liverpool and Chelsea in the 2007-08 FA Cup. Who beat them in the semi-final?",
+   "a": "Cardiff City",
+   "o": [
+    "Charlton Athletic",
+    "Cardiff City",
+    "Middlesbrough",
+    "Lincoln City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Whose penalty did Peter Schmeichel save in the 1999 FA Cup semi-final replay between Arsenal and Manchester United?",
+   "a": "Dennis Bergkamp",
+   "o": [
+    "Dennis Bergkamp",
+    "Ronald de Boer",
+    "Emmanuel Petit",
+    "Paul Ince"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Manchester United player was sent off in the 1999 FA Cup semi-final replay against Arsenal?",
+   "a": "Roy Keane",
+   "o": [
+    "Rui Costa",
+    "Roy Keane",
+    "Dennis Bergkamp",
+    "Zinedine Zidane"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored after 25 seconds of the 2009 FA Cup final, then the fastest goal in a final at Wembley?",
+   "a": "Louis Saha",
+   "o": [
+    "Nicolas Anelka",
+    "Dimitar Berbatov",
+    "Louis Saha",
+    "Thierry Henry"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who put through his own net to give West Ham the lead in the 2006 FA Cup final?",
+   "a": "Jamie Carragher",
+   "o": [
+    "Daniel Agger",
+    "John Terry",
+    "Carles Puyol",
+    "Jamie Carragher"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Leeds United's 1992-93 European Cup tie with Stuttgart was settled by a replay in which city?",
+   "a": "Barcelona",
+   "o": [
+    "Real Sociedad",
+    "Valencia",
+    "Barcelona",
+    "Celta de Vigo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Turkish club knocked Manchester United out of the 1993-94 Champions League on away goals?",
+   "a": "Galatasaray",
+   "o": [
+    "Galatasaray",
+    "Amed S.F.K.",
+    "Fenerbahçe",
+    "Alanyaspor"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Manchester United finished bottom of their 2005-06 Champions League group on six points. Which club won it?",
+   "a": "Villarreal",
+   "o": [
+    "Celta de Vigo",
+    "Villarreal",
+    "Barcelona",
+    "Athletic Bilbao"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Arsenal lost 5-1 in both legs of a Champions League round of 16 tie in 2017. Against which club?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayer 04 Leverkusen",
+    "Hamburger",
+    "Bayern Munich",
+    "Eintracht Frankfurt"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English club reached the 1975 European Cup final and was then banned from Europe for crowd trouble?",
+   "a": "Leeds United",
+   "o": [
+    "Aston Villa",
+    "Nottingham Forest",
+    "Leeds United",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Newcastle beat which German club 3-1 at home in the 2002-03 Champions League with an Alan Shearer hat-trick?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Eintracht Frankfurt",
+    "VfB Stuttgart",
+    "Bayer Leverkusen",
+    "Elversberg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English club won the Inter-Cities Fairs Cup in 1969?",
+   "a": "Newcastle United",
+   "o": [
+    "Newcastle United",
+    "Nottingham Forest",
+    "Manchester United",
+    "Tottenham Hotspur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Middlesbrough beat 2-0 in the first match at the Riverside Stadium in 1995?",
+   "a": "Chelsea",
+   "o": [
+    "Nottingham Forest",
+    "Newcastle United",
+    "Aston Villa",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutch club played Sunderland in the first match at the Stadium of Light in 1997?",
+   "a": "Ajax",
+   "o": [
+    "Go Ahead Eagles",
+    "Heerenveen",
+    "Feyenoord",
+    "Ajax"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club were the visitors for Arsenal's first competitive match at the Emirates Stadium, in 2006?",
+   "a": "Aston Villa",
+   "o": [
+    "Brentford",
+    "Nottingham Forest",
+    "Manchester United",
+    "Aston Villa"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Chelsea fielded the first Premier League starting eleven with no English player in it on Boxing Day 1999. Against which club?",
+   "a": "Southampton",
+   "o": [
+    "Middlesbrough",
+    "Southampton",
+    "Cardiff City",
+    "Bolton Wanderers"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Arsene Wenger named an Arsenal squad with no British player in it for the first time in February 2005. Which club were they playing?",
+   "a": "Crystal Palace",
+   "o": [
+    "Crystal Palace",
+    "Ipswich Town",
+    "Sunderland",
+    "Bournemouth"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which French World Cup winning captain spent 1999-2000 at Chelsea and won the FA Cup there?",
+   "a": "Didier Deschamps",
+   "o": [
+    "Gianfranco Zola",
+    "Didier Deschamps",
+    "Emmanuel Petit",
+    "Marcel Desailly"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Dane made seven Premier League appearances for Chelsea in 1998-99 after arriving from Rangers?",
+   "a": "Brian Laudrup",
+   "o": [
+    "Brian Laudrup",
+    "Peter Schmeichel",
+    "Oliver Kahn",
+    "Jari Litmanen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which French World Cup winner spent the 2000-01 season at Middlesbrough after leaving Real Madrid?",
+   "a": "Christian Karembeu",
+   "o": [
+    "Didier Deschamps",
+    "Claude Makélélé",
+    "Christian Karembeu",
+    "Emmanuel Petit"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which former Real Madrid defender joined Bolton Wanderers from Al-Rayyan in 2004 and retired a season later?",
+   "a": "Fernando Hierro",
+   "o": [
+    "Gary Speed",
+    "Fernando Hierro",
+    "Luis Enrique",
+    "Robert Prosinečki"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Japanese midfielder spent 2005-06 on loan at Bolton Wanderers from Fiorentina?",
+   "a": "Hidetoshi Nakata",
+   "o": [
+    "Daniele De Rossi",
+    "Rui Costa",
+    "Hidetoshi Nakata",
+    "Júlio Baptista"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian defender was sent off three times in a single season at Everton before going back to Perugia?",
+   "a": "Marco Materazzi",
+   "o": [
+    "Fabio Grosso",
+    "Michael Reiziger",
+    "Lilian Thuram",
+    "Marco Materazzi"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Swede acted as Attilio Lombardo's interpreter when the pair took caretaker charge of Crystal Palace in 1998?",
+   "a": "Tomas Brolin",
+   "o": [
+    "Gianfranco Zola",
+    "Rui Costa",
+    "Dennis Bergkamp",
+    "Tomas Brolin"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Manchester City defender became the first East Asian to score in the Premier League, in October 2002?",
+   "a": "Sun Jihai",
+   "o": [
+    "Sun Jihai",
+    "Aymeric Laporte",
+    "João Cancelo",
+    "Micah Richards"
+   ],
+   "k": 0
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which Everton goalkeeper scored from his own half against Bolton Wanderers in January 2012?",
+   "a": "Tim Howard",
+   "o": [
+    "Paul Robinson",
+    "Víctor Valdés",
+    "Gianluigi Buffon",
+    "Tim Howard"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Manchester United player kicked a Crystal Palace supporter in 1995?",
+   "a": "Eric Cantona",
+   "o": [
+    "Dwight Yorke",
+    "Eric Cantona",
+    "Rudi Völler",
+    "Andy Cole"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Liverpool captain slipped against Chelsea in April 2014, letting Demba Ba through?",
+   "a": "Steven Gerrard",
+   "o": [
+    "Kevin Nolan",
+    "Jermaine Jenas",
+    "Steven Gerrard",
+    "James Milner"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club went from the Premier League to administration and the fourth tier between 2010 and 2013?",
+   "a": "Portsmouth",
+   "o": [
+    "Portsmouth",
+    "Charlton Athletic",
+    "Birmingham City",
+    "Cardiff City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came back from 3-0 down against Barcelona to win a Champions League semi-final in 2019?",
+   "a": "Liverpool",
+   "o": [
+    "Newcastle United",
+    "Arsenal",
+    "Manchester United",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Liverpool midfielder scored from inside his own half twice in the 2005-06 season?",
+   "a": "Xabi Alonso",
+   "o": [
+    "Andrés Iniesta",
+    "Kaká",
+    "Xabi Alonso",
+    "Martín Demichelis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the Premier League in 2019-20 with seven games still to play?",
+   "a": "Liverpool",
+   "o": [
+    "Chelsea",
+    "Liverpool",
+    "Everton",
+    "Aston Villa"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Argentine crossed Manchester in 2009, and was advertised on a blue billboard reading Welcome to Manchester?",
+   "a": "Carlos Tevez",
+   "o": [
+    "Mario Mandžukić",
+    "Carlos Tevez",
+    "Zlatan Ibrahimović",
+    "Lionel Messi"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which striker scored the winner in Chelsea's 2012 Champions League final, left that summer, and came back two years later?",
+   "a": "Didier Drogba",
+   "o": [
+    "Shaun Wright-Phillips",
+    "Djibril Cissé",
+    "Didier Drogba",
+    "Arjen Robben"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Chelsea goalkeeper refused to be substituted in the 2019 League Cup final, leaving Maurizio Sarri raging?",
+   "a": "Kepa Arrizabalaga",
+   "o": [
+    "Kepa Arrizabalaga",
+    "Jan Oblak",
+    "Iñaki Peña",
+    "Thibaut Courtois"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored a hat-trick for Leeds United against Liverpool in the 1992 Charity Shield, then joined Manchester United?",
+   "a": "Eric Cantona",
+   "o": [
+    "Eric Cantona",
+    "Jimmy Floyd Hasselbaink",
+    "Sylvain Wiltord",
+    "Mark Hughes"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Crystal Palace goalkeeper saved a penalty and then the rebound in the 2025 FA Cup final?",
+   "a": "Dean Henderson",
+   "o": [
+    "Aaron Ramsdale",
+    "Dean Henderson",
+    "Matz Sels",
+    "Gianluigi Donnarumma"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Manchester United goalkeeper scored a late equaliser in a 1995 UEFA Cup tie against Rotor Volgograd?",
+   "a": "Peter Schmeichel",
+   "o": [
+    "David Seaman",
+    "Tomasz Kuszczak",
+    "Peter Schmeichel",
+    "Oliver Kahn"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Tottenham's last 2021 Conference League group game was never played after a Covid outbreak. Who got a 3-0 win?",
+   "a": "Rennes",
+   "o": [
+    "Rennes",
+    "Lens",
+    "Lorient",
+    "Paris"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Manchester United changed out of their grey kit at half time in 1996, claiming they could not pick each other out. Who were they playing?",
+   "a": "Southampton",
+   "o": [
+    "Lincoln City",
+    "Southampton",
+    "Bolton Wanderers",
+    "Middlesbrough"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club wore the Acorns Children's Hospice logo on their shirts, for nothing, in 2008-09 and 2009-10?",
+   "a": "Aston Villa",
+   "o": [
+    "Liverpool",
+    "Brighton & Hove Albion",
+    "Aston Villa",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who admitted years later that he threw the pizza that hit Sir Alex Ferguson in the Old Trafford tunnel in 2004?",
+   "a": "Cesc Fabregas",
+   "o": [
+    "Miralem Pjanić",
+    "Cesc Fabregas",
+    "Andrés Iniesta",
+    "Arda Turan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Manchester United player ended a 1995 press conference with a line about seagulls, a trawler and sardines?",
+   "a": "Eric Cantona",
+   "o": [
+    "Teddy Sheringham",
+    "Jimmy Floyd Hasselbaink",
+    "Sylvain Wiltord",
+    "Eric Cantona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Arsenal midfielder offered to pay the wages of the club's dinosaur mascot after it was made redundant in 2020?",
+   "a": "Mesut Ozil",
+   "o": [
+    "Ivan Rakitić",
+    "Ángel Di María",
+    "Mesut Ozil",
+    "Cesc Fàbregas"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club's badger mascot was sent off in 2008 for break-dancing on the pitch after the game had restarted?",
+   "a": "Fulham",
+   "o": [
+    "Bournemouth",
+    "Fulham",
+    "Brentford",
+    "Coventry City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Four men were arrested for plotting to black out the floodlights before a 1999 game against Liverpool. At which club's ground?",
+   "a": "Charlton Athletic",
+   "o": [
+    "Millwall",
+    "Bolton Wanderers",
+    "Charlton Athletic",
+    "Burnley"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club's floodlights failed in November 1997, forcing a Premier League game against Crystal Palace to be abandoned?",
+   "a": "West Ham United",
+   "o": [
+    "Derby County",
+    "Cardiff City",
+    "Lincoln City",
+    "West Ham United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "A referee sent off the wrong Arsenal player at Stamford Bridge in 2014 as Chelsea won 6-0. Who was dismissed?",
+   "a": "Kieran Gibbs",
+   "o": [
+    "Calum Chambers",
+    "Kieran Gibbs",
+    "Chris Smalling",
+    "Kyle Walker"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which defender left Tottenham on a free transfer in 2001 and signed for Arsenal after assuring fans he would stay?",
+   "a": "Sol Campbell",
+   "o": [
+    "Ashley Cole",
+    "Lee Dixon",
+    "Sol Campbell",
+    "Rio Ferdinand"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club was docked three points in 1996-97 for calling off a game at Blackburn, and went down by two points?",
+   "a": "Middlesbrough",
+   "o": [
+    "Middlesbrough",
+    "Derby County",
+    "Millwall",
+    "Charlton Athletic"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club was docked points twice in 2023-24 for breaching the Premier League's financial rules?",
+   "a": "Everton",
+   "o": [
+    "Liverpool",
+    "Everton",
+    "Leeds United",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished the 2007-08 Premier League with eleven points and one win from 38 games?",
+   "a": "Derby County",
+   "o": [
+    "Lincoln City",
+    "Derby County",
+    "Millwall",
+    "Bolton Wanderers"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished bottom of the 2015-16 Premier League with seventeen points, exactly half the total of the club above them?",
+   "a": "Aston Villa",
+   "o": [
+    "Liverpool",
+    "Aston Villa",
+    "Nottingham Forest",
+    "Bournemouth"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club's fans let a chicken loose on the pitch in 2012 as a protest against their poultry-magnate owners?",
+   "a": "Blackburn Rovers",
+   "o": [
+    "Bristol City",
+    "Blackburn Rovers",
+    "Millwall",
+    "Charlton Athletic"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Manchester City striker's house caught fire from fireworks the night before the 6-1 win at Old Trafford in 2011?",
+   "a": "Mario Balotelli",
+   "o": [
+    "Pierre-Emerick Aubameyang",
+    "Luis Suárez",
+    "Mario Balotelli",
+    "Alexis Sánchez"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Manchester City forward was exiled for six months after Roberto Mancini said he refused to come on at Bayern Munich in 2011?",
+   "a": "Carlos Tevez",
+   "o": [
+    "Carlos Tevez",
+    "Lionel Messi",
+    "Cristiano Ronaldo",
+    "Edinson Cavani"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Whose goal at Old Trafford on the final day of 2006-07 kept West Ham up and sent Sheffield United down?",
+   "a": "Carlos Tevez",
+   "o": [
+    "Fernando Llorente",
+    "Gonzalo Higuaín",
+    "Carlos Tevez",
+    "Edinson Cavani"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club's fans ran onto the pitch before the whistle in 2022 after coming from 2-0 down against Crystal Palace to stay up?",
+   "a": "Everton",
+   "o": [
+    "Nottingham Forest",
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Everton"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which goalkeeper became the first to score in the Premier League, for Aston Villa at Goodison Park in 2001?",
+   "a": "Peter Schmeichel",
+   "o": [
+    "Peter Schmeichel",
+    "Jim Leighton",
+    "Márton Fülöp",
+    "Brad Friedel"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club played the 2013-14 Premier League season in red after an owner replaced their traditional blue home shirt?",
+   "a": "Cardiff City",
+   "o": [
+    "Burnley",
+    "Cardiff City",
+    "Bristol City",
+    "Birmingham City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club's splattered yellow and green home shirt of the early 1990s was nicknamed the bird poo kit?",
+   "a": "Norwich City",
+   "o": [
+    "Derby County",
+    "Bolton Wanderers",
+    "Norwich City",
+    "Birmingham City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club's owner tried to rename them the Tigers, only for the Football Association to throw the plan out in 2014?",
+   "a": "Hull City",
+   "o": [
+    "Crystal Palace",
+    "Ipswich Town",
+    "Coventry City",
+    "Hull City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came back from 4-0 down at half-time to draw 4-4 with Arsenal in February 2011?",
+   "a": "Newcastle United",
+   "o": [
+    "Leeds United",
+    "Newcastle United",
+    "Manchester United",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which substitute scored a hat-trick to earn West Bromwich Albion a 5-5 draw in Sir Alex Ferguson's last match in 2013?",
+   "a": "Romelu Lukaku",
+   "o": [
+    "Álvaro Morata",
+    "Memphis Depay",
+    "Timo Werner",
+    "Romelu Lukaku"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club lost a Premier League game 9-0 twice, at home to Leicester City in 2019 and at Manchester United in 2021?",
+   "a": "Southampton",
+   "o": [
+    "Southampton",
+    "Charlton Athletic",
+    "Blackburn Rovers",
+    "Bolton Wanderers"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Tottenham striker scored five goals in a 9-1 win over Wigan Athletic in November 2009?",
+   "a": "Jermain Defoe",
+   "o": [
+    "Peter Crouch",
+    "Jermain Defoe",
+    "Shaun Wright-Phillips",
+    "Emmanuel Adebayor"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club beat Manchester United 7-0 in March 2023?",
+   "a": "Liverpool",
+   "o": [
+    "Leeds United",
+    "Chelsea",
+    "Liverpool",
+    "Everton"
+   ],
+   "k": 2
+  }
+ ]
+}

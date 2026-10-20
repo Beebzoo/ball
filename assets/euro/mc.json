@@ -1,0 +1,1585 @@
+{
+ "easy": [
+  {
+   "q": "Which country won Euro 2024?",
+   "a": "Spain",
+   "o": [
+    "Germany",
+    "Spain",
+    "Czech Republic",
+    "Northern Ireland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won Euro 2020, the tournament played in 2021?",
+   "a": "Italy",
+   "o": [
+    "England",
+    "North Macedonia",
+    "Denmark",
+    "Italy"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country hosted the Euro 2020 final at Wembley?",
+   "a": "England",
+   "o": [
+    "England",
+    "Lithuania",
+    "Armenia",
+    "Ukraine"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country won Euro 2020 (played in 2021)?",
+   "a": "Italy",
+   "o": [
+    "Finland",
+    "Iceland",
+    "Italy",
+    "Sweden"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted Euro 2024?",
+   "a": "Germany",
+   "o": [
+    "Germany",
+    "Northern Ireland",
+    "Denmark",
+    "Azerbaijan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country won the 2016 European Championship?",
+   "a": "Portugal",
+   "o": [
+    "Wales",
+    "Portugal",
+    "West Germany",
+    "Yugoslavia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which host nation did Portugal beat in the Euro 2016 final?",
+   "a": "France",
+   "o": [
+    "France",
+    "Poland",
+    "North Macedonia",
+    "Iceland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country won the men's Euro 2004, a huge shock?",
+   "a": "Greece",
+   "o": [
+    "Poland",
+    "Greece",
+    "Wales",
+    "Russia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored the legendary volley in the Euro 1988 final?",
+   "a": "Marco van Basten",
+   "o": [
+    "Jürgen Klinsmann",
+    "Marco van Basten",
+    "Romário",
+    "Marc Overmars"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which nation did the Netherlands beat in the Euro 1988 final?",
+   "a": "Soviet Union",
+   "o": [
+    "Soviet Union",
+    "Serbia",
+    "Ukraine",
+    "Belgium"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who captained the Netherlands at Euro 2024?",
+   "a": "Virgil van Dijk",
+   "o": [
+    "Stefan de Vrij",
+    "Virgil van Dijk",
+    "Mamadou Sakho",
+    "Stephen Darby"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country co-hosted Euro 2000 with Belgium?",
+   "a": "The Netherlands",
+   "o": [
+    "Denmark",
+    "Lithuania",
+    "The Netherlands",
+    "Greece"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch coach led the Netherlands at Euro 2024?",
+   "a": "Ronald Koeman",
+   "o": [
+    "Diego Maradona",
+    "Robert Prosinečki",
+    "Frank Rijkaard",
+    "Ronald Koeman"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Belgium and which neighbour jointly staged Euro 2000?",
+   "a": "The Netherlands",
+   "o": [
+    "The Netherlands",
+    "Russia",
+    "Denmark",
+    "Turkey"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which country was Euro 1988 held, the tournament the Netherlands won?",
+   "a": "West Germany",
+   "o": [
+    "West Germany",
+    "Estonia",
+    "Slovenia",
+    "Azerbaijan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club paid a world record fee of 222 million euros for Neymar in 2017?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Olympique Lyonnais",
+    "AJ Auxerre",
+    "Lille OSC",
+    "Paris Saint-Germain"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which national team did Sarina Wiegman manage to the Euro 2022 title?",
+   "a": "England",
+   "o": [
+    "England",
+    "Luxembourg",
+    "Czech Republic",
+    "Portugal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Wales, the Euro 2016 semi-finalists, share a land border with which country?",
+   "a": "England",
+   "o": [
+    "Finland",
+    "England",
+    "Estonia",
+    "Russia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "The 2022 women's European Championship was won by the host nation. Which country staged it?",
+   "a": "England",
+   "o": [
+    "England",
+    "Slovakia",
+    "Albania",
+    "Israel"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In 2023 UEFA awarded Euro 2032 jointly to Turkey and which other country?",
+   "a": "Italy",
+   "o": [
+    "Greece",
+    "Yugoslavia",
+    "Italy",
+    "Wales"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Euro 2028 was awarded in 2023 to England, Scotland, Wales, Northern Ireland and which other country?",
+   "a": "The Republic of Ireland",
+   "o": [
+    "Yugoslavia",
+    "The Republic of Ireland",
+    "Georgia",
+    "Slovakia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "The Netherlands opened Euro 2008 by beating the reigning world champions 3-0. Which country?",
+   "a": "Italy",
+   "o": [
+    "Italy",
+    "North Macedonia",
+    "Germany",
+    "Poland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which France star missed the decisive penalty as Switzerland knocked the world champions out of Euro 2020?",
+   "a": "Kylian Mbappé",
+   "o": [
+    "Rodrygo",
+    "Jean-Philippe Mateta",
+    "Anthony Martial",
+    "Kylian Mbappé"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Portuguese club sold João Félix to Atlético Madrid for 126 million euros in 2019?",
+   "a": "Benfica",
+   "o": [
+    "Braga",
+    "Famalicão",
+    "Alverca",
+    "Benfica"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did hosts Germany beat 5-1 in the opening game of Euro 2024?",
+   "a": "Scotland",
+   "o": [
+    "Hungary",
+    "Scotland",
+    "Belgium",
+    "Austria"
+   ],
+   "k": 1
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which country did Spain beat 4-0 in the Euro 2012 final?",
+   "a": "Italy",
+   "o": [
+    "Finland",
+    "Iceland",
+    "Czechoslovakia",
+    "Italy"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did England beat to win the Women's Euro 2022?",
+   "a": "Germany",
+   "o": [
+    "France",
+    "Germany",
+    "Iceland",
+    "Malta"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was named Player of the Tournament at Euro 2024?",
+   "a": "Rodri",
+   "o": [
+    "Leroy Sané",
+    "Thomas Partey",
+    "Bernardo Silva",
+    "Rodri"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Italy beat on penalties in the Euro 2020 final?",
+   "a": "England",
+   "o": [
+    "Scotland",
+    "Hungary",
+    "England",
+    "Czech Republic"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country beat the Netherlands in the Euro 2024 semi-final with a late goal?",
+   "a": "England",
+   "o": [
+    "Serbia",
+    "Russia",
+    "Malta",
+    "England"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did the hosts Portugal lose the Euro 2004 final to?",
+   "a": "Greece",
+   "o": [
+    "Czechoslovakia",
+    "Greece",
+    "Poland",
+    "Wales"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did England lose the Euro 2024 final to?",
+   "a": "Spain",
+   "o": [
+    "West Germany",
+    "Russia",
+    "Spain",
+    "France"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country beat France in the Euro 2024 semi-final?",
+   "a": "Spain",
+   "o": [
+    "North Macedonia",
+    "Albania",
+    "Spain",
+    "Greece"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which nation won Euro 2016?",
+   "a": "Portugal",
+   "o": [
+    "Finland",
+    "Portugal",
+    "Serbia",
+    "Slovenia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was Portugal's captain when they won Euro 2016?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Robin van Persie",
+    "Fernando Llorente",
+    "Cristiano Ronaldo",
+    "Alexis Sánchez"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which team did Denmark beat in the Euro 1992 final?",
+   "a": "Germany",
+   "o": [
+    "Germany",
+    "Austria",
+    "Republic of Ireland",
+    "Belarus"
+   ],
+   "k": 0
+  },
+  {
+   "q": "What was the score of the Euro 1988 final?",
+   "a": "2-0",
+   "o": [
+    "1-1",
+    "1-0",
+    "2-0",
+    "3-0"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country won Euro 1996?",
+   "a": "Germany",
+   "o": [
+    "Germany",
+    "England",
+    "Turkey",
+    "Denmark"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country won Euro 2000?",
+   "a": "France",
+   "o": [
+    "Armenia",
+    "France",
+    "Republic of Ireland",
+    "Cyprus"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Spain beat in the Euro 2024 quarter-final?",
+   "a": "Germany",
+   "o": [
+    "Yugoslavia",
+    "Israel",
+    "Germany",
+    "Belgium"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted Euro 1996?",
+   "a": "England",
+   "o": [
+    "Germany",
+    "Bosnia and Herzegovina",
+    "England",
+    "Luxembourg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country beat England on penalties in the Euro 1996 semi-final?",
+   "a": "Germany",
+   "o": [
+    "Republic of Ireland",
+    "Denmark",
+    "Germany",
+    "Israel"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who missed the decisive penalty for England in the Euro 1996 semi-final shoot-out?",
+   "a": "Gareth Southgate",
+   "o": [
+    "Gareth Southgate",
+    "Juninho Paulista",
+    "Christian Ziege",
+    "David Beckham"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country co-hosted Euro 2008 with Switzerland?",
+   "a": "Austria",
+   "o": [
+    "Latvia",
+    "France",
+    "Austria",
+    "Lithuania"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted Euro 1992, the tournament Denmark won?",
+   "a": "Sweden",
+   "o": [
+    "France",
+    "Republic of Ireland",
+    "Sweden",
+    "Armenia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country knocked Belgium out at the quarter-final stage of Euro 2016?",
+   "a": "Wales",
+   "o": [
+    "Switzerland",
+    "Republic of Ireland",
+    "Wales",
+    "Serbia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country beat Belgium 2-1 in the Euro 2020 quarter-final?",
+   "a": "Italy",
+   "o": [
+    "Luxembourg",
+    "Cyprus",
+    "Albania",
+    "Italy"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Spain beat in the Euro 2008 final?",
+   "a": "Germany",
+   "o": [
+    "Germany",
+    "France",
+    "Estonia",
+    "Czechoslovakia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did the Netherlands beat 6-1 in the Euro 2000 quarter-final?",
+   "a": "Yugoslavia",
+   "o": [
+    "Yugoslavia",
+    "Slovakia",
+    "Poland",
+    "Soviet Union"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did the Netherlands beat 3-0 in the last 16 of Euro 2024?",
+   "a": "Romania",
+   "o": [
+    "Romania",
+    "Wales",
+    "Poland",
+    "Denmark"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did the Republic of Ireland beat 1-0 at Euro 1988?",
+   "a": "England",
+   "o": [
+    "Luxembourg",
+    "Wales",
+    "Greece",
+    "England"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won the 1976 European Championship?",
+   "a": "Czechoslovakia",
+   "o": [
+    "Spain",
+    "Scotland",
+    "Czechoslovakia",
+    "England"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country won Euro 1984 on home soil?",
+   "a": "France",
+   "o": [
+    "Serbia",
+    "Finland",
+    "Poland",
+    "France"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won the European Championship in both 1972 and 1980?",
+   "a": "West Germany",
+   "o": [
+    "Malta",
+    "Spain",
+    "Slovenia",
+    "West Germany"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did England beat in the Euro 2020 semi-final at Wembley?",
+   "a": "Denmark",
+   "o": [
+    "Belarus",
+    "Denmark",
+    "Bosnia and Herzegovina",
+    "Greece"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which substitute scored England's 90th-minute winner in the Euro 2024 semi-final?",
+   "a": "Ollie Watkins",
+   "o": [
+    "Reiss Nelson",
+    "Ollie Watkins",
+    "Leon Bailey",
+    "Wilfried Zaha"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Roberto Mancini manage to the Euro 2020 title?",
+   "a": "Italy",
+   "o": [
+    "Sweden",
+    "Estonia",
+    "Slovakia",
+    "Italy"
+   ],
+   "k": 3
+  },
+  {
+   "q": "How many teams played at Euro 2024?",
+   "a": "24",
+   "o": [
+    "27",
+    "21",
+    "24",
+    "25"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country won the Women's Euros in both 2022 and 2025?",
+   "a": "England",
+   "o": [
+    "Serbia",
+    "Bosnia and Herzegovina",
+    "Lithuania",
+    "England"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Sarina Wiegman win Women's Euro 2017 with?",
+   "a": "The Netherlands",
+   "o": [
+    "Albania",
+    "France",
+    "Soviet Union",
+    "The Netherlands"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In which country was Euro 1988 played?",
+   "a": "West Germany",
+   "o": [
+    "West Germany",
+    "Croatia",
+    "Israel",
+    "North Macedonia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Denmark were called up late to Euro 1992 to replace which country?",
+   "a": "Yugoslavia",
+   "o": [
+    "North Macedonia",
+    "Yugoslavia",
+    "Poland",
+    "Finland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who beat the Netherlands 4-1 at Wembley in a famous group game at Euro 1996?",
+   "a": "England",
+   "o": [
+    "England",
+    "Poland",
+    "Armenia",
+    "Serbia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which England teenager scored four goals at Euro 2004?",
+   "a": "Wayne Rooney",
+   "o": [
+    "Marouane Fellaini",
+    "Wayne Rooney",
+    "Matty James",
+    "Michael Carrick"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Spain beat which country on penalties in the Euro 2008 quarter-final?",
+   "a": "Italy",
+   "o": [
+    "Italy",
+    "Austria",
+    "Croatia",
+    "Iceland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who won the Golden Boot at Euro 2008?",
+   "a": "David Villa",
+   "o": [
+    "Lionel Messi",
+    "Zlatan Ibrahimović",
+    "David Villa",
+    "Samuel Eto'o"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian chipped a Panenka penalty past Joe Hart in the Euro 2012 shoot-out?",
+   "a": "Andrea Pirlo",
+   "o": [
+    "Esteban Cambiasso",
+    "Emre Belözoğlu",
+    "Andrea Pirlo",
+    "Patrick Vieira"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which year did the European Championship expand to 24 teams?",
+   "a": "2016",
+   "o": [
+    "2004",
+    "2024",
+    "2008",
+    "2016"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Denmark midfielder collapsed on the pitch during their opening game of Euro 2020?",
+   "a": "Christian Eriksen",
+   "o": [
+    "Mateo Kovačić",
+    "Davy Klaassen",
+    "Christian Eriksen",
+    "Daley Sinkgraven"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Whose saves from Jadon Sancho and Bukayo Saka won Italy the Euro 2020 final shoot-out?",
+   "a": "Gianluigi Donnarumma",
+   "o": [
+    "Dean Henderson",
+    "Gianluigi Donnarumma",
+    "Lucas Chevalier",
+    "Guglielmo Vicario"
+   ],
+   "k": 1
+  },
+  {
+   "q": "England beat which country 2-0 in the last 16 of Euro 2020?",
+   "a": "Germany",
+   "o": [
+    "Finland",
+    "Germany",
+    "Wales",
+    "Russia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who captained Italy to the Euro 2020 title?",
+   "a": "Giorgio Chiellini",
+   "o": [
+    "Sergio Ramos",
+    "Giorgio Chiellini",
+    "Gianluca Zambrotta",
+    "Dani Alves"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored England's stoppage-time overhead kick against Slovakia at Euro 2024?",
+   "a": "Jude Bellingham",
+   "o": [
+    "Jude Bellingham",
+    "Conor Gallagher",
+    "Angel Gomes",
+    "Jobe Bellingham"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which country was the Women's Euro 2025 played?",
+   "a": "Switzerland",
+   "o": [
+    "Switzerland",
+    "Romania",
+    "Greece",
+    "Cyprus"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Six Women's European Championships in a row, up to 2013, were won by which country?",
+   "a": "Germany",
+   "o": [
+    "Ukraine",
+    "Germany",
+    "England",
+    "Portugal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Leah Williamson play for when she captained England to the Euro 2022 title?",
+   "a": "Arsenal",
+   "o": [
+    "Tottenham Hotspur",
+    "Liverpool",
+    "Manchester City",
+    "Arsenal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club did Christian Eriksen join in 2022, months after his cardiac arrest at Euro 2020?",
+   "a": "Brentford",
+   "o": [
+    "Bournemouth",
+    "Aston Villa",
+    "Brentford",
+    "Crystal Palace"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which coach quit as Netherlands manager after the Euro 2020 defeat by the Czech Republic?",
+   "a": "Frank de Boer",
+   "o": [
+    "Jaap Stam",
+    "Frank de Boer",
+    "Bixente Lizarazu",
+    "Fabio Cannavaro"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Cristiano Ronaldo burst into tears at Euro 2024 after which Slovenia keeper saved his extra-time penalty?",
+   "a": "Jan Oblak",
+   "o": [
+    "Wojciech Szczęsny",
+    "Marc-André ter Stegen",
+    "Jan Oblak",
+    "Emiliano Martínez"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country, playing its first major tournament, beat Portugal 2-0 at Euro 2024?",
+   "a": "Georgia",
+   "o": [
+    "Hungary",
+    "France",
+    "Georgia",
+    "Spain"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Belgium went out of Euro 2024 to a late own goal by Jan Vertonghen. Who were the opponents?",
+   "a": "France",
+   "o": [
+    "France",
+    "Austria",
+    "Armenia",
+    "Croatia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did the Netherlands thrash 4-1 in the group stage of Euro 2008?",
+   "a": "France",
+   "o": [
+    "Azerbaijan",
+    "Northern Ireland",
+    "England",
+    "France"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Czech striker scored from near the halfway line against Scotland at Euro 2020?",
+   "a": "Patrik Schick",
+   "o": [
+    "Matteo Politano",
+    "Tammy Abraham",
+    "Patrik Schick",
+    "Timo Werner"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Six players shared the Euro 2024 Golden Boot on three goals. Who was the only Dutchman among them?",
+   "a": "Cody Gakpo",
+   "o": [
+    "Darwin Núñez",
+    "Rhian Brewster",
+    "Cody Gakpo",
+    "Donyell Malen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who became the oldest scorer in European Championship history at Euro 2024, aged 38?",
+   "a": "Luka Modrić",
+   "o": [
+    "Andrej Kramarić",
+    "Nigel de Jong",
+    "Antonio Cassano",
+    "Luka Modrić"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutchman gave the Netherlands an early lead in the Euro 2024 semi-final against England?",
+   "a": "Xavi Simons",
+   "o": [
+    "João Neves",
+    "Emile Smith Rowe",
+    "Xavi Simons",
+    "Vitinha"
+   ],
+   "k": 2
+  },
+  {
+   "q": "England reached the Euro 2024 semi-finals by beating which country on penalties?",
+   "a": "Switzerland",
+   "o": [
+    "Belarus",
+    "Georgia",
+    "Switzerland",
+    "Azerbaijan"
+   ],
+   "k": 2
+  }
+ ],
+ "hard": [
+  {
+   "q": "Who scored the only goal of the Euro 2008 final for Spain?",
+   "a": "Fernando Torres",
+   "o": [
+    "Peter Crouch",
+    "Iago Aspas",
+    "Fernando Torres",
+    "Samuel Eto'o"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country knocked Spain out of Euro 2020 in the semi-finals?",
+   "a": "Italy",
+   "o": [
+    "Finland",
+    "Italy",
+    "Albania",
+    "Belarus"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did the Netherlands beat 2-1 in the Euro 1988 semi-final?",
+   "a": "West Germany",
+   "o": [
+    "West Germany",
+    "Soviet Union",
+    "Armenia",
+    "England"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country knocked the Netherlands out of Euro 2000 on penalties in the semi-final?",
+   "a": "Italy",
+   "o": [
+    "Czechoslovakia",
+    "Italy",
+    "Malta",
+    "Russia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Spain lose to in the Euro 1984 final?",
+   "a": "France",
+   "o": [
+    "Cyprus",
+    "Sweden",
+    "France",
+    "Bulgaria"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored the golden goal that won Euro 1996?",
+   "a": "Oliver Bierhoff",
+   "o": [
+    "Éric Cantona",
+    "Christian Vieri",
+    "Oliver Bierhoff",
+    "Filippo Inzaghi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored the volley in the 1988 European Championship final?",
+   "a": "Marco van Basten",
+   "o": [
+    "Oliver Bierhoff",
+    "Teddy Sheringham",
+    "Marco van Basten",
+    "Gerald Vanenburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who captained the Netherlands to their 1988 European Championship title?",
+   "a": "Ruud Gullit",
+   "o": [
+    "Ruud Gullit",
+    "Glenn Hoddle",
+    "Phillip Cocu",
+    "Roberto Mancini"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country knocked the Netherlands out of Euro 2020 in the last 16?",
+   "a": "The Czech Republic",
+   "o": [
+    "The Czech Republic",
+    "Bulgaria",
+    "Northern Ireland",
+    "Iceland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which national team did Dick Advocaat manage at Euro 2004?",
+   "a": "The Netherlands",
+   "o": [
+    "The Netherlands",
+    "Georgia",
+    "Israel",
+    "Czech Republic"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Spaniard won the Golden Boot at Euro 2012?",
+   "a": "Fernando Torres",
+   "o": [
+    "David Villa",
+    "Olivier Giroud",
+    "Fernando Torres",
+    "Ryan Babel"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country won Women's Euro 2025?",
+   "a": "England",
+   "o": [
+    "Croatia",
+    "England",
+    "Spain",
+    "Austria"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Belgium reached the Euro 1980 final in Rome. Which country beat them?",
+   "a": "West Germany",
+   "o": [
+    "Serbia",
+    "Wales",
+    "Ukraine",
+    "West Germany"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country knocked the Netherlands out of Euro 2004 in the semi-finals?",
+   "a": "Portugal",
+   "o": [
+    "Cyprus",
+    "Serbia",
+    "Portugal",
+    "Scotland"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Greece beat in the Euro 2004 semi-final?",
+   "a": "The Czech Republic",
+   "o": [
+    "Austria",
+    "The Czech Republic",
+    "Slovakia",
+    "Norway"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Denmark beat in the Euro 1992 semi-final?",
+   "a": "The Netherlands",
+   "o": [
+    "The Netherlands",
+    "Estonia",
+    "Yugoslavia",
+    "Finland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did France beat in the Euro 2000 final?",
+   "a": "Italy",
+   "o": [
+    "North Macedonia",
+    "Italy",
+    "Bulgaria",
+    "England"
+   ],
+   "k": 1
+  },
+  {
+   "q": "By what scoreline did Spain beat Italy in the Euro 2012 final in Kyiv?",
+   "a": "4-0",
+   "o": [
+    "4-0",
+    "5-1",
+    "4-1",
+    "5-0"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Spanish coach was in charge for the Euro 2012 title?",
+   "a": "Vicente del Bosque",
+   "o": [
+    "Alejandro Chumacero",
+    "Michel Platini",
+    "Vicente del Bosque",
+    "Bernd Schuster"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian goalkeeper saved the decisive penalty in the Euro 2020 final?",
+   "a": "Gianluigi Donnarumma",
+   "o": [
+    "André Onana",
+    "Altay Bayındır",
+    "Gianluigi Donnarumma",
+    "James Trafford"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Czech striker matched Cristiano Ronaldo's five goals at Euro 2020?",
+   "a": "Patrik Schick",
+   "o": [
+    "Matteo Politano",
+    "Patrik Schick",
+    "Ademola Lookman",
+    "Keita Balde"
+   ],
+   "k": 1
+  },
+  {
+   "q": "The Netherlands lost all three group games at Euro 2012. Which country beat them in the opener?",
+   "a": "Denmark",
+   "o": [
+    "Slovakia",
+    "France",
+    "Spain",
+    "Denmark"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Spain pulled out of the first European Championship in 1960 rather than play whom, on Franco's orders?",
+   "a": "The Soviet Union",
+   "o": [
+    "Czech Republic",
+    "Georgia",
+    "The Soviet Union",
+    "Russia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Xavi Simons had a goal against France ruled out at Euro 2024 because which Dutch team-mate stood offside in front of the keeper?",
+   "a": "Denzel Dumfries",
+   "o": [
+    "Manuel Akanji",
+    "Denzel Dumfries",
+    "Ferland Mendy",
+    "Alessandro Bastoni"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted Euro 1976, where Antonín Panenka chipped his famous penalty?",
+   "a": "Yugoslavia",
+   "o": [
+    "Northern Ireland",
+    "Portugal",
+    "Italy",
+    "Yugoslavia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In 2024 Albania's Nedim Bajrami scored after 23 seconds, a new record for the fastest Euros goal. Against which country?",
+   "a": "Italy",
+   "o": [
+    "Sweden",
+    "Bosnia and Herzegovina",
+    "Italy",
+    "Latvia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted Euro 1972 and finished third, beating Hungary?",
+   "a": "Belgium",
+   "o": [
+    "Turkey",
+    "Soviet Union",
+    "Czechoslovakia",
+    "Belgium"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Georgian striker shared the Euro 2024 Golden Boot with Harry Kane?",
+   "a": "Georges Mikautadze",
+   "o": [
+    "Georges Mikautadze",
+    "Akram Afif",
+    "Jon Dahl Tomasson",
+    "Jozy Altidore"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who headed Spain's 119th-minute winner against hosts Germany in the Euro 2024 quarter-final?",
+   "a": "Mikel Merino",
+   "o": [
+    "Mikel Merino",
+    "Rodri",
+    "Thomas Partey",
+    "Carlos Soler"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country topped Euro 2024 Group D ahead of France and the Netherlands?",
+   "a": "Austria",
+   "o": [
+    "Cyprus",
+    "Bosnia and Herzegovina",
+    "England",
+    "Austria"
+   ],
+   "k": 3
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Who won the Golden Boot at Euro 2020?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Cristiano Ronaldo",
+    "Alexis Sánchez",
+    "Mario Mandžukić",
+    "Klaas-Jan Huntelaar"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who captained Spain at Euro 2024?",
+   "a": "Álvaro Morata",
+   "o": [
+    "Borja Iglesias",
+    "Álvaro Morata",
+    "Andrea Belotti",
+    "Memphis Depay"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Spain beat on penalties in the Euro 2012 semi-final?",
+   "a": "Portugal",
+   "o": [
+    "Netherlands",
+    "Portugal",
+    "Armenia",
+    "Czechoslovakia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer at Euro 1988, with five goals?",
+   "a": "Marco van Basten",
+   "o": [
+    "Romário",
+    "Marco van Basten",
+    "Gerald Vanenburg",
+    "Jean-Pierre Papin"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the first European Championship, in 1960?",
+   "a": "The Soviet Union",
+   "o": [
+    "Turkey",
+    "North Macedonia",
+    "Georgia",
+    "The Soviet Union"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutchman shared the Euro 2000 Golden Boot with five goals?",
+   "a": "Patrick Kluivert",
+   "o": [
+    "Damien Duff",
+    "Patrick Kluivert",
+    "Michael Owen",
+    "Marc Overmars"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the 1964 European Championship, on home soil?",
+   "a": "Spain",
+   "o": [
+    "Soviet Union",
+    "Russia",
+    "Northern Ireland",
+    "Spain"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won the 1964 European Championship as hosts?",
+   "a": "Spain",
+   "o": [
+    "Spain",
+    "Bulgaria",
+    "Cyprus",
+    "Italy"
+   ],
+   "k": 0
+  },
+  {
+   "q": "How many goals did Michel Platini score at Euro 1984?",
+   "a": "9",
+   "o": [
+    "10",
+    "11",
+    "9",
+    "6"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored the opening goal of the Euro 2012 final in Spain's 4-0 win over Italy?",
+   "a": "David Silva",
+   "o": [
+    "Sergio Canales",
+    "David Silva",
+    "Andrés Iniesta",
+    "Jonathan Viera"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted the first European Championship finals, in 1960?",
+   "a": "France",
+   "o": [
+    "Belarus",
+    "France",
+    "Albania",
+    "Serbia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Laudrup brother refused to play under Richard Møller Nielsen and missed Euro 1992?",
+   "a": "Michael Laudrup",
+   "o": [
+    "Michael Laudrup",
+    "Roberto Baggio",
+    "Robert Prosinečki",
+    "Phillip Cocu"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who missed the decisive penalty for the Netherlands in the Euro 1992 semi-final shoot-out?",
+   "a": "Marco van Basten",
+   "o": [
+    "Gianluca Vialli",
+    "Ian Wright",
+    "Gerald Vanenburg",
+    "Marco van Basten"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Danish goalkeeper starred in the Euro 1992 run and later won the Premier League?",
+   "a": "Peter Schmeichel",
+   "o": [
+    "David Seaman",
+    "Edwin van der Sar",
+    "Peter Schmeichel",
+    "Árni Gautur Arason"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which substitute equalised for France deep in stoppage time in the Euro 2000 final?",
+   "a": "Sylvain Wiltord",
+   "o": [
+    "Thierry Henry",
+    "Sylvain Wiltord",
+    "Djibril Cissé",
+    "Davor Šuker"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Karel Poborský's famous scooped goal knock out at Euro 1996?",
+   "a": "Portugal",
+   "o": [
+    "Slovakia",
+    "Poland",
+    "Portugal",
+    "England"
+   ],
+   "k": 2
+  },
+  {
+   "q": "The Euro 1968 final was drawn 1-1 and replayed. Which country did Italy beat 2-0 in the replay?",
+   "a": "Yugoslavia",
+   "o": [
+    "Finland",
+    "Bulgaria",
+    "Yugoslavia",
+    "Azerbaijan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "At Euro 2024 a Romelu Lukaku goal against Slovakia was ruled out for a handball by a team-mate. Who?",
+   "a": "Loïs Openda",
+   "o": [
+    "Randal Kolo Muani",
+    "Moise Kean",
+    "Loïs Openda",
+    "Jeremy Doku"
+   ],
+   "k": 2
+  }
+ ],
+ "ball": [
+  {
+   "q": "Who scored the Panenka penalty for Italy against England at Euro 2012?",
+   "a": "Andrea Pirlo",
+   "o": [
+    "Andrea Pirlo",
+    "Emre Belözoğlu",
+    "Mark van Bommel",
+    "Thiago Motta"
+   ],
+   "k": 0
+  },
+  {
+   "q": "What was the score when Spain beat Malta to qualify for Euro 1984?",
+   "a": "12-1",
+   "o": [
+    "11-1",
+    "11-0",
+    "12-1",
+    "12-2"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did West Germany beat in the Euro 1972 final?",
+   "a": "Soviet Union",
+   "o": [
+    "Malta",
+    "Soviet Union",
+    "Yugoslavia",
+    "France"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Denmark only entered Euro 1992 because which banned nation was expelled?",
+   "a": "Yugoslavia",
+   "o": [
+    "Northern Ireland",
+    "Yugoslavia",
+    "Portugal",
+    "Finland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Iceland knock out of Euro 2016?",
+   "a": "England",
+   "o": [
+    "Romania",
+    "Turkey",
+    "Republic of Ireland",
+    "England"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won Euro 2004 at odds of 150-1?",
+   "a": "Greece",
+   "o": [
+    "Greece",
+    "Cyprus",
+    "Serbia",
+    "Iceland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Greece beat in both the opening game and the final of Euro 2004?",
+   "a": "Portugal",
+   "o": [
+    "Northern Ireland",
+    "Malta",
+    "Belgium",
+    "Portugal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Guus Hiddink take to the Euro 2008 semi-finals?",
+   "a": "Russia",
+   "o": [
+    "Northern Ireland",
+    "Serbia",
+    "Yugoslavia",
+    "Russia"
+   ],
+   "k": 3
+  }
+ ]
+}

@@ -1,0 +1,4698 @@
+{
+ "easy": [
+  {
+   "q": "Which country won the 2022 World Cup?",
+   "a": "Argentina",
+   "o": [
+    "Ecuador",
+    "Argentina",
+    "Paraguay",
+    "Peru"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted the 2022 World Cup?",
+   "a": "Qatar",
+   "o": [
+    "Brunei",
+    "Thailand",
+    "Saudi Arabia",
+    "Qatar"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won the 2010 World Cup?",
+   "a": "Spain",
+   "o": [
+    "Spain",
+    "Czech Republic",
+    "Scotland",
+    "Portugal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted the 2010 World Cup?",
+   "a": "South Africa",
+   "o": [
+    "South Africa",
+    "Angola",
+    "Burkina Faso",
+    "Kenya"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country won the 2014 World Cup?",
+   "a": "Germany",
+   "o": [
+    "Germany",
+    "Ukraine",
+    "Spain",
+    "Yugoslavia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted the 2014 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Argentina",
+    "Brazil",
+    "Ecuador",
+    "Uruguay"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country reached the 2010 World Cup final and lost to Spain?",
+   "a": "Netherlands",
+   "o": [
+    "Bulgaria",
+    "Hungary",
+    "Netherlands",
+    "Azerbaijan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted the 2006 World Cup?",
+   "a": "Germany",
+   "o": [
+    "Austria",
+    "Germany",
+    "Belarus",
+    "North Macedonia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the 2018 World Cup?",
+   "a": "France",
+   "o": [
+    "Romania",
+    "France",
+    "Netherlands",
+    "Portugal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the 2006 World Cup?",
+   "a": "Italy",
+   "o": [
+    "Sweden",
+    "Italy",
+    "Greece",
+    "Belgium"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the very first World Cup, in 1930?",
+   "a": "Uruguay",
+   "o": [
+    "Brazil",
+    "Paraguay",
+    "Venezuela",
+    "Uruguay"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which African nation reached the World Cup semi-finals in 2022?",
+   "a": "Morocco",
+   "o": [
+    "Zambia",
+    "Morocco",
+    "Togo",
+    "Cameroon"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did the Netherlands lose to in the 1974 World Cup final?",
+   "a": "West Germany",
+   "o": [
+    "West Germany",
+    "Albania",
+    "Malta",
+    "Wales"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did the Netherlands lose to in the 1978 World Cup final?",
+   "a": "Argentina",
+   "o": [
+    "Ecuador",
+    "Argentina",
+    "Paraguay",
+    "Venezuela"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored Spain's winning goal in the 2010 World Cup final?",
+   "a": "Andrés Iniesta",
+   "o": [
+    "Arturo Vidal",
+    "Arda Turan",
+    "Javier Mascherano",
+    "Andrés Iniesta"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was Spain's goalkeeper and captain when they won the 2010 World Cup?",
+   "a": "Iker Casillas",
+   "o": [
+    "Michel Vorm",
+    "Willy Caballero",
+    "Iker Casillas",
+    "Robert Green"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who managed Spain to the 2010 World Cup title?",
+   "a": "Vicente del Bosque",
+   "o": [
+    "Michel Platini",
+    "Vicente del Bosque",
+    "Bert van Marwijk",
+    "Fabio Capello"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted the 2018 World Cup?",
+   "a": "Russia",
+   "o": [
+    "Northern Ireland",
+    "Soviet Union",
+    "Belarus",
+    "Russia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country knocked England out in the 2018 World Cup semi-final?",
+   "a": "Croatia",
+   "o": [
+    "Sweden",
+    "Belgium",
+    "Georgia",
+    "Croatia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country knocked the Netherlands out of the 2022 World Cup on penalties?",
+   "a": "Argentina",
+   "o": [
+    "Venezuela",
+    "Argentina",
+    "Bolivia",
+    "Uruguay"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Dutch defender captained the side at the 2022 World Cup?",
+   "a": "Virgil van Dijk",
+   "o": [
+    "Bruno Martins Indi",
+    "Virgil van Dijk",
+    "Andy Robertson",
+    "Daley Blind"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the Women's World Cup in 2023?",
+   "a": "Spain",
+   "o": [
+    "Turkey",
+    "Bulgaria",
+    "Spain",
+    "Serbia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted and won the 1978 World Cup?",
+   "a": "Argentina",
+   "o": [
+    "Bolivia",
+    "Argentina",
+    "Ecuador",
+    "Peru"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the 2002 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Chile",
+    "Colombia",
+    "Brazil",
+    "Uruguay"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country reached its first World Cup final in 2018, losing to France?",
+   "a": "Croatia",
+   "o": [
+    "Spain",
+    "Northern Ireland",
+    "Bulgaria",
+    "Croatia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Golden Ball as best player of the 2022 World Cup?",
+   "a": "Lionel Messi",
+   "o": [
+    "Edinson Cavani",
+    "Lionel Messi",
+    "Javier Saviola",
+    "Luis Suárez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "In which country was the 2010 World Cup held?",
+   "a": "South Africa",
+   "o": [
+    "Tunisia",
+    "Algeria",
+    "South Africa",
+    "Senegal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did France beat in the 1998 World Cup final?",
+   "a": "Brazil",
+   "o": [
+    "Brazil",
+    "Venezuela",
+    "Chile",
+    "Paraguay"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored twice in the 1998 World Cup final for France?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Robert Pirès",
+    "Claude Makélélé",
+    "Zinedine Zidane",
+    "David Beckham"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country won the 1982 World Cup?",
+   "a": "Italy",
+   "o": [
+    "Georgia",
+    "Northern Ireland",
+    "Italy",
+    "Czech Republic"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Germany beat in the 2014 World Cup final?",
+   "a": "Argentina",
+   "o": [
+    "Paraguay",
+    "Argentina",
+    "Peru",
+    "Brazil"
+   ],
+   "k": 1
+  },
+  {
+   "q": "What was the score in Germany's 2014 World Cup semi-final win over Brazil?",
+   "a": "7-1",
+   "o": [
+    "7-0",
+    "6-1",
+    "6-0",
+    "7-1"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Italy beat on penalties in the 2006 World Cup final?",
+   "a": "France",
+   "o": [
+    "Republic of Ireland",
+    "France",
+    "Portugal",
+    "Poland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was sent off for a headbutt in the 2006 World Cup final?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Pavel Nedvěd",
+    "Edgar Davids",
+    "Zinedine Zidane",
+    "David Beckham"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country won the Women's World Cup in 2019?",
+   "a": "USA",
+   "o": [
+    "USA",
+    "Canada",
+    "Jamaica",
+    "El Salvador"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted the 1994 World Cup?",
+   "a": "The USA",
+   "o": [
+    "Haiti",
+    "The USA",
+    "Jamaica",
+    "El Salvador"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the 2023 Women's World Cup?",
+   "a": "Spain",
+   "o": [
+    "Spain",
+    "Iceland",
+    "France",
+    "Denmark"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did France beat in the 2018 World Cup final?",
+   "a": "Croatia",
+   "o": [
+    "Croatia",
+    "Austria",
+    "Hungary",
+    "Belarus"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Germany thrash 7-1 at the 2014 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Venezuela",
+    "Brazil",
+    "Chile",
+    "Peru"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Spain beat in the 2010 World Cup final?",
+   "a": "The Netherlands",
+   "o": [
+    "Belarus",
+    "Czech Republic",
+    "Israel",
+    "The Netherlands"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which striker bit Italy's Giorgio Chiellini at the 2014 World Cup?",
+   "a": "Luis Suárez",
+   "o": [
+    "Lionel Messi",
+    "Mario Mandžukić",
+    "Luis Suárez",
+    "Radamel Falcao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who wore the armband for Argentina, World Cup final 2022?",
+   "a": "Lionel Messi",
+   "o": [
+    "Lionel Messi",
+    "Pierre-Emerick Aubameyang",
+    "Zlatan Ibrahimović",
+    "Alexis Sánchez"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which national team did Louis van Gaal manage at both the 2014 and 2022 World Cups?",
+   "a": "The Netherlands",
+   "o": [
+    "The Netherlands",
+    "Scotland",
+    "Russia",
+    "Latvia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "How many teams played at the 2026 World Cup?",
+   "a": "48",
+   "o": [
+    "24",
+    "48",
+    "72",
+    "12"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did England beat in the 1966 World Cup final?",
+   "a": "West Germany",
+   "o": [
+    "Republic of Ireland",
+    "West Germany",
+    "Georgia",
+    "Luxembourg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted the 1990 World Cup?",
+   "a": "Italy",
+   "o": [
+    "Italy",
+    "Lithuania",
+    "Azerbaijan",
+    "Republic of Ireland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted and won the 1998 World Cup?",
+   "a": "France",
+   "o": [
+    "Czech Republic",
+    "Belgium",
+    "Denmark",
+    "France"
+   ],
+   "k": 3
+  },
+  {
+   "q": "How many teams took part in the 2018 World Cup finals in Russia?",
+   "a": "32",
+   "o": [
+    "56",
+    "32",
+    "16",
+    "24"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Belgium finished third at which World Cup, their best result at the tournament?",
+   "a": "2018",
+   "o": [
+    "2006",
+    "2026",
+    "2018",
+    "2010"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Belgium beat 2-0 to finish third at the 2018 World Cup?",
+   "a": "England",
+   "o": [
+    "Estonia",
+    "Portugal",
+    "Croatia",
+    "England"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Belgium beat 2-1 in the 2018 World Cup quarter-final?",
+   "a": "Brazil",
+   "o": [
+    "Brazil",
+    "Uruguay",
+    "Chile",
+    "Paraguay"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Belgium trailed 2-0 at the 2018 World Cup before winning 3-2 in the last minute. Against whom?",
+   "a": "Japan",
+   "o": [
+    "Japan",
+    "Indonesia",
+    "China",
+    "Brunei"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Thierry Henry won the 1998 World Cup with which country?",
+   "a": "France",
+   "o": [
+    "Albania",
+    "Netherlands",
+    "Slovenia",
+    "France"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country hosted the 1970 World Cup?",
+   "a": "Mexico",
+   "o": [
+    "Honduras",
+    "Canada",
+    "Mexico",
+    "Trinidad and Tobago"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted the 1974 World Cup?",
+   "a": "West Germany",
+   "o": [
+    "Croatia",
+    "Slovenia",
+    "West Germany",
+    "Malta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country won the 1990 World Cup?",
+   "a": "West Germany",
+   "o": [
+    "Turkey",
+    "West Germany",
+    "Russia",
+    "Ukraine"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the 1958 World Cup with a 17-year-old Pelé in the side?",
+   "a": "Brazil",
+   "o": [
+    "Peru",
+    "Argentina",
+    "Paraguay",
+    "Brazil"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did the Netherlands beat in the 2010 World Cup semi-final?",
+   "a": "Uruguay",
+   "o": [
+    "Ecuador",
+    "Chile",
+    "Uruguay",
+    "Brazil"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which coach led France to the 2018 World Cup title?",
+   "a": "Didier Deschamps",
+   "o": [
+    "Marcel Desailly",
+    "Emmanuel Petit",
+    "Didier Deschamps",
+    "David Platt"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Ronaldo Nazário sign for in 2002 after winning the World Cup?",
+   "a": "Real Madrid",
+   "o": [
+    "Barcelona",
+    "Real Sociedad",
+    "Real Madrid",
+    "Valencia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Diego Maradona coach at the 2010 World Cup?",
+   "a": "Argentina",
+   "o": [
+    "Argentina",
+    "Chile",
+    "Uruguay",
+    "Paraguay"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country won the 1962 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Chile",
+    "Brazil",
+    "Peru",
+    "Venezuela"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Marta scored a record number of Women's World Cup goals for which country?",
+   "a": "Brazil",
+   "o": [
+    "Brazil",
+    "Chile",
+    "Paraguay",
+    "Ecuador"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country won the 2026 World Cup?",
+   "a": "Spain",
+   "o": [
+    "Bulgaria",
+    "West Germany",
+    "Spain",
+    "Latvia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Spain beat which country in the 2026 World Cup final?",
+   "a": "Argentina",
+   "o": [
+    "Argentina",
+    "Venezuela",
+    "Uruguay",
+    "Paraguay"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who became the all-time leading World Cup goalscorer at the 2026 tournament?",
+   "a": "Kylian Mbappé",
+   "o": [
+    "Kylian Mbappé",
+    "Ousmane Dembélé",
+    "Jean-Philippe Mateta",
+    "Luka Jović"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Japan co-hosted the 2002 World Cup with which country?",
+   "a": "South Korea",
+   "o": [
+    "Brunei",
+    "Iran",
+    "South Korea",
+    "Thailand"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which year did England win their only men's World Cup?",
+   "a": "1966",
+   "o": [
+    "1974",
+    "1966",
+    "1954",
+    "1958"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Brazil striker celebrated a 1994 World Cup goal by rocking an imaginary baby?",
+   "a": "Bebeto",
+   "o": [
+    "Romário",
+    "Bebeto",
+    "Davor Šuker",
+    "Ian Wright"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted the first World Cup held in Africa?",
+   "a": "South Africa",
+   "o": [
+    "Guinea",
+    "Nigeria",
+    "South Africa",
+    "Angola"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian defender did Luis Suárez bite at the 2014 World Cup?",
+   "a": "Giorgio Chiellini",
+   "o": [
+    "Fabio Grosso",
+    "Stephan Lichtsteiner",
+    "Giorgio Chiellini",
+    "Gianluca Zambrotta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which World Cup did Maradona score the 'Hand of God' goal?",
+   "a": "1986",
+   "o": [
+    "1974",
+    "1986",
+    "1998",
+    "1994"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who lifted the World Cup trophy as Argentina's captain in 2022?",
+   "a": "Lionel Messi",
+   "o": [
+    "Javier Saviola",
+    "Lionel Messi",
+    "Zlatan Ibrahimović",
+    "Sergio Agüero"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Argentina beat in the 2022 World Cup final?",
+   "a": "France",
+   "o": [
+    "France",
+    "Turkey",
+    "Northern Ireland",
+    "Albania"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which of the United Kingdom's four national teams has won a World Cup?",
+   "a": "England",
+   "o": [
+    "Malta",
+    "Czech Republic",
+    "England",
+    "Ukraine"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Only one country has appeared at every World Cup finals. Which one?",
+   "a": "Brazil",
+   "o": [
+    "Paraguay",
+    "Brazil",
+    "Venezuela",
+    "Chile"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Australia co-hosted the 2023 Women's World Cup with which country?",
+   "a": "New Zealand",
+   "o": [
+    "Fiji",
+    "New Zealand",
+    "Tahiti",
+    "Papua New Guinea"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country will host the 2027 Women's World Cup, the first in South America?",
+   "a": "Brazil",
+   "o": [
+    "Brazil",
+    "Uruguay",
+    "Paraguay",
+    "Ecuador"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Dutchman was clean through on Iker Casillas in the 2010 World Cup final, only for the keeper's boot to stop it?",
+   "a": "Arjen Robben",
+   "o": [
+    "Samuel Eto'o",
+    "Klaas-Jan Huntelaar",
+    "Gonzalo Higuaín",
+    "Arjen Robben"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Belgian striker missed a string of late chances as Belgium went out of the 2022 World Cup against Croatia?",
+   "a": "Romelu Lukaku",
+   "o": [
+    "Raheem Sterling",
+    "Mario Balotelli",
+    "Danny Welbeck",
+    "Romelu Lukaku"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Brazilian's scissor kick against Serbia was voted goal of the 2022 World Cup?",
+   "a": "Richarlison",
+   "o": [
+    "Richarlison",
+    "Luiz Henrique",
+    "Ademola Lookman",
+    "Gabriel Jesus"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In 2022, who became the first man to score at five different World Cups?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Karim Benzema",
+    "Cristiano Ronaldo",
+    "Alexis Sánchez",
+    "Fernando Llorente"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Argentina keeper saved from Randal Kolo Muani in the last minute of extra time in the 2022 World Cup final?",
+   "a": "Emiliano Martínez",
+   "o": [
+    "Jordan Pickford",
+    "Jan Oblak",
+    "Emiliano Martínez",
+    "Bernd Leno"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch winger scored both goals in a 2-0 qualifier win in October 2017, then quit Oranje as the Dutch missed the World Cup anyway?",
+   "a": "Arjen Robben",
+   "o": [
+    "Arjen Robben",
+    "Karim Benzema",
+    "Luuk de Jong",
+    "Robin van Persie"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which West German played on with his arm strapped in a sling in the 1970 World Cup semi-final against Italy?",
+   "a": "Franz Beckenbauer",
+   "o": [
+    "Franz Beckenbauer",
+    "Ruud Krol",
+    "Niklas Süle",
+    "Mitchell Weiser"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Ireland captain was sent home from the squad's 2002 World Cup training camp on Saipan?",
+   "a": "Roy Keane",
+   "o": [
+    "Paul Ince",
+    "Dennis Bergkamp",
+    "Roy Keane",
+    "Juan Sebastián Verón"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country was chosen in 2024 to host the 2034 World Cup?",
+   "a": "Saudi Arabia",
+   "o": [
+    "Brunei",
+    "Saudi Arabia",
+    "Iran",
+    "India"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who won the Golden Ball as the best player of the 2026 World Cup?",
+   "a": "Rodri",
+   "o": [
+    "Brahim Díaz",
+    "Rodri",
+    "Martín Zubimendi",
+    "Mateo Kovačić"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who won the Golden Boot at the 2026 World Cup, the first man to win it twice?",
+   "a": "Kylian Mbappé",
+   "o": [
+    "Kingsley Coman",
+    "Hugo Ekitike",
+    "Anthony Martial",
+    "Kylian Mbappé"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Erling Haaland scored twice as Norway knocked which five-time champions out of the 2026 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Peru",
+    "Paraguay",
+    "Ecuador",
+    "Brazil"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which four-time champions went out of the 2026 World Cup to Paraguay on penalties in the round of 32?",
+   "a": "Germany",
+   "o": [
+    "Germany",
+    "Netherlands",
+    "Estonia",
+    "Turkey"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country beat England 2-1 in the semi-finals of the 2026 World Cup?",
+   "a": "Argentina",
+   "o": [
+    "Argentina",
+    "Chile",
+    "Brazil",
+    "Peru"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In June 2026, which 41-year-old became the first man to score at six different World Cups?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Cristiano Ronaldo",
+    "Carlos Tevez",
+    "Gonzalo Higuaín",
+    "Mario Mandžukić"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which four-time world champions missed the 2026 World Cup, their third finals in a row without them?",
+   "a": "Italy",
+   "o": [
+    "Italy",
+    "Latvia",
+    "Denmark",
+    "Portugal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Belgium goalkeeper went off injured in the 2026 World Cup quarter-final against Spain?",
+   "a": "Thibaut Courtois",
+   "o": [
+    "Jordan Pickford",
+    "Thibaut Courtois",
+    "Keylor Navas",
+    "Kepa Arrizabalaga"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored a hat-trick in Argentina's 3-0 win over Algeria in their first game of the 2026 World Cup?",
+   "a": "Lionel Messi",
+   "o": [
+    "Luis Suárez",
+    "Gonzalo Higuaín",
+    "Zlatan Ibrahimović",
+    "Lionel Messi"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Spain beat 2-0 in the semi-finals of the 2026 World Cup?",
+   "a": "France",
+   "o": [
+    "Germany",
+    "Cyprus",
+    "France",
+    "Georgia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country beat the co-hosts USA 4-1 in the last 16 of the 2026 World Cup?",
+   "a": "Belgium",
+   "o": [
+    "Finland",
+    "Czechoslovakia",
+    "Belgium",
+    "Greece"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did England beat 2-1 after extra time in the 2026 World Cup quarter-finals?",
+   "a": "Norway",
+   "o": [
+    "Hungary",
+    "Finland",
+    "Norway",
+    "Germany"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Argentina beat 3-1 after extra time in the 2026 World Cup quarter-finals?",
+   "a": "Switzerland",
+   "o": [
+    "Turkey",
+    "Denmark",
+    "Switzerland",
+    "Hungary"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Argentina came from 2-0 down to win 3-2 in the last 16 of the 2026 World Cup. Who were their opponents?",
+   "a": "Egypt",
+   "o": [
+    "Egypt",
+    "South Africa",
+    "Togo",
+    "Senegal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Cristiano Ronaldo's last World Cup match was a 1-0 defeat in the 2026 last 16. Who beat Portugal?",
+   "a": "Spain",
+   "o": [
+    "Iceland",
+    "Spain",
+    "Greece",
+    "Germany"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Morocco knocked which co-hosts out of the 2026 World Cup in the last 16?",
+   "a": "Canada",
+   "o": [
+    "Trinidad and Tobago",
+    "Haiti",
+    "Jamaica",
+    "Canada"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which substitute striker started Belgium's comeback from 2-0 down against Senegal at the 2026 World Cup?",
+   "a": "Romelu Lukaku",
+   "o": [
+    "Duván Zapata",
+    "Danny Welbeck",
+    "Memphis Depay",
+    "Romelu Lukaku"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In June 2026, which Argentina captain became the first man to play at six World Cups?",
+   "a": "Lionel Messi",
+   "o": [
+    "Pierre-Emerick Aubameyang",
+    "Luis Suárez",
+    "Alexis Sánchez",
+    "Lionel Messi"
+   ],
+   "k": 3
+  }
+ ],
+ "normal": [
+  {
+   "q": "Who won the Golden Boot at the 1982 World Cup?",
+   "a": "Paolo Rossi",
+   "o": [
+    "John Robertson",
+    "Salvatore Schillaci",
+    "Paolo Rossi",
+    "Rudi Völler"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country knocked England out of the 2022 World Cup in the quarter-finals?",
+   "a": "France",
+   "o": [
+    "Armenia",
+    "Malta",
+    "France",
+    "Poland"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did the USA women beat in the 2019 World Cup final?",
+   "a": "Netherlands",
+   "o": [
+    "Sweden",
+    "England",
+    "Cyprus",
+    "Netherlands"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which manager led Argentina to the 2022 World Cup title?",
+   "a": "Lionel Scaloni",
+   "o": [
+    "Lionel Scaloni",
+    "Javier Mascherano",
+    "Michael Carrick",
+    "Scott Parker"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Ronaldinho won the 2002 World Cup with which country?",
+   "a": "Brazil",
+   "o": [
+    "Chile",
+    "Brazil",
+    "Colombia",
+    "Uruguay"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored the winning goal in the 2014 World Cup final?",
+   "a": "Mario Götze",
+   "o": [
+    "Mario Götze",
+    "Axel Witsel",
+    "Leroy Sané",
+    "Serge Gnabry"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who captained France to the 1998 World Cup title?",
+   "a": "Didier Deschamps",
+   "o": [
+    "Pavel Nedvěd",
+    "Ruud Gullit",
+    "Zinedine Zidane",
+    "Didier Deschamps"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Golden Ball as best player of the 2018 World Cup?",
+   "a": "Luka Modrić",
+   "o": [
+    "Luka Modrić",
+    "Clint Dempsey",
+    "Ivan Rakitić",
+    "Antonio Cassano"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Dennis Bergkamp's iconic 1998 World Cup goal was against which country?",
+   "a": "Argentina",
+   "o": [
+    "Paraguay",
+    "Ecuador",
+    "Argentina",
+    "Venezuela"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored a hat-trick for Portugal against Spain at the 2018 World Cup?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Karim Benzema",
+    "Ricardo Quaresma",
+    "Fernando Llorente",
+    "Cristiano Ronaldo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored a hat-trick in the 2022 World Cup final?",
+   "a": "Kylian Mbappé",
+   "o": [
+    "Vinícius Júnior",
+    "Randal Kolo Muani",
+    "Kylian Mbappé",
+    "Ousmane Dembélé"
+   ],
+   "k": 2
+  },
+  {
+   "q": "What was the score of the 2022 World Cup final before penalties?",
+   "a": "3-3",
+   "o": [
+    "2-2",
+    "2-3",
+    "2-4",
+    "3-3"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Golden Glove as Argentina's keeper at the 2022 World Cup?",
+   "a": "Emiliano Martínez",
+   "o": [
+    "Emiliano Martínez",
+    "Bernd Leno",
+    "Alisson",
+    "David Raya"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country stunned Argentina in their opening game of the 2022 World Cup?",
+   "a": "Saudi Arabia",
+   "o": [
+    "Iran",
+    "Saudi Arabia",
+    "Brunei",
+    "Iraq"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the expanded 2025 FIFA Club World Cup?",
+   "a": "Chelsea",
+   "o": [
+    "Manchester United",
+    "Tottenham Hotspur",
+    "Nottingham Forest",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Golden Ball as best player of the 2014 World Cup?",
+   "a": "Lionel Messi",
+   "o": [
+    "Lionel Messi",
+    "Sergio Agüero",
+    "Luis Suárez",
+    "Alexis Sánchez"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who captained Croatia to the 2018 World Cup final?",
+   "a": "Luka Modrić",
+   "o": [
+    "Luka Modrić",
+    "Rafael van der Vaart",
+    "Ángel Di María",
+    "Wesley Sneijder"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did France beat in the 2018 World Cup semi-final?",
+   "a": "Belgium",
+   "o": [
+    "Czechoslovakia",
+    "Belgium",
+    "Soviet Union",
+    "Cyprus"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who won the Golden Ball as best player at the 2022 World Cup?",
+   "a": "Lionel Messi",
+   "o": [
+    "Zlatan Ibrahimović",
+    "Lionel Messi",
+    "Carlos Tevez",
+    "Alexis Sánchez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was Italy's goalkeeper when they won the 2006 World Cup?",
+   "a": "Gianluigi Buffon",
+   "o": [
+    "Edwin van der Sar",
+    "Willy Caballero",
+    "Gianluca Zambrotta",
+    "Gianluigi Buffon"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who did Zinedine Zidane headbutt in the 2006 World Cup final?",
+   "a": "Marco Materazzi",
+   "o": [
+    "Walter Samuel",
+    "Alessandro Nesta",
+    "Marco Materazzi",
+    "Christian Panucci"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which year did the Netherlands reach their first World Cup final?",
+   "a": "1974",
+   "o": [
+    "1966",
+    "1974",
+    "1962",
+    "1986"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who captained West Germany to the 1974 World Cup?",
+   "a": "Franz Beckenbauer",
+   "o": [
+    "Franz Beckenbauer",
+    "Mats Hummels",
+    "Ruud Krol",
+    "Mišo Brečko"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who won the Golden Ball as best player of the 1974 World Cup?",
+   "a": "Johan Cruyff",
+   "o": [
+    "Bert van Marwijk",
+    "Johan Cruyff",
+    "Vicente del Bosque",
+    "Seydou Keita"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Brazil beat in the 1970 World Cup final?",
+   "a": "Italy",
+   "o": [
+    "Italy",
+    "Malta",
+    "Ukraine",
+    "Sweden"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which is the only country to have played in every World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Peru",
+    "Colombia",
+    "Brazil",
+    "Uruguay"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which South American nation has won the second-most World Cups, with three?",
+   "a": "Argentina",
+   "o": [
+    "Argentina",
+    "Chile",
+    "Ecuador",
+    "Peru"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Germany beat 7-1 in the 2014 World Cup semi-final?",
+   "a": "Brazil",
+   "o": [
+    "Uruguay",
+    "Bolivia",
+    "Argentina",
+    "Brazil"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Argentina beat in the 1986 World Cup final?",
+   "a": "West Germany",
+   "o": [
+    "Bulgaria",
+    "France",
+    "West Germany",
+    "Portugal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored the only goal of the 2010 World Cup final?",
+   "a": "Andrés Iniesta",
+   "o": [
+    "David Silva",
+    "Andrés Iniesta",
+    "Santi Cazorla",
+    "Juan Mata"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country won the 1978 World Cup on home soil?",
+   "a": "Argentina",
+   "o": [
+    "Bolivia",
+    "Brazil",
+    "Argentina",
+    "Chile"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country lost World Cup finals in 1974, 1978 and 2010?",
+   "a": "The Netherlands",
+   "o": [
+    "Hungary",
+    "The Netherlands",
+    "North Macedonia",
+    "Austria"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country beat Italy in the 1994 World Cup final shoot-out?",
+   "a": "Brazil",
+   "o": [
+    "Venezuela",
+    "Bolivia",
+    "Uruguay",
+    "Brazil"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which goalkeeper captained Spain to the 2010 World Cup title?",
+   "a": "Iker Casillas",
+   "o": [
+    "Júlio César",
+    "Gianluigi Buffon",
+    "Claudio Bravo",
+    "Iker Casillas"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore the armband for Netherlands, World Cup final 1974?",
+   "a": "Johan Cruyff",
+   "o": [
+    "Aliaksandr Hleb",
+    "Fabio Capello",
+    "Ilaix Moriba",
+    "Johan Cruyff"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore the armband for Brazil, World Cup final 2002?",
+   "a": "Cafu",
+   "o": [
+    "Michael Reiziger",
+    "Lilian Thuram",
+    "Marco Materazzi",
+    "Cafu"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore the armband for Spain, World Cup final 2010?",
+   "a": "Iker Casillas",
+   "o": [
+    "Willy Caballero",
+    "Júlio César",
+    "Raúl",
+    "Iker Casillas"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore the armband for Netherlands, World Cup final 2010?",
+   "a": "Giovanni van Bronckhorst",
+   "o": [
+    "Robert Pirès",
+    "Giovanni van Bronckhorst",
+    "Boudewijn Zenden",
+    "Mark van Bommel"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who wore the armband for West Germany, World Cup final 1990?",
+   "a": "Lothar Matthäus",
+   "o": [
+    "Aron Winter",
+    "Roberto Mancini",
+    "Diego Maradona",
+    "Lothar Matthäus"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore the armband for France, World Cup final 2018?",
+   "a": "Hugo Lloris",
+   "o": [
+    "Claudio Bravo",
+    "Hugo Lloris",
+    "Fraser Forster",
+    "Jasper Cillessen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did the Netherlands beat in the 2014 World Cup third-place play-off?",
+   "a": "Brazil",
+   "o": [
+    "Argentina",
+    "Ecuador",
+    "Brazil",
+    "Colombia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who managed Spain at the 2022 World Cup?",
+   "a": "Luis Enrique",
+   "o": [
+    "Luis Enrique",
+    "Pep Guardiola",
+    "Emmanuel Petit",
+    "Rivaldo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country knocked Spain out of the 2022 World Cup on penalties?",
+   "a": "Morocco",
+   "o": [
+    "Nigeria",
+    "Morocco",
+    "DR Congo",
+    "Egypt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which German won the Golden Boot at the 2010 World Cup?",
+   "a": "Thomas Müller",
+   "o": [
+    "Thomas Müller",
+    "Arturo Vidal",
+    "Marco Reus",
+    "Leon Goretzka"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted the 1986 World Cup?",
+   "a": "Mexico",
+   "o": [
+    "Mexico",
+    "United States",
+    "Costa Rica",
+    "Haiti"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted the 1982 World Cup?",
+   "a": "Spain",
+   "o": [
+    "Spain",
+    "Czech Republic",
+    "Croatia",
+    "Romania"
+   ],
+   "k": 0
+  },
+  {
+   "q": "At which World Cup was VAR used for the first time?",
+   "a": "2018",
+   "o": [
+    "2014",
+    "2022",
+    "2026",
+    "2018"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the FIFA Club World Cup in 2023?",
+   "a": "Manchester City",
+   "o": [
+    "Newcastle United",
+    "Tottenham Hotspur",
+    "Manchester City",
+    "Liverpool"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country beat Spain in their opening game of the 2010 World Cup?",
+   "a": "Switzerland",
+   "o": [
+    "Switzerland",
+    "Finland",
+    "Netherlands",
+    "Ukraine"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted the 1958 World Cup?",
+   "a": "Sweden",
+   "o": [
+    "Slovenia",
+    "North Macedonia",
+    "Greece",
+    "Sweden"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country knocked the holders Brazil out in the quarter-final of the 2006 World Cup?",
+   "a": "France",
+   "o": [
+    "Sweden",
+    "Soviet Union",
+    "Ukraine",
+    "France"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country beat Germany 2-0 to knock them out of the 2018 World Cup group stage?",
+   "a": "South Korea",
+   "o": [
+    "China",
+    "Iran",
+    "Uzbekistan",
+    "South Korea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who took over as Netherlands coach after Louis van Gaal left following the 2022 World Cup?",
+   "a": "Ronald Koeman",
+   "o": [
+    "Frank Rijkaard",
+    "Diego Maradona",
+    "Ronald Koeman",
+    "Phillip Cocu"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who captained Belgium at the 2018 World Cup?",
+   "a": "Eden Hazard",
+   "o": [
+    "James Rodríguez",
+    "Yannick Carrasco",
+    "Hakim Ziyech",
+    "Eden Hazard"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country beat Belgium 1-0 in the quarter-final of the 2014 World Cup?",
+   "a": "Argentina",
+   "o": [
+    "Uruguay",
+    "Colombia",
+    "Paraguay",
+    "Argentina"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Belgium beat 2-1 after extra time in the last 16 of the 2014 World Cup?",
+   "a": "The United States",
+   "o": [
+    "USA",
+    "The United States",
+    "Costa Rica",
+    "Curacao"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country beat Belgium 2-0 in the group stage of the 2022 World Cup?",
+   "a": "Morocco",
+   "o": [
+    "Morocco",
+    "Kenya",
+    "Cameroon",
+    "Burkina Faso"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Belgian goalkeeper won the Golden Glove at the 2018 World Cup?",
+   "a": "Thibaut Courtois",
+   "o": [
+    "Thibaut Courtois",
+    "Marco Bizot",
+    "Luca Zidane",
+    "Alisson"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Croatia beat to finish third at the 2022 World Cup?",
+   "a": "Morocco",
+   "o": [
+    "Morocco",
+    "Kenya",
+    "Egypt",
+    "Mali"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country finished third at the 2022 World Cup?",
+   "a": "Croatia",
+   "o": [
+    "Croatia",
+    "Soviet Union",
+    "Romania",
+    "Estonia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Argentina beat 3-0 in the 2022 World Cup semi-final?",
+   "a": "Croatia",
+   "o": [
+    "England",
+    "Malta",
+    "Croatia",
+    "Turkey"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Morocco beat 1-0 in the 2022 World Cup quarter-final?",
+   "a": "Portugal",
+   "o": [
+    "Albania",
+    "Lithuania",
+    "Portugal",
+    "Northern Ireland"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Japan beat 2-1 in their opening game of the 2022 World Cup?",
+   "a": "Germany",
+   "o": [
+    "Republic of Ireland",
+    "Austria",
+    "Sweden",
+    "Germany"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did the Netherlands beat 3-1 in the last 16 of the 2022 World Cup?",
+   "a": "The United States",
+   "o": [
+    "Curacao",
+    "Honduras",
+    "The United States",
+    "Jamaica"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Italy beat in the semi-final of the 1982 World Cup?",
+   "a": "Poland",
+   "o": [
+    "West Germany",
+    "Norway",
+    "Poland",
+    "Armenia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Spain beat 1-0 in the last 16 of the 2010 World Cup?",
+   "a": "Portugal",
+   "o": [
+    "Hungary",
+    "France",
+    "Scotland",
+    "Portugal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won the 2011 Women's World Cup?",
+   "a": "Japan",
+   "o": [
+    "Brunei",
+    "Japan",
+    "China",
+    "North Korea"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted the 1962 World Cup?",
+   "a": "Chile",
+   "o": [
+    "Bolivia",
+    "Venezuela",
+    "Chile",
+    "Brazil"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country lost the 1954 World Cup final despite being unbeaten for four years?",
+   "a": "Hungary",
+   "o": [
+    "Cyprus",
+    "Spain",
+    "Hungary",
+    "Portugal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Jürgen Klinsmann manage at the 2006 World Cup?",
+   "a": "Germany",
+   "o": [
+    "Belarus",
+    "Norway",
+    "Denmark",
+    "Germany"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Marcelo Bielsa manage at the 2010 World Cup?",
+   "a": "Chile",
+   "o": [
+    "Argentina",
+    "Ecuador",
+    "Uruguay",
+    "Chile"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club won the 2025 Club World Cup?",
+   "a": "Chelsea",
+   "o": [
+    "Leeds United",
+    "Manchester United",
+    "Nottingham Forest",
+    "Chelsea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Chelsea beat 3-0 in the 2025 Club World Cup final?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Angers SCO",
+    "Monaco",
+    "Olympique Lyonnais",
+    "Paris Saint-Germain"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In which year was the first World Cup played?",
+   "a": "1930",
+   "o": [
+    "1930",
+    "1922",
+    "1918",
+    "1934"
+   ],
+   "k": 0
+  },
+  {
+   "q": "New Zealand co-hosted the 2023 Women's World Cup with which country?",
+   "a": "Australia",
+   "o": [
+    "Australia",
+    "China",
+    "Uzbekistan",
+    "North Korea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who won the Golden Boot at the 1998 World Cup?",
+   "a": "Davor Šuker",
+   "o": [
+    "Sylvain Wiltord",
+    "Bebeto",
+    "Gerald Vanenburg",
+    "Davor Šuker"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country finished third at the 1998 World Cup?",
+   "a": "Croatia",
+   "o": [
+    "Slovenia",
+    "Croatia",
+    "Republic of Ireland",
+    "Azerbaijan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country finished third at the 2026 World Cup?",
+   "a": "England",
+   "o": [
+    "Netherlands",
+    "England",
+    "Wales",
+    "Armenia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Brazil beat which South American side in the 1970 World Cup semi-final?",
+   "a": "Uruguay",
+   "o": [
+    "Venezuela",
+    "Uruguay",
+    "Bolivia",
+    "Ecuador"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Cruyff and Neeskens scored as the Netherlands beat which holders 2-0 at the 1974 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Chile",
+    "Colombia",
+    "Brazil",
+    "Peru"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch superstar did not travel to the 1978 World Cup?",
+   "a": "Johan Cruyff",
+   "o": [
+    "Kevin-Prince Boateng",
+    "Johan Cruyff",
+    "Terry Venables",
+    "Kō Itakura"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Paolo Rossi's hat-trick in a 3-2 win knocked which country out of the 1982 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Paraguay",
+    "Chile",
+    "Bolivia",
+    "Brazil"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The first penalty shoot-out in World Cup history came in the 1982 semi-final between France and whom?",
+   "a": "West Germany",
+   "o": [
+    "Soviet Union",
+    "Austria",
+    "Croatia",
+    "West Germany"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which 40 year old goalkeeper captained Italy to the World Cup in 1982?",
+   "a": "Dino Zoff",
+   "o": [
+    "Orestis Karnezis",
+    "Fabio Capello",
+    "Tomasz Kuszczak",
+    "Dino Zoff"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Maradona scored both goals against which country in the 1986 World Cup semi-final?",
+   "a": "Belgium",
+   "o": [
+    "Georgia",
+    "Belgium",
+    "Cyprus",
+    "Croatia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who won the Golden Boot at the 1986 World Cup with six goals for England?",
+   "a": "Gary Lineker",
+   "o": [
+    "Teddy Sheringham",
+    "Careca",
+    "Gary Lineker",
+    "Jean-Pierre Papin"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who blazed the decisive penalty over the bar in the 1994 World Cup final shoot-out?",
+   "a": "Roberto Baggio",
+   "o": [
+    "Matthias Sammer",
+    "Gianfranco Zola",
+    "Roberto Baggio",
+    "Stefan Effenberg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which country was the 1994 World Cup played?",
+   "a": "The United States",
+   "o": [
+    "El Salvador",
+    "Curacao",
+    "Cuba",
+    "The United States"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Golden Ball as best player of the 1994 World Cup?",
+   "a": "Romário",
+   "o": [
+    "Romário",
+    "Henrik Larsson",
+    "Marc Degryse",
+    "Luís Figo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Bulgarian shared the 1994 World Cup Golden Boot and led his country to the semi-finals?",
+   "a": "Hristo Stoichkov",
+   "o": [
+    "Teddy Sheringham",
+    "Hristo Stoichkov",
+    "George Weah",
+    "Jürgen Klinsmann"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which England teenager scored a famous solo goal against Argentina at the 1998 World Cup?",
+   "a": "Michael Owen",
+   "o": [
+    "Patrick Kluivert",
+    "Andy Cole",
+    "Diego Forlán",
+    "Michael Owen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which England player was sent off against Argentina at the 1998 World Cup?",
+   "a": "David Beckham",
+   "o": [
+    "Steven Gerrard",
+    "David Beckham",
+    "Mark van Bommel",
+    "Alan Smith"
+   ],
+   "k": 1
+  },
+  {
+   "q": "France lost the opening game of the 2002 World Cup 1-0 to which African side?",
+   "a": "Senegal",
+   "o": [
+    "Senegal",
+    "Egypt",
+    "Cameroon",
+    "Togo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which German goalkeeper won the Golden Ball at the 2002 World Cup?",
+   "a": "Oliver Kahn",
+   "o": [
+    "Edwin van der Sar",
+    "Stefan Effenberg",
+    "Oliver Kahn",
+    "Brad Friedel"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which England forward was sent off in the 2006 World Cup quarter-final against Portugal?",
+   "a": "Wayne Rooney",
+   "o": [
+    "Gareth Barry",
+    "Ángel Di María",
+    "Michael Carrick",
+    "Wayne Rooney"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Golden Ball at the 2006 World Cup despite being sent off in the final?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Zinedine Zidane",
+    "Robert Prosinečki",
+    "Emmanuel Petit",
+    "Didier Deschamps"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored the header that beat Germany in the 2010 World Cup semi-final?",
+   "a": "Carles Puyol",
+   "o": [
+    "Michael Reiziger",
+    "Sylvinho",
+    "Maxwell",
+    "Carles Puyol"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The Netherlands beat which country 3-2 in the 2010 World Cup semi-final?",
+   "a": "Uruguay",
+   "o": [
+    "Bolivia",
+    "Uruguay",
+    "Argentina",
+    "Venezuela"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who won the Golden Boot at the 2014 World Cup, a Colombian?",
+   "a": "James Rodríguez",
+   "o": [
+    "Isco",
+    "Eden Hazard",
+    "Mateo Kovačić",
+    "James Rodríguez"
+   ],
+   "k": 3
+  },
+  {
+   "q": "France beat which country 4-2 in the 2018 World Cup final?",
+   "a": "Croatia",
+   "o": [
+    "Lithuania",
+    "Czech Republic",
+    "Belgium",
+    "Croatia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The first own goal in a World Cup final was scored in 2018 by which Croatian?",
+   "a": "Mario Mandžukić",
+   "o": [
+    "Robert Lewandowski",
+    "Sergio Agüero",
+    "Luis Suárez",
+    "Mario Mandžukić"
+   ],
+   "k": 3
+  },
+  {
+   "q": "England won their first ever World Cup penalty shoot-out in 2018, against whom?",
+   "a": "Colombia",
+   "o": [
+    "Bolivia",
+    "Peru",
+    "Colombia",
+    "Paraguay"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who won the Best Young Player award at the 2018 World Cup?",
+   "a": "Kylian Mbappé",
+   "o": [
+    "Rodrygo",
+    "Luka Jović",
+    "Kylian Mbappé",
+    "Hugo Ekitike"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Brazil went out of the 2018 World Cup at the quarter-final stage to which country?",
+   "a": "Belgium",
+   "o": [
+    "Belgium",
+    "Bulgaria",
+    "Norway",
+    "Wales"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Dutch substitute scored twice late on against Argentina in the 2022 World Cup quarter-final?",
+   "a": "Wout Weghorst",
+   "o": [
+    "Steven Bergwijn",
+    "Ryan Babel",
+    "Wout Weghorst",
+    "Vincent Janssen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which African side did France beat in the 2022 World Cup semi-final?",
+   "a": "Morocco",
+   "o": [
+    "Morocco",
+    "Kenya",
+    "Ghana",
+    "Nigeria"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Argentina beat which country 2-1 in the last 16 of the 2022 World Cup?",
+   "a": "Australia",
+   "o": [
+    "Australia",
+    "India",
+    "Brunei",
+    "Japan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country beat Germany 5-1 in Munich in a 2001 World Cup qualifier?",
+   "a": "England",
+   "o": [
+    "Belarus",
+    "England",
+    "France",
+    "Austria"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Roberto Martínez manage at the 2018 and 2022 World Cups?",
+   "a": "Belgium",
+   "o": [
+    "Bosnia and Herzegovina",
+    "Belgium",
+    "Switzerland",
+    "North Macedonia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Spain beat which country 1-0 in the 2023 Women's World Cup final?",
+   "a": "England",
+   "o": [
+    "Serbia",
+    "England",
+    "Wales",
+    "Soviet Union"
+   ],
+   "k": 1
+  },
+  {
+   "q": "The United States beat which country in the 2015 Women's World Cup final?",
+   "a": "Japan",
+   "o": [
+    "Thailand",
+    "China",
+    "Japan",
+    "Uzbekistan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which country was the 2019 Women's World Cup played?",
+   "a": "France",
+   "o": [
+    "Slovakia",
+    "Soviet Union",
+    "Sweden",
+    "France"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Holders the United States went out of the 2023 Women's World Cup on penalties to which country?",
+   "a": "Sweden",
+   "o": [
+    "Scotland",
+    "Sweden",
+    "Armenia",
+    "Luxembourg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who won the Golden Boot at the 2006 World Cup?",
+   "a": "Miroslav Klose",
+   "o": [
+    "Miroslav Klose",
+    "Arjen Robben",
+    "Oliver Neuville",
+    "Franck Ribéry"
+   ],
+   "k": 0
+  },
+  {
+   "q": "The United States beat which country on penalties in the 1999 Women's World Cup final?",
+   "a": "China",
+   "o": [
+    "Vietnam",
+    "Qatar",
+    "Australia",
+    "China"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In which country was the expanded 2025 FIFA Club World Cup played?",
+   "a": "The United States",
+   "o": [
+    "Mexico",
+    "The United States",
+    "Jamaica",
+    "Haiti"
+   ],
+   "k": 1
+  },
+  {
+   "q": "How many clubs took part in the expanded 2025 FIFA Club World Cup?",
+   "a": "32",
+   "o": [
+    "56",
+    "32",
+    "16",
+    "40"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club thrashed Real Madrid 4-0 in a 2025 Club World Cup semi-final?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Olympique Lyonnais",
+    "Lille OSC",
+    "Lens",
+    "Paris Saint-Germain"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Spanish club won the Club World Cup in 2014, 2016, 2017 and 2018?",
+   "a": "Real Madrid",
+   "o": [
+    "Sevilla",
+    "Real Madrid",
+    "Athletic Bilbao",
+    "Celta de Vigo"
+   ],
+   "k": 1
+  },
+  {
+   "q": "In which year did Liverpool win the Club World Cup for the only time?",
+   "a": "2019",
+   "o": [
+    "2023",
+    "2007",
+    "2015",
+    "2019"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German World Cup winner joined the New York Cosmos in 1977?",
+   "a": "Franz Beckenbauer",
+   "o": [
+    "Alphonso Davies",
+    "Franz Beckenbauer",
+    "Mišo Brečko",
+    "Dinu Sânmărtean"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which German World Cup winner played three seasons for Japan's Vissel Kobe from 2017?",
+   "a": "Lukas Podolski",
+   "o": [
+    "Mario Mandžukić",
+    "Lukas Podolski",
+    "Kevin Kurányi",
+    "Ryan Babel"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Inter midfielder won the 1990 Ballon d'Or, months after captaining West Germany to the World Cup?",
+   "a": "Lothar Matthäus",
+   "o": [
+    "Michael Laudrup",
+    "Dunga",
+    "Lothar Matthäus",
+    "Diego Maradona"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian striker won the 1982 Ballon d'Or after his World Cup summer?",
+   "a": "Paolo Rossi",
+   "o": [
+    "Paolo Rossi",
+    "Zbigniew Boniek",
+    "Cha Bum-kun",
+    "George Weah"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which England striker was sent off against Portugal at the 2006 World Cup after planting his foot on Ricardo Carvalho?",
+   "a": "Wayne Rooney",
+   "o": [
+    "Juan Mata",
+    "Alan Smith",
+    "Ángel Di María",
+    "Wayne Rooney"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Netherlands defender was sent off in extra time of the 2010 World Cup final?",
+   "a": "John Heitinga",
+   "o": [
+    "John Heitinga",
+    "Filipe Luís",
+    "Toby Alderweireld",
+    "Ashley Young"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Poland keeper saved a Lionel Messi penalty at the 2022 World Cup?",
+   "a": "Wojciech Szczęsny",
+   "o": [
+    "Yann Sommer",
+    "Wojciech Szczęsny",
+    "Marc-André ter Stegen",
+    "Emiliano Martínez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who hit a hat-trick against Switzerland at the 2022 World Cup, starting in place of the benched Cristiano Ronaldo?",
+   "a": "Gonçalo Ramos",
+   "o": [
+    "Vangelis Pavlidis",
+    "Hugo Ekitike",
+    "Gonçalo Guedes",
+    "Gonçalo Ramos"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored the first World Cup penalty awarded by VAR, for France against Australia in 2018?",
+   "a": "Antoine Griezmann",
+   "o": [
+    "Miralem Pjanić",
+    "Ivan Rakitić",
+    "Antoine Griezmann",
+    "İlkay Gündoğan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which England midfielder knocked Belgium out of the 1990 World Cup with a volley in the 119th minute?",
+   "a": "David Platt",
+   "o": [
+    "David Platt",
+    "Roberto Mancini",
+    "Matt Le Tissier",
+    "Zinedine Zidane"
+   ],
+   "k": 0
+  },
+  {
+   "q": "USA keeper Tim Howard set a World Cup record for saves in one match in 2014. Who were the opponents?",
+   "a": "Belgium",
+   "o": [
+    "Croatia",
+    "Spain",
+    "Belgium",
+    "Slovenia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country topped a 2014 World Cup group containing Uruguay, Italy and England?",
+   "a": "Costa Rica",
+   "o": [
+    "Honduras",
+    "Costa Rica",
+    "Trinidad and Tobago",
+    "USA"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Australian volleyed a famous goal against the Netherlands at the 2014 World Cup?",
+   "a": "Tim Cahill",
+   "o": [
+    "Tim Cahill",
+    "Juninho Pernambucano",
+    "Rafael Márquez",
+    "Claudio Reyna"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Landon Donovan scored a famous late winner against Algeria at the 2010 World Cup for which country?",
+   "a": "The United States",
+   "o": [
+    "Panama",
+    "The United States",
+    "Curacao",
+    "Canada"
+   ],
+   "k": 1
+  },
+  {
+   "q": "In June 2026 Lionel Messi passed whose total of 16 goals to become the top scorer in World Cup history?",
+   "a": "Miroslav Klose",
+   "o": [
+    "Arjen Robben",
+    "Hernán Crespo",
+    "Miroslav Klose",
+    "Kevin Kurányi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which England midfielder scored seven goals at the 2026 World Cup, the most by an England player at one tournament?",
+   "a": "Jude Bellingham",
+   "o": [
+    "Giovanni Reyna",
+    "Morgan Rogers",
+    "Jude Bellingham",
+    "Conor Gallagher"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spain substitute scored the winning goals against Portugal and Belgium at the 2026 World Cup?",
+   "a": "Mikel Merino",
+   "o": [
+    "Ayoze Pérez",
+    "Serge Gnabry",
+    "Mikel Merino",
+    "Rodri"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who hit a hat-trick as Canada beat Qatar 6-0 at the 2026 World Cup, their first ever World Cup win?",
+   "a": "Jonathan David",
+   "o": [
+    "Jonathan David",
+    "Federico Bernardeschi",
+    "Randal Kolo Muani",
+    "Serhou Guirassy"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Belgian's penalty against Senegal in 2026, at 124 minutes and 44 seconds, was the latest goal ever scored at a World Cup?",
+   "a": "Youri Tielemans",
+   "o": [
+    "Matheus Cunha",
+    "Youri Tielemans",
+    "Thorgan Hazard",
+    "James Maddison"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did the Netherlands draw 2-2 with in their first game of the 2026 World Cup?",
+   "a": "Japan",
+   "o": [
+    "Brunei",
+    "Japan",
+    "Indonesia",
+    "Uzbekistan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did the USA beat 4-1 in their first game of the 2026 World Cup?",
+   "a": "Paraguay",
+   "o": [
+    "Bolivia",
+    "Argentina",
+    "Ecuador",
+    "Paraguay"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which goalkeeper made 11 saves in the 2026 World Cup final, the most on record in a World Cup final?",
+   "a": "Emiliano Martínez",
+   "o": [
+    "Thibaut Courtois",
+    "Kepa Arrizabalaga",
+    "Marc-André ter Stegen",
+    "Emiliano Martínez"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In July 2026, who became the first man on record to provide ten assists in World Cup matches?",
+   "a": "Lionel Messi",
+   "o": [
+    "Robert Lewandowski",
+    "Carlos Tevez",
+    "Lionel Messi",
+    "Mauro Icardi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Spain beat 3-0 in the round of 32 at the 2026 World Cup?",
+   "a": "Austria",
+   "o": [
+    "North Macedonia",
+    "Portugal",
+    "Yugoslavia",
+    "Austria"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which new Chelsea signing scored their third goal in the 2025 Club World Cup final against PSG?",
+   "a": "João Pedro",
+   "o": [
+    "Enzo Fernández",
+    "Vinícius Júnior",
+    "Antony",
+    "João Pedro"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who headed Argentina's stoppage-time winner against England in the 2026 World Cup semi-final?",
+   "a": "Lautaro Martínez",
+   "o": [
+    "Lautaro Martínez",
+    "Nicolás González",
+    "Kylian Mbappé",
+    "Ángel Correa"
+   ],
+   "k": 0
+  }
+ ],
+ "hard": [
+  {
+   "q": "How many goals did Messi score at the 2022 World Cup?",
+   "a": "7",
+   "o": [
+    "6",
+    "7",
+    "9",
+    "10"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who managed the Netherlands to the 2010 World Cup final?",
+   "a": "Bert van Marwijk",
+   "o": [
+    "Michel Platini",
+    "Glenn Hoddle",
+    "Bert van Marwijk",
+    "Ruud Gullit"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch midfielder infamously kicked Xabi Alonso in the chest in the 2010 World Cup final?",
+   "a": "Nigel de Jong",
+   "o": [
+    "Yaya Touré",
+    "Ibrahim Afellay",
+    "Nigel de Jong",
+    "Luka Modrić"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who won the Golden Ball at the 2010 World Cup, a Uruguayan?",
+   "a": "Diego Forlán",
+   "o": [
+    "Nwankwo Kanu",
+    "Diego Forlán",
+    "Dimitar Berbatov",
+    "Diego Milito"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Chelsea beat in the 2025 Club World Cup final?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Lens",
+    "Olympique Lyonnais",
+    "Paris Saint-Germain",
+    "Monaco"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country knocked Spain out of the 2002 World Cup on penalties in a controversial quarter-final?",
+   "a": "South Korea",
+   "o": [
+    "South Korea",
+    "Iraq",
+    "Iran",
+    "Saudi Arabia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country beat the Netherlands on penalties in the 1998 World Cup semi-final?",
+   "a": "Brazil",
+   "o": [
+    "Venezuela",
+    "Brazil",
+    "Ecuador",
+    "Argentina"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who captained the Netherlands in the 2010 World Cup final, a left-back?",
+   "a": "Giovanni van Bronckhorst",
+   "o": [
+    "Ronald de Boer",
+    "Robert Pirès",
+    "Giovanni van Bronckhorst",
+    "Rivaldo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Uruguay beat in the 1930 World Cup final?",
+   "a": "Argentina",
+   "o": [
+    "Argentina",
+    "Chile",
+    "Bolivia",
+    "Paraguay"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which was the first African country to reach a World Cup quarter-final, in 1990?",
+   "a": "Cameroon",
+   "o": [
+    "Tunisia",
+    "Cameroon",
+    "DR Congo",
+    "Kenya"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Asian country reached the World Cup semi-finals in 2002?",
+   "a": "South Korea",
+   "o": [
+    "Saudi Arabia",
+    "South Korea",
+    "Brunei",
+    "Japan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did North Korea famously beat 1-0 at the 1966 World Cup?",
+   "a": "Italy",
+   "o": [
+    "Italy",
+    "Republic of Ireland",
+    "Belarus",
+    "Czechoslovakia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country's 'Magical Magyars' lost the 1954 World Cup final as favourites?",
+   "a": "Hungary",
+   "o": [
+    "Finland",
+    "Hungary",
+    "Cyprus",
+    "Ukraine"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did the USA shock 1-0 at the 1950 World Cup?",
+   "a": "England",
+   "o": [
+    "England",
+    "Luxembourg",
+    "Yugoslavia",
+    "Hungary"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Roger Milla dance at the corner flag for at the 1990 World Cup?",
+   "a": "Cameroon",
+   "o": [
+    "Tunisia",
+    "Algeria",
+    "Kenya",
+    "Cameroon"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did the Brazilian Gilberto Silva, a 2002 World Cup winner, play for in England?",
+   "a": "Arsenal",
+   "o": [
+    "Liverpool",
+    "Arsenal",
+    "Leeds United",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer at the 1986 World Cup, an England striker?",
+   "a": "Gary Lineker",
+   "o": [
+    "Romário",
+    "Jean-Pierre Papin",
+    "Jürgen Klinsmann",
+    "Gary Lineker"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who managed France to the 2018 World Cup, having captained them in 1998?",
+   "a": "Didier Deschamps",
+   "o": [
+    "Christian Karembeu",
+    "Didier Deschamps",
+    "Marcel Desailly",
+    "Pavel Nedvěd"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country beat holders France in the opening game of the 2002 World Cup?",
+   "a": "Senegal",
+   "o": [
+    "Ivory Coast",
+    "Togo",
+    "Mali",
+    "Senegal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Golden Ball at the 1986 World Cup?",
+   "a": "Diego Maradona",
+   "o": [
+    "Frank Rijkaard",
+    "Diego Maradona",
+    "Gheorghe Hagi",
+    "Glenn Hoddle"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which African nation first reached a World Cup quarter-final, in 1990?",
+   "a": "Cameroon",
+   "o": [
+    "Morocco",
+    "DR Congo",
+    "Egypt",
+    "Cameroon"
+   ],
+   "k": 3
+  },
+  {
+   "q": "At the 1990 World Cup, which Dutchman was sent off for spitting at Rudi Völler?",
+   "a": "Frank Rijkaard",
+   "o": [
+    "Carlo Ancelotti",
+    "Ruud Gullit",
+    "Marcel Desailly",
+    "Frank Rijkaard"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutch club did both Romário and Ronaldo play for before their World Cup glory?",
+   "a": "PSV",
+   "o": [
+    "PSV",
+    "Twente",
+    "Fortuna Sittard",
+    "Cambuur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who missed the decisive penalty for Italy in the 1994 World Cup final?",
+   "a": "Roberto Baggio",
+   "o": [
+    "Roberto Baggio",
+    "Dennis Bergkamp",
+    "Aron Winter",
+    "Gianfranco Zola"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted and won the 1966 World Cup, with mascot 'World Cup Willie'?",
+   "a": "England",
+   "o": [
+    "Georgia",
+    "West Germany",
+    "England",
+    "Czechoslovakia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which nation knocked holders Germany out of the 2018 World Cup group stage?",
+   "a": "South Korea",
+   "o": [
+    "Thailand",
+    "Uzbekistan",
+    "South Korea",
+    "Japan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country knocked the Netherlands out of the 1990 World Cup?",
+   "a": "West Germany",
+   "o": [
+    "West Germany",
+    "Austria",
+    "Belarus",
+    "Romania"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored the last-minute goal against Argentina in the 1998 World Cup quarter-final?",
+   "a": "Dennis Bergkamp",
+   "o": [
+    "Giovanni van Bronckhorst",
+    "David Platt",
+    "Roberto Baggio",
+    "Dennis Bergkamp"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did the Netherlands lose to in the 2010 World Cup final?",
+   "a": "Spain",
+   "o": [
+    "Albania",
+    "Spain",
+    "Bulgaria",
+    "Bosnia and Herzegovina"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored the winning goal in the 2010 World Cup final?",
+   "a": "Andrés Iniesta",
+   "o": [
+    "Xabi Alonso",
+    "Andrés Iniesta",
+    "Alexander Hleb",
+    "Santi Cazorla"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Dutch player was shown a yellow card for a chest-high challenge on Xabi Alonso in the 2010 World Cup final?",
+   "a": "Nigel de Jong",
+   "o": [
+    "Nigel de Jong",
+    "David Silva",
+    "Dries Mertens",
+    "Gareth Barry"
+   ],
+   "k": 0
+  },
+  {
+   "q": "What was the score when the Netherlands beat Spain in their opening game of the 2014 World Cup?",
+   "a": "5-1",
+   "o": [
+    "6-0",
+    "6-1",
+    "5-2",
+    "5-1"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored the diving header against Spain at the 2014 World Cup?",
+   "a": "Robin van Persie",
+   "o": [
+    "Robin van Persie",
+    "Olivier Giroud",
+    "Dirk Kuyt",
+    "Cristiano Ronaldo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who wore number 10 for France, World Cup final 2018?",
+   "a": "Kylian Mbappé",
+   "o": [
+    "Randal Kolo Muani",
+    "Hugo Ekitike",
+    "Kingsley Coman",
+    "Kylian Mbappé"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore number 10 for West Germany, World Cup final 1990?",
+   "a": "Lothar Matthäus",
+   "o": [
+    "Lothar Matthäus",
+    "Paul Ince",
+    "Roberto Mancini",
+    "Aron Winter"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who wore number 10 for Netherlands, World Cup final 2010?",
+   "a": "Wesley Sneijder",
+   "o": [
+    "Xabi Alonso",
+    "Wesley Sneijder",
+    "Antonio Cassano",
+    "Nigel de Jong"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who wore number 10 for Brazil, World Cup final 2002?",
+   "a": "Rivaldo",
+   "o": [
+    "Phillip Cocu",
+    "Rivaldo",
+    "Juninho Paulista",
+    "David Beckham"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who wore number 10 for Argentina, World Cup final 2022?",
+   "a": "Lionel Messi",
+   "o": [
+    "Lionel Messi",
+    "Edinson Cavani",
+    "Alexis Sánchez",
+    "Javier Saviola"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who wore number 10 for Argentina, World Cup final 1986?",
+   "a": "Diego Maradona",
+   "o": [
+    "Glenn Hoddle",
+    "Diego Maradona",
+    "Gheorghe Hagi",
+    "Ruud Gullit"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who wore number 10 for Italy, World Cup final 2006?",
+   "a": "Francesco Totti",
+   "o": [
+    "Patrick Kluivert",
+    "Francesco Totti",
+    "Didier Drogba",
+    "Alberto Gilardino"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who wore number 10 for France, World Cup final 1998?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Emmanuel Petit",
+    "David Beckham",
+    "Edgar Davids",
+    "Zinedine Zidane"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore the armband for Brazil, World Cup final 1994?",
+   "a": "Dunga",
+   "o": [
+    "Dunga",
+    "Roberto Baggio",
+    "Sócrates",
+    "Ronald Koeman"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who wore the armband for Italy, World Cup final 1982?",
+   "a": "Dino Zoff",
+   "o": [
+    "Orestis Karnezis",
+    "Dino Zoff",
+    "Sergio Padt",
+    "Ray Clemence"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who wore number 2 for Brazil, World Cup final 2002?",
+   "a": "Cafu",
+   "o": [
+    "Cafu",
+    "Juliano Belletti",
+    "Lilian Thuram",
+    "Marco Materazzi"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who wore number 2 for Netherlands, World Cup final 2010?",
+   "a": "Gregory van der Wiel",
+   "o": [
+    "John Heitinga",
+    "Thomas Vermaelen",
+    "Gregory van der Wiel",
+    "Royston Drenthe"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which national team did Bert van Marwijk take to the 2018 World Cup?",
+   "a": "Australia",
+   "o": [
+    "Australia",
+    "North Korea",
+    "Vietnam",
+    "Iraq"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who captained the Netherlands at the 1998 World Cup?",
+   "a": "Frank de Boer",
+   "o": [
+    "Marco Materazzi",
+    "Michael Reiziger",
+    "Frank de Boer",
+    "Cafu"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the Netherlands manager at the 2006 World Cup?",
+   "a": "Marco van Basten",
+   "o": [
+    "Marco van Basten",
+    "Marc Overmars",
+    "Jürgen Klinsmann",
+    "Oliver Bierhoff"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Whose disallowed goal against Germany at the 2010 World Cup pushed FIFA towards goal-line technology?",
+   "a": "Frank Lampard",
+   "o": [
+    "Andrea Pirlo",
+    "Frank Lampard",
+    "Michael Carrick",
+    "David Beckham"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country beat Italy in the play-off that kept them out of the 2018 World Cup?",
+   "a": "Sweden",
+   "o": [
+    "Turkey",
+    "Sweden",
+    "West Germany",
+    "England"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country knocked Italy out of the 2022 World Cup qualifying play-offs?",
+   "a": "North Macedonia",
+   "o": [
+    "North Macedonia",
+    "England",
+    "Portugal",
+    "Austria"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country hosted the 2015 Women's World Cup, played entirely on artificial pitches?",
+   "a": "Canada",
+   "o": [
+    "Cuba",
+    "Canada",
+    "Jamaica",
+    "Trinidad and Tobago"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Sporting Gijón's Mareo academy produced which striker who won the 2010 World Cup with Spain?",
+   "a": "David Villa",
+   "o": [
+    "David Villa",
+    "Thierry Henry",
+    "Luis Suárez",
+    "Zlatan Ibrahimović"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Australia beat which country on penalties in 2005 to reach their first World Cup since 1974?",
+   "a": "Uruguay",
+   "o": [
+    "Venezuela",
+    "Peru",
+    "Bolivia",
+    "Uruguay"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Diego Costa was born in Brazil but played at a World Cup for which country?",
+   "a": "Spain",
+   "o": [
+    "Greece",
+    "Spain",
+    "West Germany",
+    "Iceland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Argentina beat on penalties in the 1990 World Cup semi-final?",
+   "a": "Italy",
+   "o": [
+    "Northern Ireland",
+    "Romania",
+    "Italy",
+    "Slovakia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did France beat in the 1998 World Cup semi-final?",
+   "a": "Croatia",
+   "o": [
+    "Slovenia",
+    "Croatia",
+    "Northern Ireland",
+    "Austria"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country finished third at the 2002 World Cup?",
+   "a": "Turkey",
+   "o": [
+    "Lithuania",
+    "Germany",
+    "Turkey",
+    "Yugoslavia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Auckland City have been regulars at the Club World Cup. Which country do they represent?",
+   "a": "New Zealand",
+   "o": [
+    "Tahiti",
+    "New Zealand",
+    "Papua New Guinea",
+    "Fiji"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country reached the last 16 at their first World Cup in 2006, from Africa?",
+   "a": "Ghana",
+   "o": [
+    "Ghana",
+    "Egypt",
+    "DR Congo",
+    "Senegal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country finished third at the 1994 World Cup?",
+   "a": "Sweden",
+   "o": [
+    "England",
+    "Sweden",
+    "Croatia",
+    "Belarus"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country reached their first World Cup semi-final in 1986, losing to Argentina?",
+   "a": "Belgium",
+   "o": [
+    "Denmark",
+    "Belgium",
+    "Israel",
+    "Czech Republic"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which home nation refused to travel to the 1950 World Cup after qualifying?",
+   "a": "Scotland",
+   "o": [
+    "Scotland",
+    "Switzerland",
+    "Austria",
+    "Wales"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who broke the deadlock in the 119th minute of Italy's 2006 World Cup semi-final with Germany?",
+   "a": "Fabio Grosso",
+   "o": [
+    "Fabio Grosso",
+    "Walter Samuel",
+    "Marco Materazzi",
+    "Eric Abidal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which national team did Ottmar Hitzfeld manage at the 2014 World Cup?",
+   "a": "Switzerland",
+   "o": [
+    "Scotland",
+    "Switzerland",
+    "Russia",
+    "Netherlands"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Roy Hodgson take to the 1994 World Cup?",
+   "a": "Switzerland",
+   "o": [
+    "Estonia",
+    "Switzerland",
+    "Germany",
+    "Czechoslovakia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Marcelo Bielsa manage at the 2002 World Cup?",
+   "a": "Argentina",
+   "o": [
+    "Argentina",
+    "Peru",
+    "Chile",
+    "Uruguay"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Japan beat on penalties in the 2011 Women's World Cup final?",
+   "a": "The United States",
+   "o": [
+    "The United States",
+    "Jamaica",
+    "Trinidad and Tobago",
+    "Cuba"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country finished third at the 2023 Women's World Cup?",
+   "a": "Sweden",
+   "o": [
+    "Luxembourg",
+    "France",
+    "Iceland",
+    "Sweden"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Andrés Escobar was murdered days after coming home from the 1994 World Cup. Against which country was his own goal?",
+   "a": "The United States",
+   "o": [
+    "Canada",
+    "Trinidad and Tobago",
+    "El Salvador",
+    "The United States"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The World Cup expanded from 16 teams to how many in 1982?",
+   "a": "24",
+   "o": [
+    "24",
+    "21",
+    "22",
+    "23"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which year did the World Cup first feature 32 teams?",
+   "a": "1998",
+   "o": [
+    "1994",
+    "1990",
+    "2010",
+    "1998"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country refused to defend its title at the 1934 World Cup?",
+   "a": "Uruguay",
+   "o": [
+    "Colombia",
+    "Ecuador",
+    "Uruguay",
+    "Paraguay"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Italy beat 2-1 after extra time in the 1934 World Cup final?",
+   "a": "Czechoslovakia",
+   "o": [
+    "Czechoslovakia",
+    "Malta",
+    "Azerbaijan",
+    "Poland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which year did Australia first qualify for a World Cup?",
+   "a": "1974",
+   "o": [
+    "1982",
+    "1966",
+    "1970",
+    "1974"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Ferenc Puskas played for Hungary at the 1954 World Cup. Which country did he play for in 1962?",
+   "a": "Spain",
+   "o": [
+    "Italy",
+    "Croatia",
+    "Spain",
+    "Netherlands"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Lilian Thuram won the 1998 World Cup. Which of his sons came off the bench in the 2022 final?",
+   "a": "Marcus Thuram",
+   "o": [
+    "Alexandre Lacazette",
+    "Breel Embolo",
+    "Kylian Mbappé",
+    "Marcus Thuram"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which 1994 World Cup winner went on to become a Brazilian senator?",
+   "a": "Romario",
+   "o": [
+    "Gary Lineker",
+    "Jorginho",
+    "Romario",
+    "Careca"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which French city did the Netherlands lose the 2019 Women's World Cup final to the USA?",
+   "a": "Lyon",
+   "o": [
+    "Lyon",
+    "Le Mans",
+    "Paris Saint-Germain",
+    "Lille OSC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Italian World Cup winner became player-manager of Chennaiyin in the first Indian Super League season, in 2014?",
+   "a": "Marco Materazzi",
+   "o": [
+    "Cafu",
+    "Sol Campbell",
+    "Lilian Thuram",
+    "Marco Materazzi"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Frenchman was sent off for stamping on a Saudi Arabian player at the 1998 World Cup?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Robert Prosinečki",
+    "Pavel Nedvěd",
+    "Luis Enrique",
+    "Zinedine Zidane"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Argentine finished off a 24-pass move against Serbia and Montenegro at the 2006 World Cup?",
+   "a": "Esteban Cambiasso",
+   "o": [
+    "Javier Mascherano",
+    "Kaká",
+    "Yaya Touré",
+    "Esteban Cambiasso"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored the first golden goal in World Cup history, for France against Paraguay in 1998?",
+   "a": "Laurent Blanc",
+   "o": [
+    "Lilian Thuram",
+    "Laurent Blanc",
+    "Paul McGrath",
+    "Roberto Carlos"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Croatia keeper saved three Japanese penalties in a 2022 World Cup shoot-out?",
+   "a": "Dominik Livaković",
+   "o": [
+    "Guglielmo Vicario",
+    "Dominik Livaković",
+    "Aaron Ramsdale",
+    "Altay Bayındır"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which African country did Sven-Göran Eriksson manage at the 2010 World Cup?",
+   "a": "Ivory Coast",
+   "o": [
+    "Tunisia",
+    "Ivory Coast",
+    "Angola",
+    "Algeria"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country pipped the Netherlands to a 2018 World Cup play-off place on goal difference?",
+   "a": "Sweden",
+   "o": [
+    "Belgium",
+    "Sweden",
+    "Scotland",
+    "Georgia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who scored the Netherlands' goal in the 1-1 draw with Morocco that ended their 2026 World Cup on penalties?",
+   "a": "Cody Gakpo",
+   "o": [
+    "Dominic Solanke",
+    "Alexander Isak",
+    "Cody Gakpo",
+    "Steven Bergwijn"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Belgian scored the only goal Spain conceded at the 2026 World Cup?",
+   "a": "Charles De Ketelaere",
+   "o": [
+    "Alexis Saelemaekers",
+    "Jeremy Doku",
+    "Charles De Ketelaere",
+    "Loïs Openda"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country beat Australia on penalties in 2026 for their first ever World Cup knockout win?",
+   "a": "Egypt",
+   "o": [
+    "DR Congo",
+    "Egypt",
+    "Angola",
+    "Burkina Faso"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Argentina midfielder was sent off in stoppage time of the 2026 World Cup final?",
+   "a": "Enzo Fernández",
+   "o": [
+    "Richard Ríos",
+    "Enzo Fernández",
+    "João Neves",
+    "Roméo Lavia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Frenchman scored a hat-trick inside 32 minutes against Norway at the 2026 World Cup?",
+   "a": "Ousmane Dembélé",
+   "o": [
+    "Donyell Malen",
+    "Serhou Guirassy",
+    "Kylian Mbappé",
+    "Ousmane Dembélé"
+   ],
+   "k": 3
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Who won the Golden Glove as best keeper at the 2010 World Cup?",
+   "a": "Iker Casillas",
+   "o": [
+    "Júlio César",
+    "Craig Gordon",
+    "Iker Casillas",
+    "Keylor Navas"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored Argentina's winning penalty in the 2022 World Cup final shoot-out?",
+   "a": "Gonzalo Montiel",
+   "o": [
+    "Gonzalo Montiel",
+    "Jules Koundé",
+    "Nicolás Otamendi",
+    "Lisandro Martínez"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which nation has reached the most World Cup finals, with eight?",
+   "a": "Germany",
+   "o": [
+    "Lithuania",
+    "Germany",
+    "Republic of Ireland",
+    "Czech Republic"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Bulgarian shared the 1994 World Cup Golden Boot with six goals?",
+   "a": "Hristo Stoichkov",
+   "o": [
+    "Hristo Stoichkov",
+    "Luís Figo",
+    "Jürgen Klinsmann",
+    "Gianluca Vialli"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which South Korean, later a Manchester United star, did PSV sign after the 2002 World Cup?",
+   "a": "Park Ji-sung",
+   "o": [
+    "David Beckham",
+    "Michael Carrick",
+    "Dries Mertens",
+    "Park Ji-sung"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won the first FIFA Women's World Cup, in 1991?",
+   "a": "The United States",
+   "o": [
+    "Cuba",
+    "Trinidad and Tobago",
+    "Jamaica",
+    "The United States"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the first goalkeeper to captain a World Cup-winning team, in 1982?",
+   "a": "Dino Zoff",
+   "o": [
+    "Pat Jennings",
+    "Samir Handanovič",
+    "Dino Zoff",
+    "Giorgi Mamardashvili"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted the 1934 World Cup and won it?",
+   "a": "Italy",
+   "o": [
+    "Germany",
+    "Italy",
+    "Lithuania",
+    "England"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country knocked Brazil out of the 1966 World Cup, with Pelé kicked out of the tournament?",
+   "a": "Portugal",
+   "o": [
+    "Poland",
+    "Bosnia and Herzegovina",
+    "Azerbaijan",
+    "Portugal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did England beat in the 1966 World Cup semi-final?",
+   "a": "Portugal",
+   "o": [
+    "Denmark",
+    "West Germany",
+    "Slovakia",
+    "Portugal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country finished third at the 1974 World Cup?",
+   "a": "Poland",
+   "o": [
+    "Croatia",
+    "West Germany",
+    "Israel",
+    "Poland"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Italy beat in the 1982 World Cup final?",
+   "a": "West Germany",
+   "o": [
+    "Yugoslavia",
+    "Switzerland",
+    "Estonia",
+    "West Germany"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored a hat-trick against Brazil for Italy at the 1982 World Cup?",
+   "a": "Paolo Rossi",
+   "o": [
+    "Rudi Völler",
+    "Paolo Rossi",
+    "Hugo Sánchez",
+    "Salvatore Schillaci"
+   ],
+   "k": 1
+  },
+  {
+   "q": "How old was Dino Zoff when he captained Italy to the 1982 World Cup?",
+   "a": "40",
+   "o": [
+    "40",
+    "10",
+    "50",
+    "70"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Brazil beat on penalties in the 1994 World Cup final?",
+   "a": "Italy",
+   "o": [
+    "England",
+    "Italy",
+    "Finland",
+    "Greece"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country reached the 1998 World Cup semi-finals in their first tournament as an independent nation?",
+   "a": "Croatia",
+   "o": [
+    "Malta",
+    "Croatia",
+    "Cyprus",
+    "Azerbaijan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was Croatia's top scorer at the 1998 World Cup, winning the Golden Boot?",
+   "a": "Davor Šuker",
+   "o": [
+    "Steve McManaman",
+    "Bebeto",
+    "Davor Šuker",
+    "Marc Overmars"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored both goals in the 2002 World Cup final?",
+   "a": "Ronaldo",
+   "o": [
+    "Nicolas Anelka",
+    "Patrick Kluivert",
+    "Michael Owen",
+    "Ronaldo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Ghana lose to on penalties in the 2010 World Cup quarter-final?",
+   "a": "Uruguay",
+   "o": [
+    "Colombia",
+    "Chile",
+    "Venezuela",
+    "Uruguay"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who captained the Netherlands at the 1974 World Cup final?",
+   "a": "Johan Cruyff",
+   "o": [
+    "Ilaix Moriba",
+    "Fabio Capello",
+    "Johan Cruyff",
+    "Seydou Keita"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who wore number 5 for France, World Cup final 2018?",
+   "a": "Samuel Umtiti",
+   "o": [
+    "Samuel Umtiti",
+    "Nélson Semedo",
+    "Lucas Digne",
+    "João Cancelo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who wore number 5 for Netherlands, World Cup final 2010?",
+   "a": "Giovanni van Bronckhorst",
+   "o": [
+    "Juan Román Riquelme",
+    "Robert Pirès",
+    "Deco",
+    "Giovanni van Bronckhorst"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore number 5 for Spain, World Cup final 2010?",
+   "a": "Carles Puyol",
+   "o": [
+    "Michael Reiziger",
+    "Lilian Thuram",
+    "Gianluca Zambrotta",
+    "Carles Puyol"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore number 9 for Argentina, World Cup final 2022?",
+   "a": "Julián Álvarez",
+   "o": [
+    "Liam Delap",
+    "Gabriel Jesus",
+    "Julián Álvarez",
+    "Patrick Roberts"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who wore number 5 for Germany, World Cup final 2014?",
+   "a": "Mats Hummels",
+   "o": [
+    "Alessandro Florenzi",
+    "Mats Hummels",
+    "Marquinhos",
+    "Daley Blind"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who wore number 5 for Italy, World Cup final 2006?",
+   "a": "Fabio Cannavaro",
+   "o": [
+    "Sol Campbell",
+    "Lilian Thuram",
+    "Michael Reiziger",
+    "Fabio Cannavaro"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore number 11 for Netherlands, World Cup final 2010?",
+   "a": "Arjen Robben",
+   "o": [
+    "Gonzalo Higuaín",
+    "Karim Benzema",
+    "Luis Suárez",
+    "Arjen Robben"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who wore number 2 for Brazil, World Cup final 1994?",
+   "a": "Jorginho",
+   "o": [
+    "Careca",
+    "Romário",
+    "Ian Wright",
+    "Jorginho"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country knocked the Netherlands out of the play-off for the 1986 World Cup, going through on away goals?",
+   "a": "Belgium",
+   "o": [
+    "Albania",
+    "Belgium",
+    "Finland",
+    "Ukraine"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country was handed a bye straight to the quarter-finals of the 1938 World Cup after Austria withdrew?",
+   "a": "Sweden",
+   "o": [
+    "Soviet Union",
+    "Norway",
+    "Sweden",
+    "Malta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Jack Charlton manage at the 1990 World Cup?",
+   "a": "The Republic of Ireland",
+   "o": [
+    "Greece",
+    "England",
+    "Slovakia",
+    "The Republic of Ireland"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Bora Milutinović manage at the 1998 World Cup?",
+   "a": "Nigeria",
+   "o": [
+    "Nigeria",
+    "Ghana",
+    "Morocco",
+    "Ivory Coast"
+   ],
+   "k": 0
+  },
+  {
+   "q": "The 1986 World Cup was awarded to Colombia, who gave it up in 1982 because they could not afford it. Who took it on?",
+   "a": "Mexico",
+   "o": [
+    "USA",
+    "Haiti",
+    "United States",
+    "Mexico"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country became the first African side to top a World Cup group, in Mexico in 1986?",
+   "a": "Morocco",
+   "o": [
+    "Tunisia",
+    "DR Congo",
+    "Morocco",
+    "Mali"
+   ],
+   "k": 2
+  },
+  {
+   "q": "North Korea were based in one English town for the 1966 World Cup and the locals adopted them completely. Which town?",
+   "a": "Middlesbrough",
+   "o": [
+    "Middlesbrough",
+    "Birmingham City",
+    "Derby County",
+    "Lincoln City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "What was the score when Iran beat the Maldives in a 1997 World Cup qualifier, still the Maldives' worst defeat?",
+   "a": "17-0",
+   "o": [
+    "18-1",
+    "18-0",
+    "16-1",
+    "17-0"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Bulgarian scored the header that knocked holders Germany out of the 1994 World Cup?",
+   "a": "Yordan Letchkov",
+   "o": [
+    "Stiliyan Petrov",
+    "Yordan Letchkov",
+    "Dimitri Payet",
+    "Angel Gomes"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country hosted the first Women's World Cup, in 1991?",
+   "a": "China",
+   "o": [
+    "North Korea",
+    "China",
+    "Australia",
+    "Qatar"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Marco van Basten's Netherlands lose to in the last 16 of the 2006 World Cup?",
+   "a": "Portugal",
+   "o": [
+    "Hungary",
+    "Cyprus",
+    "Portugal",
+    "Serbia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Uruguay beat 4-2 in the 1954 World Cup to reach the semi-finals?",
+   "a": "England",
+   "o": [
+    "North Macedonia",
+    "Lithuania",
+    "Denmark",
+    "England"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country knocked Hungary out of the 1958 World Cup group stage in a play-off?",
+   "a": "Wales",
+   "o": [
+    "Turkey",
+    "Netherlands",
+    "Republic of Ireland",
+    "Wales"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country knocked Wales out of the 1958 World Cup quarter-final?",
+   "a": "Brazil",
+   "o": [
+    "Venezuela",
+    "Ecuador",
+    "Paraguay",
+    "Brazil"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutch striker scored the late equaliser in the 1998 World Cup semi-final against Brazil?",
+   "a": "Patrick Kluivert",
+   "o": [
+    "Marc Overmars",
+    "Jan Vennegoor of Hesselink",
+    "Patrick Kluivert",
+    "Michael Owen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which French defender scored both goals in the 1998 World Cup semi-final against Croatia?",
+   "a": "Lilian Thuram",
+   "o": [
+    "Gianluca Zambrotta",
+    "Frank de Boer",
+    "Fabio Cannavaro",
+    "Lilian Thuram"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Turkey beat in the 2002 World Cup quarter-final?",
+   "a": "Senegal",
+   "o": [
+    "Algeria",
+    "South Africa",
+    "Senegal",
+    "Angola"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Morocco beat in the 2022 World Cup quarter-final?",
+   "a": "Portugal",
+   "o": [
+    "Iceland",
+    "Croatia",
+    "Portugal",
+    "Cyprus"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Brazilian did Klose overtake to become the World Cup's leading scorer?",
+   "a": "Ronaldo",
+   "o": [
+    "Andriy Shevchenko",
+    "Hernán Crespo",
+    "Ronaldo",
+    "Filippo Inzaghi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country knocked Ghana out of the 2006 World Cup?",
+   "a": "Brazil",
+   "o": [
+    "Chile",
+    "Bolivia",
+    "Peru",
+    "Brazil"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Caribbean country reached the quarter-finals of the 1938 World Cup?",
+   "a": "Cuba",
+   "o": [
+    "El Salvador",
+    "Mexico",
+    "United States",
+    "Cuba"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which British country qualified for the 1950 World Cup and then refused to travel?",
+   "a": "Scotland",
+   "o": [
+    "West Germany",
+    "Scotland",
+    "France",
+    "Azerbaijan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "What was the score when Hungary beat West Germany in the group stage of the 1954 World Cup?",
+   "a": "8-3",
+   "o": [
+    "8-4",
+    "8-3",
+    "9-4",
+    "9-2"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country suffered its first ever World Cup defeat in the 1954 semi-final, against Hungary?",
+   "a": "Uruguay",
+   "o": [
+    "Uruguay",
+    "Colombia",
+    "Bolivia",
+    "Chile"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Tunisia beat 3-1 in 1978 for the first World Cup win by an African side?",
+   "a": "Mexico",
+   "o": [
+    "Mexico",
+    "USA",
+    "Trinidad and Tobago",
+    "Curacao"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country was Africa's only representative at the 1970 World Cup?",
+   "a": "Morocco",
+   "o": [
+    "Ghana",
+    "Morocco",
+    "Ivory Coast",
+    "Zambia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country knocked Australia out of the 1997 World Cup playoff on away goals?",
+   "a": "Iran",
+   "o": [
+    "Indonesia",
+    "Iraq",
+    "China",
+    "Iran"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country won the FIFA Under-20 World Cup in 2009, the first African winner?",
+   "a": "Ghana",
+   "o": [
+    "Togo",
+    "Cameroon",
+    "Angola",
+    "Ghana"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The Netherlands played their first World Cup match in Milan in 1934. Which country beat them 3-2?",
+   "a": "Switzerland",
+   "o": [
+    "Luxembourg",
+    "Switzerland",
+    "Greece",
+    "Slovakia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Uruguay's José Batista was sent off after under a minute in 1986, the fastest red card in World Cup history. Against whom?",
+   "a": "Scotland",
+   "o": [
+    "Albania",
+    "Scotland",
+    "Yugoslavia",
+    "Lithuania"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Ecuador defender was the second player sent off at the 2026 World Cup for covering his mouth?",
+   "a": "Piero Hincapié",
+   "o": [
+    "Riccardo Calafiori",
+    "Héctor Bellerín",
+    "Piero Hincapié",
+    "Kolo Touré"
+   ],
+   "k": 2
+  }
+ ],
+ "ball": [
+  {
+   "q": "Who scored the winning penalty in the 2006 World Cup final shoot-out?",
+   "a": "Fabio Grosso",
+   "o": [
+    "Fabio Grosso",
+    "Patrice Evra",
+    "Leonardo Bonucci",
+    "Marco Materazzi"
+   ],
+   "k": 0
+  },
+  {
+   "q": "How many yellow cards were shown in the ill-tempered 2010 World Cup final?",
+   "a": "14",
+   "o": [
+    "14",
+    "12",
+    "17",
+    "15"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country knocked Italy out of the 1966 World Cup with a 1-0 win?",
+   "a": "North Korea",
+   "o": [
+    "North Korea",
+    "Thailand",
+    "Brunei",
+    "Iran"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who is the only goalkeeper to win the World Cup's Golden Ball, in 2002?",
+   "a": "Oliver Kahn",
+   "o": [
+    "Oliver Kahn",
+    "Jens Lehmann",
+    "Dida",
+    "Brian Laudrup"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did Archie Gemmill score his famous solo goal against at the 1978 World Cup?",
+   "a": "The Netherlands",
+   "o": [
+    "Ukraine",
+    "Greece",
+    "The Netherlands",
+    "Bosnia and Herzegovina"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country hosted and won the first World Cup, in 1930?",
+   "a": "Uruguay",
+   "o": [
+    "Uruguay",
+    "Argentina",
+    "Bolivia",
+    "Ecuador"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which country did England lose 1-0 to at the 1950 World Cup, in one of the great upsets?",
+   "a": "the United States",
+   "o": [
+    "Honduras",
+    "the United States",
+    "USA",
+    "Costa Rica"
+   ],
+   "k": 1
+  },
+  {
+   "q": "How old was Roger Milla when he scored at the 1994 World Cup, making him the oldest scorer in the tournament's history?",
+   "a": "42",
+   "o": [
+    "20",
+    "42",
+    "9",
+    "64"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country reached the 2002 World Cup semi-finals as co-hosts?",
+   "a": "South Korea",
+   "o": [
+    "Vietnam",
+    "China",
+    "Brunei",
+    "South Korea"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which country did Luis Suárez deny with a handball on the line at the 2010 World Cup?",
+   "a": "Ghana",
+   "o": [
+    "Morocco",
+    "Cameroon",
+    "South Africa",
+    "Ghana"
+   ],
+   "k": 3
+  },
+  {
+   "q": "What was the score when Germany beat Brazil in the 2014 World Cup semi-final?",
+   "a": "7-1",
+   "o": [
+    "7-1",
+    "8-2",
+    "6-1",
+    "6-2"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 1983 European Cup, beating a Juventus side full of Italy's World Cup winners?",
+   "a": "Hamburg",
+   "o": [
+    "Eintracht Frankfurt",
+    "Hamburg",
+    "1. FC Union Berlin",
+    "Bayern Munich"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which country did Hungary lose to in the 1954 World Cup final, having beaten them 8-3 in the group stage?",
+   "a": "West Germany",
+   "o": [
+    "Malta",
+    "West Germany",
+    "Soviet Union",
+    "Albania"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who kept goal for France, World Cup final 2018?",
+   "a": "Hugo Lloris",
+   "o": [
+    "Michel Vorm",
+    "Hugo Lloris",
+    "Simon Mignolet",
+    "Yann Sommer"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who kept goal for Spain, World Cup final 2010?",
+   "a": "Iker Casillas",
+   "o": [
+    "Tim Howard",
+    "Víctor Valdés",
+    "Iker Casillas",
+    "Michel Vorm"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who kept goal for Italy, World Cup final 1982?",
+   "a": "Dino Zoff",
+   "o": [
+    "Samir Handanovič",
+    "Tomasz Kuszczak",
+    "Dino Zoff",
+    "Orestis Karnezis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country did Sweden beat 8-0 in the quarter-finals of the 1938 World Cup?",
+   "a": "Cuba",
+   "o": [
+    "Haiti",
+    "Mexico",
+    "USA",
+    "Cuba"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Jan Jongbloed kept goal for the Netherlands in the 1974 and 1978 World Cup finals. Which shirt number did he wear?",
+   "a": "8",
+   "o": [
+    "9",
+    "5",
+    "11",
+    "8"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Brazil lost just one match with Garrincha in the side. Against which country, at the 1966 World Cup?",
+   "a": "Hungary",
+   "o": [
+    "Yugoslavia",
+    "Hungary",
+    "Turkey",
+    "Scotland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Oleg Salenko scored five goals in one 1994 World Cup match. Against which country?",
+   "a": "Cameroon",
+   "o": [
+    "Cameroon",
+    "Angola",
+    "Senegal",
+    "Burkina Faso"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Uruguay went into the 1954 World Cup semi-final having never lost a World Cup match. Who beat them?",
+   "a": "Hungary",
+   "o": [
+    "Azerbaijan",
+    "Finland",
+    "Hungary",
+    "Albania"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which France World Cup winner became a European champion in Brazilian jiu-jitsu in 2009?",
+   "a": "Bixente Lizarazu",
+   "o": [
+    "Frank de Boer",
+    "Erik ten Hag",
+    "Bixente Lizarazu",
+    "Sean Dyche"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which country had to play a World Cup qualifier in Rome three days before the 1934 finals kicked off?",
+   "a": "The United States",
+   "o": [
+    "Honduras",
+    "The United States",
+    "Trinidad and Tobago",
+    "Curacao"
+   ],
+   "k": 1
+  },
+  {
+   "q": "By what score did the USA beat Thailand in their opening game of the 2019 Women's World Cup?",
+   "a": "13-0",
+   "o": [
+    "12-1",
+    "12-0",
+    "13-0",
+    "14-1"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Argentina midfielder grabbed Spain's Eric Garcia by the throat after the final whistle of the 2026 World Cup final?",
+   "a": "Leandro Paredes",
+   "o": [
+    "Paulo Dybala",
+    "Emre Can",
+    "Filip Kostić",
+    "Leandro Paredes"
+   ],
+   "k": 3
+  }
+ ]
+}

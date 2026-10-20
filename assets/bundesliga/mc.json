@@ -1,0 +1,2157 @@
+{
+ "easy": [
+  {
+   "q": "Which club plays at the Westfalenstadion, also called Signal Iduna Park?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "Werder Bremen",
+    "Schalke 04",
+    "Augsburg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club plays at the Veltins-Arena in Gelsenkirchen?",
+   "a": "Schalke 04",
+   "o": [
+    "1. FC Union Berlin",
+    "Borussia Dortmund",
+    "Eintracht Frankfurt",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club plays at the Volksparkstadion in Hamburg?",
+   "a": "Hamburger SV",
+   "o": [
+    "Hamburger",
+    "VfB Stuttgart",
+    "Schalke 04",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club plays at the BayArena in Leverkusen?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Werder Bremen",
+    "Freiburg",
+    "1. FC Köln",
+    "Bayer Leverkusen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club plays at the Weserstadion in Bremen?",
+   "a": "Werder Bremen",
+   "o": [
+    "Werder Bremen",
+    "Bayern Munich",
+    "Borussia Dortmund",
+    "Hamburger"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which German club is nicknamed Die Roten, the Reds?",
+   "a": "Bayern Munich",
+   "o": [
+    "Eintracht Frankfurt",
+    "Augsburg",
+    "Werder Bremen",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German club is nicknamed Die Werkself, the works eleven, for its factory origins?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "1. FC Köln",
+    "Eintracht Frankfurt",
+    "Werder Bremen",
+    "Bayer Leverkusen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Polish striker scored prolifically for Borussia Dortmund and then Bayern Munich?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Luis Suárez",
+    "Ciro Immobile",
+    "Sergio Agüero",
+    "Robert Lewandowski"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Norwegian striker scored for Borussia Dortmund before joining Manchester City in 2022?",
+   "a": "Erling Haaland",
+   "o": [
+    "Donyell Malen",
+    "Omar Marmoush",
+    "Ousmane Dembélé",
+    "Erling Haaland"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Bayern Munich great was nicknamed Der Kaiser and later managed Germany?",
+   "a": "Franz Beckenbauer",
+   "o": [
+    "Phil Neal",
+    "Michael Mancienne",
+    "Franz Beckenbauer",
+    "Dinu Sânmărtean"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spaniard managed Bayern Munich from 2013 to 2016?",
+   "a": "Pep Guardiola",
+   "o": [
+    "Emmanuel Petit",
+    "Roberto Baggio",
+    "Luis Enrique",
+    "Pep Guardiola"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German midfielder left Borussia Dortmund for Bayern Munich in 2013?",
+   "a": "Mario Gotze",
+   "o": [
+    "Thiago Alcântara",
+    "Mario Gotze",
+    "Serge Gnabry",
+    "Marco Reus"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Bayern Munich goalkeeper joined from Schalke 04 in 2011?",
+   "a": "Manuel Neuer",
+   "o": [
+    "Simon Mignolet",
+    "Sven Ulreich",
+    "Manuel Neuer",
+    "Alexander Nübel"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English midfielder joined Borussia Dortmund from Manchester City in 2017?",
+   "a": "Jadon Sancho",
+   "o": [
+    "Jadon Sancho",
+    "Jude Bellingham",
+    "Jobe Bellingham",
+    "Amad Diallo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which German midfielder came through Bayer Leverkusen and won the 2023-24 Bundesliga with them?",
+   "a": "Florian Wirtz",
+   "o": [
+    "Stefan Bajcetic",
+    "Emre Can",
+    "Florian Wirtz",
+    "Harvey Elliott"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which German club has won the European Cup or Champions League more than any other?",
+   "a": "Bayern Munich",
+   "o": [
+    "Augsburg",
+    "Schalke 04",
+    "Eintracht Frankfurt",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club plays at the Mercedes-Benz Arena in Stuttgart?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Bayern Munich",
+    "VfB Stuttgart",
+    "Borussia Dortmund",
+    "Schalke 04"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which German club is owned in effect by a drinks company and joined the top flight in 2016?",
+   "a": "RB Leipzig",
+   "o": [
+    "Augsburg",
+    "Freiburg",
+    "RB Leipzig",
+    "Paderborn 07"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 2016-17 Bundesliga?",
+   "a": "Pierre-Emerick Aubameyang",
+   "o": [
+    "Alexandre Lacazette",
+    "Pierre-Emerick Aubameyang",
+    "Luis Suárez",
+    "Ivan Perišić"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2017-18 Bundesliga?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Sergio Agüero",
+    "Robert Lewandowski",
+    "Luis Suárez",
+    "Ivan Perišić"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2018-19 Bundesliga?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Robert Lewandowski",
+    "Luis Suárez",
+    "Lionel Messi",
+    "Ivan Perišić"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2019-20 Bundesliga?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Robert Lewandowski",
+    "André Schürrle",
+    "Mario Gómez",
+    "Pierre-Emerick Aubameyang"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who was the top scorer in the 2020-21 Bundesliga?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Pierre-Emerick Aubameyang",
+    "Mario Mandžukić",
+    "Ivan Perišić",
+    "Robert Lewandowski"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The Allianz Arena and the Olympiastadion are both football grounds in which German city?",
+   "a": "Munich",
+   "o": [
+    "Borussia Dortmund",
+    "VfB Stuttgart",
+    "Augsburg",
+    "Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club comes from the mining city of Gelsenkirchen?",
+   "a": "Schalke 04",
+   "o": [
+    "Bayer 04 Leverkusen",
+    "VfB Stuttgart",
+    "1. FC Union Berlin",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Bayern Munich goalkeeper was nicknamed Der Titan?",
+   "a": "Oliver Kahn",
+   "o": [
+    "Oliver Kahn",
+    "Jens Lehmann",
+    "Stefan Effenberg",
+    "Dida"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Bayern Munich forward invented the nickname Der Raumdeuter for his own role?",
+   "a": "Thomas Müller",
+   "o": [
+    "Marco Reus",
+    "Thomas Müller",
+    "Leon Goretzka",
+    "Arturo Vidal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which German club did Uli Hoeness serve as president and Karl-Heinz Rummenigge as chief executive?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayern Munich",
+    "Elversberg",
+    "Augsburg",
+    "Borussia Dortmund"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which England striker scored 36 goals in his first Bundesliga season at Bayern Munich?",
+   "a": "Harry Kane",
+   "o": [
+    "Wilfried Zaha",
+    "Son Heung-min",
+    "Sadio Mané",
+    "Harry Kane"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Bayern Munich striker scored 41 league goals in the 2020-21 Bundesliga season?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Mario Mandžukić",
+    "Lionel Messi",
+    "Pierre-Emerick Aubameyang",
+    "Robert Lewandowski"
+   ],
+   "k": 3
+  },
+  {
+   "q": "By the end of 2019-20, which club had won the DFB-Pokal more times than any other?",
+   "a": "Bayern Munich",
+   "o": [
+    "Elversberg",
+    "Eintracht Frankfurt",
+    "Schalke 04",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Bayern Munich's run of eleven Bundesliga titles in a row ended in which season?",
+   "a": "2023-24",
+   "o": [
+    "2023-23",
+    "2022-23",
+    "2024-24",
+    "2023-24"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German club won the treble of league, cup and Champions League in 2020?",
+   "a": "Bayern Munich",
+   "o": [
+    "1. FC Union Berlin",
+    "Werder Bremen",
+    "Bayern Munich",
+    "Schalke 04"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian manager won the 2016-17 Bundesliga title with Bayern Munich?",
+   "a": "Carlo Ancelotti",
+   "o": [
+    "Roberto Baggio",
+    "Peter Reid",
+    "Falcão",
+    "Carlo Ancelotti"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Belgian, once Manchester City's captain, became Bayern Munich manager in 2024?",
+   "a": "Vincent Kompany",
+   "o": [
+    "Toby Alderweireld",
+    "Jérôme Boateng",
+    "Vincent Kompany",
+    "Nicolás Otamendi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spanish manager led Bayer Leverkusen to the 2023-24 Bundesliga title?",
+   "a": "Xabi Alonso",
+   "o": [
+    "Javier Mascherano",
+    "Xabi Alonso",
+    "Bastian Schweinsteiger",
+    "David Silva"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Canadian left-back joined Bayern Munich from the Vancouver Whitecaps in 2019?",
+   "a": "Alphonso Davies",
+   "o": [
+    "Alphonso Davies",
+    "Matthijs de Ligt",
+    "David Alaba",
+    "Noussair Mazraoui"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which England midfielder joined Borussia Dortmund from Birmingham City in 2020?",
+   "a": "Jude Bellingham",
+   "o": [
+    "Conor Gallagher",
+    "Jude Bellingham",
+    "Trent Alexander-Arnold",
+    "Morgan Rogers"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which United States midfielder came through at Borussia Dortmund and joined Chelsea in 2019?",
+   "a": "Christian Pulisic",
+   "o": [
+    "Sergiño Dest",
+    "Christian Pulisic",
+    "Donyell Malen",
+    "Erling Haaland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which French winger joined Bayern Munich from Marseille in 2007?",
+   "a": "Franck Ribéry",
+   "o": [
+    "Olivier Giroud",
+    "Franck Ribéry",
+    "Radamel Falcao",
+    "Lukas Podolski"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Dutch winger left Real Madrid for Bayern Munich in 2009?",
+   "a": "Arjen Robben",
+   "o": [
+    "Luuk de Jong",
+    "Arjen Robben",
+    "Luis Suárez",
+    "Fernando Torres"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Senegal forward joined Bayern Munich from Liverpool in 2022?",
+   "a": "Sadio Mané",
+   "o": [
+    "Nathan Redmond",
+    "Sadio Mané",
+    "Raheem Sterling",
+    "Keita Balde"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Erling Haaland, Jude Bellingham and Jadon Sancho all played for which German club?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "Augsburg",
+    "Schalke 04",
+    "1. FC Union Berlin"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which winger did Bayern Munich sign from Manchester City in 2020?",
+   "a": "Leroy Sané",
+   "o": [
+    "Serge Gnabry",
+    "Toni Kroos",
+    "Bernardo Silva",
+    "Leroy Sané"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Jadon Sancho join from Borussia Dortmund in 2021?",
+   "a": "Manchester United",
+   "o": [
+    "Everton",
+    "Manchester United",
+    "Leeds United",
+    "Chelsea"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Germany forward left Bayer Leverkusen for Chelsea in 2020 and later joined Arsenal?",
+   "a": "Kai Havertz",
+   "o": [
+    "Mikel Merino",
+    "Enzo Fernández",
+    "Serge Gnabry",
+    "Kai Havertz"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German club did Liverpool sign Florian Wirtz from in 2025?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Freiburg",
+    "Bayer Leverkusen",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Mario Götze rejoin in 2016 after three years at Bayern Munich?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Elversberg",
+    "VfB Stuttgart",
+    "Borussia Dortmund",
+    "Werder Bremen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Bayern Munich midfielder joined Manchester United in 2015?",
+   "a": "Bastian Schweinsteiger",
+   "o": [
+    "Darren Fletcher",
+    "Arturo Vidal",
+    "Bastian Schweinsteiger",
+    "Sami Khedira"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Germany midfielder left Borussia Dortmund for Manchester City in 2016?",
+   "a": "İlkay Gündoğan",
+   "o": [
+    "Mario Götze",
+    "Julian Brandt",
+    "Toni Kroos",
+    "İlkay Gündoğan"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Bayern Munich midfielder joined Real Madrid in 2014?",
+   "a": "Toni Kroos",
+   "o": [
+    "Leroy Sané",
+    "Mesut Özil",
+    "Leon Goretzka",
+    "Toni Kroos"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Borussia Dortmund defender returned to Bayern Munich in 2016?",
+   "a": "Mats Hummels",
+   "o": [
+    "Mehdi Benatia",
+    "Thomas Vermaelen",
+    "Niklas Süle",
+    "Mats Hummels"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Germany striker moved from Werder Bremen to Bayern Munich in 2007 and later played for Lazio?",
+   "a": "Miroslav Klose",
+   "o": [
+    "Roy Makaay",
+    "Miroslav Klose",
+    "Hernán Crespo",
+    "Luca Toni"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which German club did Chelsea sign Timo Werner from in 2020?",
+   "a": "RB Leipzig",
+   "o": [
+    "Eintracht Frankfurt",
+    "Paderborn 07",
+    "RB Leipzig",
+    "Borussia Mönchengladbach"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Borussia Dortmund striker joined Arsenal in January 2018 for a club record fee?",
+   "a": "Pierre-Emerick Aubameyang",
+   "o": [
+    "Olivier Giroud",
+    "Robert Lewandowski",
+    "Ivan Perišić",
+    "Pierre-Emerick Aubameyang"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Ruhr club went down from the Bundesliga in 2021 and again in 2023?",
+   "a": "Schalke 04",
+   "o": [
+    "Schalke 04",
+    "Borussia Dortmund",
+    "1. FC Union Berlin",
+    "Bayern Munich"
+   ],
+   "k": 0
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 1996-97 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayer 04 Leverkusen",
+    "Bayern Munich",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1998-99 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayern Munich",
+    "Elversberg",
+    "1. FC Union Berlin",
+    "Augsburg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2001-02 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "Bayer 04 Leverkusen",
+    "1. FC Union Berlin",
+    "Augsburg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2003-04 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "Elversberg",
+    "Werder Bremen",
+    "Bayern Munich",
+    "Augsburg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2005-06 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Hamburger",
+    "Bayern Munich",
+    "VfB Stuttgart",
+    "Augsburg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2006-07 Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Eintracht Frankfurt",
+    "VfB Stuttgart",
+    "Schalke 04",
+    "Borussia Dortmund"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2009-10 Bundesliga?",
+   "a": "Edin Džeko",
+   "o": [
+    "Mario Mandžukić",
+    "Edin Džeko",
+    "Ricardo Quaresma",
+    "Ivan Perišić"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2010-11 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Hamburger",
+    "VfB Stuttgart",
+    "1. FC Union Berlin",
+    "Borussia Dortmund"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the top scorer in the 2010-11 Bundesliga?",
+   "a": "Mario Gómez",
+   "o": [
+    "Miroslav Klose",
+    "Mario Gómez",
+    "Robert Lewandowski",
+    "Edin Džeko"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2011-12 Bundesliga?",
+   "a": "Klaas-Jan Huntelaar",
+   "o": [
+    "Emmanuel Adebayor",
+    "Mario Mandžukić",
+    "Klaas-Jan Huntelaar",
+    "Arjen Robben"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2012-13 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Augsburg",
+    "Bayern Munich",
+    "Hamburger",
+    "Elversberg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2013-14 Bundesliga?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Pierre-Emerick Aubameyang",
+    "Mario Mandžukić",
+    "Sergio Agüero",
+    "Robert Lewandowski"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2016-17 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "Borussia Mönchengladbach",
+    "Elversberg",
+    "RB Leipzig",
+    "Eintracht Frankfurt"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2017-18 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Borussia Dortmund",
+    "Schalke 04",
+    "Werder Bremen",
+    "Hamburger"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2018-19 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "VfB Stuttgart",
+    "Schalke 04",
+    "Borussia Dortmund",
+    "1. FC Union Berlin"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2019-20 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Bayer 04 Leverkusen",
+    "Borussia Dortmund",
+    "1. FC Union Berlin",
+    "Werder Bremen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2020-21 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "RB Leipzig",
+    "Freiburg",
+    "TSG 1899 Hoffenheim",
+    "Elversberg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2021-22 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Werder Bremen",
+    "Elversberg",
+    "Borussia Dortmund",
+    "Bayern Munich"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Bayer 04 Leverkusen",
+    "Borussia Dortmund",
+    "Eintracht Frankfurt",
+    "Werder Bremen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2023-24 Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Bayern Munich",
+    "Eintracht Frankfurt",
+    "Bayer 04 Leverkusen",
+    "VfB Stuttgart"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2024-25 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Freiburg",
+    "Eintracht Frankfurt",
+    "Bayer Leverkusen",
+    "Werder Bremen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2025-26 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Eintracht Frankfurt",
+    "Elversberg",
+    "Borussia Dortmund",
+    "Augsburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the Bundesliga in 1969-70 and 1970-71 under Hennes Weisweiler?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "Eintracht Frankfurt",
+    "Borussia Mönchengladbach",
+    "1. FSV Mainz 05",
+    "Elversberg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the Bundesliga in 1994-95 and 1995-96 under Ottmar Hitzfeld?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "Schalke 04",
+    "Hamburger",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 1999-2000 Bundesliga on goal difference after Bayer Leverkusen lost at Unterhaching?",
+   "a": "Bayern Munich",
+   "o": [
+    "Augsburg",
+    "Bayern Munich",
+    "Schalke 04",
+    "Werder Bremen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won its first Bundesliga title in 1978-79, with Kevin Keegan in the side?",
+   "a": "Hamburger SV",
+   "o": [
+    "Werder Bremen",
+    "Hamburger",
+    "Bayer 04 Leverkusen",
+    "Elversberg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1991-92 Bundesliga, the season played with twenty clubs after reunification?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Eintracht Frankfurt",
+    "VfB Stuttgart",
+    "Hamburger",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the Bundesliga in 1987-88 and 1992-93 under Otto Rehhagel?",
+   "a": "Werder Bremen",
+   "o": [
+    "Augsburg",
+    "1. FC Union Berlin",
+    "Werder Bremen",
+    "VfB Stuttgart"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian striker was the Bundesliga's top scorer in 2007-08 with 24 goals for Bayern Munich?",
+   "a": "Luca Toni",
+   "o": [
+    "Miroslav Klose",
+    "Roy Makaay",
+    "Filippo Inzaghi",
+    "Luca Toni"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Bosnian striker scored 26 league goals as Wolfsburg won the 2008-09 Bundesliga?",
+   "a": "Edin Džeko",
+   "o": [
+    "Edin Džeko",
+    "Robin van Persie",
+    "Carlos Tevez",
+    "Mario Gómez"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which South Korea forward played for Hamburger SV and Bayer Leverkusen before joining Tottenham in 2015?",
+   "a": "Son Heung-min",
+   "o": [
+    "Éric Maxim Choupo-Moting",
+    "Olivier Giroud",
+    "Sardar Azmoun",
+    "Son Heung-min"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Japanese midfielder won two Bundesliga titles under Jürgen Klopp at Borussia Dortmund?",
+   "a": "Shinji Kagawa",
+   "o": [
+    "Mario Götze",
+    "Henrikh Mkhitaryan",
+    "Shinji Kagawa",
+    "İlkay Gündoğan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Bayern Munich 5-2 in the 2012 German cup final to complete the double?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Elversberg",
+    "Hamburger",
+    "Borussia Dortmund",
+    "Werder Bremen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Bayern Munich 3-1 in the 2018 DFB-Pokal final?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "1. FC Köln",
+    "1. FSV Mainz 05",
+    "Eintracht Frankfurt",
+    "Paderborn 07"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Eintracht Frankfurt 2-0 to win the 2023 DFB-Pokal final in Berlin?",
+   "a": "RB Leipzig",
+   "o": [
+    "1. FSV Mainz 05",
+    "Borussia Mönchengladbach",
+    "Augsburg",
+    "RB Leipzig"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Spanish club did Bayern Munich beat 4-0 in a replay to win the 1974 European Cup?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Valencia",
+    "Atletico Madrid",
+    "Sevilla",
+    "Real Sociedad"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club did Borussia Dortmund beat at Hampden Park to win the 1966 Cup Winners Cup?",
+   "a": "Liverpool",
+   "o": [
+    "Manchester City",
+    "Liverpool",
+    "Everton",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won promotion back to the Bundesliga in 2025 after seven seasons in the second tier?",
+   "a": "Hamburger SV",
+   "o": [
+    "Borussia Dortmund",
+    "Bayer 04 Leverkusen",
+    "1. FC Union Berlin",
+    "Hamburger"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Berlin club plays at the Alte Försterei, a ground its own supporters rebuilt in 2008?",
+   "a": "Union Berlin",
+   "o": [
+    "RB Leipzig",
+    "1. FSV Mainz 05",
+    "Union Berlin",
+    "Augsburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which year did the Bundesliga kick off its very first season?",
+   "a": "1963",
+   "o": [
+    "1957",
+    "1966",
+    "1963",
+    "1960"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Bundesliga club, founded in 1899, was bankrolled into the top flight by SAP co-founder Dietmar Hopp?",
+   "a": "TSG Hoffenheim",
+   "o": [
+    "Elversberg",
+    "Augsburg",
+    "TSG Hoffenheim",
+    "1. FC Union Berlin"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Bayern Munich sign Mario Gomez from in 2009 for a then German record fee?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Eintracht Frankfurt",
+    "Elversberg",
+    "VfB Stuttgart",
+    "Borussia Dortmund"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Borussia Dortmund sell Ousmane Dembele to in 2017?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Atlético Madrid",
+    "Sevilla",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which German club did Arsenal sign Granit Xhaka from in 2016?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "1. FC Köln",
+    "Borussia Mönchengladbach",
+    "Augsburg",
+    "TSG 1899 Hoffenheim"
+   ],
+   "k": 1
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 1995-96 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Borussia Dortmund",
+    "Schalke 04",
+    "Werder Bremen",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1996-97 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayer Leverkusen",
+    "VfB Stuttgart",
+    "Eintracht Frankfurt",
+    "1. FC Union Berlin"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1997-98 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayern Munich",
+    "Hamburger",
+    "Borussia Dortmund",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1998-99 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "1. FC Köln",
+    "Bayer Leverkusen",
+    "Freiburg",
+    "Werder Bremen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2000-01 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Schalke 04",
+    "Eintracht Frankfurt",
+    "Bayern Munich",
+    "Borussia Dortmund"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2001-02 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "VfB Stuttgart",
+    "1. FC Köln",
+    "Bayer Leverkusen",
+    "Freiburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2002-03 Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Elversberg",
+    "Eintracht Frankfurt",
+    "1. FC Union Berlin",
+    "VfB Stuttgart"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2003-04 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "1. FC Union Berlin",
+    "VfB Stuttgart",
+    "Elversberg",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2004-05 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Werder Bremen",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2005-06 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "Borussia Dortmund",
+    "Hamburger",
+    "Bayern Munich",
+    "Werder Bremen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2006-07 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Hamburger",
+    "Schalke 04",
+    "Elversberg",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2007-08 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "1. FC Union Berlin",
+    "Augsburg",
+    "Elversberg",
+    "Werder Bremen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2008-09 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Elversberg",
+    "VfB Stuttgart",
+    "Borussia Dortmund",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2009-10 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Eintracht Frankfurt",
+    "1. FC Union Berlin",
+    "Schalke 04",
+    "Hamburger"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2010-11 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Freiburg",
+    "1. FC Union Berlin",
+    "Bayer Leverkusen",
+    "Augsburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2011-12 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "1. FC Union Berlin",
+    "Bayern Munich",
+    "Werder Bremen",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2012-13 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "Werder Bremen",
+    "Eintracht Frankfurt",
+    "Bayern Munich"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2013-14 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "1. FC Union Berlin",
+    "Bayern Munich",
+    "Borussia Dortmund",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2015-16 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "Augsburg",
+    "Eintracht Frankfurt",
+    "VfB Stuttgart"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2016-17 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Bayern Munich",
+    "Werder Bremen",
+    "Eintracht Frankfurt",
+    "Borussia Dortmund"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2017-18 Bundesliga?",
+   "a": "1899 Hoffenheim",
+   "o": [
+    "Freiburg",
+    "Paderborn 07",
+    "1899 Hoffenheim",
+    "1. FC Union Berlin"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which clubs went down from the Bundesliga in 2017-18?",
+   "a": "Hamburger SV",
+   "o": [
+    "Hamburger",
+    "Augsburg",
+    "Bayer 04 Leverkusen",
+    "Schalke 04"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2018-19 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "Paderborn 07",
+    "Eintracht Frankfurt",
+    "Borussia Mönchengladbach",
+    "RB Leipzig"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2019-20 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "Augsburg",
+    "RB Leipzig",
+    "Borussia Mönchengladbach",
+    "TSG 1899 Hoffenheim"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2020-21 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Schalke 04",
+    "VfB Stuttgart",
+    "Borussia Dortmund",
+    "Hamburger"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2021-22 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayer Leverkusen",
+    "Werder Bremen",
+    "Freiburg",
+    "Bayern Munich"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2022-23 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "1. FC Köln",
+    "Paderborn 07",
+    "1. FSV Mainz 05",
+    "RB Leipzig"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2023-24 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Hamburger",
+    "Elversberg",
+    "Augsburg",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2024-25 Bundesliga?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "1. FC Köln",
+    "1. FC Union Berlin",
+    "Borussia Mönchengladbach",
+    "Eintracht Frankfurt"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2025-26 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "Augsburg",
+    "RB Leipzig",
+    "1. FC Köln"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club were the first Bundesliga champions, taking the title in 1963-64?",
+   "a": "1. FC Köln",
+   "o": [
+    "Paderborn 07",
+    "Augsburg",
+    "1. FC Köln",
+    "Freiburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in 1969-70 and again in 1970-71 as Borussia Mönchengladbach took both titles?",
+   "a": "Bayern Munich",
+   "o": [
+    "Eintracht Frankfurt",
+    "Bayer 04 Leverkusen",
+    "Bayern Munich",
+    "Hamburger"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 1994-95 Bundesliga, behind Borussia Dortmund?",
+   "a": "Werder Bremen",
+   "o": [
+    "Eintracht Frankfurt",
+    "VfB Stuttgart",
+    "Werder Bremen",
+    "Augsburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English club beat Borussia Mönchengladbach 3-1 in the 1977 European Cup final in Rome?",
+   "a": "Liverpool",
+   "o": [
+    "Everton",
+    "Leeds United",
+    "Liverpool",
+    "Aston Villa"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which German club lost the 1980 European Cup final 1-0 to Nottingham Forest?",
+   "a": "Hamburger SV",
+   "o": [
+    "Elversberg",
+    "Borussia Dortmund",
+    "Bayern Munich",
+    "Hamburger"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Italian club did Hamburger SV beat 1-0 in the 1983 European Cup final in Athens?",
+   "a": "Juventus",
+   "o": [
+    "Cagliari Calcio",
+    "Juventus",
+    "ACF Fiorentina",
+    "Roma"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Eintracht Frankfurt won the 1980 UEFA Cup final against which other German club?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "Borussia Mönchengladbach",
+    "Elversberg",
+    "RB Leipzig",
+    "Freiburg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which German club lost the first leg of the 1988 UEFA Cup final 3-0 to Espanyol and still won the trophy?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayer Leverkusen",
+    "Bayern Munich",
+    "Werder Bremen",
+    "1. FC Köln"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which VfB Stuttgart forward won the Torjägerkanone in 1987-88?",
+   "a": "Jürgen Klinsmann",
+   "o": [
+    "Teddy Sheringham",
+    "Rudi Völler",
+    "Karl-Heinz Rummenigge",
+    "Jürgen Klinsmann"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Ghanaian shared the Torjägerkanone in 1992-93 and again in 1993-94 while at Eintracht Frankfurt?",
+   "a": "Tony Yeboah",
+   "o": [
+    "Edgar Çani",
+    "Eddie Nketiah",
+    "Tony Yeboah",
+    "Raphinha"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Portuguese club did Werder Bremen sign the Brazilian playmaker Diego from in 2006?",
+   "a": "Porto",
+   "o": [
+    "Casa Pia",
+    "Arouca",
+    "S.L. Benfica",
+    "Porto"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club did Bayern Munich sign Jérôme Boateng from in 2011?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester City",
+    "Tottenham Hotspur",
+    "Arsenal",
+    "Aston Villa"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which manager was sacked by Bayern Munich the day after a 5-1 defeat at Eintracht Frankfurt in 2019?",
+   "a": "Niko Kovac",
+   "o": [
+    "Niko Kovac",
+    "Michael Ballack",
+    "Claudio Reyna",
+    "Thomas Gravesen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club has played at the Waldstadion since 1963, a ground now called the Deutsche Bank Park?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "Freiburg",
+    "Eintracht Frankfurt",
+    "1. FC Köln",
+    "Borussia Mönchengladbach"
+   ],
+   "k": 1
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club finished third in the 1995-96 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "1. FC Union Berlin",
+    "Borussia Dortmund",
+    "Schalke 04",
+    "Augsburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1995-96 Bundesliga?",
+   "a": "1. FC Köln",
+   "o": [
+    "1. FC Köln",
+    "1. FSV Mainz 05",
+    "Augsburg",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 1996-97 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Eintracht Frankfurt",
+    "Hamburger",
+    "Bayer 04 Leverkusen",
+    "Borussia Dortmund"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 1996-97 Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Schalke 04",
+    "1. FC Union Berlin",
+    "Bayern Munich",
+    "VfB Stuttgart"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1997-98 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Freiburg",
+    "Augsburg",
+    "1. FC Köln",
+    "Bayer Leverkusen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 1997-98 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Augsburg",
+    "Bayern Munich",
+    "Hamburger",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1997-98 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Augsburg",
+    "Hamburger",
+    "Schalke 04",
+    "Borussia Dortmund"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2000-01 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Bayer 04 Leverkusen",
+    "1. FC Union Berlin",
+    "Borussia Dortmund",
+    "VfB Stuttgart"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2000-01 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Eintracht Frankfurt",
+    "Schalke 04",
+    "1. FC Union Berlin",
+    "Hamburger"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2000-01 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Bayern Munich",
+    "Borussia Dortmund",
+    "Elversberg",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2001-02 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayern Munich",
+    "Hamburger",
+    "VfB Stuttgart",
+    "Schalke 04"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2001-02 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayer Leverkusen",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt",
+    "VfB Stuttgart"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2001-02 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Augsburg",
+    "Hamburger",
+    "Bayern Munich",
+    "Eintracht Frankfurt"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2002-03 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "Werder Bremen",
+    "1. FC Union Berlin",
+    "Bayern Munich"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2003-04 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayern Munich",
+    "Augsburg",
+    "Werder Bremen",
+    "Bayer Leverkusen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2003-04 Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Hamburger",
+    "Bayer 04 Leverkusen",
+    "Bayern Munich",
+    "VfB Stuttgart"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2004-05 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "Bayern Munich",
+    "Augsburg",
+    "Werder Bremen",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2005-06 Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "Borussia Dortmund",
+    "Hamburger",
+    "1. FC Union Berlin",
+    "Werder Bremen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2005-06 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "Schalke 04",
+    "1. FC Union Berlin",
+    "Elversberg",
+    "Werder Bremen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2005-06 Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "Bayern Munich",
+    "Augsburg",
+    "Hamburger",
+    "1. FC Union Berlin"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2006-07 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "1. FC Union Berlin",
+    "Werder Bremen",
+    "Augsburg",
+    "Schalke 04"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2006-07 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "Schalke 04",
+    "Eintracht Frankfurt",
+    "Werder Bremen",
+    "Bayern Munich"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2006-07 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Werder Bremen",
+    "Eintracht Frankfurt",
+    "Borussia Dortmund",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2007-08 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Hamburger",
+    "Schalke 04",
+    "Augsburg",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2007-08 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "Werder Bremen",
+    "Schalke 04",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2008-09 Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Eintracht Frankfurt",
+    "Bayer 04 Leverkusen",
+    "Werder Bremen",
+    "VfB Stuttgart"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2008-09 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Augsburg",
+    "1. FC Union Berlin",
+    "Bayern Munich",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2009-10 Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "Elversberg",
+    "Werder Bremen",
+    "Hamburger",
+    "1. FC Union Berlin"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2010-11 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt",
+    "Bayern Munich",
+    "Augsburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2010-11 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Borussia Dortmund",
+    "1. FC Union Berlin",
+    "Bayer 04 Leverkusen",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2011-12 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Elversberg",
+    "Hamburger",
+    "Schalke 04",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2011-12 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayern Munich",
+    "VfB Stuttgart",
+    "Bayer 04 Leverkusen",
+    "Schalke 04"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2012-13 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayer Leverkusen",
+    "Freiburg",
+    "1. FC Union Berlin",
+    "Elversberg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2013-14 Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Hamburger",
+    "VfB Stuttgart",
+    "Werder Bremen",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2014-15 Bundesliga?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "RB Leipzig",
+    "1. FC Köln",
+    "Eintracht Frankfurt",
+    "Borussia Mönchengladbach"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2015-16 Bundesliga?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "Bayer Leverkusen",
+    "1. FC Köln",
+    "Freiburg",
+    "Bayern Munich"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2015-16 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "VfB Stuttgart",
+    "Bayer 04 Leverkusen",
+    "Borussia Dortmund",
+    "Bayern Munich"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2018-19 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "RB Leipzig",
+    "Freiburg",
+    "1. FC Köln"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2020-21 Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "Borussia Mönchengladbach",
+    "RB Leipzig",
+    "1. FC Union Berlin",
+    "TSG 1899 Hoffenheim"
+   ],
+   "k": 1
+  },
+  {
+   "q": "The 2022-23 Bundesliga was decided on goal difference. Which club took it?",
+   "a": "Bayern Munich",
+   "o": [
+    "Werder Bremen",
+    "Bayern Munich",
+    "Borussia Dortmund",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2023-24 Bundesliga?",
+   "a": "Bayern Munich",
+   "o": [
+    "Bayern Munich",
+    "Schalke 04",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2025-26 Bundesliga?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Werder Bremen",
+    "Elversberg",
+    "Augsburg",
+    "Borussia Dortmund"
+   ],
+   "k": 3
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which club won the Bundesliga in 2023-24, ending Bayern Munich's run of eleven in a row?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "1. FC Union Berlin",
+    "Bayer Leverkusen",
+    "Eintracht Frankfurt",
+    "Augsburg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which German club won the UEFA Cup in 1997, beating Inter Milan on penalties in the final?",
+   "a": "Schalke 04",
+   "o": [
+    "Borussia Dortmund",
+    "Bayern Munich",
+    "Eintracht Frankfurt",
+    "Schalke 04"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which substitute scored the winning goal for Germany in the 2014 World Cup final, having come through Borussia Dortmund?",
+   "a": "Mario Gotze",
+   "o": [
+    "Leroy Sané",
+    "Mario Gotze",
+    "Julian Brandt",
+    "Serge Gnabry"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which German club was founded by Bayer employees and still carries the company name?",
+   "a": "Bayer Leverkusen",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "Bayer Leverkusen",
+    "VfB Stuttgart",
+    "1. FC Union Berlin"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Bayern Munich striker scored five goals in nine minutes as a substitute against Wolfsburg in 2015?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Lionel Messi",
+    "Luis Suárez",
+    "Robert Lewandowski",
+    "Sergio Agüero"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Borussia Mönchengladbach won 12-0 on the last day of 1977-78 and still lost the title. Which club took it on goal difference?",
+   "a": "1. FC Köln",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "1. FC Köln",
+    "RB Leipzig",
+    "Paderborn 07"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was left out when the Bundesliga was founded in 1963 and had to wait until 1965 to get in?",
+   "a": "Bayern Munich",
+   "o": [
+    "VfB Stuttgart",
+    "Eintracht Frankfurt",
+    "Bayern Munich",
+    "Augsburg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which German club beat Inter Milan 7-1 in 1971 only for the result to be wiped out after a fan threw a can at Roberto Boninsegna?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "1. FC Union Berlin",
+    "Borussia Mönchengladbach",
+    "Eintracht Frankfurt",
+    "Augsburg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club filled its own pitch with around 800 sofas brought from home so that fans could watch the 2014 World Cup together?",
+   "a": "Union Berlin",
+   "o": [
+    "Union Berlin",
+    "TSG 1899 Hoffenheim",
+    "Augsburg",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  }
+ ]
+}

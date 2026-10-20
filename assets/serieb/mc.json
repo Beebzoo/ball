@@ -1,0 +1,826 @@
+{
+ "easy": [
+  {
+   "q": "Which club won the 2021-22 Serie B?",
+   "a": "Lecce",
+   "o": [
+    "Bologna FC 1909",
+    "Cagliari Calcio",
+    "Torino",
+    "Lecce"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2022-23 Serie B?",
+   "a": "Frosinone",
+   "o": [
+    "Genoa CFC",
+    "Frosinone",
+    "Como 1907",
+    "Torino"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2023-24 Serie B?",
+   "a": "Parma",
+   "o": [
+    "Genoa CFC",
+    "Parma",
+    "Monza",
+    "US Lecce"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2024-25 Serie B?",
+   "a": "Sassuolo",
+   "o": [
+    "Parma Calcio 1913",
+    "Bologna FC 1909",
+    "Udinese Calcio",
+    "Sassuolo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2025-26 Serie B?",
+   "a": "Venezia",
+   "o": [
+    "US Lecce",
+    "Parma Calcio 1913",
+    "Genoa CFC",
+    "Venezia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club plays its home games at the Stadio Renato Dall'Ara?",
+   "a": "Bologna",
+   "o": [
+    "Cagliari Calcio",
+    "Como 1907",
+    "Monza",
+    "Bologna"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club plays its home games at the Stadio Ennio Tardini?",
+   "a": "Parma",
+   "o": [
+    "Parma",
+    "Monza",
+    "US Sassuolo Calcio",
+    "Cagliari Calcio"
+   ],
+   "k": 0
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 1995-96 Serie B?",
+   "a": "Bologna",
+   "o": [
+    "Monza",
+    "Frosinone Calcio",
+    "US Sassuolo Calcio",
+    "Bologna"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2000-01 Serie B?",
+   "a": "Torino",
+   "o": [
+    "Torino",
+    "Como 1907",
+    "Monza",
+    "Frosinone Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2001-02 Serie B?",
+   "a": "Como",
+   "o": [
+    "Cagliari Calcio",
+    "Bologna FC 1909",
+    "Como",
+    "Genoa CFC"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2005-06 Serie B?",
+   "a": "Atalanta",
+   "o": [
+    "Atalanta",
+    "Milan",
+    "Bologna FC 1909",
+    "Como 1907"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2006-07 Serie B?",
+   "a": "Juventus",
+   "o": [
+    "ACF Fiorentina",
+    "Atalanta BC",
+    "Como 1907",
+    "Juventus"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2009-10 Serie B?",
+   "a": "Lecce",
+   "o": [
+    "Lecce",
+    "Parma Calcio 1913",
+    "US Sassuolo Calcio",
+    "Udinese Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2010-11 Serie B?",
+   "a": "Atalanta",
+   "o": [
+    "Como 1907",
+    "Inter Milan",
+    "Lazio",
+    "Atalanta"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2012-13 Serie B?",
+   "a": "Sassuolo",
+   "o": [
+    "Sassuolo",
+    "Bologna FC 1909",
+    "Torino",
+    "Genoa CFC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2015-16 Serie B?",
+   "a": "Cagliari",
+   "o": [
+    "Cagliari",
+    "Genoa CFC",
+    "US Sassuolo Calcio",
+    "Monza"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2017-18 Serie B?",
+   "a": "Parma",
+   "o": [
+    "Genoa CFC",
+    "Parma",
+    "Bologna FC 1909",
+    "Frosinone Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2018-19 Serie B?",
+   "a": "Lecce",
+   "o": [
+    "Frosinone Calcio",
+    "Udinese Calcio",
+    "Bologna FC 1909",
+    "Lecce"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Serie B?",
+   "a": "Genoa",
+   "o": [
+    "Bologna FC 1909",
+    "US Lecce",
+    "Parma Calcio 1913",
+    "Genoa"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2023-24 Serie B?",
+   "a": "Como",
+   "o": [
+    "Como",
+    "Genoa CFC",
+    "Torino",
+    "US Lecce"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2025-26 Serie B?",
+   "a": "Frosinone",
+   "o": [
+    "Monza",
+    "Frosinone",
+    "US Sassuolo Calcio",
+    "Bologna FC 1909"
+   ],
+   "k": 1
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 1997-98 Serie B?",
+   "a": "Venezia",
+   "o": [
+    "Monza",
+    "Como 1907",
+    "Cagliari Calcio",
+    "Venezia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1998-99 Serie B?",
+   "a": "Torino",
+   "o": [
+    "Cagliari Calcio",
+    "Frosinone Calcio",
+    "Bologna FC 1909",
+    "Torino"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1999-00 Serie B?",
+   "a": "Atalanta",
+   "o": [
+    "ACF Fiorentina",
+    "Napoli",
+    "Atalanta",
+    "Milan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2003-04 Serie B?",
+   "a": "Cagliari",
+   "o": [
+    "Cagliari",
+    "US Lecce",
+    "Parma Calcio 1913",
+    "Como 1907"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2007-08 Serie B?",
+   "a": "Bologna",
+   "o": [
+    "Como 1907",
+    "US Sassuolo Calcio",
+    "Bologna",
+    "Monza"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2008-09 Serie B?",
+   "a": "Parma",
+   "o": [
+    "US Sassuolo Calcio",
+    "Udinese Calcio",
+    "Parma",
+    "Monza"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2011-12 Serie B?",
+   "a": "Torino",
+   "o": [
+    "Frosinone Calcio",
+    "Genoa CFC",
+    "Torino",
+    "Como 1907"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2014-15 Serie B?",
+   "a": "Frosinone",
+   "o": [
+    "US Lecce",
+    "Monza",
+    "Torino",
+    "Frosinone"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2016-17 Serie B?",
+   "a": "Frosinone",
+   "o": [
+    "Torino",
+    "Frosinone",
+    "US Sassuolo Calcio",
+    "US Lecce"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2017-18 Serie B?",
+   "a": "Frosinone",
+   "o": [
+    "Frosinone",
+    "Genoa CFC",
+    "Monza",
+    "Torino"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2020-21 Serie B?",
+   "a": "Monza",
+   "o": [
+    "Monza",
+    "Bologna FC 1909",
+    "US Sassuolo Calcio",
+    "Genoa CFC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Serie B play-offs in 2020-21?",
+   "a": "Venezia",
+   "o": [
+    "Como 1907",
+    "Bologna FC 1909",
+    "Venezia",
+    "Cagliari Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2021-22 Serie B?",
+   "a": "Monza",
+   "o": [
+    "Udinese Calcio",
+    "US Sassuolo Calcio",
+    "US Lecce",
+    "Monza"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Serie B play-offs in 2021-22?",
+   "a": "Monza",
+   "o": [
+    "Bologna FC 1909",
+    "Udinese Calcio",
+    "Como 1907",
+    "Monza"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Serie B play-offs in 2022-23?",
+   "a": "Cagliari",
+   "o": [
+    "Parma Calcio 1913",
+    "Cagliari",
+    "Torino",
+    "Udinese Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2023-24 Serie B?",
+   "a": "Venezia",
+   "o": [
+    "Cagliari Calcio",
+    "Bologna FC 1909",
+    "Venezia",
+    "Como 1907"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Serie B play-offs in 2023-24?",
+   "a": "Venezia",
+   "o": [
+    "Venezia",
+    "Monza",
+    "US Sassuolo Calcio",
+    "Bologna FC 1909"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2025-26 Serie B?",
+   "a": "Monza",
+   "o": [
+    "Cagliari Calcio",
+    "Frosinone Calcio",
+    "Bologna FC 1909",
+    "Monza"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Serie B play-offs in 2025-26?",
+   "a": "Monza",
+   "o": [
+    "Monza",
+    "Como 1907",
+    "Bologna FC 1909",
+    "Cagliari Calcio"
+   ],
+   "k": 0
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club scored the most goals in the 1995-96 Serie B?",
+   "a": "Genoa",
+   "o": [
+    "Torino",
+    "Genoa",
+    "Udinese Calcio",
+    "US Lecce"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 1996-97 Serie B?",
+   "a": "Lecce",
+   "o": [
+    "Udinese Calcio",
+    "Lecce",
+    "Genoa CFC",
+    "Bologna FC 1909"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 1996-97 Serie B?",
+   "a": "Genoa",
+   "o": [
+    "Udinese Calcio",
+    "Bologna FC 1909",
+    "US Sassuolo Calcio",
+    "Genoa"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1996-97 Serie B?",
+   "a": "Genoa",
+   "o": [
+    "Como 1907",
+    "Bologna FC 1909",
+    "Torino",
+    "Genoa"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1997-98 Serie B?",
+   "a": "Cagliari",
+   "o": [
+    "Cagliari",
+    "Monza",
+    "Torino",
+    "Bologna FC 1909"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1997-98 Serie B?",
+   "a": "Venezia",
+   "o": [
+    "Genoa CFC",
+    "Venezia",
+    "Torino",
+    "Bologna FC 1909"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1998-99 Serie B?",
+   "a": "Atalanta",
+   "o": [
+    "Roma",
+    "Cagliari Calcio",
+    "Como 1907",
+    "Atalanta"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1999-00 Serie B?",
+   "a": "Atalanta",
+   "o": [
+    "Lazio",
+    "ACF Fiorentina",
+    "Atalanta",
+    "Cagliari Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2000-01 Serie B?",
+   "a": "Venezia",
+   "o": [
+    "Cagliari Calcio",
+    "Torino",
+    "Venezia",
+    "US Lecce"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2003-04 Serie B?",
+   "a": "Cagliari",
+   "o": [
+    "Udinese Calcio",
+    "Frosinone Calcio",
+    "Genoa CFC",
+    "Cagliari"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2003-04 Serie B?",
+   "a": "Atalanta",
+   "o": [
+    "Atalanta",
+    "Napoli",
+    "Inter Milan",
+    "Lazio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2004-05 Serie B?",
+   "a": "Genoa",
+   "o": [
+    "US Lecce",
+    "Genoa",
+    "Bologna FC 1909",
+    "Udinese Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2004-05 Serie B?",
+   "a": "Torino",
+   "o": [
+    "Monza",
+    "Torino",
+    "Parma Calcio 1913",
+    "Genoa CFC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2005-06 Serie B?",
+   "a": "Torino",
+   "o": [
+    "Torino",
+    "US Lecce",
+    "Como 1907",
+    "Monza"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2005-06 Serie B?",
+   "a": "Torino",
+   "o": [
+    "Cagliari Calcio",
+    "US Lecce",
+    "Parma Calcio 1913",
+    "Torino"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2006-07 Serie B?",
+   "a": "Genoa",
+   "o": [
+    "Genoa",
+    "Udinese Calcio",
+    "Torino",
+    "Monza"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2006-07 Serie B?",
+   "a": "Napoli",
+   "o": [
+    "Atalanta BC",
+    "Inter Milan",
+    "Napoli",
+    "Cagliari Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2007-08 Serie B?",
+   "a": "Lecce",
+   "o": [
+    "Udinese Calcio",
+    "Lecce",
+    "Como 1907",
+    "Bologna FC 1909"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Serie B play-offs in 2007-08?",
+   "a": "Lecce",
+   "o": [
+    "Genoa CFC",
+    "Lecce",
+    "Cagliari Calcio",
+    "Udinese Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2007-08 Serie B?",
+   "a": "Bologna",
+   "o": [
+    "Bologna",
+    "US Sassuolo Calcio",
+    "Frosinone Calcio",
+    "Parma Calcio 1913"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2008-09 Serie B?",
+   "a": "Parma",
+   "o": [
+    "Parma",
+    "Frosinone Calcio",
+    "US Lecce",
+    "US Sassuolo Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2011-12 Serie B?",
+   "a": "Sassuolo",
+   "o": [
+    "Genoa CFC",
+    "Como 1907",
+    "Torino",
+    "Sassuolo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2011-12 Serie B?",
+   "a": "Torino",
+   "o": [
+    "Udinese Calcio",
+    "Torino",
+    "Bologna FC 1909",
+    "Como 1907"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2014-15 Serie B?",
+   "a": "Bologna",
+   "o": [
+    "Torino",
+    "Udinese Calcio",
+    "Bologna",
+    "Genoa CFC"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Serie B play-offs in 2014-15?",
+   "a": "Bologna",
+   "o": [
+    "Monza",
+    "Udinese Calcio",
+    "Bologna",
+    "Frosinone Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2017-18 Serie B?",
+   "a": "Parma",
+   "o": [
+    "Udinese Calcio",
+    "Bologna FC 1909",
+    "Parma",
+    "US Sassuolo Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2020-21 Serie B?",
+   "a": "Monza",
+   "o": [
+    "Frosinone Calcio",
+    "Bologna FC 1909",
+    "US Lecce",
+    "Monza"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2023-24 Serie B?",
+   "a": "Venezia",
+   "o": [
+    "Venezia",
+    "Parma Calcio 1913",
+    "Frosinone Calcio",
+    "US Sassuolo Calcio"
+   ],
+   "k": 0
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which club was sent down to Serie B in 2006 over Calciopoli and came straight back up?",
+   "a": "Juventus",
+   "o": [
+    "Atalanta BC",
+    "Bologna FC 1909",
+    "Juventus",
+    "Inter Milan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club went bankrupt in 2004 and was refounded by the film producer Aurelio De Laurentiis?",
+   "a": "Napoli",
+   "o": [
+    "ACF Fiorentina",
+    "Napoli",
+    "Lazio",
+    "Atalanta BC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club collapsed in 2015, restarted in the fourth tier and climbed back to Serie A in three seasons?",
+   "a": "Parma",
+   "o": [
+    "Monza",
+    "Bologna FC 1909",
+    "Parma",
+    "US Sassuolo Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club went under in 2002 and spent a season playing as Florentia Viola?",
+   "a": "Fiorentina",
+   "o": [
+    "Inter Milan",
+    "Cagliari Calcio",
+    "Napoli",
+    "Fiorentina"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won promotion in 2005 and was then demoted to the third tier for fixing its last match?",
+   "a": "Genoa",
+   "o": [
+    "Monza",
+    "Genoa",
+    "Frosinone Calcio",
+    "Como 1907"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club plays at the Penzo, a ground supporters can reach by boat?",
+   "a": "Venezia",
+   "o": [
+    "Frosinone Calcio",
+    "Venezia",
+    "Torino",
+    "Bologna FC 1909"
+   ],
+   "k": 1
+  }
+ ]
+}

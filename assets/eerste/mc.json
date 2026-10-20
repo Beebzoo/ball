@@ -1,0 +1,2949 @@
+{
+ "easy": [
+  {
+   "q": "Which club won the 2016-17 Eerste Divisie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "De Graafschap",
+    "SBV Vitesse",
+    "Dordrecht",
+    "VVV-Venlo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2017-18 Eerste Divisie?",
+   "a": "Jong Ajax",
+   "o": [
+    "NAC Breda",
+    "Jong Ajax",
+    "Eindhoven",
+    "Dordrecht"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2018-19 Eerste Divisie?",
+   "a": "Twente",
+   "o": [
+    "Twente",
+    "Fortuna Sittard",
+    "ADO Den Haag",
+    "Cambuur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2020-21 Eerste Divisie?",
+   "a": "SC Cambuur",
+   "o": [
+    "Groningen",
+    "Sparta Rotterdam",
+    "PEC Zwolle",
+    "Cambuur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2021-22 Eerste Divisie?",
+   "a": "FC Emmen",
+   "o": [
+    "Roda JC Kerkrade",
+    "Helmond Sport",
+    "Emmen",
+    "Almere City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2022-23 Eerste Divisie?",
+   "a": "Heracles Almelo",
+   "o": [
+    "Roda JC Kerkrade",
+    "Emmen",
+    "Heracles Almelo",
+    "De Graafschap"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2023-24 Eerste Divisie?",
+   "a": "Willem II",
+   "o": [
+    "NEC Nijmegen",
+    "Willem II",
+    "ADO Den Haag",
+    "Excelsior Rotterdam"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2024-25 Eerste Divisie?",
+   "a": "Volendam",
+   "o": [
+    "Volendam",
+    "Heracles Almelo",
+    "RKC Waalwijk",
+    "Den Bosch"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2025-26 Eerste Divisie?",
+   "a": "ADO Den Haag",
+   "o": [
+    "ADO Den Haag",
+    "Feyenoord",
+    "Telstar",
+    "PEC Zwolle"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Waalwijk club plays at the Mandemakers Stadion?",
+   "a": "RKC Waalwijk",
+   "o": [
+    "Almere City",
+    "Eindhoven",
+    "RKC Waalwijk",
+    "Emmen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club's reserve side plays as Jong PSV?",
+   "a": "PSV",
+   "o": [
+    "Feyenoord",
+    "PSV",
+    "Utrecht",
+    "Ajax"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which fishing town club is known for producing players and for the nickname Het Andere Oranje?",
+   "a": "Volendam",
+   "o": [
+    "Emmen",
+    "Volendam",
+    "Den Bosch",
+    "RKC Waalwijk"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Deventer club plays at De Adelaarshorst?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Twente",
+    "Heerenveen",
+    "Go Ahead Eagles",
+    "Ajax"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Arnhem club joined the 2025-26 Eerste Divisie four rounds late, on minus 12 points, after winning its licence back in court?",
+   "a": "Vitesse",
+   "o": [
+    "Dordrecht",
+    "Vitesse",
+    "Eindhoven",
+    "Emmen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Brabant club gave Ruud van Nistelrooy his start in professional football?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Den Bosch",
+    "Dordrecht",
+    "Almere City",
+    "Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Marc Overmars began his professional career at which Deventer club?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Utrecht",
+    "ADO Den Haag",
+    "Fortuna Sittard",
+    "Go Ahead Eagles"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Leeuwarden club moved into the new Kooi Stadion in August 2024?",
+   "a": "SC Cambuur",
+   "o": [
+    "Telstar",
+    "Feyenoord",
+    "Cambuur",
+    "Sparta Rotterdam"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Limburg club, where Mark van Bommel started, went down in 2002 and only got back to the Eredivisie in 2018?",
+   "a": "Fortuna Sittard",
+   "o": [
+    "Cambuur",
+    "Twente",
+    "Fortuna Sittard",
+    "Utrecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "From 1997 to 2005 Excelsior served as the satellite club of which Rotterdam giant?",
+   "a": "Feyenoord",
+   "o": [
+    "Fortuna Sittard",
+    "Feyenoord",
+    "Heerenveen",
+    "Twente"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Erik ten Hag's only season at which Deventer club, 2012-13, ended in promotion?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Go Ahead Eagles",
+    "ADO Den Haag",
+    "AZ Alkmaar",
+    "PSV Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which former Feyenoord and Liverpool forward was sacked as ADO Den Haag coach in November 2022, in his first season in charge?",
+   "a": "Dirk Kuyt",
+   "o": [
+    "Harry Kewell",
+    "Dirk Kuyt",
+    "Robin van Persie",
+    "Robbie Keane"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which reserve side plays its Eerste Divisie home games at the De Herdgang training complex?",
+   "a": "Jong PSV",
+   "o": [
+    "Jong PSV",
+    "Eindhoven",
+    "NAC Breda",
+    "Dordrecht"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Arne Slot's first spell as a head coach, in 2016-17, came at which Frisian club?",
+   "a": "SC Cambuur",
+   "o": [
+    "Cambuur",
+    "Sparta Rotterdam",
+    "Feyenoord",
+    "ADO Den Haag"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club pulled its reserve side out of the Eerste Divisie in 2015 because of money trouble?",
+   "a": "FC Twente",
+   "o": [
+    "Twente",
+    "Ajax",
+    "Go Ahead Eagles",
+    "Fortuna Sittard"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Henk de Jong has had several spells as coach of which Frisian club?",
+   "a": "SC Cambuur",
+   "o": [
+    "Groningen",
+    "ADO Den Haag",
+    "Cambuur",
+    "Feyenoord"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club walks out to the 1962 Tornados instrumental that shares its name?",
+   "a": "Telstar",
+   "o": [
+    "Groningen",
+    "Telstar",
+    "Cambuur",
+    "Willem II"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Wout Weghorst made his professional debut in 2012 for which club from Drenthe?",
+   "a": "FC Emmen",
+   "o": [
+    "Emmen",
+    "Heracles Almelo",
+    "NAC Breda",
+    "Almere City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which future Ajax and Schalke striker was the Eerste Divisie top scorer with AGOVV Apeldoorn in 2003-04?",
+   "a": "Klaas-Jan Huntelaar",
+   "o": [
+    "Klaas-Jan Huntelaar",
+    "Robin van Persie",
+    "Fernando Torres",
+    "Mario Mandžukić"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Klaas-Jan Huntelaar spent 2003-04 on loan at AGOVV Apeldoorn. Which club had sent him there?",
+   "a": "PSV",
+   "o": [
+    "PSV",
+    "Fortuna Sittard",
+    "AZ Alkmaar",
+    "Feyenoord"
+   ],
+   "k": 0
+  },
+  {
+   "q": "At which Eerste Divisie club did Ruud van Nistelrooy make his professional debut, in 1994?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Den Bosch",
+    "Helmond Sport",
+    "NAC Breda",
+    "RKC Waalwijk"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which striker scored 32 goals in 74 games for Almere City before moving on to AZ and Tottenham?",
+   "a": "Vincent Janssen",
+   "o": [
+    "Memphis Depay",
+    "Vincent Janssen",
+    "Steven Bergwijn",
+    "Dominic Solanke"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Belgian forward, later a Napoli hero, was voted the Eerste Divisie's best talent at AGOVV Apeldoorn in 2008-09?",
+   "a": "Dries Mertens",
+   "o": [
+    "Axel Witsel",
+    "Georginio Wijnaldum",
+    "Kevin De Bruyne",
+    "Dries Mertens"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Before managing Feyenoord and Liverpool, Arne Slot won the Eerste Divisie twice as a player with which club?",
+   "a": "FC Zwolle",
+   "o": [
+    "ADO Den Haag",
+    "Zwolle",
+    "Groningen",
+    "NEC Nijmegen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Denzel Dumfries won the 2015-16 Eerste Divisie title with which club?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "Cambuur",
+    "PEC Zwolle",
+    "Sparta Rotterdam",
+    "Excelsior Rotterdam"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Micky van de Ven was captain of which Eerste Divisie club before his move to Germany?",
+   "a": "FC Volendam",
+   "o": [
+    "Heracles Almelo",
+    "Almere City",
+    "Emmen",
+    "Volendam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Jaap Stam made his professional debut in 1992 for which Eerste Divisie club?",
+   "a": "FC Zwolle",
+   "o": [
+    "NEC Nijmegen",
+    "Ajax",
+    "Zwolle",
+    "Telstar"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Phillip Cocu made his debut in 1989 for which club, then playing in the Eerste Divisie?",
+   "a": "AZ",
+   "o": [
+    "PSV Eindhoven",
+    "Cambuur",
+    "Feyenoord",
+    "AZ"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Cody Gakpo and Donyell Malen both played Eerste Divisie football for which reserve side?",
+   "a": "Jong PSV",
+   "o": [
+    "Dordrecht",
+    "Jong PSV",
+    "Eindhoven",
+    "Almere City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Frenkie de Jong was voted the Eerste Divisie's best talent of 2016-17 while playing for which side?",
+   "a": "Jong Ajax",
+   "o": [
+    "NAC Breda",
+    "Jong Ajax",
+    "Emmen",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Steven Bergwijn made his professional debut in 2014, in the Eerste Divisie, for which side?",
+   "a": "Jong PSV",
+   "o": [
+    "De Graafschap",
+    "Emmen",
+    "Jong PSV",
+    "Dordrecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Matthijs de Ligt made his professional debut in 2016, in the Eerste Divisie, for which side?",
+   "a": "Jong Ajax",
+   "o": [
+    "Heracles Almelo",
+    "Jong Ajax",
+    "Eindhoven",
+    "RKC Waalwijk"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Wim Jonk began his career in 1986 at which Eerste Divisie club before moving to Ajax?",
+   "a": "FC Volendam",
+   "o": [
+    "RKC Waalwijk",
+    "Dordrecht",
+    "Volendam",
+    "Den Bosch"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Robert Mühren scored 38 Eerste Divisie goals in 2020-21 for which club?",
+   "a": "SC Cambuur",
+   "o": [
+    "Sparta Rotterdam",
+    "Excelsior Rotterdam",
+    "Willem II",
+    "Cambuur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Noa Lang won the 2017-18 Eerste Divisie title with which side?",
+   "a": "Jong Ajax",
+   "o": [
+    "Jong Ajax",
+    "RKC Waalwijk",
+    "Eindhoven",
+    "Heracles Almelo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did PEC Zwolle beat 13-0 in March 2023, the biggest win the Eerste Divisie had ever seen?",
+   "a": "FC Den Bosch",
+   "o": [
+    "De Graafschap",
+    "Den Bosch",
+    "Eindhoven",
+    "NAC Breda"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Ruud van Nistelrooy coached which Eerste Divisie reserve side in 2021-22, before taking charge of PSV's first team?",
+   "a": "Jong PSV",
+   "o": [
+    "Emmen",
+    "Jong PSV",
+    "De Graafschap",
+    "Eindhoven"
+   ],
+   "k": 1
+  },
+  {
+   "q": "John Heitinga coached which Eerste Divisie reserve side before he was moved up to the Ajax first team in January 2023?",
+   "a": "Jong Ajax",
+   "o": [
+    "Den Bosch",
+    "De Graafschap",
+    "RKC Waalwijk",
+    "Jong Ajax"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which future Liverpool manager was voted the Eerste Divisie's best player, the Gouden Stier, in 2011-12?",
+   "a": "Arne Slot",
+   "o": [
+    "Ronaldinho",
+    "Boudewijn Zenden",
+    "Arne Slot",
+    "David Beckham"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Before Heerenveen, PSV and the Netherlands, Joey Veerman played three Eerste Divisie seasons for which fishing-town club?",
+   "a": "FC Volendam",
+   "o": [
+    "Volendam",
+    "RKC Waalwijk",
+    "Emmen",
+    "Almere City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Ryan Gravenberch played Eerste Divisie football from 2018 to 2020 for which side?",
+   "a": "Jong Ajax",
+   "o": [
+    "Jong Ajax",
+    "Den Bosch",
+    "Almere City",
+    "Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Noni Madueke made his senior debut in August 2019, in the Eerste Divisie, for which reserve side?",
+   "a": "Jong PSV",
+   "o": [
+    "Eindhoven",
+    "Jong PSV",
+    "Dordrecht",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Jorrel Hato played 13 Eerste Divisie games in 2022-23 for which side, before breaking into the Ajax first team?",
+   "a": "Jong Ajax",
+   "o": [
+    "RKC Waalwijk",
+    "Jong Ajax",
+    "Heracles Almelo",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Frisian club reached the KNVB Cup semi-finals from the Eerste Divisie in both 2016-17 and 2023-24?",
+   "a": "SC Cambuur",
+   "o": [
+    "Groningen",
+    "NEC Nijmegen",
+    "Cambuur",
+    "PEC Zwolle"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Rotterdam club, then in the Eerste Divisie, reached the semi-finals of the 2003-04 KNVB Cup?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "Cambuur",
+    "Telstar",
+    "Groningen",
+    "Sparta Rotterdam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Jan Paul van Hecke played in the abandoned 2019-20 Eerste Divisie season for which club, before Brighton signed him?",
+   "a": "NAC Breda",
+   "o": [
+    "Almere City",
+    "NAC Breda",
+    "De Graafschap",
+    "RKC Waalwijk"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Arnhem club were docked 27 points in the 2024-25 Eerste Divisie for late and incomplete financial reports?",
+   "a": "Vitesse",
+   "o": [
+    "Vitesse",
+    "VVV-Venlo",
+    "Almere City",
+    "Emmen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "RKC Waalwijk, then in the Eerste Divisie, won 3-2 after extra time away at which giant in the KNVB Cup in October 2018?",
+   "a": "PSV",
+   "o": [
+    "Ajax",
+    "Cambuur",
+    "Utrecht",
+    "PSV"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In 1964 a new professional club was founded in Leeuwarden to replace VV Leeuwarden, who had gone back to the amateurs. Which?",
+   "a": "SC Cambuur",
+   "o": [
+    "Cambuur",
+    "Feyenoord",
+    "NEC Nijmegen",
+    "Sparta Rotterdam"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In 1990 which club became the first from Friesland to reach the Eredivisie?",
+   "a": "Heerenveen",
+   "o": [
+    "Heerenveen",
+    "AZ Alkmaar",
+    "Cambuur",
+    "PSV Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Drenthe club entered professional football in 1985, years after Sportclub Drente had dropped out?",
+   "a": "FC Emmen",
+   "o": [
+    "Emmen",
+    "RKC Waalwijk",
+    "Dordrecht",
+    "Roda JC Kerkrade"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Johan Neeskens played two Eerste Divisie seasons for RCH in Heemstede. Which club signed him in 1970?",
+   "a": "Ajax",
+   "o": [
+    "Twente",
+    "Ajax",
+    "ADO Den Haag",
+    "Heerenveen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Huub Stevens left Eerste Divisie side Fortuna SC in 1975. Which club did he then spend eleven years with?",
+   "a": "PSV",
+   "o": [
+    "PSV",
+    "Ajax",
+    "AZ Alkmaar",
+    "Feyenoord"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Willem van Hanegem started out in the Eerste Divisie with Velox. Which city are Velox from?",
+   "a": "Utrecht",
+   "o": [
+    "Utrecht",
+    "Cambuur",
+    "Feyenoord",
+    "Heerenveen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Xerxes had to play their Eredivisie home games of 1966-67 at Het Kasteel. Which club's ground is that?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "Willem II",
+    "Feyenoord",
+    "NEC Nijmegen",
+    "Sparta Rotterdam"
+   ],
+   "k": 3
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 2005-06 Eerste Divisie?",
+   "a": "Excelsior Rotterdam",
+   "o": [
+    "Feyenoord",
+    "Willem II",
+    "Ajax",
+    "Excelsior Rotterdam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2006-07 Eerste Divisie?",
+   "a": "De Graafschap",
+   "o": [
+    "Helmond Sport",
+    "NAC Breda",
+    "De Graafschap",
+    "Dordrecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2007-08 Eerste Divisie?",
+   "a": "FC Volendam",
+   "o": [
+    "Helmond Sport",
+    "Volendam",
+    "Emmen",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2008-09 Eerste Divisie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "Heracles Almelo",
+    "Emmen",
+    "VVV-Venlo",
+    "MVV Maastricht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2009-10 Eerste Divisie?",
+   "a": "De Graafschap",
+   "o": [
+    "De Graafschap",
+    "NAC Breda",
+    "Helmond Sport",
+    "RKC Waalwijk"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2010-11 Eerste Divisie?",
+   "a": "RKC Waalwijk",
+   "o": [
+    "RKC Waalwijk",
+    "Roda JC Kerkrade",
+    "Eindhoven",
+    "De Graafschap"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2011-12 Eerste Divisie?",
+   "a": "Zwolle",
+   "o": [
+    "Groningen",
+    "NEC Nijmegen",
+    "Zwolle",
+    "Ajax"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2012-13 Eerste Divisie?",
+   "a": "Cambuur",
+   "o": [
+    "Willem II",
+    "PEC Zwolle",
+    "Excelsior Rotterdam",
+    "Cambuur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2013-14 Eerste Divisie?",
+   "a": "Willem II",
+   "o": [
+    "ADO Den Haag",
+    "Willem II",
+    "NEC Nijmegen",
+    "Sparta Rotterdam"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2014-15 Eerste Divisie?",
+   "a": "N.E.C.",
+   "o": [
+    "Ajax",
+    "N.E.C.",
+    "Sparta Rotterdam",
+    "Groningen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2015-16 Eerste Divisie?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "Groningen",
+    "Feyenoord",
+    "Cambuur",
+    "Sparta Rotterdam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2016-17 Eerste Divisie?",
+   "a": "Jong Ajax",
+   "o": [
+    "Heracles Almelo",
+    "Jong Ajax",
+    "De Graafschap",
+    "Helmond Sport"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2017-18 Eerste Divisie?",
+   "a": "Fortuna Sittard",
+   "o": [
+    "Fortuna Sittard",
+    "ADO Den Haag",
+    "Go Ahead Eagles",
+    "AZ Alkmaar"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2018-19 Eerste Divisie?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "Willem II",
+    "ADO Den Haag",
+    "Excelsior Rotterdam",
+    "Sparta Rotterdam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2020-21 Eerste Divisie?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Fortuna Sittard",
+    "Ajax",
+    "AZ Alkmaar",
+    "Go Ahead Eagles"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2021-22 Eerste Divisie?",
+   "a": "FC Volendam",
+   "o": [
+    "Helmond Sport",
+    "RKC Waalwijk",
+    "Volendam",
+    "Dordrecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Eerste Divisie?",
+   "a": "PEC Zwolle",
+   "o": [
+    "Cambuur",
+    "PEC Zwolle",
+    "Willem II",
+    "Feyenoord"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2023-24 Eerste Divisie?",
+   "a": "Groningen",
+   "o": [
+    "Groningen",
+    "PEC Zwolle",
+    "Telstar",
+    "Feyenoord"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2025-26 Eerste Divisie?",
+   "a": "Cambuur",
+   "o": [
+    "Feyenoord",
+    "Willem II",
+    "Groningen",
+    "Cambuur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In which year did the Eerste Divisie kick off, alongside the Eredivisie?",
+   "a": "1956",
+   "o": [
+    "1956",
+    "1952",
+    "1953",
+    "1950"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club's mascot, since 2004, is a dog called Koelie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "VVV-Venlo",
+    "MVV Maastricht",
+    "De Graafschap",
+    "Emmen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In November 2019 a match was halted for racist abuse of Excelsior's Ahmad Mendes Moreira. Which home club's fans were responsible?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Almere City",
+    "Emmen",
+    "Roda JC Kerkrade",
+    "Den Bosch"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Eerste Divisie club play their home games at Stadion Krommedijk?",
+   "a": "FC Dordrecht",
+   "o": [
+    "Dordrecht",
+    "NAC Breda",
+    "Den Bosch",
+    "Heracles Almelo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Dirk Kuyt spent the 2025-26 season coaching which Eerste Divisie club?",
+   "a": "FC Dordrecht",
+   "o": [
+    "RKC Waalwijk",
+    "NAC Breda",
+    "De Graafschap",
+    "Dordrecht"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Telstar beat in the 2025 play-off final to end 47 years outside the top flight?",
+   "a": "Willem II",
+   "o": [
+    "Willem II",
+    "PEC Zwolle",
+    "Ajax",
+    "Sparta Rotterdam"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Vitesse lost their first Eerste Divisie match after regaining their licence in September 2025, 4-0. To which reserve side?",
+   "a": "Jong AZ",
+   "o": [
+    "Jong AZ",
+    "De Graafschap",
+    "Dordrecht",
+    "Almere City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Limburg club's academy produced Fernando Ricksen, Kevin Hofland and Mark van Bommel?",
+   "a": "Fortuna Sittard",
+   "o": [
+    "Cambuur",
+    "ADO Den Haag",
+    "PSV Eindhoven",
+    "Fortuna Sittard"
+   ],
+   "k": 3
+  },
+  {
+   "q": "TOP Oss played under a different name from 2009 to 2018. What was it?",
+   "a": "FC Oss",
+   "o": [
+    "Oss",
+    "Dordrecht",
+    "De Graafschap",
+    "Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Irish striker, on loan from Feyenoord, was the Eerste Divisie top scorer with Excelsior in 1999-00?",
+   "a": "David Connolly",
+   "o": [
+    "Dirk Kuyt",
+    "David Connolly",
+    "Pierre van Hooijdonk",
+    "Jon Dahl Tomasson"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which former Ajax full-back coached Jong Ajax to the 2017-18 Eerste Divisie title?",
+   "a": "Michael Reiziger",
+   "o": [
+    "Arthur Numan",
+    "Michael Reiziger",
+    "Sylvinho",
+    "John Heitinga"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Thijs Dallinga left Excelsior in 2022 for which French club?",
+   "a": "Toulouse",
+   "o": [
+    "Le Mans",
+    "OGC Nice",
+    "Lille OSC",
+    "Toulouse"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Ferdy Druijf finished 2018-19 as top scorer after joining which club on loan from Jong AZ in January?",
+   "a": "NEC",
+   "o": [
+    "Ajax",
+    "PEC Zwolle",
+    "NEC",
+    "Willem II"
+   ],
+   "k": 2
+  },
+  {
+   "q": "AGOVV Apeldoorn signed Dries Mertens in 2007 after a loan from which Belgian club?",
+   "a": "KAA Gent",
+   "o": [
+    "Royal Antwerp",
+    "KAA Gent",
+    "Royal Charleroi",
+    "Lommel"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Johan Bakayoko was voted the Eerste Divisie's talent of the season in 2021-22 playing for which side?",
+   "a": "Jong PSV",
+   "o": [
+    "Den Bosch",
+    "NAC Breda",
+    "Emmen",
+    "Jong PSV"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Lars Veldwijk left Excelsior in 2014 for which English club?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Nottingham Forest",
+    "Arsenal",
+    "Manchester United",
+    "Tottenham Hotspur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which reserve side came up into the Eerste Divisie in 2017 as Tweede Divisie champions?",
+   "a": "Jong AZ",
+   "o": [
+    "De Graafschap",
+    "Jong AZ",
+    "Helmond Sport",
+    "NAC Breda"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Ruben van Bommel was voted talent of the season in 2022-23 playing for which club?",
+   "a": "MVV Maastricht",
+   "o": [
+    "MVV Maastricht",
+    "Helmond Sport",
+    "Dordrecht",
+    "Heracles Almelo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Robert Mühren was voted player of the season in 2021-22 playing for which club?",
+   "a": "FC Volendam",
+   "o": [
+    "RKC Waalwijk",
+    "Volendam",
+    "Eindhoven",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Michel Vorm made his professional debut on loan at which Eerste Divisie club in 2005?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Emmen",
+    "Den Bosch",
+    "Dordrecht",
+    "Heracles Almelo"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was voted the Eerste Divisie's best player of 2008-09, for VVV-Venlo?",
+   "a": "Keisuke Honda",
+   "o": [
+    "Kaká",
+    "Keisuke Honda",
+    "Shinji Kagawa",
+    "Wesley Sneijder"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won three of the four period titles in the 2020-21 Eerste Divisie?",
+   "a": "SC Cambuur",
+   "o": [
+    "Telstar",
+    "Cambuur",
+    "Excelsior Rotterdam",
+    "Ajax"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the first period title of 2019-20, the season COVID-19 cut short?",
+   "a": "NAC Breda",
+   "o": [
+    "NAC Breda",
+    "Den Bosch",
+    "Almere City",
+    "Dordrecht"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Dick Lukkien left FC Emmen in 2023 for which club, taking them back to the Eredivisie at the first attempt?",
+   "a": "FC Groningen",
+   "o": [
+    "Excelsior Rotterdam",
+    "Sparta Rotterdam",
+    "Feyenoord",
+    "Groningen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Andries Noppert kept goal for the Netherlands at the 2022 World Cup. Which Eerste Divisie club had he joined in January 2021?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Twente",
+    "Fortuna Sittard",
+    "Go Ahead Eagles",
+    "Feyenoord"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Eerste Divisie club won 3-1 at AZ in the KNVB Cup quarter-finals in February 2020?",
+   "a": "NAC Breda",
+   "o": [
+    "Den Bosch",
+    "NAC Breda",
+    "Emmen",
+    "Eindhoven"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Roda JC, then in the Eerste Divisie, beat PSV 3-2 after extra time in the cup in January 2015. Which PSV striker scored both goals?",
+   "a": "Luuk de Jong",
+   "o": [
+    "Luuk de Jong",
+    "Wout Weghorst",
+    "Wissam Ben Yedder",
+    "Stevan Jovetić"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which reserve side won a period title in 2013-14, the very first season reserve sides played in the league?",
+   "a": "Jong PSV",
+   "o": [
+    "Eindhoven",
+    "Den Bosch",
+    "Heracles Almelo",
+    "Jong PSV"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Ruud Boymans won the 2013-14 Gouden Stier on loan at Willem II. Which club had sent him there?",
+   "a": "AZ",
+   "o": [
+    "AZ",
+    "Heerenveen",
+    "PSV Eindhoven",
+    "Fortuna Sittard"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Sparta Rotterdam went up in 2019 by beating which club in the play-off final?",
+   "a": "De Graafschap",
+   "o": [
+    "Den Bosch",
+    "Roda JC Kerkrade",
+    "De Graafschap",
+    "RKC Waalwijk"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club went up in 2018 by beating Almere City in the play-off final?",
+   "a": "De Graafschap",
+   "o": [
+    "De Graafschap",
+    "Helmond Sport",
+    "Roda JC Kerkrade",
+    "NAC Breda"
+   ],
+   "k": 0
+  },
+  {
+   "q": "FC Twente reached the 2018-19 KNVB Cup quarter-finals while in the Eerste Divisie. Who beat them 3-2 in Enschede?",
+   "a": "Willem II",
+   "o": [
+    "Telstar",
+    "Willem II",
+    "PEC Zwolle",
+    "ADO Den Haag"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Limburg club were docked nine points in 2016-17, a year before they won promotion?",
+   "a": "Fortuna Sittard",
+   "o": [
+    "AZ Alkmaar",
+    "Fortuna Sittard",
+    "Ajax",
+    "Twente"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Eerste Divisie reserve side did Pascal Jansen coach from 2015 to 2017, winning a period title in 2016-17?",
+   "a": "Jong PSV",
+   "o": [
+    "RKC Waalwijk",
+    "Jong PSV",
+    "De Graafschap",
+    "NAC Breda"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Stijn Schaars took over which Eerste Divisie reserve side in July 2025?",
+   "a": "Jong PSV",
+   "o": [
+    "Almere City",
+    "Jong PSV",
+    "De Graafschap",
+    "Den Bosch"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Eerste Divisie club lost the 1958 KNVB Cup final 4-3 to Sparta?",
+   "a": "Volendam",
+   "o": [
+    "Volendam",
+    "Dordrecht",
+    "NAC Breda",
+    "Helmond Sport"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which year was the old Tweede Divisie, the third professional tier below the Eerste Divisie, scrapped?",
+   "a": "1971",
+   "o": [
+    "1971",
+    "1967",
+    "1969",
+    "1965"
+   ],
+   "k": 0
+  },
+  {
+   "q": "By the end of 2025-26, which of the ten clubs from the 1954 rebel league was the only one left as an independent club?",
+   "a": "De Graafschap",
+   "o": [
+    "Dordrecht",
+    "NAC Breda",
+    "De Graafschap",
+    "Eindhoven"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which year did Vitesse first reach the Eredivisie?",
+   "a": "1971",
+   "o": [
+    "1969",
+    "1973",
+    "1975",
+    "1971"
+   ],
+   "k": 3
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 2005-06 Eerste Divisie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "Almere City",
+    "Den Bosch",
+    "Emmen",
+    "VVV-Venlo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2006-07 Eerste Divisie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "VVV-Venlo",
+    "Dordrecht",
+    "De Graafschap",
+    "Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2007-08 Eerste Divisie?",
+   "a": "RKC Waalwijk",
+   "o": [
+    "Dordrecht",
+    "Helmond Sport",
+    "RKC Waalwijk",
+    "Roda JC Kerkrade"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2008-09 Eerste Divisie?",
+   "a": "RKC Waalwijk",
+   "o": [
+    "Emmen",
+    "RKC Waalwijk",
+    "Roda JC Kerkrade",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2009-10 Eerste Divisie?",
+   "a": "SC Cambuur",
+   "o": [
+    "Cambuur",
+    "Sparta Rotterdam",
+    "Ajax",
+    "Telstar"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2010-11 Eerste Divisie?",
+   "a": "Zwolle",
+   "o": [
+    "Feyenoord",
+    "Zwolle",
+    "Excelsior Rotterdam",
+    "ADO Den Haag"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2011-12 Eerste Divisie?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "Ajax",
+    "Sparta Rotterdam",
+    "Excelsior Rotterdam",
+    "PEC Zwolle"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2012-13 Eerste Divisie?",
+   "a": "Volendam",
+   "o": [
+    "RKC Waalwijk",
+    "Helmond Sport",
+    "Volendam",
+    "Eindhoven"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2013-14 Eerste Divisie?",
+   "a": "Dordrecht",
+   "o": [
+    "Dordrecht",
+    "Roda JC Kerkrade",
+    "De Graafschap",
+    "Helmond Sport"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2014-15 Eerste Divisie?",
+   "a": "Eindhoven",
+   "o": [
+    "Roda JC Kerkrade",
+    "De Graafschap",
+    "Eindhoven",
+    "Dordrecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2015-16 Eerste Divisie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "De Graafschap",
+    "VVV-Venlo",
+    "Eindhoven",
+    "Den Bosch"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2016-17 Eerste Divisie?",
+   "a": "Cambuur",
+   "o": [
+    "Telstar",
+    "ADO Den Haag",
+    "Feyenoord",
+    "Cambuur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Eerste Divisie play-offs in 2016-17?",
+   "a": "NAC Breda",
+   "o": [
+    "Den Bosch",
+    "Emmen",
+    "Almere City",
+    "NAC Breda"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2017-18 Eerste Divisie?",
+   "a": "NEC",
+   "o": [
+    "Feyenoord",
+    "PEC Zwolle",
+    "NEC",
+    "Groningen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2018-19 Eerste Divisie?",
+   "a": "Jong PSV",
+   "o": [
+    "Jong PSV",
+    "NAC Breda",
+    "Emmen",
+    "Almere City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2020-21 Eerste Divisie?",
+   "a": "De Graafschap",
+   "o": [
+    "Roda JC Kerkrade",
+    "RKC Waalwijk",
+    "Heracles Almelo",
+    "De Graafschap"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Eerste Divisie play-offs in 2020-21?",
+   "a": "N.E.C.",
+   "o": [
+    "N.E.C.",
+    "Cambuur",
+    "Sparta Rotterdam",
+    "ADO Den Haag"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2021-22 Eerste Divisie?",
+   "a": "ADO Den Haag",
+   "o": [
+    "Feyenoord",
+    "NEC Nijmegen",
+    "ADO Den Haag",
+    "Sparta Rotterdam"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2022-23 Eerste Divisie?",
+   "a": "Almere City",
+   "o": [
+    "Dordrecht",
+    "Emmen",
+    "RKC Waalwijk",
+    "Almere City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Eerste Divisie play-offs in 2022-23?",
+   "a": "Almere City",
+   "o": [
+    "NAC Breda",
+    "Almere City",
+    "Helmond Sport",
+    "Eindhoven"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2023-24 Eerste Divisie?",
+   "a": "Roda JC Kerkrade",
+   "o": [
+    "Roda JC Kerkrade",
+    "Den Bosch",
+    "Emmen",
+    "Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Eerste Divisie play-offs in 2023-24?",
+   "a": "NAC Breda",
+   "o": [
+    "Eindhoven",
+    "NAC Breda",
+    "Dordrecht",
+    "Almere City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2024-25 Eerste Divisie?",
+   "a": "Cambuur",
+   "o": [
+    "NEC Nijmegen",
+    "Ajax",
+    "Cambuur",
+    "ADO Den Haag"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2025-26 Eerste Divisie?",
+   "a": "Willem II",
+   "o": [
+    "Groningen",
+    "Willem II",
+    "PEC Zwolle",
+    "ADO Den Haag"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Eerste Divisie play-offs in 2025-26?",
+   "a": "Willem II",
+   "o": [
+    "Excelsior Rotterdam",
+    "Feyenoord",
+    "Willem II",
+    "Ajax"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Leeuwarden club shared a promotion race with Heerenveen for years and plays in Frisian colours?",
+   "a": "Cambuur",
+   "o": [
+    "Telstar",
+    "ADO Den Haag",
+    "Cambuur",
+    "Willem II"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Heracles won the 2004-05 Eerste Divisie. In which year had they last gone down from the Eredivisie?",
+   "a": "1986",
+   "o": [
+    "1983",
+    "1992",
+    "1980",
+    "1986"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Cambuur opened the Kooi Stadion in August 2024 with a 1-0 defeat. Who beat them?",
+   "a": "Helmond Sport",
+   "o": [
+    "Emmen",
+    "Eindhoven",
+    "Helmond Sport",
+    "Roda JC Kerkrade"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which reserve side joined the Eerste Divisie in 2016, a year before Jong AZ?",
+   "a": "Jong FC Utrecht",
+   "o": [
+    "Jong FC Utrecht",
+    "NAC Breda",
+    "Heracles Almelo",
+    "Helmond Sport"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Telstar's 2025 play-off semi-final ended in a mass brawl between fans on the pitch. Who were the opponents?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Den Bosch",
+    "Almere City",
+    "Emmen",
+    "Helmond Sport"
+   ],
+   "k": 0
+  },
+  {
+   "q": "RKC Waalwijk went up in 2019 after a 0-0 at home and a 5-4 win away. Who were the opponents?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Cambuur",
+    "Go Ahead Eagles",
+    "Feyenoord",
+    "Fortuna Sittard"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Go Ahead Eagles were relegated in 2015 after losing a play-off to which Eerste Divisie club?",
+   "a": "De Graafschap",
+   "o": [
+    "Emmen",
+    "Dordrecht",
+    "Heracles Almelo",
+    "De Graafschap"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Go Ahead Eagles beat which Frisian club 10-0 in a 2002-03 Eerste Divisie match?",
+   "a": "SC Cambuur",
+   "o": [
+    "NEC Nijmegen",
+    "Sparta Rotterdam",
+    "Cambuur",
+    "Willem II"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In 2009 HFC Haarlem agreed a deal letting which big club loan them players and have a say in transfers?",
+   "a": "Ajax",
+   "o": [
+    "Fortuna Sittard",
+    "Cambuur",
+    "Utrecht",
+    "Ajax"
+   ],
+   "k": 3
+  },
+  {
+   "q": "RBC reached the KNVB Cup final in 1986. Who beat them?",
+   "a": "Ajax",
+   "o": [
+    "ADO Den Haag",
+    "Cambuur",
+    "Feyenoord",
+    "Ajax"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In 2015-16 NAC drew 17,800 to an Eerste Divisie home game, beating the 16,150 Roda JC drew the season before. Who were the visitors?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Heerenveen",
+    "Twente",
+    "PSV Eindhoven",
+    "Go Ahead Eagles"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club's ultras, the M.I.-Side, are named after two streets by their old stadium?",
+   "a": "SC Cambuur",
+   "o": [
+    "Ajax",
+    "Cambuur",
+    "Sparta Rotterdam",
+    "Excelsior Rotterdam"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Volendam signed their first foreign player in December 1971. Which country was Walter Ferreira from?",
+   "a": "Portugal",
+   "o": [
+    "Denmark",
+    "Netherlands",
+    "Portugal",
+    "Iceland"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Eerste Divisie side reached the 1994 KNVB Cup final, losing 2-1 to Feyenoord?",
+   "a": "NEC",
+   "o": [
+    "NEC",
+    "Willem II",
+    "Groningen",
+    "ADO Den Haag"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Berry Powel left FC Den Bosch midway through 2005-06 for which English club?",
+   "a": "Millwall",
+   "o": [
+    "Blackburn Rovers",
+    "Millwall",
+    "Bolton Wanderers",
+    "Burnley"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Erik ten Hag won promotion as a player in 1990-91 with which Eerste Divisie club?",
+   "a": "De Graafschap",
+   "o": [
+    "De Graafschap",
+    "Eindhoven",
+    "Den Bosch",
+    "Helmond Sport"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which former Manchester United defender co-coached Jong Ajax in the Eerste Divisie from 2014, with Andries Ulderink?",
+   "a": "Jaap Stam",
+   "o": [
+    "Sol Campbell",
+    "Jaap Stam",
+    "Michael Reiziger",
+    "Marco Materazzi"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Willem II won promotion in 2026 by beating which club on penalties in the play-off final?",
+   "a": "FC Volendam",
+   "o": [
+    "RKC Waalwijk",
+    "Volendam",
+    "Helmond Sport",
+    "Eindhoven"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Ruben van Bommel, talent of the season at MVV in 2022-23, is the grandson of which former Netherlands coach?",
+   "a": "Bert van Marwijk",
+   "o": [
+    "Michel Platini",
+    "Bert van Marwijk",
+    "Emlyn Hughes",
+    "Fabio Capello"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Thijs Dallinga made his professional debut in 2017 for which Eerste Divisie club?",
+   "a": "FC Emmen",
+   "o": [
+    "Eindhoven",
+    "Emmen",
+    "Den Bosch",
+    "Roda JC Kerkrade"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Almere City won their first promotion in 2023 by beating which club in the play-off final?",
+   "a": "FC Emmen",
+   "o": [
+    "Emmen",
+    "Den Bosch",
+    "De Graafschap",
+    "NAC Breda"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Excelsior knocked out which Eredivisie club 6-1 on aggregate in the 2022 play-off semi-finals?",
+   "a": "Heracles Almelo",
+   "o": [
+    "Helmond Sport",
+    "Den Bosch",
+    "Heracles Almelo",
+    "Almere City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Ralf Seuntjens left NAC in 2022 to play in which country?",
+   "a": "Japan",
+   "o": [
+    "Saudi Arabia",
+    "Japan",
+    "Australia",
+    "Qatar"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which future Liverpool manager scored a penalty for Zwolle in the 2011 play-off final, a tie they lost to VVV-Venlo?",
+   "a": "Arne Slot",
+   "o": [
+    "Arne Slot",
+    "Rafael van der Vaart",
+    "Ronaldinho",
+    "Edgar Davids"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Peter Bosz got his first Netherlands call-up from Rinus Michels in 1988 while playing in the Eerste Divisie. For which club?",
+   "a": "RKC Waalwijk",
+   "o": [
+    "RKC Waalwijk",
+    "De Graafschap",
+    "Dordrecht",
+    "Almere City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "After scoring 27 for RBC in the Eerste Divisie, Pierre van Hooijdonk joined which club, the one he supported as a boy?",
+   "a": "NAC Breda",
+   "o": [
+    "De Graafschap",
+    "RKC Waalwijk",
+    "Emmen",
+    "NAC Breda"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Mart Lieder, top scorer in 2017-18, got his professional break from amateur football in 2012 with which club?",
+   "a": "Vitesse",
+   "o": [
+    "Vitesse",
+    "De Graafschap",
+    "VVV-Venlo",
+    "MVV Maastricht"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Brabant club were docked six points for licence breaches in the abandoned 2019-20 Eerste Divisie?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Den Bosch",
+    "Eindhoven",
+    "Dordrecht",
+    "Emmen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Willem II reached the 2025 play-off final by beating which club on penalties in the semi-finals?",
+   "a": "FC Dordrecht",
+   "o": [
+    "Dordrecht",
+    "De Graafschap",
+    "Almere City",
+    "RKC Waalwijk"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Willem II reached the 2026 play-off final by beating which club 3-0 on aggregate in the semi-finals?",
+   "a": "Almere City",
+   "o": [
+    "Den Bosch",
+    "Dordrecht",
+    "RKC Waalwijk",
+    "Almere City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Joey Sleegers was voted the Eerste Divisie's talent of 2014-15 while on loan at FC Eindhoven. Which club owned him?",
+   "a": "Feyenoord",
+   "o": [
+    "Fortuna Sittard",
+    "Feyenoord",
+    "Twente",
+    "Go Ahead Eagles"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which AGOVV winger won the best player, best talent and top scorer prizes for the first period of 2008-09?",
+   "a": "Dries Mertens",
+   "o": [
+    "Axel Witsel",
+    "Georginio Wijnaldum",
+    "Kevin De Bruyne",
+    "Dries Mertens"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Sergiño Dest and Kenneth Taylor made their professional debuts in the same Jong Ajax match in October 2018. Who were the opponents?",
+   "a": "Jong PSV",
+   "o": [
+    "Jong PSV",
+    "NAC Breda",
+    "Heracles Almelo",
+    "Den Bosch"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the third period title of 2019-20, the last one handed out before COVID-19 stopped the season?",
+   "a": "De Graafschap",
+   "o": [
+    "De Graafschap",
+    "NAC Breda",
+    "Dordrecht",
+    "Den Bosch"
+   ],
+   "k": 0
+  },
+  {
+   "q": "ADO Den Haag won the first two period titles of 2025-26. Which club won the third?",
+   "a": "SC Cambuur",
+   "o": [
+    "Willem II",
+    "Cambuur",
+    "NEC Nijmegen",
+    "Telstar"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which reserve side won the first period title of 2017-18, handing the play-off place that came with it to NEC?",
+   "a": "Jong Ajax",
+   "o": [
+    "Jong Ajax",
+    "RKC Waalwijk",
+    "Emmen",
+    "Den Bosch"
+   ],
+   "k": 0
+  },
+  {
+   "q": "RKC Waalwijk reached the 2010-11 KNVB Cup semi-finals from the Eerste Divisie. Who beat them 5-1?",
+   "a": "Ajax",
+   "o": [
+    "AZ Alkmaar",
+    "Ajax",
+    "PSV Eindhoven",
+    "Utrecht"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Hans de Koning was voted the Eerste Divisie's coach of the season for 2012-13. At which club?",
+   "a": "FC Volendam",
+   "o": [
+    "Helmond Sport",
+    "Volendam",
+    "Emmen",
+    "Eindhoven"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Jean-Paul de Jong was voted the Eerste Divisie's coach of the season for 2014-15. At which club?",
+   "a": "FC Eindhoven",
+   "o": [
+    "Almere City",
+    "RKC Waalwijk",
+    "Eindhoven",
+    "De Graafschap"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In 2004-05 TOP Oss reached the KNVB Cup quarter-finals from the Eerste Divisie. Who beat them 6-1?",
+   "a": "PSV",
+   "o": [
+    "PSV",
+    "AZ Alkmaar",
+    "Utrecht",
+    "ADO Den Haag"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In September 2023, Willem II's home game against which club was abandoned in the 52nd minute after crowd trouble, the visitors 3-0 up?",
+   "a": "NAC Breda",
+   "o": [
+    "Helmond Sport",
+    "Almere City",
+    "Emmen",
+    "NAC Breda"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Go Ahead Eagles won 5-2 at FC Twente in the cup in 2019. Which Eerste Divisie side won 3-1 in Enschede the next year?",
+   "a": "De Graafschap",
+   "o": [
+    "De Graafschap",
+    "Roda JC Kerkrade",
+    "RKC Waalwijk",
+    "Den Bosch"
+   ],
+   "k": 0
+  },
+  {
+   "q": "NEC began their 2021 play-off run, played in single matches, with a 4-0 win away at which club?",
+   "a": "Almere City",
+   "o": [
+    "Emmen",
+    "De Graafschap",
+    "RKC Waalwijk",
+    "Almere City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Excelsior began their 2022 play-off run by winning after extra time away at which club?",
+   "a": "Roda JC Kerkrade",
+   "o": [
+    "Almere City",
+    "RKC Waalwijk",
+    "Emmen",
+    "Roda JC Kerkrade"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Eerste Divisie club lost a 2016-17 KNVB Cup quarter-final to Sparta Rotterdam 6-5 on penalties?",
+   "a": "FC Volendam",
+   "o": [
+    "Volendam",
+    "Eindhoven",
+    "Dordrecht",
+    "Den Bosch"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Emmen lost the 1990 nacompetitie final to Heerenveen, then a second play-off against an Eredivisie club. Which club stayed up?",
+   "a": "NEC",
+   "o": [
+    "Sparta Rotterdam",
+    "Groningen",
+    "Cambuur",
+    "NEC"
+   ],
+   "k": 3
+  },
+  {
+   "q": "When professional football arrived in 1954, seven Vitesse players left for which newly founded club?",
+   "a": "De Graafschap",
+   "o": [
+    "RKC Waalwijk",
+    "De Graafschap",
+    "Heracles Almelo",
+    "NAC Breda"
+   ],
+   "k": 1
+  },
+  {
+   "q": "On the way to the 1958 KNVB Cup final, Eerste Divisie side Volendam won 3-1 away in the semi-final. Against which Eredivisie club?",
+   "a": "MVV",
+   "o": [
+    "Helmond Sport",
+    "VVV-Venlo",
+    "MVV",
+    "Dordrecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Arnhem club, then in the Eerste Divisie, was rescued financially by its city council in 1985, four years before going up?",
+   "a": "Vitesse",
+   "o": [
+    "Helmond Sport",
+    "MVV Maastricht",
+    "Vitesse",
+    "De Graafschap"
+   ],
+   "k": 2
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club finished third in the 2005-06 Eerste Divisie?",
+   "a": "FC Volendam",
+   "o": [
+    "Emmen",
+    "Dordrecht",
+    "De Graafschap",
+    "Volendam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2006-07 Eerste Divisie?",
+   "a": "FC Volendam",
+   "o": [
+    "Almere City",
+    "Helmond Sport",
+    "Emmen",
+    "Volendam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2007-08 Eerste Divisie?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Almere City",
+    "Helmond Sport",
+    "Den Bosch",
+    "NAC Breda"
+   ],
+   "k": 2
+  },
+  {
+   "q": "The 2007-08 Eerste Divisie was decided on goal difference. Which club took it?",
+   "a": "FC Volendam",
+   "o": [
+    "Emmen",
+    "RKC Waalwijk",
+    "Volendam",
+    "De Graafschap"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2007-08 Eerste Divisie?",
+   "a": "FC Den Bosch",
+   "o": [
+    "RKC Waalwijk",
+    "Heracles Almelo",
+    "Emmen",
+    "Den Bosch"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2008-09 Eerste Divisie?",
+   "a": "Cambuur",
+   "o": [
+    "Sparta Rotterdam",
+    "Cambuur",
+    "Feyenoord",
+    "ADO Den Haag"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2008-09 Eerste Divisie?",
+   "a": "RKC Waalwijk",
+   "o": [
+    "Almere City",
+    "RKC Waalwijk",
+    "Den Bosch",
+    "Dordrecht"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2009-10 Eerste Divisie?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Ajax",
+    "Twente",
+    "ADO Den Haag",
+    "Go Ahead Eagles"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2010-11 Eerste Divisie?",
+   "a": "Helmond Sport",
+   "o": [
+    "Heracles Almelo",
+    "NAC Breda",
+    "Dordrecht",
+    "Helmond Sport"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2010-11 Eerste Divisie?",
+   "a": "Zwolle",
+   "o": [
+    "Willem II",
+    "Zwolle",
+    "NEC Nijmegen",
+    "Telstar"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2011-12 Eerste Divisie?",
+   "a": "Eindhoven",
+   "o": [
+    "Dordrecht",
+    "NAC Breda",
+    "De Graafschap",
+    "Eindhoven"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2011-12 Eerste Divisie?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "Willem II",
+    "NEC Nijmegen",
+    "Cambuur",
+    "Sparta Rotterdam"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2012-13 Eerste Divisie?",
+   "a": "Sparta Rotterdam",
+   "o": [
+    "ADO Den Haag",
+    "NEC Nijmegen",
+    "Sparta Rotterdam",
+    "PEC Zwolle"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2012-13 Eerste Divisie?",
+   "a": "Volendam",
+   "o": [
+    "Heracles Almelo",
+    "Dordrecht",
+    "Volendam",
+    "Helmond Sport"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2013-14 Eerste Divisie?",
+   "a": "Dordrecht",
+   "o": [
+    "Eindhoven",
+    "Dordrecht",
+    "NAC Breda",
+    "Roda JC Kerkrade"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2014-15 Eerste Divisie?",
+   "a": "Roda JC Kerkrade",
+   "o": [
+    "Eindhoven",
+    "RKC Waalwijk",
+    "Helmond Sport",
+    "Roda JC Kerkrade"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2015-16 Eerste Divisie?",
+   "a": "NAC Breda",
+   "o": [
+    "Roda JC Kerkrade",
+    "RKC Waalwijk",
+    "Almere City",
+    "NAC Breda"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2015-16 Eerste Divisie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "VVV-Venlo",
+    "MVV Maastricht",
+    "Helmond Sport",
+    "Emmen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2015-16 Eerste Divisie?",
+   "a": "VVV-Venlo",
+   "o": [
+    "Emmen",
+    "De Graafschap",
+    "VVV-Venlo",
+    "Eindhoven"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2016-17 Eerste Divisie?",
+   "a": "Jong Ajax",
+   "o": [
+    "Dordrecht",
+    "Jong Ajax",
+    "Den Bosch",
+    "Emmen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2017-18 Eerste Divisie?",
+   "a": "Fortuna Sittard",
+   "o": [
+    "Feyenoord",
+    "Heerenveen",
+    "Fortuna Sittard",
+    "Utrecht"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2018-19 Eerste Divisie?",
+   "a": "Jong Ajax",
+   "o": [
+    "RKC Waalwijk",
+    "Jong Ajax",
+    "Eindhoven",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2020-21 Eerste Divisie?",
+   "a": "Go Ahead Eagles",
+   "o": [
+    "Twente",
+    "Ajax",
+    "Heerenveen",
+    "Go Ahead Eagles"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The 2022-23 Eerste Divisie was decided on goal difference. Which club took it?",
+   "a": "Heracles Almelo",
+   "o": [
+    "NAC Breda",
+    "Heracles Almelo",
+    "Helmond Sport",
+    "Almere City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2022-23 Eerste Divisie?",
+   "a": "Willem II",
+   "o": [
+    "ADO Den Haag",
+    "Excelsior Rotterdam",
+    "Telstar",
+    "Willem II"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2023-24 Eerste Divisie?",
+   "a": "Groningen",
+   "o": [
+    "PEC Zwolle",
+    "Feyenoord",
+    "NEC Nijmegen",
+    "Groningen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Achilles '29 drew their first ever professional match, in 2013. Who were the opponents?",
+   "a": "FC Emmen",
+   "o": [
+    "Emmen",
+    "Heracles Almelo",
+    "Dordrecht",
+    "Den Bosch"
+   ],
+   "k": 0
+  },
+  {
+   "q": "SC Veendam played their last match on 15 March 2013 and won 2-1. Who were the opponents?",
+   "a": "FC Oss",
+   "o": [
+    "Den Bosch",
+    "Eindhoven",
+    "NAC Breda",
+    "Oss"
+   ],
+   "k": 3
+  },
+  {
+   "q": "FC Wageningen won the KNVB Cup in 1939 after extra time in Arnhem. Who did they beat?",
+   "a": "PSV",
+   "o": [
+    "PSV",
+    "Twente",
+    "ADO Den Haag",
+    "Cambuur"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club started the 2010-11 season eight points down for financial irregularities?",
+   "a": "MVV Maastricht",
+   "o": [
+    "MVV Maastricht",
+    "Helmond Sport",
+    "Dordrecht",
+    "Heracles Almelo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "FC Oss dropped to the third tier in 2010 after a 5-1 defeat on the final day. Who beat them?",
+   "a": "MVV Maastricht",
+   "o": [
+    "NAC Breda",
+    "VVV-Venlo",
+    "MVV Maastricht",
+    "Emmen"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club, with Guus Hiddink in the side, won the first Dutch promotion play-off in 1972-73?",
+   "a": "De Graafschap",
+   "o": [
+    "De Graafschap",
+    "Almere City",
+    "NAC Breda",
+    "Emmen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Between his first two spells at Twente, Erik ten Hag won the 1990-91 Eerste Divisie with which club?",
+   "a": "De Graafschap",
+   "o": [
+    "Den Bosch",
+    "De Graafschap",
+    "Dordrecht",
+    "Helmond Sport"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Jaap Stam made his professional debut for FC Zwolle in August 1992 in a 1-1 draw with which club?",
+   "a": "SC Heracles",
+   "o": [
+    "Heracles",
+    "RKC Waalwijk",
+    "Almere City",
+    "De Graafschap"
+   ],
+   "k": 0
+  },
+  {
+   "q": "From the 1985-86 season, Telstar became the satellite club of which giant?",
+   "a": "Ajax",
+   "o": [
+    "Ajax",
+    "Fortuna Sittard",
+    "Go Ahead Eagles",
+    "ADO Den Haag"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In 2018-19 which club became the first Dutch professional side to rip up an artificial pitch for natural grass?",
+   "a": "Almere City",
+   "o": [
+    "Dordrecht",
+    "Almere City",
+    "NAC Breda",
+    "De Graafschap"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Ton Cornelissen scored 35 goals to top the 1990-91 Eerste Divisie for which club?",
+   "a": "NAC Breda",
+   "o": [
+    "NAC Breda",
+    "De Graafschap",
+    "Helmond Sport",
+    "RKC Waalwijk"
+   ],
+   "k": 0
+  },
+  {
+   "q": "John Mutsaers was the 1994-95 Eerste Divisie top scorer for which club?",
+   "a": "AZ",
+   "o": [
+    "ADO Den Haag",
+    "AZ",
+    "Fortuna Sittard",
+    "PSV Eindhoven"
+   ],
+   "k": 1
+  },
+  {
+   "q": "PEC Zwolle reached the 1977 KNVB Cup final from the Eerste Divisie. Who beat them 3-0 after extra time?",
+   "a": "FC Twente",
+   "o": [
+    "Ajax",
+    "Heerenveen",
+    "Twente",
+    "ADO Den Haag"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was voted coach of the season in 2009-10 as De Graafschap won the Eerste Divisie?",
+   "a": "Darije Kalezić",
+   "o": [
+    "Stefan Gartenmann",
+    "Manuel Akanji",
+    "Darije Kalezić",
+    "Stephan Lichtsteiner"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Thijs Dallinga scored four in a 5-0 away win in September 2021 against which club?",
+   "a": "FC Den Bosch",
+   "o": [
+    "De Graafschap",
+    "Heracles Almelo",
+    "Almere City",
+    "Den Bosch"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Klaas-Jan Huntelaar's hat-trick gave AGOVV their first win of 2003-04 against which club?",
+   "a": "Heracles Almelo",
+   "o": [
+    "Heracles Almelo",
+    "Helmond Sport",
+    "Den Bosch",
+    "Almere City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Telstar beat which club after extra time in the 2025 play-off semi-finals, on the way to promotion?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Almere City",
+    "RKC Waalwijk",
+    "Dordrecht",
+    "Den Bosch"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Klaas-Jan Huntelaar scored on his AGOVV debut in August 2003, a 2-1 defeat by which club?",
+   "a": "TOP Oss",
+   "o": [
+    "TOP Oss",
+    "NAC Breda",
+    "Dordrecht",
+    "De Graafschap"
+   ],
+   "k": 0
+  },
+  {
+   "q": "The first period title of 2005-06 was decided on goal difference between three clubs. Who took it?",
+   "a": "FC Volendam",
+   "o": [
+    "Volendam",
+    "Den Bosch",
+    "NAC Breda",
+    "Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the second period of 2005-06 by winning all six of its matches?",
+   "a": "FC Zwolle",
+   "o": [
+    "Telstar",
+    "Sparta Rotterdam",
+    "Zwolle",
+    "Willem II"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the first period title of 2023-24, then lost its play-off tie 8-1 on aggregate to NAC?",
+   "a": "Roda JC Kerkrade",
+   "o": [
+    "De Graafschap",
+    "Roda JC Kerkrade",
+    "Eindhoven",
+    "RKC Waalwijk"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the first period title of the 2024-25 Eerste Divisie?",
+   "a": "FC Den Bosch",
+   "o": [
+    "RKC Waalwijk",
+    "Eindhoven",
+    "Helmond Sport",
+    "Den Bosch"
+   ],
+   "k": 3
+  },
+  {
+   "q": "RKC Waalwijk beat which club on penalties in the first round of the 2026 play-offs?",
+   "a": "Roda JC Kerkrade",
+   "o": [
+    "Eindhoven",
+    "Roda JC Kerkrade",
+    "Den Bosch",
+    "Emmen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won 8-0 away at FC Eindhoven in the 2009-10 Eerste Divisie?",
+   "a": "FC Dordrecht",
+   "o": [
+    "Dordrecht",
+    "Roda JC Kerkrade",
+    "De Graafschap",
+    "NAC Breda"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won 8-1 away at TOP Oss in the 2023-24 Eerste Divisie?",
+   "a": "SC Cambuur",
+   "o": [
+    "PEC Zwolle",
+    "Groningen",
+    "Telstar",
+    "Cambuur"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Jong Ajax beat which club 8-0 in the 2018-19 Eerste Divisie?",
+   "a": "Almere City",
+   "o": [
+    "Heracles Almelo",
+    "Almere City",
+    "Roda JC Kerkrade",
+    "Helmond Sport"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Roda JC, then in the Eerste Divisie, took Ajax to penalties in the cup in December 2018. Which Ajax defender missed in the shoot-out?",
+   "a": "Matthijs de Ligt",
+   "o": [
+    "Matthijs de Ligt",
+    "Chris Richards",
+    "Jeremie Frimpong",
+    "Micky van de Ven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In December 1962 floodlights were switched on at the Cambuur stadium in Leeuwarden. Which club played VV Leeuwarden in the opening match?",
+   "a": "PSV",
+   "o": [
+    "Fortuna Sittard",
+    "AZ Alkmaar",
+    "PSV",
+    "ADO Den Haag"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Veendam's heaviest Eerste Divisie defeat was 10-1 away, in 1983-84. Which club beat them?",
+   "a": "NAC",
+   "o": [
+    "Dordrecht",
+    "Almere City",
+    "NAC",
+    "Eindhoven"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Eerste Divisie club lost all six of its games in the 1999 nacompetitie, with a goal record of 5-24?",
+   "a": "Helmond Sport",
+   "o": [
+    "Helmond Sport",
+    "Roda JC Kerkrade",
+    "Den Bosch",
+    "Dordrecht"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Henk Grim was the Eerste Divisie top scorer in 1986-87 with 29 goals. For which club?",
+   "a": "NEC",
+   "o": [
+    "NEC",
+    "Telstar",
+    "Sparta Rotterdam",
+    "Groningen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Maurice Graef was the Eerste Divisie top scorer in 1992-93 with 29 goals. For which Limburg club?",
+   "a": "VVV",
+   "o": [
+    "VVV",
+    "SBV Vitesse",
+    "Emmen",
+    "Eindhoven"
+   ],
+   "k": 0
+  },
+  {
+   "q": "RKC joined the professional ranks in 1984. Their first professional match was a draw against which Tilburg club?",
+   "a": "Willem II",
+   "o": [
+    "PEC Zwolle",
+    "Feyenoord",
+    "Excelsior Rotterdam",
+    "Willem II"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Fortuna Sittard returned to the Eredivisie in 1982 after 13 years. Which club did they beat 3-1 to make sure of it?",
+   "a": "SC Heracles",
+   "o": [
+    "Den Bosch",
+    "RKC Waalwijk",
+    "Heracles",
+    "Almere City"
+   ],
+   "k": 2
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which club was relegated in 2018 for the first time in its history and won the Eerste Divisie at the first attempt?",
+   "a": "Twente",
+   "o": [
+    "Cambuur",
+    "Twente",
+    "Utrecht",
+    "Ajax"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Maastricht club took its name from the Dutch for Social Football Association?",
+   "a": "MVV",
+   "o": [
+    "Emmen",
+    "Almere City",
+    "VVV-Venlo",
+    "MVV"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Venlo club beat Ajax away in 2018 and was beaten 13 to 0 by the same side two years later?",
+   "a": "VVV-Venlo",
+   "o": [
+    "De Graafschap",
+    "Almere City",
+    "Heracles Almelo",
+    "VVV-Venlo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Doetinchem club plays at De Vijverberg and is nicknamed the Superboeren?",
+   "a": "De Graafschap",
+   "o": [
+    "Den Bosch",
+    "RKC Waalwijk",
+    "De Graafschap",
+    "Eindhoven"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dutch legend played three matches for DS '79 in January 1981, including a 2-1 win over Ajax?",
+   "a": "Johan Cruyff",
+   "o": [
+    "Emlyn Hughes",
+    "Terry Venables",
+    "Johan Cruyff",
+    "Falcão"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which future Premier League Golden Boot winner played four games for Telstar in 1990-91 before the coach got rid of him for turning up late?",
+   "a": "Jimmy Floyd Hasselbaink",
+   "o": [
+    "Jimmy Floyd Hasselbaink",
+    "Christian Vieri",
+    "Harry Kewell",
+    "Robbie Fowler"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Heerenveen signed the Eerste Divisie's top scorer from PSV in 2004 for about 100,000 euros. Who?",
+   "a": "Klaas-Jan Huntelaar",
+   "o": [
+    "Edin Džeko",
+    "Olivier Giroud",
+    "Klaas-Jan Huntelaar",
+    "Mario Mandžukić"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In a 2023 play-off semi-final shoot-out, VVV-Venlo missed every one of their four penalties. Who went through?",
+   "a": "Almere City",
+   "o": [
+    "Eindhoven",
+    "Almere City",
+    "Roda JC Kerkrade",
+    "NAC Breda"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club reached the 1991 KNVB Cup final despite finishing 17th in the Eerste Divisie that season?",
+   "a": "FC Den Bosch",
+   "o": [
+    "Den Bosch",
+    "Roda JC Kerkrade",
+    "Eindhoven",
+    "Dordrecht"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Eerste Divisie club lost the 1993 KNVB Cup final 6-2 to Ajax, then won promotion through the nacompetitie?",
+   "a": "sc Heerenveen",
+   "o": [
+    "Twente",
+    "sc Heerenveen",
+    "Cambuur",
+    "Go Ahead Eagles"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which future Iran international scored nine seconds into his Cambuur debut in January 2010, equalling a record of Johan Cruyff's?",
+   "a": "Reza Ghoochannejhad",
+   "o": [
+    "Antonio Correia",
+    "Giorgos Samaras",
+    "Miralem Sulejmani",
+    "Reza Ghoochannejhad"
+   ],
+   "k": 3
+  }
+ ]
+}

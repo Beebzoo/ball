@@ -1,0 +1,1981 @@
+{
+ "easy": [
+  {
+   "q": "Which club plays at the Stadio Diego Armando Maradona?",
+   "a": "Napoli",
+   "o": [
+    "Atalanta BC",
+    "Inter Milan",
+    "Bologna FC 1909",
+    "Napoli"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club moved into its own stadium in Turin in 2011, unusually for Italy?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "Lazio",
+    "Milan",
+    "Bologna FC 1909"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club plays at the Stadio Artemio Franchi in Florence?",
+   "a": "Fiorentina",
+   "o": [
+    "Napoli",
+    "Fiorentina",
+    "Inter Milan",
+    "Genoa CFC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club plays at the Stadio Luigi Ferraris, sharing it with Sampdoria?",
+   "a": "Genoa",
+   "o": [
+    "Udinese Calcio",
+    "Bologna FC 1909",
+    "Genoa",
+    "Torino"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club is nicknamed the Nerazzurri, the black and blues?",
+   "a": "Inter Milan",
+   "o": [
+    "Cagliari Calcio",
+    "Inter Milan",
+    "Bologna FC 1909",
+    "Atalanta BC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Argentine forward played for Napoli in the 1980s and won them two league titles?",
+   "a": "Diego Maradona",
+   "o": [
+    "Diego Maradona",
+    "Frank Rijkaard",
+    "Dunga",
+    "Michael Laudrup"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Swedish striker played for Juventus, Inter Milan and AC Milan?",
+   "a": "Zlatan Ibrahimovic",
+   "o": [
+    "Samuel Eto'o",
+    "Zlatan Ibrahimovic",
+    "Fernando Torres",
+    "Carlos Tevez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Portuguese forward joined Juventus from Real Madrid in 2018?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Emmanuel Adebayor",
+    "Edinson Cavani",
+    "Gonzalo Higuaín",
+    "Cristiano Ronaldo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Frenchman joined Juventus from Manchester United in 2012 on a free transfer?",
+   "a": "Paul Pogba",
+   "o": [
+    "Blaise Matuidi",
+    "Casemiro",
+    "Paul Pogba",
+    "Thomas Lemar"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian striker won the treble with Inter Milan in 2010 and later played for AC Milan?",
+   "a": "Mario Balotelli",
+   "o": [
+    "Ivan Perišić",
+    "Ciro Immobile",
+    "Mario Balotelli",
+    "Alexis Sánchez"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian manager won the Champions League twice with AC Milan and later managed Real Madrid?",
+   "a": "Carlo Ancelotti",
+   "o": [
+    "Falcão",
+    "Lothar Matthäus",
+    "Carlo Ancelotti",
+    "Ronald Koeman"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club captained by Francesco Totti for many years plays in Rome?",
+   "a": "Roma",
+   "o": [
+    "ACF Fiorentina",
+    "Atalanta BC",
+    "Roma",
+    "Napoli"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which goalkeeper captained Juventus and Italy and played into his forties?",
+   "a": "Gianluigi Buffon",
+   "o": [
+    "Keylor Navas",
+    "Gianluca Zambrotta",
+    "Gianluigi Buffon",
+    "Paul Robinson"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In which Italian city would you find the San Siro?",
+   "a": "Milan",
+   "o": [
+    "Milan",
+    "Bologna FC 1909",
+    "Roma",
+    "Como 1907"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Napoli's Stadio San Paolo was renamed in 2020 after which former player of theirs?",
+   "a": "Diego Maradona",
+   "o": [
+    "Ronald Koeman",
+    "Diego Maradona",
+    "Bernd Schuster",
+    "Frank Rijkaard"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Serie A club comes from the north-eastern city of Udine?",
+   "a": "Udinese",
+   "o": [
+    "Bologna FC 1909",
+    "Udinese",
+    "Frosinone Calcio",
+    "US Lecce"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Serie A club plays its football on the island of Sardinia?",
+   "a": "Cagliari",
+   "o": [
+    "Monza",
+    "Cagliari",
+    "Como 1907",
+    "US Sassuolo Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club is nicknamed the Giallorossi, the yellow and reds?",
+   "a": "Roma",
+   "o": [
+    "Atalanta BC",
+    "Juventus",
+    "Bologna FC 1909",
+    "Roma"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Rome club takes its name from the region that surrounds the city?",
+   "a": "Lazio",
+   "o": [
+    "Lazio",
+    "Milan",
+    "ACF Fiorentina",
+    "Juventus"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Italian club plays at home in purple shirts?",
+   "a": "Fiorentina",
+   "o": [
+    "Fiorentina",
+    "Cagliari Calcio",
+    "Inter Milan",
+    "Lazio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Italian club did Gabriel Batistuta play for from 1991 to 2000?",
+   "a": "Fiorentina",
+   "o": [
+    "Frosinone Calcio",
+    "Fiorentina",
+    "Inter Milan",
+    "Como 1907"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club's name is the Latin word for youth?",
+   "a": "Juventus",
+   "o": [
+    "Cagliari Calcio",
+    "Roma",
+    "Juventus",
+    "Como 1907"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Belgian striker did Inter Milan sign from Manchester United in 2019?",
+   "a": "Romelu Lukaku",
+   "o": [
+    "Wilfried Zaha",
+    "Arkadiusz Milik",
+    "Romelu Lukaku",
+    "Álvaro Morata"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Brazilian striker nicknamed O Fenomeno played for both Inter Milan and AC Milan?",
+   "a": "Ronaldo",
+   "o": [
+    "Thierry Henry",
+    "Hernán Crespo",
+    "Ronaldo",
+    "Filippo Inzaghi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Danish midfielder joined Inter Milan from Tottenham in 2020?",
+   "a": "Christian Eriksen",
+   "o": [
+    "Paul Pogba",
+    "Henrikh Mkhitaryan",
+    "Mateo Kovačić",
+    "Christian Eriksen"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which French striker joined AC Milan from Chelsea in 2021?",
+   "a": "Olivier Giroud",
+   "o": [
+    "Olivier Giroud",
+    "Alexis Sánchez",
+    "Emmanuel Adebayor",
+    "Mario Mandžukić"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Argentine striker did Inter Milan sign from Racing Club in 2018?",
+   "a": "Lautaro Martínez",
+   "o": [
+    "Lautaro Martínez",
+    "Matteo Politano",
+    "Romelu Lukaku",
+    "Mauro Icardi"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Cameroon striker joined Inter Milan from Barcelona in 2009 and won the treble?",
+   "a": "Samuel Eto'o",
+   "o": [
+    "Diego Milito",
+    "Fernando Torres",
+    "Nicolas Anelka",
+    "Samuel Eto'o"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Italian club did David Beckham join on loan from LA Galaxy in 2009?",
+   "a": "AC Milan",
+   "o": [
+    "Juventus",
+    "Roma",
+    "Milan",
+    "Lazio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Rome club did Paulo Dybala join on a free transfer from Juventus in 2022?",
+   "a": "Roma",
+   "o": [
+    "Atalanta BC",
+    "ACF Fiorentina",
+    "Como 1907",
+    "Roma"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which goalkeeper left AC Milan for Paris Saint-Germain on a free transfer in 2021?",
+   "a": "Gianluigi Donnarumma",
+   "o": [
+    "James Trafford",
+    "Gianluigi Donnarumma",
+    "Lucas Chevalier",
+    "Guglielmo Vicario"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club did Silvio Berlusconi own for thirty-one years until 2017?",
+   "a": "AC Milan",
+   "o": [
+    "ACF Fiorentina",
+    "Napoli",
+    "Atalanta BC",
+    "Milan"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Italian club did Alessandro Del Piero play for from 1993 to 2012?",
+   "a": "Juventus",
+   "o": [
+    "Bologna FC 1909",
+    "Atalanta BC",
+    "Roma",
+    "Juventus"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Italian club did Javier Zanetti captain for more than a decade?",
+   "a": "Inter Milan",
+   "o": [
+    "Inter Milan",
+    "Genoa CFC",
+    "Frosinone Calcio",
+    "Bologna FC 1909"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Edinson Cavani, Gonzalo Higuaín and Victor Osimhen all score for?",
+   "a": "Napoli",
+   "o": [
+    "Como 1907",
+    "Bologna FC 1909",
+    "Napoli",
+    "Atalanta BC"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which French club beat Inter Milan 5-0 in the 2025 Champions League final?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Lille OSC",
+    "Paris Saint-Germain",
+    "Lens",
+    "Olympique Lyonnais"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club did Manchester City beat in the 2023 Champions League final?",
+   "a": "Inter Milan",
+   "o": [
+    "Cagliari Calcio",
+    "Como 1907",
+    "Inter Milan",
+    "Lazio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "AC Milan won the 2007 Champions League final in Athens. Which English club did they beat?",
+   "a": "Liverpool",
+   "o": [
+    "Manchester City",
+    "Liverpool",
+    "Newcastle United",
+    "Nottingham Forest"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Juventus forward was the Serie A top scorer in 2020-21?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Cristiano Ronaldo",
+    "Mario Mandžukić",
+    "Ricardo Quaresma",
+    "Robin van Persie"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Swedish striker was the Serie A top scorer in 2011-12 while at AC Milan?",
+   "a": "Zlatan Ibrahimović",
+   "o": [
+    "Zlatan Ibrahimović",
+    "Alberto Gilardino",
+    "Robin van Persie",
+    "Fernando Torres"
+   ],
+   "k": 0
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 1995-96 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Cagliari Calcio",
+    "Milan",
+    "ACF Fiorentina",
+    "Roma"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1997-98 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Inter Milan",
+    "ACF Fiorentina",
+    "Juventus",
+    "Como 1907"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 1998-99 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Cagliari Calcio",
+    "Atalanta BC",
+    "Napoli",
+    "Milan"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2000-01 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Roma",
+    "Juventus",
+    "Cagliari Calcio",
+    "Napoli"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2002-03 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Como 1907",
+    "Inter Milan",
+    "Napoli",
+    "Juventus"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2003-04 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Juventus",
+    "Milan",
+    "Cagliari Calcio",
+    "Roma"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2007-08 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Cagliari Calcio",
+    "Frosinone Calcio",
+    "Internazionale",
+    "Como 1907"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2008-09 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Internazionale",
+    "Milan",
+    "Genoa CFC",
+    "ACF Fiorentina"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2010-11 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Milan",
+    "Como 1907",
+    "ACF Fiorentina",
+    "Cagliari Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2012-13 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "ACF Fiorentina",
+    "Juventus",
+    "Atalanta BC",
+    "Como 1907"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2017-18 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Napoli",
+    "Cagliari Calcio",
+    "Juventus",
+    "Atalanta BC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2018-19 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Roma",
+    "Napoli",
+    "Milan",
+    "Como 1907"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2019-20 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Bologna FC 1909",
+    "Milan",
+    "Napoli",
+    "Internazionale"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2020-21 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Bologna FC 1909",
+    "ACF Fiorentina",
+    "Milan",
+    "Roma"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Napoli",
+    "Milan",
+    "Lazio",
+    "Juventus"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2024-25 Serie A?",
+   "a": "Inter Milan",
+   "o": [
+    "Bologna FC 1909",
+    "Inter Milan",
+    "Atalanta BC",
+    "Frosinone Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2025-26 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Atalanta BC",
+    "Napoli",
+    "ACF Fiorentina",
+    "Lazio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Napoli striker was the Serie A top scorer in 2022-23 with twenty-six goals?",
+   "a": "Victor Osimhen",
+   "o": [
+    "Khvicha Kvaratskhelia",
+    "Victor Osimhen",
+    "Victor Boniface",
+    "Jonathan David"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Lazio striker scored thirty-six Serie A goals in 2019-20 to win the Golden Shoe?",
+   "a": "Ciro Immobile",
+   "o": [
+    "Ivan Perišić",
+    "Andrea Belotti",
+    "Federico Bernardeschi",
+    "Ciro Immobile"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Roma captain was the Serie A top scorer in 2006-07 with twenty-six goals?",
+   "a": "Francesco Totti",
+   "o": [
+    "Filippo Inzaghi",
+    "Didier Drogba",
+    "Christian Vieri",
+    "Francesco Totti"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Atalanta striker was the Serie A top scorer in 2024-25?",
+   "a": "Mateo Retegui",
+   "o": [
+    "Mateo Retegui",
+    "Federico Bernardeschi",
+    "Andrea Belotti",
+    "Rasmus Højlund"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which AC Milan striker was the Serie A top scorer in 2003-04?",
+   "a": "Andriy Shevchenko",
+   "o": [
+    "Hernán Crespo",
+    "Samuel Eto'o",
+    "Andriy Shevchenko",
+    "Damien Duff"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat AC Milan 1-0 to win the 2025 Coppa Italia, their first since 1974?",
+   "a": "Bologna",
+   "o": [
+    "Udinese Calcio",
+    "US Sassuolo Calcio",
+    "Bologna",
+    "Torino"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Juventus on penalties to win the 2020 Coppa Italia final?",
+   "a": "Napoli",
+   "o": [
+    "Bologna FC 1909",
+    "ACF Fiorentina",
+    "Lazio",
+    "Napoli"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club beat Roma 1-0 in the 2013 Coppa Italia final, the first Rome derby final?",
+   "a": "Lazio",
+   "o": [
+    "Como 1907",
+    "Bologna FC 1909",
+    "Juventus",
+    "Lazio"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who scored a hat-trick for Atalanta in the 2024 Europa League final?",
+   "a": "Ademola Lookman",
+   "o": [
+    "Harvey Barnes",
+    "Ademola Lookman",
+    "Richarlison",
+    "Mateo Retegui"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club beat Fiorentina in the 2023 Europa Conference League final?",
+   "a": "West Ham United",
+   "o": [
+    "Cardiff City",
+    "West Ham United",
+    "Bristol City",
+    "Middlesbrough"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club lost the 2017 Champions League final 4-1 to Real Madrid?",
+   "a": "Juventus",
+   "o": [
+    "Milan",
+    "Napoli",
+    "Juventus",
+    "Cagliari Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Italian club lost the 1984 European Cup final to Liverpool at its own ground?",
+   "a": "Roma",
+   "o": [
+    "Roma",
+    "ACF Fiorentina",
+    "Juventus",
+    "Atalanta BC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which manager led Inter Milan to the Serie A titles of 2006-07 and 2007-08?",
+   "a": "Roberto Mancini",
+   "o": [
+    "Frank Rijkaard",
+    "Lothar Matthäus",
+    "Roberto Mancini",
+    "Aron Winter"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Juventus sign Dusan Vlahović from in January 2022?",
+   "a": "Fiorentina",
+   "o": [
+    "Como 1907",
+    "Fiorentina",
+    "Napoli",
+    "Genoa CFC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club did Chelsea sign Jorginho from in 2018?",
+   "a": "Napoli",
+   "o": [
+    "Napoli",
+    "Lazio",
+    "Bologna FC 1909",
+    "Inter Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Georgian winger did Napoli sign in 2022, a year before they won the Scudetto?",
+   "a": "Khvicha Kvaratskhelia",
+   "o": [
+    "Gonçalo Guedes",
+    "Victor Osimhen",
+    "Hugo Ekitike",
+    "Khvicha Kvaratskhelia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Argentine striker did Juventus sign from Napoli in 2016 for a record Italian fee?",
+   "a": "Gonzalo Higuaín",
+   "o": [
+    "Emmanuel Adebayor",
+    "Sergio Agüero",
+    "Gonzalo Higuaín",
+    "Lionel Messi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Chilean midfielder did Juventus sign from Bayer Leverkusen in 2011?",
+   "a": "Arturo Vidal",
+   "o": [
+    "Arturo Vidal",
+    "Arda Turan",
+    "Wesley Sneijder",
+    "Toni Kroos"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Silvio Berlusconi buy in 2018 and take up to Serie A?",
+   "a": "Monza",
+   "o": [
+    "US Sassuolo Calcio",
+    "US Lecce",
+    "Cagliari Calcio",
+    "Monza"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Gianluigi Buffon, Fabio Cannavaro and Hernan Crespo all play for in the 1990s?",
+   "a": "Parma",
+   "o": [
+    "Parma",
+    "Genoa CFC",
+    "Bologna FC 1909",
+    "Udinese Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Ligurian club went down from Serie A in 2021-22 after fifteen years in the top flight?",
+   "a": "Genoa",
+   "o": [
+    "Torino",
+    "Genoa",
+    "Cagliari Calcio",
+    "Udinese Calcio"
+   ],
+   "k": 1
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 1995-96 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "Cagliari Calcio",
+    "Atalanta BC",
+    "Roma"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1996-97 Serie A?",
+   "a": "Parma",
+   "o": [
+    "Genoa CFC",
+    "Parma",
+    "Monza",
+    "Udinese Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 1997-98 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Napoli",
+    "Internazionale",
+    "Bologna FC 1909",
+    "Atalanta BC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 1998-99 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Lazio",
+    "Bologna FC 1909",
+    "Cagliari Calcio",
+    "Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1999-00 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Lazio",
+    "Atalanta BC",
+    "ACF Fiorentina",
+    "Juventus"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2000-01 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "Lazio",
+    "ACF Fiorentina",
+    "Napoli"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2001-02 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Inter Milan",
+    "Roma",
+    "Napoli",
+    "Juventus"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2002-03 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Como 1907",
+    "Lazio",
+    "Internazionale",
+    "ACF Fiorentina"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2003-04 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Napoli",
+    "Lazio",
+    "Roma",
+    "Inter Milan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2006-07 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Juventus",
+    "Bologna FC 1909",
+    "Roma",
+    "Inter Milan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2007-08 Serie A?",
+   "a": "Roma",
+   "o": [
+    "ACF Fiorentina",
+    "Milan",
+    "Napoli",
+    "Roma"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2009-10 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Cagliari Calcio",
+    "Milan",
+    "ACF Fiorentina",
+    "Roma"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2010-11 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Internazionale",
+    "Como 1907",
+    "Napoli",
+    "Atalanta BC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2012-13 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Inter Milan",
+    "Napoli",
+    "Como 1907",
+    "Cagliari Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2014-15 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Como 1907",
+    "Bologna FC 1909",
+    "Roma",
+    "Cagliari Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2015-16 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Lazio",
+    "ACF Fiorentina",
+    "Roma",
+    "Napoli"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2016-17 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Napoli",
+    "Juventus",
+    "Lazio",
+    "Inter Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2017-18 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Roma",
+    "Como 1907",
+    "Napoli",
+    "Atalanta BC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2018-19 Serie A?",
+   "a": "Atalanta",
+   "o": [
+    "Roma",
+    "Atalanta",
+    "Como 1907",
+    "Inter Milan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2020-21 Serie A?",
+   "a": "Atalanta",
+   "o": [
+    "Como 1907",
+    "Atalanta",
+    "Lazio",
+    "Milan"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2021-22 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Napoli",
+    "Roma",
+    "Lazio",
+    "Inter Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2022-23 Serie A?",
+   "a": "Inter Milan",
+   "o": [
+    "Inter Milan",
+    "Como 1907",
+    "Lazio",
+    "Atalanta BC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2023-24 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "ACF Fiorentina",
+    "Lazio",
+    "Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2024-25 Serie A?",
+   "a": "Atalanta",
+   "o": [
+    "Atalanta",
+    "Lazio",
+    "Roma",
+    "Inter Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club beat Juventus over two legs to win the 1991-92 Coppa Italia, their first major trophy?",
+   "a": "Parma",
+   "o": [
+    "Frosinone Calcio",
+    "Parma",
+    "Udinese Calcio",
+    "Monza"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club beat Roma over two legs to win the 1992-93 Coppa Italia?",
+   "a": "Torino",
+   "o": [
+    "Como 1907",
+    "Torino",
+    "US Lecce",
+    "Monza"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club beat Atalanta over two legs to win the 1995-96 Coppa Italia?",
+   "a": "Fiorentina",
+   "o": [
+    "Cagliari Calcio",
+    "Frosinone Calcio",
+    "Napoli",
+    "Fiorentina"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club beat Juventus over two legs to win the 2004 Coppa Italia?",
+   "a": "Lazio",
+   "o": [
+    "Lazio",
+    "ACF Fiorentina",
+    "Napoli",
+    "Atalanta BC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club beat Juventus 2-0 in the 2012 Coppa Italia final?",
+   "a": "Napoli",
+   "o": [
+    "Napoli",
+    "Lazio",
+    "Inter Milan",
+    "Cagliari Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored the only goal of the 2013 Coppa Italia final between Lazio and Roma?",
+   "a": "Senad Lulić",
+   "o": [
+    "Roberto Mancini",
+    "Senad Lulić",
+    "Lucas Leiva",
+    "Thomas Hitzlsperger"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Filippo Inzaghi playing for when he was the Serie A top scorer in 1996-97?",
+   "a": "Atalanta",
+   "o": [
+    "Atalanta",
+    "Cagliari Calcio",
+    "Napoli",
+    "Juventus"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Sampdoria striker was the Serie A top scorer in 1990-91?",
+   "a": "Gianluca Vialli",
+   "o": [
+    "Vincenzo Montella",
+    "Éric Cantona",
+    "Gianluca Vialli",
+    "Filippo Inzaghi"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club was Ciro Immobile playing for when he was the Serie A top scorer in 2013-14?",
+   "a": "Torino",
+   "o": [
+    "Udinese Calcio",
+    "Monza",
+    "Genoa CFC",
+    "Torino"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Roma striker was the Serie A top scorer in 2016-17 with twenty-nine goals?",
+   "a": "Edin Džeko",
+   "o": [
+    "Bas Dost",
+    "Edin Džeko",
+    "Alexis Sánchez",
+    "Carlos Tevez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which French club did AC Milan sign George Weah from in 1995?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Lille OSC",
+    "Le Havre",
+    "Lens",
+    "Paris Saint-Germain"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German club did Inter Milan sign Lothar Matthäus and Andreas Brehme from in 1988?",
+   "a": "Bayern Munich",
+   "o": [
+    "Hamburger",
+    "Werder Bremen",
+    "VfB Stuttgart",
+    "Bayern Munich"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Lazio sign Hernan Crespo from in 2000?",
+   "a": "Parma",
+   "o": [
+    "Bologna FC 1909",
+    "Torino",
+    "US Sassuolo Calcio",
+    "Parma"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club did Parma sell Faustino Asprilla to in 1996?",
+   "a": "Newcastle United",
+   "o": [
+    "Liverpool",
+    "Tottenham Hotspur",
+    "Newcastle United",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Belgian club did Sampdoria beat in the 1990 Cup Winners' Cup final?",
+   "a": "Anderlecht",
+   "o": [
+    "KRC Genk",
+    "Beveren",
+    "Anderlecht",
+    "Royal Antwerp"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spanish club did Lazio beat in the 1999 Cup Winners' Cup final, the last one ever played?",
+   "a": "Mallorca",
+   "o": [
+    "Mallorca",
+    "AD Ceuta",
+    "Córdoba",
+    "Eldense"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Italian club did Parma beat over two legs to win the 1995 UEFA Cup?",
+   "a": "Juventus",
+   "o": [
+    "Como 1907",
+    "Cagliari Calcio",
+    "Napoli",
+    "Juventus"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Genoa reached the 1992 UEFA Cup semi-finals. Which English club did they beat 2-1 at Anfield on the way?",
+   "a": "Liverpool",
+   "o": [
+    "Arsenal",
+    "Newcastle United",
+    "Liverpool",
+    "Chelsea"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Emilian club plays its home games at the Stadio Ennio Tardini?",
+   "a": "Parma",
+   "o": [
+    "Parma",
+    "Cagliari Calcio",
+    "Monza",
+    "Torino"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club plays its home games at the Stadio Renato Dall'Ara?",
+   "a": "Bologna",
+   "o": [
+    "Cagliari Calcio",
+    "Como 1907",
+    "Monza",
+    "Bologna"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Inter Milan led the table on the final day of 2001-02 and lost 4-2. Which club beat them?",
+   "a": "Lazio",
+   "o": [
+    "Juventus",
+    "Napoli",
+    "Lazio",
+    "Atalanta BC"
+   ],
+   "k": 2
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club finished third in the 1995-96 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Como 1907",
+    "Bologna FC 1909",
+    "Lazio",
+    "Atalanta BC"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 1995-96 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Lazio",
+    "Napoli",
+    "Inter Milan",
+    "Bologna FC 1909"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 1996-97 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Cagliari Calcio",
+    "Milan",
+    "Internazionale",
+    "Frosinone Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1997-98 Serie A?",
+   "a": "Udinese",
+   "o": [
+    "Udinese",
+    "Bologna FC 1909",
+    "US Sassuolo Calcio",
+    "Como 1907"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1997-98 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Lazio",
+    "Bologna FC 1909",
+    "Genoa CFC",
+    "Internazionale"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1998-99 Serie A?",
+   "a": "Fiorentina",
+   "o": [
+    "Bologna FC 1909",
+    "Milan",
+    "Fiorentina",
+    "Lazio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 1998-99 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Napoli",
+    "ACF Fiorentina",
+    "Milan",
+    "Roma"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1998-99 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Milan",
+    "Roma",
+    "Napoli",
+    "Lazio"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1999-00 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Milan",
+    "Bologna FC 1909",
+    "Como 1907",
+    "ACF Fiorentina"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 1999-00 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Milan",
+    "Lazio",
+    "Como 1907",
+    "Napoli"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1999-00 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Bologna FC 1909",
+    "Roma",
+    "Juventus",
+    "Napoli"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2000-01 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Como 1907",
+    "Milan",
+    "Lazio",
+    "Bologna FC 1909"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2000-01 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "Milan",
+    "Cagliari Calcio",
+    "Atalanta BC"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2001-02 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Napoli",
+    "Internazionale",
+    "Bologna FC 1909",
+    "Frosinone Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2002-03 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Milan",
+    "Juventus",
+    "Atalanta BC",
+    "Cagliari Calcio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2003-04 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Atalanta BC",
+    "Milan",
+    "Juventus",
+    "Bologna FC 1909"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2003-04 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Como 1907",
+    "Napoli",
+    "Roma",
+    "ACF Fiorentina"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2003-04 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Como 1907",
+    "Napoli",
+    "Roma",
+    "Milan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2005-06 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Atalanta BC",
+    "Milan",
+    "Como 1907",
+    "Lazio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2005-06 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "ACF Fiorentina",
+    "Napoli",
+    "Roma"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2006-07 Serie A?",
+   "a": "Fiorentina",
+   "o": [
+    "Fiorentina",
+    "Como 1907",
+    "Frosinone Calcio",
+    "Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2006-07 Serie A?",
+   "a": "Fiorentina",
+   "o": [
+    "Frosinone Calcio",
+    "Como 1907",
+    "Fiorentina",
+    "Milan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2007-08 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "Bologna FC 1909",
+    "Como 1907",
+    "Inter Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2007-08 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Roma",
+    "Napoli",
+    "Atalanta BC",
+    "Lazio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2008-09 Serie A?",
+   "a": "Juventus",
+   "o": [
+    "Atalanta BC",
+    "Bologna FC 1909",
+    "Como 1907",
+    "Juventus"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2009-10 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Roma",
+    "Milan",
+    "Bologna FC 1909",
+    "Lazio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2010-11 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Roma",
+    "Napoli",
+    "Cagliari Calcio",
+    "Bologna FC 1909"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2010-11 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Internazionale",
+    "ACF Fiorentina",
+    "Milan",
+    "Lazio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2011-12 Serie A?",
+   "a": "Udinese",
+   "o": [
+    "Udinese",
+    "US Lecce",
+    "Genoa CFC",
+    "Parma Calcio 1913"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2011-12 Serie A?",
+   "a": "Milan",
+   "o": [
+    "Como 1907",
+    "Milan",
+    "Juventus",
+    "Cagliari Calcio"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2012-13 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Atalanta BC",
+    "Bologna FC 1909",
+    "Napoli",
+    "Inter Milan"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2013-14 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Milan",
+    "Napoli",
+    "Lazio",
+    "Atalanta BC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2014-15 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Napoli",
+    "Como 1907",
+    "Roma",
+    "Lazio"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2015-16 Serie A?",
+   "a": "Roma",
+   "o": [
+    "Cagliari Calcio",
+    "Bologna FC 1909",
+    "Roma",
+    "Atalanta BC"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2015-16 Serie A?",
+   "a": "Roma",
+   "o": [
+    "ACF Fiorentina",
+    "Roma",
+    "Inter Milan",
+    "Como 1907"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2016-17 Serie A?",
+   "a": "Napoli",
+   "o": [
+    "Cagliari Calcio",
+    "Juventus",
+    "Napoli",
+    "Roma"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2017-18 Serie A?",
+   "a": "Lazio",
+   "o": [
+    "Roma",
+    "Atalanta BC",
+    "Lazio",
+    "Como 1907"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2018-19 Serie A?",
+   "a": "Atalanta",
+   "o": [
+    "Atalanta",
+    "Como 1907",
+    "Juventus",
+    "Inter Milan"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2019-20 Serie A?",
+   "a": "Atalanta",
+   "o": [
+    "Atalanta",
+    "Cagliari Calcio",
+    "Como 1907",
+    "Lazio"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2019-20 Serie A?",
+   "a": "Internazionale",
+   "o": [
+    "Lazio",
+    "Genoa CFC",
+    "Internazionale",
+    "Bologna FC 1909"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2020-21 Serie A?",
+   "a": "Atalanta",
+   "o": [
+    "Cagliari Calcio",
+    "Atalanta",
+    "Juventus",
+    "ACF Fiorentina"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2021-22 Serie A?",
+   "a": "Inter Milan",
+   "o": [
+    "Atalanta BC",
+    "Napoli",
+    "Frosinone Calcio",
+    "Inter Milan"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2025-26 Serie A?",
+   "a": "Como",
+   "o": [
+    "Frosinone Calcio",
+    "Como",
+    "Genoa CFC",
+    "Torino"
+   ],
+   "k": 1
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which club was relegated to Serie B in 2006 over match-fixing and came straight back up?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "Inter Milan",
+    "Cagliari Calcio",
+    "ACF Fiorentina"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the Champions League in 2010 as part of a treble, managed by Jose Mourinho?",
+   "a": "Inter Milan",
+   "o": [
+    "Frosinone Calcio",
+    "Bologna FC 1909",
+    "Napoli",
+    "Inter Milan"
+   ],
+   "k": 3
+  },
+  {
+   "q": "AC Milan led 3-0 at half time in the 2005 Champions League final and lost. Who beat them?",
+   "a": "Liverpool",
+   "o": [
+    "Tottenham Hotspur",
+    "Manchester United",
+    "Chelsea",
+    "Liverpool"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won Serie A in 2022-23, its first title in thirty-three years?",
+   "a": "Napoli",
+   "o": [
+    "Como 1907",
+    "Napoli",
+    "ACF Fiorentina",
+    "Juventus"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Italian club folded in 2004 after the collapse of its parent dairy company?",
+   "a": "Parma",
+   "o": [
+    "Como 1907",
+    "Torino",
+    "US Sassuolo Calcio",
+    "Parma"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won Serie A in 2020-21, ending Juventus's run of nine titles in a row?",
+   "a": "Inter Milan",
+   "o": [
+    "Frosinone Calcio",
+    "Cagliari Calcio",
+    "Atalanta BC",
+    "Inter Milan"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club did Diego Maradona take to their first Serie A title in 1987?",
+   "a": "Napoli",
+   "o": [
+    "Atalanta BC",
+    "Juventus",
+    "Napoli",
+    "Cagliari Calcio"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Roma captain spent his entire twenty-five year career at the club?",
+   "a": "Francesco Totti",
+   "o": [
+    "Alessandro Del Piero",
+    "Miroslav Klose",
+    "Francesco Totti",
+    "Thierry Henry"
+   ],
+   "k": 2
+  },
+  {
+   "q": "AC Milan went unbeaten through Serie A in 1991-92 under which manager?",
+   "a": "Fabio Capello",
+   "o": [
+    "Emlyn Hughes",
+    "Mario Lemina",
+    "Fabio Capello",
+    "Johan Cruyff"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Serie B club reached the semi-finals of the 1988 Cup Winners' Cup?",
+   "a": "Atalanta",
+   "o": [
+    "Bologna FC 1909",
+    "Roma",
+    "ACF Fiorentina",
+    "Atalanta"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which striker stayed with Fiorentina after they went down in 1993 and scored sixteen goals to take them straight back up?",
+   "a": "Gabriel Batistuta",
+   "o": [
+    "Éric Cantona",
+    "George Weah",
+    "Gabriel Batistuta",
+    "Davor Šuker"
+   ],
+   "k": 2
+  },
+  {
+   "q": "AC Milan fans protested outside the club offices in January 2009 to stop Kaká joining which club?",
+   "a": "Manchester City",
+   "o": [
+    "Leeds United",
+    "Manchester City",
+    "Everton",
+    "Aston Villa"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was docked ten points in 2022-23 over the way it had accounted for transfers, and finished seventh?",
+   "a": "Juventus",
+   "o": [
+    "Juventus",
+    "Cagliari Calcio",
+    "ACF Fiorentina",
+    "Napoli"
+   ],
+   "k": 0
+  }
+ ]
+}

@@ -1,0 +1,540 @@
+{
+ "easy": [
+  {
+   "q": "Which club won the 2016-17 2. Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Augsburg",
+    "VfB Stuttgart",
+    "Elversberg",
+    "Werder Bremen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2021-22 2. Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Schalke 04",
+    "Borussia Dortmund",
+    "Werder Bremen",
+    "Hamburger"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2025-26 2. Bundesliga?",
+   "a": "Schalke 04",
+   "o": [
+    "Schalke 04",
+    "Elversberg",
+    "Eintracht Frankfurt",
+    "Bayer 04 Leverkusen"
+   ],
+   "k": 0
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 1997-98 2. Bundesliga?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "Freiburg",
+    "1. FSV Mainz 05",
+    "Eintracht Frankfurt",
+    "Paderborn 07"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 1999-00 2. Bundesliga?",
+   "a": "1. FC Köln",
+   "o": [
+    "Freiburg",
+    "1. FC Köln",
+    "1. FC Union Berlin",
+    "Paderborn 07"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2002-03 2. Bundesliga?",
+   "a": "SC Freiburg",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "Freiburg",
+    "1. FC Köln",
+    "1. FSV Mainz 05"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2004-05 2. Bundesliga?",
+   "a": "1. FC Köln",
+   "o": [
+    "1. FC Köln",
+    "RB Leipzig",
+    "Elversberg",
+    "Augsburg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2007-08 2. Bundesliga?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "Paderborn 07",
+    "Eintracht Frankfurt",
+    "Borussia Mönchengladbach",
+    "1. FC Köln"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2008-09 2. Bundesliga?",
+   "a": "SC Freiburg",
+   "o": [
+    "RB Leipzig",
+    "Freiburg",
+    "Paderborn 07",
+    "Elversberg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2013-14 2. Bundesliga?",
+   "a": "1. FC Köln",
+   "o": [
+    "Elversberg",
+    "1. FSV Mainz 05",
+    "Augsburg",
+    "1. FC Köln"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2015-16 2. Bundesliga?",
+   "a": "SC Freiburg",
+   "o": [
+    "Freiburg",
+    "1. FSV Mainz 05",
+    "Elversberg",
+    "RB Leipzig"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2019-20 2. Bundesliga?",
+   "a": "VfB Stuttgart",
+   "o": [
+    "Elversberg",
+    "VfB Stuttgart",
+    "Hamburger",
+    "Werder Bremen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2021-22 2. Bundesliga?",
+   "a": "Werder Bremen",
+   "o": [
+    "1. FC Union Berlin",
+    "Werder Bremen",
+    "Augsburg",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2025-26 2. Bundesliga?",
+   "a": "SV Elversberg",
+   "o": [
+    "Augsburg",
+    "Elversberg",
+    "1. FC Union Berlin",
+    "Paderborn 07"
+   ],
+   "k": 1
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 1997-98 2. Bundesliga?",
+   "a": "SC Freiburg",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "1. FSV Mainz 05",
+    "Elversberg",
+    "Freiburg"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2000-01 2. Bundesliga?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "Borussia Mönchengladbach",
+    "1. FC Köln",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2002-03 2. Bundesliga?",
+   "a": "1. FC Köln",
+   "o": [
+    "Paderborn 07",
+    "TSG 1899 Hoffenheim",
+    "1. FC Köln",
+    "Eintracht Frankfurt"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2007-08 2. Bundesliga?",
+   "a": "1899 Hoffenheim",
+   "o": [
+    "1. FC Union Berlin",
+    "1. FC Köln",
+    "1899 Hoffenheim",
+    "Borussia Mönchengladbach"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2008-09 2. Bundesliga?",
+   "a": "Mainz 05",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "Mainz 05",
+    "Elversberg",
+    "Freiburg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2010-11 2. Bundesliga?",
+   "a": "FC Augsburg",
+   "o": [
+    "Borussia Mönchengladbach",
+    "Augsburg",
+    "Paderborn 07",
+    "TSG 1899 Hoffenheim"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2011-12 2. Bundesliga?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "Eintracht Frankfurt",
+    "Paderborn 07",
+    "Freiburg",
+    "RB Leipzig"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2015-16 2. Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "RB Leipzig",
+    "Paderborn 07",
+    "1. FC Köln",
+    "TSG 1899 Hoffenheim"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the 2. Bundesliga play-offs in 2018-19?",
+   "a": "Union Berlin",
+   "o": [
+    "Borussia Mönchengladbach",
+    "Union Berlin",
+    "TSG 1899 Hoffenheim",
+    "RB Leipzig"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2020-21 2. Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "Hamburger",
+    "1. FC Union Berlin",
+    "Schalke 04",
+    "Borussia Dortmund"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2021-22 2. Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "1. FC Union Berlin",
+    "Borussia Dortmund",
+    "Hamburger",
+    "Elversberg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2022-23 2. Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "Hamburger",
+    "Bayern Munich",
+    "Werder Bremen",
+    "1. FC Union Berlin"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2023-24 2. Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "1. FC Union Berlin",
+    "VfB Stuttgart",
+    "Eintracht Frankfurt",
+    "Hamburger"
+   ],
+   "k": 3
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club scored the most goals in the 1997-98 2. Bundesliga?",
+   "a": "SC Freiburg",
+   "o": [
+    "Freiburg",
+    "Eintracht Frankfurt",
+    "Paderborn 07",
+    "Elversberg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2000-01 2. Bundesliga?",
+   "a": "Borussia Mönchengladbach",
+   "o": [
+    "Elversberg",
+    "Borussia Mönchengladbach",
+    "RB Leipzig",
+    "Augsburg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2002-03 2. Bundesliga?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "Elversberg",
+    "Augsburg",
+    "Eintracht Frankfurt",
+    "1. FC Union Berlin"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2002-03 2. Bundesliga?",
+   "a": "Mainz 05",
+   "o": [
+    "TSG 1899 Hoffenheim",
+    "1. FC Köln",
+    "Borussia Mönchengladbach",
+    "Mainz 05"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2003-04 2. Bundesliga?",
+   "a": "Mainz 05",
+   "o": [
+    "Paderborn 07",
+    "1. FC Union Berlin",
+    "Mainz 05",
+    "Borussia Mönchengladbach"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2003-04 2. Bundesliga?",
+   "a": "Mainz 05",
+   "o": [
+    "Elversberg",
+    "Borussia Mönchengladbach",
+    "1. FC Köln",
+    "Mainz 05"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2004-05 2. Bundesliga?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "Eintracht Frankfurt",
+    "Borussia Mönchengladbach",
+    "TSG 1899 Hoffenheim",
+    "Freiburg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2004-05 2. Bundesliga?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "1. FC Union Berlin",
+    "Paderborn 07",
+    "Eintracht Frankfurt",
+    "1. FC Köln"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2007-08 2. Bundesliga?",
+   "a": "1. FC Köln",
+   "o": [
+    "1. FC Union Berlin",
+    "1. FC Köln",
+    "Augsburg",
+    "1. FSV Mainz 05"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2007-08 2. Bundesliga?",
+   "a": "Mainz 05",
+   "o": [
+    "Freiburg",
+    "TSG 1899 Hoffenheim",
+    "Mainz 05",
+    "Elversberg"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2008-09 2. Bundesliga?",
+   "a": "Mainz 05",
+   "o": [
+    "Mainz 05",
+    "Augsburg",
+    "RB Leipzig",
+    "TSG 1899 Hoffenheim"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2009-10 2. Bundesliga?",
+   "a": "FC Augsburg",
+   "o": [
+    "1. FC Köln",
+    "Augsburg",
+    "1. FC Union Berlin",
+    "1. FSV Mainz 05"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2010-11 2. Bundesliga?",
+   "a": "FC Augsburg",
+   "o": [
+    "Borussia Mönchengladbach",
+    "1. FC Union Berlin",
+    "Augsburg",
+    "1. FSV Mainz 05"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2011-12 2. Bundesliga?",
+   "a": "Eintracht Frankfurt",
+   "o": [
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt",
+    "TSG 1899 Hoffenheim",
+    "Elversberg"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2015-16 2. Bundesliga?",
+   "a": "RB Leipzig",
+   "o": [
+    "Augsburg",
+    "Elversberg",
+    "1. FC Union Berlin",
+    "RB Leipzig"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2020-21 2. Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "Hamburger",
+    "Schalke 04",
+    "VfB Stuttgart",
+    "Augsburg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2021-22 2. Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "Werder Bremen",
+    "Bayern Munich",
+    "Eintracht Frankfurt",
+    "Hamburger"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2022-23 2. Bundesliga?",
+   "a": "Hamburger SV",
+   "o": [
+    "Borussia Dortmund",
+    "1. FC Union Berlin",
+    "Hamburger",
+    "Eintracht Frankfurt"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2025-26 2. Bundesliga?",
+   "a": "SV Elversberg",
+   "o": [
+    "Augsburg",
+    "Elversberg",
+    "1. FC Köln",
+    "Eintracht Frankfurt"
+   ],
+   "k": 1
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which club kept a clock at its ground counting its unbroken years in the Bundesliga until 2018?",
+   "a": "Hamburger SV",
+   "o": [
+    "Augsburg",
+    "Bayern Munich",
+    "Eintracht Frankfurt",
+    "Hamburger"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Berlin club's supporters gave blood in 2004 to raise money to keep it alive?",
+   "a": "Union Berlin",
+   "o": [
+    "Borussia Mönchengladbach",
+    "1. FSV Mainz 05",
+    "1. FC Köln",
+    "Union Berlin"
+   ],
+   "k": 3
+  }
+ ]
+}

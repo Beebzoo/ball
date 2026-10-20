@@ -1,0 +1,2190 @@
+{
+ "easy": [
+  {
+   "q": "Which club plays its home games at the Camp Nou?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Villarreal",
+    "Real Sociedad",
+    "Atlético Madrid"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Basque club plays at San Mames?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Deportivo de A Coruña",
+    "Athletic Bilbao",
+    "Espanyol",
+    "Sevilla"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club moved into the Metropolitano in 2017?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Barcelona",
+    "Atletico Madrid",
+    "Valencia",
+    "Real Betis"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club plays at the Mestalla?",
+   "a": "Valencia",
+   "o": [
+    "Valencia",
+    "Real Sociedad",
+    "Deportivo Alavés",
+    "Celta de Vigo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Seville club plays at the Ramon Sanchez-Pizjuan?",
+   "a": "Sevilla",
+   "o": [
+    "Deportivo de A Coruña",
+    "Sevilla",
+    "Real Madrid",
+    "Atlético Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club plays at the Benito Villamarin in Seville?",
+   "a": "Real Betis",
+   "o": [
+    "Athletic Bilbao",
+    "Real Betis",
+    "Villarreal",
+    "Barcelona"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club plays at the Reale Arena in San Sebastian?",
+   "a": "Real Sociedad",
+   "o": [
+    "Real Sociedad",
+    "Athletic Bilbao",
+    "Celta de Vigo",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club contests the Basque derby with Real Sociedad?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Levante UD",
+    "Celta de Vigo",
+    "Athletic Bilbao",
+    "Getafe"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spanish club has a policy of fielding only Basque players?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Espanyol",
+    "Athletic Bilbao",
+    "Getafe",
+    "Celta de Vigo"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Argentine spent his entire European club career at Barcelona before leaving in 2021?",
+   "a": "Lionel Messi",
+   "o": [
+    "Lionel Messi",
+    "Pierre-Emerick Aubameyang",
+    "Mauro Icardi",
+    "Éric Maxim Choupo-Moting"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Portuguese forward joined Real Madrid from Manchester United in 2009?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Cristiano Ronaldo",
+    "Ricardo Quaresma",
+    "Gonzalo Higuaín",
+    "Klaas-Jan Huntelaar"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which French striker joined Real Madrid from Lyon in 2009 and stayed for over a decade?",
+   "a": "Karim Benzema",
+   "o": [
+    "Cristiano Ronaldo",
+    "Olivier Giroud",
+    "Karim Benzema",
+    "Sebastian Giovinco"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Uruguayan striker joined Barcelona from Liverpool in 2014?",
+   "a": "Luis Suarez",
+   "o": [
+    "Arjen Robben",
+    "Mario Mandžukić",
+    "Diego Costa",
+    "Luis Suarez"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Brazilian forward left Barcelona for Paris Saint-Germain in 2017?",
+   "a": "Neymar",
+   "o": [
+    "Neymar",
+    "Lucas Moura",
+    "Thiago Alcântara",
+    "Philippe Coutinho"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Croatian midfielder joined Real Madrid from Tottenham Hotspur in 2012?",
+   "a": "Luka Modric",
+   "o": [
+    "Ángel Di María",
+    "Kaká",
+    "Luka Modric",
+    "Mesut Özil"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Welsh winger joined Real Madrid from Tottenham Hotspur in 2013?",
+   "a": "Gareth Bale",
+   "o": [
+    "Ivan Perišić",
+    "Gonzalo Higuaín",
+    "Gareth Bale",
+    "Jay Rodriguez"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which manager led Barcelona from 2008 to 2012 and later managed Manchester City?",
+   "a": "Pep Guardiola",
+   "o": [
+    "Pep Guardiola",
+    "Roberto Baggio",
+    "Jari Litmanen",
+    "Rivaldo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Frenchman managed Real Madrid to three Champions League titles in a row?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Emmanuel Petit",
+    "Zinedine Zidane",
+    "Luis Enrique",
+    "Robert Prosinečki"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Spanish club has won the Europa League more than any other?",
+   "a": "Sevilla",
+   "o": [
+    "Sevilla",
+    "Athletic Bilbao",
+    "Deportivo Alavés",
+    "Elche"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Barcelona forward won the Ballon d'Or a record number of times?",
+   "a": "Lionel Messi",
+   "o": [
+    "Lionel Messi",
+    "Sergio Agüero",
+    "Pierre-Emerick Aubameyang",
+    "Gonzalo Higuaín"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club is known as Barca?",
+   "a": "Barcelona",
+   "o": [
+    "Athletic Bilbao",
+    "Real Sociedad",
+    "Valencia",
+    "Barcelona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Spanish club is known as Los Blancos?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Real Sociedad",
+    "Deportivo Alavés",
+    "Real Betis"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Madrid club is known as Los Colchoneros?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Atletico Madrid",
+    "Valencia",
+    "Barcelona"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Madrid club plays in red and white stripes?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Real Betis",
+    "Real Sociedad",
+    "Atletico Madrid",
+    "Deportivo Alavés"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Brazilian playmaker joined Barcelona from Paris Saint-Germain in 2003?",
+   "a": "Ronaldinho",
+   "o": [
+    "Antonio Cassano",
+    "Yaya Touré",
+    "Ronaldinho",
+    "Kaká"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English midfielder joined Real Madrid from Manchester United in 2003?",
+   "a": "David Beckham",
+   "o": [
+    "David Beckham",
+    "Clarence Seedorf",
+    "Michael Carrick",
+    "Jay-Jay Okocha"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which German midfielder joined Real Madrid from Bayern Munich in 2014?",
+   "a": "Toni Kroos",
+   "o": [
+    "Julian Brandt",
+    "Mario Götze",
+    "Christoph Kramer",
+    "Toni Kroos"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Belgian goalkeeper joined Real Madrid from Chelsea in 2018?",
+   "a": "Thibaut Courtois",
+   "o": [
+    "Jan Oblak",
+    "Thibaut Courtois",
+    "Marco Bizot",
+    "Koen Casteels"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Polish striker joined Barcelona from Bayern Munich in 2022?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "Robert Lewandowski",
+    "Éric Maxim Choupo-Moting",
+    "Mario Mandžukić",
+    "Luis Suárez"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which French forward left Atletico Madrid for Barcelona in 2019?",
+   "a": "Antoine Griezmann",
+   "o": [
+    "Miralem Pjanić",
+    "Philippe Coutinho",
+    "Ivan Rakitić",
+    "Antoine Griezmann"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Brazilian joined Barcelona from Liverpool in January 2018?",
+   "a": "Philippe Coutinho",
+   "o": [
+    "Philippe Coutinho",
+    "Miralem Pjanić",
+    "Thiago Alcântara",
+    "Roberto Firmino"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which French striker joined Real Madrid from Paris Saint-Germain in 2024?",
+   "a": "Kylian Mbappe",
+   "o": [
+    "Kylian Mbappe",
+    "Ousmane Dembélé",
+    "Kingsley Coman",
+    "Luka Jović"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Brazilian winger joined Real Madrid from Flamengo in 2018?",
+   "a": "Vinicius Junior",
+   "o": [
+    "Víctor Muñoz",
+    "Rodrygo",
+    "Takefusa Kubo",
+    "Vinicius Junior"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Frenchman did Real Madrid sign for a world record fee in 2001?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Claude Makélélé",
+    "David Beckham",
+    "Zinedine Zidane",
+    "Didier Deschamps"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Diego Simeone play for before he came back to manage them?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Real Sociedad",
+    "Atletico Madrid",
+    "Valencia",
+    "Real Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Barcelona defender captained the side to the treble in 2008-09?",
+   "a": "Carles Puyol",
+   "o": [
+    "Ashley Cole",
+    "Sylvinho",
+    "Gabriel Milito",
+    "Carles Puyol"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which goalkeeper captained Real Madrid for years before joining Porto in 2015?",
+   "a": "Iker Casillas",
+   "o": [
+    "Tim Howard",
+    "Robert Green",
+    "Gianluigi Buffon",
+    "Iker Casillas"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which defender captained Real Madrid before joining Paris Saint-Germain in 2021?",
+   "a": "Sergio Ramos",
+   "o": [
+    "Iñigo Martínez",
+    "Sergio Ramos",
+    "Gregory van der Wiel",
+    "Jonathan Woodgate"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Spanish club won the Champions League five times between 2014 and 2022?",
+   "a": "Real Madrid",
+   "o": [
+    "Barcelona",
+    "Real Sociedad",
+    "Real Madrid",
+    "Valencia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2014 Champions League after Sergio Ramos equalised in stoppage time?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Barcelona",
+    "Deportivo Alavés",
+    "Real Sociedad"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2020-21 La Liga under Diego Simeone?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Villarreal",
+    "Atletico Madrid",
+    "Real Betis",
+    "Barcelona"
+   ],
+   "k": 1
+  },
+  {
+   "q": "By the end of 2024-25, which club had won La Liga more times than any other?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Villarreal",
+    "Deportivo Alavés",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club plays at the Ciutat de Valencia and shares the city with Valencia?",
+   "a": "Levante",
+   "o": [
+    "Elche",
+    "Espanyol",
+    "Deportivo de A Coruña",
+    "Levante"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutch midfielder joined Barcelona from Ajax in 2019?",
+   "a": "Frenkie de Jong",
+   "o": [
+    "Dani Olmo",
+    "Steven Berghuis",
+    "Frenkie de Jong",
+    "Julian Brandt"
+   ],
+   "k": 2
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 1995-96 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Valencia",
+    "Real Madrid",
+    "Atlético Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 1996-97 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Valencia",
+    "Athletic Bilbao",
+    "Real Betis"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 1998-99 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Real Madrid",
+    "Valencia",
+    "Villarreal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2000-01 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Valencia",
+    "Real Betis",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2001-02 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Real Betis",
+    "Celta de Vigo",
+    "Real Madrid",
+    "Valencia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2003-04 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Valencia",
+    "Villarreal",
+    "Real Sociedad",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2005-06 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Villarreal",
+    "Real Madrid",
+    "Barcelona",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2006-07 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Deportivo Alavés",
+    "Real Sociedad",
+    "Sevilla"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2008-09 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Atlético Madrid",
+    "Villarreal",
+    "Real Sociedad"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2010-11 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Celta de Vigo",
+    "Barcelona",
+    "Atlético Madrid",
+    "Valencia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2011-12 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Real Betis",
+    "Athletic Bilbao",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2013-14 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Barcelona",
+    "Atlético Madrid",
+    "Valencia",
+    "Villarreal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2016-17 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Real Betis",
+    "Athletic Bilbao",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2017-18 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Real Betis",
+    "Real Madrid",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2018-19 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Real Betis",
+    "Barcelona",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2019-20 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Real Betis",
+    "Villarreal",
+    "Barcelona",
+    "Athletic Bilbao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2020-21 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Barcelona",
+    "Real Madrid",
+    "Real Betis",
+    "Celta de Vigo"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2021-22 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Real Madrid",
+    "Deportivo Alavés",
+    "Celta de Vigo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2022-23 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Sociedad",
+    "Real Betis",
+    "Real Madrid",
+    "Athletic Bilbao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2023-24 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Atlético Madrid",
+    "Barcelona",
+    "Villarreal",
+    "Valencia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2024-25 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Sociedad",
+    "Barcelona",
+    "Real Madrid",
+    "Celta de Vigo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2025-26 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Betis",
+    "Celta de Vigo",
+    "Real Madrid",
+    "Sevilla"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who scored 50 La Liga goals in 2011-12, a record for a single season?",
+   "a": "Lionel Messi",
+   "o": [
+    "Carlos Tevez",
+    "Gonzalo Higuaín",
+    "Lionel Messi",
+    "Javier Saviola"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who won the Pichichi as La Liga's top scorer in 2013-14?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Ricardo Quaresma",
+    "Gonzalo Higuaín",
+    "Fernando Llorente",
+    "Cristiano Ronaldo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Pichichi as La Liga's top scorer in 2018-19?",
+   "a": "Lionel Messi",
+   "o": [
+    "Robert Lewandowski",
+    "Gonzalo Higuaín",
+    "Sergio Agüero",
+    "Lionel Messi"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who won the Pichichi as La Liga's top scorer in 2021-22?",
+   "a": "Karim Benzema",
+   "o": [
+    "Karim Benzema",
+    "Gonzalo Higuaín",
+    "Klaas-Jan Huntelaar",
+    "Alexandre Lacazette"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who won the Pichichi as La Liga's top scorer in 2022-23?",
+   "a": "Robert Lewandowski",
+   "o": [
+    "André Schürrle",
+    "Robert Lewandowski",
+    "Pierre-Emerick Aubameyang",
+    "Ciro Immobile"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2018-19 Copa del Rey, beating Barcelona in the final?",
+   "a": "Valencia",
+   "o": [
+    "Deportivo Alavés",
+    "Athletic Bilbao",
+    "Valencia",
+    "Sevilla"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2020-21 Copa del Rey, beating Athletic Bilbao 4-0?",
+   "a": "Barcelona",
+   "o": [
+    "Sevilla",
+    "Real Betis",
+    "Villarreal",
+    "Barcelona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2022-23 Copa del Rey, beating Osasuna in the final?",
+   "a": "Real Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Real Madrid",
+    "Villarreal",
+    "Valencia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Basque club won the 2023-24 Copa del Rey on penalties?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Athletic Bilbao",
+    "Deportivo de A Coruña",
+    "Celta de Vigo",
+    "Real Madrid"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2013-14 Copa del Rey after a solo goal by Gareth Bale?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Athletic Bilbao",
+    "Celta de Vigo",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Italian managed Real Madrid to the 2021-22 La Liga title?",
+   "a": "Carlo Ancelotti",
+   "o": [
+    "Carlo Ancelotti",
+    "Frank Rijkaard",
+    "Falcão",
+    "Diego Maradona"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which former Barcelona midfielder managed them to the 2022-23 La Liga title?",
+   "a": "Xavi",
+   "o": [
+    "Samuel Eto'o",
+    "Xavi",
+    "David Villa",
+    "Santi Cazorla"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Real Madrid sign Ronaldo from in 2002?",
+   "a": "Inter Milan",
+   "o": [
+    "Como 1907",
+    "Inter Milan",
+    "Cagliari Calcio",
+    "Atalanta BC"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Barcelona sign Dani Alves from in 2008?",
+   "a": "Sevilla",
+   "o": [
+    "Atlético Madrid",
+    "Sevilla",
+    "Celta de Vigo",
+    "Elche"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Atletico Madrid sign goalkeeper Jan Oblak from in 2014?",
+   "a": "Benfica",
+   "o": [
+    "Académico de Viseu",
+    "Estrela da Amadora",
+    "Sporting",
+    "Benfica"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German club did Barcelona sign Marc-Andre ter Stegen from in 2014?",
+   "a": "Borussia Monchengladbach",
+   "o": [
+    "1. FSV Mainz 05",
+    "RB Leipzig",
+    "Freiburg",
+    "Borussia Monchengladbach"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Argentine winger did Real Madrid sign from Benfica in 2010?",
+   "a": "Angel Di Maria",
+   "o": [
+    "Angel Di Maria",
+    "James Rodríguez",
+    "Miralem Pjanić",
+    "Adel Taarabt"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Spanish club won the UEFA Cup in both 2006 and 2007?",
+   "a": "Sevilla",
+   "o": [
+    "Sevilla",
+    "Deportivo Alavés",
+    "Villarreal",
+    "Real Betis"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Spanish club won the Europa League in 2021 under Unai Emery?",
+   "a": "Villarreal",
+   "o": [
+    "Villarreal",
+    "Valencia",
+    "Sevilla",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Andalusian club was relegated from La Liga in 2017-18?",
+   "a": "Malaga",
+   "o": [
+    "Celta de Vigo",
+    "Malaga",
+    "Racing de Santander",
+    "Deportivo de A Coruña"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club left the Vicente Calderon behind when it moved ground in 2017?",
+   "a": "Atletico Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Atletico Madrid",
+    "Athletic Bilbao",
+    "Sevilla"
+   ],
+   "k": 1
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 1995-96 La Liga?",
+   "a": "Valencia CF",
+   "o": [
+    "Celta de Vigo",
+    "Villarreal",
+    "Real Madrid",
+    "Valencia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1996-97 La Liga?",
+   "a": "FC Barcelona",
+   "o": [
+    "Villarreal",
+    "Barcelona",
+    "Real Betis",
+    "Sevilla"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 1997-98 La Liga?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Athletic Bilbao",
+    "Getafe",
+    "Levante UD",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1998-99 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Betis",
+    "Real Madrid",
+    "Valencia",
+    "Atlético Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2002-03 La Liga?",
+   "a": "Real Sociedad",
+   "o": [
+    "Sevilla",
+    "Real Betis",
+    "Real Sociedad",
+    "Athletic Bilbao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2003-04 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Real Sociedad",
+    "Barcelona",
+    "Valencia",
+    "Real Betis"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2004-05 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Sevilla",
+    "Barcelona",
+    "Valencia",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2005-06 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Atlético Madrid",
+    "Barcelona",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2007-08 La Liga?",
+   "a": "Villarreal",
+   "o": [
+    "Barcelona",
+    "Sevilla",
+    "Villarreal",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2008-09 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Deportivo Alavés",
+    "Sevilla",
+    "Real Madrid",
+    "Barcelona"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2009-10 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Celta de Vigo",
+    "Real Madrid",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2010-11 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Sociedad",
+    "Real Betis",
+    "Real Madrid",
+    "Barcelona"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2011-12 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Real Betis",
+    "Athletic Bilbao",
+    "Atlético Madrid",
+    "Barcelona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2012-13 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Betis",
+    "Real Sociedad",
+    "Celta de Vigo",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2013-14 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Villarreal",
+    "Real Madrid",
+    "Barcelona",
+    "Deportivo Alavés"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2014-15 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Athletic Bilbao",
+    "Real Madrid",
+    "Valencia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2015-16 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Athletic Bilbao",
+    "Atlético Madrid",
+    "Sevilla",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2017-18 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Sevilla",
+    "Real Betis",
+    "Celta de Vigo",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2018-19 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Barcelona",
+    "Atlético Madrid",
+    "Real Madrid",
+    "Sevilla"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2019-20 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Sevilla",
+    "Atlético Madrid",
+    "Celta de Vigo",
+    "Deportivo Alavés"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2020-21 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Real Sociedad",
+    "Deportivo Alavés",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2021-22 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Sevilla",
+    "Barcelona",
+    "Atlético Madrid",
+    "Valencia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2022-23 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Sevilla",
+    "Real Madrid",
+    "Atlético Madrid",
+    "Celta de Vigo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2023-24 La Liga?",
+   "a": "Girona",
+   "o": [
+    "Girona",
+    "Albacete Balompié",
+    "Eldense",
+    "Córdoba"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2024-25 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Valencia",
+    "Athletic Bilbao",
+    "Villarreal",
+    "Atlético Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2025-26 La Liga?",
+   "a": "Villarreal",
+   "o": [
+    "Sevilla",
+    "Deportivo Alavés",
+    "Celta de Vigo",
+    "Villarreal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the first La Liga title, played in 1929?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Sevilla",
+    "Atlético Madrid",
+    "Real Betis"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Seville club won its only La Liga title in 1934-35?",
+   "a": "Real Betis",
+   "o": [
+    "Deportivo Alavés",
+    "Real Sociedad",
+    "Real Betis",
+    "Athletic Bilbao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Basque club won back-to-back La Liga titles in 1980-81 and 1981-82?",
+   "a": "Real Sociedad",
+   "o": [
+    "Real Betis",
+    "Real Sociedad",
+    "Real Madrid",
+    "Sevilla"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Canary Islands club finished second in the 1968-69 La Liga?",
+   "a": "Las Palmas",
+   "o": [
+    "Albacete Balompié",
+    "Las Palmas",
+    "AD Ceuta",
+    "Almería"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Brazilian striker won the Pichichi with 30 goals for Barcelona in 1993-94?",
+   "a": "Romário",
+   "o": [
+    "Romário",
+    "Hristo Stoichkov",
+    "Luís Figo",
+    "Marc Degryse"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Dutch striker won the Pichichi with Deportivo La Coruña in 2002-03?",
+   "a": "Roy Makaay",
+   "o": [
+    "Jon Dahl Tomasson",
+    "Roy Makaay",
+    "Pierre van Hooijdonk",
+    "Arjen Robben"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Uruguayan won the Pichichi with Villarreal in 2004-05?",
+   "a": "Diego Forlán",
+   "o": [
+    "Nwankwo Kanu",
+    "Diego Forlán",
+    "Dimitar Berbatov",
+    "Michael Owen"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which goalkeeper won the Zamora trophy four seasons in a row from 2015-16?",
+   "a": "Jan Oblak",
+   "o": [
+    "Alisson",
+    "Wojciech Szczęsny",
+    "Jan Oblak",
+    "Thibaut Courtois"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Real Madrid and Barcelona are two of the three clubs never relegated from La Liga. Which is the third?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Celta de Vigo",
+    "Getafe",
+    "Málaga",
+    "Athletic Bilbao"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which English club did Sevilla beat 4-0 in the 2006 UEFA Cup final?",
+   "a": "Middlesbrough",
+   "o": [
+    "Lincoln City",
+    "Charlton Athletic",
+    "Middlesbrough",
+    "Bolton Wanderers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which English club did Atlético Madrid beat 2-1 in the 2010 Europa League final?",
+   "a": "Fulham",
+   "o": [
+    "Fulham",
+    "Coventry City",
+    "Liverpool",
+    "Sunderland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which French club did Valencia beat 2-0 in the 2004 UEFA Cup final?",
+   "a": "Marseille",
+   "o": [
+    "Marseille",
+    "Monaco",
+    "Angers SCO",
+    "Paris Saint-Germain"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Who scored the only goal of the 1998 Champions League final for Real Madrid?",
+   "a": "Predrag Mijatović",
+   "o": [
+    "Karim Benzema",
+    "Arjen Robben",
+    "Patrick Kluivert",
+    "Predrag Mijatović"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club beat Recreativo Huelva 3-0 in the 2003 Copa del Rey final?",
+   "a": "Mallorca",
+   "o": [
+    "Burgos",
+    "Eldense",
+    "Mallorca",
+    "Albacete Balompié"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Sevilla beat 1-0 in the 2007 Copa del Rey final?",
+   "a": "Getafe",
+   "o": [
+    "Osasuna",
+    "Celta de Vigo",
+    "Getafe",
+    "Deportivo de A Coruña"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club did Real Sociedad beat 1-0 in the 2020 Copa del Rey final?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Deportivo de A Coruña",
+    "Elche",
+    "Athletic Bilbao",
+    "Levante UD"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which manager replaced Rafael Benítez at Real Madrid in January 2016?",
+   "a": "Zinedine Zidane",
+   "o": [
+    "Didier Deschamps",
+    "Christian Karembeu",
+    "Pavel Nedvěd",
+    "Zinedine Zidane"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Dutch club did Barcelona sign Ronaldo from in 1996?",
+   "a": "PSV Eindhoven",
+   "o": [
+    "PSV Eindhoven",
+    "ADO Den Haag",
+    "Feyenoord",
+    "Heerenveen"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Luis Enrique leave on a free transfer to join Barcelona in 1996?",
+   "a": "Real Madrid",
+   "o": [
+    "Villarreal",
+    "Real Madrid",
+    "Valencia",
+    "Real Betis"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Real Madrid sign Claude Makélélé from in 2000?",
+   "a": "Celta Vigo",
+   "o": [
+    "Espanyol",
+    "Getafe",
+    "Levante UD",
+    "Celta Vigo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which striker moved to Inter Milan in the 2009 deal that took Zlatan Ibrahimović to Barcelona?",
+   "a": "Samuel Eto'o",
+   "o": [
+    "Diego Forlán",
+    "Nicolas Anelka",
+    "Samuel Eto'o",
+    "Diego Milito"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Dane won four straight La Liga titles with Barcelona and then a fifth with Real Madrid?",
+   "a": "Michael Laudrup",
+   "o": [
+    "Gheorghe Hagi",
+    "Roberto Baggio",
+    "Michael Laudrup",
+    "Luis Enrique"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club plays its home games at El Sadar?",
+   "a": "Osasuna",
+   "o": [
+    "Celta de Vigo",
+    "Osasuna",
+    "Espanyol",
+    "Málaga"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club plays at El Molinón, the oldest ground in Spanish professional football?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Castellón",
+    "Eibar",
+    "Sporting Gijón",
+    "AD Ceuta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club was relegated in 2011-12, one season after finishing fourth in La Liga?",
+   "a": "Villarreal",
+   "o": [
+    "Deportivo Alavés",
+    "Villarreal",
+    "Atlético Madrid",
+    "Barcelona"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Madrid club was relegated in 1999-2000 in the same season it reached the Copa del Rey final?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Real Sociedad",
+    "Athletic Bilbao",
+    "Villarreal"
+   ],
+   "k": 0
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club finished third in the 1995-96 La Liga?",
+   "a": "FC Barcelona",
+   "o": [
+    "Celta de Vigo",
+    "Barcelona",
+    "Valencia",
+    "Deportivo Alavés"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 1995-96 La Liga?",
+   "a": "Valencia CF",
+   "o": [
+    "Deportivo Alavés",
+    "Barcelona",
+    "Valencia",
+    "Athletic Bilbao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1996-97 La Liga?",
+   "a": "Betis",
+   "o": [
+    "Betis",
+    "Sevilla",
+    "Valencia",
+    "Barcelona"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 1996-97 La Liga?",
+   "a": "FC Barcelona",
+   "o": [
+    "Atlético Madrid",
+    "Real Sociedad",
+    "Barcelona",
+    "Celta de Vigo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1997-98 La Liga?",
+   "a": "Real Sociedad",
+   "o": [
+    "Real Betis",
+    "Real Sociedad",
+    "Villarreal",
+    "Real Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 1997-98 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Villarreal",
+    "Deportivo Alavés",
+    "Atlético Madrid",
+    "Celta de Vigo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1997-98 La Liga?",
+   "a": "Espanyol",
+   "o": [
+    "Espanyol",
+    "Elche",
+    "Levante UD",
+    "Málaga"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 1998-99 La Liga?",
+   "a": "Mallorca",
+   "o": [
+    "Córdoba",
+    "Eldense",
+    "Mallorca",
+    "Andorra"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1998-99 La Liga?",
+   "a": "Mallorca",
+   "o": [
+    "Eldense",
+    "Albacete Balompié",
+    "AD Ceuta",
+    "Mallorca"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2000-01 La Liga?",
+   "a": "Mallorca",
+   "o": [
+    "Albacete Balompié",
+    "Andorra",
+    "Castellón",
+    "Mallorca"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2000-01 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Villarreal",
+    "Atlético Madrid",
+    "Valencia",
+    "Barcelona"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2001-02 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Barcelona",
+    "Atlético Madrid",
+    "Sevilla"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2001-02 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Real Betis",
+    "Real Madrid",
+    "Athletic Bilbao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2002-03 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Athletic Bilbao",
+    "Real Madrid",
+    "Valencia",
+    "Atlético Madrid"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2003-04 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Barcelona",
+    "Real Sociedad",
+    "Real Madrid",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2004-05 La Liga?",
+   "a": "Villarreal",
+   "o": [
+    "Villarreal",
+    "Barcelona",
+    "Athletic Bilbao",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2005-06 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Atlético Madrid",
+    "Villarreal",
+    "Valencia",
+    "Real Madrid"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2005-06 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Real Sociedad",
+    "Celta de Vigo",
+    "Athletic Bilbao",
+    "Valencia"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2006-07 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Athletic Bilbao",
+    "Valencia",
+    "Atlético Madrid"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2006-07 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Atlético Madrid",
+    "Real Sociedad",
+    "Villarreal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2007-08 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Valencia",
+    "Celta de Vigo",
+    "Deportivo Alavés",
+    "Barcelona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2008-09 La Liga?",
+   "a": "Sevilla",
+   "o": [
+    "Sevilla",
+    "Deportivo de A Coruña",
+    "Deportivo Alavés",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2009-10 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Valencia",
+    "Sevilla",
+    "Celta de Vigo",
+    "Real Betis"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2009-10 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Villarreal",
+    "Real Madrid",
+    "Barcelona",
+    "Atlético Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2010-11 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Deportivo Alavés",
+    "Atlético Madrid",
+    "Valencia",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2010-11 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Real Madrid",
+    "Villarreal",
+    "Real Sociedad"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2011-12 La Liga?",
+   "a": "Valencia",
+   "o": [
+    "Athletic Bilbao",
+    "Barcelona",
+    "Valencia",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2011-12 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Barcelona",
+    "Valencia",
+    "Athletic Bilbao",
+    "Real Betis"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2012-13 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Barcelona",
+    "Atlético Madrid",
+    "Deportivo Alavés",
+    "Valencia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2012-13 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Deportivo Alavés",
+    "Real Sociedad",
+    "Sevilla"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2013-14 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Barcelona",
+    "Sevilla",
+    "Real Madrid",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2013-14 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Deportivo Alavés",
+    "Villarreal",
+    "Real Madrid",
+    "Valencia"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2014-15 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Real Betis",
+    "Valencia",
+    "Athletic Bilbao",
+    "Atlético Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2014-15 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Madrid",
+    "Villarreal",
+    "Valencia",
+    "Real Betis"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2015-16 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Atlético Madrid",
+    "Athletic Bilbao",
+    "Deportivo Alavés"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2015-16 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Villarreal",
+    "Real Madrid",
+    "Celta de Vigo",
+    "Atlético Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2016-17 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Deportivo Alavés",
+    "Real Sociedad",
+    "Barcelona",
+    "Real Betis"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2017-18 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Valencia",
+    "Villarreal",
+    "Athletic Bilbao"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2018-19 La Liga?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Atlético Madrid",
+    "Deportivo Alavés",
+    "Barcelona",
+    "Athletic Bilbao"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2019-20 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Celta de Vigo",
+    "Barcelona",
+    "Real Betis",
+    "Deportivo Alavés"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2020-21 La Liga?",
+   "a": "Barcelona",
+   "o": [
+    "Real Betis",
+    "Barcelona",
+    "Atlético Madrid",
+    "Real Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2021-22 La Liga?",
+   "a": "Sevilla",
+   "o": [
+    "Deportivo de A Coruña",
+    "Real Madrid",
+    "Valencia",
+    "Sevilla"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2022-23 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Celta de Vigo",
+    "Barcelona",
+    "Real Madrid",
+    "Villarreal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2024-25 La Liga?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Levante UD",
+    "Real Madrid",
+    "Athletic Bilbao",
+    "Deportivo Alavés"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2025-26 La Liga?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Sociedad",
+    "Deportivo Alavés",
+    "Atlético Madrid",
+    "Real Madrid"
+   ],
+   "k": 3
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which Barcelona striker bit an opponent at the 2014 World Cup, months before the club signed him?",
+   "a": "Luis Suarez",
+   "o": [
+    "Radamel Falcao",
+    "Arjen Robben",
+    "Luis Suarez",
+    "Mario Mandžukić"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Real Madrid's galactico era began in 2000 with a signing taken from Barcelona. Who was he?",
+   "a": "Luis Figo",
+   "o": [
+    "Luis Figo",
+    "Romário",
+    "Christian Vieri",
+    "Hernán Crespo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which goalkeeper captained Real Madrid for a decade and lifted the World Cup for Spain in 2010?",
+   "a": "Iker Casillas",
+   "o": [
+    "Claudio Bravo",
+    "Robert Green",
+    "Tim Howard",
+    "Iker Casillas"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Lionel Messi left Barcelona in 2021 because the club could not register his contract. Which club did he join?",
+   "a": "Paris Saint-Germain",
+   "o": [
+    "Paris Saint-Germain",
+    "Lille OSC",
+    "Stade Brestois 29",
+    "Le Mans"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club did Rafael Benitez manage to two La Liga titles before he joined Liverpool?",
+   "a": "Valencia",
+   "o": [
+    "Athletic Bilbao",
+    "Celta de Vigo",
+    "Valencia",
+    "Sevilla"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Barcelona defender captained the side through the Guardiola years and retired in 2014?",
+   "a": "Carles Puyol",
+   "o": [
+    "Juliano Belletti",
+    "Eric Abidal",
+    "Carles Puyol",
+    "Maxwell"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Spanish club is owned by its members rather than a proprietor, who elect its president?",
+   "a": "Barcelona",
+   "o": [
+    "Celta de Vigo",
+    "Deportivo Alavés",
+    "Real Madrid",
+    "Barcelona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In 1931 Barcelona lost a league match 12-1. Which club beat them?",
+   "a": "Athletic Bilbao",
+   "o": [
+    "Deportivo Alavés",
+    "Athletic Bilbao",
+    "Getafe",
+    "Espanyol"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club beat Real Madrid on the final day in both 1992 and 1993, handing Barcelona the title each time?",
+   "a": "Tenerife",
+   "o": [
+    "AD Ceuta",
+    "Tenerife",
+    "Andorra",
+    "Córdoba"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Barcelona were unbeaten in the 2017-18 league until the second last game. Which club beat them 5-4?",
+   "a": "Levante",
+   "o": [
+    "Rayo Vallecano",
+    "Elche",
+    "Celta de Vigo",
+    "Levante"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished 13th in 2014-15 and was relegated from La Liga anyway, for unpaid tax?",
+   "a": "Elche",
+   "o": [
+    "Racing de Santander",
+    "Deportivo Alavés",
+    "Osasuna",
+    "Elche"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club's players refused to kick off against Real Sociedad in a 2014 Copa del Rey tie?",
+   "a": "Racing Santander",
+   "o": [
+    "Celta de Vigo",
+    "Deportivo Alavés",
+    "Levante UD",
+    "Racing Santander"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who finished a hat-trick with an overhead kick on the last day of 2000-01 to put Barcelona into the Champions League?",
+   "a": "Rivaldo",
+   "o": [
+    "Rivaldo",
+    "Emmanuel Petit",
+    "David Beckham",
+    "Juninho Paulista"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Spanish club lost the 2001 UEFA Cup final 5-4 to Liverpool on a golden goal?",
+   "a": "Alavés",
+   "o": [
+    "Espanyol",
+    "Alavés",
+    "Levante UD",
+    "Málaga"
+   ],
+   "k": 1
+  }
+ ]
+}

@@ -1,0 +1,1739 @@
+{
+ "easy": [
+  {
+   "q": "Which club won the 2016-17 Championship?",
+   "a": "Newcastle United",
+   "o": [
+    "Nottingham Forest",
+    "Newcastle United",
+    "Tottenham Hotspur",
+    "Manchester City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2017-18 Championship?",
+   "a": "Wolverhampton Wanderers",
+   "o": [
+    "Derby County",
+    "Lincoln City",
+    "Bolton Wanderers",
+    "Wolverhampton Wanderers"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2018-19 Championship?",
+   "a": "Norwich City",
+   "o": [
+    "Derby County",
+    "Norwich City",
+    "Blackburn Rovers",
+    "Lincoln City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2019-20 Championship?",
+   "a": "Leeds United",
+   "o": [
+    "Manchester City",
+    "Leeds United",
+    "Nottingham Forest",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2020-21 Championship?",
+   "a": "Norwich City",
+   "o": [
+    "Norwich City",
+    "Bolton Wanderers",
+    "Cardiff City",
+    "Bristol City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2021-22 Championship?",
+   "a": "Fulham",
+   "o": [
+    "Fulham",
+    "Sunderland",
+    "Aston Villa",
+    "Ipswich Town"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2022-23 Championship?",
+   "a": "Burnley",
+   "o": [
+    "Bristol City",
+    "Middlesbrough",
+    "Burnley",
+    "Blackburn Rovers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2024-25 Championship?",
+   "a": "Leeds United",
+   "o": [
+    "Everton",
+    "Tottenham Hotspur",
+    "Leeds United",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2025-26 Championship?",
+   "a": "Coventry City",
+   "o": [
+    "Liverpool",
+    "Bournemouth",
+    "Sunderland",
+    "Coventry City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club has played at the Riverside Stadium since 1995?",
+   "a": "Middlesbrough",
+   "o": [
+    "Blackburn Rovers",
+    "Birmingham City",
+    "Charlton Athletic",
+    "Middlesbrough"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club plays its home games at Ashton Gate?",
+   "a": "Bristol City",
+   "o": [
+    "Cardiff City",
+    "Derby County",
+    "Millwall",
+    "Bristol City"
+   ],
+   "k": 3
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 1992-93 Championship?",
+   "a": "Newcastle United",
+   "o": [
+    "Liverpool",
+    "Tottenham Hotspur",
+    "Manchester City",
+    "Newcastle United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 1993-94 Championship?",
+   "a": "Crystal Palace",
+   "o": [
+    "Sunderland",
+    "Crystal Palace",
+    "Hull City",
+    "Bournemouth"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1994-95 Championship?",
+   "a": "Middlesbrough",
+   "o": [
+    "Derby County",
+    "Middlesbrough",
+    "Bristol City",
+    "Cardiff City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1995-96 Championship?",
+   "a": "Sunderland",
+   "o": [
+    "Liverpool",
+    "Sunderland",
+    "Fulham",
+    "Bournemouth"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1996-97 Championship?",
+   "a": "Bolton Wanderers",
+   "o": [
+    "Bolton Wanderers",
+    "Cardiff City",
+    "Bristol City",
+    "Charlton Athletic"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 1997-98 Championship?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Tottenham Hotspur",
+    "Nottingham Forest",
+    "Chelsea",
+    "Arsenal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1998-99 Championship?",
+   "a": "Sunderland",
+   "o": [
+    "Liverpool",
+    "Sunderland",
+    "Brentford",
+    "Coventry City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 1999-00 Championship?",
+   "a": "Charlton Athletic",
+   "o": [
+    "Charlton Athletic",
+    "Millwall",
+    "Derby County",
+    "Bolton Wanderers"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2000-01 Championship?",
+   "a": "Fulham",
+   "o": [
+    "Ipswich Town",
+    "Fulham",
+    "Hull City",
+    "Liverpool"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2001-02 Championship?",
+   "a": "Manchester City",
+   "o": [
+    "Leeds United",
+    "Chelsea",
+    "Aston Villa",
+    "Manchester City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2002-03 Championship?",
+   "a": "Portsmouth",
+   "o": [
+    "Bristol City",
+    "Birmingham City",
+    "Portsmouth",
+    "Cardiff City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2003-04 Championship?",
+   "a": "Norwich City",
+   "o": [
+    "Derby County",
+    "Norwich City",
+    "Charlton Athletic",
+    "Middlesbrough"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2004-05 Championship?",
+   "a": "Sunderland",
+   "o": [
+    "Liverpool",
+    "Fulham",
+    "Sunderland",
+    "Crystal Palace"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2006-07 Championship?",
+   "a": "Sunderland",
+   "o": [
+    "Brighton & Hove Albion",
+    "Bournemouth",
+    "Brentford",
+    "Sunderland"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2007-08 Championship?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "Birmingham City",
+    "Burnley",
+    "West Bromwich Albion",
+    "Bolton Wanderers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2008-09 Championship?",
+   "a": "Wolverhampton Wanderers",
+   "o": [
+    "Derby County",
+    "Cardiff City",
+    "Wolverhampton Wanderers",
+    "Lincoln City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2009-10 Championship?",
+   "a": "Newcastle United",
+   "o": [
+    "Manchester City",
+    "Everton",
+    "Newcastle United",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2010-11 Championship?",
+   "a": "Queens Park Rangers",
+   "o": [
+    "Lincoln City",
+    "Queens Park Rangers",
+    "Birmingham City",
+    "Bolton Wanderers"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2012-13 Championship?",
+   "a": "Cardiff City",
+   "o": [
+    "Cardiff City",
+    "Blackburn Rovers",
+    "Bolton Wanderers",
+    "Millwall"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2014-15 Championship?",
+   "a": "Bournemouth",
+   "o": [
+    "Aston Villa",
+    "Bournemouth",
+    "Brentford",
+    "Sunderland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2015-16 Championship?",
+   "a": "Burnley",
+   "o": [
+    "Bristol City",
+    "Burnley",
+    "Bolton Wanderers",
+    "Derby County"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2016-17 Championship?",
+   "a": "Brighton & Hove Albion",
+   "o": [
+    "Aston Villa",
+    "Brighton & Hove Albion",
+    "Crystal Palace",
+    "Fulham"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2017-18 Championship?",
+   "a": "Cardiff City",
+   "o": [
+    "Charlton Athletic",
+    "Burnley",
+    "Cardiff City",
+    "Middlesbrough"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2018-19 Championship?",
+   "a": "Sheffield United",
+   "o": [
+    "Sheffield United",
+    "Charlton Athletic",
+    "Bolton Wanderers",
+    "Birmingham City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2019-20 Championship?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "Bristol City",
+    "West Bromwich Albion",
+    "Cardiff City",
+    "Burnley"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2020-21 Championship?",
+   "a": "Watford",
+   "o": [
+    "Bolton Wanderers",
+    "Watford",
+    "Blackburn Rovers",
+    "Cardiff City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 2020-21 Championship?",
+   "a": "Ivan Toney",
+   "o": [
+    "Jarrod Bowen",
+    "Ivan Toney",
+    "Dominic Solanke",
+    "Bryan Mbeumo"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2021-22 Championship?",
+   "a": "Bournemouth",
+   "o": [
+    "Aston Villa",
+    "Bournemouth",
+    "Brentford",
+    "Coventry City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Championship?",
+   "a": "Sheffield United",
+   "o": [
+    "Lincoln City",
+    "Derby County",
+    "Blackburn Rovers",
+    "Sheffield United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2023-24 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Brentford",
+    "Ipswich Town",
+    "Hull City",
+    "Crystal Palace"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2024-25 Championship?",
+   "a": "Burnley",
+   "o": [
+    "Burnley",
+    "Birmingham City",
+    "Derby County",
+    "Bristol City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2025-26 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Sunderland",
+    "Hull City",
+    "Ipswich Town",
+    "Fulham"
+   ],
+   "k": 2
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 1992-93 Championship?",
+   "a": "West Ham United",
+   "o": [
+    "Lincoln City",
+    "Middlesbrough",
+    "Derby County",
+    "West Ham United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1993-94 Championship?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Newcastle United",
+    "Chelsea",
+    "Nottingham Forest",
+    "Tottenham Hotspur"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Who was the top scorer in the 1994-95 Championship?",
+   "a": "John Aldridge",
+   "o": [
+    "John Aldridge",
+    "Frank Stapleton",
+    "Alexander Isak",
+    "Kenan Kodro"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1995-96 Championship?",
+   "a": "Derby County",
+   "o": [
+    "Middlesbrough",
+    "Derby County",
+    "Bolton Wanderers",
+    "Burnley"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Who was the top scorer in the 1995-96 Championship?",
+   "a": "John Aldridge",
+   "o": [
+    "Haris Seferovic",
+    "Kenan Kodro",
+    "Edgaras Jankauskas",
+    "John Aldridge"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 1997-98 Championship?",
+   "a": "Middlesbrough",
+   "o": [
+    "Middlesbrough",
+    "Bolton Wanderers",
+    "Charlton Athletic",
+    "Millwall"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 1999-00 Championship?",
+   "a": "Manchester City",
+   "o": [
+    "Arsenal",
+    "Manchester City",
+    "Leeds United",
+    "Everton"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2000-01 Championship?",
+   "a": "Blackburn Rovers",
+   "o": [
+    "Birmingham City",
+    "Derby County",
+    "Bristol City",
+    "Blackburn Rovers"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Who was the top scorer in the 2000-01 Championship?",
+   "a": "Louis Saha",
+   "o": [
+    "Zlatan Ibrahimović",
+    "Louis Saha",
+    "Hernán Crespo",
+    "Samuel Eto'o"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2001-02 Championship?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "Charlton Athletic",
+    "West Bromwich Albion",
+    "Bristol City",
+    "Bolton Wanderers"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2003-04 Championship?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "Burnley",
+    "Middlesbrough",
+    "West Bromwich Albion",
+    "Blackburn Rovers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2005-06 Championship?",
+   "a": "Sheffield United",
+   "o": [
+    "Burnley",
+    "Birmingham City",
+    "Sheffield United",
+    "Bolton Wanderers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2006-07 Championship?",
+   "a": "Birmingham City",
+   "o": [
+    "Millwall",
+    "Lincoln City",
+    "Blackburn Rovers",
+    "Birmingham City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2007-08 Championship?",
+   "a": "Stoke City",
+   "o": [
+    "Cardiff City",
+    "Stoke City",
+    "Birmingham City",
+    "Bristol City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2008-09 Championship?",
+   "a": "Birmingham City",
+   "o": [
+    "Cardiff City",
+    "Burnley",
+    "Bristol City",
+    "Birmingham City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2009-10 Championship?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "West Bromwich Albion",
+    "Lincoln City",
+    "Charlton Athletic",
+    "Burnley"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2010-11 Championship?",
+   "a": "Norwich City",
+   "o": [
+    "Burnley",
+    "Blackburn Rovers",
+    "Norwich City",
+    "Middlesbrough"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2011-12 Championship?",
+   "a": "Southampton",
+   "o": [
+    "Blackburn Rovers",
+    "Birmingham City",
+    "Burnley",
+    "Southampton"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2012-13 Championship?",
+   "a": "Hull City",
+   "o": [
+    "Aston Villa",
+    "Liverpool",
+    "Bournemouth",
+    "Hull City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2013-14 Championship?",
+   "a": "Burnley",
+   "o": [
+    "Millwall",
+    "Charlton Athletic",
+    "Derby County",
+    "Burnley"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2014-15 Championship?",
+   "a": "Watford",
+   "o": [
+    "Middlesbrough",
+    "Derby County",
+    "Watford",
+    "Cardiff City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2015-16 Championship?",
+   "a": "Middlesbrough",
+   "o": [
+    "Burnley",
+    "Middlesbrough",
+    "Birmingham City",
+    "Cardiff City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2017-18 Championship?",
+   "a": "Fulham",
+   "o": [
+    "Aston Villa",
+    "Crystal Palace",
+    "Bournemouth",
+    "Fulham"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2017-18?",
+   "a": "Fulham",
+   "o": [
+    "Crystal Palace",
+    "Bournemouth",
+    "Coventry City",
+    "Fulham"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2018-19 Championship?",
+   "a": "Leeds United",
+   "o": [
+    "Arsenal",
+    "Leeds United",
+    "Manchester City",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2018-19?",
+   "a": "Aston Villa",
+   "o": [
+    "Leeds United",
+    "Bournemouth",
+    "Aston Villa",
+    "Brighton & Hove Albion"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2019-20 Championship?",
+   "a": "Brentford",
+   "o": [
+    "Brighton & Hove Albion",
+    "Brentford",
+    "Ipswich Town",
+    "Hull City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2019-20?",
+   "a": "Fulham",
+   "o": [
+    "Fulham",
+    "Coventry City",
+    "Ipswich Town",
+    "Brighton & Hove Albion"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club was Aleksandar Mitrović playing for when he top scored in the 2019-20 Championship?",
+   "a": "Fulham",
+   "o": [
+    "Fulham",
+    "Bournemouth",
+    "Aston Villa",
+    "Ipswich Town"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2020-21 Championship?",
+   "a": "Brentford",
+   "o": [
+    "Brentford",
+    "Aston Villa",
+    "Brighton & Hove Albion",
+    "Ipswich Town"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2020-21?",
+   "a": "Brentford",
+   "o": [
+    "Ipswich Town",
+    "Brentford",
+    "Liverpool",
+    "Sunderland"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2021-22?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Nottingham Forest",
+    "Leeds United",
+    "Manchester City",
+    "Liverpool"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2023-24 Championship?",
+   "a": "Leeds United",
+   "o": [
+    "Chelsea",
+    "Nottingham Forest",
+    "Leeds United",
+    "Manchester United"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2023-24?",
+   "a": "Southampton",
+   "o": [
+    "Middlesbrough",
+    "Burnley",
+    "Blackburn Rovers",
+    "Southampton"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2024-25 Championship?",
+   "a": "Sheffield United",
+   "o": [
+    "Sheffield United",
+    "Lincoln City",
+    "Charlton Athletic",
+    "Birmingham City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2024-25?",
+   "a": "Sunderland",
+   "o": [
+    "Ipswich Town",
+    "Sunderland",
+    "Liverpool",
+    "Aston Villa"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was Joël Piroe playing for when he top scored in the 2024-25 Championship?",
+   "a": "Leeds United",
+   "o": [
+    "Leeds United",
+    "Tottenham Hotspur",
+    "Manchester City",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2025-26 Championship?",
+   "a": "Millwall",
+   "o": [
+    "Derby County",
+    "Bristol City",
+    "Millwall",
+    "Middlesbrough"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2025-26?",
+   "a": "Hull City",
+   "o": [
+    "Aston Villa",
+    "Bournemouth",
+    "Brighton & Hove Albion",
+    "Hull City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club was Žan Vipotnik playing for when he top scored in the 2025-26 Championship?",
+   "a": "Swansea City",
+   "o": [
+    "Cardiff City",
+    "Middlesbrough",
+    "Swansea City",
+    "Lincoln City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Sheffield United in the 2025 play-off final to go up?",
+   "a": "Sunderland",
+   "o": [
+    "Ipswich Town",
+    "Liverpool",
+    "Crystal Palace",
+    "Sunderland"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Welsh club joined the English league system and plays at the Racecourse Ground?",
+   "a": "Wrexham",
+   "o": [
+    "Burnley",
+    "Wrexham",
+    "Blackburn Rovers",
+    "Charlton Athletic"
+   ],
+   "k": 1
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club finished third in the 1992-93 Championship?",
+   "a": "Portsmouth",
+   "o": [
+    "Bolton Wanderers",
+    "Charlton Athletic",
+    "Blackburn Rovers",
+    "Portsmouth"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 1993-94 Championship?",
+   "a": "Millwall",
+   "o": [
+    "Bolton Wanderers",
+    "Millwall",
+    "Lincoln City",
+    "Cardiff City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 1993-94 Championship?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Nottingham Forest",
+    "Tottenham Hotspur",
+    "Newcastle United",
+    "Arsenal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 1994-95 Championship?",
+   "a": "Bolton Wanderers",
+   "o": [
+    "Bolton Wanderers",
+    "Burnley",
+    "Lincoln City",
+    "Millwall"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 1994-95 Championship?",
+   "a": "Wolverhampton Wanderers",
+   "o": [
+    "Burnley",
+    "Derby County",
+    "Wolverhampton Wanderers",
+    "Charlton Athletic"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1995-96 Championship?",
+   "a": "Crystal Palace",
+   "o": [
+    "Coventry City",
+    "Brentford",
+    "Bournemouth",
+    "Crystal Palace"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 1995-96 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Sunderland",
+    "Ipswich Town",
+    "Brighton & Hove Albion",
+    "Hull City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 1996-97 Championship?",
+   "a": "Wolverhampton Wanderers",
+   "o": [
+    "Burnley",
+    "Lincoln City",
+    "Wolverhampton Wanderers",
+    "Birmingham City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1996-97 Championship?",
+   "a": "Crystal Palace",
+   "o": [
+    "Fulham",
+    "Liverpool",
+    "Crystal Palace",
+    "Coventry City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 1997-98 Championship?",
+   "a": "Sunderland",
+   "o": [
+    "Brentford",
+    "Bournemouth",
+    "Sunderland",
+    "Fulham"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 1997-98 Championship?",
+   "a": "Sunderland",
+   "o": [
+    "Sunderland",
+    "Fulham",
+    "Crystal Palace",
+    "Ipswich Town"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1997-98 Championship?",
+   "a": "Birmingham City",
+   "o": [
+    "Cardiff City",
+    "Birmingham City",
+    "Charlton Athletic",
+    "Middlesbrough"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 1998-99 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Ipswich Town",
+    "Aston Villa",
+    "Brighton & Hove Albion",
+    "Bournemouth"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 1999-00 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Ipswich Town",
+    "Aston Villa",
+    "Liverpool",
+    "Sunderland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1999-00 Championship?",
+   "a": "Manchester City",
+   "o": [
+    "Manchester City",
+    "Everton",
+    "Aston Villa",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2000-01 Championship?",
+   "a": "Bolton Wanderers",
+   "o": [
+    "Derby County",
+    "Burnley",
+    "Bolton Wanderers",
+    "Blackburn Rovers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2001-02 Championship?",
+   "a": "Wolverhampton Wanderers",
+   "o": [
+    "Birmingham City",
+    "Bristol City",
+    "Wolverhampton Wanderers",
+    "Bolton Wanderers"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2001-02 Championship?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "West Bromwich Albion",
+    "Cardiff City",
+    "Blackburn Rovers",
+    "Derby County"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2002-03 Championship?",
+   "a": "Sheffield United",
+   "o": [
+    "Derby County",
+    "Burnley",
+    "Birmingham City",
+    "Sheffield United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2003-04 Championship?",
+   "a": "Sunderland",
+   "o": [
+    "Hull City",
+    "Brighton & Hove Albion",
+    "Sunderland",
+    "Aston Villa"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2003-04?",
+   "a": "Crystal Palace",
+   "o": [
+    "Ipswich Town",
+    "Crystal Palace",
+    "Coventry City",
+    "Bournemouth"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2003-04 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Ipswich Town",
+    "Brighton & Hove Albion",
+    "Fulham",
+    "Sunderland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2004-05 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Sunderland",
+    "Ipswich Town",
+    "Liverpool",
+    "Hull City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2004-05?",
+   "a": "West Ham United",
+   "o": [
+    "Derby County",
+    "Blackburn Rovers",
+    "Charlton Athletic",
+    "West Ham United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2004-05 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Bournemouth",
+    "Sunderland",
+    "Hull City",
+    "Ipswich Town"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2005-06 Championship?",
+   "a": "Watford",
+   "o": [
+    "Derby County",
+    "Middlesbrough",
+    "Watford",
+    "Cardiff City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2005-06?",
+   "a": "Watford",
+   "o": [
+    "Watford",
+    "Cardiff City",
+    "Charlton Athletic",
+    "Blackburn Rovers"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2005-06 Championship?",
+   "a": "Preston North End",
+   "o": [
+    "Blackburn Rovers",
+    "Preston North End",
+    "Cardiff City",
+    "Derby County"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2006-07 Championship?",
+   "a": "Derby County",
+   "o": [
+    "Bolton Wanderers",
+    "Millwall",
+    "Bristol City",
+    "Derby County"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2006-07?",
+   "a": "Derby County",
+   "o": [
+    "Bolton Wanderers",
+    "Derby County",
+    "Birmingham City",
+    "Bristol City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2006-07 Championship?",
+   "a": "West Bromwich Albion",
+   "o": [
+    "West Bromwich Albion",
+    "Lincoln City",
+    "Bolton Wanderers",
+    "Middlesbrough"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2006-07 Championship?",
+   "a": "Stoke City",
+   "o": [
+    "Blackburn Rovers",
+    "Derby County",
+    "Middlesbrough",
+    "Stoke City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2007-08 Championship?",
+   "a": "Hull City",
+   "o": [
+    "Hull City",
+    "Fulham",
+    "Aston Villa",
+    "Brighton & Hove Albion"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2007-08?",
+   "a": "Hull City",
+   "o": [
+    "Crystal Palace",
+    "Brentford",
+    "Hull City",
+    "Bournemouth"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2007-08 Championship?",
+   "a": "Crystal Palace",
+   "o": [
+    "Crystal Palace",
+    "Hull City",
+    "Coventry City",
+    "Aston Villa"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2008-09 Championship?",
+   "a": "Sheffield United",
+   "o": [
+    "Bolton Wanderers",
+    "Middlesbrough",
+    "Burnley",
+    "Sheffield United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2008-09?",
+   "a": "Burnley",
+   "o": [
+    "Bolton Wanderers",
+    "Birmingham City",
+    "Burnley",
+    "Middlesbrough"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2008-09 Championship?",
+   "a": "Birmingham City",
+   "o": [
+    "Charlton Athletic",
+    "Burnley",
+    "Millwall",
+    "Birmingham City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2009-10 Championship?",
+   "a": "Nottingham Forest",
+   "o": [
+    "Nottingham Forest",
+    "Newcastle United",
+    "Tottenham Hotspur",
+    "Chelsea"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2010-11 Championship?",
+   "a": "Swansea City",
+   "o": [
+    "Lincoln City",
+    "Swansea City",
+    "Derby County",
+    "Birmingham City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2010-11 Championship?",
+   "a": "Norwich City",
+   "o": [
+    "Norwich City",
+    "Bristol City",
+    "Middlesbrough",
+    "Charlton Athletic"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club was Danny Graham playing for when he top scored in the 2010-11 Championship?",
+   "a": "Watford",
+   "o": [
+    "Bolton Wanderers",
+    "Watford",
+    "Blackburn Rovers",
+    "Charlton Athletic"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2011-12 Championship?",
+   "a": "West Ham United",
+   "o": [
+    "West Ham United",
+    "Burnley",
+    "Charlton Athletic",
+    "Cardiff City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2011-12 Championship?",
+   "a": "Southampton",
+   "o": [
+    "Southampton",
+    "Blackburn Rovers",
+    "Middlesbrough",
+    "Derby County"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2012-13 Championship?",
+   "a": "Watford",
+   "o": [
+    "Birmingham City",
+    "Cardiff City",
+    "Derby County",
+    "Watford"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2012-13 Championship?",
+   "a": "Watford",
+   "o": [
+    "Watford",
+    "Lincoln City",
+    "Bolton Wanderers",
+    "Bristol City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2012-13 Championship?",
+   "a": "Brighton & Hove Albion",
+   "o": [
+    "Hull City",
+    "Sunderland",
+    "Fulham",
+    "Brighton & Hove Albion"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club was Glenn Murray playing for when he top scored in the 2012-13 Championship?",
+   "a": "Crystal Palace",
+   "o": [
+    "Ipswich Town",
+    "Sunderland",
+    "Crystal Palace",
+    "Liverpool"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2013-14 Championship?",
+   "a": "Derby County",
+   "o": [
+    "Bolton Wanderers",
+    "Blackburn Rovers",
+    "Derby County",
+    "Lincoln City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2013-14?",
+   "a": "Queens Park Rangers",
+   "o": [
+    "Birmingham City",
+    "Blackburn Rovers",
+    "Burnley",
+    "Queens Park Rangers"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2013-14 Championship?",
+   "a": "Derby County",
+   "o": [
+    "Millwall",
+    "Cardiff City",
+    "Derby County",
+    "Burnley"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2013-14 Championship?",
+   "a": "Burnley",
+   "o": [
+    "Blackburn Rovers",
+    "Middlesbrough",
+    "Burnley",
+    "Millwall"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club was Ross McCormack playing for when he top scored in the 2013-14 Championship?",
+   "a": "Leeds United",
+   "o": [
+    "Newcastle United",
+    "Leeds United",
+    "Aston Villa",
+    "Tottenham Hotspur"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2014-15 Championship?",
+   "a": "Norwich City",
+   "o": [
+    "Bristol City",
+    "Burnley",
+    "Norwich City",
+    "Lincoln City"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2014-15?",
+   "a": "Norwich City",
+   "o": [
+    "Norwich City",
+    "Charlton Athletic",
+    "Derby County",
+    "Cardiff City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2014-15 Championship?",
+   "a": "Middlesbrough",
+   "o": [
+    "Cardiff City",
+    "Middlesbrough",
+    "Burnley",
+    "Lincoln City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2015-16 Championship?",
+   "a": "Brighton & Hove Albion",
+   "o": [
+    "Hull City",
+    "Aston Villa",
+    "Brentford",
+    "Brighton & Hove Albion"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Championship play-offs in 2015-16?",
+   "a": "Hull City",
+   "o": [
+    "Crystal Palace",
+    "Sunderland",
+    "Fulham",
+    "Hull City"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2015-16 Championship?",
+   "a": "Middlesbrough",
+   "o": [
+    "Middlesbrough",
+    "Burnley",
+    "Birmingham City",
+    "Derby County"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2018-19 Championship?",
+   "a": "Sheffield United",
+   "o": [
+    "Lincoln City",
+    "Derby County",
+    "Middlesbrough",
+    "Sheffield United"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2019-20 Championship?",
+   "a": "Brentford",
+   "o": [
+    "Brentford",
+    "Sunderland",
+    "Aston Villa",
+    "Brighton & Hove Albion"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2020-21 Championship?",
+   "a": "Brentford",
+   "o": [
+    "Brentford",
+    "Brighton & Hove Albion",
+    "Bournemouth",
+    "Sunderland"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2020-21 Championship?",
+   "a": "Watford",
+   "o": [
+    "Charlton Athletic",
+    "Lincoln City",
+    "Burnley",
+    "Watford"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2021-22 Championship?",
+   "a": "Bournemouth",
+   "o": [
+    "Sunderland",
+    "Bournemouth",
+    "Aston Villa",
+    "Ipswich Town"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2023-24 Championship?",
+   "a": "Ipswich Town",
+   "o": [
+    "Coventry City",
+    "Ipswich Town",
+    "Brentford",
+    "Brighton & Hove Albion"
+   ],
+   "k": 1
+  },
+  {
+   "q": "The 2024-25 Championship was decided on goal difference. Which club took it?",
+   "a": "Leeds United",
+   "o": [
+    "Chelsea",
+    "Newcastle United",
+    "Leeds United",
+    "Aston Villa"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2024-25 Championship?",
+   "a": "Burnley",
+   "o": [
+    "Bristol City",
+    "Derby County",
+    "Birmingham City",
+    "Burnley"
+   ],
+   "k": 3
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which club won three promotions in a row under the owners Ryan Reynolds and Rob McElhenney?",
+   "a": "Wrexham",
+   "o": [
+    "Wrexham",
+    "Cardiff City",
+    "Burnley",
+    "Middlesbrough"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2019-20 Championship to return to the top flight after sixteen years away?",
+   "a": "Leeds United",
+   "o": [
+    "Manchester City",
+    "Leeds United",
+    "Arsenal",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club was docked points twice in the 2021-22 season, going down while in administration?",
+   "a": "Derby County",
+   "o": [
+    "Derby County",
+    "Millwall",
+    "Cardiff City",
+    "Birmingham City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club left Roker Park in 1997 for a ground named after a colliery?",
+   "a": "Sunderland",
+   "o": [
+    "Hull City",
+    "Bournemouth",
+    "Sunderland",
+    "Aston Villa"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Welsh club won the 2012 play-off final and went up to the Premier League?",
+   "a": "Swansea City",
+   "o": [
+    "Derby County",
+    "Lincoln City",
+    "Swansea City",
+    "Cardiff City"
+   ],
+   "k": 2
+  }
+ ]
+}

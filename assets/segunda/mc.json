@@ -1,0 +1,2564 @@
+{
+ "easy": [
+  {
+   "q": "Which club won the 2016-17 Segunda División?",
+   "a": "Levante",
+   "o": [
+    "Málaga",
+    "Getafe",
+    "Levante",
+    "Deportivo de A Coruña"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2017-18 Segunda División?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Elche",
+    "Rayo Vallecano",
+    "Levante UD",
+    "Osasuna"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2018-19 Segunda División?",
+   "a": "Osasuna",
+   "o": [
+    "Osasuna",
+    "Espanyol",
+    "Getafe",
+    "Elche"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2020-21 Segunda División?",
+   "a": "Espanyol",
+   "o": [
+    "Málaga",
+    "Deportivo de A Coruña",
+    "Deportivo Alavés",
+    "Espanyol"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2021-22 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Andorra",
+    "AD Ceuta",
+    "Almería",
+    "Eldense"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2022-23 Segunda División?",
+   "a": "Granada",
+   "o": [
+    "Eibar",
+    "Castellón",
+    "Burgos",
+    "Granada"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2023-24 Segunda División?",
+   "a": "Leganés",
+   "o": [
+    "Burgos",
+    "Eldense",
+    "Leganés",
+    "Andorra"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2024-25 Segunda División?",
+   "a": "Levante",
+   "o": [
+    "Racing de Santander",
+    "Levante",
+    "Elche",
+    "Celta de Vigo"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club plays its home games at the Estadio de Gran Canaria?",
+   "a": "Las Palmas",
+   "o": [
+    "Burgos",
+    "Eibar",
+    "Las Palmas",
+    "Andorra"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club from Pamplona plays its home games at El Sadar?",
+   "a": "Osasuna",
+   "o": [
+    "Osasuna",
+    "Racing de Santander",
+    "Levante UD",
+    "Deportivo de A Coruña"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Fernando Torres made his first team debut in May 2001 for which club, then playing in the Segunda?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Barcelona",
+    "Atlético Madrid",
+    "Deportivo Alavés",
+    "Real Sociedad"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Real Madrid's reserve side, Castilla, play at a stadium named after which club legend?",
+   "a": "Alfredo Di Stéfano",
+   "o": [
+    "Claudio Rojas",
+    "Ariel Ortega",
+    "Javier Mascherano",
+    "Alfredo Di Stéfano"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Barcelona's reserve side play their home games at a stadium named after which Dutch great?",
+   "a": "Johan Cruyff",
+   "o": [
+    "Johan Cruyff",
+    "Bert van Marwijk",
+    "Kevin-Prince Boateng",
+    "Kō Itakura"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Fuenlabrada play at a stadium named after which striker, born in the town in 1984?",
+   "a": "Fernando Torres",
+   "o": [
+    "Mario Mandžukić",
+    "Samuel Eto'o",
+    "Zlatan Ibrahimović",
+    "Fernando Torres"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Andalusian club, Champions League quarter-finalists in 2013, went down to the Segunda in 2018?",
+   "a": "Málaga",
+   "o": [
+    "Málaga",
+    "Rayo Vallecano",
+    "Deportivo de A Coruña",
+    "Getafe"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club returned to La Liga in 2025 for the first time in 24 years, beating Mirandés in the play-off final?",
+   "a": "Real Oviedo",
+   "o": [
+    "Real Oviedo",
+    "Almería",
+    "Castellón",
+    "Eldense"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which former Barcelona player led Barcelona B back into the Segunda in 2010 before managing the first team?",
+   "a": "Luis Enrique",
+   "o": [
+    "Rivaldo",
+    "Jari Litmanen",
+    "Luis Enrique",
+    "Emmanuel Petit"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which striker made his Atlético Madrid debut in May 2001, aged 17, while Atlético were stuck in the Segunda?",
+   "a": "Fernando Torres",
+   "o": [
+    "Olivier Giroud",
+    "Fernando Torres",
+    "Ryan Babel",
+    "Luis Suárez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Valencia youngster spent 2004-05 on loan at Eibar in the Segunda before starring for Manchester City?",
+   "a": "David Silva",
+   "o": [
+    "Ander Herrera",
+    "Santi Cazorla",
+    "David Silva",
+    "Nigel de Jong"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Frenchman won the Segunda with Real Sociedad in 2009-10, his first season as a senior player?",
+   "a": "Antoine Griezmann",
+   "o": [
+    "Philippe Coutinho",
+    "Ivan Rakitić",
+    "Thiago Alcântara",
+    "Antoine Griezmann"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which future World Cup winner started at Sporting Gijón in the Segunda before Zaragoza signed him in 2003?",
+   "a": "David Villa",
+   "o": [
+    "Luis Suárez",
+    "Diego Milito",
+    "David Villa",
+    "Fernando Torres"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Uruguayan striker did Benfica sign from Segunda side Almería in 2020 for 24 million euros?",
+   "a": "Darwin Núñez",
+   "o": [
+    "Rhian Brewster",
+    "Luka Jović",
+    "Hugo Ekitike",
+    "Darwin Núñez"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Barcelona agreed a deal in 2019 for which 16-year-old Las Palmas midfielder, at five million euros?",
+   "a": "Pedri",
+   "o": [
+    "Martín Zubimendi",
+    "Pedri",
+    "Dani Olmo",
+    "Sergio Gómez"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which future Barcelona left-back spent 2008-09 on loan at Gimnàstic de Tarragona in the Segunda?",
+   "a": "Jordi Alba",
+   "o": [
+    "Clément Lenglet",
+    "Alessandro Florenzi",
+    "Jordi Alba",
+    "Héctor Bellerín"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which future Chelsea and Manchester United playmaker played for Real Madrid Castilla in the Segunda in 2006-07?",
+   "a": "Juan Mata",
+   "o": [
+    "Juan Mata",
+    "Ángel Di María",
+    "Jonathan Viera",
+    "Dani Parejo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Martin Braithwaite joined Espanyol as a free agent in 2022 after leaving which club?",
+   "a": "Barcelona",
+   "o": [
+    "Sevilla",
+    "Athletic Bilbao",
+    "Villarreal",
+    "Barcelona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Real Madrid great had his first job as a head coach at Real Oviedo in the Segunda in 2016-17?",
+   "a": "Fernando Hierro",
+   "o": [
+    "Claude Makélélé",
+    "Christian Karembeu",
+    "Robert Prosinečki",
+    "Fernando Hierro"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which veteran former Arsenal playmaker scored a penalty as Real Oviedo won the 2025 play-off final?",
+   "a": "Santi Cazorla",
+   "o": [
+    "Mesut Özil",
+    "Dani Parejo",
+    "Santi Cazorla",
+    "Andrey Arshavin"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Celta striker scored 23 Segunda goals in 2011-12 as his boyhood club went back up?",
+   "a": "Iago Aspas",
+   "o": [
+    "Ryan Babel",
+    "Mario Balotelli",
+    "Iago Aspas",
+    "Álvaro Morata"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Brazilian-born striker, later of Chelsea, spent 2007-08 on loan at Celta Vigo in the Segunda?",
+   "a": "Diego Costa",
+   "o": [
+    "Luis Suárez",
+    "Fred",
+    "Diego Costa",
+    "Salomon Kalou"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which German club signed Mikel Merino from Segunda side Osasuna in 2016?",
+   "a": "Borussia Dortmund",
+   "o": [
+    "Borussia Dortmund",
+    "VfB Stuttgart",
+    "Schalke 04",
+    "Elversberg"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Brazilian, later a Champions League winner with Liverpool, spent 2012-13 on loan at Real Madrid Castilla in the Segunda?",
+   "a": "Fabinho",
+   "o": [
+    "Philippe Coutinho",
+    "Roberto Firmino",
+    "Lucas Leiva",
+    "Fabinho"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which goalkeeper, later the world's most expensive keeper, was loaned by Athletic Bilbao to Ponferradina and then Valladolid in the Segunda?",
+   "a": "Kepa Arrizabalaga",
+   "o": [
+    "Wojciech Szczęsny",
+    "Kepa Arrizabalaga",
+    "David Raya",
+    "Marcos Alonso"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Newcastle United signed which forward from Segunda side Tenerife in 2014?",
+   "a": "Ayoze Pérez",
+   "o": [
+    "Mikel Merino",
+    "Ayoze Pérez",
+    "Thomas Partey",
+    "Isco"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club signed 18-year-old defender Jesús Vallejo from Segunda side Zaragoza in 2015, then loaned him straight back?",
+   "a": "Real Madrid",
+   "o": [
+    "Deportivo Alavés",
+    "Athletic Bilbao",
+    "Real Madrid",
+    "Villarreal"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Julen Lopetegui's first job as a head coach, in 2003, was at which Segunda club, where he had also kept goal?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Levante UD",
+    "Getafe",
+    "Rayo Vallecano",
+    "Málaga"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In February 2020 a judge removed the Qatari owner of which Andalusian Segunda club and appointed an administrator?",
+   "a": "Málaga",
+   "o": [
+    "Málaga",
+    "Elche",
+    "Celta de Vigo",
+    "Rayo Vallecano"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Raúl de Tomás scored 24 goals on loan at Rayo Vallecano in 2017-18. Which club owned him?",
+   "a": "Real Madrid",
+   "o": [
+    "Villarreal",
+    "Athletic Bilbao",
+    "Real Madrid",
+    "Real Sociedad"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Álex Baena spent 2021-22 on loan at Girona in the Segunda. Which club sent him there?",
+   "a": "Villarreal",
+   "o": [
+    "Celta de Vigo",
+    "Atlético Madrid",
+    "Athletic Bilbao",
+    "Villarreal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Umar Sadiq joined Segunda side Almería in 2020. Which country did he go on to play for?",
+   "a": "Nigeria",
+   "o": [
+    "Nigeria",
+    "Angola",
+    "Senegal",
+    "Ghana"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Fabián Ruiz spent part of 2016-17 on loan at Segunda side Elche. Which club sent him there?",
+   "a": "Real Betis",
+   "o": [
+    "Sevilla",
+    "Atlético Madrid",
+    "Athletic Bilbao",
+    "Real Betis"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Alberto Moleiro, who joined Villarreal in 2025, came through the academy of which Canary Islands club?",
+   "a": "Las Palmas",
+   "o": [
+    "Las Palmas",
+    "Eibar",
+    "Tenerife",
+    "AD Ceuta"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which year did the Segunda División play its very first season?",
+   "a": "1929",
+   "o": [
+    "1931",
+    "1923",
+    "1929",
+    "1930"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Real Madrid legend coached Valencia in the Segunda in 1986-87 and took them straight back up?",
+   "a": "Alfredo Di Stéfano",
+   "o": [
+    "Manuel Keosseián",
+    "Hernán Losada",
+    "Alfredo Di Stéfano",
+    "Enzo Fernández"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Mágico González lit up the Segunda for Cádiz from 1982. Which country was he from?",
+   "a": "El Salvador",
+   "o": [
+    "El Salvador",
+    "Panama",
+    "Curacao",
+    "Trinidad and Tobago"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Basque club from Vitoria became the first ever to be promoted from the Segunda to La Liga, in 1930?",
+   "a": "Alavés",
+   "o": [
+    "Osasuna",
+    "Celta de Vigo",
+    "Getafe",
+    "Alavés"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Quini topped the Segunda scoring chart in 1969-70 and 1976-77 for which Asturian club?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Sporting Gijón",
+    "Eldense",
+    "Cádiz",
+    "Castellón"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Madrid club, then known as Athletic, spent 1930 to 1934 in the Segunda?",
+   "a": "Atlético Madrid",
+   "o": [
+    "Real Sociedad",
+    "Valencia",
+    "Atlético Madrid",
+    "Villarreal"
+   ],
+   "k": 2
+  }
+ ],
+ "normal": [
+  {
+   "q": "Which club won the 1998-99 Segunda División?",
+   "a": "Málaga",
+   "o": [
+    "Levante UD",
+    "Getafe",
+    "Málaga",
+    "Deportivo Alavés"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 1999-00 Segunda División?",
+   "a": "Las Palmas",
+   "o": [
+    "Almería",
+    "Albacete Balompié",
+    "Las Palmas",
+    "Eibar"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2000-01 Segunda División?",
+   "a": "Sevilla",
+   "o": [
+    "Celta de Vigo",
+    "Sevilla",
+    "Athletic Bilbao",
+    "Villarreal"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2001-02 Segunda División?",
+   "a": "Atlético",
+   "o": [
+    "Atlético",
+    "Athletic Bilbao",
+    "Real Madrid",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2003-04 Segunda División?",
+   "a": "Levante",
+   "o": [
+    "Getafe",
+    "Rayo Vallecano",
+    "Celta de Vigo",
+    "Levante"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2006-07 Segunda División?",
+   "a": "Valladolid",
+   "o": [
+    "Castellón",
+    "AD Ceuta",
+    "Valladolid",
+    "Eibar"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club won the 2009-10 Segunda División?",
+   "a": "Real Sociedad",
+   "o": [
+    "Celta de Vigo",
+    "Deportivo Alavés",
+    "Real Madrid",
+    "Real Sociedad"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the 2010-11 Segunda División?",
+   "a": "Betis",
+   "o": [
+    "Betis",
+    "Sevilla",
+    "Athletic Bilbao",
+    "Celta de Vigo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2012-13 Segunda División?",
+   "a": "Elche",
+   "o": [
+    "Elche",
+    "Osasuna",
+    "Deportivo Alavés",
+    "Levante UD"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won the 2013-14 Segunda División?",
+   "a": "Eibar",
+   "o": [
+    "Cádiz",
+    "Eibar",
+    "AD Ceuta",
+    "Córdoba"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2014-15 Segunda División?",
+   "a": "Betis",
+   "o": [
+    "Real Madrid",
+    "Betis",
+    "Athletic Bilbao",
+    "Atlético Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2015-16 Segunda División?",
+   "a": "Alavés",
+   "o": [
+    "Alavés",
+    "Espanyol",
+    "Deportivo de A Coruña",
+    "Levante UD"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2016-17 Segunda División?",
+   "a": "Girona",
+   "o": [
+    "Castellón",
+    "Girona",
+    "Burgos",
+    "AD Ceuta"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2018-19 Segunda División?",
+   "a": "Granada",
+   "o": [
+    "Burgos",
+    "Eldense",
+    "Córdoba",
+    "Granada"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2019-20 Segunda División?",
+   "a": "Cádiz",
+   "o": [
+    "Girona",
+    "Eldense",
+    "Cádiz",
+    "AD Ceuta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2020-21 Segunda División?",
+   "a": "Mallorca",
+   "o": [
+    "Albacete Balompié",
+    "Córdoba",
+    "Mallorca",
+    "Andorra"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2021-22 Segunda División?",
+   "a": "Valladolid",
+   "o": [
+    "Córdoba",
+    "Albacete Balompié",
+    "Valladolid",
+    "Almería"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2022-23 Segunda División?",
+   "a": "Las Palmas",
+   "o": [
+    "Almería",
+    "Las Palmas",
+    "AD Ceuta",
+    "Eibar"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2023-24 Segunda División?",
+   "a": "Valladolid",
+   "o": [
+    "Castellón",
+    "Albacete Balompié",
+    "AD Ceuta",
+    "Valladolid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2024-25 Segunda División?",
+   "a": "Elche",
+   "o": [
+    "Racing de Santander",
+    "Elche",
+    "Espanyol",
+    "Osasuna"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Basque club is nicknamed the Armeros, after the town's gun-making trade?",
+   "a": "Eibar",
+   "o": [
+    "Burgos",
+    "Girona",
+    "Córdoba",
+    "Eibar"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In which season was VAR first used in the Segunda?",
+   "a": "2019-20",
+   "o": [
+    "2020-21",
+    "2019-21",
+    "2018-21",
+    "2019-20"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Hércules of Alicante and which club contest the Costa Blanca derby?",
+   "a": "Elche",
+   "o": [
+    "Racing de Santander",
+    "Deportivo Alavés",
+    "Deportivo de A Coruña",
+    "Elche"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Andalusian club was promoted in 2008 when Antonio Hidalgo scored twice against Tenerife on the last day?",
+   "a": "Málaga",
+   "o": [
+    "Espanyol",
+    "Rayo Vallecano",
+    "Elche",
+    "Málaga"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Mallorca dropped to the third tier in June 2017 for the first time since which year?",
+   "a": "1981",
+   "o": [
+    "1977",
+    "1984",
+    "1981",
+    "1979"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Real Madrid Castilla beat which Andalusian club 8-1 on aggregate in 2012 to reach the Segunda?",
+   "a": "Cádiz",
+   "o": [
+    "Córdoba",
+    "Cádiz",
+    "Castellón",
+    "Burgos"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club won the 2024 Segunda play-off final against Real Oviedo with two goals from Javi Puado?",
+   "a": "Espanyol",
+   "o": [
+    "Elche",
+    "Racing de Santander",
+    "Rayo Vallecano",
+    "Espanyol"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which German great coached Xerez in 2001-02, when they collapsed in the run-in and missed promotion?",
+   "a": "Bernd Schuster",
+   "o": [
+    "Diego Maradona",
+    "Peter Reid",
+    "Michael Laudrup",
+    "Bernd Schuster"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Real Oviedo returned to the Segunda in 2015 after 13 years away. Which club did they beat 2-1 on aggregate in the play-off?",
+   "a": "Cádiz",
+   "o": [
+    "AD Ceuta",
+    "Cádiz",
+    "Albacete Balompié",
+    "Eibar"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which English club bought Leonardo Ulloa from Segunda side Almería in January 2013?",
+   "a": "Brighton",
+   "o": [
+    "Brentford",
+    "Brighton",
+    "Bournemouth",
+    "Hull City"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Uruguayan scored 29 goals for Girona to top the 2019-20 Segunda scoring chart?",
+   "a": "Cristhian Stuani",
+   "o": [
+    "Cristhian Stuani",
+    "Robin van Persie",
+    "Klaas-Jan Huntelaar",
+    "Radamel Falcao"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which striker topped the Segunda scoring chart for Real Betis in 2014-15?",
+   "a": "Rubén Castro",
+   "o": [
+    "Miroslav Klose",
+    "Roy Makaay",
+    "Rubén Castro",
+    "Ruud van Nistelrooy"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club ended Segunda side Mirandés' run in the 2019-20 Copa del Rey semi-finals?",
+   "a": "Real Sociedad",
+   "o": [
+    "Real Sociedad",
+    "Athletic Bilbao",
+    "Atlético Madrid",
+    "Villarreal"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Rayo Vallecano won the 2021 play-off final against which club?",
+   "a": "Girona",
+   "o": [
+    "Córdoba",
+    "Eldense",
+    "Burgos",
+    "Girona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Almería beat which club 4-0 on aggregate in the 2013 play-off final?",
+   "a": "Girona",
+   "o": [
+    "Girona",
+    "Cádiz",
+    "Córdoba",
+    "Burgos"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Getafe beat which club in the 2017 play-off final to go back up?",
+   "a": "Tenerife",
+   "o": [
+    "Tenerife",
+    "AD Ceuta",
+    "Andorra",
+    "Córdoba"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In which season did Fernando Torres help Atlético Madrid win promotion from the Segunda?",
+   "a": "2001-02",
+   "o": [
+    "2001-02",
+    "2000-1",
+    "2000-3",
+    "2002-2"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In 2004-05 which Segunda side knocked Real Madrid out of the Copa del Rey on away goals?",
+   "a": "Real Valladolid",
+   "o": [
+    "Real Valladolid",
+    "Andorra",
+    "AD Ceuta",
+    "Albacete Balompié"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In January 2024 Segunda side Tenerife knocked which top-flight island neighbours out of the Copa del Rey?",
+   "a": "Las Palmas",
+   "o": [
+    "Castellón",
+    "Eibar",
+    "Las Palmas",
+    "Andorra"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Granada went up in 2011 with a squad full of loan players from which Italian club?",
+   "a": "Udinese",
+   "o": [
+    "Udinese",
+    "Bologna FC 1909",
+    "Monza",
+    "Como 1907"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Segunda side Cádiz won 5-3 away at which top-flight club in the 2017-18 Copa del Rey?",
+   "a": "Real Betis",
+   "o": [
+    "Barcelona",
+    "Real Betis",
+    "Sevilla",
+    "Real Sociedad"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which top-flight club did Segunda side Sporting Gijón knock out of the Copa del Rey in January 2022, winning 2-1?",
+   "a": "Villarreal",
+   "o": [
+    "Real Betis",
+    "Villarreal",
+    "Atlético Madrid",
+    "Valencia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "In January 2022 Ibiza won 5-0 away at which Andalusian giant?",
+   "a": "Málaga",
+   "o": [
+    "Deportivo Alavés",
+    "Levante UD",
+    "Málaga",
+    "Getafe"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Cristian Tello rejoined Barcelona B, then in the Segunda, in 2010. From which rival's reserves did he come?",
+   "a": "Espanyol",
+   "o": [
+    "Deportivo de A Coruña",
+    "Getafe",
+    "Rayo Vallecano",
+    "Espanyol"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Sevilla's ultras, the Biris, are named after which Gambian winger signed in 1973, with Sevilla in the Segunda?",
+   "a": "Biri Biri",
+   "o": [
+    "Ciro Immobile",
+    "Biri Biri",
+    "Chicharito Hernández",
+    "Wissam Ben Yedder"
+   ],
+   "k": 1
+  },
+  {
+   "q": "In 1948 which club became the first from Castile and León to reach La Liga?",
+   "a": "Real Valladolid",
+   "o": [
+    "Real Valladolid",
+    "Córdoba",
+    "Eldense",
+    "Albacete Balompié"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Asturian club spent the whole of the 1960s in the Segunda?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Albacete Balompié",
+    "Sporting Gijón",
+    "Córdoba",
+    "Cádiz"
+   ],
+   "k": 1
+  },
+  {
+   "q": "While still in the Segunda in 1932, Deportivo knocked which club out of the Cup, the league champions that season?",
+   "a": "Real Madrid",
+   "o": [
+    "Valencia",
+    "Barcelona",
+    "Celta de Vigo",
+    "Real Madrid"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Sevilla missed out on promotion in 1929 after losing the first ever promoción. Which La Liga club beat them?",
+   "a": "Racing de Santander",
+   "o": [
+    "Elche",
+    "Racing de Santander",
+    "Espanyol",
+    "Rayo Vallecano"
+   ],
+   "k": 1
+  },
+  {
+   "q": "From which season did a win in the Segunda earn three points instead of two?",
+   "a": "1995-96",
+   "o": [
+    "1996-96",
+    "1995-96",
+    "1994-96",
+    "1995-95"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Ballon d'Or winner coached his home-town club Deportivo in the Segunda in 1978-79?",
+   "a": "Luis Suárez",
+   "o": [
+    "Luis Suárez",
+    "Gonzalo Higuaín",
+    "Sergio Agüero",
+    "Radamel Falcao"
+   ],
+   "k": 0
+  }
+ ],
+ "hard": [
+  {
+   "q": "Which club finished second in the 1999-00 Segunda División?",
+   "a": "Osasuna",
+   "o": [
+    "Osasuna",
+    "Deportivo Alavés",
+    "Rayo Vallecano",
+    "Racing de Santander"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2000-01 Segunda División?",
+   "a": "Real Betis",
+   "o": [
+    "Real Betis",
+    "Real Sociedad",
+    "Celta de Vigo",
+    "Valencia"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished second in the 2006-07 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Córdoba",
+    "Almería",
+    "AD Ceuta",
+    "Castellón"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2007-08 Segunda División?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Cádiz",
+    "Albacete Balompié",
+    "Sporting Gijón",
+    "Andorra"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2010-11 Segunda División?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Osasuna",
+    "Levante UD",
+    "Rayo Vallecano",
+    "Elche"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2011-12 Segunda División?",
+   "a": "Celta de Vigo",
+   "o": [
+    "Espanyol",
+    "Celta de Vigo",
+    "Elche",
+    "Deportivo de A Coruña"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished second in the 2012-13 Segunda División?",
+   "a": "Villarreal",
+   "o": [
+    "Athletic Bilbao",
+    "Real Sociedad",
+    "Villarreal",
+    "Sevilla"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished second in the 2014-15 Segunda División?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Andorra",
+    "Eibar",
+    "AD Ceuta",
+    "Sporting Gijón"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished second in the 2015-16 Segunda División?",
+   "a": "Leganés",
+   "o": [
+    "Leganés",
+    "Córdoba",
+    "Castellón",
+    "Albacete Balompié"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2016-17 Segunda División?",
+   "a": "Getafe",
+   "o": [
+    "Getafe",
+    "Deportivo Alavés",
+    "Málaga",
+    "Deportivo de A Coruña"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2017-18 Segunda División?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Eldense",
+    "Sporting Gijón",
+    "Cádiz",
+    "Almería"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2017-18?",
+   "a": "Valladolid",
+   "o": [
+    "Córdoba",
+    "Eldense",
+    "Valladolid",
+    "Almería"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2018-19 Segunda División?",
+   "a": "Málaga",
+   "o": [
+    "Deportivo de A Coruña",
+    "Celta de Vigo",
+    "Getafe",
+    "Málaga"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2018-19?",
+   "a": "Mallorca",
+   "o": [
+    "Mallorca",
+    "Eibar",
+    "Castellón",
+    "Eldense"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2019-20?",
+   "a": "Elche",
+   "o": [
+    "Getafe",
+    "Elche",
+    "Levante UD",
+    "Espanyol"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2020-21 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Almería",
+    "Castellón",
+    "Burgos",
+    "Andorra"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2020-21?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Elche",
+    "Málaga",
+    "Rayo Vallecano",
+    "Racing de Santander"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2021-22 Segunda División?",
+   "a": "Eibar",
+   "o": [
+    "Eibar",
+    "Girona",
+    "Eldense",
+    "Castellón"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2021-22?",
+   "a": "Girona",
+   "o": [
+    "Cádiz",
+    "Córdoba",
+    "Burgos",
+    "Girona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2022-23 Segunda División?",
+   "a": "Levante",
+   "o": [
+    "Espanyol",
+    "Levante",
+    "Málaga",
+    "Rayo Vallecano"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2022-23?",
+   "a": "Alavés",
+   "o": [
+    "Getafe",
+    "Alavés",
+    "Málaga",
+    "Elche"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2023-24 Segunda División?",
+   "a": "Eibar",
+   "o": [
+    "Burgos",
+    "Castellón",
+    "Almería",
+    "Eibar"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2023-24?",
+   "a": "Espanyol",
+   "o": [
+    "Málaga",
+    "Deportivo de A Coruña",
+    "Espanyol",
+    "Celta de Vigo"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2025-26 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Eibar",
+    "Burgos",
+    "Albacete Balompié",
+    "Almería"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2025-26?",
+   "a": "Málaga",
+   "o": [
+    "Celta de Vigo",
+    "Espanyol",
+    "Racing de Santander",
+    "Málaga"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the Segunda in 1999-2000?",
+   "a": "Las Palmas",
+   "o": [
+    "Almería",
+    "AD Ceuta",
+    "Las Palmas",
+    "Albacete Balompié"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club from the Canary Islands plays at the Heliodoro Rodríguez López?",
+   "a": "Tenerife",
+   "o": [
+    "Tenerife",
+    "Andorra",
+    "Albacete Balompié",
+    "Eibar"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club were relegated from the Segunda in 2002 after finishing 16th, because they had not become a public limited sports company?",
+   "a": "Burgos",
+   "o": [
+    "Almería",
+    "Burgos",
+    "Albacete Balompié",
+    "Castellón"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Atlético Madrid missed promotion in 2000-01 level on points with the side that went up instead. Which club?",
+   "a": "Tenerife",
+   "o": [
+    "Las Palmas",
+    "Andorra",
+    "Tenerife",
+    "Córdoba"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club overturned a 2-0 first-leg defeat at Deportivo to win the 2019 Segunda play-off final 3-0 at home?",
+   "a": "Mallorca",
+   "o": [
+    "Córdoba",
+    "Andorra",
+    "Eldense",
+    "Mallorca"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won promotion in 2020 with a goal in the sixth minute of stoppage time of the play-off final at Girona?",
+   "a": "Elche",
+   "o": [
+    "Deportivo Alavés",
+    "Málaga",
+    "Celta de Vigo",
+    "Elche"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club went up in 2017 after overturning a 1-0 first-leg defeat at Tenerife in the play-off final?",
+   "a": "Getafe",
+   "o": [
+    "Racing de Santander",
+    "Levante UD",
+    "Getafe",
+    "Osasuna"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club beat Compostela on away goals in the 1998 play-off to win promotion to La Liga?",
+   "a": "Villarreal",
+   "o": [
+    "Sevilla",
+    "Real Betis",
+    "Athletic Bilbao",
+    "Villarreal"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club, wearing borrowed Barcelona kit in 1943-44, have played in claret and blue ever since?",
+   "a": "Eibar",
+   "o": [
+    "Girona",
+    "Eibar",
+    "Andorra",
+    "Castellón"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Granada went up in 2011 on away goals after a 1-1 aggregate draw with which club in the play-off final?",
+   "a": "Elche",
+   "o": [
+    "Deportivo de A Coruña",
+    "Deportivo Alavés",
+    "Málaga",
+    "Elche"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won promotion to La Liga in 2013, beating Girona 4-0 on aggregate in the play-off final?",
+   "a": "Almería",
+   "o": [
+    "Albacete Balompié",
+    "Almería",
+    "Castellón",
+    "Eldense"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which veteran striker scored a penalty for Girona at Tenerife in the 2022 play-off final?",
+   "a": "Cristhian Stuani",
+   "o": [
+    "Edinson Cavani",
+    "Radamel Falcao",
+    "Gerard Moreno",
+    "Cristhian Stuani"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Deportivo set a Segunda points record when they won it in 2011-12. How many points did they get?",
+   "a": "91",
+   "o": [
+    "45",
+    "91",
+    "160",
+    "22"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Valladolid won the 2006-07 Segunda with a record points total at the time. How many?",
+   "a": "88",
+   "o": [
+    "110",
+    "88",
+    "66",
+    "154"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Rubén Castro topped the Segunda scoring chart in 2003-04 for which club?",
+   "a": "Las Palmas",
+   "o": [
+    "Tenerife",
+    "Albacete Balompié",
+    "Las Palmas",
+    "AD Ceuta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In 2015-16 Segunda side Mirandés knocked out Málaga and Deportivo before losing a Copa quarter-final to whom?",
+   "a": "Sevilla",
+   "o": [
+    "Sevilla",
+    "Valencia",
+    "Atlético Madrid",
+    "Deportivo Alavés"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club had loaned Ulises Dávila to Córdoba when he scored their 2014 promotion goal?",
+   "a": "Chelsea",
+   "o": [
+    "Arsenal",
+    "Chelsea",
+    "Manchester City",
+    "Newcastle United"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Ballon d'Or winner managed Celta in the Segunda when Diego Costa arrived on loan in 2007?",
+   "a": "Hristo Stoichkov",
+   "o": [
+    "Luís Figo",
+    "George Weah",
+    "Hristo Stoichkov",
+    "Gary Lineker"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Montenegrin striker's 24 goals fired Extremadura straight back up in 1997-98?",
+   "a": "Igor Gluščević",
+   "o": [
+    "Bas Dost",
+    "Ricky van Wolfswinkel",
+    "Sébastien Haller",
+    "Igor Gluščević"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which Segunda side knocked Villarreal out of the 2009-10 Copa del Rey before losing a quarter-final to Atlético Madrid?",
+   "a": "Celta Vigo",
+   "o": [
+    "Getafe",
+    "Celta Vigo",
+    "Osasuna",
+    "Elche"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Segunda side Almería reached the 2020-21 Copa del Rey quarter-finals. Who knocked them out?",
+   "a": "Sevilla",
+   "o": [
+    "Atlético Madrid",
+    "Real Madrid",
+    "Sevilla",
+    "Athletic Bilbao"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Segunda side Numancia knocked Málaga out of the 2017-18 Copa del Rey. Who beat them in the last 16?",
+   "a": "Real Madrid",
+   "o": [
+    "Real Betis",
+    "Real Madrid",
+    "Atlético Madrid",
+    "Valencia"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club made Uroš Đurđević a club-record signing in 2018, paying about 2.5 million euros?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Andorra",
+    "Castellón",
+    "Sporting Gijón",
+    "AD Ceuta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Serie A club signed Zaragoza's academy striker Iván Azón in February 2025?",
+   "a": "Como",
+   "o": [
+    "Frosinone Calcio",
+    "Bologna FC 1909",
+    "Cagliari Calcio",
+    "Como"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The first official match at Real Zaragoza's temporary Ibercaja Stadium, in August 2025, was a 3-1 defeat to which club?",
+   "a": "FC Andorra",
+   "o": [
+    "Andorra",
+    "Córdoba",
+    "Albacete Balompié",
+    "Eibar"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club won 5-0 away at Real Oviedo on the final day of 2015-16?",
+   "a": "Osasuna",
+   "o": [
+    "Racing de Santander",
+    "Rayo Vallecano",
+    "Osasuna",
+    "Elche"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which Asturian club, in Europe by 1991, spent 1978-79 in the third-tier Segunda B?",
+   "a": "Real Oviedo",
+   "o": [
+    "AD Ceuta",
+    "Real Oviedo",
+    "Burgos",
+    "Eldense"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Valencia went down in 1986 for the first time. How many years had they spent in the top flight?",
+   "a": "55",
+   "o": [
+    "13",
+    "55",
+    "27",
+    "97"
+   ],
+   "k": 1
+  },
+  {
+   "q": "CD Málaga lost the 1991 promoción on penalties. Which top-flight club beat them?",
+   "a": "Cádiz",
+   "o": [
+    "Cádiz",
+    "Castellón",
+    "AD Ceuta",
+    "Almería"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Racing de Madrid built a stadium in Vallecas in 1930. Which club later made it their home?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Rayo Vallecano",
+    "Deportivo de A Coruña",
+    "Getafe",
+    "Levante UD"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Mallorca went up in 1997 by beating which top-flight club on away goals in the promoción?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Rayo Vallecano",
+    "Levante UD",
+    "Espanyol",
+    "Málaga"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which striker, a Real Madrid youth product, starred as Recreativo first reached La Liga in 1978?",
+   "a": "Hipólito Rincón",
+   "o": [
+    "Hipólito Rincón",
+    "Rubén Castro",
+    "Klaas-Jan Huntelaar",
+    "Gonzalo Higuaín"
+   ],
+   "k": 0
+  }
+ ],
+ "extreme": [
+  {
+   "q": "Which club finished third in the 1999-00 Segunda División?",
+   "a": "Villarreal",
+   "o": [
+    "Villarreal",
+    "Atlético Madrid",
+    "Deportivo Alavés",
+    "Barcelona"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 1999-00 Segunda División?",
+   "a": "Osasuna",
+   "o": [
+    "Osasuna",
+    "Deportivo de A Coruña",
+    "Málaga",
+    "Elche"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2000-01 Segunda División?",
+   "a": "Tenerife",
+   "o": [
+    "Tenerife",
+    "Castellón",
+    "Las Palmas",
+    "Córdoba"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2001-02 Segunda División?",
+   "a": "Eibar",
+   "o": [
+    "Eldense",
+    "Eibar",
+    "Castellón",
+    "Almería"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2003-04 Segunda División?",
+   "a": "Getafe",
+   "o": [
+    "Elche",
+    "Levante UD",
+    "Getafe",
+    "Racing de Santander"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2005-06 Segunda División?",
+   "a": "Levante",
+   "o": [
+    "Celta de Vigo",
+    "Deportivo de A Coruña",
+    "Málaga",
+    "Levante"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2006-07 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Almería",
+    "Andorra",
+    "Córdoba",
+    "Castellón"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club finished third in the 2007-08 Segunda División?",
+   "a": "Real Sociedad",
+   "o": [
+    "Sevilla",
+    "Real Sociedad",
+    "Athletic Bilbao",
+    "Real Betis"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2007-08 Segunda División?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Burgos",
+    "Sporting Gijón",
+    "Córdoba",
+    "Castellón"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2007-08 Segunda División?",
+   "a": "Castellón",
+   "o": [
+    "Córdoba",
+    "Castellón",
+    "Eldense",
+    "Burgos"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2008-09 Segunda División?",
+   "a": "Tenerife",
+   "o": [
+    "Eibar",
+    "Córdoba",
+    "Tenerife",
+    "Las Palmas"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2008-09 Segunda División?",
+   "a": "Real Sociedad",
+   "o": [
+    "Barcelona",
+    "Real Sociedad",
+    "Valencia",
+    "Atlético Madrid"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club finished third in the 2009-10 Segunda División?",
+   "a": "Levante",
+   "o": [
+    "Elche",
+    "Espanyol",
+    "Osasuna",
+    "Levante"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2009-10 Segunda División?",
+   "a": "Elche",
+   "o": [
+    "Deportivo de A Coruña",
+    "Levante UD",
+    "Elche",
+    "Espanyol"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2011-12 Segunda División?",
+   "a": "Valladolid",
+   "o": [
+    "Valladolid",
+    "AD Ceuta",
+    "Andorra",
+    "Burgos"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club scored the most goals in the 2011-12 Segunda División?",
+   "a": "Celta de Vigo",
+   "o": [
+    "Osasuna",
+    "Celta de Vigo",
+    "Deportivo de A Coruña",
+    "Elche"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2011-12 Segunda División?",
+   "a": "Celta de Vigo",
+   "o": [
+    "Elche",
+    "Levante UD",
+    "Deportivo de A Coruña",
+    "Celta de Vigo"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club finished third in the 2012-13 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Córdoba",
+    "Eibar",
+    "Almería",
+    "AD Ceuta"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2013-14 Segunda División?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Almería",
+    "Castellón",
+    "Sporting Gijón",
+    "Andorra"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club finished third in the 2014-15 Segunda División?",
+   "a": "Girona",
+   "o": [
+    "Girona",
+    "Castellón",
+    "Eibar",
+    "Albacete Balompié"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club came up through the Segunda División play-offs in 2014-15?",
+   "a": "Las Palmas",
+   "o": [
+    "Burgos",
+    "Albacete Balompié",
+    "Andorra",
+    "Las Palmas"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2014-15 Segunda División?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Eibar",
+    "Sporting Gijón",
+    "Córdoba",
+    "Almería"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club scored the most goals in the 2015-16 Segunda División?",
+   "a": "Leganés",
+   "o": [
+    "Leganés",
+    "Burgos",
+    "Castellón",
+    "Almería"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2015-16 Segunda División?",
+   "a": "Girona",
+   "o": [
+    "Andorra",
+    "Cádiz",
+    "AD Ceuta",
+    "Girona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2016-17 Segunda División?",
+   "a": "Girona",
+   "o": [
+    "Castellón",
+    "Cádiz",
+    "Girona",
+    "Albacete Balompié"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2017-18 Segunda División?",
+   "a": "Valladolid",
+   "o": [
+    "Eldense",
+    "AD Ceuta",
+    "Valladolid",
+    "Cádiz"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2017-18 Segunda División?",
+   "a": "Cádiz",
+   "o": [
+    "Burgos",
+    "AD Ceuta",
+    "Castellón",
+    "Cádiz"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2018-19 Segunda División?",
+   "a": "Granada",
+   "o": [
+    "AD Ceuta",
+    "Eibar",
+    "Eldense",
+    "Granada"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2019-20 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Andorra",
+    "Girona",
+    "Almería",
+    "Cádiz"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2019-20 Segunda División?",
+   "a": "Málaga",
+   "o": [
+    "Espanyol",
+    "Rayo Vallecano",
+    "Racing de Santander",
+    "Málaga"
+   ],
+   "k": 3
+  },
+  {
+   "q": "The 2020-21 Segunda División was decided on goal difference. Which club took it?",
+   "a": "Espanyol",
+   "o": [
+    "Espanyol",
+    "Elche",
+    "Deportivo de A Coruña",
+    "Málaga"
+   ],
+   "k": 0
+  },
+  {
+   "q": "The 2021-22 Segunda División was decided on goal difference. Which club took it?",
+   "a": "Almería",
+   "o": [
+    "AD Ceuta",
+    "Eibar",
+    "Almería",
+    "Eldense"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2021-22 Segunda División?",
+   "a": "Valladolid",
+   "o": [
+    "Valladolid",
+    "Burgos",
+    "Andorra",
+    "Castellón"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2022-23 Segunda División?",
+   "a": "Las Palmas",
+   "o": [
+    "Andorra",
+    "Burgos",
+    "Cádiz",
+    "Las Palmas"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club scored the most goals in the 2023-24 Segunda División?",
+   "a": "Eibar",
+   "o": [
+    "Andorra",
+    "Córdoba",
+    "Eibar",
+    "Almería"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club scored the most goals in the 2024-25 Segunda División?",
+   "a": "Almería",
+   "o": [
+    "Burgos",
+    "Andorra",
+    "Almería",
+    "Girona"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2024-25 Segunda División?",
+   "a": "Elche",
+   "o": [
+    "Deportivo de A Coruña",
+    "Getafe",
+    "Deportivo Alavés",
+    "Elche"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club conceded the fewest goals in the 2025-26 Segunda División?",
+   "a": "Burgos",
+   "o": [
+    "Córdoba",
+    "Almería",
+    "Eldense",
+    "Burgos"
+   ],
+   "k": 3
+  },
+  {
+   "q": "In a 1961 play-off to stay in the second tier, Sporting Gijón drew 3-3 and went through on a coin toss. Who were the opponents?",
+   "a": "Castellón",
+   "o": [
+    "Cádiz",
+    "Almería",
+    "Eldense",
+    "Castellón"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Extremadura dropped out of La Liga in 1999 after losing the promotion and relegation play-off to which club?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Espanyol",
+    "Celta de Vigo",
+    "Deportivo de A Coruña",
+    "Rayo Vallecano"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Reus won their first ever promotion to the Segunda in 2016, winning the first leg 3-0 away at which club?",
+   "a": "Racing de Santander",
+   "o": [
+    "Osasuna",
+    "Getafe",
+    "Rayo Vallecano",
+    "Racing de Santander"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club won the Segunda División League Cup in 1984-85, beating Atlético Madrileño in the final?",
+   "a": "Real Oviedo",
+   "o": [
+    "Castellón",
+    "Real Oviedo",
+    "Almería",
+    "Córdoba"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club did Rayo beat 2-0 away in the second leg of the 2021 play-off final, after losing the home leg 2-1?",
+   "a": "Girona",
+   "o": [
+    "Andorra",
+    "Almería",
+    "Albacete Balompié",
+    "Girona"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club beat Gimnàstic in the 2025 third-tier play-off final to return to the Segunda for 2025-26?",
+   "a": "Real Sociedad B",
+   "o": [
+    "AD Ceuta",
+    "Albacete Balompié",
+    "Cádiz",
+    "Real Sociedad B"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Atlético Aviación kept their La Liga place in 1939 by winning a one-off play-off in Valencia. Who did they beat?",
+   "a": "Osasuna",
+   "o": [
+    "Málaga",
+    "Racing de Santander",
+    "Deportivo de A Coruña",
+    "Osasuna"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club spoiled the opening of Cádiz's Ramón de Carranza stadium in September 1955, winning 4-0?",
+   "a": "Barcelona",
+   "o": [
+    "Athletic Bilbao",
+    "Barcelona",
+    "Sevilla",
+    "Real Betis"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Real Murcia played their first official game at the Nueva Condomina in November 2006. Who were the visitors?",
+   "a": "Real Valladolid",
+   "o": [
+    "Real Valladolid",
+    "Burgos",
+    "Cádiz",
+    "Albacete Balompié"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Against which club did Fernando Torres make his Atlético Madrid debut in May 2001?",
+   "a": "Leganés",
+   "o": [
+    "Albacete Balompié",
+    "Eldense",
+    "Burgos",
+    "Leganés"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Paco Salillas topped the 1999-2000 Segunda scoring chart for which club?",
+   "a": "Levante",
+   "o": [
+    "Espanyol",
+    "Levante",
+    "Málaga",
+    "Racing de Santander"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which Osasuna striker scored in both legs of the 2016 play-off final against Girona?",
+   "a": "Kenan Kodro",
+   "o": [
+    "Giorgi Demetradze",
+    "John Aldridge",
+    "Kenan Kodro",
+    "Aritz Aduriz"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Barcelona B were beaten 7-0 by which club in the Segunda in December 2014?",
+   "a": "Valladolid",
+   "o": [
+    "Córdoba",
+    "Eibar",
+    "Valladolid",
+    "Castellón"
+   ],
+   "k": 2
+  },
+  {
+   "q": "By what score did Segunda side Mirandés beat Villarreal in the 2019-20 Copa del Rey quarter-final?",
+   "a": "4-2",
+   "o": [
+    "4-2",
+    "3-1",
+    "4-3",
+    "5-1"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Segunda side Castilla beat which English club 3-1 at the Bernabéu in the 1980-81 Cup Winners' Cup?",
+   "a": "West Ham United",
+   "o": [
+    "West Ham United",
+    "Derby County",
+    "Middlesbrough",
+    "Cardiff City"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which club spent 18 seasons in a row in the Segunda, from 1988-89 to 2005-06?",
+   "a": "Eibar",
+   "o": [
+    "Andorra",
+    "Eibar",
+    "Cádiz",
+    "Albacete Balompié"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Elche were top of the Segunda after every one of the 42 matchdays, the first club to do it. In which season?",
+   "a": "2012-13",
+   "o": [
+    "2012-14",
+    "2011-14",
+    "2012-13",
+    "2013-13"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Castellón won the highest-scoring Segunda game of 2025-26 by 5-4 in November 2025. Against which reserve side?",
+   "a": "Real Sociedad B",
+   "o": [
+    "Real Sociedad B",
+    "Almería",
+    "Eldense",
+    "AD Ceuta"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Only 592 people watched Amorebieta beat which club 2-1 in August 2021, the lowest Segunda crowd that season?",
+   "a": "Almería",
+   "o": [
+    "Eibar",
+    "Andorra",
+    "Almería",
+    "Albacete Balompié"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In March 2023 Mirandés won 4-3 away at which club, one of the highest-scoring Segunda games that season?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Castellón",
+    "Andorra",
+    "Burgos",
+    "Sporting Gijón"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Atlético loanee Rodrigo Riquelme moved on from Mirandés in 2022 to another loan at which top-flight club?",
+   "a": "Girona",
+   "o": [
+    "Girona",
+    "Andorra",
+    "Cádiz",
+    "Burgos"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which top-flight club did Segunda side Levante beat 3-2 in the 2022-23 Copa del Rey round of 32?",
+   "a": "Getafe",
+   "o": [
+    "Deportivo Alavés",
+    "Getafe",
+    "Espanyol",
+    "Celta de Vigo"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Huesca's first ever promotion play-off campaign, in 2017, ended in the semi-finals against which club?",
+   "a": "Getafe",
+   "o": [
+    "Getafe",
+    "Espanyol",
+    "Deportivo Alavés",
+    "Celta de Vigo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Sevilla Atlético won 6-2 at home in April 2017, one of the highest-scoring Segunda games that season. Who did they beat?",
+   "a": "Real Valladolid",
+   "o": [
+    "Albacete Balompié",
+    "AD Ceuta",
+    "Real Valladolid",
+    "Almería"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Antonio Illán topped the Segunda scoring chart twice, for Rayo Vallecano and which island club?",
+   "a": "Tenerife",
+   "o": [
+    "Castellón",
+    "Las Palmas",
+    "Andorra",
+    "Tenerife"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Elche first reached La Liga in 1959 with a 3-0 win over which club?",
+   "a": "Tenerife",
+   "o": [
+    "Andorra",
+    "Tenerife",
+    "Castellón",
+    "Almería"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Real Murcia stayed in La Liga in 1988 by beating which Madrid club 4-1 on aggregate in the promoción?",
+   "a": "Rayo Vallecano",
+   "o": [
+    "Rayo Vallecano",
+    "Levante UD",
+    "Elche",
+    "Deportivo de A Coruña"
+   ],
+   "k": 0
+  },
+  {
+   "q": "After a long break, in which season did the promoción between Segunda and La Liga clubs return?",
+   "a": "1987-88",
+   "o": [
+    "1986-89",
+    "1987-88",
+    "1986-87",
+    "1988-89"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Before joining Sevilla in 1973, Biri Biri had been at which English club under Brian Clough?",
+   "a": "Derby County",
+   "o": [
+    "Burnley",
+    "Middlesbrough",
+    "Derby County",
+    "Charlton Athletic"
+   ],
+   "k": 2
+  }
+ ],
+ "ball": [
+  {
+   "q": "Which club nearly folded in 2012 and was saved when supporters around the world bought shares in it?",
+   "a": "Real Oviedo",
+   "o": [
+    "Burgos",
+    "Real Oviedo",
+    "AD Ceuta",
+    "Albacete Balompié"
+   ],
+   "k": 1
+  },
+  {
+   "q": "Which club's players stood still at kick off in a 2014 cup tie in protest at unpaid wages?",
+   "a": "Racing Santander",
+   "o": [
+    "Málaga",
+    "Deportivo de A Coruña",
+    "Rayo Vallecano",
+    "Racing Santander"
+   ],
+   "k": 3
+  },
+  {
+   "q": "Which club plays at El Molinón, a ground in use since 1908?",
+   "a": "Sporting Gijón",
+   "o": [
+    "Sporting Gijón",
+    "Eldense",
+    "Burgos",
+    "Andorra"
+   ],
+   "k": 0
+  },
+  {
+   "q": "Which Basque club, from a town of about 27,000 people, reached La Liga for the first time in 2014?",
+   "a": "Eibar",
+   "o": [
+    "Eibar",
+    "Cádiz",
+    "Córdoba",
+    "Girona"
+   ],
+   "k": 0
+  },
+  {
+   "q": "On 20 December 2014, Numancia and Lugo played the highest-scoring game of that Segunda season. What was the score?",
+   "a": "6-6",
+   "o": [
+    "7-6",
+    "7-7",
+    "6-6",
+    "5-5"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Luis Suárez topped the Segunda scoring chart for Almería in 2024-25. Which country is he from?",
+   "a": "Colombia",
+   "o": [
+    "Chile",
+    "Argentina",
+    "Colombia",
+    "Ecuador"
+   ],
+   "k": 2
+  },
+  {
+   "q": "Lugo led 6-3 at Numancia with about ten minutes left in December 2014. What was the final score?",
+   "a": "6-6",
+   "o": [
+    "7-7",
+    "7-6",
+    "6-6",
+    "5-6"
+   ],
+   "k": 2
+  },
+  {
+   "q": "In January 2025 one Racing beat another Racing 6-0 in the Segunda. Which Racing won?",
+   "a": "Racing Santander",
+   "o": [
+    "Racing Santander",
+    "Osasuna",
+    "Levante UD",
+    "Celta de Vigo"
+   ],
+   "k": 0
+  },
+  {
+   "q": "In February 2026 which superstar bought a 25 percent stake in Segunda side Almería?",
+   "a": "Cristiano Ronaldo",
+   "o": [
+    "Gonzalo Higuaín",
+    "Mario Mandžukić",
+    "Cristiano Ronaldo",
+    "Edinson Cavani"
+   ],
+   "k": 2
+  }
+ ]
+}

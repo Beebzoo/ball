@@ -6166,6 +6166,217 @@
   .b4sb .sb{--board:#0b2416;--board-ink:#F8F1DD;--board-line:rgba(255,255,255,.18);max-width:none;border:2px solid #fff}
   .b4sb.solo .sb-t{flex:1}
   .b4sblabel{margin-top:6px;text-align:center;font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#F8F1DD;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+  /* GUESS THE PLAYER (_brand/frontpage/guess-the-player.html, phone 1): the compare table, the scarf, the reveal */
+  .gtpcmp{padding:10px 10px 6px!important}
+  .gtpcmp .h,.gtpcmp .r{display:grid;grid-template-columns:minmax(0,1.55fr) repeat(4,minmax(0,1fr));gap:5px;align-items:center}
+  .gtpcmp .h{padding:0 0 7px}
+  .gtpcmp .cap{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FB79E;text-align:center}
+  .gtpcmp .cap:first-child{text-align:left}
+  .gtpcmp .r{padding:4px 0;border-top:1px solid rgba(255,255,255,.1)}
+  .gtpcmp .r.none{display:block;padding:12px 2px;font:italic 400 13.5px/1.3 'Lora',Georgia,serif;color:rgba(248,241,221,.7)}
+  .gtpcmp .nm{font:italic 900 13.5px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal;color:#F8F1DD}
+  .gtpt{height:42px;min-width:0;border-radius:9px;display:flex;align-items:center;justify-content:center;gap:2px;font:800 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em;
+    border:2px solid rgba(255,255,255,.55);background:rgba(255,255,255,.07);color:rgba(248,241,221,.7);overflow:hidden}
+  .gtpt.ok{background:linear-gradient(180deg,#38a863,#237a42);border-color:#fff;color:#fff}
+  .gtpt.near{background:linear-gradient(180deg,#f6d57c,#c99a2e);border-color:#fff;color:#241B08}
+  .gtpt small{font:800 10px/1 'Barlow Semi Condensed',sans-serif}
+  .gtpt .gtppatch{flex:0 1 auto;min-width:0}
+  .gtpflag{border-radius:2px;box-shadow:0 0 0 1.5px rgba(255,255,255,.85);height:auto;flex:0 0 auto}
+  .gtppatch{height:auto;flex:0 0 auto}
+  .gtppatch.sw{display:inline-block;aspect-ratio:48/52;background:#5a6470;border-radius:4px 4px 50% 50%}
+  .gtpnote{display:flex;gap:8px;align-items:baseline;margin:12px 2px 0;font:italic 400 13.5px/1.35 'Lora',Georgia,serif;color:#3d4a38}
+  .gtpnote b{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;font-style:normal;color:#a8740a;flex:0 0 auto}
+  .gtpcap{display:block;margin:14px 2px 7px;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#5b6b56}
+  .gtpcap.light{margin:0 0 10px;color:#8FB79E}
+  .gtpscarf{position:relative;height:56px;margin:0 12px 6px;display:flex;border-radius:3px;box-shadow:0 4px 0 rgba(0,0,0,.14)}
+  .gtpscarf::before,.gtpscarf::after{content:"";position:absolute;top:2px;bottom:2px;width:12px;background:repeating-linear-gradient(180deg,#e9b84c 0 3px,transparent 3px 6px)}
+  .gtpscarf::before{left:-12px}.gtpscarf::after{right:-12px}
+  .gtpscarf .st{flex:1;display:grid;grid-template-rows:repeat(4,1fr);border-left:2px solid rgba(255,255,255,.7);background:#ddd2b0}
+  .gtpscarf .st:first-child{border-left:0}
+  .gtpscarf .st i{display:block;border-top:1px solid rgba(255,255,255,.35)}
+  .gtpscarf .st i:first-child{border-top:0}
+  .gtpscarf .st i.g{background:#2f9a57}.gtpscarf .st i.y{background:#e9b84c}.gtpscarf .st i.m{background:#3a4a3f}
+  .gtpscarf .st.empty{background:repeating-linear-gradient(115deg,rgba(18,61,36,.14) 0 5px,transparent 5px 10px)}
+  .gtpscarf.mini{height:16px;margin:5px 6px 4px;max-width:120px;box-shadow:none}
+  .gtpscarf.mini::before,.gtpscarf.mini::after{width:5px}.gtpscarf.mini::before{left:-5px}.gtpscarf.mini::after{right:-5px}
+  .gtpscarf.mini .st{border-left-width:1px}
+  .gtpscarf.mini .st i{border-top:0}
+  .gtpsug{display:flex;flex-direction:column;gap:6px;margin:14px 0 0}
+  .gtpsug:empty{margin:0}
+  .gtpopt{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:14px;background:#F8F1DD;border:2px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.14);color:#123D24;text-align:left;cursor:pointer}
+  .gtpopt b{display:block;font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+  .gtpopt small{display:block;margin-top:3px;font:700 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;color:#5b6b56;text-transform:uppercase}
+  .gtpopt:disabled{opacity:.55}
+  .gtpmsg{margin:10px 4px 0;font:italic 400 13.5px/1.35 'Lora',Georgia,serif;color:#3d4a38}
+  .gtpacts{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin:16px 0 4px;align-items:center}
+  .gtpacts .b4btn{margin:0;padding:0 26px;width:auto}
+  .gtpfield{height:56px;min-width:0;width:100%;box-sizing:border-box;border-radius:999px;background:#fff;border:2px solid #fff;box-shadow:0 0 0 2px #123D24,0 6px 0 rgba(0,0,0,.12);padding:0 18px;
+    font:700 19px/1 'Barlow Semi Condensed',sans-serif;color:#123D24;caret-color:#e9b84c;outline:none}
+  .gtpfield::placeholder{color:#8a9a85;font-weight:600}
+  .gtphero{display:flex;align-items:center;gap:14px;margin:4px 2px 14px}
+  .gtpshirt{width:96px;flex:0 0 auto;filter:drop-shadow(0 6px 6px rgba(0,0,0,.3))}
+  .gtphero .gtpcap{margin:0 0 4px}
+  .gtpname{display:block;font:italic 900 30px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#123D24}
+  .gtpmeta{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:8px;font:700 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5b6b56}
+  .gtproute{display:flex;align-items:flex-start;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none}
+  .gtproute .stn{flex:0 0 64px;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+  .gtproute .stn small{font:700 10px/1.1 'Barlow Semi Condensed',sans-serif;color:#F8F1DD;overflow-wrap:anywhere}
+  .gtproute .ln{flex:0 0 14px;height:4px;margin-top:15px;border-radius:2px;background:#e9b84c}
+  .gtpstats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
+  .gtpstats b{display:block;font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;color:#F8F1DD;font-variant-numeric:tabular-nums}
+  .gtpstats small{display:block;margin-top:4px;font:800 9.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;color:#8FB79E}
+  .gtppage .b4btn.dark{margin-top:10px}
+  .gtppage .b6stitle{font-size:25px}
+  @media (max-width:374px){ .gtppage .b6stitle{font-size:19px} .gtpcmp .h,.gtpcmp .r{grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:4px} .gtpcmp .nm{font-size:11px;letter-spacing:-.01em} }
+  /* TIKI-TAKA-TOE (_brand/frontpage/tiki-taka-toe.html): the scoreboard in kits, the boards, the grid on grass */
+  .ttpage .b6band{height:250px}
+  .ttpage.ttsetup .b6band{height:150px}
+  .ttsb{position:relative;z-index:1;margin:-2px 0 8px}
+  .ttsbin{display:grid;grid-template-columns:1fr 84px 1fr;border-radius:14px;overflow:hidden;border:2px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.45)}
+  .ttt{display:flex;align-items:center;gap:6px;padding:8px;min-width:0;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(0,0,0,.28)),var(--kc);color:var(--ki)}
+  .ttt.away{flex-direction:row-reverse;text-align:right}
+  .ttt.turn{box-shadow:inset 0 -4px 0 #f3cd6b}
+  .ttt svg{flex:0 0 auto;width:26px;height:auto}
+  .ttt span{min-width:0}
+  .ttt b{display:block;font:italic 900 16px/1 'Barlow Semi Condensed',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ttt small{display:block;margin-top:3px;font:700 9.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;opacity:.85}
+  .tts{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:#0a1a11;color:#F8F1DD;padding:6px 2px}
+  .tts b{font:italic 900 28px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em}
+  .tts small{font:800 8.5px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;color:#f3cd6b;text-align:center;max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ttclock{position:relative;z-index:1;margin:0 auto 10px;width:max-content;display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(5,20,10,.8);color:#F8F1DD;font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em}
+  .ttclock .digits{min-width:30px;text-align:right;font-variant-numeric:tabular-nums}
+  .ttclock .bar{width:70px;height:6px;border-radius:3px;background:rgba(255,255,255,.15);overflow:hidden;display:block}
+  .ttclock .bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#f3cd6b,#c99a2e)}
+  .ttclock.hot{background:#8f0f22}
+  .ttpitch{--side:64px;position:relative;margin:4px 0 12px}
+  .tttop{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:0 0 6px calc(var(--side) + 6px)}
+  .ttmid{display:flex;gap:6px}
+  .ttside{flex:0 0 var(--side);display:flex;flex-direction:column;gap:5px}
+  .ttad{min-width:0;height:44px;border-radius:6px;background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;display:flex;align-items:center;justify-content:center;gap:5px;padding:0 4px;color:#F8F1DD;
+    font:italic 900 11.5px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;box-shadow:0 3px 0 rgba(0,0,0,.15)}
+  .ttad span{min-width:0;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-align:center;word-break:normal;overflow-wrap:normal}
+  .ttad.side{flex:1;height:auto;flex-direction:column;gap:4px;font-size:10.5px}
+  .ttad img{flex:0 0 auto;height:auto;border-radius:2px}
+  .ttad.long{font-size:9.5px;letter-spacing:-.01em}
+  .ttad.side.long{font-size:8.5px}
+  #overlay:has(.ttsearch){align-items:flex-start;padding-top:max(16px,env(safe-area-inset-top,0px))}
+  .ttad .ttflag{box-shadow:0 0 0 1px #fff}
+  .ttpatch.sw{display:inline-block;aspect-ratio:48/52;background:#5a6470;border-radius:4px 4px 50% 50%}
+  .ttfield{position:relative;flex:1;min-width:0;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#1d5232 url(assets/grass-match.jpg) center/520px auto;
+    box-shadow:0 6px 0 rgba(0,0,0,.14),0 12px 24px rgba(18,61,36,.3),inset 0 0 0 3px rgba(255,255,255,.85)}
+  .ttfield::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 33.1%,rgba(255,255,255,.75) 33.1% 33.9%,transparent 33.9% 66.1%,rgba(255,255,255,.75) 66.1% 66.9%,transparent 66.9%),
+    linear-gradient(180deg,transparent 33.1%,rgba(255,255,255,.75) 33.1% 33.9%,transparent 33.9% 66.1%,rgba(255,255,255,.75) 66.1% 66.9%,transparent 66.9%)}
+  .ttfield::after{content:"";position:absolute;left:50%;top:50%;width:21%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:2px solid rgba(255,255,255,.55);pointer-events:none}
+  .ttsq{position:absolute;width:33.333%;height:33.333%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 2px 5px;box-sizing:border-box;z-index:1;
+    background:none;border:0;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .ttsq .ttshirt{width:52%;max-width:58px;margin-bottom:2px;filter:drop-shadow(0 4px 4px rgba(0,0,0,.45))}
+  .ttnm{max-width:100%;font:italic 900 11px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.8);padding:2px 5px;border-radius:4px;background:rgba(0,0,0,.4);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ttsq .rar{position:absolute;top:6px;left:6px;font:800 8.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;padding:3px 5px;border-radius:999px;background:rgba(0,0,0,.5);color:#fff}
+  .ttsq .lk{position:absolute;top:6px;right:6px;font:800 8.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;padding:3px 5px;border-radius:999px;background:#f3cd6b;color:#0a1f13}
+  .ttsq.lock::before,.ttsq.glow::before{content:"";position:absolute;inset:4px;border-radius:6px;border:3px solid #f3cd6b;box-shadow:0 0 12px rgba(243,205,107,.7);pointer-events:none}
+  .ttsq.empty{justify-content:center;padding:0}
+  .ttsq .plus{font:900 24px/1 'Barlow Semi Condensed',sans-serif;color:rgba(255,255,255,.35)}
+  .ttsq.sel::before{content:"";position:absolute;inset:4px;border-radius:6px;border:3px dashed #fff;animation:ttpulse 1.2s ease-in-out infinite;pointer-events:none}
+  .ttsq.sel .plus{color:rgba(255,255,255,.9)}
+  .ttsq.wrong{animation:ttshake .4s}
+  .ttsq.wrong .ttnm{background:rgba(143,15,34,.75)}
+  .ttpitch.tackling .ttsq.target::before{content:"";position:absolute;inset:4px;border-radius:6px;border:3px dashed #f3cd6b;animation:ttpulse 1s ease-in-out infinite;pointer-events:none}
+  .ttpitch.tackling .ttsq:not(.target):not(.empty){opacity:.6}
+  @keyframes ttpulse{50%{opacity:.35}}
+  @keyframes ttshake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+  .ttline{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+  .ttball{position:absolute;z-index:3;width:28px;height:28px;margin:-14px 0 0 -14px;left:var(--x1);top:var(--y1);filter:drop-shadow(0 4px 3px rgba(0,0,0,.5));animation:ttrun 1.1s ease-out both}
+  .ttball svg{width:100%;height:100%}
+  @keyframes ttrun{from{left:var(--x0);top:var(--y0)}to{left:var(--x1);top:var(--y1)}}
+  .ttgoal{position:absolute;left:0;right:0;top:50%;z-index:4;transform:translateY(-50%) rotate(-6deg);text-align:center;pointer-events:none;
+    font:italic 900 clamp(56px,20vw,86px)/1 'Barlow Semi Condensed',sans-serif;color:#fff;letter-spacing:.02em;text-shadow:3px 3px 0 #c99a2e,6px 6px 0 #6b4c05,0 0 40px rgba(255,240,190,.8);animation:ttgoal .5s cubic-bezier(.2,1.6,.4,1) both}
+  @keyframes ttgoal{from{transform:translateY(-50%) rotate(-6deg) scale(.3);opacity:0}}
+  .ttcomm{display:flex;flex-direction:column;gap:5px;margin:0 2px 14px;min-height:20px}
+  .ttcomm div{display:flex;gap:8px;align-items:baseline;font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#3d4a38}
+  .ttcomm b{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;color:#a8740a;font-style:normal;flex:0 0 28px}
+  .ttacts{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:stretch}
+  .ttacts .b4btn{margin:0}
+  .ttacts .b4btn.dark{padding:0 16px;white-space:nowrap}
+  .ttacts .b4btn small,.ttpage .b4btn small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;background:rgba(0,0,0,.25);padding:4px 6px;border-radius:999px;font-style:normal;vertical-align:middle}
+  .ttpage .b4btn.quiet{margin-top:6px}
+  .tthint{display:flex;align-items:center;gap:10px;font:500 14px/1.3 'Barlow Semi Condensed',sans-serif}
+  .tthint img{border-radius:2px;box-shadow:0 0 0 1px #fff}
+  .tthint b{display:block;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#a8740a;margin-bottom:3px}
+  .ttswap{display:flex;align-items:center;gap:12px;padding:10px 12px;margin:0 0 12px;border-radius:14px;background:#fff7df;border:1.5px solid #e9b84c;color:#123D24}
+  .ttswap svg{flex:0 0 auto;width:26px;height:auto}
+  .ttswap b{font:italic 900 17px/1.05 'Barlow Semi Condensed',sans-serif}
+  .ttswap small{display:block;font:600 12px/1.25 'Barlow Semi Condensed',sans-serif;color:#5b6b56;margin-top:3px}
+  /* the search sheet and the tackle sheet, on the house sheet */
+  .ttsearch,.tttk{display:flex;flex-direction:column;gap:10px;text-align:left}
+  .tthd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:italic 900 18px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+  .tthd i{color:#e9b84c;font-style:italic}
+  .tthd img{border-radius:2px}
+  .ttwho{margin:0;font:italic 400 13.5px/1.35 'Lora',Georgia,serif;opacity:.85}
+  #ttq{width:100%;box-sizing:border-box;height:50px;border-radius:12px;border:2px solid #fff;background:#F8F1DD;color:#123D24;padding:0 14px;font:600 18px/1 'Barlow Semi Condensed',sans-serif}
+  .ttsug{display:flex;flex-direction:column;gap:6px;min-height:20px}
+  .ttopt{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:12px;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.06);color:inherit;text-align:left;cursor:pointer}
+  .ttopt img{border-radius:2px;flex:0 0 auto}
+  .ttopt .nf{width:24px;height:16px;border-radius:2px;background:rgba(255,255,255,.2);flex:0 0 auto}
+  .ttopt b{flex:1;min-width:0;font:italic 900 17px/1.1 'Barlow Semi Condensed',sans-serif}
+  .ttopt small{font:700 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;opacity:.75;white-space:nowrap}
+  .ttopt:disabled{opacity:.45}
+  .ttnone{margin:0;font:italic 400 13px/1.3 'Lora',Georgia,serif;opacity:.75}
+  .tttk .tthd span small{display:block;margin-top:4px;font:700 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;opacity:.8;font-style:normal}
+  .tttk .tkt{font-size:28px;color:#f3cd6b}
+  .ttvs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+  .ttvs>i{font:italic 900 16px/1 'Barlow Semi Condensed',sans-serif;color:#e9b84c}
+  .ttvp{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:12px;text-align:center}
+  .ttvp b{font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+  .ttvp small{font:700 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;opacity:.75}
+  .ttvp .pc{font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif}
+  .ttvp.lose{opacity:.55}
+  .ttvp.win{background:#fff7df;color:#123D24;border:2px solid #e9b84c}
+  .tttk p{margin:0;font:italic 400 13.5px/1.35 'Lora',Georgia,serif;text-align:center}
+  /* kick-off */
+  .ttteams{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:6px;margin:6px 0 16px}
+  .ttteams .vs{align-self:center;font:italic 900 26px/1 'Barlow Semi Condensed',sans-serif;color:#c99a2e}
+  .tttm{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0}
+  .tttm svg{width:52px;height:auto}
+  .ttname{width:100%;max-width:150px;box-sizing:border-box;text-align:center;border:2px solid #fff;border-radius:10px;background:#F8F1DD;color:#123D24;padding:7px 6px;font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;box-shadow:0 2px 0 rgba(18,61,36,.12)}
+  .ttkits{display:flex;gap:7px}
+  .ttkits button{width:26px;height:26px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px rgba(18,61,36,.25);padding:0;cursor:pointer}
+  .ttkits button.on{box-shadow:0 0 0 3px #e9b84c}
+  .tttm small{font:700 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;color:#5b6b56}
+  .ttopt2{display:flex;flex-direction:column;gap:8px;margin:0 0 14px}
+  .ttopt2 .lbl{font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#123D24}
+  .ttseg{display:flex;gap:6px}
+  .ttseg button{flex:1;min-width:0;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:12px;background:#F8F1DD;border:2px solid #fff;color:#123D24;
+    font:italic 900 15px/1 'Barlow Semi Condensed',sans-serif;box-shadow:0 3px 0 rgba(0,0,0,.06);cursor:pointer;padding:4px 2px}
+  .ttseg button small{font:600 10.5px/1 'Barlow Semi Condensed',sans-serif;color:#5b6b56;font-style:normal}
+  .ttseg button.on{background:linear-gradient(180deg,#14422A,#0b2416);color:#F8F1DD;border-color:#e9b84c}
+  .ttseg button.on small{color:#8FB79E}
+  .ttseg button:disabled{opacity:.5;cursor:default}
+  .ttrules{margin:0 2px 14px;font:italic 400 13px/1.4 'Lora',Georgia,serif;color:#3d4a38}
+  /* full time */
+  .ttbrow{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:8px 2px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .ttbrow:last-child{border-bottom:0}
+  .ttbrow span{grid-row:span 2;font:800 11px/1.6 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e9b84c}
+  .ttbrow b{font:italic 900 17px/1.1 'Barlow Semi Condensed',sans-serif}
+  .ttbrow small{font:600 12px/1.2 'Barlow Semi Condensed',sans-serif;opacity:.75}
+  .ttrare span{display:block;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#e9b84c;margin-bottom:4px}
+  .ttrare b{display:block;font:italic 900 22px/1.05 'Barlow Semi Condensed',sans-serif}
+  .ttrare small{font:600 12px/1.3 'Barlow Semi Condensed',sans-serif;opacity:.8}
+  .ttxp{margin:2px 0 12px;text-align:center;font:italic 900 22px/1 'Barlow Semi Condensed',sans-serif;color:#a8740a}
+  .ttxp small{font:700 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;color:#5b6b56;font-style:normal}
+  /* narrow phones: boards stack the badge over the name, the long title shrinks */
+  @media (max-width:374px){
+    .ttpage .b6stitle{font-size:22px}
+    .ttpitch{--side:58px}
+    .tttop .ttad{flex-direction:column;gap:2px;height:50px;font-size:9.5px}
+    .tttop .ttad img{width:18px}
+    .ttacts .b4btn{font-size:17px}
+    .ttacts .b4btn small{display:none}
+    .ttt b{font-size:14px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ttsq.sel::before,.ttpitch.tackling .ttsq.target::before,.ttsq.wrong,.ttball,.ttgoal{animation:none}
+  }
   .b4vs{display:flex;justify-content:space-between;gap:10px;margin:0 2px 10px;font:800 13px/1.2 'Barlow Semi Condensed',sans-serif;color:#123D24}
   .b4vs span{display:flex;flex-direction:column;gap:3px}
   .b4vs span:last-child{text-align:right;align-items:flex-end}
@@ -13486,7 +13697,7 @@ function mineSave(){
    further down the file, and a const in the temporal dead zone throws on the
    line that reads it, which would be a blank app rather than a missing export. */
 const EXPORT_KEYS = ["ball4-mine", "ball4-prog", "ball4-quiz-history-v1", "ball4-crew",
-                     "ball4-outcomes", "ball4-names", "ball4-mp-name", "ball4-outbox", "ball4-acct"];
+                     "ball4-outcomes", "ball4-names", "ball4-mp-name", "ball4-outbox", "ball4-acct", "ball4-gtp"];
 function exportMine(){
   const out = {app: "BALL 4", at: new Date().toISOString(), data: {}};
   for(const k of EXPORT_KEYS){
@@ -23705,6 +23916,8 @@ function render(){
   if(LOCKER_VIEW && (!S || S.phase === "setup")){ b6Tabs("locker"); return renderLocker(st); }
   if(ALBUM_VIEW) return renderAlbum(st);
   if(CUP_VIEW) return renderCup(b4Stage(st, () => { const c = cupRun(); return { title: "The Cup", ctx: "World Cup " + (c ? c.year : cupYear()) + (c && c.alive ? (c.round === "group" ? " · Group " + c.group : " · " + CUP_ROUND_SHORT[c.round]) : ""), back: "closeCup()", cls: "b4cup" }; }));
+  if(TT_VIEW) return ttRender(st);
+  if(GTP_VIEW) return gtpRender(st);
   if(DREAM_VIEW) return renderDream(st);
   if(!S || S.phase==="setup"){
     if(showBoard) return renderBoard(st);
@@ -24709,7 +24922,7 @@ function setPlay(v){
   render();
 }
 function setMc(v){ snapshotNames(); setupMc=v; render(); }
-function goHome(){ snapshotNames(); b4Step=null; b4Open=null; ME_VIEW=null; LEAGUE_VIEW=null; LOCKER_VIEW=null; setupMode=null; modesOpen=false; extraOpen=false; render(); window.scrollTo({top:0}); }
+function goHome(){ snapshotNames(); if(TT_VIEW) stopTimer(); TT_VIEW=null; GTP_VIEW=false; b4Step=null; b4Open=null; ME_VIEW=null; LEAGUE_VIEW=null; LOCKER_VIEW=null; setupMode=null; modesOpen=false; extraOpen=false; render(); window.scrollTo({top:0}); }
 function toggleModes(){
   snapshotNames();
   modesOpen=!modesOpen;
@@ -26817,6 +27030,809 @@ function crestURL(slug, kind, px, fallback){
   }catch(e){ return null; }
 }
 
+/* ---------- TIKI-TAKA-TOE ----------
+   _plans/tiki-taka-toe.md; the look is _brand/frontpage/tiki-taka-toe.html.
+   Noughts and crosses played as a match: a 3x3 grid of clubs and countries,
+   name a player who fits both to claim a square with a shirt in your kit,
+   three in a row is a goal, first to two wins. The tackle takes an opponent's
+   square with a rarer name; a rare pick locks its square.
+
+   The phone never sees the player database. _tools/build-grids.js works out
+   every cell's answers ahead of time (assets/grids): one name list, one
+   search list, the categories, and a pack of 200 grids per theme. The match
+   lives in TT (not S, so a parked Matchday stays parked); TT_VIEW says this
+   screen is up. Every rule is a plain function on TT, so _tests/tt-test.js
+   can play a match without a screen. One phone only in v1, XP only. */
+let TT = null;
+let TT_VIEW = null;           // "setup" while the kick-off screen is up, "play" once a match exists
+const TT_DATA = { names: null, search: null, cats: null, grids: {}, words: null };
+const TT_THEMES = { mixed: { n: "Mixed", sub: "clubs + countries" }, eredivisie: { n: "Eredivisie", sub: "Dutch clubs" }, worldcup: { n: "World Cups", sub: "nations" } };
+const TT_LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+const TT_LOCK = 0.10;         // a pick under 10 % (estimated) locks its square
+const TT_MAX_BOARDS = 7;      // seven boards without two goals and it is full time anyway
+const TT_KITS = [
+  [{ c: "#c8102e", t: "#ffffff", n: "Red" }, { c: "#ffffff", t: "#c8102e", n: "White" }, { c: "#111111", t: "#e9b84c", n: "Black" }],
+  [{ c: "#2563eb", t: "#ffdf00", n: "Blue" }, { c: "#e9b84c", t: "#123D24", n: "Gold" }, { c: "#ffffff", t: "#2563eb", n: "White" }]];
+const TT_POS = { GK: "goalkeeper", DF: "defender", MF: "midfielder", FW: "forward" };
+const TT_PREF = "ball4-tt";
+
+function ttPrefs(){
+  let p = null;
+  try{ p = JSON.parse(localStorage.getItem(TT_PREF) || "null"); }catch(e){}
+  p = p && typeof p === "object" ? p : {};
+  let me = "";
+  try{ me = (acct() && acct().username) || ""; }catch(e){}
+  return { names: Array.isArray(p.names) ? p.names : [me || "Player 1", "Player 2"], kit: Array.isArray(p.kit) ? p.kit : [0, 0],
+    theme: TT_THEMES[p.theme] ? p.theme : "mixed", clock: [0, 10, 20].includes(p.clock) ? p.clock : 20, played: p.played | 0 };
+}
+function ttSavePrefs(p){ try{ localStorage.setItem(TT_PREF, JSON.stringify(p)); }catch(e){} }
+/* the two kits; the second captain switches when both picked the same colour */
+function ttKits(p){
+  const a = TT_KITS[0][p.kit[0] | 0] || TT_KITS[0][0];
+  let b = TT_KITS[1][p.kit[1] | 0] || TT_KITS[1][0];
+  if(b.c === a.c) b = TT_KITS[1].find(k => k.c !== a.c);
+  return [a, b];
+}
+
+/* ---------- the data ---------- */
+function ttLoad(theme){
+  const get = f => fetch("assets/grids/" + f + ".json").then(r => { if(!r.ok) throw new Error(f); return r.json(); });
+  const need = [];
+  if(!TT_DATA.names) need.push(get("names").then(x => { TT_DATA.names = x; }));
+  if(!TT_DATA.search) need.push(get("search").then(x => { TT_DATA.search = x; TT_DATA.words = null; }));
+  if(!TT_DATA.cats) need.push(get("cats").then(x => { TT_DATA.cats = x; }));
+  if(!TT_DATA.grids[theme]) need.push(get(theme).then(x => { TT_DATA.grids[theme] = x; }));
+  return Promise.all(need);
+}
+/* accents folded the way build-grids.js folds them */
+const ttFold = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ß/g, "ss").replace(/[øØ]/g, "o").replace(/[æÆ]/g, "ae")
+  .replace(/[łŁ]/g, "l").replace(/[đĐ]/g, "d").replace(/ı/g, "i").replace(/[^a-zA-Z0-9' -]/g, " ").replace(/\s+/g, " ").trim().toLowerCase();
+/* the suggestions: every typed word starts some word of the name, most famous first */
+function ttSearch(q, max){
+  const f = ttFold(q);
+  if(!f || !TT_DATA.search) return [];
+  if(!TT_DATA.words) TT_DATA.words = TT_DATA.search.map(([k]) => k.split(/[ -]/));
+  const toks = f.split(" "), out = [];
+  TT_DATA.search.forEach(([k, id], i) => {
+    if(k.startsWith(f) || toks.every(t => TT_DATA.words[i].some(w => w.startsWith(t)))) out.push(id);
+  });
+  const N = TT_DATA.names;
+  return out.sort((a, b) => N[b][4] - N[a][4]).slice(0, max || 6);
+}
+const ttName = id => (TT_DATA.names && TT_DATA.names[id]) ? TT_DATA.names[id][0] : "?";
+/* the name on the shirt's tag: the surname, particles and all (van der Sar) */
+function ttShort(id){
+  const w = ttName(id).split(" ");
+  if(w.length < 2) return w[0];
+  const i = w.findIndex((x, k) => k > 0 && /^[a-z]/.test(x));
+  return i > 0 ? w.slice(i).join(" ") : w[w.length - 1];
+}
+/* a stable shirt number from the name; the database has no squad numbers */
+function ttNo(id){ let h = 0; for(const ch of ttName(id)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return 2 + h % 22; }
+const ttCatName = k => (TT_DATA.cats && TT_DATA.cats[k] && TT_DATA.cats[k].n) || String(k).slice(2);
+
+/* ---------- the engine ---------- */
+function ttShuffle(a){ for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function ttNew(o){
+  const grids = TT_DATA.grids[o.theme] || [];
+  const order = o.order || ttShuffle(grids.map((g, i) => i));
+  TT = { theme: o.theme, order, gi: 0, grid: grids[order[0]], board: Array(9).fill(null), used: [], turn: 0, kickoff: 0,
+    score: [0, 0], tackles: [1, 1], hints: [1, 1], boardNo: 1, bm: 0, moves: 0,
+    players: o.players.map(p => ({ name: p.name, kit: p.kit })), clock: o.clock == null ? 20 : o.clock,
+    phase: "play", log: [], boards: [], picks: [], sel: null, mode: "claim", wrong: null, goal: null, hint: null, tackle: null, xp: null };
+  return TT;
+}
+const ttCats = cell => [TT.grid.rows[Math.floor(cell / 3)], TT.grid.cols[cell % 3]];
+const ttCell = cell => ({ ids: TT.grid.cells[Math.floor(cell / 3)][cell % 3], fame: TT.grid.fame[Math.floor(cell / 3)][cell % 3] });
+function ttFits(cell, id){ return ttCell(cell).ids.includes(id); }
+/* THE PICK RATE, estimated until real answers exist: a player's fame cubed
+   over the same for every right answer in that square. The plan said fame
+   over fame, but picks bunch on the famous far more than linearly: linear put
+   the best-known answer under 10 % (locked) in 31 % of all squares (Zanetti
+   locked Inter x Argentina), squared still in 14 %, cubed in 3 %. So the
+   obvious name can be tackled and a deep cut locks. Real pick rates replace
+   this one function. */
+function ttRarity(cell, id){
+  const a = ttCell(cell), i = a.ids.indexOf(id);
+  if(i < 0) return 1;
+  const w = f => Math.pow(Math.max(1, f), 3);
+  let sum = 0;
+  for(const f of a.fame) sum += w(f);
+  return w(a.fame[i]) / sum;
+}
+const ttPct = r => r < .01 ? "<1%" : Math.round(r * 100) + "%";
+const ttCross = cell => ttCats(cell).map(ttCatName).join(" × ");
+function ttMin(){ const m = 3 + TT.bm * 6; return m > 90 ? "90+'" : m + "'"; }
+function ttLog(text){ TT.log.push({ m: ttMin(), text }); }
+function ttPass(){ TT.turn = 1 - TT.turn; TT.moves++; TT.bm++; TT.sel = null; TT.mode = "claim"; }
+function ttLine(board){
+  for(const l of TT_LINES){
+    const a = board[l[0]];
+    if(a && l.every(c => board[c] && board[c].who === a.who)) return { who: a.who, line: l };
+  }
+  return null;
+}
+const ttFull = board => board.every(Boolean);
+/* after a square changes hands: a goal, a full board, or the other side's turn */
+function ttAfter(who, res){
+  const t = TT;
+  t.moves++; t.bm++; t.sel = null; t.mode = "claim";
+  const line = ttLine(t.board);
+  if(line){
+    t.score[line.who]++;
+    t.goal = line;
+    t.boards.push({ no: t.boardNo, who: line.who, names: line.line.map(c => ttShort(t.board[c].id)) });
+    ttLog("GOAL! " + t.players[line.who].name + " completes the line with " + ttName(t.board[line.line.find(c => t.board[c].id === res.id) ?? line.line[2]].id) + ".");
+    t.phase = "goal";
+    t.over = t.score[line.who] >= 2 || t.boardNo >= TT_MAX_BOARDS;
+    return Object.assign(res, { goal: line });
+  }
+  if(ttFull(t.board)){
+    t.boards.push({ no: t.boardNo, who: null });
+    ttLog("A full board and no line: board " + t.boardNo + " is a draw.");
+    t.phase = "draw";
+    t.over = t.boardNo >= TT_MAX_BOARDS;
+    return Object.assign(res, { draw: true });
+  }
+  t.turn = 1 - who;
+  return res;
+}
+function ttClaim(cell, id){
+  const t = TT;
+  if(!t || t.phase !== "play") return { ok: false, why: "phase" };
+  if(t.board[cell]) return { ok: false, why: "taken" };
+  if(t.used.includes(id)) return { ok: false, why: "used" };
+  const who = t.turn;
+  t.hint = null;
+  if(!ttFits(cell, id)){
+    t.wrong = { cell, id };
+    ttLog(ttName(id) + " doesn't fit " + ttCross(cell) + ". " + t.players[who].name + " loses the turn.");
+    ttPass();
+    return { ok: false, why: "wrong" };
+  }
+  const r = ttRarity(cell, id), locked = r < TT_LOCK;
+  t.board[cell] = { who, id, locked, r };
+  t.used.push(id); t.wrong = null;
+  t.picks.push({ who, id, cell: ttCross(cell), r });
+  ttLog(locked ? t.players[who].name + " locks " + ttCross(cell) + " with " + ttName(id) + ": only " + ttPct(r) + " would think of that one."
+    : t.players[who].name + " takes " + ttCross(cell) + " with " + ttName(id) + ".");
+  return ttAfter(who, { ok: true, id, locked, r });
+}
+/* THE TACKLE: an opponent's square that isn't locked, once a match, with a
+   right answer rarer than theirs. The tackle is spent whether it comes off or
+   not, and a failed one costs the turn. */
+function ttTackle(cell, id){
+  const t = TT;
+  if(!t || t.phase !== "play") return { ok: false, why: "phase" };
+  const who = t.turn, sq = t.board[cell];
+  if(!sq || sq.who === who) return { ok: false, why: "not theirs" };
+  if(sq.locked) return { ok: false, why: "locked" };
+  if(t.tackles[who] < 1) return { ok: false, why: "none left" };
+  if(t.used.includes(id)) return { ok: false, why: "used" };
+  t.tackles[who]--;
+  t.hint = null;
+  const fits = ttFits(cell, id), r = fits ? ttRarity(cell, id) : 1, won = fits && r < sq.r;
+  t.tackle = { cell, from: sq.id, fromWho: sq.who, fromR: sq.r, id, r, fits, won, who };
+  if(!won){
+    ttLog(t.players[who].name + "'s tackle fails: " + (fits ? ttName(id) + " (" + ttPct(r) + ") is not rarer than " + ttName(sq.id) + " (" + ttPct(sq.r) + ")." : ttName(id) + " doesn't fit " + ttCross(cell) + "."));
+    ttPass();
+    return { ok: false, why: fits ? "commoner" : "wrong", tackle: t.tackle };
+  }
+  t.board[cell] = { who, id, locked: r < TT_LOCK, r };
+  t.used.push(id); t.wrong = null;
+  t.picks.push({ who, id, cell: ttCross(cell), r });
+  ttLog("TACKLE! " + t.players[who].name + " takes " + ttCross(cell) + ": " + ttName(id) + " (" + ttPct(r) + ") beats " + ttName(sq.id) + " (" + ttPct(sq.r) + ").");
+  return ttAfter(who, { ok: true, id, locked: r < TT_LOCK, r, tackle: t.tackle });
+}
+/* the clock ran out: the turn passes, nothing else */
+function ttTimeout(){
+  if(!TT || TT.phase !== "play") return;
+  ttLog(TT.players[TT.turn].name + " runs out of time.");
+  TT.hint = null; TT.wrong = null;
+  ttPass();
+}
+/* ASK THE GAFFER: the nationality and position of the most famous right
+   answer still unused. One per captain per match. */
+function ttHint(cell){
+  const t = TT;
+  if(!t || t.phase !== "play" || t.hints[t.turn] < 1 || t.board[cell]) return null;
+  const id = ttCell(cell).ids.find(i => !t.used.includes(i));
+  if(id == null) return null;
+  t.hints[t.turn]--;
+  const n = TT_DATA.names[id];
+  t.hint = { cell, nat: n[2], pos: n[3], who: t.turn };
+  ttLog(t.players[t.turn].name + " asks the gaffer about " + ttCross(cell) + ".");
+  return t.hint;
+}
+/* the next board: a new grid, the side that conceded kicks off (after a draw,
+   the other side from last time) */
+function ttNextBoard(){
+  const t = TT;
+  if(!t || (t.phase !== "goal" && t.phase !== "draw")) return;
+  if(t.over){ t.phase = "full"; ttFullTime(); return; }
+  const ko = t.phase === "goal" ? 1 - t.goal.who : 1 - t.kickoff;
+  const grids = TT_DATA.grids[t.theme];
+  t.gi++;
+  t.grid = grids[t.order[t.gi % t.order.length]];
+  Object.assign(t, { board: Array(9).fill(null), used: [], boardNo: t.boardNo + 1, bm: 0, kickoff: ko, turn: ko, phase: "play",
+    goal: null, wrong: null, hint: null, sel: null, mode: "claim", tackle: null });
+}
+/* XP only for a match on one phone (the progression plan's rule): 20 for
+   finishing, 10 for each board the phone's captain won */
+function ttFullTime(){
+  const t = TT;
+  if(t.xp) return;
+  const won = t.boards.filter(b => b.who === 0).length;
+  t.xp = progExtra("grid", [{ label: "Match", xp: 20 }].concat(won ? [{ label: won + " board" + (won === 1 ? "" : "s") + " won", xp: 10 * won }] : [])) || { xp: 0 };
+  const p = ttPrefs(); p.played++; ttSavePrefs(p);
+}
+
+/* ---------- the screens ---------- */
+function openTT(){ audio(); TT_VIEW = "setup"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function ttSet(k, v){ audio(); const p = ttPrefs(); if(k === "kit0") p.kit[0] = v; else if(k === "kit1") p.kit[1] = v; else p[k] = v; ttSavePrefs(p); render(); }
+function ttSetName(i, v){ const p = ttPrefs(); p.names[i] = String(v || "").trim().slice(0, 16) || (i ? "Player 2" : "Player 1"); ttSavePrefs(p); }
+function ttKickOff(again){
+  audio();
+  const p = ttPrefs(), kits = ttKits(p);
+  toast("Setting up the grid…");
+  ttLoad(p.theme).then(() => {
+    if(!TT_DATA.grids[p.theme] || !TT_DATA.grids[p.theme].length) throw new Error("empty");
+    ttNew({ theme: p.theme, clock: p.clock, players: p.names.map((n, i) => ({ name: n, kit: kits[i] })) });
+    TT_VIEW = "play";
+    try{ $("#toast").classList.remove("show"); }catch(e){}
+    render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+  }).catch(() => toast("The grids didn't load. Check the connection and try again.", true));
+}
+function ttAskLeave(){
+  sheet('<h2>Leave the match?</h2><p>The score isn\'t kept.</p>' +
+    '<button class="bigbtn bad" onclick="closeSheet();ttLeave()">Leave the match</button><button class="bigbtn ghost" onclick="closeSheet()">Keep playing</button>');
+}
+function ttLeave(){ stopTimer(); TT = null; TT_VIEW = null; goHome(); }
+function ttBackToSetup(){ stopTimer(); TT = null; TT_VIEW = "setup"; render(); }
+
+function ttRender(st){
+  if(!TT || TT_VIEW === "setup"){ stopTimer(); return ttSetupScreen(st); }
+  if(TT.phase === "full"){ stopTimer(); return ttFullScreen(st); }
+  ttPlayScreen(st);
+  if(TT.phase === "play" && TT.clock) startTimer(TT.clock, () => { closeSheet(); ttTimeout(); render(); }, "tt:" + TT.boardNo + ":" + TT.moves);
+  else stopTimer();
+}
+/* pieces */
+const ttPenDesign = (i, kit, name) => {
+  if(i === 0){ try{ const p = progLoad(); if(p.pennant) return p.pennant; }catch(e){} }
+  const c2 = kit.c === "#ffffff" ? kit.t : "#ffffff";
+  return { c: [kit.c, PEN_COLOURS.includes(c2) ? c2 : "#ffffff", "#F8F1DD"], pattern: "sash", emblem: i ? "star" : "ball", text: String(name || "").toUpperCase().slice(0, 12) };
+};
+const ttPen = (i, kit, name, size) => { try{ return pennantMini(ttPenDesign(i, kit, name), size); }catch(e){ return ""; } };
+function ttShirt(kit, no){
+  return '<svg class="ttshirt" viewBox="0 0 80 74" aria-hidden="true"><path d="M26 6 L14 10 L2 26 L14 34 L18 28 L18 70 L62 70 L62 28 L66 34 L78 26 L66 10 L54 6 Q40 18 26 6Z" fill="' + kit.c +
+    '" stroke="rgba(0,0,0,.35)" stroke-width="1.5"/><path d="M26 6 Q40 18 54 6" fill="none" stroke="' + kit.t + '" stroke-width="4"/><path d="M2 26 L14 34 M78 26 L66 34" stroke="' + kit.t +
+    '" stroke-width="3"/><text x="40" y="54" text-anchor="middle" font-family="Barlow Semi Condensed" font-style="italic" font-weight="900" font-size="26" fill="' + kit.t + '">' + no + '</text></svg>';
+}
+function ttCatIcon(k, px){
+  if(String(k).startsWith("n:")) return '<img class="ttflag" src="assets/natflags/' + k.slice(2) + '.png" alt="" width="' + px + '">';
+  const u = crestURL(k.slice(2), "patch", 48);
+  return u ? '<img class="ttpatch" src="' + u + '" alt="" width="' + px + '">' : '<span class="ttpatch sw" style="width:' + px + 'px"></span>';
+}
+const ttAd = (k, side) => '<div class="ttad' + (side ? " side" : "") + (ttCatName(k).split(/\s+/).some(w => w.length > 9) ? " long" : "") + '">' + ttCatIcon(k, side ? 24 : 20) + '<span>' + esc(ttCatName(k)) + '</span></div>';
+function ttScoreHTML(label){
+  const t = TT;
+  const side = i => {
+    const k = t.players[i].kit, ink = dressLum(k.c) > 150 ? "#0a1f13" : "#ffffff";
+    return '<div class="ttt' + (i ? " away" : "") + (t.phase === "play" && t.turn === i ? " turn" : "") + '" style="--kc:' + k.c + ';--ki:' + ink + '">' + ttPen(i, k, t.players[i].name, 30) +
+      '<span><b>' + esc(t.players[i].name) + '</b><small>' + (t.phase === "play" && t.turn === i ? "TO PLAY" : "CAPTAIN") + '</small></span></div>';
+  };
+  return '<div class="ttsb"><div class="ttsbin">' + side(0) + '<div class="tts"><b>' + t.score[0] + '–' + t.score[1] + '</b><small>' + esc(label) + '</small></div>' + side(1) + '</div></div>';
+}
+function ttLabel(){
+  const t = TT, [a, b] = t.score;
+  if(t.phase === "goal") return "GOAL!";
+  if(a === b) return a === 0 ? "1ST GOAL" : "NEXT GOAL WINS";
+  return (t.players[a > b ? 0 : 1].name + " leads").toUpperCase();
+}
+function ttSquare(i){
+  const t = TT, sq = t.board[i], pos = 'style="left:' + (i % 3) * 33.333 + '%;top:' + Math.floor(i / 3) * 33.333 + '%"';
+  if(!sq){
+    const wrong = t.wrong && t.wrong.cell === i;
+    const sel = t.phase === "play" && t.sel === i;
+    return '<button class="ttsq empty' + (sel ? " sel" : "") + (wrong ? " wrong" : "") + '" ' + pos + ' onclick="ttTap(' + i + ')" aria-label="' + esc(ttCross(i)) + ', empty">' +
+      (wrong ? '<span class="ttnm"><s>' + esc(ttShort(t.wrong.id)) + '</s></span>' : '<span class="plus">+</span>') + '</button>';
+  }
+  const target = t.phase === "play" && t.mode === "tackle" && sq.who !== t.turn && !sq.locked;
+  const glow = t.goal && t.goal.line.includes(i);
+  return '<button class="ttsq' + (sq.locked ? " lock" : "") + (target ? " target" : "") + (glow ? " glow" : "") + '" ' + pos + ' onclick="ttTap(' + i + ')" aria-label="' +
+    esc(ttCross(i) + ": " + ttName(sq.id) + ", " + t.players[sq.who].name) + '">' +
+    '<span class="rar">' + ttPct(sq.r) + '</span>' + (sq.locked ? '<span class="lk">LOCKED</span>' : "") +
+    ttShirt(t.players[sq.who].kit, ttNo(sq.id)) + '<span class="ttnm">' + esc(ttShort(sq.id)) + '</span></button>';
+}
+function ttGoalLine(){
+  const l = TT.goal.line, at = c => [(c % 3) * 100 + 50, Math.floor(c / 3) * 100 + 50];
+  const [x0, y0] = at(l[0]), [x1, y1] = at(l[2]);
+  const d = "M" + x0 + " " + y0 + " L" + x1 + " " + y1;
+  return '<svg class="ttline" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true"><path d="' + d + '" stroke="#f3cd6b" stroke-width="12" stroke-linecap="round" fill="none" opacity=".9"/>' +
+    '<path d="' + d + '" stroke="#fff" stroke-width="3" stroke-dasharray="8 10" fill="none"/></svg>' +
+    '<span class="ttball" style="--x0:' + x0 / 3 + '%;--y0:' + y0 / 3 + '%;--x1:' + x1 / 3 + '%;--y1:' + y1 / 3 + '%" aria-hidden="true">' + ballSVG("") + '</span>';
+}
+function ttPitch(){
+  const t = TT, g = t.grid;
+  return '<div class="ttpitch' + (t.mode === "tackle" ? " tackling" : "") + '"><div class="tttop">' + g.cols.map(k => ttAd(k, false)).join("") + '</div>' +
+    '<div class="ttmid"><div class="ttside">' + g.rows.map(k => ttAd(k, true)).join("") + '</div>' +
+    '<div class="ttfield">' + [0,1,2,3,4,5,6,7,8].map(ttSquare).join("") + (t.goal && t.phase === "goal" ? ttGoalLine() : "") +
+    (t.phase === "goal" ? '<div class="ttgoal">GOAL!</div>' : "") + '</div></div></div>';
+}
+function ttPlayScreen(st){
+  const t = TT, me = t.turn;
+  const comm = '<div class="ttcomm">' + t.log.slice(-2).map(l => '<div><b>' + l.m + '</b><span>' + esc(l.text) + '</span></div>').join("") + '</div>';
+  let hint = "";
+  if(t.hint && t.phase === "play"){
+    const n = TT_DATA.cats["n:" + t.hint.nat] ? ttCatName("n:" + t.hint.nat) : (t.hint.nat || "").toUpperCase();
+    hint = b4Card('<div class="tthint">' + (t.hint.nat ? '<img src="assets/natflags/' + t.hint.nat + '.png" alt="" width="28">' : "") +
+      '<span><b>The gaffer</b>One answer for ' + esc(ttCross(t.hint.cell)) + ' is a ' + (TT_POS[t.hint.pos] || "player") + ' from ' + esc(n) + '.</span></div>', { tone: "cream" });
+  }
+  let acts;
+  if(t.phase === "goal" || t.phase === "draw"){
+    const scorer = t.goal ? t.players[t.goal.who] : null, b = t.boards[t.boards.length - 1];
+    acts = (t.phase === "goal"
+        ? '<div class="ttswap">' + ttPen(t.goal.who, scorer.kit, scorer.name, 30) + '<span><b>' + esc(scorer.name) + ' scores</b><small>' + esc(b.names.join(" → ")) + '. ' +
+          (t.over ? "That's the match." : esc(t.players[1 - t.goal.who].name) + " kicks off the next board.") + '</small></span></div>'
+        : '<div class="ttswap"><span><b>A draw on board ' + b.no + '</b><small>Every square taken and no line. ' + (t.over ? "That's the match." : esc(t.players[1 - t.kickoff].name) + " kicks off the next one.") + '</small></span></div>') +
+      b4Btn(t.over ? "Full time ▶" : "Next board ▶", "audio();ttNextBoard();render()", "gold");
+  } else {
+    acts = '<div class="ttacts">' + b4Btn(t.mode === "tackle" ? "Pick a square ↑" : "Name a player", "ttName_()", "gold") +
+      (t.tackles[me] ? b4Btn(t.mode === "tackle" ? "Cancel" : 'Tackle <small>' + t.tackles[me] + ' left</small>', "ttTackleMode()", "dark") : "") + '</div>' +
+      (t.hints[me] ? b4Btn("Ask the gaffer", "ttAskGaffer()", "quiet") : "");
+  }
+  st.innerHTML = b4Page({ title: "Tiki-Taka-Toe", ctx: "Board " + t.boardNo + " · " + TT_THEMES[t.theme].n, leave: "ttAskLeave()", cls: "ttpage" + (t.phase !== "play" ? " ttover" : ""),
+    score: ttScoreHTML(ttLabel()) + (t.phase === "play" && t.clock ? '<div class="ttclock" id="clock"><span class="digits">' + t.clock + '.0</span><span class="bar"><i></i></span></div>' : ""),
+    body: ttPitch() + hint + comm + acts });
+}
+/* tapping a square: claim an empty one, tackle an opponent's in tackle mode */
+function ttTap(i){
+  const t = TT;
+  if(!t || t.phase !== "play") return;
+  audio();
+  const sq = t.board[i];
+  if(t.mode === "tackle"){
+    if(!sq || sq.who === t.turn){ toast("Tackle one of " + t.players[1 - t.turn].name + "'s squares."); return; }
+    if(sq.locked){ toast("That square is locked: a rare pick can't be tackled.", true); return; }
+    t.sel = i; render(); ttOpenSearch(i, "tackle"); return;
+  }
+  if(sq){ toast(sq.who === t.turn ? "That square is already yours." : "Taken. Use your tackle to win it back."); return; }
+  t.sel = i; render(); ttOpenSearch(i, "claim");
+}
+function ttName_(){
+  const t = TT;
+  if(t.mode === "tackle"){ toast("Tap one of " + t.players[1 - t.turn].name + "'s squares."); return; }
+  if(t.sel == null || t.board[t.sel]){ toast("Tap an empty square first."); return; }
+  ttOpenSearch(t.sel, "claim");
+}
+function ttTackleMode(){ audio(); const t = TT; t.mode = t.mode === "tackle" ? "claim" : "tackle"; t.sel = null; render(); }
+function ttAskGaffer(){
+  audio();
+  const t = TT;
+  const cell = t.sel != null && !t.board[t.sel] ? t.sel : t.board.findIndex(x => !x);
+  if(cell < 0) return;
+  if(ttHint(cell)){ t.sel = cell; render(); }
+}
+function ttOpenSearch(cell, mode){
+  const t = TT, [a, b] = ttCats(cell);
+  t.mode = mode;
+  sheet('<div class="ttsearch"><div class="tthd">' + ttCatIcon(a, 26) + '<b>' + esc(ttCatName(a)) + '</b><i>×</i>' + ttCatIcon(b, 26) + '<b>' + esc(ttCatName(b)) + '</b></div>' +
+    '<p class="ttwho">' + esc(t.players[t.turn].name) + (mode === "tackle" ? ": name someone rarer than " + esc(ttName(t.board[cell].id)) + " (" + ttPct(t.board[cell].r) + ")" : ", name a player who fits both") + '</p>' +
+    '<input id="ttq" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="Start typing a name" aria-label="Player name" oninput="ttSuggest(this.value)">' +
+    '<div id="ttsug" class="ttsug" role="listbox"></div>' +
+    '<button class="bigbtn ghost" onclick="closeSheet();if(TT){TT.mode=\'claim\';render()}">Cancel</button></div>');
+  setTimeout(() => { const i = document.getElementById("ttq"); if(i) i.focus(); }, 60);
+}
+function ttSuggest(v){
+  const box = document.getElementById("ttsug");
+  if(!box) return;
+  const ids = ttSearch(v, 6), N = TT_DATA.names;
+  box.innerHTML = ids.map(id => {
+    const n = N[id], used = TT.used.includes(id);
+    return '<button class="ttopt" role="option"' + (used ? " disabled" : "") + ' onclick="ttPick(' + id + ')">' +
+      (n[2] ? '<img src="assets/natflags/' + n[2] + '.png" alt="" width="24">' : '<span class="nf"></span>') +
+      '<b>' + (used ? "<s>" + esc(n[0]) + "</s>" : esc(n[0])) + '</b><small>' + (used ? "used" : (n[1] || "") + (n[3] ? " · " + n[3] : "")) + '</small></button>';
+  }).join("") || (ttFold(v) ? '<p class="ttnone">No player by that name in the list.</p>' : "");
+}
+function ttPick(id){
+  const t = TT;
+  if(!t || t.sel == null) return;
+  closeSheet();
+  const cell = t.sel;
+  if(t.mode === "tackle"){
+    const res = ttTackle(cell, id);
+    render();
+    if(res.tackle) ttTackleSheet(res.tackle);
+    if(res.goal) ttGoalFx();
+    return;
+  }
+  const res = ttClaim(cell, id);
+  if(res.ok){ (res.locked ? ching : popfx)(); if(res.goal) ttGoalFx(); }
+  else if(res.why === "wrong"){ buzzer(); toast(ttName(id) + " doesn't fit. Turn over.", true); }
+  render();
+}
+function ttGoalFx(){ try{ slamfx(); confetti(60); }catch(e){} }
+function ttTackleSheet(k){
+  const t = TT, a = t.players[k.fromWho].name, b = t.players[k.who].name;
+  const p = (name, pct, who, cls) => '<div class="ttvp ' + cls + '"><span class="pc">' + pct + '</span><b>' + esc(name) + '</b><small>' + esc(who) + '</small></div>';
+  sheet('<div class="tttk"><div class="tthd">' + ttCatIcon(ttCats(k.cell)[0], 30) + '<span><b class="tkt">Tackle!</b><small>' + esc(ttCross(k.cell).toUpperCase()) + ' · ' + esc(a.toUpperCase()) + '’S SQUARE</small></span></div>' +
+    '<div class="ttvs">' + p(ttShort(k.from), ttPct(k.fromR), a, k.won ? "lose" : "win") + '<i>VS</i>' + p(ttShort(k.id), k.fits ? ttPct(k.r) : "✗", b, k.won ? "win" : "lose") + '</div>' +
+    '<p>' + (k.won ? esc(ttName(k.id)) + ": only " + ttPct(k.r) + " would have thought of that one. Rarer wins: the square is yours" + (k.r < TT_LOCK ? ", and it's locked." : ".")
+      : k.fits ? esc(ttName(k.id)) + " fits, but " + esc(ttName(k.from)) + " is the rarer pick. The square stays, and the tackle is spent."
+      : esc(ttName(k.id)) + " doesn't fit " + esc(ttCross(k.cell)) + ". The tackle is spent.") + '</p>' +
+    '<button class="b4btn gold" onclick="closeSheet()">' + (k.won ? "Take the square" : "Play on") + '</button></div>');
+}
+function ttSetupScreen(st){
+  const p = ttPrefs(), kits = ttKits(p);
+  const team = i => '<div class="tttm">' + ttPen(i, kits[i], p.names[i], 56) +
+    '<input class="ttname" value="' + esc(p.names[i]) + '" maxlength="16" aria-label="Captain ' + (i + 1) + '" onchange="ttSetName(' + i + ',this.value)">' +
+    '<div class="ttkits">' + TT_KITS[i].map((k, j) => '<button aria-label="' + k.n + ' kit" aria-pressed="' + (kits[i].c === k.c) + '" class="' + (kits[i].c === k.c ? "on" : "") +
+      '" style="background:' + k.c + '" onclick="ttSet(\'kit' + i + '\',' + j + ')"></button>').join("") + '</div><small>' + (i ? "AWAY KIT" : "HOME KIT") + '</small></div>';
+  const seg = (label, items) => '<div class="ttopt2"><span class="lbl">' + label + '</span><div class="ttseg">' + items.join("") + '</div></div>';
+  const btn = (on, onclick, title, sub, off) => '<button class="' + (on ? "on" : "") + '"' + (off ? " disabled" : "") + ' aria-pressed="' + !!on + '" onclick="' + onclick + '">' + title + '<small>' + sub + '</small></button>';
+  st.innerHTML = b4Page({ title: "Tiki-Taka-Toe", ctx: "First to two goals", back: "ttLeave()", cls: "ttpage ttsetup",
+    body: '<div class="ttteams">' + team(0) + '<span class="vs">VS</span>' + team(1) + '</div>' +
+      seg("Where", [btn(true, "", "One phone", "pass it round"), btn(false, "", "Online", "coming soon", true)]) +
+      seg("The grid", Object.keys(TT_THEMES).map(k => btn(p.theme === k, "ttSet('theme','" + k + "')", TT_THEMES[k].n, TT_THEMES[k].sub))) +
+      seg("Clock", [[10, "10 s", "blitz"], [20, "20 s", "normal"], [0, "None", "relaxed"]].map(c => btn(p.clock === c[0], "ttSet('clock'," + c[0] + ")", c[1], c[2]))) +
+      '<p class="ttrules">Name a player who played for both to claim a square; three in a row is a goal. Once a match you can <b>tackle</b> a square with a rarer name, and a rare pick (under 10%) <b>locks</b> its square.</p>' +
+      b4Btn("Kick off ▶", "ttKickOff()", "gold") });
+}
+function ttFullScreen(st){
+  const t = TT;
+  const rare = t.picks.slice().sort((a, b) => a.r - b.r)[0];
+  const rows = t.boards.map(b => '<div class="ttbrow"><span>Board ' + b.no + '</span><b>' + (b.who == null ? "Draw" : esc(t.players[b.who].name) + " scores") + '</b><small>' + (b.names ? esc(b.names.join(" · ")) : "no line") + '</small></div>').join("");
+  const winner = t.score[0] === t.score[1] ? null : t.players[t.score[0] > t.score[1] ? 0 : 1];
+  st.innerHTML = b4Page({ title: "Full time", ctx: "Tiki-Taka-Toe · " + TT_THEMES[t.theme].n, cls: "ttpage ttft", back: "ttLeave()",
+    score: ttScoreHTML("FULL TIME"),
+    body: b4Q(winner ? esc(winner.name) + " wins it" : "Honours even", t.boards.length + " board" + (t.boards.length === 1 ? "" : "s") + " played") +
+      b4Card(rows) +
+      (rare ? b4Card('<div class="ttrare"><span>Rarest pick</span><b>' + esc(ttName(rare.id)) + '</b><small>' + esc(rare.cell) + ' · ' + ttPct(rare.r) + ' · ' + esc(t.players[rare.who].name) + '</small></div>', { gold: true }) : "") +
+      (t.xp && t.xp.xp ? '<div class="ttxp">+' + t.xp.xp + ' XP <small>for ' + esc(t.players[0].name) + '</small></div>' : "") +
+      b4Btn("Rematch", "ttKickOff(true)", "gold") + b4Btn("Back to games", "ttLeave()", "dark") });
+}
+/* the front page tile's picture: a 3x3 on grass, two kits */
+const ttArt = () => '<svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="6" fill="#1d5232" stroke="#fff" stroke-width="2"/>' +
+  '<path d="M15 3 V41 M29 3 V41 M3 15 H41 M3 29 H41" stroke="rgba(255,255,255,.75)" stroke-width="1.4"/>' +
+  [[0,0,"#c8102e"],[1,1,"#c8102e"],[2,0,"#2563eb"],[0,2,"#2563eb"],[2,2,"#c8102e"]].map(([c, r, f]) => '<rect x="' + (5 + c * 14) + '" y="' + (5 + r * 14) + '" width="6" height="6" rx="1.5" fill="' + f + '"/>').join("") + '</svg>';
+
+/* XP for a game outside the match flow (one-phone Tiki-Taka-Toe): no rating,
+   no league points, a count on the topic */
+function progExtra(topic, parts){
+  try{
+    const p = progLoad(), before = levelOf(p.xp).level;
+    const x = parts.reduce((a, q) => a + (q.xp | 0), 0);
+    p.xp += x;
+    const t = p.topics[topic] || (p.topics[topic] = { n: 0, hard: 0, recent: "" });
+    t.n += 1;
+    progSave(p);
+    return { xp: x, parts, levelBefore: before, levelAfter: levelOf(p.xp).level };
+  }catch(e){ return null; }
+}
+
+/* ---------- GUESS THE PLAYER (the Scarf, a daily) ----------
+   _plans/guess-the-player.md; the look is phone 1 of
+   _brand/frontpage/guess-the-player.html. One secret footballer a day, the
+   same on every phone, six guesses. Each guess is a row of four tiles against
+   the secret (nation, position, born, clubs); after three misses a clue,
+   after five the first letter of his surname. The share is a knitted scarf,
+   one stripe per guess, four bands coloured like the tiles.
+
+   The phone never sees the player database: _tools/build-gtp.js writes one
+   pack (assets/gtp, about 1 MB gzipped, cached by the service worker on first
+   use, not at install). The day's secret is a fixed shuffle indexed by the
+   day number, so a rebuild never changes a day that has been played. The
+   rules are plain functions (gtpCompare, gtpClue, gtpScarf, gtpGuess) so
+   _tests/gtp-test.js can play without a screen. No portraits anywhere: the
+   answer is a shirt, flags and his route. */
+const GTP_KEY = "ball4-gtp";
+const GTP_MAX = 6;
+const GTP_DATA = { pack: null, clubs: null, search: null, secrets: null, words: null };
+let GTP_VIEW = false;
+let GTP_PICK = null;            // the suggestion tapped, waiting for the gold Guess
+let GTP_MSG = "";               // a calm one-line message under the input
+let gtpLoading = null;
+function gtpLoad(){
+  if(GTP_DATA.pack) return Promise.resolve(GTP_DATA);
+  if(gtpLoading) return gtpLoading;
+  const get = f => fetch("assets/gtp/" + f + ".json").then(r => { if(!r.ok) throw new Error(f); return r.json(); });
+  gtpLoading = Promise.all(["pack", "clubs", "search", "secrets"].map(get)).then(([pack, clubs, search, secrets]) => {
+    Object.assign(GTP_DATA, { pack, clubs, search, secrets, words: null });
+    return GTP_DATA;
+  }).catch(e => { gtpLoading = null; throw e; });
+  return gtpLoading;
+}
+/* THE DAY'S SECRET: Monday to Wednesday from the famous pool, Thursday to
+   Sunday from the wider one, the same weekday idea as the Daily Ball. The day
+   number is counted in UTC from the calendar date, so every phone that agrees
+   on the date agrees on the player. */
+const gtpDayNo = k => Math.floor(Date.UTC(Math.floor(k / 10000), Math.floor(k / 100) % 100 - 1, k % 100) / 864e5);
+function gtpSecretFor(k){
+  const wd = dayFromKey(k).getDay();
+  const pool = wd >= 1 && wd <= 3 ? GTP_DATA.secrets.easy : GTP_DATA.secrets.normal;
+  return pool[gtpDayNo(k) % pool.length];
+}
+/* one guess against the secret; rows are pack entries
+   [name, born, pos, [nat...], [clubIdx...], mainClubIdx] */
+function gtpCompare(g, s){
+  const nat = g[3].some(n => s[3].includes(n)) ? "ok" : "miss";
+  const pos = g[2] && g[2] === s[2] ? "ok" : "miss";
+  const d = s[1] - g[1];
+  const born = { state: d === 0 ? "ok" : Math.abs(d) <= 2 ? "near" : "miss", dir: d > 0 ? "up" : d < 0 ? "down" : null };
+  const gs = [...new Set(g[4])], ss = new Set(s[4]);
+  const shared = gs.filter(c => ss.has(c));
+  const clubs = { state: shared.length && shared.length === gs.length && shared.length === ss.size ? "ok" : shared.length ? "near" : "miss", shared };
+  return { nat, pos, born, clubs };
+}
+const GTP_WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+const gtpWord = n => GTP_WORDS[n] || String(n);
+/* the surname's first letter: the last word, or the name itself for a Kaká */
+function gtpSurname(name){ const w = String(name).trim().split(/\s+/); return w[w.length - 1]; }
+/* CLUES COME ONLY FROM THE DATA: the countries of his clubs, then a letter */
+function gtpClue(s, misses){
+  const out = [];
+  if(misses >= 3){
+    const cc = new Set(s[4].map(i => GTP_DATA.clubs[i] && GTP_DATA.clubs[i][2]).filter(Boolean));
+    out.push(cc.size >= 2 ? "He has played in " + gtpWord(cc.size) + " countries." : "He has played for " + gtpWord(new Set(s[4]).size) + " clubs.");
+  }
+  if(misses >= 5) out.push("His " + (s[0].trim().includes(" ") ? "surname" : "name") + " starts with " + ttFold(gtpSurname(s[0])).charAt(0).toUpperCase() + ".");
+  return out;
+}
+/* the scarf: per guess four bands, g (green) | y (gold) | m (dark) */
+const gtpBand = st => st === "ok" ? "g" : st === "near" ? "y" : "m";
+function gtpScarf(rows){
+  return rows.map(c => [gtpBand(c.nat), gtpBand(c.pos), gtpBand(c.born.state), gtpBand(c.clubs.state)]);
+}
+function gtpShareText(k, rows, won){
+  const sq = { g: "\u{1F7E9}", y: "\u{1F7E8}", m: "⬛" };
+  const when = dayFromKey(k);
+  const day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][when.getDay()] + " " + when.getDate() + " " +
+    ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][when.getMonth()];
+  return "BALL Guess the player · " + day + "\n" + gtpScarf(rows).map(r => r.map(b => sq[b]).join("")).join("\n") + "\n" +
+    (won ? "Solved in " + rows.length + "/" + GTP_MAX : "X/" + GTP_MAX) + "\nbeebzoo.github.io/ball";
+}
+/* the state on this phone: today's guesses and the streak */
+function gtpState(){
+  let s = null;
+  try{ s = JSON.parse(localStorage.getItem(GTP_KEY) || "null"); }catch(e){}
+  s = s && typeof s === "object" ? s : {};
+  const today = dayKey();
+  if(s.day !== today) Object.assign(s, { day: today, guesses: [], done: false, won: false, xp: 0 });
+  s.guesses = Array.isArray(s.guesses) ? s.guesses : [];
+  s.streak = s.streak | 0; s.played = s.played | 0; s.wins = s.wins | 0;
+  return s;
+}
+function gtpSave(s){ try{ localStorage.setItem(GTP_KEY, JSON.stringify(s)); }catch(e){} }
+/* ONE GUESS. Not in the pack or already guessed: a calm word and nothing
+   spent. Right: solved. The sixth miss: out, and the reveal. One play a day. */
+function gtpGuess(idx){
+  const s = gtpState();
+  if(s.done) return { ok: false, why: "done" };
+  if(idx == null || !GTP_DATA.pack[idx]) return { ok: false, why: "unknown" };
+  if(s.guesses.includes(idx)) return { ok: false, why: "again" };
+  s.guesses.push(idx);
+  const secret = gtpSecretFor(s.day);
+  const won = idx === secret;
+  if(won || s.guesses.length >= GTP_MAX){
+    s.done = true; s.won = won;
+    /* the streak counts a finished day, won or lost, like the Daily Ball */
+    const y = dayFromKey(s.day); y.setDate(y.getDate() - 1);
+    if(s.last !== s.day){
+      s.streak = s.last === dayKey(y) ? s.streak + 1 : 1;
+      s.last = s.day; s.played += 1; if(won) s.wins += 1;
+      s.xp = progGtp({ won, streak: s.streak, day: s.day });
+    }
+  }
+  gtpSave(s);
+  return { ok: true, won, done: s.done };
+}
+/* XP like the Daily: playing, a win, the streak bonus capped the same way.
+   Local only: no league points and no server sync in v1. */
+function progGtp(o){
+  try{
+    const p = progLoad();
+    const x = XP.daily + (o.won ? XP.dailyWin : 0) + XP.streak * Math.min(o.streak || 0, XP.streakCap);
+    p.xp += x;
+    const t = p.topics.gtp || (p.topics.gtp = { n: 0, hard: 0, recent: "" });
+    t.n += 1; t.recent = (t.recent + (o.won ? "1" : "0")).slice(-200);
+    progSave(p);
+    return x;
+  }catch(e){ return 0; }
+}
+/* suggestions: every typed word starts some word of the name, most famous
+   first (the pack is in fame order, so the index is the rank) */
+function gtpSearch(q, max){
+  const f = ttFold(q);
+  if(!f || !GTP_DATA.search) return [];
+  if(!GTP_DATA.words) GTP_DATA.words = GTP_DATA.search.map(([k]) => k.split(/[ -]/));
+  const toks = f.split(" "), out = [];
+  for(let i = 0; i < GTP_DATA.search.length && out.length < 200; i++){
+    const [k, id] = GTP_DATA.search[i];
+    if(k.startsWith(f) || toks.every(t => GTP_DATA.words[i].some(w => w.startsWith(t)))) out.push(id);
+  }
+  return out.sort((a, b) => a - b).slice(0, max || 6);
+}
+
+/* ---------- the screens ---------- */
+function openGtp(){
+  audio();
+  GTP_PICK = null; GTP_MSG = "";
+  gtpLoad().then(() => { GTP_VIEW = true; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} })
+    .catch(() => toast("Today's player didn't load. Check the connection and try again.", true));
+}
+function gtpLeave(){ GTP_VIEW = false; GTP_PICK = null; GTP_MSG = ""; goHome(); }
+/* a country's name for the suggestions: ISO codes through the browser, the
+   home nations and old states from their own codes */
+function gtpNatName(n){
+  const own = { england: "England", scotland: "Scotland", wales: "Wales", "northern-ireland": "Northern Ireland", "republic-of-ireland": "Ireland",
+    "serbia-and-montenegro": "Serbia & Montenegro", "fr-yugoslavia": "Yugoslavia", "china-pr": "China", "cura-ao": "Curaçao", "dr-congo": "DR Congo", "north-korea": "North Korea" };
+  if(own[n]) return own[n];
+  try{ if(n.length === 2) return new Intl.DisplayNames(["en"], { type: "region" }).of(n.toUpperCase()); }catch(e){}
+  return n;
+}
+const gtpFlag = (n, w) => n ? '<img class="gtpflag" src="assets/natflags/' + n + '.png" alt="" width="' + w + '">' : "";
+function gtpPatch(i, px){
+  const c = GTP_DATA.clubs[i];
+  if(!c) return "";
+  const u = crestURL(c[0], "patch", 48);
+  return u ? '<img class="gtppatch" src="' + u + '" alt="' + esc(c[1]) + '" title="' + esc(c[1]) + '" width="' + px + '">'
+    : '<span class="gtppatch sw" title="' + esc(c[1]) + '" style="width:' + px + 'px"></span>';
+}
+function gtpScarfHTML(rows){
+  const sc = gtpScarf(rows);
+  let h = '<div class="gtpscarf" aria-hidden="true">';
+  for(let i = 0; i < GTP_MAX; i++)
+    h += sc[i] ? '<div class="st">' + sc[i].map(b => '<i class="' + b + '"></i>').join("") + '</div>' : '<div class="st empty"></div>';
+  return h + '</div>';
+}
+function gtpTable(s, secret){
+  const P = GTP_DATA.pack;
+  const tile = (st, html) => '<span class="gtpt ' + (st === "ok" ? "ok" : st === "near" ? "near" : "") + '">' + html + '</span>';
+  const rows = s.guesses.map(i => {
+    const g = P[i], c = gtpCompare(g, P[secret]);
+    const nat = c.nat === "ok" ? g[3].find(n => P[secret][3].includes(n)) : g[3][0];
+    return '<div class="r"><span class="nm">' + esc(g[0]) + '</span>' +
+      tile(c.nat, gtpFlag(nat, 24) || "?") + tile(c.pos, esc(g[2] || "?")) +
+      tile(c.born.state, (g[1] || "?") + (c.born.dir ? ' <small>' + (c.born.dir === "up" ? "▲" : "▼") + '</small>' : "")) +
+      tile(c.clubs.state, c.clubs.shared.length ? c.clubs.shared.slice(0, 3).map(x => gtpPatch(x, 17)).join("") + (c.clubs.shared.length > 3 ? '<small>+' + (c.clubs.shared.length - 3) + '</small>' : "") : "–") + '</div>';
+  }).join("");
+  return '<div class="gtpcmp b4card dark"><div class="h"><span class="cap">Guess</span><span class="cap">Nation</span><span class="cap">Pos</span><span class="cap">Born</span><span class="cap">Clubs</span></div>' +
+    (rows || '<div class="r none">Your guesses land here, one row each.</div>') + '</div>';
+}
+function gtpRender(st){
+  const s = gtpState(), secret = gtpSecretFor(s.day);
+  if(s.done) return gtpReveal(st, s, secret);
+  const P = GTP_DATA.pack;
+  const misses = s.guesses.length;
+  const rows = s.guesses.map(i => gtpCompare(P[i], P[secret]));
+  const clues = gtpClue(P[secret], misses);
+  st.innerHTML = b4Page({ title: "Guess the player", ctx: "Daily · guess " + (misses + 1) + " of " + GTP_MAX, back: "gtpLeave()", leave: "gtpLeave()", cls: "gtppage",
+    body: b4Q("Who is he?", "Green is a match. Gold is close. The arrow points to his year.") + gtpTable(s, secret) +
+      clues.map(c => '<div class="gtpnote"><b>CLUE</b><span>' + esc(c) + '</span></div>').join("") +
+      '<span class="gtpcap">Your scarf so far · it is what you share</span>' + gtpScarfHTML(rows) +
+      '<div id="gtpsug" class="gtpsug" role="listbox"></div>' +
+      (GTP_MSG ? '<p class="gtpmsg">' + esc(GTP_MSG) + '</p>' : "") +
+      '<div class="gtpacts"><input id="gtpq" class="gtpfield" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Type a player" aria-label="Player name" ' +
+      'value="' + (GTP_PICK != null ? esc(P[GTP_PICK][0]) : "") + '" oninput="gtpType(this.value)" onkeydown="if(event.key===\'Enter\')gtpSubmit()">' +
+      b4Btn("Guess", "gtpSubmit()", "gold") + '</div>' });
+}
+function gtpType(v){
+  GTP_PICK = null;
+  const box = document.getElementById("gtpsug");
+  if(!box) return;
+  const P = GTP_DATA.pack, s = gtpState();
+  box.innerHTML = gtpSearch(v, 6).map(i => {
+    const p = P[i], again = s.guesses.includes(i);
+    return '<button class="gtpopt" role="option"' + (again ? " disabled" : "") + ' onclick="gtpChoose(' + i + ')">' + gtpFlag(p[3][0], 28) +
+      '<span><b>' + esc(p[0]) + '</b><small>' + (again ? "ALREADY GUESSED" : esc((p[2] || "") + (p[1] ? " · BORN " + p[1] : "") + (p[3][0] ? " · " + gtpNatName(p[3][0]) : ""))) + '</small></span></button>';
+  }).join("");
+}
+function gtpChoose(i){
+  audio();
+  GTP_PICK = i;
+  const q = document.getElementById("gtpq"), box = document.getElementById("gtpsug");
+  if(q) q.value = GTP_DATA.pack[i][0];
+  if(box) box.innerHTML = "";
+}
+function gtpSubmit(){
+  const q = document.getElementById("gtpq"), v = q ? q.value : "";
+  let idx = GTP_PICK;
+  if(idx == null){
+    const f = ttFold(v), hits = gtpSearch(v, 6);
+    const exact = hits.filter(i => GTP_DATA.search[i][0] === f);
+    if(!f){ GTP_MSG = "Type a name first."; return render(); }
+    if(!hits.length){ GTP_MSG = "Not in the game yet: try another player."; return render(); }
+    if(exact.length === 1) idx = exact[0];
+    else { GTP_MSG = "Pick him from the list, so it's the right one."; return render(); }
+  }
+  const r = gtpGuess(idx);
+  GTP_PICK = null;
+  if(!r.ok){ GTP_MSG = r.why === "again" ? "You've had him already." : ""; return render(); }
+  GTP_MSG = "";
+  if(r.won){ try{ ching(); confetti(60); }catch(e){} }
+  else if(r.done){ try{ slamfx(); }catch(e){} }
+  else { try{ popfx(); }catch(e){} }
+  render();
+  try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+function gtpReveal(st, s, secret){
+  const P = GTP_DATA.pack, p = P[secret];
+  const main = p[5] >= 0 ? GTP_DATA.clubs[p[5]] : null, club = main ? clubOf(main[0]) : null;
+  const kit = club ? { c: club.c1, t: club.c2 || "#ffffff" } : { c: "#123D24", t: "#F8F1DD" };
+  const rows = s.guesses.map(i => gtpCompare(P[i], p));
+  const route = '<div class="gtproute">' + p[4].map((i, k) => (k ? '<i class="ln"></i>' : "") + '<span class="stn">' + gtpPatch(i, 30) +
+    '<small>' + esc(GTP_DATA.clubs[i][1]) + '</small></span>').join("") + '</div>';
+  st.innerHTML = b4Page({ title: "Guess the player", ctx: "Daily · today's player", back: "gtpLeave()", cls: "gtppage gtprev",
+    body: '<div class="gtphero">' + ttShirt(kit, ttFold(gtpSurname(p[0])).charAt(0).toUpperCase()).replace('class="ttshirt"', 'class="gtpshirt"') +
+      '<div><span class="gtpcap">' + (s.won ? "Solved in " + s.guesses.length : "It was") + '</span><b class="gtpname">' + esc(p[0]) + '</b>' +
+      '<div class="gtpmeta">' + p[3].map(n => gtpFlag(n, 26)).join("") + '<span>' + esc([p[2], p[1] ? "born " + p[1] : ""].filter(Boolean).join(" · ")) + '</span></div></div></div>' +
+      b4Card('<span class="gtpcap light">His route</span>' + route) +
+      '<span class="gtpcap">Your scarf</span>' + gtpScarfHTML(rows) +
+      b4Card('<div class="gtpstats"><div><b>' + s.streak + '</b><small>DAY STREAK</small></div><div><b>' + s.wins + '/' + s.played + '</b><small>SOLVED</small></div>' +
+        '<div><b>+' + (s.xp | 0) + '</b><small>XP</small></div><div><b id="b6cd">' + b6Countdown() + '</b><small>NEXT ONE</small></div></div>') +
+      b4Btn("Share", "gtpShare()", "gold") + b4Btn("Back to the menu", "gtpLeave()", "dark") });
+  try{ b6CountdownTick(); }catch(e){}
+}
+/* THE SHARE PICTURE: the scarf knitted on cream, the day and the result */
+function gtpCanvas(){
+  const s = gtpState();
+  if(!s.done || typeof document === "undefined") return null;
+  const P = GTP_DATA.pack, sec = P[gtpSecretFor(s.day)];
+  const sc = gtpScarf(s.guesses.map(i => gtpCompare(P[i], sec)));
+  const c = document.createElement("canvas"); c.width = 1080; c.height = 1080;
+  const x = c.getContext("2d"); if(!x) return null;
+  x.fillStyle = "#efe4c8"; x.fillRect(0, 0, 1080, 1080);
+  x.fillStyle = "#123D24"; x.fillRect(0, 0, 1080, 250);
+  x.fillStyle = "#F8F1DD"; x.textAlign = "center";
+  x.font = "italic 900 92px 'Barlow Semi Condensed', sans-serif"; x.fillText("GUESS THE PLAYER", 540, 150);
+  x.fillStyle = "#e9b84c"; x.font = "800 34px 'Barlow Semi Condensed', sans-serif";
+  x.fillText(gtpShareText(s.day, [], true).split("\n")[0].replace("BALL Guess the player · ", "BALL · ").toUpperCase(), 540, 215);
+  const col = { g: "#2f9a57", y: "#e9b84c", m: "#3a4a3f" }, L = 150, W = 780, H = 420, top = 330, sw = W / GTP_MAX;
+  for(let i = 0; i < GTP_MAX; i++){
+    for(let b = 0; b < 4; b++){
+      x.fillStyle = sc[i] ? col[sc[i][b]] : "#ddd2b0";
+      x.fillRect(L + i * sw, top + b * H / 4, sw - 6, H / 4 - 4);
+    }
+  }
+  x.fillStyle = "#e9b84c";
+  for(let y = top; y < top + H; y += 18){ x.fillRect(L - 40, y, 30, 9); x.fillRect(L + W + 4, y, 30, 9); }
+  x.fillStyle = "#123D24"; x.font = "italic 900 78px 'Barlow Semi Condensed', sans-serif";
+  x.fillText(s.won ? "SOLVED IN " + s.guesses.length + "/" + GTP_MAX : "NOT TODAY · X/" + GTP_MAX, 540, 880);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56";
+  x.fillText("beebzoo.github.io/ball", 540, 960);
+  return c;
+}
+function gtpShare(){
+  audio();
+  const s = gtpState();
+  if(!s.done) return;
+  const P = GTP_DATA.pack, text = gtpShareText(s.day, s.guesses.map(i => gtpCompare(P[i], P[gtpSecretFor(s.day)])), s.won);
+  const copy = () => { try{ navigator.clipboard.writeText(text).then(() => toast("Copied. Send it on."), () => toast("Could not copy", true)); }catch(e){ toast("Could not copy", true); } };
+  const c = gtpCanvas();
+  if(!c || !c.toBlob) return copy();
+  c.toBlob(blob => {
+    if(!blob) return copy();
+    const file = new File([blob], "guess-the-player.png", { type: "image/png" });
+    if(navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], text }).catch(() => {});
+    copy();
+  }, "image/png");
+}
+/* the home row, under the Daily Ball: six pips, or the scarf once done */
+function gtpRowHTML(){
+  const s = gtpState();
+  if(s.done && !GTP_DATA.pack) gtpLoad().then(() => { if(!S || S.phase === "setup") render(); }).catch(() => {});
+  const pips = '<div class="b6pips">' + [0, 1, 2, 3, 4, 5].map(i => '<i class="' + (i < s.guesses.length ? (s.done && s.won && i === s.guesses.length - 1 ? "w" : "l") : (!s.done && i === s.guesses.length ? "now" : "")) + '"></i>').join("") + '</div>';
+  if(s.done && GTP_DATA.pack){
+    const P = GTP_DATA.pack, sec = P[gtpSecretFor(s.day)];
+    return '<button class="b6fix tall daily gtprow" onclick="openGtp()"><div class="t gold">' + (s.won ? s.guesses.length + "/6" : "X/6") + '<small>TODAY</small></div>' +
+      '<div class="m"><b>Guess the player</b>' + gtpScarfHTML(s.guesses.map(i => gtpCompare(P[i], sec))).replace('class="gtpscarf"', 'class="gtpscarf mini"') +
+      '<small>' + (s.streak ? s.streak + "-day streak · " : "") + "next one in " + b6Countdown() + '</small></div><div class="go">›</div></button>';
+  }
+  return '<button class="b6fix tall daily gtprow" onclick="b4Explain(\'gtp\', openGtp)"><div class="t gold">?<small>' + (s.guesses.length ? "GUESS " + (s.guesses.length + 1) : "TODAY") + '</small></div>' +
+    '<div class="m"><b>Guess the player</b>' + pips + '<small>' + (s.streak && s.last ? s.streak + "-day streak · " : "") + 'Today’s mystery footballer</small></div><div class="go">▶</div></button>';
+}
+
 /* ---------- BALL 4: THE FRONT DOOR ----------
    Four games, each a card that says what it is in one line and starts with
    one tap. Everything BALL 3 had behind the menu is still in this file. It
@@ -27134,6 +28150,7 @@ function b6Front(saved){
     <div class="b6hdr">Today &amp; more games</div>
     <div class="b6fx">
       ${daily}
+      ${gtpRowHTML()}
       <button class="b6fix${b4Open === "hilo" ? " open" : ""}" onclick="b4Toggle('hilo')" aria-expanded="${b4Open === "hilo"}">${newOrBest(hiloBest)}
         <div class="m"><b>Higher or Lower</b><small>Caps &amp; goals</small></div><div class="art">${B6_ART.cards}<span class="chev">›</span></div></button>
       ${b4Open === "hilo" ? `<div class="b6sub">
@@ -27146,6 +28163,8 @@ function b6Front(saved){
         <button onclick="setAnswerPref('say');b4Explain('career', ()=>b4Go('career','board'))">Say it<small>then check yourself</small></button></div>` : ""}
       <button class="b6fix" onclick="openCup()">${cups ? newOrBest(cups, "WON") : newOrBest(null)}
         <div class="m"><b>The Cup</b><small>A whole World Cup, round by round</small></div><div class="art">${trophySVG("star", "gold", 40)}<span class="chev">›</span></div></button>
+      <button class="b6fix" onclick="openTT()">${(() => { const n = ttPrefs().played; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
+        <div class="m"><b>Tiki-Taka-Toe</b><small>Three in a row is a goal</small></div><div class="art">${ttArt()}<span class="chev">›</span></div></button>
     </div>
     ${isStandalone() || installHidden ? "" : `<div class="b6inst"><button class="b6instgo" onclick="installApp()">Add BALL to your home screen</button><button class="b6instx" onclick="b6InstallHide()" aria-label="Hide this">×</button></div>`}`;
 }
@@ -27226,7 +28245,9 @@ function renderSetup(st){
   /* THE LOGO IS DRAWN ONCE AND LEFT ALONE: re-inserting it restarts its
      animation, so a redraw only rewrites what is under it */
   const root = st.querySelector && st.querySelector(".b6");
-  const kept = root && root.querySelector(".b6body");
+  /* only the front page's own root: a game page (b4Page) is a .b6 with a
+     .b6body too, and reusing it came home without the logo */
+  const kept = root && root.querySelector(".mdp-slot") && root.querySelector(".b6body");
   if(kept){ root.className = "b6" + (stepping ? " step" : "") + (chips ? " chipped" : ""); const cw = root.querySelector(".b6chipsw"); if(cw) cw.innerHTML = chips; kept.innerHTML = body; return; }
   st.innerHTML = `
     <div class="b6${stepping ? " step" : ""}${chips ? " chipped" : ""}">
@@ -27246,6 +28267,7 @@ const B4_HOW = {
   pitch: ["Matchday", "You and the other side take turns with the ball. Tap a teammate to pass to him and answer a question to get it there. A short pass is an easy question, a long ball into the front line is a hard one. Get it wrong and they win the ball. From the front three you can shoot, and their keeper gets one question to stop it. First to three goals, or ninety minutes, then penalties."],
   daily: ["Daily Ball", "A penalty shootout against today's opponent, the same for everyone. They kick first. For each of your kicks, pick how you take it (Placed is the easy question, Top bins a hard one, and a Panenka the hardest and worth the most style), then shoot at the right answer: the four answers sit in the four corners of the goal. Twelve seconds a kick. Level after five is sudden death. One go a day."],
   hilo: ["Higher or Lower", "Two international players side by side. Tap the one with more caps, or more goals for his country. +1 for every right answer and +10 extra for every five in a row. One wrong answer ends the run."],
+  gtp: ["Guess the player", "One mystery footballer a day, the same for everyone, and six guesses. Type any player: each guess shows four tiles against the secret one. Nation, position, year of birth and clubs: green is a match, gold is close (born within two years, or a club in common), and the arrow points to his year. Your guesses knit a scarf you can share."],
   career: ["Career Path", "A player's clubs come out one at a time, in order. Pick his name from four. Right on the first club is +15, every extra club costs 3, and a wrong name is −2. Ten players a game."],
 };
 const SEEN_KEY = "ball4-seen";

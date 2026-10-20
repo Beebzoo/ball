@@ -5936,10 +5936,10 @@
   @keyframes cpstnin{0%{transform:translate(-50%,-50%) scale(.6);opacity:0}70%{transform:translate(-50%,-50%) scale(1.08);opacity:1}100%{transform:translate(-50%,-50%) scale(1)}}
   @keyframes cpbrdin{from{transform:translate(18px,-50%);opacity:0}to{transform:translate(0,-50%);opacity:1}}
   @keyframes cpfade{from{opacity:0}to{opacity:1}}
-  .cpleg path{stroke-dasharray:1;stroke-dashoffset:0;animation:cpdraw .4s ease-out both;animation-delay:inherit}
-  .cpstn.fresh{animation:cpstnin .25s ease-out .4s both}
-  .cpboard.fresh{animation:cpbrdin .2s ease-out .45s both}
-  .cpcross.fresh{animation:cpfade .2s ease-out .45s both}
+  .cpleg path{stroke-dasharray:1;stroke-dashoffset:0;animation:cpdraw .22s ease-out both;animation-delay:inherit}
+  .cpstn.fresh{animation:cpstnin .22s ease-out .12s both}
+  .cpboard.fresh{animation:cpbrdin .18s ease-out .16s both}
+  .cpcross.fresh{animation:cpfade .18s ease-out .16s both}
   .cpstn.pop{animation:cpstnin .25s ease-out var(--d,0ms) both}
   .cpboard.pop,.cpcross.pop{animation:cpfade .25s ease-out var(--d,0ms) both}
   @media (prefers-reduced-motion: reduce){
@@ -6115,6 +6115,134 @@
   #overlay .sheet{max-height:calc(100dvh - 48px);overflow-y:auto;animation:sheetin .2s cubic-bezier(.2,1.3,.4,1)}
   @keyframes sheetin{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
   @media (prefers-reduced-motion: reduce){ #overlay .sheet{animation:none} }
+  .b6ans{margin-top:4px}
+  .b6anshint{margin-top:6px}
+  /* ---------- BALL 4: THE SHELL (one-look) ----------
+     b4Page and its pieces. A page is cream paper with the grass band on top:
+     back ‹, TITLE, Leave, the gold context bar, then (if there is a score) the
+     TV scoreboard, then the screen on the cream. */
+  .b4page .b6body>.b6stephead.m{height:150px}
+  .b4page .b6band{height:166px!important}
+  .b4page:has(.b4sb) .b6body>.b6stephead.m{height:132px}
+  .b4page:has(.b4sb) .b6band{height:232px!important}
+  .b4page{color:#123D24}
+  .b4page .kick{display:none}
+  .b4page h1.title{color:#123D24;font:italic 900 34px/1 'Barlow Semi Condensed',sans-serif;text-transform:none;text-shadow:1px 1px 0 #e9b84c;margin:6px 0 10px}
+  .b4page h1.title .gold{color:#a8740a}
+  .b4page .h2big{color:#123D24;font:italic 900 28px/1.05 'Barlow Semi Condensed',sans-serif;text-align:left;margin:8px 0 6px}
+  .b4page .hint,.b4page .h2hintline{color:#3d4a38;font:italic 400 14px/1.4 'Lora',Georgia,serif;text-align:left!important;opacity:1}
+  .b4page .bigbtn.ghost{background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;color:#F8F1DD;box-shadow:0 4px 0 rgba(0,0,0,.14)}
+  .b4page .tinybtn{background:none!important;border:0!important;box-shadow:none!important;color:#4b5a47!important;text-decoration:underline;text-underline-offset:4px;font-size:13px!important;letter-spacing:.12em}
+  /* the question, cards, buttons, chips */
+  .b4q{display:flex;flex-direction:column;gap:6px;margin:6px 0 12px}
+  .b4q b{font:italic 900 28px/1.05 'Barlow Semi Condensed',sans-serif;color:#123D24}
+  .b4q small{font:italic 400 14px/1.4 'Lora',Georgia,serif;color:#3d4a38}
+  .b4card{padding:14px 16px;border-radius:16px;border:2px solid #fff;box-shadow:0 5px 0 rgba(0,0,0,.1),0 12px 24px rgba(18,61,36,.18);margin:6px 0}
+  .b4card.dark{background:linear-gradient(180deg,#14422A,#0b2416);color:#F8F1DD}
+  .b4card.cream{background:#F8F1DD;color:#123D24}
+  .b4card.gold{border-color:#e9b84c}
+  .b4btn{display:flex;width:100%;align-items:center;justify-content:center;gap:10px;margin:8px 0 0;cursor:pointer;
+    font:italic 900 19px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.05em;text-transform:uppercase}
+  .b4btn.gold{min-height:56px;border:0;border-radius:999px;background:linear-gradient(180deg,#f6d57c,#c99a2e);color:#241B08;box-shadow:0 6px 0 #7a5a10,0 12px 22px rgba(0,0,0,.2)}
+  .b4btn.gold:active{transform:translateY(4px);box-shadow:0 2px 0 #7a5a10}
+  .b4btn.dark{min-height:50px;border:2px solid #fff;border-radius:999px;background:linear-gradient(180deg,#14422A,#0b2416);color:#F8F1DD;box-shadow:0 4px 0 rgba(0,0,0,.14)}
+  .b4btn.quiet{min-height:40px;border:0;background:none;color:#4b5a47;font:700 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-decoration:underline;text-underline-offset:4px}
+  .b4chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .b4chip.gold{background:linear-gradient(180deg,#f6d57c,#c99a2e);color:#241B08}.b4chip.dark{background:#123D24;color:#F8F1DD}.b4chip.blue{background:#2563eb;color:#fff}
+  /* a table as a dark card */
+  .b4table{border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;box-shadow:0 5px 0 rgba(0,0,0,.1),0 12px 24px rgba(18,61,36,.2);color:#F8F1DD;margin:6px 0}
+  .b4table h3{display:none}
+  .b4table table{width:100%;border-collapse:collapse;font:600 14px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums}
+  .b4table th{padding:10px 8px 8px;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8FB79E;text-align:right;border-bottom:1px solid rgba(255,255,255,.1)}
+  .b4table td{padding:9px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.06)}
+  .b4table th:first-child,.b4table td:first-child,.b4table td.n,.b4table td.cn{text-align:left}
+  .b4table tr:last-child td{border-bottom:0}
+  .b4table tr.me td{background:rgba(233,184,76,.16)}
+  .b4table tr.me td:first-child{box-shadow:inset 3px 0 0 #e9b84c}
+  .b4table td img{width:22px;height:15px;object-fit:cover;border-radius:2px;vertical-align:middle;margin-right:8px}
+  .b4table b{color:#f3cd6b}
+  /* the TV scoreboard in the band */
+  .b4sb{position:relative;z-index:1;margin:-4px 0 18px}
+  .b4sb .sb{--board:#0b2416;--board-ink:#F8F1DD;--board-line:rgba(255,255,255,.18);max-width:none;border:2px solid #fff}
+  .b4sb.solo .sb-t{flex:1}
+  .b4sblabel{margin-top:6px;text-align:center;font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#F8F1DD;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+  .b4vs{display:flex;justify-content:space-between;gap:10px;margin:0 2px 10px;font:800 13px/1.2 'Barlow Semi Condensed',sans-serif;color:#123D24}
+  .b4vs span{display:flex;flex-direction:column;gap:3px}
+  .b4vs span:last-child{text-align:right;align-items:flex-end}
+  .b4vs i{font-style:normal;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5b6b56}
+  .b4vs i.me{color:#a8740a}
+  .b4ft .pgbtns{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+  .b4ft .pgbest{color:#123D24}
+  /* the tackle */
+  .b4tackle .h2markpitch{border:2px solid #fff;border-radius:16px;box-shadow:0 5px 0 rgba(0,0,0,.1),0 12px 24px rgba(18,61,36,.2)}
+  .b4tackle .bigbtn{margin-top:10px}
+  /* the match report */
+  .b4rep .final .frow{border:2px solid #fff}
+  /* the Daily on the cream */
+  .b4daily .dsq{color:#123D24}
+  .b4daily .dsqtext{color:#123D24}
+  .b4daily .dsqtext small{color:#5b6b56}
+  .b4daily .dsline{color:#3d4a38}
+  .b4daily .dsline.good{color:#1d7a45}.b4daily .dsline.bad{color:#b3261e}
+  .b4daily .dstitle{color:#123D24}
+  .b4daily .dstreak div{background:#F8F1DD;border:2px solid #fff;color:#123D24}
+  .b4daily .dstreak i{color:#5b6b56}
+  .b4daily .dsstyle{color:#a8740a}
+  /* The Cup */
+  .b4cup .cupgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .cupnat{position:relative;display:flex;align-items:center;gap:10px;min-height:52px;padding:0 12px;border-radius:14px;cursor:pointer;text-align:left;
+    background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;color:#F8F1DD;font:italic 900 16px/1.05 'Barlow Semi Condensed',sans-serif;box-shadow:0 4px 0 rgba(0,0,0,.12)}
+  .cupnat img{width:30px;height:20px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+  .cupnat .sw{width:30px;height:20px;border-radius:3px}
+  .cupnat span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cupnat.on{border-color:#e9b84c;box-shadow:0 0 0 2px #e9b84c,0 4px 0 rgba(0,0,0,.12)}
+  .cupnat i{font-style:normal;width:22px;height:22px;border-radius:50%;background:#e9b84c;color:#0a1f13;display:grid;place-items:center;font:900 13px/1 'Barlow Semi Condensed',sans-serif}
+  .cupyears{margin:0 0 12px}
+  .cuppickcard{display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:16px;background:#F8F1DD;border:2px solid #fff;box-shadow:0 5px 0 rgba(0,0,0,.08);color:#123D24;margin:4px 0}
+  .cuppickcard b{font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif}
+  .cuppickcard>span{font:italic 400 14px/1.4 'Lora',Georgia,serif;color:#3d4a38}
+  .b4cup .cupodds div{color:#123D24}
+  .b4cup .cupodds i{color:#5b6b56}
+  .cupvs{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;margin:4px 0 10px}
+  .cupvsside{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;border-radius:16px;background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;color:#F8F1DD;text-align:center;
+    box-shadow:inset 0 4px 0 var(--kc),0 5px 0 rgba(0,0,0,.1)}
+  .cupvsside img{width:64px;height:43px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 2px rgba(255,255,255,.8)}
+  .cupvsside b{font:italic 900 20px/1 'Barlow Semi Condensed',sans-serif}
+  .cupvsside i{font-style:normal;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FB79E}
+  .cupvsx{font:italic 900 22px/1 'Barlow Semi Condensed',sans-serif;color:#a8740a}
+  .b4cup .cupcard{background:#F8F1DD!important;color:#123D24!important;border:2px solid #fff!important;border-left:2px solid #fff!important;border-radius:16px!important;box-shadow:0 5px 0 rgba(0,0,0,.08)!important}
+  .b4cup .cupcard *{color:inherit}
+  .b4cup .cupcard .cupcl span,.b4cup .cupcard .cupsay{color:#5b6b56}
+  .b4cup .cupme{background:linear-gradient(180deg,#14422A,#0b2416)!important;border:2px solid #fff!important;border-left:2px solid #fff!important;border-radius:16px!important;color:#F8F1DD}
+  .b4cup .cuprec{background:#F8F1DD;border:2px solid #fff;border-radius:16px;padding:10px 14px;color:#123D24}
+  .b4cup .cuprec h3{font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#5b6b56}
+  .b4cup .cuprl{color:#123D24}
+  .b4cup .cupchart,.b4cup .cupchart *{color:#123D24}
+  /* POP-UPS in the house: dark green, white edge, Barlow headings */
+  #overlay .sheet{background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;color:#F8F1DD;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+  #overlay .sheet h2{font:italic 900 24px/1.05 'Barlow Semi Condensed',sans-serif;color:#F8F1DD}
+  #overlay .sheet p{color:#cfe0d2;font:italic 400 14px/1.45 'Lora',Georgia,serif}
+  /* the full-time cards in the house dark green, as on the After-the-match board */
+  .b4ft .pgcard{background:linear-gradient(180deg,#14422A,#0b2416)!important;border:2px solid #fff!important;color:#F8F1DD;box-shadow:0 5px 0 rgba(0,0,0,.1),0 12px 24px rgba(18,61,36,.2)!important}
+  .b4ft .pgcard.title{background:#F8F1DD!important;color:#123D24}
+  .b4ft .pgcard.title span{color:#a8740a}
+  .b4rep .frow{background:linear-gradient(180deg,#14422A,#0b2416)!important;color:#F8F1DD!important;border:2px solid #fff!important}
+  .b4rep .frow.w{border-color:#e9b84c!important}
+  .b4page .bigbtn.ghost:not(.tinybtn){background:linear-gradient(180deg,#14422A,#0b2416)!important;border:2px solid #fff!important;color:#F8F1DD!important}
+  .b4page h1.title{color:#123D24!important}
+  body.b4skin .h2big{color:#123D24}
+  body.b4skin #stage>.kick{color:#5b6b56}
+  /* THE MATCH SCREENS keep their pitch; around it the house: cream paper, the
+     grass band behind the scoreboard, readable text */
+  body.b4skin #stage{position:relative;isolation:isolate}
+  body.b4skin #stage::before{content:"";position:absolute;left:50%;transform:translateX(-50%);top:0;width:100vw;height:118px;z-index:-1;
+    background:#1d5232 url(assets/grass-match.jpg) center top / 780px auto repeat;clip-path:polygon(0 0,100% 0,100% 80%,0 100%)}
+  body.b4skin #stage:has(.b6band)::before{display:none}
+  body.b4skin .h2hintline,body.b4skin .h2where{color:#3d4a38;opacity:1}
+  body.b4skin .sb-names span,body.b4skin .sb-names em{color:#F8F1DD;opacity:.9;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+  body.b4skin .foot .bigbtn.ghost{background:none;border:0;box-shadow:none;color:#4b5a47;text-decoration:underline;text-underline-offset:4px;font:700 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em}
+  body.b4skin .bigbtn.ghost{background:linear-gradient(180deg,#14422A,#0b2416);border:2px solid #fff;color:#F8F1DD}
+  body.b4skin .h2view,body.b4skin .h2toggles button{color:#4b5a47}
   body:has(.pgfull) .toast{bottom:auto;top:calc(18px + env(safe-area-inset-top,0px))}
   .b6grp{display:flex;flex-direction:column;gap:8px}
   .b6grp h3.b6hdr{margin:4px 0 0}
@@ -6342,7 +6470,7 @@
   .b6ballic{width:44px;height:44px;display:block}.b6ballic svg{width:100%;height:100%}
 </style>
 </head>
-<body class="careermode">
+<body>
 
 <div id="pitchbg"></div>
 <div class="cornerarc tl"></div><div class="cornerarc tr"></div>
@@ -10781,6 +10909,9 @@ document.addEventListener("visibilitychange",()=>{ if(!document.hidden && S) wak
 /* ============================== RENDER ============================== */
 function renderBug(){
   const bug=$("#scorebug");
+  /* BALL 4: NO SCOREBUG. Each page shows its score on b4Score in its band (or
+     on the pitch's own scoreboard), so the BALL 3 gold box never draws. */
+  if(bug){ bug.hidden=true; bug.innerHTML=""; return; }
   /* THE DAILY HAS NO SCORE AND NO OPPONENT, so the match scorebug on top of
      it is two players and a running total that mean nothing. It has a ladder
      of its own, which is the only score it has. */
@@ -12468,6 +12599,62 @@ function b6Paper(on){ try{ document.body.classList[on ? "add" : "remove"]("b6pap
 /* THE HOUSE PAGE FOR A GAME (polish pass steps 6-7): the green band with the
    game's name and the gold context bar, back and Leave, cream paper below. The
    old score bar is hidden for these screens (renderBug); the score is on the bar. */
+/* ---------- BALL 4: THE SHELL ----------
+   _plans/one-look.md. Every screen a player can reach is built from these, so
+   the whole app is one look: cream paper, the grass band with back ‹, the
+   TITLE and Leave, the context on the slanted gold bar, then the screen.
+
+   HOW TO BUILD A NEW SCREEN
+     st.innerHTML = b4Page({ title, ctx, back, leave, score, body });
+   or render the old way and call b4Wrap(st, {...}) right after. Inside, use
+   only these pieces: b4Q (the question), b4Card, b4Btn (one gold per screen,
+   dark for the alternative, quiet for leave or abandon), b4Sec, b4Table,
+   b4Score (only where there is a score), b4Chip, b4Row. No dark full page,
+   no gold-framed scorebug, no grey kicker as a header: _tests/look-test.js
+   fails on those. */
+function b4Page(o){
+  o = o || {};
+  b6Paper(true);
+  return '<div class="b6 step b6m b4page' + (o.band === "tall" ? " tall" : "") + (o.cls ? " " + o.cls : "") + '"><div class="b6band"></div><div class="b6body">' +
+    b6MatchHead(o.ctx || "", o.back || null, o.leave || null, o.title || "") + (o.score || "") + (o.body || "") + '</div></div>';
+}
+function b4Wrap(st, o){ st.innerHTML = b4Page(Object.assign({}, o, { body: (o && o.body != null) ? o.body : st.innerHTML })); }
+const b4Q = (title, sub) => '<div class="b4q"><b>' + title + '</b>' + (sub ? '<small>' + sub + '</small>' : "") + '</div>';
+const b4Card = (html, o) => '<div class="b4card ' + ((o && o.tone) || "dark") + (o && o.gold ? " gold" : "") + '">' + html + '</div>';
+const b4Btn = (label, onclick, kind) => '<button class="b4btn ' + (kind || "gold") + '" onclick="' + onclick + '">' + label + '</button>';
+const b4Sec = label => '<div class="b6hdr">' + esc(label) + '</div>';
+const b4Chip = (text, kind) => '<span class="b4chip ' + (kind || "dark") + '">' + text + '</span>';
+const b4Row = o => '<button class="b6fix" onclick="' + o.onclick + '">' + (o.left || "") + '<div class="m"><b>' + o.title + '</b>' + (o.sub ? '<small>' + o.sub + '</small>' : "") + '</div>' +
+  '<div class="art">' + (o.right || "") + '<span class="chev">›</span></div></button>';
+/* a table as a dark card: letter-spaced header, 1 px rows, your row gold */
+function b4Table(cols, rows, o){
+  o = o || {};
+  return '<div class="b4table"><table><tr>' + cols.map(c => '<th>' + c + '</th>').join("") + '</tr>' +
+    rows.map(r => '<tr' + (r.me ? ' class="me"' : r.cls ? ' class="' + r.cls + '"' : "") + '>' + r.cells.map((c, i) => '<td' + (i === 0 ? ' class="n"' : "") + '>' + c + '</td>').join("") + '</tr>').join("") +
+    '</table></div>';
+}
+/* THE TV SCOREBOARD, in the band: one side for a solo game, two for a match.
+   side: {name, short, flag, color}. label: "FULL TIME", "Caps · your run". */
+function b4Score(o){
+  const side = (s, away) => '<div class="sb-t' + (away ? " away" : "") + '" style="--tc:' + (s.color || "#123D24") + '">' +
+    (s.flag ? '<img class="sb-flag" src="' + s.flag + '" alt="">' : "") + '<b>' + esc(s.short || s.name) + '</b></div>';
+  if(!o.away) return '<div class="b4sb solo"><div class="sb">' + side(o.home, false) + '<div class="sb-mid"><b>' + o.score + '</b></div></div>' +
+    (o.label ? '<div class="b4sblabel">' + esc(o.label) + '</div>' : "") + '</div>';
+  return '<div class="b4sb"><div class="sb">' + side(o.home, false) + '<div class="sb-mid"><b>' + o.score[0] + '</b><s></s><b>' + o.score[1] + '</b></div>' + side(o.away, true) + '</div>' +
+    (o.label ? '<div class="b4sblabel">' + esc(o.label) + '</div>' : "") + '</div>';
+}
+
+/* A RENDERER THAT WRITES st.innerHTML MORE THAN ONCE, OR DRAWS INTO ITS PAGE
+   STRAIGHT AFTER (the Daily's scarf), gets a stand-in for st whose innerHTML
+   setter writes the page already in the shell, so nothing it does next finds
+   a canvas that was replaced. o is the b4Page options, or a function of the
+   moment returning them. */
+function b4Stage(st, o){
+  return { get innerHTML(){ return st.innerHTML; }, set innerHTML(v){ st.innerHTML = b4Page(Object.assign({}, typeof o === "function" ? o() : o, { body: v })); },
+    querySelector: q => st.querySelector(q), querySelectorAll: q => st.querySelectorAll(q) };
+}
+/* the pitch screens keep their pitch: the house look comes from a skin on the body */
+function b4Skin(on){ try{ document.body.classList.toggle("b4skin", !!on); if(on) b6Paper(true); }catch(e){} }
 function b6GameWrap(st, title){
   b6Paper(true);
   let ctx = "";
@@ -12477,7 +12664,7 @@ function b6GameWrap(st, title){
     else if(!many) ctx = (S.mode === "mgr" ? "Manager " : "Career ") + S.round + " of " + CAREER_SOLO_ROUNDS + " · score " + S.players[0].score;
     else ctx = "Round " + S.round + " · " + S.players.map(p => p.name + " " + p.score).join(" · ");
   }catch(e){}
-  st.innerHTML = '<div class="b6 step b6m b6game"><div class="b6band"></div><div class="b6body">' + b6MatchHead(ctx, "toMenu()", "askEnd()", title) + st.innerHTML + '</div></div>';
+  st.innerHTML = '<div class="b6 step b6m b6game b4page"><div class="b6band"></div><div class="b6body">' + b6MatchHead(ctx, "toMenu()", "askEnd()", title) + st.innerHTML + '</div></div>';
 }
 function b6MatchHead(ctx, back, leave, title){
   return '<div class="b6stephead m">' +
@@ -14351,6 +14538,7 @@ function dsRender(st){
   const sh = dsToday();
   if(!sh){ st.innerHTML = '<div class="h2big">The daily is not ready.</div><button class="bigbtn ghost" onclick="toMenu()">Back</button>'; return; }
   const D = dsDay(sh.date), kick = sh.kicks.length;
+  st = b4Stage(st, () => ({ title: "Daily Ball", ctx: "vs " + D.opp.name + (S.phase === "ds_done" ? "" : kick >= 5 ? " · sudden death" : " · kick " + Math.min(kick + 1, 5) + " of 5"), back: "toMenu()", cls: "b4daily" }));
   const head = '<div class="kick">' + ico('trophy') + 'Daily Ball · vs ' + esc(D.opp.name) +
     (kick >= 5 ? ' · sudden death' : ' · kick ' + Math.min(kick + 1, 5) + ' of 5') + '</div>';
   const last = sh.last ? '<div class="dsline' + (sh.last.goal ? " good" : " bad") + '">' + esc(sh.last.line) + '</div>' : "";
@@ -15702,7 +15890,7 @@ function cupPlay(){
      whistle read like a match report rather than like you against Route One.
      Which of the four he is belongs on the card before kick-off and on the
      team sheet, where a manager would read it. */
-  S = freshState([c.nation, them], false, "classic", 0, "manager", true);
+  S = freshState([c.nation, them], false, "classic", 0, "manager", answerPref() !== "say");
   S.pool = pool;
   S.cup = {round: c.round, v: them, year: c.year};
   S.players[1].ai = cupStyle(them);
@@ -20789,7 +20977,7 @@ function h2Render(st){
   const H = h2();
   const me = S.players[H.who], them = S.players[h2Other()];
   const t = S.tier ? TIERS[S.tier] : null;
-  const foot = '<div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>';
+  const foot = '<div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>';
 
   /* ---------- PICK YOUR SIDE, in the BALL 4 house style ----------
      _brand/frontpage/match-screens.html: the green top with MATCHDAY and the
@@ -21246,6 +21434,8 @@ function h2Render(st){
           'Get it wrong in the wrong place and you give away a free kick, a booking, or a penalty.</div>'
         : '<div class="hint" style="text-align:center">He can see where your line is. What he cannot see is ' +
           'whether it suits what he knows.</div>');
+    /* THE TACKLE IN THE HOUSE PAGE (one-look): band YOUR TACKLE, the gold bar says who has the ball */
+    b4Wrap(st, { title: h2TackleOn ? "Your tackle" : "Your line", ctx: (h2Team(att) || me.name) + " have the ball", leave: "askEnd()", cls: "b4tackle" });
     return;
   }
 
@@ -21890,7 +22080,8 @@ function progMatchEnd(){
     p.xp = xpBefore + gained;
     let rating = null;
     const momentsBefore = p.moments.length;
-    if(ai){
+    const selfMarked = ai && S.mc === false;   // said out loud and marked by the player: XP yes, rating no
+    if(ai && !selfMarked){
       const res = won ? (S.pens ? .75 : 1) : drawn ? .5 : (S.pens ? .25 : 0);
       rating = rateMatch(p, AI_RATING[ai] || 1150, res);
       if(won && ai === "champs" && rating.before < 1150) progSpecial(p, "giant");
@@ -21910,10 +22101,10 @@ function progMatchEnd(){
     /* league points, worked out here so the summary can say them; the
        server counts its own and its table is the one that matters */
     let league = null;
-    if(ai && acct().linked){ const counted = leagueCounts(p, today); league = { pts: counted ? leaguePoints("ai", won ? "w" : drawn ? "d" : "l") : 0, counted }; }
+    if(ai && !selfMarked && acct().linked){ const counted = leagueCounts(p, today); league = { pts: counted ? leaguePoints("ai", won ? "w" : drawn ? "d" : "l") : 0, counted }; }
     else if(onlineOpp && acct().linked){ const counted = leagueCounts(p, today); league = { pts: counted ? leaguePoints("online", won ? "w" : drawn ? "d" : "l", false) : 0, counted }; }
     progSave(p);
-    S.progSum = { xp: gained, xpParts: parts, levelBefore: lvBefore, levelAfter: lvAfter, rating, newTitles, won, drawn, ai, league, scarf: newScarf ? team : null, online: !!onlineOpp };
+    S.progSum = { xp: gained, xpParts: parts, levelBefore: lvBefore, levelAfter: lvAfter, rating, newTitles, won, drawn, ai, league, scarf: newScarf ? team : null, online: !!onlineOpp, selfMarked };
     { const S0 = S, run0 = run; setTimeout(() => progQueueMatch(S0, run0), 0); }
     return S.progSum;
   }catch(e){ return null; }
@@ -21974,7 +22165,7 @@ function progSummaryHTML(sum){
       : sum.online && !sum.unrated
         ? '<div class="pghead"><span>BALL rating</span><b style="color:#8FB79E">waiting…</b></div><div class="pgnote">Rated when both phones report the same score.</div>'
         : '<div class="pghead"><span>BALL rating</span><b style="color:#8FB79E">unrated</b></div>' +
-          '<div class="pgnote">' + (sum.unrated ? "The two phones didn't agree on the score, so it isn't rated." : "Only matches against the computer and online matches move your rating.") + '</div>') + '</div>' +
+          '<div class="pgnote">' + (sum.selfMarked ? "You said your answers and marked them yourself, so this match isn't rated." : sum.unrated ? "The two phones didn't agree on the score, so it isn't rated." : "Only matches against the computer and online matches move your rating.") + '</div>') + '</div>' +
     '<div class="pgcard"><div class="pghead"><span>Experience</span><b class="gold">+' + nf(sum.xp) + ' XP</b></div>' +
       '<div class="pgbar"><i style="width:' + (L.into / L.need * 100).toFixed(1) + '%"></i></div>' +
       '<div class="pgdivrow"><span>Level ' + L.level + ' · ' + esc(rankOf(L.level).name) + (sum.levelAfter > sum.levelBefore ? " · level up!" : "") + '</span><span>' + nf(L.need - L.into) + ' to go</span></div>' +
@@ -22820,7 +23011,7 @@ function progQueueMatch(s, run){
     if(!s || !s.mid || !s.players || !s.players[0]) return false;
     const pitch = isPitch(s.play), ai = pitch && s.players[1] && s.players[1].ai ? s.players[1].level || "ere" : null;
     const opp = !ai && typeof progOnlineOpp === "function" ? progOnlineOpp() : null;
-    const kind = ai ? "ai" : opp ? "online" : "local";
+    const kind = ai && s.mc !== false ? "ai" : opp ? "online" : "local";
     const cap = v => pitch ? (v | 0) : Math.min(30, Math.max(0, v | 0));
     let comp = s.mode || "";
     if(pitch){ try{ comp = (s.h2h && s.h2h.pool) || h2PoolId() || comp; }catch(e){} }
@@ -23318,6 +23509,7 @@ function qrLog(qk, tier, ok){
   try{
     if(!qk || !ACCT.server || !acct().signedIn || !S || !isPitch(S.play) || !S.players[1]) return;
     if(!S.players[1].ai && !progOnlineOpp()) return;
+    if(S.mc === false) return;
     QR_BUF.push({ q: qk, t: tier, ok: !!ok, ms: S.qAt ? Math.max(0, Math.min(600000, Date.now() - S.qAt)) : 0 });
     if(QR_BUF.length >= 50) qrFlush();
   }catch(e){}
@@ -23459,6 +23651,7 @@ function routeShirt(C){
 let routeDrop = null;
 
 function render(){
+  if(!S || !/^h_/.test(S.phase || "")) b4Skin(false);
   /* THE HERO'S LOOP DIES ON THE FIRST LINE, AND THAT IS THE WHOLE OF IT. Every
      screen this app draws is a branch below: the stage selector appears exactly
      once in fourteen thousand lines and it is six lines down, so there is no
@@ -23511,7 +23704,7 @@ function render(){
   if(LEAGUE_VIEW && (!S || S.phase === "setup")){ b6Tabs("league"); return renderLeague(st); }
   if(LOCKER_VIEW && (!S || S.phase === "setup")){ b6Tabs("locker"); return renderLocker(st); }
   if(ALBUM_VIEW) return renderAlbum(st);
-  if(CUP_VIEW) return renderCup(st);
+  if(CUP_VIEW) return renderCup(b4Stage(st, () => { const c = cupRun(); return { title: "The Cup", ctx: "World Cup " + (c ? c.year : cupYear()) + (c && c.alive ? (c.round === "group" ? " · Group " + c.group : " · " + CUP_ROUND_SHORT[c.round]) : ""), back: "closeCup()", cls: "b4cup" }; }));
   if(DREAM_VIEW) return renderDream(st);
   if(!S || S.phase==="setup"){
     if(showBoard) return renderBoard(st);
@@ -23530,7 +23723,7 @@ function render(){
   const h2On = isPitch(S.play) && S.phase!=="results";
   document.body.classList[h2On?"add":"remove"]("h2hmode");
   if(!h2On) h2CrowdStop();   // results, the menu, another mode
-  if(h2On){ h2Render(st); return; }
+  if(h2On){ b4Skin(/^h_/.test(S.phase || "")); h2Render(st); return; }
 
   if(S.phase==="pick"){
     const stad = S.mode==="stadium";
@@ -23561,7 +23754,7 @@ function render(){
         </button>`;}).join("")}
       </div>
       <div class="foot">
-        <button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button>
+        <button class="bigbtn ghost" onclick="askEnd()">Leave the match</button>
       </div>`;
     return;
   }
@@ -23779,7 +23972,7 @@ function render(){
        waving out of the line until it lands; popIdx is the one that just did. */
     const C=cdeck()[S.career.ci];
     const mgr = S.mode==="mgr";
-    const solo = !!S.career.opts;
+    const say = !!S.career.say, solo = !!S.career.opts || say;
     const revealAll = S.phase==="c_judge" || S.phase==="c_dead";
     const route = routeHTML(C, {shown: S.career.shown, fresh: popIdx>=0 ? popIdx : (hideIdx>=0 ? hideIdx : null), revealAll, anim: revealAnim, shownBefore: S.career.shown, solo});
     popIdx=-1; revealAnim=false;
@@ -23796,7 +23989,12 @@ function render(){
         ${head}
         ${route}
         ${locked.length?`<div class="hint" style="text-align:center">Locked out: ${esc(locked.join(", "))}.</div>`:""}
-        ${solo ? `
+        ${say ? `
+        <button class="bigbtn" onclick="cGuess()">I know it · show the answer<kbd>G</kbd></button>
+        ${S.career.shown<C.c.length
+          ? `<button class="cpnext" onclick="cNext()">Next stop <i>−3</i><kbd>Space</kbd></button>`
+          : `<div class="hint" style="text-align:center">Full career on the table. Last chance…</div>`}
+        <button class="cpquiet" onclick="cGiveUp()">I don't know, show me</button>` : solo ? `
         <div class="cpopts">${S.career.opts.map((n,i)=>`<button class="cpopt${S.career.wrong.indexOf(i)>=0?" out":""}" onclick="cSolo(${i})" ${S.career.wrong.indexOf(i)>=0?"disabled":""}>${esc(n)}</button>`).join("")}</div>
         ${S.career.shown<C.c.length
           ? `<button class="cpnext" onclick="cNext()">Next stop <i>−3</i><kbd>Space</kbd></button>`
@@ -23808,7 +24006,7 @@ function render(){
           ? `<button class="cpnext" onclick="cNext()">Next stop<kbd>Space</kbd></button>`
           : `<div class="hint" style="text-align:center">Full career on the table. Last chance…</div>`}
         <button class="cpquiet" onclick="cGiveUp()">Nobody knows, reveal it</button>
-        <div class="foot"><button class="cpquiet" onclick="askEnd()">Full-time whistle</button></div>`}`;
+        <div class="foot"><button class="cpquiet" onclick="askEnd()">Leave the match</button></div>`}`;
       b6GameWrap(st, mgr ? "Manager Path" : "Career Path"); return;
     }
     if(S.phase==="c_who"){
@@ -23825,7 +24023,7 @@ function render(){
     }
     const won = S.phase==="c_dead" && (S.career.won || 0);
     const reveal = `<div class="cpreveal"><div class="cpwon">
-        <small class="${won ? "ok" : ""}">${S.phase==="c_judge" ? "Only " + reader() + " looks · judging " + esc(S.players[S.career.guesser].name) : won ? "Correct · +" + won : solo ? "It was" : "Nobody got it"}</small>
+        <small class="${won ? "ok" : ""}">${S.phase==="c_judge" ? (say ? "Did you have it?" : "Only " + reader() + " looks · judging " + esc(S.players[S.career.guesser].name)) : won ? "Correct · +" + won : solo ? "It was" : "Nobody got it"}</small>
         <b class="careername">${esc(C.n)}</b>
         ${C.note?`<span>${esc(C.note)}</span>`:""}</div>${routeShirt(C)}</div>`;
     if(S.phase==="c_judge"){
@@ -23833,8 +24031,8 @@ function render(){
         ${reveal}
         ${route}
         <div class="row2">
-          <button class="bigbtn ok" onclick="cJudge(true)">Correct +${cpot()}<kbd>C</kbd></button>
-          <button class="bigbtn bad" onclick="cJudge(false)">Wrong −2<kbd>W</kbd></button>
+          <button class="bigbtn ok" onclick="cJudge(true)">${say ? "I had it" : "Correct"} +${cpot()}<kbd>C</kbd></button>
+          <button class="bigbtn bad" onclick="cJudge(false)">${say ? "I didn't" : "Wrong"} −2<kbd>W</kbd></button>
         </div>`;
       b6GameWrap(st, mgr ? "Manager Path" : "Career Path"); return;
     }
@@ -23898,7 +24096,7 @@ function render(){
         <button class="bigbtn" onclick="bidRaise()">I can name ${S.bid.claim+1}</button>
         ${held && S.bid.holder!==S.turn ? `<button class="bigbtn warn" onclick="bidCall()">Prove it</button>` : ""}
         ${!held ? `<button class="bigbtn ghost" onclick="bidPass()">Nobody fancies it, next lot</button>` : ""}
-        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`;
+        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`;
       return;
     }
     if(S.phase==="b_call"){
@@ -23954,7 +24152,7 @@ function render(){
         ${rows}
         <div class="spacer"></div>
         <button class="bigbtn ghost" onclick="mysGiveUp()">Nobody has him, give it up</button>
-        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`;
+        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`;
       const el=document.getElementById("mysin"); if(el) el.focus();
       return;
     }
@@ -23992,7 +24190,7 @@ function render(){
         <div class="hint" style="text-align:center">Four groups of four are hiding in there. Tap four that belong together.</div>
         <div class="spacer"></div>
         <button class="bigbtn${S.wall.sel.length===4?"":" ghost"}" onclick="wlLock()">Lock in these four</button>
-        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`;
+        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`;
       return;
     }
     if(S.phase==="wl_award"){
@@ -24042,7 +24240,7 @@ function render(){
           : `<div class="hint" style="text-align:center">That is the lot. Last chance…</div>`}
         <button class="bigbtn warn" onclick="alGuess()">${ico('hand')}Someone knows it!<kbd>G</kbd></button>
         <button class="bigbtn ghost" onclick="alGiveUp()">Nobody knows, reveal it</button>
-        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`;
+        <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`;
       return;
     }
     if(S.phase==="al_who"){
@@ -24092,7 +24290,7 @@ function render(){
             <span class="lcount">${l.clubs.length}</span>
           </button>`).join("")}
       </div>
-      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`;
+      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`;
     return;
   }
 
@@ -24150,7 +24348,7 @@ function render(){
       :`
       <div class="hint" style="text-align:center">Tap the face. The app knows the answer, so there is nothing to argue about until afterwards.</div>
       <div class="spacer"></div>
-      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`}`;
+      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`}`;
     return;
   }
 
@@ -24222,7 +24420,7 @@ function render(){
       <div class="hint" style="text-align:center">The whole table shouts. ${reader()} taps a shirt when someone names its player, then hands out the point.</div>
       <div class="spacer"></div>
       <button class="bigbtn ghost" onclick="xiRest()">Reveal the rest · no points</button>
-      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`}`;
+      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`}`;
     return;
   }
 
@@ -24247,7 +24445,7 @@ function render(){
       <div class="hint" style="text-align:center">${esc(S.players[S.turn].name)} drags them into order, ${ord?"smallest on top":"earliest on top"}, then locks it in. The app pays +1 per correct spot, +5 for a perfect five.</div>
       <div class="spacer"></div>
       <button class="bigbtn" onclick="tlReveal()">Lock it in<kbd>Space</kbd></button>
-      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Full-time whistle</button></div>`}`;
+      <div class="foot"><button class="bigbtn ghost" onclick="askEnd()">Leave the match</button></div>`}`;
     return;
   }
 
@@ -24318,22 +24516,24 @@ function render(){
   }
 
   if(S.phase==="results" && progSumNow() && !progShowReport && !S.cup){
-    b6Paper(false);
+    /* FULL TIME (one-look, the canvas board "After the match"): the scoreboard
+       in the band, the rating and XP cards on the cream, gold Continue, dark
+       Play again, quiet Match report. */
     const sum = progSumNow(), pitch = isPitch(S.play) && S.h2h, ME = progMe(), OP = 1 - ME;
-    const side = w => pitch ? (h2Team(w) || S.players[w].name) : S.players[w] ? S.players[w].name : "";
-    const fl = w => { try{ const f = pitch ? h2Flag(w) : null; return f ? '<img src="' + f + '" alt="">' : ""; }catch(e){ return ""; } };
+    const tryv = f => { try{ return f(); }catch(e){ return null; } };
+    const sideOf = w => pitch ? { name: h2Team(w) || S.players[w].name, short: tryv(() => h2Abbr(w)), flag: tryv(() => h2Flag(w)), color: tryv(() => h2Kit(w)) } : { name: S.players[w].name };
     const comp = pitch ? (S.lockPool ? b4StageLabel(h2PoolId()) : "Matchday") + (sum.ai ? " · vs the computer, " + AI_NAME[sum.ai] : sum.online ? " · online" : " · vs a friend") : matchLabel(S);
-    const score = S.players.length > 1 ? S.players[ME].score + "–" + S.players[OP].score + (S.pens ? '<small>' + S.pens[ME] + "–" + S.pens[OP] + ' pens</small>' : "") : String(S.players[0].score);
-    st.innerHTML = '<div class="pgfull"><div class="pgft"><span>Full time</span><small>' + esc(comp) + '</small></div>' +
-      (S.players.length > 1
-        ? '<div class="pgscore"><div>' + fl(ME) + '<b>' + esc(side(ME)) + '</b><i class="me">You</i></div><strong>' + score + '</strong>' +
-          '<div>' + fl(OP) + '<b>' + esc(side(OP)) + '</b><i>' + (sum.ai ? "Computer · " + nf(AI_RATING[sum.ai]) : esc(S.players[OP].name)) + '</i></div></div>'
-        : '<div class="pgscore solo"><strong>' + score + '</strong><i>points</i></div>' +
-          (S.prevBest != null && S.players[0].score > S.prevBest ? '<div class="pgbest">New best! The old one was ' + S.prevBest + '.</div>' : "")) +
+    const two = S.players.length > 1;
+    const score = two
+      ? b4Score({ home: sideOf(ME), away: sideOf(OP), score: [S.players[ME].score, S.players[OP].score], label: "Full time" + (S.pens ? " · " + S.pens[ME] + "–" + S.pens[OP] + " on pens" : "") })
+      : b4Score({ home: { name: S.players[0].name }, score: S.players[0].score, label: "Full time · " + S.players[0].score + " point" + (S.players[0].score === 1 ? "" : "s") });
+    st.innerHTML = b4Page({ title: "Full time", ctx: comp, score, cls: "b4ft", body:
+      (two ? '<div class="b4vs"><span><i class="me">You</i>' + esc(sideOf(ME).name) + '</span><span>' + esc(sideOf(OP).name) + '<i>' + (sum.ai ? "Computer · " + nf(AI_RATING[sum.ai]) : esc(S.players[OP].name)) + '</i></span></div>' : "") +
+      (!two && S.prevBest != null && S.players[0].score > S.prevBest ? '<div class="pgbest">New best! The old one was ' + S.prevBest + '.</div>' : "") +
       progSummaryHTML(sum) +
-      '<div class="pgbtns"><button class="b6cta" onclick="progContinue()">Continue</button>' +
-      (isGuest() ? "" : '<button class="b6dark" onclick="rematch()">Play again</button>') +
-      '<button class="pgreport" onclick="progShowReport=true;render()">Match report</button></div></div>';
+      '<div class="pgbtns"><button class="b4btn gold" onclick="progContinue()">Continue</button>' +
+      (isGuest() ? "" : '<button class="b4btn dark" onclick="rematch()">Play again</button>') +
+      '<button class="b4btn quiet" onclick="progShowReport=true;render()">Match report</button></div>' });
     return;
   }
   if(S.phase==="results"){
@@ -24368,10 +24568,11 @@ function render(){
       ${h2ReportHTML()}
       <div class="spacer"></div>
       ${S.cup ? `<button class="bigbtn" onclick="fullReset(); openCup()">Back to the Cup</button>
-        <button class="bigbtn ghost" onclick="fullReset()">Leave it</button>` : `<div class="row2">
+        <button class="bigbtn ghost" onclick="fullReset()">Leave it</button>` : `<div class="row2 b4report">
         <button class="bigbtn" onclick="rematch()">${S.players.length===1?"Play again":"Rematch"}</button>
         <button class="bigbtn ghost" onclick="fullReset()">Menu</button>
       </div>`}`;
+    b4Wrap(st, { title: S.cup ? "The Cup" : "Match report", ctx: isPitch(S.play) && S.h2h ? (S.lockPool ? b4StageLabel(h2PoolId()) : "Matchday") : matchLabel(S), back: progSumNow() ? "progShowReport=false;render()" : null, cls: "b4rep" });
     return;
   }
 }
@@ -24991,6 +25192,22 @@ function renderCup(st){
 
   /* ===== a run in progress ===== */
   const them = cupNext();
+  if(them){
+    /* THE GROUP PAGE (one-look): you and them with a VS, their form on a cream
+       card, one gold Play, the table, Back dark, abandon quiet */
+    st.innerHTML =
+      '<div class="cupvs"><div class="cupvsside" style="--kc:' + cupKit(c.nation) + '">' + (cupFlag(c.nation) ? '<img src="' + cupFlag(c.nation) + '" alt="">' : '') + '<b>' + esc(c.nation) + '</b><i>You</i></div>' +
+        '<span class="cupvsx">VS</span>' +
+        '<div class="cupvsside" style="--kc:' + cupKit(them) + '">' + (cupFlag(them) ? '<img src="' + cupFlag(them) + '" alt="">' : '') + '<b>' + esc(them) + '</b><i>' +
+          (c.round === "group" ? "Match " + (c.n + 1) + " of 3" : CUP_ROUND_SHORT[c.round]) + '</i></div></div>' +
+      cupCardHTML(c, them) +
+      '<button class="b4btn gold" onclick="cupPlay()">Play ' + esc(them) + '</button>' +
+      (c.round === "group" ? cupTableHTML(c) : cupChartHTML(c)) +
+      cupResultsHTML(c) +
+      '<button class="b4btn dark" onclick="closeCup()">Back</button>' +
+      '<button class="b4btn quiet" onclick="askCupQuit()">Abandon the run</button>';
+    return;
+  }
   st.innerHTML =
     '<div class="kick">' + ico('trophy') + 'The Cup \u00b7 ' + c.year + '</div>' +
     '<div class="cupme" style="--kc:' + cupKit(c.nation) + '">' +
@@ -25013,53 +25230,34 @@ function renderCup(st){
    has ever held a wall chart looks for a country. What each side actually did
    is printed on it: the whole joke of taking Togo is knowing what Togo did. */
 function cupPickScreen(st){
+  /* PICK YOUR COUNTRY (one-look, as match-screens.html): the real groups as a
+     grid of white-edged cards, the one you tap gold with a check, what its
+     group holds on a cream card, and one gold button to go. Tapping is still
+     cupLook(side), going is still cupStart(side). */
   const C = cupOf();
   const pick = CUP_VIEW.pick;
-  if(pick){
-    const g = cupGroupOf(pick);
-    st.innerHTML =
-      '<div class="kick">' + ico('flag') + 'Group ' + g + '</div>' +
-      '<div class="cupme big" style="--kc:' + cupKit(pick) + '">' +
-        (cupFlag(pick) ? '<img src="' + cupFlag(pick) + '" alt="">' : '') +
-        '<div><b>' + esc(pick) + '</b><i>In ' + C.year + ' they ' + CUP_SAYS[cupRank(pick)] + '</i></div>' +
-      '</div>' +
-      '<div class="h2hintline">Three group matches against ' +
-        C.groups[g].sides.filter(x => x !== pick).map(x => esc(x)).join(", ") +
-        '. Finish in the top two and you are in the last sixteen, ' +
-        'in the slot the draw actually gave whoever finished there.</div>' +
-      '<div class="cupodds">' + C.groups[g].sides.filter(x => x !== pick).map(x =>
-        '<div><span class="cupdot ' + cupHard(x) + '"></span>' + esc(x) +
-        '<i>' + AI_LEVELS[cupLevel(x, "group")].label + ' \u00b7 ' + AI_MEN[cupStyle(x)].label + '</i></div>').join("") +
-      '</div>' +
-      '<button class="bigbtn" onclick="cupStart(' + JSON.stringify(pick).replace(/"/g, "&quot;") + ')">' +
-        'Take ' + esc(pick) + ' to Germany</button>' +
-      '<button class="bigbtn ghost" onclick="cupLook()">Somebody else</button>';
-    return;
-  }
+  const g = pick ? cupGroupOf(pick) : null;
+  const card = side => '<button class="cupnat' + (side === pick ? " on" : "") + '" style="--kc:' + cupKit(side) + '" onclick="cupLook(' +
+    JSON.stringify(side).replace(/"/g, "&quot;") + ')"' + (side === pick ? ' aria-pressed="true"' : "") + '>' +
+    (cupFlag(side) ? '<img src="' + cupFlag(side) + '" alt="">' : '<span class="sw" style="background:' + cupKit(side) + '"></span>') +
+    '<span>' + esc(side) + '</span>' + (side === pick ? '<i aria-hidden="true">✓</i>' : "") + '</button>';
   st.innerHTML =
-    '<div class="kick">' + ico('trophy') + 'The Cup \u00b7 ' + C.year + '</div>' +
-    '<h1 class="title">Pick a<br><span class="gold">nation</span></h1>' +
-    /* WHICH TOURNAMENT, when there is more than one on the phone. The same
-       question one level up, in the same shape as the pool row above the team
-       grid in The Dugout. */
+    '<div class="b4q"><b>Pick your country</b><small>Seven matches, saved as you go. The real groups, the real draw.</small></div>' +
     (cupYearsLive().length > 1
-      ? '<div class="h2poolrow">' + cupYearsLive().map(y =>
-          '<button class="h2poolb' + (cupYear() === y ? " on" : "") +
-          '" onclick="cupSetYear(' + JSON.stringify(y).replace(/"/g, "&quot;") + ')">' +
-          y + '</button>').join("") + '</div>'
+      ? '<div class="b6seg cupyears">' + cupYearsLive().map(y =>
+          '<button aria-pressed="' + (cupYear() === y) + '" onclick="cupSetYear(' + JSON.stringify(y).replace(/"/g, "&quot;") + ')">' + y + '</button>').join("") + '</div>'
       : "") +
-    '<div class="h2hintline">Seven matches, saved as you go. The real groups, the real draw, ' +
-      'and the ties that really happened end the way they really ended.</div>' +
-    "ABCDEFGH".split("").map(g =>
-      '<div class="cupgrp"><h3>Group ' + g + '</h3><div class="cupg4">' +
-      C.groups[g].sides.map(side =>
-        '<button class="h2teambtn" style="--kc:' + cupKit(side) + '" onclick="cupLook(' +
-        JSON.stringify(side).replace(/"/g, "&quot;") + ')">' +
-        (cupFlag(side) ? '<img class="h2flag" src="' + cupFlag(side) + '" alt="">'
-                       : '<span class="sw" style="background:' + cupKit(side) + '"></span>') +
-        '<span>' + esc(side) + '</span></button>').join("") +
-      '</div></div>').join("") +
-    '<button class="bigbtn ghost" onclick="closeCup()">Back</button>';
+    (pick
+      ? '<div class="cuppickcard"><b>' + esc(pick) + '</b><span>In ' + C.year + ' they ' + CUP_SAYS[cupRank(pick)] + '. Group ' + g + ' with ' +
+          C.groups[g].sides.filter(x => x !== pick).map(x => esc(x)).join(", ") + '; the top two go through.</span>' +
+          '<div class="cupodds">' + C.groups[g].sides.filter(x => x !== pick).map(x =>
+            '<div><span class="cupdot ' + cupHard(x) + '"></span>' + esc(x) +
+            '<i>' + AI_LEVELS[cupLevel(x, "group")].label + ' · ' + AI_MEN[cupStyle(x)].label + '</i></div>').join("") + '</div></div>' +
+        '<button class="b4btn gold" onclick="cupStart(' + JSON.stringify(pick).replace(/"/g, "&quot;") + ')">Play ' + esc(pick) + ' ›</button>'
+      : "") +
+    "ABCDEFGH".split("").filter(x => C.groups[x]).map(x =>
+      '<div class="b6hdr">Group ' + x + '</div><div class="cupgrid">' + C.groups[x].sides.map(card).join("") + '</div>').join("") +
+    '<button class="b4btn dark" onclick="closeCup()">Back</button>';
 }
 /* three words for how hard a side is, which is the same judgement as the level
    the computer plays them at */
@@ -25082,7 +25280,7 @@ function cupCardHTML(c, them){
 /* ---------- the group table ---------- */
 function cupTableHTML(c){
   const rows = cupTable(c);
-  return '<div class="cuptab"><h3>Group ' + c.group + '</h3><table>' +
+  return '<div class="b6hdr">Group ' + c.group + '</div><div class="cuptab b4table"><table>' +
     '<tr><th></th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr>' +
     rows.map((r, i) =>
       '<tr class="' + (r.side === c.nation ? "me " : "") + (i < 2 ? "thru" : "") + '">' +
@@ -26626,9 +26824,20 @@ function crestURL(slug, kind, px, fallback){
 let b4Open = null;          // which card is unfolded: "pitch" or "hilo"
 let b4Solo = false;         // startGame names a lone player "You"
 function b4Toggle(k){ audio(); b4Open = b4Open === k ? null : k; render(); }
+/* HOW YOU ANSWER, remembered on this phone: "mc" (pick from the options) or
+   "say" (read it, say it, see the answer, mark yourself). Matchday, The Cup
+   and Career Path follow it; Higher or Lower and the Daily are choices by
+   nature. A self-marked match against the computer is not rated. */
+const ANSWER_KEY = "ball4-answer";
+const answerPref = () => { try{ return localStorage.getItem(ANSWER_KEY) === "say" ? "say" : "mc"; }catch(e){ return "mc"; } };
+function setAnswerPref(v){ try{ localStorage.setItem(ANSWER_KEY, v === "say" ? "say" : "mc"); }catch(e){} render(); }
+const answerSegHTML = () => '<div class="b6hdr">How you answer</div><div class="b6seg b6ans" role="group" aria-label="How you answer">' +
+  '<button aria-pressed="' + (answerPref() === "mc") + '" onclick="setAnswerPref(\'mc\')">Multiple choice</button>' +
+  '<button aria-pressed="' + (answerPref() === "say") + '" onclick="setAnswerPref(\'say\')">Say it</button></div>' +
+  '<div class="b6qs b6anshint">' + (answerPref() === "say" ? "Say your answer out loud, then see it and mark yourself. Not rated against the computer." : "Four options, tap the one you think it is.") + '</div>';
 function b4Go(mode, play, opts){
   opts = opts || {};
-  setupMode = mode; setupPlay = play; setupMc = true; setupSrc = opts.src || "own"; setupRef = false;
+  setupMode = mode; setupPlay = play; setupMc = answerPref() !== "say"; setupSrc = opts.src || "own"; setupRef = false;
   setupTarget = 0; setupTimed = !!opts.timed;
   if(play === "pitch"){
     setupAi = opts.mate ? null : (setupAi || "press");
@@ -26826,7 +27035,7 @@ function b6Steps(){
     '<div class="b6q">Who are you playing?</div><div class="b6qs">You take turns with the ball.</div><div class="b6opts">' +
     b6Opt(!b4Mate, B6_ART.cpu, "vs the computer", '<small>Play on your own against BALL\'s computer side.</small>', "b4Mate=false;render()") +
     b6Opt(b4Mate, B6_ART.friend, "vs a friend", '<small>Two players, one phone. Pass it back and forth.</small>', "b4Mate=true;render()") +
-    '</div><button class="b6cta" onclick="b6Next()">Next ›</button>';
+    '</div>' + answerSegHTML() + '<button class="b6cta" onclick="b6Next()">Next ›</button>';
   if(b4Step === "lvl") return b6StepHead(2, steps, "Matchday") +
     '<div class="b6q">How good is the computer?</div><div class="b6qs">You can change it before every match.</div><div class="b6opts">' +
     LV.map((k, i) => b6Opt(setupAiLevel === k, b6Bars(i + 1), LVN[i] || esc(AI_LEVELS[k].label),
@@ -26930,8 +27139,11 @@ function b6Front(saved){
       ${b4Open === "hilo" ? `<div class="b6sub">
         <button onclick="b4Explain('hilo', ()=>b4Go('caps','board'))">Caps${best.caps != null ? "<small>best " + best.caps + "</small>" : ""}</button>
         <button onclick="b4Explain('hilo', ()=>b4Go('goals','board'))">Goals${best.goals != null ? "<small>best " + best.goals + "</small>" : ""}</button></div>` : ""}
-      <button class="b6fix" onclick="b4Explain('career', ()=>b4Go('career','board'))">${newOrBest(best.career)}
+      <button class="b6fix${b4Open === "career" ? " open" : ""}" onclick="b4Toggle('career')" aria-expanded="${b4Open === "career"}">${newOrBest(best.career)}
         <div class="m"><b>Career Path</b><small>Guess the player</small></div><div class="art">${B6_ART.route}<span class="chev">›</span></div></button>
+      ${b4Open === "career" ? `<div class="b6sub">
+        <button onclick="setAnswerPref('mc');b4Explain('career', ()=>b4Go('career','board'))">Pick from four<small>multiple choice</small></button>
+        <button onclick="setAnswerPref('say');b4Explain('career', ()=>b4Go('career','board'))">Say it<small>then check yourself</small></button></div>` : ""}
       <button class="b6fix" onclick="openCup()">${cups ? newOrBest(cups, "WON") : newOrBest(null)}
         <div class="m"><b>The Cup</b><small>A whole World Cup, round by round</small></div><div class="art">${trophySVG("star", "gold", 40)}<span class="chev">›</span></div></button>
     </div>
@@ -27075,7 +27287,7 @@ function startGame(){
      ready while Premier League multiple choice is still coming down the wire. */
   /* PICK ONE, AGAINST A COMPUTER, ALWAYS. It cannot judge a spoken answer, and
      a human marking his own against a machine is not a game. */
-  const mc = solo ? true : setupMc;
+  const mc = setupMc;   // BALL 4: your choice, also against the computer (then unrated)
   /* general questions are only an option on the pitch with a league picked;
      everywhere else the quiz asks its own deck, which for Let's Ball is the
      same thing */
@@ -27452,7 +27664,10 @@ function newCareer(){
      to pick from. The three wrong ones are men who played for one of the same
      clubs where the deck has them, so the answer is never the only name that
      fits the first club on the table. */
-  if(S.players.length === 1){
+  if(S.players.length === 1 && answerPref() === "say"){
+    /* SAID OUT LOUD: no names to pick from; the answer is revealed and you mark yourself */
+    S.career.opts = null; S.career.say = true; S.career.wrong = []; S.career.won = 0;
+  } else if(S.players.length === 1){
     const C = deck[ci], mine = new Set(C.c);
     const near = [], far = [];
     deck.forEach((d, i) => { if(i !== ci && d.n !== C.n) (d.c.some(x => mine.has(x)) ? near : far).push(d.n); });
@@ -27467,9 +27682,7 @@ function newCareer(){
   }
   S.turn = -1; // no player is "on the spot" in career mode
   S.phase = "c_play";
-  hideIdx = 0;
-  const slug = deck[ci].c[0];
-  setTimeout(()=>bigReveal(slug, ()=>{ hideIdx=-1; popIdx=0; render(); }), 60 + introHold());
+  hideIdx = -1; popIdx = 0;
 }
 function cpot(){ return Math.max(15 - 3*(S.career.shown-1), 3); }
 function cNext(){
@@ -27479,11 +27692,14 @@ function cNext(){
     S.career.shown++;
     const idx=S.career.shown-1;
     routeDrop = {club: clubName(C.c[idx]), at: Date.now()};
-    hideIdx=idx; render();
-    bigReveal(C.c[idx], ()=>{ hideIdx=-1; popIdx=idx; render(); });
+    /* STRAIGHT ONTO THE ROUTE. Each club used to come out as its waving scarf
+       first: knitting it blocked the phone for a moment and the overlay held
+       for a second and a half, so Next stop felt like it took ages. The new
+       station draws in on the line instead. */
+    popIdx=idx; slamfx(); render();
   }
 }
-function cGuess(){ if(S.career && S.career.opts) return; S.phase="c_who"; render(); }
+function cGuess(){ if(S.career && S.career.opts) return; if(S.career && S.career.say) return cPick(0); S.phase="c_who"; render(); }
 function cPick(i){ S.career.guesser=i; S.phase="c_judge"; revealAnim=true; render(); }
 function cBack(){ S.phase="c_play"; render(); }
 function cJudge(correct){
@@ -27491,6 +27707,13 @@ function cJudge(correct){
   /* only the person holding the phone counts for progression */
   if(S.career.guesser === 0) progAnswer({ ok: !!correct, tier: "normal", topic: "career" });
   if(S.career.guesser === 0 && correct && S.career.shown === 1) progDetective();
+  if(S.career.say){
+    /* solo, said out loud: the reveal and its summary either way, then cAfter */
+    if(correct){ const pts = cpot(); who.score += pts; S.career.won = pts; ching(); confetti(cdeck()[S.career.ci].c.length >= 8 ? 80 : 52); }
+    else { who.score -= 2; S.career.won = 0; flashBad(); buzzer(); }
+    S.phase = "c_dead"; revealAnim = false; render();
+    return;
+  }
   if(correct){
     const pts=cpot();
     who.score+=pts; ching();

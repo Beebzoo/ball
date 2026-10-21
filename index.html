@@ -29759,18 +29759,35 @@ function gtpLoad(){
    number is counted in UTC from the calendar date, so every phone that agrees
    on the date agrees on the player. */
 const gtpDayNo = k => Math.floor(Date.UTC(Math.floor(k / 10000), Math.floor(k / 100) % 100 - 1, k % 100) / 864e5);
+/* EASIER FROM 22 OCT 2026 (Martijn: "still way too hard"): the stars on
+   Monday to Wednesday, the well-known the rest of the week. Days before keep
+   their old pools, so no played day changes. */
+const GTP_EASIER_FROM = 20261022;
 function gtpSecretFor(k){
-  const wd = dayFromKey(k).getDay();
-  const pool = wd >= 1 && wd <= 3 ? GTP_DATA.secrets.easy : GTP_DATA.secrets.normal;
+  const wd = dayFromKey(k).getDay(), S_ = GTP_DATA.secrets, early = wd >= 1 && wd <= 3;
+  const pool = k >= GTP_EASIER_FROM && S_.stars && S_.stars.length ? (early ? S_.stars : S_.known)
+    : early ? S_.easy : S_.normal;
   return pool[gtpDayNo(k) % pool.length];
 }
+/* the continent of a nation code, by football confederation: a guess from
+   the same one is gold */
+const GTP_CONT = (() => {
+  const m = {}, put = (c, l) => l.split(" ").forEach(n => m[n] = c);
+  put("af", "dz ao bj bw bf bi cm cv cf td km cg cd ci dj eg gq er et ga gm gh gn gw ke ls lr ly mg mw ml mr mu ma mz na ne ng rw st sn sc sl so za ss sd sz tz tg tn ug zm zw");
+  put("as", "af bh bd bt bn kh cn hk in id ir iq jp jo kp kr kw kg la lb mo my mv mn mm np om pk ps ph qa sa sg lk sy tw tj th tl tm ae uz vn ye au");
+  put("oc", "nz fj pg sb vu nc pf ws to");
+  put("na", "ca us mx cr pa hn sv gt ni bz jm ht tt cu do pr bs bb gd lc vc kn ag dm aw cw cura-ao sr gy bm");
+  put("sa", "ar br cl co ec py pe uy ve bo");
+  return m;
+})();
+const gtpCont = n => GTP_CONT[n] || "eu";
 /* one guess against the secret; rows are pack entries
    [name, born, pos, [nat...], [clubIdx...], mainClubIdx] */
 function gtpCompare(g, s){
-  const nat = g[3].some(n => s[3].includes(n)) ? "ok" : "miss";
+  const nat = g[3].some(n => s[3].includes(n)) ? "ok" : g[3].some(n => s[3].some(m => gtpCont(m) === gtpCont(n))) ? "near" : "miss";
   const pos = g[2] && g[2] === s[2] ? "ok" : "miss";
   const d = s[1] - g[1];
-  const born = { state: d === 0 ? "ok" : Math.abs(d) <= 2 ? "near" : "miss", dir: d > 0 ? "up" : d < 0 ? "down" : null };
+  const born = { state: d === 0 ? "ok" : Math.abs(d) <= 3 ? "near" : "miss", dir: d > 0 ? "up" : d < 0 ? "down" : null };
   const gs = [...new Set(g[4])], ss = new Set(s[4]);
   const shared = gs.filter(c => ss.has(c));
   const clubs = { state: shared.length && shared.length === gs.length && shared.length === ss.size ? "ok" : shared.length ? "near" : "miss", shared };
@@ -29783,10 +29800,11 @@ function gtpSurname(name){ const w = String(name).trim().split(/\s+/); return w[
 /* CLUES COME ONLY FROM THE DATA: the countries of his clubs, then a letter */
 function gtpClue(s, misses){
   const out = [];
-  if(misses >= 3){
+  if(misses >= 2){
     const cc = new Set(s[4].map(i => GTP_DATA.clubs[i] && GTP_DATA.clubs[i][2]).filter(Boolean));
     out.push(cc.size >= 2 ? "He has played in " + gtpWord(cc.size) + " countries." : "He has played for " + gtpWord(new Set(s[4]).size) + " clubs.");
   }
+  if(misses >= 4){ const mc = GTP_DATA.clubs[s[5]]; if(mc) out.push("His longest spell was at " + mc[1] + "."); }
   if(misses >= 5) out.push("His " + (s[0].trim().includes(" ") ? "surname" : "name") + " starts with " + ttFold(gtpSurname(s[0])).charAt(0).toUpperCase() + ".");
   return out;
 }
@@ -29919,7 +29937,7 @@ function gtpRender(st){
   const rows = s.guesses.map(i => gtpCompare(P[i], P[secret]));
   const clues = gtpClue(P[secret], misses);
   st.innerHTML = b4Page({ title: "Guess the player", ctx: "Daily · guess " + (misses + 1) + " of " + GTP_MAX, back: "gtpLeave()", leave: "gtpLeave()", cls: "gtppage",
-    body: b4Q("Who is he?", "Green is a match. Gold is close. The arrow points to his year.") + gtpTable(s, secret) +
+    body: b4Q("Who is he?", "Green is a match. Gold is close: same continent, within three years, a club in common. The arrow points to his year.") + gtpTable(s, secret) +
       clues.map(c => '<div class="gtpnote"><b>CLUE</b><span>' + esc(c) + '</span></div>').join("") +
       '<span class="gtpcap">Your scarf so far · it is what you share</span>' + gtpScarfHTML(rows) +
       '<div id="gtpsug" class="gtpsug" role="listbox"></div>' +

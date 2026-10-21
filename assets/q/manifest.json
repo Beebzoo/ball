@@ -58,15 +58,15 @@
    "kind": "league",
    "cc": "england",
    "file": "assets/q/premier.json",
-   "v": "f8b27bfd",
-   "n": 1017,
-   "mc": 768,
+   "v": "639da9ad",
+   "n": 1018,
+   "mc": 769,
    "tiers": {
     "easy": 195,
     "normal": 264,
     "hard": 225,
     "extreme": 199,
-    "ball": 134
+    "ball": 135
    }
   },
   {
@@ -126,15 +126,15 @@
    "kind": "league",
    "cc": "be",
    "file": "assets/q/belgian.json",
-   "v": "b4e17e8c",
-   "n": 1033,
-   "mc": 588,
+   "v": "52297f97",
+   "n": 1034,
+   "mc": 589,
    "tiers": {
     "easy": 219,
     "normal": 246,
     "hard": 247,
     "extreme": 211,
-    "ball": 110
+    "ball": 111
    }
   },
   {
@@ -279,15 +279,15 @@
    "kind": "league",
    "cc": "au",
    "file": "assets/q/aleague.json",
-   "v": "7a655d9f",
-   "n": 344,
-   "mc": 121,
+   "v": "017787c1",
+   "n": 352,
+   "mc": 125,
    "tiers": {
     "easy": 66,
     "normal": 99,
     "hard": 97,
     "extreme": 54,
-    "ball": 28
+    "ball": 36
    }
   },
   {
@@ -313,15 +313,15 @@
    "kind": "league",
    "cc": "at",
    "file": "assets/q/austria.json",
-   "v": "27b483cc",
-   "n": 315,
-   "mc": 175,
+   "v": "4d56515d",
+   "n": 330,
+   "mc": 178,
    "tiers": {
     "easy": 64,
     "normal": 95,
     "hard": 76,
     "extreme": 57,
-    "ball": 23
+    "ball": 38
    }
   },
   {
@@ -347,15 +347,15 @@
    "kind": "league",
    "cc": "cz",
    "file": "assets/q/czech.json",
-   "v": "e4c44a2b",
-   "n": 249,
-   "mc": 121,
+   "v": "da3bb5c8",
+   "n": 294,
+   "mc": 139,
    "tiers": {
     "easy": 48,
     "normal": 83,
     "hard": 74,
-    "extreme": 33,
-    "ball": 11
+    "extreme": 46,
+    "ball": 43
    }
   },
   {
@@ -364,15 +364,15 @@
    "kind": "league",
    "cc": "dk",
    "file": "assets/q/denmark.json",
-   "v": "83e2cc54",
-   "n": 358,
-   "mc": 159,
+   "v": "de0ad10c",
+   "n": 373,
+   "mc": 164,
    "tiers": {
     "easy": 61,
     "normal": 96,
     "hard": 101,
     "extreme": 78,
-    "ball": 22
+    "ball": 37
    }
   },
   {
@@ -415,15 +415,15 @@
    "kind": "league",
    "cc": "jp",
    "file": "assets/q/j1.json",
-   "v": "d827aa97",
-   "n": 332,
-   "mc": 182,
+   "v": "57fb2a2c",
+   "n": 347,
+   "mc": 191,
    "tiers": {
     "easy": 64,
     "normal": 90,
     "hard": 91,
     "extreme": 65,
-    "ball": 22
+    "ball": 37
    }
   },
   {
@@ -432,15 +432,15 @@
    "kind": "league",
    "cc": "mx",
    "file": "assets/q/ligamx.json",
-   "v": "c13a1bb6",
-   "n": 914,
-   "mc": 400,
+   "v": "8074df4b",
+   "n": 915,
+   "mc": 401,
    "tiers": {
     "easy": 198,
     "normal": 264,
     "hard": 188,
     "extreme": 157,
-    "ball": 107
+    "ball": 108
    }
   },
   {
@@ -585,15 +585,15 @@
    "kind": "competition",
    "cc": null,
    "file": "assets/q/uecl.json",
-   "v": "4de5552a",
-   "n": 178,
-   "mc": 115,
+   "v": "e4f3b815",
+   "n": 206,
+   "mc": 122,
    "tiers": {
     "easy": 36,
     "normal": 51,
     "hard": 45,
     "extreme": 34,
-    "ball": 12
+    "ball": 40
    }
   },
   {
@@ -602,15 +602,15 @@
    "kind": "nation",
    "cc": "es",
    "file": "assets/q/nat-es.json",
-   "v": "303eb1f1",
-   "n": 57,
-   "mc": 41,
+   "v": "bafde0af",
+   "n": 77,
+   "mc": 56,
    "tiers": {
-    "easy": 13,
-    "normal": 15,
-    "hard": 13,
-    "extreme": 9,
-    "ball": 7
+    "easy": 14,
+    "normal": 17,
+    "hard": 16,
+    "extreme": 16,
+    "ball": 14
    },
    "rank": 1
   },
@@ -620,15 +620,15 @@
    "kind": "nation",
    "cc": "ar",
    "file": "assets/q/nat-ar.json",
-   "v": "61b25554",
-   "n": 69,
-   "mc": 48,
+   "v": "d46f95b4",
+   "n": 81,
+   "mc": 56,
    "tiers": {
-    "easy": 13,
-    "normal": 25,
-    "hard": 17,
-    "extreme": 8,
-    "ball": 6
+    "easy": 14,
+    "normal": 26,
+    "hard": 18,
+    "extreme": 12,
+    "ball": 11
    },
    "rank": 2
   },
@@ -656,15 +656,15 @@
    "kind": "nation",
    "cc": "england",
    "file": "assets/q/nat-gb-eng.json",
-   "v": "f54cec30",
-   "n": 73,
-   "mc": 58,
+   "v": "34442102",
+   "n": 82,
+   "mc": 65,
    "tiers": {
-    "easy": 16,
+    "easy": 17,
     "normal": 24,
-    "hard": 16,
-    "extreme": 10,
-    "ball": 7
+    "hard": 18,
+    "extreme": 13,
+    "ball": 10
    },
    "rank": 4
   },
@@ -674,15 +674,15 @@
    "kind": "nation",
    "cc": "pt",
    "file": "assets/q/nat-pt.json",
-   "v": "2b00effa",
-   "n": 79,
-   "mc": 53,
+   "v": "1b59ea0c",
+   "n": 84,
+   "mc": 55,
    "tiers": {
     "easy": 20,
     "normal": 22,
-    "hard": 17,
-    "extreme": 10,
-    "ball": 10
+    "hard": 18,
+    "extreme": 13,
+    "ball": 11
    },
    "rank": 5
   },
@@ -692,15 +692,15 @@
    "kind": "nation",
    "cc": "br",
    "file": "assets/q/nat-br.json",
-   "v": "d58c0063",
-   "n": 77,
+   "v": "3715c247",
+   "n": 86,
    "mc": 48,
    "tiers": {
     "easy": 22,
     "normal": 20,
-    "hard": 17,
-    "extreme": 9,
-    "ball": 9
+    "hard": 19,
+    "extreme": 13,
+    "ball": 12
    },
    "rank": 6
   },
@@ -728,15 +728,15 @@
    "kind": "nation",
    "cc": "be",
    "file": "assets/q/nat-be.json",
-   "v": "13e39e18",
-   "n": 74,
-   "mc": 59,
+   "v": "fb559978",
+   "n": 84,
+   "mc": 66,
    "tiers": {
     "easy": 16,
     "normal": 28,
-    "hard": 16,
-    "extreme": 8,
-    "ball": 6
+    "hard": 17,
+    "extreme": 13,
+    "ball": 10
    },
    "rank": 8
   },
@@ -746,15 +746,15 @@
    "kind": "nation",
    "cc": "nl",
    "file": "assets/q/nat-nl.json",
-   "v": "ff8c7f0a",
-   "n": 72,
-   "mc": 57,
+   "v": "26607f76",
+   "n": 80,
+   "mc": 61,
    "tiers": {
     "easy": 17,
-    "normal": 21,
-    "hard": 18,
-    "extreme": 10,
-    "ball": 6
+    "normal": 23,
+    "hard": 19,
+    "extreme": 12,
+    "ball": 9
    },
    "rank": 9
   },
@@ -782,12 +782,12 @@
    "kind": "nation",
    "cc": "co",
    "file": "assets/q/nat-co.json",
-   "v": "2421480a",
-   "n": 82,
+   "v": "d7d6baa0",
+   "n": 81,
    "mc": 58,
    "tiers": {
     "easy": 19,
-    "normal": 27,
+    "normal": 26,
     "hard": 21,
     "extreme": 11,
     "ball": 4
@@ -818,15 +818,15 @@
    "kind": "nation",
    "cc": "de",
    "file": "assets/q/nat-de.json",
-   "v": "eb4505a8",
-   "n": 79,
-   "mc": 65,
+   "v": "a62ff3a5",
+   "n": 86,
+   "mc": 70,
    "tiers": {
     "easy": 23,
     "normal": 25,
     "hard": 16,
-    "extreme": 8,
-    "ball": 7
+    "extreme": 12,
+    "ball": 10
    },
    "rank": 13
   },
@@ -836,11 +836,11 @@
    "kind": "nation",
    "cc": "hr",
    "file": "assets/q/nat-hr.json",
-   "v": "002c0d36",
-   "n": 85,
-   "mc": 64,
+   "v": "6142bb88",
+   "n": 84,
+   "mc": 63,
    "tiers": {
-    "easy": 21,
+    "easy": 20,
     "normal": 29,
     "hard": 18,
     "extreme": 10,
@@ -854,15 +854,15 @@
    "kind": "nation",
    "cc": "it",
    "file": "assets/q/nat-it.json",
-   "v": "756528d6",
-   "n": 74,
-   "mc": 58,
+   "v": "dba6a6fc",
+   "n": 85,
+   "mc": 65,
    "tiers": {
     "easy": 17,
-    "normal": 23,
-    "hard": 17,
-    "extreme": 10,
-    "ball": 7
+    "normal": 24,
+    "hard": 20,
+    "extreme": 13,
+    "ball": 11
    },
    "rank": 15
   },
@@ -890,15 +890,15 @@
    "kind": "nation",
    "cc": "jp",
    "file": "assets/q/nat-jp.json",
-   "v": "46b78d72",
-   "n": 81,
-   "mc": 59,
+   "v": "cfa01a29",
+   "n": 82,
+   "mc": 60,
    "tiers": {
     "easy": 23,
     "normal": 28,
     "hard": 17,
     "extreme": 6,
-    "ball": 7
+    "ball": 8
    },
    "rank": 17
   },

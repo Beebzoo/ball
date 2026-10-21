@@ -783,6 +783,7 @@
   .smq.on{background:var(--th-card);color:var(--th-card-ink);border-color:#e9b84c;box-shadow:0 0 0 2px #e9b84c}
   .smq:disabled{opacity:.5}
   .smn button{min-width:0}
+  .b6yr.ucl b{font-size:30px;letter-spacing:-.02em}
   .guestline{display:flex;align-items:center;gap:12px;margin:2px 0 12px;padding:10px 14px;border-radius:14px;border:2px dashed #b8261c;background:#fff6ec;color:#3d2a20;
     font:600 13.5px/1.25 'Barlow Semi Condensed',sans-serif}
   .guestline span{flex:1}
@@ -9840,6 +9841,51 @@ const POOLS = {
            file:"assets/seriea/clubs.json", flags:null, ext:".png"},
   "belgian-clubs": {label:"Belgian clubs", group:"Leagues", of:"belgian",
            file:"assets/belgian/clubs.json", flags:null, ext:".png"},
+  "ligue1-greats": {label:"Ligue 1 greats", group:"Greats", of:"ligue1", lazy:true, file:"assets/greats/ligue1.json", flags:null, ext:".png"},
+  "primeira-greats": {label:"Primeira Liga greats", group:"Greats", of:"primeira", lazy:true, file:"assets/greats/primeira.json", flags:null, ext:".png"},
+  "superlig-greats": {label:"Süper Lig greats", group:"Greats", of:"superlig", lazy:true, file:"assets/greats/superlig.json", flags:null, ext:".png"},
+  "scotland-greats": {label:"Scottish Premiership greats", group:"Greats", of:"scotland", lazy:true, file:"assets/greats/scotland.json", flags:null, ext:".png"},
+  "mls-greats": {label:"MLS greats", group:"Greats", of:"mls", lazy:true, file:"assets/greats/mls.json", flags:null, ext:".png"},
+  "brasileirao-greats": {label:"Brasileirão greats", group:"Greats", of:"brasileirao", lazy:true, file:"assets/greats/brasileirao.json", flags:null, ext:".png"},
+  "argentina-greats": {label:"Liga Profesional greats", group:"Greats", of:"argentina", lazy:true, file:"assets/greats/argentina.json", flags:null, ext:".png"},
+  "ligamx-greats": {label:"Liga MX greats", group:"Greats", of:"ligamx", lazy:true, file:"assets/greats/ligamx.json", flags:null, ext:".png"},
+  "ekstraklasa-greats": {label:"Ekstraklasa greats", group:"Greats", of:"ekstraklasa", lazy:true, file:"assets/greats/ekstraklasa.json", flags:null, ext:".png"},
+  "greece-greats": {label:"Super League Greece greats", group:"Greats", of:"greece", lazy:true, file:"assets/greats/greece.json", flags:null, ext:".png"},
+  "denmark-greats": {label:"Superliga greats", group:"Greats", of:"denmark", lazy:true, file:"assets/greats/denmark.json", flags:null, ext:".png"},
+  "austria-greats": {label:"Austrian Bundesliga greats", group:"Greats", of:"austria", lazy:true, file:"assets/greats/austria.json", flags:null, ext:".png"},
+  "swiss-greats": {label:"Swiss Super League greats", group:"Greats", of:"swiss", lazy:true, file:"assets/greats/swiss.json", flags:null, ext:".png"},
+  "czech-greats": {label:"Czech First League greats", group:"Greats", of:"czech", lazy:true, file:"assets/greats/czech.json", flags:null, ext:".png"},
+  "j1-greats": {label:"J1 League greats", group:"Greats", of:"j1", lazy:true, file:"assets/greats/j1.json", flags:null, ext:".png"},
+  "aleague-greats": {label:"A-League greats", group:"Greats", of:"aleague", lazy:true, file:"assets/greats/aleague.json", flags:null, ext:".png"},
+  /* Champions League seasons: the clubs of that season, each with the men who
+     were there then (assets/ucl, _tools/build-squads.js) */
+  "ucl-2000-01": {label:"Champions League 2000/01", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2000-01.json", flags:null, ext:".png"},
+  "ucl-2001-02": {label:"Champions League 2001/02", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2001-02.json", flags:null, ext:".png"},
+  "ucl-2002-03": {label:"Champions League 2002/03", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2002-03.json", flags:null, ext:".png"},
+  "ucl-2003-04": {label:"Champions League 2003/04", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2003-04.json", flags:null, ext:".png"},
+  "ucl-2004-05": {label:"Champions League 2004/05", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2004-05.json", flags:null, ext:".png"},
+  "ucl-2005-06": {label:"Champions League 2005/06", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2005-06.json", flags:null, ext:".png"},
+  "ucl-2006-07": {label:"Champions League 2006/07", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2006-07.json", flags:null, ext:".png"},
+  "ucl-2007-08": {label:"Champions League 2007/08", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2007-08.json", flags:null, ext:".png"},
+  "ucl-2008-09": {label:"Champions League 2008/09", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2008-09.json", flags:null, ext:".png"},
+  "ucl-2009-10": {label:"Champions League 2009/10", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2009-10.json", flags:null, ext:".png"},
+  "ucl-2010-11": {label:"Champions League 2010/11", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2010-11.json", flags:null, ext:".png"},
+  "ucl-2011-12": {label:"Champions League 2011/12", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2011-12.json", flags:null, ext:".png"},
+  "ucl-2012-13": {label:"Champions League 2012/13", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2012-13.json", flags:null, ext:".png"},
+  "ucl-2013-14": {label:"Champions League 2013/14", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2013-14.json", flags:null, ext:".png"},
+  "ucl-2014-15": {label:"Champions League 2014/15", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2014-15.json", flags:null, ext:".png"},
+  "ucl-2015-16": {label:"Champions League 2015/16", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2015-16.json", flags:null, ext:".png"},
+  "ucl-2016-17": {label:"Champions League 2016/17", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2016-17.json", flags:null, ext:".png"},
+  "ucl-2017-18": {label:"Champions League 2017/18", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2017-18.json", flags:null, ext:".png"},
+  "ucl-2018-19": {label:"Champions League 2018/19", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2018-19.json", flags:null, ext:".png"},
+  "ucl-2019-20": {label:"Champions League 2019/20", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2019-20.json", flags:null, ext:".png"},
+  "ucl-2020-21": {label:"Champions League 2020/21", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2020-21.json", flags:null, ext:".png"},
+  "ucl-2021-22": {label:"Champions League 2021/22", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2021-22.json", flags:null, ext:".png"},
+  "ucl-2022-23": {label:"Champions League 2022/23", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2022-23.json", flags:null, ext:".png"},
+  "ucl-2023-24": {label:"Champions League 2023/24", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2023-24.json", flags:null, ext:".png"},
+  "ucl-2024-25": {label:"Champions League 2024/25", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2024-25.json", flags:null, ext:".png"},
+  "ucl-2025-26": {label:"Champions League 2025/26", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2025-26.json", flags:null, ext:".png"},
+  "ucl-2026-27": {label:"Champions League 2026/27", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2026-27.json", flags:null, ext:".png"},
   /* European nights: the six top flights' sides together */
   "euro-clubs": {label:"European clubs", group:"European nights", of:"ucl",
            files:["assets/premier/clubs.json", "assets/laliga/clubs.json", "assets/bundesliga/clubs.json", "assets/seriea/clubs.json",
@@ -9921,6 +9967,25 @@ const QUIZZES = {
   uecl:    {label:"Conference League", ic:"trophy", ac:"#5fe0a0", deck:"uecl", euro:true,
             pool:"euro-clubs", flags:null, ext:".png",
             blurb:"The newest European cup, since 2021."},
+  /* 21 Oct 2026: sixteen more leagues from the question bank. Their sides are
+     each club's ALL-TIME eleven (assets/greats, _tools/build-squads.js): the
+     player data can't say who is at these clubs this season. Loaded when picked. */
+  ligue1: {label:"Ligue 1", ic:"stripes", ac:"#2b59c3", deck:"ligue1", lazy:true, pool:"ligue1-greats", flags:null, ext:".png", blurb:"Ligue 1, with each club's all-time eleven."},
+  primeira: {label:"Primeira Liga", ic:"stripes", ac:"#1f7a3a", deck:"primeira", lazy:true, pool:"primeira-greats", flags:null, ext:".png", blurb:"Primeira Liga, with each club's all-time eleven."},
+  superlig: {label:"Süper Lig", ic:"stripes", ac:"#d7263d", deck:"superlig", lazy:true, pool:"superlig-greats", flags:null, ext:".png", blurb:"Süper Lig, with each club's all-time eleven."},
+  scotland: {label:"Scottish Premiership", ic:"stripes", ac:"#2a4b9b", deck:"scotland", lazy:true, pool:"scotland-greats", flags:null, ext:".png", blurb:"Scottish Premiership, with each club's all-time eleven."},
+  mls: {label:"MLS", ic:"stripes", ac:"#1d3557", deck:"mls", lazy:true, pool:"mls-greats", flags:null, ext:".png", blurb:"MLS, with each club's all-time eleven."},
+  brasileirao: {label:"Brasileirão", ic:"stripes", ac:"#2c9b45", deck:"brasileirao", lazy:true, pool:"brasileirao-greats", flags:null, ext:".png", blurb:"Brasileirão, with each club's all-time eleven."},
+  argentina: {label:"Liga Profesional", ic:"stripes", ac:"#74acdf", deck:"argentina", lazy:true, pool:"argentina-greats", flags:null, ext:".png", blurb:"Liga Profesional, with each club's all-time eleven."},
+  ligamx: {label:"Liga MX", ic:"stripes", ac:"#1b7f5b", deck:"ligamx", lazy:true, pool:"ligamx-greats", flags:null, ext:".png", blurb:"Liga MX, with each club's all-time eleven."},
+  ekstraklasa: {label:"Ekstraklasa", ic:"stripes", ac:"#d63a4a", deck:"ekstraklasa", lazy:true, pool:"ekstraklasa-greats", flags:null, ext:".png", blurb:"Ekstraklasa, with each club's all-time eleven."},
+  greece: {label:"Super League Greece", ic:"stripes", ac:"#2f6db5", deck:"greece", lazy:true, pool:"greece-greats", flags:null, ext:".png", blurb:"Super League Greece, with each club's all-time eleven."},
+  denmark: {label:"Superliga", ic:"stripes", ac:"#c8102e", deck:"denmark", lazy:true, pool:"denmark-greats", flags:null, ext:".png", blurb:"Superliga, with each club's all-time eleven."},
+  austria: {label:"Austrian Bundesliga", ic:"stripes", ac:"#e4002b", deck:"austria", lazy:true, pool:"austria-greats", flags:null, ext:".png", blurb:"Austrian Bundesliga, with each club's all-time eleven."},
+  swiss: {label:"Swiss Super League", ic:"stripes", ac:"#da291c", deck:"swiss", lazy:true, pool:"swiss-greats", flags:null, ext:".png", blurb:"Swiss Super League, with each club's all-time eleven."},
+  czech: {label:"Czech First League", ic:"stripes", ac:"#11457e", deck:"czech", lazy:true, pool:"czech-greats", flags:null, ext:".png", blurb:"Czech First League, with each club's all-time eleven."},
+  j1: {label:"J1 League", ic:"stripes", ac:"#bc002d", deck:"j1", lazy:true, pool:"j1-greats", flags:null, ext:".png", blurb:"J1 League, with each club's all-time eleven."},
+  aleague: {label:"A-League", ic:"stripes", ac:"#f2a900", deck:"aleague", lazy:true, pool:"aleague-greats", flags:null, ext:".png", blurb:"A-League, with each club's all-time eleven."},
   belgian: {label:"Pro League", ic:"stripes", ac:"#e8b21c",
             spoken:"assets/belgian/index.json", mc:"assets/belgian/mc.json",
             pool:"belgian-clubs", flags:null, ext:".png",
@@ -10076,6 +10141,9 @@ const TEAMS = {};
    extra packs appending to BANK[tier] land here too. */
 DECKS.classic = BANK;
 
+/* a lazy deck or pool, the first time somebody needs it */
+const needQuiz = id => { const r = QUIZZES[id]; if(r && r.lazy && !r._asked){ r._asked = true; loadQuiz(id); } };
+const needPool = id => { const r = POOLS[id]; if(r && r.lazy && !r._asked && !TEAMS[id]){ r._asked = true; loadPool(id); } };
 function loadQuiz(id){
   const row = QUIZZES[id];
   const done = () => { if(!S || S.phase==="setup") render(); };
@@ -10121,7 +10189,7 @@ function loadPool(id){
     if(!S || S.phase === "setup") render();
   }).catch(()=>{});
 }
-Object.keys(QUIZZES).forEach(loadQuiz);
+Object.keys(QUIZZES).filter(id => !QUIZZES[id].lazy).forEach(loadQuiz);
 /* THE 3D ENGINE COMES DOWN ONCE THE APP HAS OPENED, quietly, so the first
    penalty of the day (the Daily, a Matchday shot) is already drawn in 3D
    rather than in the old scene while three.js is still on its way. Not at
@@ -10130,7 +10198,7 @@ try{ setTimeout(() => { try{ G3D.load(); }catch(e){} }, 2000); }catch(e){}
 try{ setTimeout(acctBoot, 700); }catch(e){}
 /* the tournament decks (_tools/build-tournament-decks.js) */
 for(const t of ["worldcup", "euro"]) fetch("assets/" + t + "/mc.json").then(r => r.ok ? r.json() : null).then(b => { if(b) DECKS[t + "-mc"] = qrRetier(b); }).catch(()=>{});
-Object.keys(POOLS).forEach(loadPool);
+Object.keys(POOLS).filter(id => !POOLS[id].lazy).forEach(loadPool);
 
 /* BALL 4 ships no player cutouts, so a right answer is confetti on its own. */
 let STICK=null;
@@ -30973,6 +31041,23 @@ const B4_HOSTS = {
   wc2018:"Russia", wc2022:"Qatar", wc2026:"USA · Canada · Mexico",
   euro2000:"Belgium & Netherlands", euro2004:"Portugal", euro2008:"Austria & Switzerland",
   euro2012:"Poland & Ukraine", euro2016:"France", euro2020:"Across Europe", euro2024:"Germany"};
+const B4_GREATS = [
+  {pool:"ligue1-greats", quiz:"ligue1", flag:"fr", name:"Ligue 1"},
+  {pool:"primeira-greats", quiz:"primeira", flag:"pt", name:"Primeira Liga"},
+  {pool:"superlig-greats", quiz:"superlig", flag:"tr", name:"Süper Lig"},
+  {pool:"scotland-greats", quiz:"scotland", flag:"scotland", name:"Scottish Premiership"},
+  {pool:"mls-greats", quiz:"mls", flag:"us", name:"MLS"},
+  {pool:"brasileirao-greats", quiz:"brasileirao", flag:"br", name:"Brasileirão"},
+  {pool:"argentina-greats", quiz:"argentina", flag:"ar", name:"Liga Profesional"},
+  {pool:"ligamx-greats", quiz:"ligamx", flag:"mx", name:"Liga MX"},
+  {pool:"ekstraklasa-greats", quiz:"ekstraklasa", flag:"pl", name:"Ekstraklasa"},
+  {pool:"greece-greats", quiz:"greece", flag:"gr", name:"Super League Greece"},
+  {pool:"denmark-greats", quiz:"denmark", flag:"dk", name:"Superliga"},
+  {pool:"austria-greats", quiz:"austria", flag:"at", name:"Austrian Bundesliga"},
+  {pool:"swiss-greats", quiz:"swiss", flag:"ch", name:"Swiss Super League"},
+  {pool:"czech-greats", quiz:"czech", flag:"cz", name:"Czech First League"},
+  {pool:"j1-greats", quiz:"j1", flag:"jp", name:"J1 League"},
+  {pool:"aleague-greats", quiz:"aleague", flag:"au", name:"A-League"}];
 const B4_LEAGUES = [
   {pool:"ere-clubs", quiz:"ere", flag:"nl", name:"Eredivisie"},
   {pool:"premier-clubs", quiz:"premier", flag:"england", name:"Premier League"},
@@ -31102,19 +31187,22 @@ function euroBadgeSVG(quiz, px){
    played: the whole bank, the leagues, the European cups, the second tiers. */
 const SIMPLE_KEY = "ball4-simple";
 const SIMPLE_GROUPS = [["Everything", ["classic"]], ["Leagues", ["ere", "premier", "laliga", "bundesliga", "seriea", "belgian"]],
-  ["European nights", ["ucl", "uel", "uecl"]], ["Second tiers", ["eerste", "champ", "segunda", "bundesliga2", "serieb", "challenger"]], ["Special", ["spec"]]];
+  ["European nights", ["ucl", "uel", "uecl"]], ["Second tiers", ["eerste", "champ", "segunda", "bundesliga2", "serieb", "challenger"]],
+  ["More leagues", ["ligue1", "primeira", "superlig", "scotland", "mls", "brasileirao", "argentina", "ligamx", "ekstraklasa", "greece", "denmark", "austria", "swiss", "czech", "j1", "aleague"]],
+  ["Special", ["spec"]]];
 function simplePrefs(){
   let p = null; try{ p = JSON.parse(localStorage.getItem(SIMPLE_KEY) || "null"); }catch(e){}
   p = p && typeof p === "object" ? p : {};
   const n = p.n >= 1 && p.n <= 6 ? p.n : 2;
   return { quiz: QUIZZES[p.quiz] ? p.quiz : "classic", n, names: Array.isArray(p.names) ? p.names : [], target: [50, 100, 200].includes(p.target) ? p.target : 100 };
 }
-function simpleSet(k, v){ audio(); const p = simplePrefs(); p[k] = v; try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){} render(); }
+function simpleSet(k, v){ audio(); if(k === "quiz") needQuiz(v); const p = simplePrefs(); p[k] = v; try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){} render(); }
 function simpleName(i, v){ const p = simplePrefs(); p.names[i] = String(v || "").trim().slice(0, 16); try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){} }
 function simpleStepHTML(){
   const p = simplePrefs(), mc = answerPref() !== "say";
+  needQuiz(p.quiz);
   const tile = q => { const Q = QUIZZES[q]; if(!Q) return ""; const ready = !!DECKS[mc ? q + "-mc" : q] || (q === "classic" && (mc ? DECKS["classic-mc"] : typeof BANK !== "undefined"));
-    return '<button class="smq' + (p.quiz === q ? " on" : "") + '" style="--qa:' + (Q.ac || "#e9b84c") + '" aria-pressed="' + (p.quiz === q) + '" onclick="simpleSet(\'quiz\',\'' + q + '\')"' + (ready ? "" : " disabled") + '>' +
+    return '<button class="smq' + (p.quiz === q ? " on" : "") + '" style="--qa:' + (Q.ac || "#e9b84c") + '" aria-pressed="' + (p.quiz === q) + '" onclick="simpleSet(\'quiz\',\'' + q + '\')"' + (ready || Q.lazy ? "" : " disabled") + '>' +
       (Q.euro ? '<span class="smb">' + euroBadgeSVG(q, 26) + '</span>' : '<i></i>') + '<span>' + esc(q === "classic" ? "All football" : Q.label) + '</span></button>'; };
   return b6StepHead(0, 0, "Simple Ball") +
     '<div class="b6q">Questions, nothing else</div><div class="b6qs">Take turns: pick a level, answer, score its points. First to the target wins.</div>' +
@@ -31252,7 +31340,7 @@ function b6Next(){
 }
 function b6Back(){
   audio();
-  b4Step = ({how: null, simple: "how", opp: "how", lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
+  b4Step = ({how: null, simple: "how", opp: "how", ucl: "eu", lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function b6MeSheet(){
@@ -31320,13 +31408,23 @@ function b6Steps(){
   }
   if(b4Step === "eu"){
     const cup = (q, sub) => { const Q = QUIZZES[q], n = DECKS[q] ? ["easy", "normal", "hard", "extreme", "ball"].reduce((a, t) => a + ((DECKS[q] || {})[t] || []).length, 0) : 0;
-      return '<button class="b6cup" onclick="b4StartPitch(\'euro-clubs\',\'' + q + '\')"' + (TEAMS["euro-clubs"] ? "" : " disabled") + '>' +
+      const go = q === "ucl" ? "b4Pick(\'ucl\')" : "b4StartPitch(\'euro-clubs\',\'" + q + "\')", ok = q === "ucl" || TEAMS["euro-clubs"];
+      return '<button class="b6cup" onclick="' + go + '"' + (ok ? "" : " disabled") + '>' +
         '<span class="b6cupb">' + euroBadgeSVG(q, 64) + '</span><span class="b6cupt"><b>' + esc(Q.label) + '</b><small>' + sub + '</small>' +
         (n ? '<em>' + nf(n) + ' questions</em>' : '<em>Loading…</em>') + '</span><span class="go">▶</span></button>'; };
     return b6StepHead(0, 0, "European nights") +
       '<div class="b6q">Which cup?</div><div class="b6qs">You both play as clubs from the six top flights. The questions are about the cup.</div>' +
-      '<div class="b6cups">' + cup("ucl", "From the group stage to the final") + cup("uel", "Thursday nights, the long road to the final") + cup("uecl", "The newest European cup, since 2021") + '</div>' +
+      '<div class="b6cups">' + cup("ucl", "Pick a season, then a club from it") + cup("uel", "Thursday nights, the long road to the final") + cup("uecl", "The newest European cup, since 2021") + '</div>' +
       '<p class="b6fine">BALL is not affiliated with UEFA. Competition names only describe what the questions are about.</p>';
+  }
+  if(b4Step === "ucl"){
+    const ids = Object.keys(POOLS).filter(id => /^ucl-/.test(id)).sort().reverse();
+    for(const id of ids) needPool(id);
+    needQuiz("ucl");
+    return b6StepHead(0, 0, "Champions League") +
+      '<div class="b6q">Which season?</div><div class="b6qs">Both of you pick a club from that season, with the men who played for it then.</div>' +
+      '<div class="b6years">' + ids.map(id => { const x = id.slice(4), n = TEAMS[id] ? Object.keys(TEAMS[id]).length : 0;
+        return '<button class="b6yr ucl" onclick="b4StartPitch(\'' + id + '\',\'ucl\')"' + (n ? "" : " disabled") + '><b style="text-shadow:' + b4YrShadow() + '">\'' + x.slice(2, 4) + '/' + x.slice(5) + '</b><small>' + (n ? n + " clubs" : "loading") + '</small></button>'; }).join("") + '</div>';
   }
   if(b4Step === "qs" && b4Pend){
     const id = b6OwnDeckId(), name = b4Pend.quiz === "classic" ? (id === "worldcup" ? "World Cup" : "Euro") : ((QUIZZES[b4Pend.quiz] || {}).label || "League");
@@ -31344,7 +31442,9 @@ function b6Steps(){
       '<div class="b6q">Which league?</div><div class="b6qs">This season’s clubs. Both of you then pick one.</div>' +
       '<div class="b6lgs">' + B4_LEAGUES.filter(L => !L.second && POOLS[L.pool]).map(tile).join("") + '</div>' +
       '<div class="b6hdr">Second tiers</div>' +
-      '<div class="b6lgs">' + B4_LEAGUES.filter(L => L.second && POOLS[L.pool]).map(tile).join("") + '</div>';
+      '<div class="b6lgs">' + B4_LEAGUES.filter(L => L.second && POOLS[L.pool]).map(tile).join("") + '</div>' +
+      '<div class="b6hdr">More leagues · all-time elevens</div><div class="b6qs">Each club plays its greatest eleven ever.</div>' +
+      '<div class="b6lgs">' + B4_GREATS.map(L => { needPool(L.pool); needQuiz(L.quiz); return tile(L); }).join("") + '</div>';
   }
   return "";
 }

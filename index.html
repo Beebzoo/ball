@@ -775,6 +775,14 @@
   .lsyest span{display:block;font:italic 400 13.5px/1.4 'Lora',Georgia,serif}
   .lsyest div{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px}
   .lsyest button{border:0;background:none;padding:0;color:#123D24;font:800 13px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  /* Simple Ball */
+  .smqs{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+  .smq{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 10px;border-radius:12px;border:2px solid var(--th-edge);background:var(--th-row);color:var(--th-row-ink);font:800 14px/1.1 'Barlow Semi Condensed',sans-serif;text-align:left;cursor:pointer}
+  .smq i{flex:none;width:10px;height:22px;border-radius:3px;background:var(--qa)}
+  .smq .smb{flex:none;width:26px}.smq .smb svg{display:block}
+  .smq.on{background:var(--th-card);color:var(--th-card-ink);border-color:#e9b84c;box-shadow:0 0 0 2px #e9b84c}
+  .smq:disabled{opacity:.5}
+  .smn button{min-width:0}
   .guestline{display:flex;align-items:center;gap:12px;margin:2px 0 12px;padding:10px 14px;border-radius:14px;border:2px dashed #b8261c;background:#fff6ec;color:#3d2a20;
     font:600 13.5px/1.25 'Barlow Semi Condensed',sans-serif}
   .guestline span{flex:1}
@@ -6947,6 +6955,7 @@
   .ttopt2{display:flex;flex-direction:column;gap:8px;margin:0 0 14px}
   .ttopt2 .lbl{font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--th-ink)}
   .ttseg{display:flex;gap:6px}
+  .ttseg.many{display:grid;grid-template-columns:repeat(2,1fr)}
   .ttseg button{flex:1;min-width:0;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:12px;background:var(--th-row);border:2px var(--th-edge-style) var(--th-edge);color:var(--th-ink);
     font:italic 900 15px/1 'Barlow Semi Condensed',sans-serif;box-shadow:0 3px 0 rgba(0,0,0,.06);cursor:pointer;padding:4px 2px}
   .ttseg button small{font:600 10.5px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-dim);font-style:normal}
@@ -29455,7 +29464,13 @@ function crestURL(slug, kind, px, fallback){
 let TT = null;
 let TT_VIEW = null;           // "setup" while the kick-off screen is up, "play" once a match exists
 const TT_DATA = { names: null, search: null, cats: null, grids: {}, words: null };
-const TT_THEMES = { mixed: { n: "Mixed", sub: "clubs + countries" }, eredivisie: { n: "Eredivisie", sub: "Dutch clubs" }, worldcup: { n: "World Cups", sub: "nations" } };
+/* 21 Oct 2026: a grid per big league, Europe's giants, and Everything (every
+   pack shuffled together) */
+const TT_THEMES = { all: { n: "Everything", sub: "every grid" }, mixed: { n: "Mixed", sub: "clubs + countries" }, giants: { n: "Giants", sub: "Europe's biggest" },
+  worldcup: { n: "World Cups", sub: "nations" }, eredivisie: { n: "Eredivisie", sub: "Dutch clubs" }, england: { n: "England", sub: "English clubs" },
+  spain: { n: "Spain", sub: "Spanish clubs" }, italy: { n: "Italy", sub: "Italian clubs" }, germany: { n: "Germany", sub: "German clubs" },
+  france: { n: "France", sub: "French clubs" } };
+const TT_PACKS = Object.keys(TT_THEMES).filter(k => k !== "all");
 const TT_LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 const TT_LOCK = 0.10;         // a pick under 10 % (estimated) locks its square
 const TT_MAX_BOARDS = 7;      // seven boards without two goals and it is full time anyway
@@ -29490,6 +29505,10 @@ function ttLoad(theme){
   if(!TT_DATA.names) need.push(get("names").then(x => { TT_DATA.names = x; }));
   if(!TT_DATA.search) need.push(get("search").then(x => { TT_DATA.search = x; TT_DATA.words = null; }));
   if(!TT_DATA.cats) need.push(get("cats").then(x => { TT_DATA.cats = x; }));
+  if(theme === "all"){
+    for(const k of TT_PACKS) if(!TT_DATA.grids[k]) need.push(get(k).then(x => { TT_DATA.grids[k] = x; }));
+    return Promise.all(need).then(() => { TT_DATA.grids.all = [].concat(...TT_PACKS.map(k => TT_DATA.grids[k] || [])); });
+  }
   if(!TT_DATA.grids[theme]) need.push(get(theme).then(x => { TT_DATA.grids[theme] = x; }));
   return Promise.all(need);
 }
@@ -29918,7 +29937,7 @@ function ttSetupScreen(st){
   st.innerHTML = b4Page({ title: "Tiki-Taka-Toe", ctx: "First to two goals", back: "ttLeave()", cls: "ttpage ttsetup",
     body: '<div class="ttteams">' + team(0) + '<span class="vs">VS</span>' + team(1) + '</div>' +
       seg("Where", [btn(true, "", "One phone", "pass it round"), btn(false, "", "Online", "coming soon", true)]) +
-      seg("The grid", Object.keys(TT_THEMES).map(k => btn(p.theme === k, "ttSet('theme','" + k + "')", TT_THEMES[k].n, TT_THEMES[k].sub))) +
+      seg("The grid", Object.keys(TT_THEMES).map(k => btn(p.theme === k, "ttSet('theme','" + k + "')", TT_THEMES[k].n, TT_THEMES[k].sub))).replace('class="ttseg"', 'class="ttseg many"') +
       seg("Clock", [[10, "10 s", "blitz"], [20, "20 s", "normal"], [0, "None", "relaxed"]].map(c => btn(p.clock === c[0], "ttSet('clock'," + c[0] + ")", c[1], c[2]))) +
       '<p class="ttrules">Name a player who played for both to claim a square; three in a row is a goal. Once a match you can <b>tackle</b> a square with a rarer name, and a rare pick (under 10%) <b>locks</b> its square.</p>' +
       b4Btn("Kick off ▶", "ttKickOff()", "gold") });
@@ -31073,6 +31092,50 @@ function euroBadgeSVG(quiz, px){
   if(!t || typeof Ball3D === "undefined") return "";
   return ebBadge(t, px < 60).replace('<svg ', '<svg width="' + px + '" height="' + Math.round(px * 1.1) + '" ');
 }
+/* ---------- SIMPLE BALL (Martijn, 21 Oct 2026) ----------
+   Matchday's other way to play: just question and answer, the BALL 3 board.
+   One to six players on one phone take turns, each picks a level, answers,
+   and scores its points; first to the target wins. Every general deck can be
+   played: the whole bank, the leagues, the European cups, the second tiers. */
+const SIMPLE_KEY = "ball4-simple";
+const SIMPLE_GROUPS = [["Everything", ["classic"]], ["Leagues", ["ere", "premier", "laliga", "bundesliga", "seriea", "belgian"]],
+  ["European nights", ["ucl", "uel", "uecl"]], ["Second tiers", ["eerste", "champ", "segunda", "bundesliga2", "serieb", "challenger"]], ["Special", ["spec"]]];
+function simplePrefs(){
+  let p = null; try{ p = JSON.parse(localStorage.getItem(SIMPLE_KEY) || "null"); }catch(e){}
+  p = p && typeof p === "object" ? p : {};
+  const n = p.n >= 1 && p.n <= 6 ? p.n : 2;
+  return { quiz: QUIZZES[p.quiz] ? p.quiz : "classic", n, names: Array.isArray(p.names) ? p.names : [], target: [50, 100, 200].includes(p.target) ? p.target : 100 };
+}
+function simpleSet(k, v){ audio(); const p = simplePrefs(); p[k] = v; try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){} render(); }
+function simpleName(i, v){ const p = simplePrefs(); p.names[i] = String(v || "").trim().slice(0, 16); try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){} }
+function simpleStepHTML(){
+  const p = simplePrefs(), mc = answerPref() !== "say";
+  const tile = q => { const Q = QUIZZES[q]; if(!Q) return ""; const ready = !!DECKS[mc ? q + "-mc" : q] || (q === "classic" && (mc ? DECKS["classic-mc"] : typeof BANK !== "undefined"));
+    return '<button class="smq' + (p.quiz === q ? " on" : "") + '" style="--qa:' + (Q.ac || "#e9b84c") + '" aria-pressed="' + (p.quiz === q) + '" onclick="simpleSet(\'quiz\',\'' + q + '\')"' + (ready ? "" : " disabled") + '>' +
+      (Q.euro ? '<span class="smb">' + euroBadgeSVG(q, 26) + '</span>' : '<i></i>') + '<span>' + esc(q === "classic" ? "All football" : Q.label) + '</span></button>'; };
+  return b6StepHead(0, 0, "Simple Ball") +
+    '<div class="b6q">Questions, nothing else</div><div class="b6qs">Take turns: pick a level, answer, score its points. First to the target wins.</div>' +
+    SIMPLE_GROUPS.map(([g, qs]) => '<div class="b6hdr">' + g + '</div><div class="smqs">' + qs.map(tile).join("") + '</div>').join("") +
+    '<div class="b6hdr">Who\'s playing</div><div class="b6seg b6ans smn" role="group" aria-label="How many players">' +
+      [1, 2, 3, 4, 5, 6].map(n => '<button aria-pressed="' + (p.n === n) + '" onclick="simpleSet(\'n\',' + n + ')">' + n + '</button>').join("") + '</div>' +
+    '<div class="partynames">' + Array.from({ length: p.n }, (_, i) => '<input id="n' + i + '" class="partyname" maxlength="16" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' +
+      esc(p.names[i] || "") + '" onchange="simpleName(' + i + ',this.value)">').join("") + '</div>' +
+    '<div class="b6hdr">How you answer</div><div class="b6seg b6ans" role="group" aria-label="How you answer">' +
+      '<button aria-pressed="' + mc + '" onclick="setAnswerPref(\'mc\')">Multiple choice</button><button aria-pressed="' + !mc + '" onclick="setAnswerPref(\'say\')">Say it</button></div>' +
+    '<div class="b6hdr">Play to</div><div class="b6seg b6ans" role="group" aria-label="Target">' +
+      [50, 100, 200].map(t => '<button aria-pressed="' + (p.target === t) + '" onclick="simpleSet(\'target\',' + t + ')">' + t + ' points</button>').join("") + '</div>' +
+    '<button class="b6cta" onclick="simpleStart()">Kick off ▶</button>';
+}
+function simpleStart(){
+  const p = simplePrefs();
+  for(let i = 0; i < p.n; i++){ const el = document.getElementById("n" + i); if(el) p.names[i] = el.value.trim().slice(0, 16); }
+  try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){}
+  setupMode = p.quiz; setupPlay = "board"; setupMc = answerPref() !== "say"; setupSrc = "own"; setupRef = false;
+  setupCount = p.n; setupTarget = p.target; setupTimed = false;
+  b4Solo = false;
+  startGame();
+  if(S && !isPitch(S.play)){ b4Step = null; render(); }
+}
 function b6OwnDeckId(){ if(!b4Pend) return null; return b4Pend.quiz === "classic" ? b6TourDeck(b4Pend.pool) : b4Pend.quiz; }
 function b4StartPitch(pool, quiz){
   if(!POOLS[pool] || !TEAMS[pool]) return toast("Still loading those squads, give it a second", true);
@@ -31186,7 +31249,7 @@ function b6Next(){
 }
 function b6Back(){
   audio();
-  b4Step = ({opp: null, lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
+  b4Step = ({how: null, simple: "how", opp: "how", lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function b6MeSheet(){
@@ -31216,6 +31279,11 @@ function b6Steps(){
   const LV = Object.keys(AI_LEVELS), LVN = ["Easy", "Medium", "Hard"];
   const lvName = LVN[LV.indexOf(setupAiLevel)] || "Medium";
   const steps = b4Mate ? 2 : 3;
+  if(b4Step === "how") return b6StepHead(0, 0, "Matchday") +
+    '<div class="b6q">How do you want to play?</div><div class="b6qs">The full match, or just the questions.</div><div class="b6opts">' +
+    b6Opt(false, B6_ART.friend ? '<span class="b6ballic">' + ballSVG("") + '</span>' : "", "Match Ball", '<small>The match: pass, shoot and save on the pitch, against the computer or a friend.</small>', "b4Pick('opp')", '<span class="go">›</span>') +
+    b6Opt(false, B6_ART.cards || "", "Simple Ball", '<small>Just questions and answers. One to six players, any quiz.</small>', "b4Pick('simple')", '<span class="go">›</span>') + '</div>';
+  if(b4Step === "simple") return simpleStepHTML();
   if(b4Step === "opp") return b6StepHead(1, steps, "Matchday") +
     '<div class="b6q">Who are you playing?</div><div class="b6qs">You take turns with the ball.</div><div class="b6opts">' +
     b6Opt(!b4Mate, B6_ART.cpu, "vs the computer", '<small>Play on your own against BALL\'s computer side.</small>', "b4Mate=false;render()") +
@@ -31318,7 +31386,7 @@ function b6Front(saved){
   const cups = (() => { try{ return Object.values(progLoad().trophies || {}).filter(t => t.kind === "cup").reduce((a, t) => a + (t.count || 1), 0); }catch(e){ return 0; } })();
   const installHidden = (() => { try{ return localStorage.getItem("ball4-install-hide") === "1"; }catch(e){ return false; } })();
   return `
-    <button class="b6hero" onclick="b4Pick('opp')" aria-label="Matchday, play">
+    <button class="b6hero" onclick="b4Pick('how')" aria-label="Matchday, play">
       ${B6_ART.pitch}
       <span class="b6htxt"><span class="b6nm">Matchday</span><span class="b6sb">Every pass is a question.</span></span>
       <span class="b6hl" aria-hidden="true">${[64, 46, 56, 32].map((w, i) => '<i style="width:' + w + 'px;top:' + (i * 12) + 'px;opacity:' + (i === 1 || i === 2 ? 1 : .6) + '"></i>').join("")}</span>

@@ -75,15 +75,15 @@
    "kind": "league",
    "cc": "es",
    "file": "assets/q/laliga.json",
-   "v": "0a06d118",
-   "n": 966,
+   "v": "acb43783",
+   "n": 967,
    "mc": 592,
    "tiers": {
     "easy": 194,
     "normal": 226,
     "hard": 252,
     "extreme": 198,
-    "ball": 96
+    "ball": 97
    }
   },
   {
@@ -92,15 +92,15 @@
    "kind": "league",
    "cc": "de",
    "file": "assets/q/bundesliga.json",
-   "v": "6ba7d87b",
-   "n": 989,
+   "v": "f9070717",
+   "n": 992,
    "mc": 495,
    "tiers": {
     "easy": 195,
     "normal": 234,
     "hard": 256,
     "extreme": 203,
-    "ball": 101
+    "ball": 104
    }
   },
   {
@@ -109,15 +109,15 @@
    "kind": "league",
    "cc": "it",
    "file": "assets/q/seriea.json",
-   "v": "6381e6ca",
-   "n": 1034,
-   "mc": 549,
+   "v": "2ecbe779",
+   "n": 1041,
+   "mc": 551,
    "tiers": {
     "easy": 199,
     "normal": 245,
-    "hard": 270,
+    "hard": 271,
     "extreme": 208,
-    "ball": 112
+    "ball": 118
    }
   },
   {
@@ -279,12 +279,12 @@
    "kind": "league",
    "cc": "au",
    "file": "assets/q/aleague.json",
-   "v": "5a637b24",
-   "n": 323,
+   "v": "2606c6b0",
+   "n": 324,
    "mc": 47,
    "tiers": {
     "easy": 66,
-    "normal": 93,
+    "normal": 94,
     "hard": 89,
     "extreme": 50,
     "ball": 25
@@ -296,15 +296,15 @@
    "kind": "league",
    "cc": "ar",
    "file": "assets/q/argentina.json",
-   "v": "17248732",
-   "n": 933,
+   "v": "88e7f24f",
+   "n": 936,
    "mc": 141,
    "tiers": {
     "easy": 216,
     "normal": 264,
-    "hard": 194,
-    "extreme": 157,
-    "ball": 102
+    "hard": 195,
+    "extreme": 158,
+    "ball": 103
    }
   },
   {
@@ -313,14 +313,14 @@
    "kind": "league",
    "cc": "at",
    "file": "assets/q/austria.json",
-   "v": "9c19eae0",
-   "n": 290,
-   "mc": 75,
+   "v": "da846cdd",
+   "n": 293,
+   "mc": 76,
    "tiers": {
     "easy": 63,
-    "normal": 88,
+    "normal": 90,
     "hard": 69,
-    "extreme": 52,
+    "extreme": 53,
     "ball": 18
    }
   },
@@ -330,14 +330,14 @@
    "kind": "league",
    "cc": "br",
    "file": "assets/q/brasileirao.json",
-   "v": "37441c8c",
-   "n": 952,
+   "v": "76ee2389",
+   "n": 954,
    "mc": 145,
    "tiers": {
     "easy": 212,
     "normal": 251,
-    "hard": 211,
-    "extreme": 160,
+    "hard": 212,
+    "extreme": 161,
     "ball": 118
    }
   },
@@ -347,13 +347,13 @@
    "kind": "league",
    "cc": "cz",
    "file": "assets/q/czech.json",
-   "v": "b67f459d",
-   "n": 196,
+   "v": "32e418ff",
+   "n": 197,
    "mc": 32,
    "tiers": {
     "easy": 47,
     "normal": 71,
-    "hard": 50,
+    "hard": 51,
     "extreme": 21,
     "ball": 7
    }
@@ -364,15 +364,15 @@
    "kind": "league",
    "cc": "dk",
    "file": "assets/q/denmark.json",
-   "v": "0b11d61e",
-   "n": 318,
-   "mc": 57,
+   "v": "467a1210",
+   "n": 356,
+   "mc": 62,
    "tiers": {
-    "easy": 60,
-    "normal": 85,
-    "hard": 84,
-    "extreme": 69,
-    "ball": 20
+    "easy": 61,
+    "normal": 94,
+    "hard": 101,
+    "extreme": 78,
+    "ball": 22
    }
   },
   {
@@ -381,15 +381,15 @@
    "kind": "league",
    "cc": "pl",
    "file": "assets/q/ekstraklasa.json",
-   "v": "89f28398",
-   "n": 771,
+   "v": "3667d505",
+   "n": 784,
    "mc": 129,
    "tiers": {
     "easy": 135,
-    "normal": 168,
-    "hard": 208,
-    "extreme": 187,
-    "ball": 73
+    "normal": 169,
+    "hard": 210,
+    "extreme": 191,
+    "ball": 79
    }
   },
   {
@@ -398,15 +398,15 @@
    "kind": "league",
    "cc": "gr",
    "file": "assets/q/greece.json",
-   "v": "bf305c5d",
-   "n": 382,
-   "mc": 77,
+   "v": "20380227",
+   "n": 427,
+   "mc": 84,
    "tiers": {
     "easy": 64,
-    "normal": 104,
-    "hard": 116,
-    "extreme": 63,
-    "ball": 35
+    "normal": 109,
+    "hard": 126,
+    "extreme": 88,
+    "ball": 40
    }
   },
   {
@@ -415,13 +415,13 @@
    "kind": "league",
    "cc": "jp",
    "file": "assets/q/j1.json",
-   "v": "975f25c5",
-   "n": 301,
+   "v": "671c14b2",
+   "n": 302,
    "mc": 46,
    "tiers": {
     "easy": 63,
     "normal": 83,
-    "hard": 82,
+    "hard": 83,
     "extreme": 52,
     "ball": 21
    }
@@ -432,15 +432,15 @@
    "kind": "league",
    "cc": "mx",
    "file": "assets/q/ligamx.json",
-   "v": "63e75a91",
-   "n": 866,
-   "mc": 149,
+   "v": "bfd2b61a",
+   "n": 893,
+   "mc": 151,
    "tiers": {
     "easy": 197,
-    "normal": 260,
-    "hard": 182,
-    "extreme": 136,
-    "ball": 91
+    "normal": 262,
+    "hard": 185,
+    "extreme": 151,
+    "ball": 98
    }
   },
   {
@@ -449,15 +449,15 @@
    "kind": "league",
    "cc": "fr",
    "file": "assets/q/ligue1.json",
-   "v": "4c5a7588",
-   "n": 963,
-   "mc": 397,
+   "v": "595f7b7f",
+   "n": 982,
+   "mc": 400,
    "tiers": {
     "easy": 214,
-    "normal": 243,
-    "hard": 220,
-    "extreme": 168,
-    "ball": 118
+    "normal": 244,
+    "hard": 226,
+    "extreme": 174,
+    "ball": 124
    }
   },
   {
@@ -483,15 +483,15 @@
    "kind": "league",
    "cc": "pt",
    "file": "assets/q/primeira.json",
-   "v": "b17a6e81",
-   "n": 899,
+   "v": "7ba792f4",
+   "n": 904,
    "mc": 392,
    "tiers": {
     "easy": 198,
     "normal": 211,
     "hard": 222,
-    "extreme": 157,
-    "ball": 111
+    "extreme": 159,
+    "ball": 114
    }
   },
   {
@@ -500,15 +500,15 @@
    "kind": "league",
    "cc": "scotland",
    "file": "assets/q/scotland.json",
-   "v": "83439079",
-   "n": 1000,
+   "v": "fe5955ae",
+   "n": 1011,
    "mc": 206,
    "tiers": {
-    "easy": 208,
-    "normal": 279,
-    "hard": 216,
-    "extreme": 168,
-    "ball": 129
+    "easy": 207,
+    "normal": 281,
+    "hard": 217,
+    "extreme": 171,
+    "ball": 135
    }
   },
   {
@@ -517,15 +517,15 @@
    "kind": "league",
    "cc": "tr",
    "file": "assets/q/superlig.json",
-   "v": "bd3ecd28",
-   "n": 754,
-   "mc": 291,
+   "v": "ae027cae",
+   "n": 755,
+   "mc": 292,
    "tiers": {
     "easy": 167,
     "normal": 170,
     "hard": 188,
     "extreme": 161,
-    "ball": 68
+    "ball": 69
    }
   },
   {
@@ -534,15 +534,15 @@
    "kind": "league",
    "cc": "ch",
    "file": "assets/q/swiss.json",
-   "v": "36aa07f5",
-   "n": 259,
+   "v": "811632c2",
+   "n": 262,
    "mc": 51,
    "tiers": {
     "easy": 48,
     "normal": 78,
-    "hard": 77,
-    "extreme": 36,
-    "ball": 20
+    "hard": 78,
+    "extreme": 37,
+    "ball": 21
    }
   },
   {
@@ -551,15 +551,15 @@
    "kind": "competition",
    "cc": null,
    "file": "assets/q/ucl.json",
-   "v": "eab36320",
-   "n": 1177,
-   "mc": 530,
+   "v": "a3199a0b",
+   "n": 1221,
+   "mc": 551,
    "tiers": {
-    "easy": 257,
-    "normal": 316,
-    "hard": 282,
-    "extreme": 183,
-    "ball": 139
+    "easy": 258,
+    "normal": 321,
+    "hard": 291,
+    "extreme": 196,
+    "ball": 155
    }
   },
   {
@@ -568,15 +568,15 @@
    "kind": "competition",
    "cc": null,
    "file": "assets/q/uel.json",
-   "v": "d85f7d94",
-   "n": 401,
-   "mc": 178,
+   "v": "09249b5d",
+   "n": 421,
+   "mc": 185,
    "tiers": {
-    "easy": 95,
-    "normal": 121,
-    "hard": 91,
-    "extreme": 57,
-    "ball": 37
+    "easy": 97,
+    "normal": 124,
+    "hard": 98,
+    "extreme": 60,
+    "ball": 42
    }
   },
   {
@@ -585,11 +585,11 @@
    "kind": "competition",
    "cc": null,
    "file": "assets/q/uecl.json",
-   "v": "18a134ab",
-   "n": 179,
-   "mc": 71,
+   "v": "eb206451",
+   "n": 178,
+   "mc": 70,
    "tiers": {
-    "easy": 37,
+    "easy": 36,
     "normal": 51,
     "hard": 45,
     "extreme": 34,
@@ -782,12 +782,12 @@
    "kind": "nation",
    "cc": "co",
    "file": "assets/q/nat-co.json",
-   "v": "db6cc619",
-   "n": 81,
-   "mc": 38,
+   "v": "efbc0d86",
+   "n": 82,
+   "mc": 39,
    "tiers": {
     "easy": 19,
-    "normal": 26,
+    "normal": 27,
     "hard": 21,
     "extreme": 11,
     "ball": 4

@@ -22849,13 +22849,19 @@ function isoWeek(day){
    comes with you" is true.
    All of it sits behind FYC_ON, off on the live site until the server half is
    in (the 🧑 steps): turn it on with ?fyc=1 or localStorage ball4-fyc-on = 1. */
-/* ?fyc=1 turns it on for this phone and is remembered (the sign-in links come back without the query);
-   ?fyc=0 turns it off again */
+/* ON FOR EVERYONE since Martijn said "turn it on" (21 Oct 2026), once the
+   server half (006) and Google sign-in were in. A phone can still opt out
+   with ?fyc=0 (remembered; ?fyc=1 undoes it). The test harness has no
+   location and keeps it off unless a test switches it on itself. */
+const FYC_DEFAULT = false;     // flips to true once the Google app is "In production"
 let FYC_ON = (() => { try{
   const q = (typeof location !== "undefined" && location.search) || "";
   if(/[?&]fyc=1\b/.test(q)) localStorage.setItem("ball4-fyc-on", "1");
-  if(/[?&]fyc=0\b/.test(q)) localStorage.removeItem("ball4-fyc-on");
-  return localStorage.getItem("ball4-fyc-on") === "1";
+  if(/[?&]fyc=0\b/.test(q)) localStorage.setItem("ball4-fyc-on", "0");
+  const v = localStorage.getItem("ball4-fyc-on");
+  if(v === "1") return true;
+  if(v === "0") return false;
+  return FYC_DEFAULT && typeof location !== "undefined" && /^https?:$/.test(location.protocol || "");
 }catch(e){ return false; } })();
 const GUEST_KEY = "ball4-guest", GUEST_PROG_KEY = "ball4-guest-prog", GUEST_BEST_KEY = "ball4-guest-best";
 /* founded: the account is linked and has a club. Kept as a local flag so the
@@ -23120,26 +23126,31 @@ async function fycFound(){
   const s = fycState(), design = fycDesign();
   s.step = 8; s.founding = true; fycSave(s); render();
   const c = sbClient();
-  let ok = false, problem = null;
+  let ok = false, problem = null, saved = null;
   try{
     if(!c || !ACCT.server) throw new Error("offline");
-    const r = await c.rpc("set_club", { design });
+    /* a dead connection waits, it doesn't hang: twelve seconds, then "Try again" */
+    const r = await Promise.race([c.rpc("set_club", { design }), new Promise((_, no) => setTimeout(() => no(new Error("timeout")), 12000))]);
     if(r.error) throw r.error;
     ok = !!(r.data && r.data.ok); problem = r.data && r.data.problem;
+    saved = r.data && r.data.profile && r.data.profile.club;
+    if(r.data && r.data.profile) acctTake(r.data.profile);
   }catch(e){ problem = "offline"; }
   const st = fycState(); st.founding = false;
   if(!ok && problem && problem !== "offline"){ st.step = 2; st.draft.nameOk = false; st.problem = problem; fycSave(st); render(); return; }
   if(!ok){ st.pending = true; fycSave(st); render(); return; }
-  fycFounded(design);
+  fycSave(st);
+  fycFounded(saved ? clubClean(saved) : design);
 }
 /* what founding does on this phone, once the server has said yes */
 function fycFounded(design){
   const st = fycState(), d = st.draft;
+  st.founding = false;
   acctLocalSet({ founded: true, fav: d.fav || null, marketing: !!d.marketing });
   try{ localStorage.setItem("ball4-club", JSON.stringify(design)); }catch(e){}
   guestReplay();
   const c = sbClient();
-  try{ if(c){ if(d.fav) c.rpc("set_favourites", { club: d.fav.club || null, nation: d.fav.nation || null, country: d.fav.country || null }); c.rpc("set_marketing", { ok: !!d.marketing }); } }catch(e){}
+  try{ if(c){ if(d.fav) c.rpc("set_favourites", { club: d.fav.club || null, nation: d.fav.nation || null, country: d.fav.country || null }).then(() => {}, () => {}); c.rpc("set_marketing", { ok: !!d.marketing }).then(() => {}, () => {}); } }catch(e){}
   /* the club you support: its scarf in your Locker from day one, no XP for it */
   try{ if(d.fav && d.fav.club && CLUBID[d.fav.club]){ const p = progLoad(); p.scarves = p.scarves || {}; if(!p.scarves[CLUBID[d.fav.club].name]) p.scarves[CLUBID[d.fav.club].name] = Date.now(); progSave(p); } }catch(e){}
   st.step = 8; st.done = true; st.pending = false; fycSave(st);
@@ -23579,7 +23590,7 @@ function leagueMore(i){
     '<button class="bigbtn ghost" onclick="closeSheet()">Cancel</button>');
 }
 /* Settings: news emails, on or off (opt-in) */
-function fycMarketing(ok){ acctLocalSet({ marketing: !!ok }); try{ const c = sbClient(); if(c && ACCT.server) c.rpc("set_marketing", { ok: !!ok }); }catch(e){} toast(ok ? "We'll tell you about new modes." : "No news emails."); }
+function fycMarketing(ok){ acctLocalSet({ marketing: !!ok }); try{ const c = sbClient(); if(c && ACCT.server) c.rpc("set_marketing", { ok: !!ok }).then(() => {}, () => {}); }catch(e){} toast(ok ? "We'll tell you about new modes." : "No news emails."); }
 function settingsRename(){ if(!CLUB_VIEW) CLUB_VIEW = { tab: "crest", d: JSON.parse(JSON.stringify(clubMine())), pen: pennantClean(progLoad().pennant), msg: "", warn: false, from: "me", quiet: true }; clubRenameSheet(); }
 /* ---------- FOUND YOUR CLUB: keeping it clean (step 7) ----------
    Boards M1-NameCheck, M2-Report, M3-Rename. The server decides (report_name,
@@ -25252,7 +25263,7 @@ function lockerScarf(team){
 }
 function lockerColours(team){
   const p = progLoad(); p.colours = team; progSave(p); closeSheet();
-  try{ if(ACCT.server) sbClient().rpc("set_colours", { team }); }catch(e){}
+  try{ if(ACCT.server) sbClient().rpc("set_colours", { team }).then(() => {}, () => {}); }catch(e){}   /* a query only goes out once it is awaited */
   toast(team + " are your colours now."); render();
 }
 /* ---------- the pennant editor (board "Your pennant") ---------- */

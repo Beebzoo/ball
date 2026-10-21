@@ -23260,10 +23260,57 @@ function fycNations(){
 }
 /* the Terms and Privacy pages (step 7 fills them in) */
 function fycPage(which){ if(typeof legalPage === "function") return legalPage(which); toast("The " + which + " page is coming."); }
+/* SIGNING OUT LEAVES A FRESH GUEST (Martijn, 21 Oct 2026): this account's
+   club, progress and settings on the phone are put away under its id, and
+   come back when the same account signs in again. Another account signing in
+   on this phone starts from its own club on the server. */
+const FYC_STASH_KEYS = ["ball4-prog", "ball4-club", "ball4-best", "ball4-mine", "ball4-theme", "ball4-lists", "ball4-outbox", "ball4-fyc",
+  "ball4-guest", "ball4-guest-prog", "ball4-guest-best"];
+const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported"];
+function fycStash(uid){
+  if(!uid) return false;
+  const o = { at: Date.now(), keys: {}, acct: {} }, loc = acctLocal();
+  for(const k of FYC_STASH_KEYS){ const v = localStorage.getItem(k); if(v != null) o.keys[k] = v; }
+  for(const k of FYC_STASH_ACCT) if(loc[k] !== undefined) o.acct[k] = loc[k];
+  try{ localStorage.setItem("ball4-stash:" + uid, JSON.stringify(o)); }catch(e){ return false; }
+  for(const k of FYC_STASH_KEYS) localStorage.removeItem(k);
+  const clear = {}; for(const k of FYC_STASH_ACCT) clear[k] = null; acctLocalSet(clear);
+  PROG = null; PROG_AT = null; MINE = null;
+  return true;
+}
+function fycUnstash(uid){
+  let o = null;
+  try{ o = JSON.parse(localStorage.getItem("ball4-stash:" + uid) || "null"); }catch(e){}
+  if(!o || !o.keys) return false;
+  for(const k of FYC_STASH_KEYS) localStorage.removeItem(k);
+  for(const k of Object.keys(o.keys)) try{ localStorage.setItem(k, o.keys[k]); }catch(e){}
+  acctLocalSet(o.acct || {});
+  localStorage.removeItem("ball4-stash:" + uid);
+  PROG = null; PROG_AT = null; MINE = null;
+  return true;
+}
+/* an account that already has a club on the server: this phone takes it,
+   rather than founding (or migrating) a second one over the top */
+function fycAdopt(a){
+  const club = ACCT.profile && ACCT.profile.club;
+  if(!club) return false;
+  if(!fycUnstash(a.id)){
+    acctLocalSet({ founded: true });
+    try{ localStorage.setItem("ball4-club", JSON.stringify(clubClean(club))); }catch(e){}
+    guestReplay();
+    try{ acctTake(ACCT.profile); }catch(e){}
+  }
+  fycSave({ done: true, at: Date.now() });
+  if(FYC_VIEW){ FYC_VIEW = false; }
+  try{ toast("Welcome back, " + clubClean(club).name + "."); }catch(e){}
+  try{ render(); }catch(e){}
+  return true;
+}
 /* the link came back (or this account was linked before clubs existed) */
 function fycAfterLink(){
   const a = acct();
   if(!FYC_ON || !a.server || !a.linked || acctLocal().founded) return false;
+  if(fycAdopt(a)) return true;
   const s = fycState();
   if(s.awaiting || (s.step && !s.done)){
     if((s.step | 0) < 2) s.step = 2;
@@ -24340,18 +24387,25 @@ try{ window.addEventListener("online", () => { if(!ACCT.ready || !ACCT.server) a
 
 /* ---------- linking ---------- */
 const acctRedirect = () => { try{ return location.origin + location.pathname; }catch(e){ return undefined; } };
+/* signing in needs the sign-in service and a connection, not a profile:
+   right after signing out there is no profile, and the buttons must work */
+const acctCanSignIn = () => { const c = sbClient(); return !!(c && c.auth) && (typeof navigator === "undefined" || navigator.onLine !== false); };
 async function acctLink(provider){
   audio();
   const c = sbClient();
-  if(!c || !c.auth || !ACCT.server) return toast("Saving to the cloud isn't available right now.", true);
+  if(!c || !c.auth || !acctCanSignIn()) return toast("Saving to the cloud isn't available right now.", true);
   acctLocalSet({ signedOut: false, nudged: true });
   try{
     /* an anonymous user is linked in place, so the id and everything on it
-       stay; a signed-out phone signs in to the career it already has */
+       stay; a signed-out phone signs in to the career it already has. A
+       Google account that already has a BALL account can't be linked to a
+       new one: then it simply signs in to its own. */
     const anon = acct().anon && acct().signedIn;
-    const r = anon && c.auth.linkIdentity
+    let r = anon && c.auth.linkIdentity
       ? await c.auth.linkIdentity({ provider, options: { redirectTo: acctRedirect() } })
       : await c.auth.signInWithOAuth({ provider, options: { redirectTo: acctRedirect() } });
+    if(r && r.error && anon && /already|exists|linked/i.test(String(r.error.message || r.error.code || "")))
+      r = await c.auth.signInWithOAuth({ provider, options: { redirectTo: acctRedirect() } });
     if(r && r.error) throw r.error;
   }catch(e){ toast("That didn't work: " + String((e && e.message) || e).slice(0, 80), true); }
 }
@@ -24361,12 +24415,16 @@ async function acctEmail(){
   const email = String(el ? el.value : "").trim();
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast("That doesn't look like an email address.", true);
   const c = sbClient();
-  if(!c || !c.auth || !ACCT.server) return toast("Saving to the cloud isn't available right now.", true);
+  if(!c || !c.auth || !acctCanSignIn()) return toast("Saving to the cloud isn't available right now.", true);
   acctLocalSet({ signedOut: false, nudged: true });
   try{
-    const r = acct().anon && acct().signedIn
+    const anon = acct().anon && acct().signedIn;
+    let r = anon
       ? await c.auth.updateUser({ email }, { emailRedirectTo: acctRedirect() })
       : await c.auth.signInWithOtp({ email, options: { emailRedirectTo: acctRedirect(), shouldCreateUser: true } });
+    /* an email that already has a BALL account signs in to that one */
+    if(r && r.error && anon && /already|exists|registered/i.test(String(r.error.message || r.error.code || "")))
+      r = await c.auth.signInWithOtp({ email, options: { emailRedirectTo: acctRedirect(), shouldCreateUser: true } });
     if(r && r.error) throw r.error;
     closeSheet();
     sheet('<h2>Check your email</h2><p class="pgsheetp">We sent a sign-in link to <b>' + esc(email) + '</b>. Open it on this phone and your career is saved.</p>' +
@@ -24376,9 +24434,16 @@ async function acctEmail(){
 async function acctSignOut(){
   audio();
   const c = sbClient();
+  const uid = acct().id;
   try{ if(c && c.auth) await c.auth.signOut(); }catch(e){}
   acctLocalSet({ signedOut: true });
-  ACCT.session = null; ACCT.profile = null; ACCT.server = false;
+  ACCT.session = null; ACCT.profile = null;
+  if(FYC_ON && uid && fycStash(uid)){
+    ME_VIEW = null; CLUB_VIEW = null; FYC_VIEW = false;
+    toast("Signed out. Sign in again and your club comes back.");
+    return goHome();
+  }
+  ACCT.server = false;
   toast("Signed out. Your progress stays on this phone.");
   render();
 }
@@ -24394,9 +24459,9 @@ function acctNudge(){
 }
 function acctSaveHTML(inSheet){
   const a = acct();
-  if(!a.server) return '<div class="acsave"><b>Save your career</b><span class="acnote">Saving to the cloud isn\'t available right now. Everything you play stays on this phone, and it syncs as soon as it can.</span></div>';
-  return '<div class="acsave"><b>Save your career</b>' +
-    '<span class="acnote">Sign in to keep your level, rating and locker safe, and to join leagues with friends. You can keep playing without it.</span>' +
+  if(!a.server && !acctCanSignIn()) return '<div class="acsave"><b>Save your career</b><span class="acnote">Saving to the cloud isn\'t available right now. Everything you play stays on this phone, and it syncs as soon as it can.</span></div>';
+  return '<div class="acsave"><b>' + (FYC_ON ? "Sign in to your club" : "Save your career") + '</b>' +
+    '<span class="acnote">' + (FYC_ON ? "Already founded a club? Sign in with the same account and it comes back. New here? Found your club from the Me tab." : "Sign in to keep your level, rating and locker safe, and to join leagues with friends. You can keep playing without it.") + '</span>' +
     (ACCT_APPLE ? '<button class="acbtn apple" onclick="acctLink(\'apple\')"><svg viewBox="0 0 16 19" aria-hidden="true"><path d="M13.2 10.1c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C3.7 4.9 2.2 5.8 1.4 7.2-.2 10-.0 14.2 1.5 16.4c.7 1.1 1.6 2.3 2.8 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7c1.2 0 2-1.1 2.7-2.2.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.3-.9-2.3-3.8zM10.9 3.3c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z" fill="#fff"/></svg>Continue with Apple</button>' : "") +
     '<button class="acbtn google" onclick="acctLink(\'google\')"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M17.6 9.2c0-.6-.1-1.2-.2-1.8H9v3.4h4.8c-.2 1.1-.8 2-1.8 2.7v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.5z" fill="#4285F4"/><path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 16 5.5 18 9 18z" fill="#34A853"/><path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#FBBC05"/><path d="M9 3.6c1.3 0 2.5.5 3.4 1.3l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2 .9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#EA4335"/></svg>Continue with Google</button>' +
     '<label class="acmail"><span>Or with your email</span><input id="acctmail" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com"></label>' +

@@ -753,6 +753,28 @@
   .b6cupt em{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:#f3cd6b;margin-top:3px}
   .b6cup .go{font:900 18px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
   .b6fine{margin:14px 2px 0;font:italic 400 12px/1.4 'Lora',Georgia,serif;color:#4b5a47}
+  /* The Lists: the pitch, the day switch */
+  .lspitch{position:relative;display:flex;flex-direction:column;justify-content:space-around;gap:4px;min-height:calc(var(--rows) * 86px * var(--sz) + 24px);padding:12px 6px;border-radius:16px;overflow:hidden;
+    background:repeating-linear-gradient(180deg,#1f6a35 0 48px,#1a5c2e 48px 96px);border:2px var(--th-edge-style) var(--th-edge);box-shadow:0 6px 0 rgba(0,0,0,.14),0 12px 24px rgba(18,61,36,.3)}
+  .lslines{position:absolute;inset:8px;border:2px solid rgba(255,255,255,.55);border-radius:6px;pointer-events:none}
+  .lslines .hw{position:absolute;left:0;right:0;top:50%;border-top:2px solid rgba(255,255,255,.45)}
+  .lslines .cc{position:absolute;left:50%;top:50%;width:26%;aspect-ratio:1;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.45);border-radius:50%}
+  .lslines .box{position:absolute;left:24%;right:24%;height:13%;border:2px solid rgba(255,255,255,.45)}
+  .lslines .box.t{top:-2px;border-top:0}.lslines .box.b{bottom:-2px;border-bottom:0}
+  .lsline{position:relative;z-index:1;display:flex;justify-content:space-evenly;align-items:flex-start;gap:2px}
+  .lspitch .lspl{flex:0 1 92px}
+  .lspitch .lspl .ttshirt{width:calc(54px * var(--sz))}
+  .lspitch .lspl .hint,.lspitch .lspl .nm{font-size:calc(10px * var(--sz) + 1px)}
+  .lspitch .lspl .hint{background:rgba(10,31,19,.55)}
+  .lsdaynav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:0 0 10px}
+  .lsdaynav button{border:0;background:none;color:#123D24;font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+  .lsdaynav button:first-child{text-align:left}.lsdaynav button:last-child{text-align:right}
+  .lsdaynav b{font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#a8740a}
+  .sheet .lsdaynav button{color:#f3cd6b}.sheet .lsdaynav b{color:#e9b84c}
+  .lsyest{margin:16px 0 0;padding:12px 14px;border-radius:14px;background:var(--th-row);color:var(--th-row-ink);border:2px dashed var(--th-edge)}
+  .lsyest span{display:block;font:italic 400 13.5px/1.4 'Lora',Georgia,serif}
+  .lsyest div{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px}
+  .lsyest button{border:0;background:none;padding:0;color:#123D24;font:800 13px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
   .guestline{display:flex;align-items:center;gap:12px;margin:2px 0 12px;padding:10px 14px;border-radius:14px;border:2px dashed #b8261c;background:#fff6ec;color:#3d2a20;
     font:600 13.5px/1.25 'Barlow Semi Condensed',sans-serif}
   .guestline span{flex:1}
@@ -30370,15 +30392,25 @@ function listsLoad(id){
 /* TODAY'S TWO, the same on every phone: a fixed shuffle indexed by the day,
    walked forward to the first list easy enough for the weekday (Monday to
    Wednesday difficulty 2 or less, Thursday to Sunday 4 or less) */
+/* FROM 22 OCT 2026 (Martijn: the same Spain XI kept coming back, and some
+   were far too obscure): every day takes the next list of difficulty 3 or
+   less in the fixed shuffle, so neighbouring days never share a list.
+   Days before keep the old walk, so nothing played changes. */
+const LISTS_NEW_FROM = 20261022;
+const LISTS_KEEP_DAY = 20261021;   // the day this went live: its list was already being played
 function listsDaily(k){
   const D = LISTS_DATA.daily, C = LISTS_DATA.catalog;
   if(!D || !C) return { all: null, top10: null };
   const n = gtpDayNo(k), wd = dayFromKey(k).getDay(), cap = wd >= 1 && wd <= 3 ? 2 : 4;
   const by = {}; for(const c of C) by[c.id] = c;
   let all = null;
-  for(let i = 0; i < D.all.length && !all; i++){ const id = D.all[(n + i) % D.all.length], c = by[id]; if(c && c.daily && c.diff <= cap) all = id; }
+  if(k !== LISTS_KEEP_DAY){
+    const ok = listsDaily._ok || (listsDaily._ok = D.all.filter(id => by[id] && by[id].daily && by[id].diff <= 3));
+    if(ok.length) all = ok[((n - gtpDayNo(LISTS_NEW_FROM)) % ok.length + ok.length) % ok.length];
+  } else for(let i = 0; i < D.all.length && !all; i++){ const id = D.all[(n + i) % D.all.length], c = by[id]; if(c && c.daily && c.diff <= cap) all = id; }
   const t = D.top10.filter(id => by[id]);
-  return { all, top10: t.length ? t[n % t.length] : null };
+  /* the day this went live keeps the Top 10 it opened with (the first in the append-only order) */
+  return { all, top10: t.length ? (k === LISTS_KEEP_DAY ? t[0] : t[n % t.length]) : null };
 }
 
 /* ---------- the state on this phone ---------- */
@@ -30543,10 +30575,37 @@ function listsShelfScreen(st){
   st.innerHTML = b4Page({ title: "The Lists", ctx: "Two new lists every day", back: "listsLeave()", cls: "lspage",
     body: '<div class="lstoday">' + day("top10") + day("all") + '</div>' +
       b4Btn("Play today's lists", "listsToday()", "gold") +
-      '<div class="lsshelfhd"><b>Previous days</b><span>THE LAST ' + LISTS_BACK + '</span></div>' + listsPastHTML() });
+      '<div class="lsyest"><span>Missed a day? Play yesterday\'s, then keep going back, up to ' + LISTS_BACK + ' days.</span>' +
+        '<div><button onclick="listsOpenDay(\'top10\', 1)">Yesterday\'s Top 10 ›</button><button onclick="listsOpenDay(\'all\', 1)">Yesterday\'s Name them all ›</button></div></div>' });
 }
 /* the last ten days, newest first: each day's Top 10 and Name them all, with your medal */
 const LISTS_BACK = 10;
+/* GOING BACK (Martijn, 21 Oct 2026): no list of past titles to pick from;
+   you play yesterday's and step back from inside the game, ten days at most,
+   so eleven lists of each kind. A past day counts for your bests and medals,
+   not for today's streak. */
+let LISTS_NAV = null;          // {kind, back}
+function listsDayKey(back){ const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - (back | 0)); return dayKey(d); }
+function listsDayLabel(back){
+  if(!back) return "Today";
+  if(back === 1) return "Yesterday";
+  const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - back);
+  return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+}
+function listsOpenDay(kind, back){
+  audio();
+  back = Math.max(0, Math.min(LISTS_BACK, back | 0));
+  const id = listsDaily(listsDayKey(back))[kind];
+  if(!id) return toast("No list that day.", true);
+  LISTS_NAV = { kind, back };
+  closeSheet();
+  listsIntro(id, back === 0, back);
+}
+/* the day switch, in the intro and at full time */
+function listsDayNav(kind, back){
+  return '<div class="lsdaynav">' + (back < LISTS_BACK ? '<button onclick="listsOpenDay(\'' + kind + '\', ' + (back + 1) + ')">‹ Day before</button>' : '<span></span>') +
+    '<b>' + esc(listsDayLabel(back)) + '</b>' + (back > 0 ? '<button onclick="listsOpenDay(\'' + kind + '\', ' + (back - 1) + ')">Day after ›</button>' : '<span></span>') + '</div>';
+}
 function listsPast(){
   const out = [];
   for(let i = 1; i <= LISTS_BACK; i++){
@@ -30586,16 +30645,18 @@ function listsToday(){
   listsIntro(D[k], true);
 }
 /* THE INTRO SHEET: what it is, the clock, your best, one line of rules */
-function listsIntro(id, daily){
+function listsIntro(id, daily, back){
   audio();
   const c = listsEntry(id);
   if(!c) return;
+  if(back == null) back = LISTS_NAV && listsDaily(listsDayKey(LISTS_NAV.back))[c.kind] === id ? LISTS_NAV.back : 0;
+  LISTS_NAV = { kind: c.kind, back };
   const s = listsState(), b = s.best[id], D = listsDaily(dayKey());
   const isDaily = daily || D.all === id || D.top10 === id;
   const today = isDaily ? s.daily[c.kind] : null;
   if(today && today.done && today.id === id) return listsStart(id, { review: true, daily: true });
   const mm = c.clock ? Math.floor(c.clock / 60) + ":" + String(c.clock % 60).padStart(2, "0") : "";
-  sheet('<div class="lsintro"><span class="art">' + listsArt(c.art, true) + '</span><h2>' + esc(c.title) + '</h2>' +
+  sheet('<div class="lsintro">' + listsDayNav(c.kind, back) + '<span class="art">' + listsArt(c.art, true) + '</span><h2>' + esc(c.title) + '</h2>' +
     '<div class="meta">' + (c.kind === "top10" ? "TOP 10 · 3 BALLS" : c.size + " TO FIND · " + mm) + (b ? " · BEST " + b.found + "/" + b.total : "") + (isDaily ? " · TODAY'S LIST" : "") + '</div>' +
     '<p>' + (c.kind === "top10" ? "The numbers are on the board: name the men behind them. A name outside the ten costs a ball; three and it's over." :
       "Type names; a right one drops into its spot by itself. Wrong names cost nothing. A real player beyond the main list is a deep cut, +1.") + '</p>' +
@@ -30676,7 +30737,7 @@ function listsSpot(m, i){
   const club = m.art && m.art.patch;
   const pic = club ? listsPatch(m.art.patch, 44) : ttShirt(got ? listsKitOf() : { c: "rgba(255,255,255,.08)", t: "rgba(255,255,255,.5)" }, got || reveal ? (i + 1) : "?");
   return '<div class="lspl' + (got ? " got" : "") + (reveal ? " rev" : "") + (fresh ? " fresh" : "") + (club ? " club" : "") + '">' + pic +
-    (got || reveal ? '<span class="nm">' + esc(ttShortName(m.n)) + '</span>' : '<span class="hint">' + esc(m.hint || "?") + '</span>') + '</div>';
+    (got || reveal ? '<span class="nm">' + esc(ttShortName(m.n)) + '</span>' : '<span class="hint">' + esc(String(m.hint || "?").replace(/^(GK|DF|MF|FW) · /, "")) + '</span>') + '</div>';
 }
 /* a short name for the shirt: the surname with its particles */
 function ttShortName(n){
@@ -30685,11 +30746,38 @@ function ttShortName(n){
   const i = w.findIndex((x, k) => k > 0 && /^[a-z]/.test(x));
   return i > 0 ? w.slice(i).join(" ") : w[w.length - 1];
 }
+/* SHIRTS ON A PITCH (Martijn, 21 Oct 2026): every man where he played,
+   forwards at the top, the keeper at the bottom; a line of more than five
+   takes two rows. Club lists (crests, no positions) keep the shelves. */
+/* a man's line from his hint: "MF · Nagoya Grampus" or "No. 3 · CB" */
+const LISTS_LINE = { GK: "GK", CB: "DF", LB: "DF", RB: "DF", LWB: "DF", RWB: "DF", SW: "DF", DF: "DF", DM: "MF", CM: "MF", AM: "MF", LM: "MF", RM: "MF", MF: "MF",
+  LW: "FW", RW: "FW", CF: "FW", ST: "FW", SS: "FW", FW: "FW" };
+const listsPosTag = m => { const x = /\b(GK|CB|LB|RB|LWB|RWB|SW|DF|DM|CM|AM|LM|RM|MF|LW|RW|CF|ST|SS|FW)\b/.exec(m.hint || ""); return x ? x[1] : null; };
+const listsPos = m => { const t = listsPosTag(m); return t ? LISTS_LINE[t] : null; };
+/* left to right within a line, as a team sheet has them */
+const listsSideOf = m => { const t = listsPosTag(m) || ""; return /^L/.test(t) ? 0 : /^R/.test(t) ? 2 : 1; };
+function listsPitchHTML(members){
+  const by = { FW: [], MF: [], DF: [], GK: [] };
+  members.forEach((m, i) => by[listsPos(m) || "MF"].push(i));
+  for(const k of Object.keys(by)) by[k].sort((a, b) => listsSideOf(members[a]) - listsSideOf(members[b]) || a - b);
+  const per = members.length > 16 ? 4 : 5, rows = [];
+  if(members.length <= 11){
+    /* AN ELEVEN: a row per depth, as a team sheet draws it */
+    const DEPTH = { CF: 0, ST: 0, SS: 0, FW: 0, LW: 1, RW: 1, AM: 1, LM: 2, RM: 2, CM: 2, MF: 2, DM: 3, CB: 4, LB: 4, RB: 4, LWB: 4, RWB: 4, SW: 4, DF: 4, GK: 5 };
+    const d = [[], [], [], [], [], []];
+    members.forEach((m, i) => d[DEPTH[listsPosTag(m) || "MF"] ?? 2].push(i));
+    for(const r of d) if(r.length){ r.sort((a, b) => listsSideOf(members[a]) - listsSideOf(members[b]) || a - b); for(let i = 0; i < r.length; i += per) rows.push(r.slice(i, i + per)); }
+  } else for(const k of ["FW", "MF", "DF", "GK"]) for(let i = 0; i < by[k].length; i += per) rows.push(by[k].slice(i, i + per));
+  const size = members.length <= 11 ? 1 : members.length <= 18 ? .86 : .74;
+  return '<div class="lspitch" style="--rows:' + rows.length + ';--sz:' + size + '"><div class="lslines" aria-hidden="true"><i class="hw"></i><i class="cc"></i><i class="box t"></i><i class="box b"></i></div>' +
+    rows.map(r => '<div class="lsline">' + r.map(i => listsSpot(members[i], i)).join("") + '</div>').join("") + '</div>';
+}
 function listsAllScreen(st){
   const g = LSG, n = g.list.members.length, left = listsLeft();
   const big = n > 12;
+  const onPitch = g.list.members.filter(listsPos).length >= Math.ceil(n * .7);
   const spots = g.list.members.map(listsSpot);
-  const photo = big ? '<div class="lssheet">' + spots.join("") + '</div>'
+  const photo = onPitch ? listsPitchHTML(g.list.members) : big ? '<div class="lssheet">' + spots.join("") + '</div>'
     : '<div class="lsphoto">' + [0, 1, 2, 3].map(t => spots.slice(t * 3, t * 3 + 3)).filter(r => r.length).map(r => '<div class="lstier">' + r.join("") + '</div>').join("") + '</div>';
   const mm = s => Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
   const recentHits = g.hits.filter(t => listsNow() - t <= 20000).length;
@@ -30733,14 +30821,17 @@ function listsFullScreen(st){
   const strip = g.list.members.map(m => '<i' + (g.found.includes(m.id) ? "" : ' class="o"') + '></i>').join("");
   const D = listsDaily(dayKey()), s = listsState();
   const other = g.daily ? (g.kind === "top10" ? "all" : "top10") : null;
-  const next = other && D[other] && !(s.daily[other] && s.daily[other].done) ? "listsIntro('" + D[other] + "', true)" : "listsPickNext()";
+  const nav = LISTS_NAV && LISTS_NAV.kind === g.kind ? LISTS_NAV.back : 0;
+  const next = !nav && other && D[other] && !(s.daily[other] && s.daily[other].done) ? "listsIntro('" + D[other] + "', true)"
+    : nav < LISTS_BACK ? "listsOpenDay('" + g.kind + "', " + (nav + 1) + ")" : "listsShelf()";
   st.innerHTML = b4Page({ title: "Full time", ctx: (top ? "Top 10 · " : "Name them all · ") + g.list.title, back: "listsShelf()", cls: "lspage lsft",
     body: b4Card('<div class="lsftsc"><div class="sc"><b>' + r.found + '/' + r.total + '</b><small>' + (top ? r.balls + " BALL" + (r.balls === 1 ? "" : "S") + " LEFT" : g.timed ? (g.how === "all" ? listsLeft() + " S TO SPARE" : g.how === "clock" ? "TIME UP" : "GAVE UP") : "UNTIMED") + '</small></div>' +
       '<div class="rt"><b>' + (r.medal ? word + " · " + esc(g.list.title) : "Not this time") + '</b><small>' + (r.review ? "Today's list, already played." : best && r.prev && r.prev.found > r.found ? "Your best on this list is " + r.prev.found + "/" + r.total + "." : r.found === r.total ? "Every one of them." : "Your best on this list. " + (top ? "Name all ten for gold." : "Find them all inside the clock for gold.")) + '</small></div></div>') +
       '<div class="lsfl' + (top ? "" : " all") + '">' + cells + '</div>' +
       b4Card('<span class="lscap">The share line</span><div class="lsstrip">' + strip + (r.deep ? '<span class="chip">+' + r.deep + '</span>' : "") + '</div><span class="lstx">' + esc(listsShareText(g).split("\n")[0]) + '</span>') +
       '<div class="lsgains">' + (r.xp ? '<span>+' + r.xp + ' XP</span>' : "") + (r.streak ? '<span>Lists streak · ' + r.streak + ' day' + (r.streak === 1 ? "" : "s") + '</span>' : "") + (r.medal ? '<span class="' + r.medal + '">' + word + ' medal</span>' : "") + '</div>' +
-      '<div class="lsbtns">' + b4Btn("Share", "listsShare()", "dark") + b4Btn("Next list", next, "gold") + '</div>' });
+      '<div class="lsbtns">' + b4Btn("Share", "listsShare()", "dark") + b4Btn(nav && nav < LISTS_BACK ? "‹ The day before" : nav ? "Back to the lists" : "Next list", next, "gold") + '</div>' +
+      listsDayNav(g.kind, nav) });
 }
 function listsPickNext(){
   const g = LSG, s = listsState(), kind = g ? g.kind : "all";

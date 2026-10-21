@@ -30507,7 +30507,7 @@ function listsDaily(k){
   const by = {}; for(const c of C) by[c.id] = c;
   let all = null;
   if(k !== LISTS_KEEP_DAY){
-    const ok = listsDaily._ok || (listsDaily._ok = D.all.filter(id => by[id] && by[id].daily && by[id].diff <= 3));
+    const ok = listsDaily._ok || (listsDaily._ok = D.all.filter(id => by[id] && by[id].daily && by[id].diff <= 3 && !/^t/.test(id)));   // Top 10s have their own day
     if(ok.length) all = ok[((n - gtpDayNo(LISTS_NEW_FROM)) % ok.length + ok.length) % ok.length];
   } else for(let i = 0; i < D.all.length && !all; i++){ const id = D.all[(n + i) % D.all.length], c = by[id]; if(c && c.daily && c.diff <= cap) all = id; }
   const t = D.top10.filter(id => by[id]);

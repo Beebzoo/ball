@@ -31227,6 +31227,40 @@ function simpleStart(){
   startGame();
   if(S && !isPitch(S.play)){ b4Step = null; render(); }
 }
+/* ---------- HIGHER OR LOWER: WHO'S PLAYING (Martijn, 21 Oct 2026) ----------
+   Before caps or goals, a screen for the players: one to six on this phone,
+   each with a name. A wrong answer passes the phone to the next one. */
+const HILO_KEY = "ball4-hilo";
+let HILO_MODE = "caps";
+function hiloPrefs(){
+  let p = null; try{ p = JSON.parse(localStorage.getItem(HILO_KEY) || "null"); }catch(e){}
+  p = p && typeof p === "object" ? p : {};
+  return { n: p.n >= 1 && p.n <= 6 ? p.n : 1, names: Array.isArray(p.names) ? p.names : [] };
+}
+function hiloSave(p){ try{ localStorage.setItem(HILO_KEY, JSON.stringify(p)); }catch(e){} }
+function hiloKeepNames(){ const p = hiloPrefs(); for(let i = 0; i < p.n; i++){ const el = document.getElementById("n" + i); if(el) p.names[i] = el.value.trim().slice(0, 16); } hiloSave(p); return p; }
+function hiloSetup(mode){ HILO_MODE = mode === "goals" ? "goals" : "caps"; b4Step = "hilo"; render(); try{ window.scrollTo(0, 0); }catch(e){} }
+function hiloCount(n){ audio(); const p = hiloKeepNames(); p.n = n; hiloSave(p); render(); }
+function hiloStepHTML(){
+  const p = hiloPrefs(), goals = HILO_MODE === "goals";
+  return b6StepHead(0, 0, goals ? "Goals" : "Caps") +
+    '<div class="b6q">Who\'s playing?</div><div class="b6qs">' + (goals ? "Who scored more for his country?" : "Who played more for his country?") +
+      ' Take turns: keep going while you\'re right, a wrong one passes the phone.</div>' +
+    '<div class="b6seg b6ans smn" role="group" aria-label="How many players">' +
+      [1, 2, 3, 4, 5, 6].map(n => '<button aria-pressed="' + (p.n === n) + '" onclick="hiloCount(' + n + ')">' + n + '</button>').join("") + '</div>' +
+    '<div class="partynames">' + Array.from({ length: p.n }, (_, i) => '<input id="n' + i + '" class="partyname" maxlength="16" placeholder="' + (p.n === 1 ? "You" : "Player " + (i + 1)) +
+      '" aria-label="Player ' + (i + 1) + '" value="' + esc(p.names[i] || "") + '">').join("") + '</div>' +
+    '<button class="b6cta" onclick="hiloStart()">Kick off ▶</button>';
+}
+function hiloStart(){
+  const p = hiloKeepNames();
+  setupMode = HILO_MODE; setupPlay = "board"; setupMc = false; setupSrc = "own"; setupRef = false;
+  setupCount = p.n; setupTarget = 0; setupTimed = false;
+  b4Solo = p.n === 1;
+  startGame();
+  b4Solo = false;
+  if(S){ b4Step = null; render(); }
+}
 function b6OwnDeckId(){ if(!b4Pend) return null; return b4Pend.quiz === "classic" ? b6TourDeck(b4Pend.pool) : b4Pend.quiz; }
 function b4StartPitch(pool, quiz){
   if(!POOLS[pool] || !TEAMS[pool]) return toast("Still loading those squads, give it a second", true);
@@ -31340,7 +31374,7 @@ function b6Next(){
 }
 function b6Back(){
   audio();
-  b4Step = ({how: null, simple: "how", opp: "how", ucl: "eu", lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
+  b4Step = ({hilo: null, how: null, simple: "how", opp: "how", ucl: "eu", lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function b6MeSheet(){
@@ -31375,6 +31409,7 @@ function b6Steps(){
     b6Opt(false, B6_ART.friend ? '<span class="b6ballic">' + ballSVG("") + '</span>' : "", "Match Ball", '<small>The match: pass, shoot and save on the pitch, against the computer or a friend.</small>', "b4Pick('opp')", '<span class="go">›</span>') +
     b6Opt(false, B6_ART.cards || "", "Simple Ball", '<small>Just questions and answers. One to six players, any quiz.</small>', "b4Pick('simple')", '<span class="go">›</span>') + '</div>';
   if(b4Step === "simple") return simpleStepHTML();
+  if(b4Step === "hilo") return hiloStepHTML();
   if(b4Step === "opp") return b6StepHead(1, steps, "Matchday") +
     '<div class="b6q">Who are you playing?</div><div class="b6qs">You take turns with the ball.</div><div class="b6opts">' +
     b6Opt(!b4Mate, B6_ART.cpu, "vs the computer", '<small>Play on your own against BALL\'s computer side.</small>', "b4Mate=false;render()") +
@@ -31505,8 +31540,8 @@ function b6Front(saved){
       <button class="b6fix${b4Open === "hilo" ? " open" : ""}" onclick="b4Toggle('hilo')" aria-expanded="${b4Open === "hilo"}">${newOrBest(hiloBest)}
         <div class="m"><b>Higher or Lower</b><small>Caps &amp; goals</small></div><div class="art">${B6_ART.cards}<span class="chev">›</span></div></button>
       ${b4Open === "hilo" ? `<div class="b6sub">
-        <button onclick="b4Explain('hilo', ()=>b4Go('caps','board'))">Caps${best.caps != null ? "<small>best " + best.caps + "</small>" : ""}</button>
-        <button onclick="b4Explain('hilo', ()=>b4Go('goals','board'))">Goals${best.goals != null ? "<small>best " + best.goals + "</small>" : ""}</button></div>` : ""}
+        <button onclick="b4Explain('hilo', ()=>hiloSetup('caps'))">Caps${best.caps != null ? "<small>best " + best.caps + "</small>" : ""}</button>
+        <button onclick="b4Explain('hilo', ()=>hiloSetup('goals'))">Goals${best.goals != null ? "<small>best " + best.goals + "</small>" : ""}</button></div>` : ""}
       <button class="b6fix${b4Open === "career" ? " open" : ""}" onclick="b4Toggle('career')" aria-expanded="${b4Open === "career"}">${newOrBest(best.career)}
         <div class="m"><b>Career Path</b><small>Guess the player</small></div><div class="art">${B6_ART.route}<span class="chev">›</span></div></button>
       ${b4Open === "career" ? `<div class="b6sub">

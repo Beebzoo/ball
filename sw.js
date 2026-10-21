@@ -1,6 +1,6 @@
 /* BALL quiz service worker: network-first so updates land instantly,
    cache fallback so the pub's dead wifi can't stop the game. */
-const CACHE = "ball-quiz-4-v40";
+const CACHE = "ball-quiz-4-v41";
 const NATFLAGS = "ad,ae,af,ag,al,am,ao,ar,at,au,az,ba,be,bf,bg,bi,bj,bm,bn,bo,br,by,ca,cd,cf,cg,ch,ci,cl,cm,cn,co,cr,cu,cv,cy,cz,de,dk,do,dz,ec,ee,eg,es,et,fi,fr,ga,gb,gd,ge,gh,gm,gn,gq,gr,gt,gw,gy,hn,hr,ht,hu,id,ie,il,in,iq,ir,is,it,jm,jo,jp,ke,kn,kr,kw,kz,lb,lc,li,lk,lr,lt,lu,lv,ly,ma,md,me,mg,mk,ml,mr,mt,mu,mw,mx,my,mz,na,ne,ng,nl,no,nz,pa,pe,ph,pk,pl,pt,py,qa,ro,rs,ru,rw,sa,sc,sd,se,si,sk,sl,sm,sn,so,sr,st,sv,sy,sz,td,tg,th,tl,tm,tn,tr,tt,tz,ua,ug,us,uy,uz,ve,vn,ws,xk,za,zm,zw".split(",");
 /* These two lists are generated, by _tools/build-stickers.py and by the
    Eredivisie build-ere.js, and they are declared HERE, above EXTRA_ASSETS,
@@ -52,7 +52,9 @@ const MANAGER_LOGOS = [];   // BALL 4 ships no crests or cutouts
 /* Tiki-Taka-Toe: the grid packs and the one name list they share, built by
    _tools/build-grids.js. About 0.85 MB gzipped, so a match works offline. */
 const GRID_FILES = ["assets/grids/names.json", "assets/grids/search.json", "assets/grids/cats.json",
-  "assets/grids/mixed.json", "assets/grids/eredivisie.json", "assets/grids/worldcup.json"];
+  "assets/grids/mixed.json", "assets/grids/eredivisie.json", "assets/grids/worldcup.json",
+  /* Who is he? (the yes-or-no board): one pack, 51 KB gzipped */
+  "assets/guesswho/pack.json"];
 const ASSETS = [
   ...GRID_FILES,
   "./",

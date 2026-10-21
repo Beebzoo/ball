@@ -6577,6 +6577,40 @@
   .b6ans{margin-top:4px}
   .b6anshint{margin-top:6px}
 
+
+  /* ---------- WHO IS HE? ---------- */
+  .gwlog{display:flex;flex-direction:column;gap:6px;margin:0 0 10px}
+  .gwline{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:var(--th-card);color:var(--th-card-ink);border:2px solid var(--th-edge);font:700 14px/1.2 'Barlow Semi Condensed',sans-serif}
+  .gwline small{flex:0 0 auto;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+  .gwline span{flex:1}
+  .gwline b{flex:0 0 auto;font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;padding:4px 9px;border-radius:999px}
+  .gwline.yes b{background:var(--th-pill);color:#241B08}
+  .gwline.no b{background:rgba(255,255,255,.16);color:#F8F1DD}
+  .gwgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;perspective:600px}
+  .gwcard{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 3px 6px;border-radius:10px;border:2px solid #fff;background:#F8F1DD;color:#123D24;
+    box-shadow:0 3px 0 rgba(0,0,0,.12);cursor:pointer;min-width:0;transform-origin:50% 100%;transition:transform .45s cubic-bezier(.5,0,.3,1),opacity .45s,filter .45s}
+  .gwcard img{width:30px;height:auto;border-radius:2px;box-shadow:0 0 0 1px rgba(18,61,36,.25)}
+  .gwcard b{font:italic 900 13px/1.05 'Barlow Semi Condensed',sans-serif;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .gwcard small{font:700 9.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;opacity:.65}
+  .gwcard.down{transform:rotateX(70deg);opacity:.28;filter:grayscale(1);cursor:default;box-shadow:none}
+  .gwcard.fall{animation:gwfall .6s cubic-bezier(.5,0,.3,1) both}
+  @keyframes gwfall{from{transform:none;opacity:1;filter:none}to{transform:rotateX(70deg);opacity:.28;filter:grayscale(1)}}
+  .gwcard.me{background:var(--th-card);color:var(--th-card-ink);border-color:#e9b84c}
+  .gwmine{display:flex;align-items:center;gap:12px;margin:14px 0 4px}
+  .gwmine>small{flex:1;font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#3d4a38}
+  .gwmine .gwcard{width:96px;flex:0 0 auto;cursor:default}
+  .gwreveal{display:flex;gap:14px;justify-content:center;margin:6px 0 14px}
+  .gwreveal>div{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .gwreveal>div>small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3d4a38}
+  .gwreveal .gwcard{width:120px;cursor:default;padding:12px 6px}
+  .gwreveal .gwcard img{width:44px}.gwreveal .gwcard b{font-size:18px}
+  .gwthink{margin:14px 0;text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:#3d4a38;animation:gwpulse 1s ease-in-out infinite alternate}
+  @keyframes gwpulse{from{opacity:.45}to{opacity:1}}
+  .gwqs{text-align:left;margin:4px 0 10px}
+  .gwqs .b6hdr{margin-top:10px;color:#f3cd6b}
+  .gwqb{display:block;width:100%;margin:6px 0 0;padding:11px 14px;border-radius:12px;border:2px solid var(--th-edge);background:var(--th-row);color:var(--th-row-ink);
+    font:700 15px/1.2 'Barlow Semi Condensed',sans-serif;text-align:left;cursor:pointer}
+  @media (prefers-reduced-motion: reduce){ .gwcard,.gwcard.fall{transition:none;animation:none} .gwthink{animation:none} }
   /* ---------- SIMPLE BALL: flags on the picker, the game in the house look ---------- */
   .smq .smf{width:26px;height:auto;border-radius:3px;box-shadow:0 0 0 1px rgba(18,61,36,.25);flex:0 0 auto}
   .smq.on .smf{box-shadow:0 0 0 1px #fff}
@@ -26440,6 +26474,7 @@ function renderMain(){
   if(ALBUM_VIEW) return renderAlbum(st);
   if(CUP_VIEW) return renderCup(b4Stage(st, () => { const c = cupRun(); return { title: "The Cup", ctx: "World Cup " + (c ? c.year : cupYear()) + (c && c.alive ? (c.round === "group" ? " · Group " + c.group : " · " + CUP_ROUND_SHORT[c.round]) : ""), back: "closeCup()", cls: "b4cup" }; }));
   if(TT_VIEW) return ttRender(st);
+  if(GW_VIEW) return gwRender(st);
   if(GTP_VIEW) return gtpRender(st);
   if(LISTS_VIEW) return listsRender(st);
   if(DREAM_VIEW) return renderDream(st);
@@ -31301,6 +31336,181 @@ function simpleStart(){
   startGame();
   if(S && !isPitch(S.play)){ S.simple = true; b4Step = null; render(); }
 }
+/* ---------- WHO IS HE? (demo of 21 Oct 2026) ----------
+   Martijn's idea: the guess-the-face board game with footballers (our own
+   name: the board game's is a trademark). You and the computer each have
+   a secret player from the same 24 cards and take turns asking yes/no
+   questions; the app answers them from the player pack (assets/guesswho,
+   _tools/build-guesswho.js), so nobody can get one wrong. The cards that no
+   longer fit fall by themselves. First to name the other's player wins; a
+   wrong guess knocks that card down and passes the turn. */
+const GW_KEY = "ball4-gw";
+const GW_DATA = { pack: null };
+let GW_VIEW = null, GW = null;
+const GW_CONT = { eu: "Europe", sa: "South America", af: "Africa", na: "North or Central America", as: "Asia", oc: "Oceania" };
+const GW_POS = { GK: "a goalkeeper", DF: "a defender", MF: "a midfielder", FW: "a forward" };
+const GW_LEAGUE = { gb: "England or Scotland", es: "Spain", it: "Italy", de: "Germany", fr: "France", nl: "the Netherlands", pt: "Portugal", tr: "Turkey",
+  us: "the USA", sa: "Saudi Arabia", br: "Brazil", ar: "Argentina", be: "Belgium", ru: "Russia", gr: "Greece", mx: "Mexico", jp: "Japan", cn: "China", qa: "Qatar", ae: "the Emirates" };
+function gwPrefs(){
+  let p = null; try{ p = JSON.parse(localStorage.getItem(GW_KEY) || "null"); }catch(e){}
+  p = p && typeof p === "object" ? p : {};
+  return { level: ["easy", "normal", "hard"].includes(p.level) ? p.level : "normal", played: p.played | 0, won: p.won | 0 };
+}
+function gwSave(p){ try{ localStorage.setItem(GW_KEY, JSON.stringify(p)); }catch(e){} }
+function gwLoad(){
+  if(GW_DATA.pack) return Promise.resolve(GW_DATA.pack);
+  return fetch("assets/guesswho/pack.json").then(r => { if(!r.ok) throw new Error("pack"); return r.json(); }).then(j => GW_DATA.pack = j);
+}
+function openGW(){ audio(); GW_VIEW = "setup"; GW = null; render(); gwLoad().then(() => render()).catch(() => {}); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function gwLeave(){ audio(); GW_VIEW = null; GW = null; closeSheet(); render(); }
+function gwSetLevel(l){ audio(); const p = gwPrefs(); p.level = l; gwSave(p); render(); }
+const gwNat = n => { try{ return n === "gb" ? "Britain" : new Intl.DisplayNames(["en"], { type: "region" }).of(n.toUpperCase()); }catch(e){ return n; } };
+const gwRow = i => GW_DATA.pack.players[i];
+const gwShort = n => { const w = String(n).split(" "); if(w.length < 2) return n; const k = w.length - 2;
+  return /^(van|de|di|da|dos|del|der|le|el|al|ter|von)$/i.test(w[k]) ? w.slice(k).join(" ") : w[w.length - 1]; };
+/* 24 cards: well-known men, no country more than four times, at least two keepers */
+function gwBoard(){
+  const P = GW_DATA.pack.players, top = P.map((_, i) => i).slice(0, 420);
+  for(let tries = 0; tries < 50; tries++){
+    const pick = [], per = {};
+    const pool = top.slice().sort(() => Math.random() - .5);
+    for(const i of pool){ const n = P[i][3][0]; if((per[n] | 0) >= 4) continue; per[n] = (per[n] | 0) + 1; pick.push(i); if(pick.length === 24) break; }
+    if(pick.filter(i => P[i][2] === "GK").length >= 2 && new Set(pick.map(i => gwShort(P[i][0]))).size === 24) return pick;
+  }
+  return top.slice(0, 24);
+}
+/* every question this board can ask, worked out from the rows */
+function gwQuestions(board){
+  const P = GW_DATA.pack.players, C = GW_DATA.pack.clubs, rows = board.map(i => P[i]), qs = [];
+  const add = (cat, id, text, test) => { const n = rows.filter(test).length; if(n > 0 && n < rows.length) qs.push({ cat, id, text, test }); };
+  for(const k of ["GK", "DF", "MF", "FW"]) add("Position", "pos:" + k, "Is he " + GW_POS[k] + "?", r => r[2] === k);
+  for(const c of Object.keys(GW_CONT)) add("Country", "cont:" + c, "Is he from " + GW_CONT[c] + "?", r => gtpCont(r[3][0]) === c);
+  for(const n of [...new Set(rows.map(r => r[3][0]))].sort((a, b) => gwNat(a).localeCompare(gwNat(b)))) add("Country", "nat:" + n, "Is he from " + gwNat(n) + "?", r => r[3][0] === n);
+  for(const y of [1970, 1980, 1985, 1990, 1995]) add("Born", "born:" + y, "Was he born before " + y + "?", r => r[1] < y);
+  add("Career", "abroad", "Did he ever play abroad?", r => r[4].some(c => C[c][2] && C[c][2] !== r[3][0]));
+  add("Career", "five", "Has he played for five clubs or more?", r => r[4].length >= 5);
+  for(const cc of Object.keys(GW_LEAGUE)) add("Leagues", "lg:" + cc, "Did he ever play in " + GW_LEAGUE[cc] + "?", r => r[4].some(c => C[c][2] === cc));
+  const cnt = {}; for(const r of rows) for(const c of new Set(r[4])) cnt[c] = (cnt[c] | 0) + 1;
+  for(const c of Object.keys(cnt).filter(c => cnt[c] >= 2).sort((a, b) => cnt[b] - cnt[a]).slice(0, 14).sort((a, b) => C[a][1].localeCompare(C[b][1])))
+    add("Clubs", "club:" + c, "Did he ever play for " + C[c][1] + "?", r => r[4].includes(+c));
+  add("Tournaments", "wc", "Did he play at a World Cup?", r => r[5].length > 0);
+  add("Tournaments", "eu", "Did he play at the Euros?", r => r[6].length > 0);
+  for(const y of [1998, 2002, 2006, 2010, 2014, 2018, 2022]) add("Tournaments", "wc" + y, "Was he at the " + y + " World Cup?", r => r[5].includes(y));
+  return qs;
+}
+function gwStart(){
+  if(!GW_DATA.pack){ toast("Still loading the players, one second", true); return; }
+  audio();
+  const board = gwBoard(), mine = Math.floor(Math.random() * 24);
+  let cpu = Math.floor(Math.random() * 23); if(cpu >= mine) cpu++;
+  GW = { board, mine, cpu, upMe: board.map(() => true), upCpu: board.map(() => true), turn: 0, asked: [], cpuAsked: [], last: null, cpuLast: null,
+    level: gwPrefs().level, phase: "play", fall: [], winner: null, guesses: 0 };
+  GW.qs = gwQuestions(board);
+  GW_VIEW = "play"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+const gwLeft = up => up.filter(Boolean).length;
+/* the questions still worth asking on a board: the ones that split what is standing */
+const gwUseful = (up, asked) => GW.qs.filter(q => !asked.includes(q.id)).filter(q => {
+  const n = GW.board.filter((b, k) => up[k] && q.test(gwRow(b))).length; return n > 0 && n < gwLeft(up); });
+function gwAskSheet(){
+  if(!GW || GW.phase !== "play" || GW.turn !== 0) return;
+  audio();
+  const qs = gwUseful(GW.upMe, GW.asked), cats = [...new Set(qs.map(q => q.cat))];
+  sheet('<h2>Ask a question</h2><p>The computer has to answer about its player.</p><div class="gwqs">' +
+    cats.map(c => '<div class="b6hdr">' + c + '</div>' + qs.filter(q => q.cat === c).map(q => '<button class="gwqb" onclick="closeSheet();gwAsk(\'' + q.id + '\')">' + esc(q.text) + '</button>').join("")).join("") +
+    '</div><button class="bigbtn ghost" onclick="closeSheet()">Not now</button>');
+}
+function gwAsk(id){
+  const q = GW.qs.find(x => x.id === id); if(!q) return;
+  const yes = q.test(gwRow(GW.board[GW.cpu]));
+  GW.asked.push(id);
+  GW.fall = [];
+  GW.board.forEach((b, k) => { if(GW.upMe[k] && q.test(gwRow(b)) !== yes){ GW.upMe[k] = false; GW.fall.push(k); } });
+  GW.last = { text: q.text, yes, fell: GW.fall.length };
+  yes ? ching() : buzzer();
+  GW.turn = 1; render();
+  setTimeout(gwCpuTurn, 1700);
+}
+function gwCardTap(k){
+  if(!GW || GW.phase !== "play" || GW.turn !== 0 || !GW.upMe[k]) return;
+  audio();
+  const r = gwRow(GW.board[k]);
+  sheet('<h2>Is it ' + esc(gwShort(r[0])) + '?</h2><p>' + esc(r[0]) + '. Right and you win. Wrong and his card falls and it\'s the computer\'s go.</p>' +
+    '<button class="b4btn gold" onclick="closeSheet();gwGuess(' + k + ')">It\'s him</button><button class="b4btn quiet" onclick="closeSheet()">Not sure yet</button>');
+}
+function gwGuess(k){
+  GW.guesses++;
+  if(k === GW.cpu){ GW.phase = "over"; GW.winner = 0; gwEnd(); return; }
+  buzzer(); flashBad();
+  GW.upMe[k] = false; GW.fall = [k];
+  GW.last = { text: "Is it " + gwShort(gwRow(GW.board[k])[0]) + "?", yes: false, fell: 1, guess: true };
+  GW.turn = 1; render();
+  setTimeout(gwCpuTurn, 1700);
+}
+/* THE COMPUTER: it asks what halves its board best (hard), one of the better
+   halves (normal), or anything that still splits it (easy), and names your
+   man when one is left standing (or takes a punt at two, on normal and hard) */
+function gwCpuTurn(){
+  if(!GW || GW.phase !== "play" || GW.turn !== 1) return;
+  const left = GW.board.map((b, k) => k).filter(k => GW.upCpu[k]);
+  const punt = left.length === 2 && GW.level !== "easy" && Math.random() < .5;
+  if(left.length === 1 || punt){
+    const k = left[Math.floor(Math.random() * left.length)], name = gwShort(gwRow(GW.board[k])[0]);
+    if(k === GW.mine){ GW.cpuLast = { text: "Is it " + name + "?", yes: true, guess: true }; GW.phase = "over"; GW.winner = 1; gwEnd(); return; }
+    GW.upCpu[k] = false; GW.cpuLast = { text: "Is it " + name + "?", yes: false, guess: true, left: gwLeft(GW.upCpu) };
+    GW.turn = 0; render(); return;
+  }
+  const qs = gwUseful(GW.upCpu, GW.cpuAsked).map(q => ({ q, d: Math.abs(left.filter(k => q.test(gwRow(GW.board[k]))).length - left.length / 2) })).sort((a, b) => a.d - b.d);
+  if(!qs.length){ GW.turn = 0; render(); return; }
+  const q = (GW.level === "hard" ? qs[0] : GW.level === "normal" ? qs[Math.floor(Math.random() * Math.min(3, qs.length))] : qs[Math.floor(Math.random() * qs.length)]).q;
+  const yes = q.test(gwRow(GW.board[GW.mine]));
+  GW.cpuAsked.push(q.id);
+  GW.board.forEach((b, k) => { if(GW.upCpu[k] && q.test(gwRow(b)) !== yes) GW.upCpu[k] = false; });
+  GW.cpuLast = { text: q.text, yes, left: gwLeft(GW.upCpu) };
+  GW.fall = []; GW.turn = 0; render();
+}
+function gwEnd(){
+  const p = gwPrefs(); p.played++; if(GW.winner === 0) p.won++; gwSave(p);
+  try{ if(GW.winner === 0){ confetti(70); ching(); } else buzzer(); }catch(e){}
+  try{ progAnswer({ ok: GW.winner === 0, tier: "normal", topic: "guesswho" }); }catch(e){}
+  render();
+}
+function gwCardHTML(k, up, opts){
+  const r = gwRow(GW.board[k]), o = opts || {};
+  return '<button class="gwcard' + (up ? "" : " down") + (o.fall ? " fall" : "") + (o.me ? " me" : "") + '"' + (o.click ? ' onclick="' + o.click + '"' : "") + (up ? "" : " disabled") + '>' +
+    '<img src="assets/natflags/' + r[3][0] + '.png" alt=""><b>' + esc(gwShort(r[0])) + '</b><small>' + r[2] + ' · ' + r[1] + '</small></button>';
+}
+function gwSetupScreen(st){
+  const p = gwPrefs(), ready = !!GW_DATA.pack;
+  st.innerHTML = b4Page({ title: "Who is he?", ctx: "Yes or no · demo", back: "gwLeave()", body:
+    b4Q("Knock them down", "You and the computer each get a secret player from the same 24 cards. Take turns asking yes or no questions; the cards that don't fit fall down. Name the computer's player first to win.") +
+    '<div class="b6hdr">The computer</div><div class="b6seg b6ans" role="group" aria-label="Level">' +
+      [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]].map(([k, l]) => '<button aria-pressed="' + (p.level === k) + '" onclick="gwSetLevel(\'' + k + '\')">' + l + '</button>').join("") + '</div>' +
+    (p.played ? '<div class="b6qs">Played ' + p.played + ' · won ' + p.won + '</div>' : "") +
+    '<button class="b6cta" onclick="gwStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Kick off ▶" : "Loading the players…") + '</button>' +
+    '<div class="b6qs">Demo: against the computer for now. Two phones and pass-the-phone come next.</div>' });
+}
+function gwRender(st){
+  if(GW_VIEW === "setup" || !GW) return gwSetupScreen(st);
+  const g = GW, over = g.phase === "over", meLeft = gwLeft(g.upMe), cpuLeft = gwLeft(g.upCpu);
+  const score = '<div class="b4sb"><div class="sb"><div class="sb-t' + (g.turn === 0 && !over ? " on" : "") + '" style="--tc:#e9b84c"><b>You</b></div><div class="sb-mid"><b>' + meLeft + '</b><s></s><b>' + cpuLeft +
+    '</b></div><div class="sb-t away' + (g.turn === 1 && !over ? " on" : "") + '" style="--tc:#2f6fe0"><b>Computer</b></div></div><div class="b4sblabel">players still standing</div></div>';
+  const line = (who, x) => x ? '<div class="gwline' + (x.yes ? " yes" : " no") + '"><small>' + who + '</small><span>' + esc(x.text) + '</span><b>' + (x.yes ? "YES" : "NO") + '</b></div>' : "";
+  let body;
+  if(over){
+    const r = gwRow(g.board[g.cpu]), m = gwRow(g.board[g.mine]);
+    body = b4Q(g.winner === 0 ? "You got him!" : "The computer got yours", g.winner === 0 ? "It was " + esc(r[0]) + ". " + (g.asked.length + g.guesses) + " goes." : "It named " + esc(m[0]) + ". Its player was " + esc(r[0]) + ".") +
+      '<div class="gwreveal"><div><small>The computer’s</small>' + gwCardHTML(g.cpu, true, {}) + '</div><div><small>Your player</small>' + gwCardHTML(g.mine, true, { me: true }) + '</div></div>' +
+      b4Btn("Play again", "gwStart()", "gold") + b4Btn("Leave", "gwLeave()", "quiet");
+  }else{
+    body = '<div class="gwlog">' + line("You asked", g.last) + line("Computer asked", g.cpuLast) + '</div>' +
+      '<div class="gwgrid">' + g.board.map((b, k) => gwCardHTML(k, g.upMe[k], { fall: g.fall.includes(k), click: "gwCardTap(" + k + ")" })).join("") + '</div>' +
+      '<div class="gwmine"><small>Your player · the computer asks about him</small>' + gwCardHTML(g.mine, true, { me: true }) + '</div>' +
+      (g.turn === 0 ? b4Btn("Ask a question", "gwAskSheet()", "gold") + '<div class="b6qs">Or tap a card to guess. A wrong guess costs your go.</div>'
+        : '<div class="gwthink">The computer is thinking…</div>');
+  }
+  st.innerHTML = b4Page({ title: "Who is he?", ctx: over ? "Full time" : g.turn === 0 ? "Your go" : "Computer's go", back: "gwLeave()", leave: over ? null : "gwLeave()", score, cls: "gwpage", body });
+}
 /* ---------- SIMPLE BALL: THE SHELL ---------- */
 const SB_PHASES = /^(pick|question|judge|steal_offer|steal_q|steal_judge|deadq|w_answer|w_judge)$/;
 const SB_COLS = ["#e9b84c", "#2f6fe0", "#1d9a8a", "#7b4fc4", "#e07b2a", "#d4588f"];
@@ -31662,6 +31872,8 @@ function b6Front(saved){
         <div class="m"><b>The Cup</b><small>A whole World Cup, round by round</small></div><div class="art">${trophySVG("star", "gold", 40)}<span class="chev">›</span></div></button>
       <button class="b6fix" onclick="openTT()">${(() => { const n = ttPrefs().played; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
         <div class="m"><b>Tiki-Taka-Toe</b><small>Three in a row is a goal</small></div><div class="art">${ttArt()}<span class="chev">›</span></div></button>
+      <button class="b6fix" onclick="openGW()">${(() => { const n = gwPrefs().played; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
+        <div class="m"><b>Who is he?</b><small>Yes-or-no questions · demo</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true">${[0,1,2].map(r => [0,1,2].map(c => '<rect x="' + (4 + c * 13) + '" y="' + (4 + r * 13) + '" width="10" height="10" rx="2" fill="' + ((r * 3 + c) % 4 === 1 ? "rgba(18,61,36,.25)" : r === 1 && c === 1 ? "#e9b84c" : "#0b2416") + '" stroke="#fff" stroke-width="1"/>').join("")).join("")}</svg><span class="chev">›</span></div></button>
       <button class="b6fix" onclick="b4Explain('lists', openLists)">${(() => { const n = Object.keys(listsState().best).length; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
         <div class="m"><b>The Lists</b><small>Top 10s and name them all</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="3" y="4" width="38" height="36" rx="6" fill="#0b2416" stroke="#fff" stroke-width="2"/>${[0,1,2,3].map(i => '<rect x="9" y="' + (10 + i * 7) + '" width="' + [26,22,18,13][i] + '" height="4" rx="2" fill="' + (i < 2 ? "#e9b84c" : "rgba(255,255,255,.35)") + '"/>').join("")}</svg><span class="chev">›</span></div></button>
     </div>

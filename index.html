@@ -6581,14 +6581,14 @@
   .smq .smf{width:26px;height:auto;border-radius:3px;box-shadow:0 0 0 1px rgba(18,61,36,.25);flex:0 0 auto}
   .smq.on .smf{box-shadow:0 0 0 1px #fff}
   .smq .smb.ball svg{width:24px;height:24px;display:block}
-  .sball .b4sb.sbmany .sb{flex-wrap:wrap}
-  .sball .b4sb.sbmany .sb-t{flex:1 1 30%;min-width:30%;justify-content:space-between;padding:7px 9px 7px 12px}
-  .sball .b4sb.sbmany .sb-t b{font-size:.95rem;overflow:hidden;text-overflow:ellipsis}
-  .sball .b4sb.sbmany.n4 .sb-t{flex-basis:45%;min-width:45%}
-  .b4page.sball:has(.sbmany.rows2) .b6band{height:276px!important}
-  .sball .b4sb.sbmany.rows2{margin-bottom:44px}
-  .sball .b4sb.sbmany .sb-t i{font:italic 900 1.25rem/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
-  .sball .b4sb .sb-t b{overflow:hidden;text-overflow:ellipsis}
+  .b4sb.sbmany .sb{flex-wrap:wrap}
+  .b4sb.sbmany .sb-t{flex:1 1 30%;min-width:30%;justify-content:space-between;padding:7px 9px 7px 12px}
+  .b4sb.sbmany .sb-t b{font-size:.95rem;overflow:hidden;text-overflow:ellipsis}
+  .b4sb.sbmany.n4 .sb-t{flex-basis:45%;min-width:45%}
+  .b4page:has(.sbmany.rows2) .b6band{height:276px!important}
+  .b4sb.sbmany.rows2{margin-bottom:44px}
+  .b4sb.sbmany .sb-t i{font:italic 900 1.25rem/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
+  .b4sb .sb-t b{overflow:hidden;text-overflow:ellipsis}
   .sblv{display:flex;flex-direction:column;gap:10px;margin:4px 0 8px}
   .sblvb{display:flex;align-items:center;gap:14px;width:100%;min-height:62px;padding:10px 18px;cursor:pointer;text-align:left;
     border-radius:calc(16px * var(--th-round));border:2px solid var(--th-edge);background:var(--th-card);color:var(--th-card-ink);
@@ -13646,17 +13646,17 @@ function b4Stage(st, o){
 }
 /* the pitch screens keep their pitch: the house look comes from a skin on the body */
 function b4Skin(on){ try{ document.body.classList.toggle("b4skin", !!on); if(on) b6Paper(true); }catch(e){} }
-function b6GameWrap(st, title){
+function b6GameWrap(st, title, score){
   b6Paper(true);
   let ctx = "";
   try{
     const many = S.players.length > 1, t = many && S.turn >= 0 ? S.turn : 0;
-    if(S.mode === "caps" || S.mode === "goals") ctx = (S.mode === "caps" ? "Caps" : "Goals") + " · " + (many ? S.players[t].name + "'s run" : "your run") + " · score " + S.players[t].score;
+    if(S.mode === "caps" || S.mode === "goals") ctx = many ? "Round " + S.round + " · " + S.players[t].name + "'s run" : (S.mode === "caps" ? "Caps" : "Goals") + " · your run";
     else if(!many) ctx = (S.mode === "mgr" ? "Manager " : "Career ") + S.round + " of " + CAREER_SOLO_ROUNDS + " · score " + S.players[0].score;
     else if(S.party && (S.mode === "career" || S.mode === "mgr")) ctx = "Career " + S.round + " of " + CAREER_SOLO_ROUNDS;
     else ctx = "Round " + S.round + " · " + S.players.map(p => p.name + " " + p.score).join(" · ");
   }catch(e){}
-  st.innerHTML = '<div class="b6 step b6m b6game b4page"><div class="b6band"></div><div class="b6body">' + b6MatchHead(ctx, "toMenu()", "askEnd()", title) + st.innerHTML + '</div></div>';
+  st.innerHTML = '<div class="b6 step b6m b6game b4page"><div class="b6band"></div><div class="b6body">' + b6MatchHead(ctx, "toMenu()", "askEnd()", title) + (score || "") + st.innerHTML + '</div></div>';
 }
 function b6MatchHead(ctx, back, leave, title){
   return '<div class="b6stephead m">' +
@@ -27134,7 +27134,7 @@ function renderMain(){
           ? `<button class="bigbtn drcta" onclick="soloFinish()">See your score<kbd>Space</kbd></button>`
           : `<button class="bigbtn drcta" onclick="capsNextPlayer()">Next player<kbd>Space</kbd></button>`)
         : `<button class="drleave" onclick="askEnd()">Leave the match</button>`}`;
-    b6GameWrap(st, "Higher or Lower");
+    b6GameWrap(st, "Higher or Lower", sbScoreHTML(S.mode === "goals" ? "Goals" : "Caps"));
     if(shown) dressCount();
     return;
   }
@@ -31312,10 +31312,10 @@ function sbShell(){
   return { title: "Simple Ball", ctx: "Round " + S.round + " · " + who, back: "toMenu()", leave: "askEnd()", cls: "sball", score: sbScoreHTML(),
     label: Q.label };
 }
-function sbScoreHTML(){
+function sbScoreHTML(quiz){
   const many = S.players.length > 2, turn = /^steal_(q|judge)$/.test(S.phase) ? S.stealer : S.turn;
-  const quiz = S.mode === "classic" ? "All football" : (QUIZZES[S.mode] || {}).label || "";
-  const label = (quiz ? quiz + " · " : "") + (S.target ? "first to " + S.target : "round " + S.round);
+  if(quiz == null) quiz = S.mode === "classic" ? "All football" : (QUIZZES[S.mode] || {}).label || "";
+  const label = (quiz ? quiz + " · " : "") + (S.target ? "first to " + S.target : S.players.length > 1 ? "no limit · round " + S.round : "round " + S.round);
   const side = (p, i, away) => '<div class="sb-t' + (away ? " away" : "") + (i === turn ? " on" : "") + '" style="--tc:' + SB_COLS[i % SB_COLS.length] + '"><b>' + esc(p.name) + '</b>' +
     (many ? '<i>' + p.score + '</i>' : "") + '</div>';
   if(many) return '<div class="b4sb sbmany' + (S.players.length > 3 ? " rows2" : "") + (S.players.length === 4 ? " n4" : "") + '"><div class="sb">' + S.players.map((p, i) => side(p, i, false)).join("") + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
@@ -31340,8 +31340,10 @@ let HILO_MODE = "caps";
 function hiloPrefs(){
   let p = null; try{ p = JSON.parse(localStorage.getItem(HILO_KEY) || "null"); }catch(e){}
   p = p && typeof p === "object" ? p : {};
-  return { n: p.n >= 1 && p.n <= 6 ? p.n : 1, names: Array.isArray(p.names) ? p.names : [] };
+  return { n: p.n >= 1 && p.n <= 6 ? p.n : 1, names: Array.isArray(p.names) ? p.names : [], t: [0, 10, 25, 50].includes(p.t) ? p.t : 25 };
 }
+const HILO_LIMITS = [10, 25, 50, 0];
+function hiloLimit(t){ audio(); const p = hiloKeepNames(); p.t = t; hiloSave(p); render(); }
 function hiloSave(p){ try{ localStorage.setItem(HILO_KEY, JSON.stringify(p)); }catch(e){} }
 function hiloKeepNames(){ const p = hiloPrefs(); for(let i = 0; i < p.n; i++){ const el = document.getElementById("n" + i); if(el) p.names[i] = el.value.trim().slice(0, 16); } hiloSave(p); return p; }
 function hiloSetup(mode){ HILO_MODE = mode === "goals" ? "goals" : "caps"; b4Step = "hilo"; render(); try{ window.scrollTo(0, 0); }catch(e){} }
@@ -31355,12 +31357,16 @@ function hiloStepHTML(){
       [1, 2, 3, 4, 5, 6].map(n => '<button aria-pressed="' + (p.n === n) + '" onclick="hiloCount(' + n + ')">' + n + '</button>').join("") + '</div>' +
     '<div class="partynames">' + Array.from({ length: p.n }, (_, i) => '<input id="n' + i + '" class="partyname" maxlength="16" placeholder="' + (p.n === 1 ? "You" : "Player " + (i + 1)) +
       '" aria-label="Player ' + (i + 1) + '" value="' + esc(p.names[i] || "") + '">').join("") + '</div>' +
+    /* a limit only means something with someone to beat: alone it is your run */
+    (p.n > 1 ? '<div class="b6hdr">Play to · points</div><div class="b6seg b6ans" role="group" aria-label="Play to">' +
+      HILO_LIMITS.map(t => '<button aria-pressed="' + (p.t === t) + '" onclick="hiloLimit(' + t + ')">' + (t ? t : "No limit") + '</button>').join("") + '</div>' +
+      '<div class="b6qs">A right answer is a point, five in a row ten more. First to the limit wins.</div>' : "") +
     '<button class="b6cta" onclick="hiloStart()">Kick off ▶</button>';
 }
 function hiloStart(){
   const p = hiloKeepNames();
   setupMode = HILO_MODE; setupPlay = "board"; setupMc = false; setupSrc = "own"; setupRef = false;
-  setupCount = p.n; setupTarget = 0; setupTimed = false;
+  setupCount = p.n; setupTarget = p.n > 1 ? p.t : 0; setupTimed = false;
   b4Solo = p.n === 1;
   startGame();
   b4Solo = false;

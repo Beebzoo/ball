@@ -730,6 +730,18 @@
   .lspastst img{width:20px}
   .lspast.none{visibility:hidden}
   .lsnone{font:italic 400 14px/1.4 'Lora',Georgia,serif;color:#3d4a38}
+  /* player 2 on this phone */
+  .p2card{display:flex;flex-direction:column;gap:6px;margin:12px 0 4px;padding:12px 14px;border-radius:14px;border:2px dashed var(--th-edge);background:var(--th-row);color:var(--th-row-ink);text-align:left}
+  .p2card b{font:italic 900 17px/1.1 'Barlow Semi Condensed',sans-serif}
+  .p2card>span{font:500 13.5px/1.35 'Barlow Semi Condensed',sans-serif;opacity:.9}
+  .p2card .p2msg{color:#b8261c;font-weight:700}
+  .p2btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+  .p2btns .acbtn{margin:0;font:700 14px/1 system-ui,sans-serif;text-transform:none;letter-spacing:0;min-height:44px}
+  .p2card.on{flex-direction:row;align-items:center;gap:10px;border-style:solid;background:var(--th-card);color:var(--th-card-ink)}
+  .p2card.on>span{flex:1;display:flex;flex-direction:column;gap:1px;opacity:1}
+  .p2card.on small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;color:#f3cd6b}
+  .p2card.on em{font-style:normal;font-size:12.5px;opacity:.8}.p2card.on i{font-style:normal;font-size:12px;color:var(--th-card-dim)}
+  .p2out{border:0;background:none;color:#f3cd6b;font:700 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;cursor:pointer}
   .guestline{display:flex;align-items:center;gap:12px;margin:2px 0 12px;padding:10px 14px;border-radius:14px;border:2px dashed #b8261c;background:#fff6ec;color:#3d2a20;
     font:600 13.5px/1.25 'Barlow Semi Condensed',sans-serif}
   .guestline span{flex:1}
@@ -17901,6 +17913,7 @@ function logOutcome(kind, ok, who){
     if(kind === "tackle" || kind === "press" || kind === "save") return;
     const human = isPitch(S.play) ? (S.h2h && S.h2h.who === 0 && !S.players[0].ai) : S.turn === 0;
     if(human) progAnswer({ ok: !!ok, tier: S.tier, topic: topicOf(S) });
+    else if(isPitch(S.play) && S.h2h && S.h2h.who === 1 && S.players[1] && !S.players[1].ai) p2Answer(!!ok, S.tier);
     if(human){ let qk = null; try{ const Q = q(); if(Q && Q.q) qk = qKey(Q); }catch(e){} qrLog(qk, S.tier, ok); }
   }catch(e){}
 }
@@ -23733,6 +23746,148 @@ function legalRender(st){
       H("Your data, your call") + P("Export everything from Settings → Export my data. Delete your account in Settings: that removes your profile, club, matches, leagues and reports from the server.") +
       H("Where") + P("Stored with Supabase, our database provider. Guests' games stay on their own phone and are never sent.") });
 }
+/* ---------- PLAYER 2 ON THIS PHONE (Martijn, 21 Oct 2026) ----------
+   Before a "vs a friend" Matchday, the friend can sign in on this phone. Their
+   session lives in its own storage (ball4-p2-auth), next to the phone owner's,
+   so neither signs the other out. At full time each side reports its own
+   match with its own session (submit_local, 007): XP for both, and league
+   points for both, once per pair per day. Player 2 stays signed in on this
+   phone until signed out here (Settings, or the card on the Matchday step).
+   Google comes back to ?p2=1, so only this client reads that sign-in; the
+   phone owner's client ignores it. */
+const P2_RETURN = (() => { try{ return /[?&]p2=1\b/.test(location.search || ""); }catch(e){ return false; } })();
+let P2 = { session: null, profile: null, busy: false, msg: "" };
+function sbClient2(){
+  try{
+    if(!window.supabase || !window.supabase.createClient) return null;
+    if(!sbClient2._c) sbClient2._c = window.supabase.createClient(SUPA_URL, SUPA_KEY,
+      { auth: { storageKey: "ball4-p2-auth", persistSession: true, autoRefreshToken: true, detectSessionInUrl: P2_RETURN } });
+    return sbClient2._c;
+  }catch(e){ return null; }
+}
+const p2On = () => !!(P2.session && P2.session.user && !P2.session.user.is_anonymous);
+const p2Id = () => p2On() ? P2.session.user.id : null;
+function p2Name(){
+  const pr = P2.profile || {};
+  return (pr.club && pr.club.name) || pr.username || (P2.session && P2.session.user && String(P2.session.user.email || "").split("@")[0]) || "Player 2";
+}
+async function p2Boot(){
+  let had = false; try{ had = !!localStorage.getItem("ball4-p2-auth"); }catch(e){}
+  if(!had && !P2_RETURN) return;
+  const c = sbClient2(); if(!c || !c.auth) return;
+  try{
+    const r = await c.auth.getSession();
+    P2.session = r && r.data ? r.data.session : null;
+    if(P2.session && P2.session.user && P2.session.user.id === acct().id){ await c.auth.signOut(); P2.session = null; P2.msg = "That's the account already signed in on this phone."; }
+    if(p2On()){ const p = await c.rpc("ensure_profile"); if(p.data && p.data.ok) P2.profile = p.data.profile; p2Flush(); }
+  }catch(e){}
+  if(P2_RETURN){
+    try{ history.replaceState(null, "", location.pathname); }catch(e){}
+    /* back on the Matchday step they left from */
+    b4Mate = true; b4Step = "opp"; ME_VIEW = null;
+    if(p2On()) toast(p2Name() + " is signed in as player 2.");
+  }
+  try{ render(); }catch(e){}
+}
+function p2SignIn(){
+  audio();
+  if(!acct().linked) return toast("Sign in yourself first (Me → Settings), then player 2 can.", true);
+  const c = sbClient2(); if(!c || !c.auth) return toast("Signing in isn't available right now.", true);
+  /* select_account: Google asks which account, instead of quietly using the phone owner's */
+  c.auth.signInWithOAuth({ provider: "google", options: { redirectTo: acctRedirect() + "?p2=1", queryParams: { prompt: "select_account" } } })
+    .then(r => { if(r && r.error) toast("That didn't work: " + String(r.error.message || r.error).slice(0, 80), true); }, () => {});
+}
+/* by email: a six-digit code from the sign-in email, typed here */
+function p2EmailSheet(){
+  audio();
+  if(!acct().linked) return toast("Sign in yourself first (Me → Settings), then player 2 can.", true);
+  sheet('<h2>Player 2, by email</h2><p class="pgsheetp">We email you a sign-in code. Read it on your own phone and type it here.</p>' +
+    '<label class="acmail"><span>Your email</span><input id="p2mail" type="email" inputmode="email" autocomplete="off" placeholder="you@example.com"></label>' +
+    '<button class="bigbtn" onclick="p2EmailSend()">Email me a code</button>' +
+    '<div id="p2code" hidden><label class="acmail"><span>The code</span><input id="p2otp" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="123456"></label>' +
+    '<button class="bigbtn" onclick="p2EmailVerify()">Sign in</button></div>' +
+    '<button class="bigbtn ghost" onclick="closeSheet()">Cancel</button>');
+}
+async function p2EmailSend(){
+  const el = document.getElementById("p2mail"), email = String(el ? el.value : "").trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast("That doesn't look like an email address.", true);
+  const c = sbClient2(); if(!c || !c.auth) return;
+  const r = await c.auth.signInWithOtp({ email, options: { shouldCreateUser: true } });
+  if(r && r.error) return toast("That didn't work: " + String(r.error.message || r.error).slice(0, 80), true);
+  P2.email = email;
+  const box = document.getElementById("p2code"); if(box) box.hidden = false;
+  toast("Code sent to " + email + ".");
+}
+async function p2EmailVerify(){
+  const el = document.getElementById("p2otp"), token = String(el ? el.value : "").replace(/\s/g, "");
+  if(!/^\d{6,8}$/.test(token)) return toast("Type the code from the email.", true);
+  const c = sbClient2(); if(!c || !c.auth || !P2.email) return;
+  const r = await c.auth.verifyOtp({ email: P2.email, token, type: "email" });
+  if(r && r.error) return toast("That code didn't work. Check it, or send a new one.", true);
+  closeSheet();
+  await p2Boot();
+  if(p2On()) toast(p2Name() + " is signed in as player 2.");
+}
+async function p2SignOut(){
+  audio();
+  const c = sbClient2();
+  try{ if(c && c.auth) await c.auth.signOut(); }catch(e){}
+  try{ localStorage.removeItem("ball4-p2-auth"); }catch(e){}
+  P2 = { session: null, profile: null, busy: false, msg: "" };
+  toast("Player 2 signed out of this phone.");
+  render();
+}
+/* the card under "vs a friend" */
+function p2CardHTML(){
+  const a = acct();
+  if(!FYC_ON) return "";
+  if(!a.linked) return '<div class="p2card"><b>Player 2 can save this match too</b><span>Sign in yourself first (Me → Settings), then your friend can sign in here and both of you get the points.</span></div>';
+  if(p2On()){
+    const pr = P2.profile || {}, cl = pr.club ? clubClean(pr.club) : null;
+    return '<div class="p2card on">' + (cl ? clubCrestSVG(cl, 40, { mini: true }) : "") + '<span><small>PLAYER 2</small><b>' + esc(p2Name()) + '</b>' +
+      (pr.username ? '<em>@' + esc(pr.username) + '</em>' : "") + '<i>XP and league points for both of you</i></span>' +
+      '<button class="p2out" onclick="p2SignOut()">Sign out</button></div>';
+  }
+  return '<div class="p2card"><b>Player 2: save it for your friend too</b><span>Your friend signs in on this phone and the match counts for both of you: XP, and league points once a day.</span>' +
+    (P2.msg ? '<span class="p2msg">' + esc(P2.msg) + '</span>' : "") +
+    '<div class="p2btns"><button class="acbtn google" onclick="p2SignIn()">Player 2: Google</button><button class="acbtn mail" onclick="p2EmailSheet()">Player 2: email code</button></div></div>';
+}
+/* player 2's answers, counted like the phone owner's, for their report */
+function p2Answer(ok, tier){
+  if(!S) return;
+  const r = S.p2run || (S.p2run = { n: 0, right: 0, hard: 0 });
+  r.n++; if(ok){ r.right++; if(tier === "hard" || tier === "extreme" || tier === "ball") r.hard++; }
+}
+/* full time of a "vs a friend" Matchday with player 2 signed in: both sides report */
+function p2Report(s, payload){
+  try{
+    if(!p2On() || !acct().linked || !s || !isPitch(s.play) || !s.players[1] || s.players[1].ai) return false;
+    const me = acct().id, them = p2Id();
+    if(!me || !them || me === them) return false;
+    outboxPush("local", Object.assign({}, payload, { kind: "local", opp_user: them }), s.mid);
+    const r2 = s.p2run || { n: 0, right: 0, hard: 0 };
+    const mine2 = Object.assign({}, payload, { kind: "local", opp_user: me, team: s.h2h && s.h2h.teams ? s.h2h.teams[1] || null : null,
+      score_for: payload.score_against, score_against: payload.score_for, pens: payload.pens ? [payload.pens[1], payload.pens[0]] : null,
+      answers: r2.n, right: r2.right, hard_right: r2.hard, won_competition: null });
+    p2Queue(mine2);
+    p2Flush();
+    return true;
+  }catch(e){ return false; }
+}
+function p2Queue(p){ try{ const q = JSON.parse(localStorage.getItem("ball4-p2-outbox") || "[]"); q.push(p); localStorage.setItem("ball4-p2-outbox", JSON.stringify(q.slice(-20))); }catch(e){} }
+async function p2Flush(){
+  const c = sbClient2(); if(!c || !p2On()) return;
+  let q = []; try{ q = JSON.parse(localStorage.getItem("ball4-p2-outbox") || "[]"); }catch(e){}
+  const keep = [];
+  for(const p of q){
+    try{
+      const r = await c.rpc("submit_local", { p });
+      if(r.error || !r.data) keep.push(p);
+      else if(r.data.ok && r.data.local === "counted") toast("Saved for " + p2Name() + " too, with league points.");
+    }catch(e){ keep.push(p); }
+  }
+  try{ localStorage.setItem("ball4-p2-outbox", JSON.stringify(keep)); }catch(e){}
+}
 /* ---------- the store ---------- */
 const progBlank = () => ({ v: 1, xp: 0, rating: 1000, rated: 0, shield: 0, shieldFloor: 0, hist: [], topics: {}, titles: {}, title: null,
   freeze: { left: 1, week: "" }, lastDay: "", wins: 0, dailyWins: 0, moments: [], migrated: false, since: Date.now(),
@@ -24197,7 +24352,7 @@ let ACCT = { ready: false, server: false, session: null, profile: null, err: nul
 function sbClient(){
   try{
     if(!window.supabase || !window.supabase.createClient) return null;
-    if(!sbClient._c) sbClient._c = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+    if(!sbClient._c) sbClient._c = window.supabase.createClient(SUPA_URL, SUPA_KEY, P2_RETURN ? { auth: { detectSessionInUrl: false } } : undefined);
     return sbClient._c;
   }catch(e){ return null; }
 }
@@ -24275,6 +24430,7 @@ async function acctBoot(){
   ACCT.ready = true;
   acctAfterLink();
   if(ACCT.server){ acctImportOnce(); outboxFlush(); acctJoinPending(); }
+  try{ p2Boot(); }catch(e){}
   if(ME_VIEW || LEAGUE_VIEW || LOCKER_VIEW) try{ render(); }catch(e){}
 }
 async function acctRefresh(){
@@ -24316,7 +24472,7 @@ function acctAfterLink(){
    Rejected by the server's checks: dropped, and a match is marked unrated.
    No network, or the SQL not installed yet: kept for next time. */
 const OUTBOX_RPC = { import: ["import_local", "payload"], match: ["submit_match", "p"], daily: ["submit_daily", "p"],
-  answers: ["submit_answers", "rows"], pennant: ["set_pennant", "design"], club: ["set_club", "design"] };
+  answers: ["submit_answers", "rows"], pennant: ["set_pennant", "design"], club: ["set_club", "design"], local: ["submit_local", "p"] };
 function outboxLoad(){ try{ const q = JSON.parse(localStorage.getItem(OUTBOX_KEY) || "[]"); return Array.isArray(q) ? q : []; }catch(e){ return []; } }
 function outboxSave(q){ try{ localStorage.setItem(OUTBOX_KEY, JSON.stringify(q.slice(-300))); }catch(e){} }
 function outboxPush(kind, payload, id){
@@ -24543,6 +24699,7 @@ function renderSettings(st){
         (!a.username ? '<button class="b6dark pgsmall" onclick="acctUsernameSheet()">Pick a username</button>' : "") +
         (a.username && !a.asked16 ? '<button class="b6dark pgsmall" onclick="acctAgeSheet()">Friends &amp; leagues: confirm your age</button>' : "")
       : acctSaveHTML(false)) +
+    (p2On() ? '<div class="accard"><span><small>Player 2 on this phone</small><b>' + esc(p2Name()) + '</b></span><button class="acsmall" onclick="p2SignOut()">Sign out</button></div>' : "") +
     '<div class="acsync">' + (a.server ? (q ? q + " thing" + (q === 1 ? "" : "s") + " waiting to sync" : (p.synced ? "✓ Synced" : "Connected")) : "Offline: everything is kept on this phone") + '</div>' +
     (fycClubOn() ? '<div class="b6hdr">Your club</div><button class="b6dark pgsmall" onclick="settingsRename()">Rename your club</button>' +
       '<label class="fyccheck acnews"><input type="checkbox"' + (acctLocal().marketing ? " checked" : "") + ' onchange="fycMarketing(this.checked)"><span><b>Tell me about new modes</b><small>An email now and then. Off unless you tick it.</small></span></label>' : "") +
@@ -24843,10 +25000,12 @@ function progQueueMatch(s, run){
     const cap = v => pitch ? (v | 0) : Math.min(30, Math.max(0, v | 0));
     let comp = s.mode || "";
     if(pitch){ try{ comp = (s.h2h && s.h2h.pool) || h2PoolId() || comp; }catch(e){} }
-    return outboxPush("match", { id: s.mid, started: s.t0 || Date.now(), ended: Date.now(), kind, ai_level: ai, opp_user: opp,
+    const payload = { id: s.mid, started: s.t0 || Date.now(), ended: Date.now(), kind, ai_level: ai, opp_user: opp,
       competition: String(comp), team: pitch && s.h2h && s.h2h.teams ? s.h2h.teams[0] || null : null,
       score_for: cap(s.players[0].score), score_against: s.players[1] ? cap(s.players[1].score) : 0, pens: s.pens ? [s.pens[0] | 0, s.pens[1] | 0] : null,
-      answers: run ? run.n : 0, right: run ? run.right : 0, hard_right: run ? run.hard || 0 : 0, max_down: s.maxDown || 0, won_competition: s.wonComp || null }, s.mid);
+      answers: run ? run.n : 0, right: run ? run.right : 0, hard_right: run ? run.hard || 0 : 0, max_down: s.maxDown || 0, won_competition: s.wonComp || null };
+    if(kind === "local" && p2Report(s, payload)) return true;
+    return outboxPush("match", payload, s.mid);
   }catch(e){ return false; }
 }
 
@@ -30630,6 +30789,7 @@ function b4Go(mode, play, opts){
   b4Solo = true;
   startGame();
   b4Solo = false;
+  try{ if(opts.mate && p2On() && S && S.players && S.players[1]) S.players[1].name = p2Name(); }catch(e){}
 }
 /* ---------- BALL 4: KICK OFF, THEN WHERE ----------
    Kick off asks where the match is played before anybody picks a side:
@@ -30819,7 +30979,7 @@ function b6Steps(){
     '<div class="b6q">Who are you playing?</div><div class="b6qs">You take turns with the ball.</div><div class="b6opts">' +
     b6Opt(!b4Mate, B6_ART.cpu, "vs the computer", '<small>Play on your own against BALL\'s computer side.</small>', "b4Mate=false;render()") +
     b6Opt(b4Mate, B6_ART.friend, "vs a friend", '<small>Two players, one phone. Pass it back and forth.</small>', "b4Mate=true;render()") +
-    '</div>' + answerSegHTML(!b4Mate) + '<button class="b6cta" onclick="b6Next()">Next ›</button>';
+    '</div>' + (b4Mate ? p2CardHTML() : "") + answerSegHTML(!b4Mate) + '<button class="b6cta" onclick="b6Next()">Next ›</button>';
   if(b4Step === "lvl") return b6StepHead(2, steps, "Matchday") +
     '<div class="b6q">How good is the computer?</div><div class="b6qs">You can change it before every match.</div><div class="b6opts">' +
     LV.map((k, i) => b6Opt(setupAiLevel === k, b6Bars(i + 1), LVN[i] || esc(AI_LEVELS[k].label),

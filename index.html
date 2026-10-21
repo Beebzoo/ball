@@ -6576,6 +6576,46 @@
   @media (prefers-reduced-motion: reduce){ #overlay .sheet{animation:none} }
   .b6ans{margin-top:4px}
   .b6anshint{margin-top:6px}
+
+  /* ---------- SIMPLE BALL: flags on the picker, the game in the house look ---------- */
+  .smq .smf{width:26px;height:auto;border-radius:3px;box-shadow:0 0 0 1px rgba(18,61,36,.25);flex:0 0 auto}
+  .smq.on .smf{box-shadow:0 0 0 1px #fff}
+  .smq .smb.ball svg{width:24px;height:24px;display:block}
+  .sball .b4sb.sbmany .sb{flex-wrap:wrap}
+  .sball .b4sb.sbmany .sb-t{flex:1 1 30%;min-width:30%;justify-content:space-between;padding:7px 9px 7px 12px}
+  .sball .b4sb.sbmany .sb-t b{font-size:.95rem;overflow:hidden;text-overflow:ellipsis}
+  .sball .b4sb.sbmany.n4 .sb-t{flex-basis:45%;min-width:45%}
+  .b4page.sball:has(.sbmany.rows2) .b6band{height:276px!important}
+  .sball .b4sb.sbmany.rows2{margin-bottom:44px}
+  .sball .b4sb.sbmany .sb-t i{font:italic 900 1.25rem/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
+  .sball .b4sb .sb-t b{overflow:hidden;text-overflow:ellipsis}
+  .sblv{display:flex;flex-direction:column;gap:10px;margin:4px 0 8px}
+  .sblvb{display:flex;align-items:center;gap:14px;width:100%;min-height:62px;padding:10px 18px;cursor:pointer;text-align:left;
+    border-radius:calc(16px * var(--th-round));border:2px solid var(--th-edge);background:var(--th-card);color:var(--th-card-ink);
+    box-shadow:0 5px 0 rgba(0,0,0,.12),0 10px 20px rgba(18,61,36,.16);position:relative;overflow:hidden;
+    animation:sblvin .35s cubic-bezier(.2,1.2,.4,1) both;animation-delay:var(--d,0ms)}
+  .sblvb::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--dc)}
+  .sblvb:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.12)}
+  .sblvb:disabled{opacity:.4;cursor:default}
+  .sbdot{width:14px;height:14px;border-radius:50%;background:var(--dc);box-shadow:0 0 0 3px color-mix(in srgb,var(--dc) 30%,transparent),0 0 12px var(--dc);flex:0 0 auto;margin-left:4px}
+  .sbic{width:28px;height:28px;flex:0 0 auto}.sbic svg{width:100%;height:100%;display:block}
+  .sbn{flex:1;font:italic 900 22px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em;text-transform:uppercase}
+  .sbp{display:flex;align-items:baseline;gap:5px}
+  .sbp b{font:italic 900 30px/1 'Barlow Semi Condensed',sans-serif;color:color-mix(in srgb,var(--dc) 55%,#fff)}
+  .sbp small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+  .sblvb.ball{border-color:#e9b84c;background:linear-gradient(180deg,#2a4a22,#14301a)}
+  .sblvb.ball::before{background:linear-gradient(180deg,#f6d57c,#c99a2e)}
+  .sblvb.ball .sbp b{color:#f3cd6b}
+  @keyframes sblvin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){ .sblvb{animation:none} }
+  .sball .foot{display:none}
+  .sball .qcard{border:2px solid var(--th-edge);border-radius:calc(16px * var(--th-round));box-shadow:0 5px 0 rgba(0,0,0,.12),0 12px 24px rgba(18,61,36,.2)}
+  .sball .bigbtn:not(.ghost):not(.ok):not(.bad){border-radius:var(--th-pill-r);background:var(--th-pill);color:var(--th-acc-ink);border:0;box-shadow:0 6px 0 var(--th-acc-sh),0 12px 22px rgba(0,0,0,.2)}
+  .sball .bigbtn.ghost{border-radius:var(--th-pill-r)}
+  .sball .bigbtn.ok{border-radius:var(--th-pill-r);background:var(--th-pill);color:var(--th-acc-ink);border:0;box-shadow:0 6px 0 var(--th-acc-sh)}
+  .sball .bigbtn.bad{border-radius:var(--th-pill-r);background:var(--th-card);color:var(--th-card-ink);border:2px solid var(--th-edge);box-shadow:0 4px 0 rgba(0,0,0,.14)}
+  .sball .bigbtn kbd{display:none}
+  .sball .stealbtn{border-radius:var(--th-pill-r)}
   /* ---------- BALL 4: THE SHELL (one-look) ----------
      b4Page and its pieces. A page is cream paper with the grass band on top:
      back ‹, TITLE, Leave, the gold context bar, then (if there is a score) the
@@ -26360,7 +26400,7 @@ function renderMain(){
      re-checks the phase before acting, because a person can tap in the
      meantime. */
   try{ aiTick(); }catch(e){}
-  const st=$("#stage");
+  let st=$("#stage");
   /* THE PACK REVEAL IS AN OVERLAY ON THE BODY, so it is the one piece of the
      album that a change of screen does not carry away with it. This is asked
      before anything below can return early, which matters because three of the
@@ -26422,6 +26462,13 @@ function renderMain(){
   if(!h2On) h2CrowdStop();   // results, the menu, another mode
   if(h2On){ b4Skin(/^h_/.test(S.phase || "")); h2Render(st); return; }
 
+  /* SIMPLE BALL IN THE HOUSE LOOK (Martijn, 21 Oct 2026): the grass band with
+     the title, a TV scoreboard for everyone playing, then the old screens on
+     the cream; the level board is its own. */
+  if(S.simple && SB_PHASES.test(S.phase)){
+    st = b4Stage(st, sbShell);
+    if(S.phase==="pick"){ st.innerHTML = sbPickHTML(P, grole); return; }
+  }
   if(S.phase==="pick"){
     const stad = S.mode==="stadium";
     /* No kick line and no blurb: the round, the mode and the target are all on
@@ -31217,12 +31264,20 @@ function simplePrefs(){
 }
 function simpleSet(k, v){ audio(); if(k === "quiz") needQuiz(v); const p = simplePrefs(); p[k] = v; try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){} render(); }
 function simpleName(i, v){ const p = simplePrefs(); p.names[i] = String(v || "").trim().slice(0, 16); try{ localStorage.setItem(SIMPLE_KEY, JSON.stringify(p)); }catch(e){} }
+/* the league's flag (Martijn, 21 Oct 2026); the cups their badge, everything the ball */
+function simpleIcon(q){
+  const Q = QUIZZES[q] || {};
+  if(Q.euro) return '<span class="smb">' + euroBadgeSVG(q, 26) + '</span>';
+  const L = B4_LEAGUES.concat(B4_GREATS).filter(x => x.quiz === q)[0];
+  if(L) return '<img class="smf" src="assets/natflags/' + L.flag + '.png" alt="">';
+  return '<span class="smb ball">' + ballSVG("") + '</span>';
+}
 function simpleStepHTML(){
   const p = simplePrefs(), mc = answerPref() !== "say";
   needQuiz(p.quiz);
   const tile = q => { const Q = QUIZZES[q]; if(!Q) return ""; const ready = !!DECKS[mc ? q + "-mc" : q] || (q === "classic" && (mc ? DECKS["classic-mc"] : typeof BANK !== "undefined"));
     return '<button class="smq' + (p.quiz === q ? " on" : "") + '" style="--qa:' + (Q.ac || "#e9b84c") + '" aria-pressed="' + (p.quiz === q) + '" onclick="simpleSet(\'quiz\',\'' + q + '\')"' + (ready || Q.lazy ? "" : " disabled") + '>' +
-      (Q.euro ? '<span class="smb">' + euroBadgeSVG(q, 26) + '</span>' : '<i></i>') + '<span>' + esc(q === "classic" ? "All football" : Q.label) + '</span></button>'; };
+      simpleIcon(q) + '<span>' + esc(q === "classic" ? "All football" : Q.label) + '</span></button>'; };
   return b6StepHead(0, 0, "Simple Ball") +
     '<div class="b6q">Questions, nothing else</div><div class="b6qs">Take turns: pick a level, answer, score its points. First to the target wins.</div>' +
     SIMPLE_GROUPS.map(([g, qs]) => '<div class="b6hdr">' + g + '</div><div class="smqs">' + qs.map(tile).join("") + '</div>').join("") +
@@ -31244,7 +31299,38 @@ function simpleStart(){
   setupCount = p.n; setupTarget = p.target; setupTimed = false;
   b4Solo = false;
   startGame();
-  if(S && !isPitch(S.play)){ b4Step = null; render(); }
+  if(S && !isPitch(S.play)){ S.simple = true; b4Step = null; render(); }
+}
+/* ---------- SIMPLE BALL: THE SHELL ---------- */
+const SB_PHASES = /^(pick|question|judge|steal_offer|steal_q|steal_judge|deadq|w_answer|w_judge)$/;
+const SB_COLS = ["#e9b84c", "#2f6fe0", "#1d9a8a", "#7b4fc4", "#e07b2a", "#d4588f"];
+function sbShell(){
+  const P = S.players[S.turn] || S.players[0], Q = QUIZZES[S.mode] || {};
+  const who = S.phase === "steal_q" || S.phase === "steal_judge" ? (S.players[S.stealer] || P).name + " steals"
+    : S.phase === "steal_offer" ? "the question is loose" : S.phase === "deadq" ? "nobody got it"
+    : /^w_/.test(S.phase) ? "everyone answers" : P.name + (S.phase === "pick" ? " to pick" : " answering");
+  return { title: "Simple Ball", ctx: "Round " + S.round + " · " + who, back: "toMenu()", leave: "askEnd()", cls: "sball", score: sbScoreHTML(),
+    label: Q.label };
+}
+function sbScoreHTML(){
+  const many = S.players.length > 2, turn = /^steal_(q|judge)$/.test(S.phase) ? S.stealer : S.turn;
+  const quiz = S.mode === "classic" ? "All football" : (QUIZZES[S.mode] || {}).label || "";
+  const label = (quiz ? quiz + " · " : "") + (S.target ? "first to " + S.target : "round " + S.round);
+  const side = (p, i, away) => '<div class="sb-t' + (away ? " away" : "") + (i === turn ? " on" : "") + '" style="--tc:' + SB_COLS[i % SB_COLS.length] + '"><b>' + esc(p.name) + '</b>' +
+    (many ? '<i>' + p.score + '</i>' : "") + '</div>';
+  if(many) return '<div class="b4sb sbmany' + (S.players.length > 3 ? " rows2" : "") + (S.players.length === 4 ? " n4" : "") + '"><div class="sb">' + S.players.map((p, i) => side(p, i, false)).join("") + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
+  if(S.players.length === 1) return '<div class="b4sb solo"><div class="sb">' + side(S.players[0], 0, false) + '<div class="sb-mid"><b>' + S.players[0].score + '</b></div></div><div class="b4sblabel">' + esc(label) + '</div></div>';
+  return '<div class="b4sb"><div class="sb">' + side(S.players[0], 0, false) + '<div class="sb-mid"><b>' + S.players[0].score + '</b><s></s><b>' + S.players[1].score + '</b></div>' +
+    side(S.players[1], 1, true) + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
+}
+/* the level board: a dark card per level, its colour, its name and what it pays */
+function sbPickHTML(P, grole){
+  const lv = Object.entries(TIERS).filter(([k]) => { try{ return !!bankFor(k); }catch(e){ return false; } });
+  return b4Q(esc(P.name) + (grole === "pick" ? ", your pick" : " to pick"), "Choose a level. Get it right and score its points.") +
+    (remotePlayer(S.turn) ? '<div class="hint waitline">⌛ ' + esc(P.name) + ' is picking on their own phone.</div>' : "") +
+    '<div class="sblv">' + lv.map(([k, t], i) => '<button class="sblvb' + (k === "ball" ? " ball" : "") + '" style="--dc:' + t.color + ';--d:' + i * 60 + 'ms" onclick="pickTier(\'' + k + '\')"' +
+      (remaining(k) === 0 ? " disabled" : "") + '>' + (k === "ball" ? '<span class="sbic">' + ballSVG("") + '</span>' : '<span class="sbdot"></span>') +
+      '<span class="sbn">' + esc(tlabel(k)) + '</span><span class="sbp"><b>' + t.pts + '</b><small>' + (t.pts === 1 ? "point" : "points") + '</small></span></button>').join("") + '</div>';
 }
 /* ---------- HIGHER OR LOWER: WHO'S PLAYING (Martijn, 21 Oct 2026) ----------
    Before caps or goals, a screen for the players: one to six on this phone,
@@ -32629,8 +32715,9 @@ function rematch(){
      evening, so it has to carry all of them. */
   const usedQ=S.usedQ;
   const rr=S.rr;
-  const party=S.party;
+  const party=S.party, simple=S.simple;
   S=freshState(names, S.timed, S.mode, S.target, S.play, S.mc); S.used=used; S.usedC=usedC; S.ref=ref;
+  if(simple) S.simple=true;
   S.usedM=usedM||[]; S.usedX=usedX||[]; S.usedT=usedT||[]; S.usedQ=usedQ||{};
   if(party) S.party={names:party.names, pts:party.names.map(()=>0)};
   if(rr){                              // a Rainbow Road rematch is another Rainbow Road

@@ -742,6 +742,17 @@
   .p2card.on small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;color:#f3cd6b}
   .p2card.on em{font-style:normal;font-size:12.5px;opacity:.8}.p2card.on i{font-style:normal;font-size:12px;color:var(--th-card-dim)}
   .p2out{border:0;background:none;color:#f3cd6b;font:700 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;cursor:pointer}
+  /* European nights */
+  .b6cups{display:flex;flex-direction:column;gap:10px}
+  .b6cup{display:flex;align-items:center;gap:12px;width:100%;padding:10px 14px 10px 10px;border-radius:16px;border:2px solid var(--th-edge);background:var(--th-card);color:var(--th-card-ink);text-align:left;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.14)}
+  .b6cup:disabled{opacity:.6}
+  .b6cupb{flex:none;width:64px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}.b6cupb svg{display:block}
+  .b6cupt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+  .b6cupt b{font:italic 900 20px/1.05 'Barlow Semi Condensed',sans-serif}
+  .b6cupt small{font:500 13px/1.3 'Barlow Semi Condensed',sans-serif;color:var(--th-card-dim)}
+  .b6cupt em{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:#f3cd6b;margin-top:3px}
+  .b6cup .go{font:900 18px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
+  .b6fine{margin:14px 2px 0;font:italic 400 12px/1.4 'Lora',Georgia,serif;color:#4b5a47}
   .guestline{display:flex;align-items:center;gap:12px;margin:2px 0 12px;padding:10px 14px;border-radius:14px;border:2px dashed #b8261c;background:#fff6ec;color:#3d2a20;
     font:600 13.5px/1.25 'Barlow Semi Condensed',sans-serif}
   .guestline span{flex:1}
@@ -9798,6 +9809,10 @@ const POOLS = {
            file:"assets/seriea/clubs.json", flags:null, ext:".png"},
   "belgian-clubs": {label:"Belgian clubs", group:"Leagues", of:"belgian",
            file:"assets/belgian/clubs.json", flags:null, ext:".png"},
+  /* European nights: the six top flights' sides together */
+  "euro-clubs": {label:"European clubs", group:"European nights", of:"ucl",
+           files:["assets/premier/clubs.json", "assets/laliga/clubs.json", "assets/bundesliga/clubs.json", "assets/seriea/clubs.json",
+                  "assets/eredivisie/clubs.json", "assets/belgian/clubs.json"], flags:null, ext:".png"},
   /* THE SECOND DIVISIONS' OWN SIDES. Their own group, because the picker only
      draws a heading for a group with more than one pool in it and these would
      otherwise sit in the same row as the top flights they are underneath. */
@@ -9862,6 +9877,19 @@ const QUIZZES = {
             spoken:"assets/seriea/index.json", mc:"assets/seriea/mc.json",
             pool:"seriea-clubs", flags:null, ext:".png",
             blurb:"Italy, from catenaccio to Calciopoli and out the other side."},
+  /* EUROPEAN NIGHTS (21 Oct 2026): the first decks read straight from the
+     question bank, assets/q/<deck>.json (_plans/question-bank.md step 5, done
+     for these three; the rest follow there). One pool for all three: the top
+     flights' clubs, so you can be Ajax on a Champions League night. */
+  ucl:     {label:"Champions League", ic:"trophy", ac:"#e9b84c", deck:"ucl", euro:true,
+            pool:"euro-clubs", flags:null, ext:".png",
+            blurb:"From the European Cup of the fifties to last season's final."},
+  uel:     {label:"Europa League", ic:"trophy", ac:"#ff7a1a", deck:"uel", euro:true,
+            pool:"euro-clubs", flags:null, ext:".png",
+            blurb:"Thursday nights, and the UEFA Cup before them."},
+  uecl:    {label:"Conference League", ic:"trophy", ac:"#5fe0a0", deck:"uecl", euro:true,
+            pool:"euro-clubs", flags:null, ext:".png",
+            blurb:"The newest European cup, since 2021."},
   belgian: {label:"Pro League", ic:"stripes", ac:"#e8b21c",
             spoken:"assets/belgian/index.json", mc:"assets/belgian/mc.json",
             pool:"belgian-clubs", flags:null, ext:".png",
@@ -10024,6 +10052,22 @@ function loadQuiz(id){
     fetch(url).then(r => r.ok ? r.json() : null).then(b => { if(b){ put(b); done(); } }).catch(()=>{}); };
   grab(row.spoken, b => DECKS[id] = qrRetier(b));
   grab(row.mc,     b => DECKS[id + "-mc"] = qrRetier(b));
+  /* a question-bank deck: both decks from one file. Multiple choice is every row
+     with wrong answers, the right one dropped in at a place fixed by its id */
+  if(row.deck) grab("assets/q/" + row.deck + ".json", b => { const d = bankDecks(b); DECKS[id] = qrRetier(d.say); DECKS[id + "-mc"] = qrRetier(d.mc); });
+}
+function bankDecks(b){
+  const say = {}, mc = {};
+  for(const t of ["easy", "normal", "hard", "extreme", "ball"]){
+    const rows = Array.isArray(b[t]) ? b[t] : [];
+    say[t] = rows.map(r => ({ id: r.id, q: r.q, a: r.a, sub: r.sub, cat: r.cat }));
+    mc[t] = rows.filter(r => Array.isArray(r.o) && r.o.length >= 3).map(r => {
+      let h = 0; for(const ch of String(r.id || r.q)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+      const o = r.o.slice(0, 3), k = h % 4; o.splice(k, 0, r.a);
+      return { id: r.id, q: r.q, a: r.a, sub: r.sub, cat: r.cat, o, k };
+    });
+  }
+  return { say, mc };
 }
 /* THE POOLS ARE LOADED BY POOL ID, not by quiz id, which is the whole point of
    the split: two quizzes can want the same sides and one quiz can offer
@@ -10031,6 +10075,14 @@ function loadQuiz(id){
    name. */
 function loadPool(id){
   const row = POOLS[id];
+  if(row && row.files && !TEAMS[id]){
+    Promise.all(row.files.map(f => fetch(f).then(r => r.ok ? r.json() : null).catch(() => null))).then(all => {
+      const got = all.filter(Boolean); if(!got.length) return;
+      TEAMS[id] = Object.assign({}, ...got);
+      if(!S || S.phase === "setup") render();
+    });
+    return;
+  }
   if(!row || !row.file || TEAMS[id]) return;
   fetch(row.file).then(r => r.ok ? r.json() : null).then(b => {
     if(!b) return;
@@ -30832,6 +30884,104 @@ function b4Friend(){ audio(); b4Mate = !b4Mate; render(); }
    a league's is its own. The famous finals have none, so they go straight in. */
 let b4Pend = null, b4QOwn = true;
 const b6TourDeck = pool => { const g = (POOLS[pool] || {}).group; return g === "World Cups" ? "worldcup" : g === "Euros" ? "euro" : null; };
+/* ---------- EUROPEAN NIGHTS: the three cup badges ----------
+   _brand/competitions/ (round 2, "a tad closer"): our own medal, shield and
+   hexagon, never UEFA's starball, trophies or typefaces. Copied from the
+   board with its names prefixed (the app's TIERS are question levels). */
+const EB_TIERS = [
+  { key:"champions", word:"CHAMPIONS", sub:"Europe's elite", pips:3, shape:"medal", motif:"rays",
+    metal:["#fff2bf","#e9b84c","#a8740a","#e9b84c","#fbe39a"], ribbon:"#e9b84c", ink:"#241B08", field:["#5e1b38","#1a0610"],
+    ball:"cream",
+    name:"Champions", label:"Gold · medal",
+    why:"The top tier, so it gets gold and the round medal shape. A deep claret field with gold rays behind the ball, as if a stadium is lit up (deliberately not navy, which is the Champions League's own colour). Three gold pips, for the highest of three tiers.",
+    card:"From the group stage to the final" },
+  { key:"europa", word:"EUROPA", sub:"Thursday nights", pips:2, shape:"shield", motif:"stripes",
+    metal:["#ffffff","#c9d1d8","#7d8790","#c9d1d8","#f1f4f6"], ribbon:"#d5dce2", ink:"#141a1f", field:["#12434c","#03141a"],
+    ball:{hex:["#8a9097","#eceff1","#ffffff"], pent:["#22282d","#8f9aa4","#f4f7f9"], seam:"#3a4248", metal:false, pentMetal:true, spec:.75, rim:.4, edge:"#2a3036", groove:true, sheen:true},
+    name:"Europa", label:"Silver · shield",
+    why:"The second tier: silver, and a shield like a club crest. A deep teal field with slanted stripes, a nod to the Thursday-night TV broadcasts. Two silver pips. Its ball has silver pentagons.",
+    card:"Thursday nights, the long road to the final" },
+  { key:"conference", word:"CONFERENCE", sub:"The new road", pips:1, shape:"hex", motif:"rings",
+    metal:["#ffd9b0","#c98a4b","#7a4a1c","#c98a4b","#f2c08a"], ribbon:"#c98a4b", ink:"#1f1206", field:["#173a2b","#06140f"],
+    ball:{hex:["#a8865c","#f4ebd3","#fffdf5"], pent:["#3d1f08","#b8743a","#f8d3a8"], seam:"#5a3a18", metal:false, pentMetal:true, spec:.75, rim:.42, edge:"#4a2a0c", groove:true, sheen:true},
+    name:"Conference", label:"Bronze · hexagon",
+    why:"The youngest tier: bronze, and a modern hexagon, the shape of one panel of the ball. Rings ripple out from the ball like a new beginning. One bronze pip. Its ball has bronze pentagons.",
+    card:"The newest European cup, since 2021" },
+];
+
+/* ROUND 2, "a tad closer": the European-night feel through generic symbols and
+   colours (stars, midnight, each cup's accent), none of UEFA's actual designs */
+const EB_CLOSER = {
+  champions: {field:["#1b2b63","#040817"], motif:"rays", motifColor:"#c9d6ff", pips:0, arc:5,
+    why:"Midnight-blue field like a European night, with a crown of five gold stars over the ball. Starlight rays behind it. Stars are a generic symbol: what UEFA owns is eight white stars <i>forming</i> a ball (the starball). Ours are gold, there are five, and they float above our own ball.",
+    label:"Gold · medal · star crown"},
+  europa: {field:["#2b2f36","#0a0b0d"], motifColor:"#ff7a1a", ribbon:"#ff7a1a", ink:"#140a02", starPips:true,
+    why:"Charcoal field with orange stripes and an orange ribbon: the colour people associate with Thursday nights. Orange on its own is not protected. What we avoid is their trophy shape and logo. Two silver stars instead of diamonds.",
+    label:"Silver · shield · orange"},
+  conference: {field:["#0e5a3b","#03190f"], motifColor:"#5fe0a0", starPips:true,
+    why:"A brighter green field with mint rings, the green that fits this cup. Still our hexagon and our bronze, plus one star.",
+    label:"Bronze · hexagon · mint"},
+};
+let ebUid = 0;
+/* a plain five-point star, centred on x,y with outer radius r */
+const ebStar = (x, y, r) => { let d = ""; for (let i = 0; i < 10; i++){ const a = (i*36 - 90)*Math.PI/180, q = i%2 ? r*.42 : r; d += (i ? "L" : "M") + (x + q*Math.cos(a)).toFixed(2) + " " + (y + q*Math.sin(a)).toFixed(2); } return d + "Z"; };
+function ebShape(shape){
+  if (shape === "medal"){ // serrated medal edge
+    let d = ""; const N = 56;
+    for (let i = 0; i < N; i++){ const a = i/N*Math.PI*2 - Math.PI/2, r = i%2 ? 91 : 95; d += (i ? "L" : "M") + (100 + r*Math.cos(a)).toFixed(2) + " " + (110 + r*Math.sin(a)).toFixed(2); }
+    return {outer:d + "Z", inner:'<circle cx="100" cy="110" r="82"/>'};
+  }
+  if (shape === "shield"){
+    const p = "M100 14 L182 36 L182 108 C182 160 146 194 100 212 C54 194 18 160 18 108 L18 36 Z";
+    return {outer:p, inner:'<path d="' + p + '" transform="translate(100 112) scale(.86) translate(-100 -112)"/>'};
+  }
+  // hexagon, pointy top
+  let d = ""; for (let i = 0; i < 6; i++){ const a = (i*60 - 90)*Math.PI/180; d += (i ? "L" : "M") + (100 + 98*Math.cos(a)).toFixed(2) + " " + (112 + 98*Math.sin(a)).toFixed(2); }
+  let e = ""; for (let i = 0; i < 6; i++){ const a = (i*60 - 90)*Math.PI/180; e += (i ? "L" : "M") + (100 + 84*Math.cos(a)).toFixed(2) + " " + (112 + 84*Math.sin(a)).toFixed(2); }
+  return {outer:d + "Z", inner:'<path d="' + e + 'Z"/>'};
+}
+function ebMotif(kind, cx, cy, light){
+  if (kind === "rays"){ let s = ""; for (let i = 0; i < 24; i += 2){ const a1 = i/24*Math.PI*2, a2 = (i+1)/24*Math.PI*2;
+    s += '<path d="M' + cx + ' ' + cy + 'L' + (cx + 160*Math.cos(a1)).toFixed(1) + ' ' + (cy + 160*Math.sin(a1)).toFixed(1) + 'L' + (cx + 160*Math.cos(a2)).toFixed(1) + ' ' + (cy + 160*Math.sin(a2)).toFixed(1) + 'Z" fill="' + light + '" fill-opacity=".1"/>'; } return s; }
+  if (kind === "stripes"){ let s = ""; for (let x = -120; x < 260; x += 22) s += '<path d="M' + x + ' 230 L' + (x + 90) + ' -10 L' + (x + 101) + ' -10 L' + (x + 11) + ' 230Z" fill="' + light + '" fill-opacity=".09"/>'; return s; }
+  let s = ""; for (let r = 52; r < 150; r += 13) s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + light + '" stroke-opacity="' + (.2 - (r-52)/700).toFixed(3) + '" stroke-width="2"/>'; return s;
+}
+function ebBadge(t, small){
+  const n = ++ebUid, sh = ebShape(t.shape), m = t.metal;
+  const bx = 100, by = t.shape === "shield" ? 100 : 104, R = t.shape === "medal" ? 40 : 38;
+  const pips = Array.from({length:t.pips}, (_, i) => { const x = 100 + (i - (t.pips-1)/2) * 15, y = t.shape === "shield" ? 46 : 44;
+    return t.starPips
+      ? '<path d="' + ebStar(x, y, 6) + '" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".35" stroke-width=".8"/>'
+      : '<path d="M' + x + ' ' + (y-5) + ' L' + (x+5) + ' ' + y + ' L' + x + ' ' + (y+5) + ' L' + (x-5) + ' ' + y + 'Z" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".35" stroke-width=".8"/>'; }).join("") +
+    /* the star arc: an open crown of stars ABOVE the ball, never a ring and never a ball made of stars */
+    (t.arc ? Array.from({length:t.arc}, (_, i) => { const a = (-90 + (i - (t.arc-1)/2) * 21) * Math.PI/180, r = 58;
+      return '<path d="' + ebStar(bx + r*Math.cos(a), by + r*Math.sin(a), i === (t.arc-1)/2 ? 6.5 : 5) + '" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".3" stroke-width=".6"/>'; }).join("") : "");
+  const ry = t.shape === "shield" ? 150 : 152, rw = t.word.length > 8 ? 168 : 150, rx = 100 - rw/2;
+  const ribbon = '<g filter="url(#ds' + n + ')"><polygon points="' + (rx+8) + ',' + ry + ' ' + (rx+rw+8) + ',' + ry + ' ' + (rx+rw) + ',' + (ry+28) + ' ' + rx + ',' + (ry+28) + '" fill="' + t.ribbon + '"/></g>' +
+    '<polygon points="' + (rx+8) + ',' + ry + ' ' + (rx+rw+8) + ',' + ry + ' ' + (rx+rw+7.2) + ',' + (ry+4) + ' ' + (rx+7.2) + ',' + (ry+4) + '" fill="#fff" fill-opacity=".35"/>' +
+    '<text x="' + (100 + 4) + '" y="' + (ry + 21) + '" text-anchor="middle" font-family="Barlow Semi Condensed, Arial Narrow, sans-serif" font-weight="900" font-style="italic" font-size="22" letter-spacing="' + (t.word.length > 8 ? 1 : 2.5) + '" fill="' + t.ink + '" textLength="' + (rw - 30) + '" lengthAdjust="spacingAndGlyphs">' + t.word + '</text>';
+  const sub = ""; void '<text x="100" y="' + (ry + 44) + '" text-anchor="middle" font-family="Barlow Semi Condensed, Arial Narrow, sans-serif" font-weight="600" font-size="9.5" letter-spacing="3" fill="' + m[1] + '" fill-opacity=".9">' + t.sub.toUpperCase() + '</text>';
+  return '<svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>' +
+      '<linearGradient id="mt' + n + '" x1="0" y1="0" x2="1" y2="1">' + m.map((c, i) => '<stop offset="' + (i/(m.length-1)) + '" stop-color="' + c + '"/>').join("") + '</linearGradient>' +
+      '<radialGradient id="fd' + n + '" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="' + t.field[0] + '"/><stop offset="1" stop-color="' + t.field[1] + '"/></radialGradient>' +
+      '<clipPath id="cl' + n + '">' + sh.inner + '</clipPath>' +
+      '<filter id="ds' + n + '" x="-20%" y="-50%" width="140%" height="200%"><feDropShadow dx="2.5" dy="3" stdDeviation="0" flood-color="#000" flood-opacity=".4"/></filter></defs>' +
+    '<path d="' + sh.outer + '" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".45" stroke-width="1.5" stroke-linejoin="round"/>' +
+    '<g clip-path="url(#cl' + n + ')"><rect width="200" height="220" fill="url(#fd' + n + ')"/>' + ebMotif(t.motif, bx, by, t.motifColor || m[1]) + '</g>' +
+    '<g fill="none" stroke="#000" stroke-opacity=".5" stroke-width="2">' + sh.inner + '</g>' +
+    '<g fill="none" stroke="' + m[1] + '" stroke-opacity=".55" stroke-width=".8">' + sh.inner.replace(/\/>$/, ' transform="translate(100 112) scale(.965) translate(-100 -112)"/>') + '</g>' +
+    pips + Ball3D.make({cx:bx, cy:by, R:R, palette:t.ball, stitch:!small, small:!!small, tx:-.16, ty:.2, spin:8, shadow:!small}) + ribbon + sub +
+  '</svg>';
+}
+
+const EB_TIERS2 = EB_TIERS.map(t => Object.assign({}, t, EB_CLOSER[t.key]));
+const EB_BY = {}; for(const t of EB_TIERS2) EB_BY[t.key] = t;
+/* the badge for "ucl" | "uel" | "uecl", px wide */
+function euroBadgeSVG(quiz, px){
+  const t = EB_BY[{ ucl: "champions", uel: "europa", uecl: "conference" }[quiz]];
+  if(!t || typeof Ball3D === "undefined") return "";
+  return ebBadge(t, px < 60).replace('<svg ', '<svg width="' + px + '" height="' + Math.round(px * 1.1) + '" ');
+}
 function b6OwnDeckId(){ if(!b4Pend) return null; return b4Pend.quiz === "classic" ? b6TourDeck(b4Pend.pool) : b4Pend.quiz; }
 function b4StartPitch(pool, quiz){
   if(!POOLS[pool] || !TEAMS[pool]) return toast("Still loading those squads, give it a second", true);
@@ -30940,12 +31090,12 @@ function b6Next(){
   audio();
   if(b4Step === "opp") b4Step = b4Mate ? "comp" : "lvl";
   else if(b4Step === "lvl") b4Step = "comp";
-  else if(b4Step === "comp") b4Step = b4Comp === "lg" ? "league" : "tourn";
+  else if(b4Step === "comp") b4Step = b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn";
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function b6Back(){
   audio();
-  b4Step = ({opp: null, lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", qs: b4Comp === "lg" ? "league" : "tourn"})[b4Step] || null;
+  b4Step = ({opp: null, lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function b6MeSheet(){
@@ -30989,7 +31139,7 @@ function b6Steps(){
   if(b4Step === "comp") return b6StepHead(steps, steps, "Matchday") +
     '<div class="b6q">Pick your competition</div><div class="b6qs">Who you can play as comes from what you pick.</div><div class="b6opts">' +
     b6Opt(b4Comp === "int", B6_ART.globe, "World Cup or Euro", '<div class="b6chips"><span>World Cups 1998–2026</span><span>Euros 2000–2024</span></div>', "b4Comp='int';render()") +
-    '<div class="b6opt soon"><div class="b6ic">' + B6_ART.nights + '</div><div class="b6tx"><b>European nights</b><small>Champions, Europa &amp; Conference</small></div><span class="b6lock">Coming soon</span></div>' +
+    b6Opt(b4Comp === "eu", B6_ART.nights, "European nights", '<small>Champions, Europa &amp; Conference</small>', "b4Comp='eu';render()") +
     b6Opt(b4Comp === "lg", B6_ART.leagues, "Leagues", '<div class="b6flags">' + ["england", "es", "de", "it", "nl", "be"].map(f => '<img src="assets/natflags/' + f + '.png" alt="">').join("") +
       '</div><small>Top flights &amp; second tiers</small>', "b4Comp='lg';render()") +
     '</div><div class="b6summary"><span>' + (b4Mate ? "vs a friend" : "vs the computer") + '</span>' + (b4Mate ? "" : '<span>' + lvName + '</span>') + '</div>' +
@@ -31005,6 +31155,16 @@ function b6Steps(){
         '<b style="text-shadow:' + b4YrShadow() + '">' + b4Yr(id) + '</b><small>' + esc(B4_HOSTS[id] || POOLS[id].short) + '</small></button>').join("") + '</div>' +
       (POOLS.finals ? '<button class="b6fix b6finals" onclick="b4StartPitch(\'finals\',\'classic\')"' + (TEAMS.finals ? "" : " disabled") + '>' +
         '<div class="t">40<small>SIDES</small></div><div class="m"><b>Famous finals</b><small>Elevens that played in one</small></div><div class="go">▶</div></button>' : "");
+  }
+  if(b4Step === "eu"){
+    const cup = (q, sub) => { const Q = QUIZZES[q], n = DECKS[q] ? ["easy", "normal", "hard", "extreme", "ball"].reduce((a, t) => a + ((DECKS[q] || {})[t] || []).length, 0) : 0;
+      return '<button class="b6cup" onclick="b4StartPitch(\'euro-clubs\',\'' + q + '\')"' + (TEAMS["euro-clubs"] ? "" : " disabled") + '>' +
+        '<span class="b6cupb">' + euroBadgeSVG(q, 64) + '</span><span class="b6cupt"><b>' + esc(Q.label) + '</b><small>' + sub + '</small>' +
+        (n ? '<em>' + nf(n) + ' questions</em>' : '<em>Loading…</em>') + '</span><span class="go">▶</span></button>'; };
+    return b6StepHead(0, 0, "European nights") +
+      '<div class="b6q">Which cup?</div><div class="b6qs">You both play as clubs from the six top flights. The questions are about the cup.</div>' +
+      '<div class="b6cups">' + cup("ucl", "From the group stage to the final") + cup("uel", "Thursday nights, the long road to the final") + cup("uecl", "The newest European cup, since 2021") + '</div>' +
+      '<p class="b6fine">BALL is not affiliated with UEFA. Competition names only describe what the questions are about.</p>';
   }
   if(b4Step === "qs" && b4Pend){
     const id = b6OwnDeckId(), name = b4Pend.quiz === "classic" ? (id === "worldcup" ? "World Cup" : "Euro") : ((QUIZZES[b4Pend.quiz] || {}).label || "League");

@@ -30429,7 +30429,10 @@ function listsDaily(k){
   } else for(let i = 0; i < D.all.length && !all; i++){ const id = D.all[(n + i) % D.all.length], c = by[id]; if(c && c.daily && c.diff <= cap) all = id; }
   const t = D.top10.filter(id => by[id]);
   /* the day this went live keeps the Top 10 it opened with (the first in the append-only order) */
-  return { all, top10: t.length ? (k === LISTS_KEEP_DAY ? t[0] : t[n % t.length]) : null };
+  /* until the 21st there was one Top 10 (the Netherlands' caps, t[0]); from the 22nd the
+     day walks the rest of the append-only order, so no past day changes */
+  const t0 = gtpDayNo(LISTS_NEW_FROM), rest = t.length - 1;
+  return { all, top10: t.length ? (k < LISTS_NEW_FROM || !rest ? t[0] : t[1 + (((n - t0) % rest) + rest) % rest]) : null };
 }
 
 /* ---------- the state on this phone ---------- */
@@ -30823,7 +30826,7 @@ function listsTopScreen(st){
   const lastMiss = g.misses[g.misses.length - 1];
   st.innerHTML = b4Page({ title: "Top 10", ctx: g.daily ? "Today's list" : "From the shelf", leave: "listsShelf()", cls: "lspage lsplay lstop",
     score: '<div class="lssb">' + listsSide() + '<div class="lsmid"><b>' + g.found.length + '/' + items.length + '</b><small>FOUND</small></div><div class="lssbt b">' + listsBalls(g.balls) + '</div></div>',
-    body: b4Q(esc(g.list.title), "A name outside the ten costs a ball." + (g.list.asOf ? " As of " + esc(g.list.asOf) + "." : "")) +
+    body: b4Q(esc(g.list.title), "A name outside the ten costs a ball." + (g.list.asOf ? " " + (/^\d/.test(g.list.asOf) ? "As of " : "") + esc(g.list.asOf) + "." : "")) +
       '<div class="lstv b4card dark">' + items.map(row).join("") + '</div>' +
       (lastMiss ? '<div class="lsmiss">' + listsBalls(0).replace('class="lsballs"', 'class="lsballs one"') + '<div><b>' + esc(lastMiss.n) + '</b><small>' + esc(lastMiss.why) + '</small></div></div>' : "") +
       (g.msg && (!lastMiss || g.msg !== lastMiss.why) ? '<p class="lsmsg">' + esc(g.msg) + '</p>' : "") +

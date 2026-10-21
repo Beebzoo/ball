@@ -22853,7 +22853,7 @@ function isoWeek(day){
    server half (006) and Google sign-in were in. A phone can still opt out
    with ?fyc=0 (remembered; ?fyc=1 undoes it). The test harness has no
    location and keeps it off unless a test switches it on itself. */
-const FYC_DEFAULT = false;     // flips to true once the Google app is "In production"
+const FYC_DEFAULT = true;
 let FYC_ON = (() => { try{
   const q = (typeof location !== "undefined" && location.search) || "";
   if(/[?&]fyc=1\b/.test(q)) localStorage.setItem("ball4-fyc-on", "1");

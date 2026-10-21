@@ -6869,6 +6869,11 @@
   .ttad.side.long{font-size:8.5px}
   #overlay:has(.ttsearch){align-items:flex-start;padding-top:max(16px,env(safe-area-inset-top,0px))}
   .ttad .ttflag{box-shadow:0 0 0 1px #fff;border-radius:3px}
+  .ttcup{display:inline-flex;flex:0 0 auto;justify-content:center}
+  .ttcup svg{filter:drop-shadow(0 0 1px #0a1f13) drop-shadow(0 1px 1px rgba(0,0,0,.35))}
+  .ttmate{position:relative;display:inline-block;flex:0 0 auto;line-height:0}
+  .ttmate img{width:100%;height:auto;box-shadow:0 0 0 1px #fff;border-radius:3px}
+  .ttmate i{position:absolute;right:-7px;bottom:-8px;font-style:normal;font-size:20px;line-height:1;color:#f5c542;text-shadow:0 0 2px #000,0 1px 2px rgba(0,0,0,.6)}
   .ttmore{display:flex;justify-content:center;gap:18px}
   .ttmore .b4btn{width:auto}
   .ttpatch.sw{display:inline-block;aspect-ratio:48/52;background:#5a6470;border-radius:4px 4px 50% 50%}
@@ -29537,7 +29542,10 @@ const TT_DATA = { names: null, search: null, cats: null, grids: {}, words: null 
 const TT_THEMES = { all: { n: "Everything", sub: "every grid" }, mixed: { n: "Mixed", sub: "clubs + countries" }, giants: { n: "Giants", sub: "Europe's biggest" },
   worldcup: { n: "World Cups", sub: "nations" }, eredivisie: { n: "Eredivisie", sub: "Dutch clubs" }, england: { n: "England", sub: "English clubs" },
   spain: { n: "Spain", sub: "Spanish clubs" }, italy: { n: "Italy", sub: "Italian clubs" }, germany: { n: "Germany", sub: "German clubs" },
-  france: { n: "France", sub: "French clubs" } };
+  france: { n: "France", sub: "French clubs" },
+  /* 21 Oct 2026: "Played with Messi" (same club, same season) and the World Cup and Euros squads */
+  teammates: { n: "Teammates", sub: "played with…" }, tournaments: { n: "Tournaments", sub: "World Cups + Euros" },
+  wild: { n: "Wild", sub: "a bit of all" } };
 const TT_PACKS = Object.keys(TT_THEMES).filter(k => k !== "all");
 const TT_LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 const TT_LOCK = 0.10;         // a pick under 10 % (estimated) locks its square
@@ -29803,6 +29811,13 @@ function ttShirt(kit, no){
     '" stroke-width="3"/><text x="40" y="54" text-anchor="middle" font-family="Barlow Semi Condensed" font-style="italic" font-weight="900" font-size="26" fill="' + kit.t + '">' + no + '</text></svg>';
 }
 function ttCatIcon(k, px){
+  /* a World Cup or Euros: the cup, gold for the World Cup and silver for the Euros */
+  if(String(k).startsWith("t:")) return '<span class="ttcup">' + trophySVG("star", k.startsWith("t:wc") ? "gold" : "silver", px) + '</span>';
+  /* played with a star: his flag with a gold star on it */
+  if(String(k).startsWith("m:")){
+    const c = (TT_DATA.cats && TT_DATA.cats[k] && TT_DATA.cats[k].k) || "";
+    return '<span class="ttmate" style="width:' + px + 'px">' + (c ? '<img class="ttflag" src="assets/natflags/' + c + '.png" alt="" width="' + px + '">' : "") + '<i>★</i></span>';
+  }
   if(String(k).startsWith("n:")) return '<img class="ttflag" src="assets/natflags/' + k.slice(2) + '.png" alt="" width="' + px + '">';
   const u = crestURL(k.slice(2), "patch", 96);
   return u ? '<img class="ttpatch" src="' + u + '" alt="" width="' + px + '">' : '<span class="ttpatch sw" style="width:' + px + 'px"></span>';

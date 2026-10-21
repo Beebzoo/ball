@@ -30912,15 +30912,17 @@ function listsFullScreen(st){
   const D = listsDaily(dayKey()), s = listsState();
   const other = g.daily ? (g.kind === "top10" ? "all" : "top10") : null;
   const nav = LISTS_NAV && LISTS_NAV.kind === g.kind ? LISTS_NAV.back : 0;
-  const next = !nav && other && D[other] && !(s.daily[other] && s.daily[other].done) ? "listsIntro('" + D[other] + "', true)"
-    : nav < LISTS_BACK ? "listsOpenDay('" + g.kind + "', " + (nav + 1) + ")" : "listsShelf()";
+  /* the gold button always goes back a day of the same kind; today's other list, if it's still to play, gets its own button */
+  const next = nav < LISTS_BACK ? "listsOpenDay('" + g.kind + "', " + (nav + 1) + ")" : "listsShelf()";
+  const todayOther = !nav && other && D[other] && !(s.daily[other] && s.daily[other].done)
+    ? b4Btn("Today's " + (other === "top10" ? "Top 10" : "Name them all") + " ›", "listsIntro('" + D[other] + "', true)", "quiet") : "";
   st.innerHTML = b4Page({ title: "Full time", ctx: (top ? "Top 10 · " : "Name them all · ") + g.list.title, back: "listsShelf()", cls: "lspage lsft",
     body: b4Card('<div class="lsftsc"><div class="sc"><b>' + r.found + '/' + r.total + '</b><small>' + (top ? r.balls + " BALL" + (r.balls === 1 ? "" : "S") + " LEFT" : g.timed ? (g.how === "all" ? listsLeft() + " S TO SPARE" : g.how === "clock" ? "TIME UP" : "GAVE UP") : "UNTIMED") + '</small></div>' +
       '<div class="rt"><b>' + (r.medal ? word + " · " + esc(g.list.title) : "Not this time") + '</b><small>' + (r.review ? "Today's list, already played." : best && r.prev && r.prev.found > r.found ? "Your best on this list is " + r.prev.found + "/" + r.total + "." : r.found === r.total ? "Every one of them." : "Your best on this list. " + (top ? "Name all ten for gold." : "Find them all inside the clock for gold.")) + '</small></div></div>') +
       '<div class="lsfl' + (top ? "" : " all") + '">' + cells + '</div>' +
       b4Card('<span class="lscap">The share line</span><div class="lsstrip">' + strip + (r.deep ? '<span class="chip">+' + r.deep + '</span>' : "") + '</div><span class="lstx">' + esc(listsShareText(g).split("\n")[0]) + '</span>') +
       '<div class="lsgains">' + (r.xp ? '<span>+' + r.xp + ' XP</span>' : "") + (r.streak ? '<span>Lists streak · ' + r.streak + ' day' + (r.streak === 1 ? "" : "s") + '</span>' : "") + (r.medal ? '<span class="' + r.medal + '">' + word + ' medal</span>' : "") + '</div>' +
-      '<div class="lsbtns">' + b4Btn("Share", "listsShare()", "dark") + b4Btn(nav && nav < LISTS_BACK ? "‹ The day before" : nav ? "Back to the lists" : "Next list", next, "gold") + '</div>' +
+      '<div class="lsbtns">' + b4Btn("Share", "listsShare()", "dark") + b4Btn(nav < LISTS_BACK ? "‹ The day before" : "Back to the lists", next, "gold") + '</div>' + todayOther +
       listsDayNav(g.kind, nav) });
 }
 function listsPickNext(){

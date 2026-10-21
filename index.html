@@ -703,6 +703,33 @@
   .b4card textarea{width:100%;box-sizing:border-box;margin:10px 0 0;padding:10px 12px;border-radius:10px;border:0;background:#fffaf0;color:#123D24;font:500 15px/1.35 'Barlow Semi Condensed',sans-serif;resize:vertical}
   .lgl{margin:0 0 6px;color:#1b1d17;font:500 15px/1.5 'Barlow Semi Condensed',sans-serif}
   .acnews{margin:10px 0 4px}
+  /* the Daily: answers under the goal, and nothing tells before the ball lands */
+  .dsans{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 0}
+  .dsa{display:flex;align-items:center;justify-content:center;min-height:56px;padding:8px 10px;border-radius:14px;border:2px solid var(--th-edge);background:var(--th-card);color:var(--th-card-ink);font:700 15.5px/1.15 'Barlow Semi Condensed',sans-serif;text-align:center;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.14)}
+  button.dsa:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.14)}
+  .dsans.told .dsa{opacity:.55;cursor:default}
+  .dsans.told .dsa.mine{opacity:1;border-color:#e9b84c;box-shadow:0 0 0 2px #e9b84c}
+  .dsans.told .dsa.right{animation:dsRight .3s ease var(--rv,2.4s) forwards}
+  .dsans.told .dsa.wrong{animation:dsWrong .3s ease var(--rv,2.4s) forwards}
+  @keyframes dsRight{to{opacity:1;background:#1f7a3a;border-color:#7ee2a0;color:#fff}}
+  @keyframes dsWrong{to{opacity:1;background:#8e1f1f;border-color:#f19c9c;color:#fff}}
+  .dswait .dsboard,.dswait .dsline,.dswait .bigbtn{opacity:0;animation:dsShow .35s ease var(--rv,2.4s) forwards}
+  @keyframes dsShow{to{opacity:1}}
+  .dskeep{display:block;margin-top:3px;font:italic 600 11.5px/1.1 'Barlow Semi Condensed',sans-serif;opacity:.8}
+  @media (prefers-reduced-motion: reduce){ .dswait .dsboard,.dswait .dsline,.dswait .bigbtn{animation-duration:.01s} }
+  /* The Lists: the last ten days */
+  .lspastlist{display:flex;flex-direction:column;gap:10px}
+  .lspastday{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .lspastd{grid-column:1/-1;font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3d4a38}
+  .lspast{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-height:78px;padding:9px 10px;border-radius:12px;border:2px solid var(--th-edge);text-align:left;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.12)}
+  .lspast.dk{background:var(--th-card);color:var(--th-card-ink)}
+  .lspast.cr{background:var(--th-row);color:var(--th-row-ink)}
+  .lspast small{font:800 9.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;opacity:.75}
+  .lspast b{font:italic 900 14.5px/1.08 'Barlow Semi Condensed',sans-serif}
+  .lspastst{display:flex;align-items:center;gap:5px;margin-top:auto;font:700 11px/1 'Barlow Semi Condensed',sans-serif;opacity:.85}
+  .lspastst img{width:20px}
+  .lspast.none{visibility:hidden}
+  .lsnone{font:italic 400 14px/1.4 'Lora',Georgia,serif;color:#3d4a38}
   .guestline{display:flex;align-items:center;gap:12px;margin:2px 0 12px;padding:10px 14px;border-radius:14px;border:2px dashed #b8261c;background:#fff6ec;color:#3d2a20;
     font:600 13.5px/1.25 'Barlow Semi Condensed',sans-serif}
   .guestline span{flex:1}
@@ -6253,6 +6280,16 @@
   .cpquiet{display:block;margin:6px auto 0;padding:10px 14px;border:0;background:none;color:inherit;opacity:.75;cursor:pointer;
     font:700 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
   .cpreveal{display:flex;align-items:flex-start;gap:10px;margin:6px 0 10px}
+  .cpreveal.big{flex-direction:column;align-items:center;gap:4px;text-align:center;margin:0 0 12px}
+  .cpreveal.big .cpshirt{width:min(58vw,210px);flex:none}
+  .cpreveal.big .cpshirt svg{width:100%;height:auto;display:block;overflow:visible}
+  .cpreveal.big .cpwon{align-items:center}
+  .cpreveal.big .cpwon b.careername{text-align:center;font-size:36px}
+  .cpreveal.big.anim .cpshirt{transform-origin:50% 0;animation:cpShirtIn .9s cubic-bezier(.2,.9,.25,1.15) both}
+  .cpreveal.big.anim .cpwon{animation:cpNameIn .45s ease .75s both}
+  @keyframes cpShirtIn{0%{transform:translateY(-70%) rotate(-14deg) scale(.7);opacity:0}55%{opacity:1;transform:translateY(4%) rotate(5deg) scale(1.02)}75%{transform:rotate(-2.5deg)}100%{transform:none;opacity:1}}
+  @keyframes cpNameIn{from{opacity:0;transform:translateY(10px) scale(.92)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){ .cpreveal.big.anim .cpshirt,.cpreveal.big.anim .cpwon{animation:none} }
   .cpwon{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
   .cpwon small{font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
   .cpwon small.ok{color:#5FBE86;opacity:1}
@@ -6768,17 +6805,20 @@
   .tttop{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:0 0 6px calc(var(--side) + 6px)}
   .ttmid{display:flex;gap:6px}
   .ttside{flex:0 0 var(--side);display:flex;flex-direction:column;gap:5px}
-  .ttad{min-width:0;height:44px;border-radius:6px;background:var(--th-card);border:2px var(--th-edge-style) var(--th-edge);display:flex;align-items:center;justify-content:center;gap:5px;padding:0 4px;color:var(--th-card-ink);
-    font:italic 900 11.5px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;box-shadow:0 3px 0 rgba(0,0,0,.15)}
+  .ttad{min-width:0;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;padding:0 2px;color:var(--th-ink);
+    font:italic 900 10.5px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+  .ttad img{filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
   .ttad span{min-width:0;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-align:center;word-break:normal;overflow-wrap:normal}
-  .ttad.side{flex:1;height:auto;flex-direction:column;gap:4px;font-size:10.5px}
+  .ttad.side{flex:1;height:auto;justify-content:center;gap:4px;font-size:10px}
   .ttad img{flex:0 0 auto;height:auto;border-radius:2px}
   .ttad.long{font-size:9.5px;letter-spacing:-.01em}
   .ttad.side.long{font-size:8.5px}
   #overlay:has(.ttsearch){align-items:flex-start;padding-top:max(16px,env(safe-area-inset-top,0px))}
-  .ttad .ttflag{box-shadow:0 0 0 1px #fff}
+  .ttad .ttflag{box-shadow:0 0 0 1px #fff;border-radius:3px}
+  .ttmore{display:flex;justify-content:center;gap:18px}
+  .ttmore .b4btn{width:auto}
   .ttpatch.sw{display:inline-block;aspect-ratio:48/52;background:#5a6470;border-radius:4px 4px 50% 50%}
-  .ttfield{position:relative;flex:1;min-width:0;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#1d5232 url(assets/grass-match.jpg) center/520px auto;
+  .ttfield{position:relative;flex:1;min-width:0;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#1d5232 url(assets/grass-match@3x.jpg) center top/780px auto;
     box-shadow:0 6px 0 rgba(0,0,0,.14),0 12px 24px rgba(18,61,36,.3),inset 0 0 0 3px rgba(255,255,255,.85)}
   .ttfield::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 33.1%,rgba(255,255,255,.75) 33.1% 33.9%,transparent 33.9% 66.1%,rgba(255,255,255,.75) 66.1% 66.9%,transparent 66.9%),
     linear-gradient(180deg,transparent 33.1%,rgba(255,255,255,.75) 33.1% 33.9%,transparent 33.9% 66.1%,rgba(255,255,255,.75) 66.1% 66.9%,transparent 66.9%)}
@@ -10265,11 +10305,22 @@ function capsReady(id){
    is two because van der Sar finished on 130 and Neuer on 128, which is the
    pair this mode was asked for: one apart is a coin toss and a dead heat has no
    answer at all. */
-const capsGapOk = (x, y) => {
+const capsGapOk = (x, y, band) => {
   const st = statOf();
   const g = Math.abs(x[st.key] - y[st.key]);
-  return g >= st.gapMin && g <= st.gapMax;
+  return band ? g >= band[0] && g <= band[1] : g >= st.gapMin && g <= st.gapMax;
 };
+/* THE CURVE (Martijn, 21 Oct 2026): the first answers of a run are obvious, so
+   the game gets going; it tightens as the run goes on, and once the table has
+   seen five in a row (once, then twice) every new run starts a step further in.
+   Never a coin toss in round one, never below the floor of five (four for goals).
+   Stage 0 is the first three answers of a run, 1 the next two, then a step per
+   five. */
+const CAPS_BANDS = { caps: [[25, 90], [15, 40], [10, 25], [6, 15], [5, 10]], goals: [[20, 80], [12, 40], [8, 25], [5, 15], [4, 10]] };
+function capsStage(streak){
+  const s = streak | 0, base = s < 3 ? 0 : s < 5 ? 1 : s < 10 ? 2 : s < 15 ? 3 : 4;
+  return Math.min(4, Math.max(base, Math.min(2, (S && S.capHeat) | 0)));
+}
 /* WEIGHTED BY FAME, both ends of the pair. The first man is drawn with a
    weight of the square root of his pageviews, which is strong enough that
    Ronaldo turns up a lot more than a Panamanian full back and gentle enough
@@ -10277,7 +10328,7 @@ const capsGapOk = (x, y) => {
    from everybody in the band with him, so a famous man is not paired with the
    most obscure number that happens to fit. Square root rather than the raw
    figure, because the raw figure would make it the Ronaldo and Messi game. */
-function capsDraw(pool){
+function capsDraw(pool, band){
   const st = statOf(), bank = st.bank();
   const w = pool.map(i => Math.sqrt((bank[i].fame || 0) + 1));
   const pickW = idx => {
@@ -10289,7 +10340,7 @@ function capsDraw(pool){
   const all = pool.map((_, k) => k);
   for(let t = 0; t < 200; t++){
     const ka = pickW(all);
-    const mates = all.filter(k => k !== ka && capsGapOk(bank[pool[ka]], bank[pool[k]]));
+    const mates = all.filter(k => k !== ka && capsGapOk(bank[pool[ka]], bank[pool[k]], band));
     if(!mates.length) continue;
     return [pool[ka], pool[pickW(mates)]];
   }
@@ -10303,13 +10354,16 @@ function newCaps(){
   /* Nobody twice while there is anybody left: seeing the same card again tells
      you the answer you already gave. */
   let pool = all.filter(i => S[st.used].indexOf(i) === -1);
-  let pair = pool.length >= 2 ? capsDraw(pool) : null;
+  /* the band for this answer, easing a step at a time if the cards left can't make it */
+  const streak = (S.cap && S.cap.right) ? S.cap.streak : 0, bands = CAPS_BANDS[st.key] || CAPS_BANDS.caps;
+  const draw = from => { for(let k = capsStage(streak); k >= 0; k--){ const pr = from.length >= 2 ? capsDraw(from, bands[k]) : null; if(pr) return pr; } return from.length >= 2 ? capsDraw(from) : null; };
+  let pair = draw(pool);
   /* THE POOL CAN RUN OUT TWO WAYS and only one of them is "everybody has been
      seen". The other is that the handful left are all on the same number of
      caps, so no pair in it clears the band, and a mode that just stops there
      would look broken to a table that is still playing. Either way the answer
      is the same: start the book again. */
-  if(!pair){ S[st.used] = []; pair = capsDraw(all); }
+  if(!pair){ S[st.used] = []; pair = draw(all); }
   if(!pair){ toast("That deck cannot make a pair, which should not happen", true); return; }
   S[st.used].push(pair[0], pair[1]);
   S.cap = {a: pair[0], b: pair[1], picked: null, right: null,
@@ -10330,7 +10384,7 @@ function capsPick(which){
        than banking a point and passing the phone */
     if(d.streak % 5 === 0) pts += 10;
     S.players[S.turn].score += pts; ching(); popfx();
-    if(d.streak % 5 === 0){ confetti(64); toast("🔥 " + d.streak + " in a row · " + S.players[S.turn].name + " +" + pts); }
+    if(d.streak % 5 === 0){ S.capHeat = (S.capHeat | 0) + 1; confetti(64); toast("🔥 " + d.streak + " in a row · " + S.players[S.turn].name + " +" + pts); }
   }else{ buzzer(); flashBad(); }
   S.phase = "cp_show";
   if(d.right && maybeFinish()) return;
@@ -13189,6 +13243,11 @@ const h2Y     = (i, w) => { const p = h2Spot(i, w); return w === 0 ? p.y : 100 -
 /* A man who has been sent off does not get a shot, which is the whole point
    of losing your ten. */
 const h2CanShoot = i => !!(S && S.h2h) && !!H2_SHOT_AT(i, S.h2h.who) && !h2IsOff(S.h2h.who, i);
+/* the front line out wide, and the man through the middle: a ball from one to
+   the other is a cross, the easier way in */
+const h2IsWinger = (i, w) => { const p = h2Spot(i, w); return !!p && p.line === 6 && (p.x < 34 || p.x > 66); };
+const h2IsCentral = (i, w) => { const p = h2Spot(i, w); return !!p && p.line === 6 && p.x >= 34 && p.x <= 66; };
+const h2IsCross = (a, b, w) => { try{ w = w == null ? (S && S.h2h ? S.h2h.who : 0) : w; return a !== b && h2IsWinger(a, w) && h2IsCentral(b, w); }catch(e){ return false; } };
 
 /* The pass, and therefore the question. */
 function h2TierFor(a, b){
@@ -13219,6 +13278,7 @@ function h2TierFor(a, b){
   return h2Has(a, w, "captain") ? h2Cheaper(t, 1) : t;
 }
 function h2PassName(a, b){
+  if(h2IsCross(a, b)) return "Cross to " + h2Of(b, h2().who);
   const t = h2TierFor(a, b);
   const how = t === "ball" ? "Route one to" : t === "extreme" ? "Raking ball to"
             : t === "hard" ? "Long ball to" : t === "normal" ? "Pass to" : "Short ball to";
@@ -14905,14 +14965,24 @@ function copyDaily(){
    file below this for the album and the tests that read it, but nothing on
    the menu opens it any more. */
 const DS_SHOTS = {
-  placed: {label: "Placed", stars: 1, tiers: ["easy", "easy", "normal", "normal", "normal", "hard", "hard", "hard"],
-           says: "Side-foot, low, into the corner. The safe one."},
-  driven: {label: "Driven", stars: 2, tiers: ["hard", "hard", "hard", "hard", "hard", "extreme", "extreme", "extreme"],
-           says: "Laced, hard and low. No time for the keeper."},
-  top:    {label: "Top bins", stars: 3, tiers: ["extreme", "extreme", "extreme", "extreme", "extreme", "ball", "ball", "ball"],
+  placed: {label: "Placed", stars: 1, tiers: ["easy", "easy", "normal", "normal", "normal", "hard", "hard", "hard"], save: .35, keeper: "Keeper saves 1 in 3",
+           says: "Side-foot, low, into the corner. The easy question, but the keeper can read it."},
+  driven: {label: "Driven", stars: 2, tiers: ["hard", "hard", "hard", "hard", "hard", "extreme", "extreme", "extreme"], save: .12, keeper: "Keeper saves 1 in 8",
+           says: "Laced, hard and low. Hardly any time for the keeper."},
+  top:    {label: "Top bins", stars: 3, tiers: ["extreme", "extreme", "extreme", "extreme", "extreme", "ball", "ball", "ball"], save: 0, keeper: "Unstoppable",
            says: "Up where the keeper cannot reach. Or over."},
-  panenka:{label: "Panenka", stars: 5, tiers: ["ball", "ball", "ball", "ball", "ball", null, null, null],
+  panenka:{label: "Panenka", stars: 5, tiers: ["ball", "ball", "ball", "ball", "ball", null, null, null], save: 0, keeper: "Unstoppable",
            says: "Chipped down the middle. Once a shootout. Never in sudden death."}};
+/* WHERE THE BALL GOES is the shot's, not the answer's (Martijn, 21 Oct 2026: the
+   answers came off the goal so the kick is the show): low for placed and driven,
+   the top corner for top bins, down the middle for the Panenka (null). The side
+   and the keeper's save come off the date, so every phone sees the same kick. */
+function dsKickFate(day, kick, shot){
+  const rnd = seeded(day * 53 + kick * 211 + DS_SHOT_ORDER.indexOf(shot) * 7 + 3);
+  const side = rnd() < .5 ? "l" : "r", saveRoll = rnd();
+  const target = shot === "panenka" ? null : (shot === "top" ? "t" : "b") + side;
+  return { target, saved: saveRoll < ((DS_SHOTS[shot] || {}).save || 0) };
+}
 const DS_SHOT_ORDER = ["placed", "driven", "top", "panenka"];
 const DS_CLOCK = 12;
 const DS_KICKS = 8;            // five each, then sudden death to kick eight at most
@@ -15117,30 +15187,35 @@ function dsShoot(c){
   dsStop();
   const Q = S.dq, D = dsDay(sh.date), kick = sh.kicks.length;
   const opt = c >= 0 ? Q.corners[c] : -1;
-  const goal = c >= 0 && opt === dsQ(Q).k;
-  const shot = S.dshot;
+  const right = c >= 0 && opt === dsQ(Q).k;
+  const shot = S.dshot, fate = dsKickFate(sh.date, kick, shot);
+  /* right isn't always in: an easy shot gives the keeper a chance */
+  const goal = right && !fate.saved;
   const decisiveBefore = dsStakes(sh);
-  const how = goal ? "goal" : c < 0 ? "clock" : shot === "panenka" ? "panenka" : D.miss[kick];
-  sh.kicks.push({shot, q: Q.k, goal, how});
-  progAnswer({ ok: goal, tier: Q.tier, topic: "general" });
+  const how = goal ? "goal" : c < 0 ? "clock" : right ? "read" : shot === "panenka" ? "panenka" : D.miss[kick];
+  sh.kicks.push({shot, q: Q.k, goal, how, right});
+  progAnswer({ ok: right, tier: Q.tier, topic: "general" });
   if(shot === "panenka") sh.panenkaUsed = true;
   sh.pending = null;
   const t = dsTally(sh);
   const score = " " + t.my + "–" + t.their;
   sh.last = {who: "me", goal, line: goal
     ? ({placed: "Coolly slotted.", driven: "Smashed in. No chance.", top: "Top bins! Unstoppable.", panenka: "PANENKA! The cheek of it."})[shot] + score
-    : ({saved: "Saved! He guessed right.", wide: "Dragged wide.", over: "Over the bar!", post: "Off the post!",
-        clock: "Too long over it. The keeper gathers it.", panenka: "The Panenka dribbles into his arms."})[how] + score};
-  S.dpick = c; S.dcorner = c < 0 ? 4 : c; S.dhow = how; S.dslow = !!decisiveBefore;
+    : ({saved: "Saved! He guessed right.", wide: "Dragged wide.", over: "Over the bar!", post: "Off the post!", read: "Right answer, but he read it. Saved!",
+        clock: "Too long over it. The keeper gathers it.", panenka: "The Panenka floats over the bar."})[how] + score};
+  S.dpick = c; S.dcorner = c < 0 ? 4 : c; S.dhow = how; S.dslow = !!decisiveBefore; S.dtarget = fate.target;
   S.phase = "ds_res";
   try{ kickfx(); }catch(e){}
-  setTimeout(() => { try{ goal ? (netfx(), ching()) : groanfx(); }catch(e){} }, S.dslow ? 900 : 450);
-  if(goal) setTimeout(() => { try{ confetti(dsDecided(sh) === "won" ? 90 : 40); }catch(e){} }, S.dslow ? 1000 : 520);
-  buzz(goal ? 40 : [60, 40, 60]);
+  /* the crowd only knows when the ball does */
+  const landMs = dsLandMs(how);
+  setTimeout(() => { try{ goal ? (netfx(), ching()) : groanfx(); buzz(goal ? 40 : [60, 40, 60]); }catch(e){} }, landMs);
+  if(goal) setTimeout(() => { try{ confetti(dsDecided(sh) === "won" ? 90 : 40); }catch(e){} }, landMs + 80);
   dsAfterMine(sh, false);
   render();
 }
 const dsQ = Q => ((DECKS["classic-mc"] || {})[Q.tier] || [])[Q.i] || {q: "", o: ["", "", "", ""], k: 0};
+/* when the ball lands, in ms after the tap: the moment GOAL or SAVED shows */
+function dsLandMs(how){ try{ return Math.round((G3.clock.land + (how === "over" || how === "wide" || how === "panenka" ? .08 : .02)) * G3.size.dur); }catch(e){ return 2400; } }
 function dsAfterMine(sh, quiet){
   const r = dsDecided(sh);
   if(r){ sh.done = true; sh.result = r; dsScore(sh); }
@@ -15309,7 +15384,7 @@ function dsRender(st){
         const T = DS_SHOTS[s], tier = T.tiers[kick];
         return '<button class="dsshot s-' + s + '" onclick="dsChoose(\'' + s + '\')">' +
           '<b>' + T.label + '</b><span class="st">' + "⭐".repeat(T.stars) + '</span>' +
-          '<small>' + esc(TIERS[tier].label) + ' question</small></button>';
+          '<small>' + esc(TIERS[tier].label) + ' question</small><em class="dskeep">' + esc(T.keeper) + '</em></button>';
       }).join("") + '</div>' +
       '<button class="bigbtn ghost" onclick="toMenu()">Leave it for now</button>';
     return;
@@ -15322,8 +15397,7 @@ function dsRender(st){
     st.innerHTML = head + dsBoardHTML(sh) +
       '<div class="dsqtext"><small>' + DS_SHOTS[S.dshot].label + ' · ' + esc(TIERS[Q.tier].label) + '</small>' + esc(Qd.q) + '</div>' +
       '<div class="dsclock' + (left <= 3 ? " low" : "") + '"><i style="width:' + (left / DS_CLOCK * 100) + '%"></i></div>' +
-      dsSceneHTML(sh, false) +
-      '<div class="dsq">Shoot at the right answer</div>';
+      dsSceneHTML(sh, false) + dsAnswersHTML(false);
     return;
   }
   if(S.phase === "ds_res"){
@@ -15338,10 +15412,12 @@ function dsRender(st){
     const keeperGoes = goal ? (S.dcorner === 0 || S.dcorner === 2 ? "dive-r" : "dive-l")
       : S.dhow === "saved" ? (S.dcorner === 0 || S.dcorner === 2 ? "dive-l" : "dive-r") : S.dhow === "panenka" || S.dhow === "clock" ? "stay" : "dive-l";
     void ball; void keeperGoes; void corners;
-    st.innerHTML = head + dsBoardHTML(sh) +
+    const rv = (dsLandMs(S.dhow) / 1000).toFixed(2);
+    st.innerHTML = head + '<div class="dswait" style="--rv:' + rv + 's">' + dsBoardHTML(sh) + '</div>' +
       dsSceneHTML(sh, true) +
+      '<div class="dswait" style="--rv:' + rv + 's">' + dsAnswersHTML(true) +
       '<div class="dsline big' + (goal ? " good" : " bad") + '">' + esc(sh.last.line) + '</div>' +
-      '<button class="bigbtn" onclick="dsOn()">' + (sh.done ? "Full time" : "Next kick") + '</button>';
+      '<button class="bigbtn" onclick="dsOn()">' + (sh.done ? "Full time" : "Next kick") + '</button></div>';
     return;
   }
   /* ds_done */
@@ -18978,7 +19054,12 @@ const CHEER = ph => ({ zL: 2.6, zR: 2.6, eL: .4, eR: .4, hL: .1, kL: .2, hR: .05
 let K = null, P = null;               // the shared core, and the pitch scene
 const men = new Map();                // "w:i" -> a man
 const teamKey = [null, null];
-let snap = null, lastWho = null, swing = null, flight = null, cele = null, chal = null, celeOver = 0;
+let snap = null, lastWho = null, swing = null, flight = null, cele = null, chal = null, celeOver = 0, cross = null;
+/* WHERE THE BALL SITS: just in front of his right boot, wherever he is and
+   whichever way he faces (Martijn, 21 Oct 2026: it was a metre off, at the 2D
+   ball spot, and passes flew between spots instead of feet) */
+const FOOT_F = .72, FOOT_S = .2;
+const footOf = m => { const s = Math.sin(m.yaw), c = Math.cos(m.yaw); return [m.x + s*FOOT_F + c*FOOT_S, m.z + c*FOOT_F - s*FOOT_S]; };
 let view = { yaw: 0, tilt: 1, zoom: 1 }, camPos = null, camLook = null;
 let raf = null, lastNow = 0, slow = 0, low = false;
 function now(){ return (typeof performance !== "undefined" ? performance.now() : Date.now()); }
@@ -19109,8 +19190,10 @@ function see(o){
     for(const m of men.values()){ m.x = -m.x; m.z = -m.z; m.yaw += Math.PI; }
     if(camPos){ camPos = [-camPos[0], camPos[1], -camPos[2]]; camLook = [-camLook[0], camLook[1], -camLook[2]]; }
     swing = { t0: t, dur: 800 };
-    flight = null;
+    flight = null; cross = null;
   }
+  /* a cross is held in the box only while the striker who met it has the ball */
+  if(cross && (H.who !== cross.w || H.at !== cross.i)) cross = null;
   lastWho = H.who;
   const runMs = (typeof H2_RUN_MS !== "undefined" ? H2_RUN_MS : 1400), outMs = (typeof H2_OUT_MS !== "undefined" ? H2_OUT_MS : 950);
   const movedFor = (i, mine) => o.F ? (o.F.filter(e => e.i === i && e.mine === mine)[0] || null) : null;
@@ -19132,12 +19215,24 @@ function see(o){
   if(o.A){
     const A = o.A, tier = A.tier, ground = !!tier && H2_SAFE.includes(tier), drive = !ground && !o.R && !A.dur && tier === "hard";
     const dur = A.dur ? A.dur : o.R ? runMs : drive ? 640 : ground ? 800 : 920;
+    const isCross = !o.R && !A.dur && (() => { try { return h2IsCross(A.from, A.to, H.who); } catch(e){ return false; } })();
     const from = V(A.fx, A.fy), to = o.R ? V(o.R.rx, o.R.ry) : V(A.tx, A.ty);
     const d = Math.hypot(to[0] - from[0], to[1] - from[1]);
-    flight = { t0: t + 180, dur, from, to, h: ground ? 0 : drive ? Math.min(2.4, .8 + d*.03) : Math.min(14, 3 + d*.18), ground };
+    /* a turnover with a run goes to the spot the run was for, not to a man */
+    const toKey = o.R || A.to == null ? null : H.who + ":" + A.to;
+    flight = { t0: t + 180, dur: isCross ? 1150 : dur, from, to, fromKey: A.from == null ? null : H.who + ":" + A.from, toKey,
+               h: isCross ? 6 : ground ? 0 : drive ? Math.min(2.4, .8 + d*.03) : Math.min(14, 3 + d*.18), ground: ground && !isCross };
     const passer = men.get(H.who + ":" + A.from), recv = men.get(H.who + ":" + A.to);
+    /* THE CROSS: whipped in from the wing, and the striker attacks the box to
+       meet it, arriving with the ball */
+    if(isCross && recv){
+      const bx = Math.max(-5, Math.min(5, recv.tx*.35)), bz = -42.5;
+      cross = { w: H.who, i: A.to, key: toKey, x: bx, z: bz };
+      recv.speed = Math.max(4, Math.hypot(bx - recv.x, bz - recv.z)/((180 + 1150)/1000));
+      flight.to = [bx, bz];
+    }
     if(passer){ const aim = Math.atan2(to[0] - passer.x, to[1] - passer.z); passer.task = { t0: t, dur: 600, yaw: aim, f: q => KICK(q*.6) }; }
-    if(recv && !o.R){ recv.task = { t0: t + 180 + dur - 120, dur: 520, face: from, f: q => TOUCH(q) }; }
+    if(recv && !o.R){ const arr = 180 + flight.dur; recv.task = { t0: t + arr - 120, dur: 520, face: from, f: q => TOUCH(q) }; }
   }
   /* THE CHALLENGE: the tackler slides in along his line, the man caught braces or goes down */
   chal = null;
@@ -19171,13 +19266,24 @@ function frame(t){
   const t0 = now();
   const S_ = snap, celeOn = cele && t0 < celeOver;
   /* the men */
-  let bx = S_.rest[0], bz = S_.rest[1];
-  if(flight && t0 >= flight.t0){
-    const q = rm ? 1 : clamp((t0 - flight.t0)/flight.dur), e = flight.ground ? 1 - Math.pow(1 - q, 2.2) : q;
-    bx = lerp(flight.from[0], flight.to[0], e); bz = lerp(flight.from[1], flight.to[1], e);
-    if(q >= 1) flight = null;
-  } else if(flight){ bx = flight.from[0]; bz = flight.from[1]; }
-  if(S_.ballAt){ bx = S_.ballAt[0]; bz = S_.ballAt[1]; }
+  /* from the passer's boot to the receiver's, wherever the receiver has got
+     to by then; otherwise on the holder's boot */
+  const manAt = k => { const m = k && men.get(k); return m && !m.off ? m : null; };
+  const ballXZ = () => {
+    if(S_.ballAt) return S_.ballAt;
+    if(flight){
+      const pm = manAt(flight.fromKey);
+      if(t0 < flight.t0) return pm ? footOf(pm) : flight.from;
+      if(!flight.fp) flight.fp = pm ? footOf(pm) : flight.from;
+      const q = rm ? 1 : clamp((t0 - flight.t0)/flight.dur), e = flight.ground ? 1 - Math.pow(1 - q, 2.2) : q;
+      const rmn = manAt(flight.toKey), to = rmn ? footOf(rmn) : flight.to;
+      return [lerp(flight.fp[0], to[0], e), lerp(flight.fp[1], to[1], e)];
+    }
+    const hm = manAt(S_.who + ":" + S_.at);
+    return hm ? footOf(hm) : S_.rest;
+  };
+  let [bx, bz] = ballXZ();
+  if(flight && t0 >= flight.t0 && (rm || (t0 - flight.t0) >= flight.dur)) flight = null;
   for(const m of men.values()){
     m.f.root.visible = !m.off;
     if(m.off) continue;
@@ -19185,6 +19291,7 @@ function frame(t){
     const key = m.w + ":" + m.i;
     /* their block slides with the ball; nobody presses */
     let tx = m.tx, tz = m.tz;
+    if(cross && key === cross.key && !celeOn){ tx = cross.x; tz = cross.z; }
     if(!m.mine && !chal && !celeOn && key !== S_.lost){
       if(m.i === 0) tx = m.tx + Math.max(-2.5, Math.min(2.5, bx*.08));
       else { tx = m.tx + bx*.18; tz = m.tz + (bz - m.tz)*.08; }
@@ -19236,6 +19343,7 @@ function frame(t){
   /* the ball: on the holder's foot, or on its way */
   let by = .11*1.9;
   if(flight && t0 >= flight.t0){ const q = clamp((t0 - flight.t0)/flight.dur); by += flight.h*4*q*(1 - q); P.ballMesh.rotation.x -= dt*(flight.ground ? 18*(1 - q) : 8); }
+  if(!celeOn){ const fb = ballXZ(); bx = fb[0]; bz = fb[1]; }
   if(celeOn){ bx = 0; bz = -53.5; by = .3; }
   P.ball.position.set(bx, by, bz);
   const hold = men.get(S_.who + ":" + S_.at), nx = S_.next && men.get(S_.next);
@@ -19780,7 +19888,9 @@ function cameraFor(i, w, pen){
   try { p = h2Spot(i, w); } catch(e){ p = null; }
   if(!p) return "close";
   if(p.line < 6) return "curler";
-  return (p.x >= 34 && p.x <= 66) ? "close" : "angle";
+  /* A WINGER CUTS INSIDE AND CURLS IT (Martijn, 21 Oct 2026): the harder
+     question, from the edge of the box onto his stronger foot */
+  return (p.x >= 34 && p.x <= 66) ? "close" : "curler";
 }
 
 /* ---------------- projection ----------------
@@ -20582,7 +20692,9 @@ function cameraFor(i, w, pen){
   try { p = h2Spot(i, w); } catch(e){ p = null; }
   if(!p) return "close";
   if(p.line < 6) return "curler";
-  return (p.x >= 34 && p.x <= 66) ? "close" : "angle";
+  /* A WINGER CUTS INSIDE AND CURLS IT (Martijn, 21 Oct 2026): the harder
+     question, from the edge of the box onto his stronger foot */
+  return (p.x >= 34 && p.x <= 66) ? "close" : "curler";
 }
 
 /* ---------- projection, in plain numbers ----------
@@ -22418,7 +22530,7 @@ function h2Render(st){
       lineBar + heat + bar +
       (canShoot
         ? '<button class="bigbtn' + (H.sel != null ? " ghost" : "") + '" style="margin-top:8px" onclick="h2Shoot()">' +
-          'Shoot · ' + TIERS[h2ShotTier(H.at, H.who)].label + '</button>'
+          (h2IsWinger(H.at, H.who) ? 'Cut inside and shoot · ' : 'Shoot · ') + TIERS[h2ShotTier(H.at, H.who)].label + '</button>'
         : "") +
       /* ONLY WITH NOTHING SELECTED. The instant a ball is picked out it is no
          longer a break in play, and a man cannot be swapped off mid-pass. */
@@ -22432,7 +22544,7 @@ function h2Render(st){
 
   if(S.phase === "h_q" || S.phase === "h_judge"){
     const shown = S.phase === "h_judge";
-    const head = H.shooting ? (H.pen ? "PENALTY · " : "SHOOTING from ") + h2Of(H.at, H.who)
+    const head = H.shooting ? (H.pen ? "PENALTY · " : h2IsWinger(H.at, H.who) && !H.so ? "CUTTING INSIDE · " : "SHOOTING from ") + h2Of(H.at, H.who)
                             : h2PassName(H.at, H.sel == null ? H.at : H.sel);
     /* THE CARD IS LABELLED FROM THE LADDER, NOT FROM THE QUESTION THAT WAS
        DRAWN, and that is a secrecy fix rather than a cosmetic one.
@@ -23964,26 +24076,28 @@ const DS_KIT = "#123D24", DS_GK = "#c8e637";
 function dsSceneHTML(sh, told){
   const Q = S.dq, Qd = dsQ(Q), kick = told ? sh.kicks[sh.kicks.length - 1] : null;
   const goal = !!(kick && kick.goal);
-  const c = told ? S.dcorner : null;                  // 0..3, or 4 for the clock
-  const shot = told ? (c != null && c < 4 ? DS_CORNERS[c] : "bl") : null;
+  const shot = told ? (S.dtarget === undefined ? "bl" : S.dtarget) : null;      // null: down the middle
   const opp = { tl: "br", tr: "bl", bl: "br", br: "bl" };
   const how = told ? S.dhow : "";
-  const out = !told ? "scored" : goal ? "scored" : (how === "over" || how === "wide") ? "over" : "saved";
-  const dive = !told ? null : goal ? opp[shot] : out === "saved" ? shot : opp[shot];
+  const out = !told ? "scored" : goal ? "scored" : (how === "over" || how === "wide" || how === "panenka") ? "over" : "saved";
+  const dive = !told ? null : goal ? opp[shot || "bl"] : out === "saved" ? (shot || "bl") : opp[shot || "bl"];
   const sp = (() => { try{ return kitShorts(DS_KIT); }catch(e){ return "#F8F1DD"; } })();
   G3.arm({ cam: "pen", flip: false, out, shot, dive, hold: !told, no: 10, kit: DS_KIT, shorts: sp, gkKit: DS_GK, gkShorts: "#22252b",
            defKit: DS_KIT, defShorts: sp, ink: "#F8F1DD", sig: ["ds", sh.date, sh.kicks.length, told ? 1 : 0, shot || "-", out].join("|") });
   const M = G3.mouth("pen", false);
-  const right = Q.corners.indexOf(Qd.k);
-  const corner = (pos, i) => told
-    ? '<div class="h2gmc dsg ' + pos + (i === right ? " right" : i === S.dpick ? " wrong" : " dim") + '"><span>' + esc(Qd.o[Q.corners[i]]) + '</span></div>'
-    : '<button class="h2gmc dsg ' + pos + '" onclick="dsShoot(' + i + ')"><span>' + esc(Qd.o[Q.corners[i]]) + '</span></button>';
   const cry = !told ? "" : goal ? "GOAL" : out === "over" ? "OVER" : "SAVED";
   const cryAt = (G3.clock.land + (out === "over" ? .08 : .02)) * G3.size.dur / 1000;
-  return '<div class="g3 dsg3 ' + (told ? (goal ? "scored" : out === "over" ? "missed" : "saved") : "set") + '" style="--gmL:' + M.L + '%;--gmR:' + M.R + '%;--gmT:' + M.T + '%;--gmH:' + M.H + '%;--g3cry:' + cryAt.toFixed(2) + 's">' +
+  return '<div class="g3 dsg3 ' + (told ? (goal ? "scored" : out === "over" ? "missed" : "saved") : "set") + '" style="--g3cry:' + cryAt.toFixed(2) + 's">' +
     '<canvas class="g3c" id="g3c" width="' + M.w + '" height="' + M.h + '" role="img" aria-label="The penalty, from behind the taker"></canvas>' +
-    '<div class="h2gm dsgm" role="group" aria-label="The four answers, one in each corner">' + DS_CORNERS.map(corner).join("") + '</div>' +
     '<div class="g3-cry">' + cry + '</div></div>';
+}
+/* the four answers under the goal. Told: the one you picked is marked, and
+   right and wrong only show once the ball has landed (--rv) */
+function dsAnswersHTML(told){
+  const Q = S.dq, Qd = dsQ(Q), right = Q.corners.indexOf(Qd.k);
+  return '<div class="dsans' + (told ? " told" : "") + '" role="group" aria-label="The four answers">' + [0, 1, 2, 3].map(i => told
+    ? '<div class="dsa' + (i === S.dpick ? " mine" : "") + (i === right ? " right" : i === S.dpick ? " wrong" : "") + '"><span>' + esc(Qd.o[Q.corners[i]]) + '</span></div>'
+    : '<button class="dsa" onclick="dsShoot(' + i + ')"><span>' + esc(Qd.o[Q.corners[i]]) + '</span></button>').join("") + '</div>';
 }
 
 /* ---------- SCREEN TO SCREEN ----------
@@ -25523,7 +25637,12 @@ function routeShirt(C){
     if(S.mode === "mgr" || typeof dressShirtSVG !== "function") return "";
     const row = (typeof MYS !== "undefined" && MYS) ? MYS.find(r => r.n === C.n) : null;
     const nat = row && row.nat;
-    if(!nat) return "";
+    const surname = String(C.n).split(" ").slice(-1)[0];
+    /* his number when the books have it; otherwise one of his own, fixed by his name */
+    const own = (() => { let h = 0; for(const ch of String(C.n)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return 2 + h % 22; })();
+    /* no nation on file: a plain BALL shirt, so the reveal always has one */
+    const plain = () => '<div class="cpshirt">' + dressShirtSVG({ body: "#123D24", trim: "#e9b84c", trim2: "#e9b84c", ink: "#f3ecda", outline: "#0a1f13", collar: "crew", pattern: null, flagSrc: null }, surname, own) + '</div>';
+    if(!nat) return plain();
     let pool = null, no = null;
     for(const k of Object.keys(TEAMS)){
       const t = TEAMS[k] && TEAMS[k][nat];
@@ -25532,10 +25651,9 @@ function routeShirt(C){
       const m = (t.xi || []).concat(t.bench || []).find(x => x && x.full === C.n);
       if(m){ pool = k; no = m.no; break; }
     }
-    if(!pool && !DRESS_KIT[nat]) return "";
+    if(!pool && !DRESS_KIT[nat]) return plain();
     const kit = dressKit(pool, nat, false);
-    const surname = String(C.n).split(" ").slice(-1)[0];
-    return '<div class="cpshirt">' + dressShirtSVG(kit, surname, no) + '</div>';
+    return '<div class="cpshirt">' + dressShirtSVG(kit, surname, no != null ? no : own) + '</div>';
   }catch(e){ return ""; }
 }
 /* the "−3 · NEXT STOP: GALATASARAY" line, for the render right after cNext */
@@ -26163,6 +26281,7 @@ function renderMain(){
     const say = !!S.career.say, solo = !!S.career.opts || say;
     const revealAll = S.phase==="c_judge" || S.phase==="c_dead";
     const route = routeHTML(C, {shown: S.career.shown, fresh: popIdx>=0 ? popIdx : (hideIdx>=0 ? hideIdx : null), revealAll, anim: revealAnim, shownBefore: S.career.shown, solo});
+    const heroAnim = revealAnim;
     popIdx=-1; revealAnim=false;
     const words = ["Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve"];
     const count = (words[C.c.length-2] || C.c.length) + (mgr ? " jobs" : " clubs") + ", in order.";
@@ -26213,10 +26332,13 @@ function renderMain(){
       b6GameWrap(st, mgr ? "Manager Path" : "Career Path"); return;
     }
     const won = S.phase==="c_dead" && (S.career.won || 0);
-    const reveal = `<div class="cpreveal"><div class="cpwon">
+    /* THE REVEAL (Martijn, 21 Oct 2026): his shirt swings onto the screen, back
+       to you, name and number on it; then the name lands underneath */
+    const shirt = routeShirt(C);
+    const reveal = `<div class="cpreveal${shirt ? " big" : ""}${heroAnim ? " anim" : ""}">${shirt}<div class="cpwon">
         <small class="${won ? "ok" : ""}">${S.phase==="c_judge" ? (say ? "Did you have it?" : "Only " + reader() + " looks · judging " + esc(S.players[S.career.guesser].name)) : won ? "Correct · +" + won : solo ? "It was" : "Nobody got it"}</small>
         <b class="careername">${esc(C.n)}</b>
-        ${C.note?`<span>${esc(C.note)}</span>`:""}</div>${routeShirt(C)}</div>`;
+        ${C.note?`<span>${esc(C.note)}</span>`:""}</div></div>`;
     if(S.phase==="c_judge"){
       st.innerHTML = `
         ${reveal}
@@ -29229,18 +29351,15 @@ function ttNextBoard(){
   if(!t || (t.phase !== "goal" && t.phase !== "draw")) return;
   if(t.over){ t.phase = "full"; ttFullTime(); return; }
   const ko = t.phase === "goal" ? 1 - t.goal.who : 1 - t.kickoff;
-  const grids = TT_DATA.grids[t.theme];
-  t.gi++;
-  t.grid = grids[t.order[t.gi % t.order.length]];
-  Object.assign(t, { board: Array(9).fill(null), used: [], boardNo: t.boardNo + 1, bm: 0, kickoff: ko, turn: ko, phase: "play",
-    goal: null, wrong: null, hint: null, sel: null, mode: "claim", tackle: null });
+  ttFreshBoard(ko);
+  t.boardNo++;
 }
 /* XP only for a match on one phone (the progression plan's rule): 20 for
    finishing, 10 for each board the phone's captain won */
 function ttFullTime(){
   const t = TT;
   if(t.xp) return;
-  const won = t.boards.filter(b => b.who === 0).length;
+  const won = t.boards.filter(b => b.who === 0).length + (t.forfeit === 1 ? 1 : 0);
   t.xp = progExtra("grid", [{ label: "Match", xp: 20 }].concat(won ? [{ label: won + " board" + (won === 1 ? "" : "s") + " won", xp: 10 * won }] : [])) || { xp: 0 };
   const p = ttPrefs(); p.played++; ttSavePrefs(p);
 }
@@ -29289,10 +29408,10 @@ function ttShirt(kit, no){
 }
 function ttCatIcon(k, px){
   if(String(k).startsWith("n:")) return '<img class="ttflag" src="assets/natflags/' + k.slice(2) + '.png" alt="" width="' + px + '">';
-  const u = crestURL(k.slice(2), "patch", 48);
+  const u = crestURL(k.slice(2), "patch", 96);
   return u ? '<img class="ttpatch" src="' + u + '" alt="" width="' + px + '">' : '<span class="ttpatch sw" style="width:' + px + 'px"></span>';
 }
-const ttAd = (k, side) => '<div class="ttad' + (side ? " side" : "") + (ttCatName(k).split(/\s+/).some(w => w.length > 9) ? " long" : "") + '">' + ttCatIcon(k, side ? 24 : 20) + '<span>' + esc(ttCatName(k)) + '</span></div>';
+const ttAd = (k, side) => '<div class="ttad' + (side ? " side" : "") + (ttCatName(k).split(/\s+/).some(w => w.length > 9) ? " long" : "") + '">' + ttCatIcon(k, side ? 44 : 40) + '<span>' + esc(ttCatName(k)) + '</span></div>';
 function ttScoreHTML(label){
   const t = TT;
   const side = i => {
@@ -29358,7 +29477,7 @@ function ttPlayScreen(st){
   } else {
     acts = '<div class="ttacts">' + b4Btn(t.mode === "tackle" ? "Pick a square ↑" : "Name a player", "ttName_()", "gold") +
       (t.tackles[me] ? b4Btn(t.mode === "tackle" ? "Cancel" : 'Tackle <small>' + t.tackles[me] + ' left</small>', "ttTackleMode()", "dark") : "") + '</div>' +
-      (t.hints[me] ? b4Btn("Ask the gaffer", "ttAskGaffer()", "quiet") : "");
+      '<div class="ttmore">' + (t.hints[me] ? b4Btn("Ask the gaffer", "ttAskGaffer()", "quiet") : "") + b4Btn("Board options", "ttBoardMenu()", "quiet") + '</div>';
   }
   st.innerHTML = b4Page({ title: "Tiki-Taka-Toe", ctx: "Board " + t.boardNo + " · " + TT_THEMES[t.theme].n, leave: "ttAskLeave()", cls: "ttpage" + (t.phase !== "play" ? " ttover" : ""),
     score: ttScoreHTML(ttLabel()) + (t.phase === "play" && t.clock ? '<div class="ttclock" id="clock"><span class="digits">' + t.clock + '.0</span><span class="bar"><i></i></span></div>' : ""),
@@ -29383,6 +29502,44 @@ function ttName_(){
   if(t.mode === "tackle"){ toast("Tap one of " + t.players[1 - t.turn].name + "'s squares."); return; }
   if(t.sel == null || t.board[t.sel]){ toast("Tap an empty square first."); return; }
   ttOpenSearch(t.sel, "claim");
+}
+/* BOARD OPTIONS (Martijn, 21 Oct 2026): a fresh board whenever you like (this
+   one doesn't count), call it a draw (it counts as one), or one of you forfeits
+   the match */
+function ttBoardMenu(){
+  audio();
+  const t = TT; if(!t || t.phase !== "play") return;
+  sheet('<h2>Board ' + t.boardNo + '</h2><p>Stuck, or done with this one?</p>' +
+    '<button class="bigbtn" onclick="closeSheet();ttSkipBoard()">New board<small> · this one doesn\'t count</small></button>' +
+    '<button class="bigbtn ghost" onclick="closeSheet();ttCallDraw()">Call it a draw</button>' +
+    t.players.map((p, i) => '<button class="bigbtn bad" onclick="closeSheet();ttForfeit(' + i + ')">' + esc(p.name) + ' forfeits the match</button>').join("") +
+    '<button class="bigbtn ghost" onclick="closeSheet()">Keep playing</button>');
+}
+function ttFreshBoard(ko){
+  const t = TT, grids = TT_DATA.grids[t.theme];
+  t.gi++;
+  t.grid = grids[t.order[t.gi % t.order.length]];
+  Object.assign(t, { board: Array(9).fill(null), used: [], bm: 0, kickoff: ko, turn: ko, phase: "play",
+    goal: null, wrong: null, hint: null, sel: null, mode: "claim", tackle: null });
+}
+function ttSkipBoard(){
+  const t = TT; if(!t || t.phase !== "play") return;
+  ttLog("Board " + t.boardNo + " scrapped. A new grid.");
+  ttFreshBoard(1 - t.kickoff);
+  stopTimer(); render();
+}
+function ttCallDraw(){
+  const t = TT; if(!t || t.phase !== "play") return;
+  t.boards.push({ no: t.boardNo, who: null });
+  ttLog("Board " + t.boardNo + " called a draw.");
+  t.phase = "draw"; t.over = t.boardNo >= TT_MAX_BOARDS;
+  stopTimer(); render();
+}
+function ttForfeit(i){
+  const t = TT; if(!t) return;
+  t.forfeit = i;
+  ttLog(t.players[i].name + " forfeits. " + t.players[1 - i].name + " wins the match.");
+  t.phase = "full"; ttFullTime(); stopTimer(); render();
 }
 function ttTackleMode(){ audio(); const t = TT; t.mode = t.mode === "tackle" ? "claim" : "tackle"; t.sel = null; render(); }
 function ttAskGaffer(){
@@ -29461,10 +29618,10 @@ function ttFullScreen(st){
   const t = TT;
   const rare = t.picks.slice().sort((a, b) => a.r - b.r)[0];
   const rows = t.boards.map(b => '<div class="ttbrow"><span>Board ' + b.no + '</span><b>' + (b.who == null ? "Draw" : esc(t.players[b.who].name) + " scores") + '</b><small>' + (b.names ? esc(b.names.join(" · ")) : "no line") + '</small></div>').join("");
-  const winner = t.score[0] === t.score[1] ? null : t.players[t.score[0] > t.score[1] ? 0 : 1];
+  const winner = t.forfeit != null ? t.players[1 - t.forfeit] : t.score[0] === t.score[1] ? null : t.players[t.score[0] > t.score[1] ? 0 : 1];
   st.innerHTML = b4Page({ title: "Full time", ctx: "Tiki-Taka-Toe · " + TT_THEMES[t.theme].n, cls: "ttpage ttft", back: "ttLeave()",
     score: ttScoreHTML("FULL TIME"),
-    body: guestLineHTML() + b4Q(winner ? esc(winner.name) + " wins it" : "Honours even", t.boards.length + " board" + (t.boards.length === 1 ? "" : "s") + " played") +
+    body: guestLineHTML() + b4Q(winner ? esc(winner.name) + " wins it" : "Honours even", (t.forfeit != null ? esc(t.players[t.forfeit].name) + " forfeited · " : "") + t.boards.length + " board" + (t.boards.length === 1 ? "" : "s") + " played") +
       b4Card(rows) +
       (rare ? b4Card('<div class="ttrare"><span>Rarest pick</span><b>' + esc(ttName(rare.id)) + '</b><small>' + esc(rare.cell) + ' · ' + ttPct(rare.r) + ' · ' + esc(t.players[rare.who].name) + '</small></div>', { gold: true }) : "") +
       (t.xp && t.xp.xp ? '<div class="ttxp">+' + t.xp.xp + ' XP <small>for ' + esc(t.players[0].name) + '</small></div>' : "") +
@@ -30076,16 +30233,33 @@ function listsShelfScreen(st){
     return '<button class="lsday ' + (k === "top10" ? "dk" : "cr") + (done ? " done" : "") + '" onclick="listsIntro(\'' + c.id + '\', true)"><span class="kind"><span>' + (k === "top10" ? "TOP 10" : "NAME THEM ALL") + '</span></span>' +
       '<b>' + esc(c.title) + '</b><small>' + (done ? (s.daily[k].medal ? LISTS_MEDAL_WORD[s.daily[k].medal] + ". Back tomorrow." : "Played. Back tomorrow.") : k === "top10" ? "The numbers are there. You name the men." : "Against the clock. Deep cuts score a bonus.") + '</small>' +
       '<span class="meta">' + listsArt(c.art) + ' ' + (k === "top10" ? c.size + " TO FIND · 3 CHANCES" : c.size + " TO FIND · " + Math.floor(c.clock / 60) + ":" + String(c.clock % 60).padStart(2, "0")) + '</span></button>'; };
-  const q = listsNorm(V.q || "");
-  const pool = q ? C.filter(c => listsNorm(c.title).includes(q)) : C.filter(c => c.fam === V.fam);
-  const name = (LISTS_FAMS.find(f => f[0] === V.fam) || [0, ""])[1];
-  const shown = pool.slice(0, V.more ? 240 : 60);
+  /* NO PICKING (Martijn, 21 Oct 2026): two lists a day, the same for everyone,
+     and the last ten days below them to catch up on. No catalogue to choose from. */
   st.innerHTML = b4Page({ title: "The Lists", ctx: "Two new lists every day", back: "listsLeave()", cls: "lspage",
     body: '<div class="lstoday">' + day("top10") + day("all") + '</div>' +
-      '<input class="lssearch" type="search" placeholder="Find a list: Arsenal, Brazil, 1990s" aria-label="Find a list" value="' + esc(V.q || "") + '" oninput="LISTS_VIEW.q=this.value;listsShelfRedraw()">' +
-      '<div class="lschips">' + LISTS_FAMS.filter(f => C.some(c => c.fam === f[0])).map(f => '<button class="' + (!q && f[0] === V.fam ? "on" : "") + '" onclick="LISTS_VIEW.fam=\'' + f[0] + '\';LISTS_VIEW.q=\'\';LISTS_VIEW.more=false;render()">' + f[1] + '</button>').join("") + '</div>' +
-      '<div id="lsshelf">' + listsShelfHTML(pool, shown, q ? "Found" : name) + '</div>' +
-      b4Btn("Play today's lists", "listsToday()", "gold") });
+      b4Btn("Play today's lists", "listsToday()", "gold") +
+      '<div class="lsshelfhd"><b>Previous days</b><span>THE LAST ' + LISTS_BACK + '</span></div>' + listsPastHTML() });
+}
+/* the last ten days, newest first: each day's Top 10 and Name them all, with your medal */
+const LISTS_BACK = 10;
+function listsPast(){
+  const out = [];
+  for(let i = 1; i <= LISTS_BACK; i++){
+    const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - i);
+    const k = dayKey(d), P = listsDaily(k);
+    if(P.top10 || P.all) out.push({ k, d, top10: P.top10, all: P.all });
+  }
+  return out;
+}
+function listsPastHTML(){
+  const s = listsState(), days = listsPast();
+  if(!days.length) return '<p class="lsnone">Nothing here yet. Come back tomorrow.</p>';
+  const one = (id, kind) => { const c = id ? listsEntry(id) : null; if(!c) return '<span class="lspast none"></span>';
+    const b = s.best[id];
+    return '<button class="lspast ' + (kind === "top10" ? "dk" : "cr") + (b ? " played" : "") + '" onclick="listsIntro(\'' + id + '\')"><small>' + (kind === "top10" ? "TOP 10" : "NAME THEM ALL") + '</small>' +
+      '<b>' + esc(c.title) + '</b><span class="lspastst">' + (b ? (b.medal ? '<i class="lsmini ' + b.medal + '"></i>' + LISTS_MEDAL_WORD[b.medal] : "Played") + ' · ' + b.found + '/' + b.total : listsArt(c.art)) + '</span></button>'; };
+  return '<div class="lspastlist">' + days.map(x => '<div class="lspastday"><span class="lspastd">' +
+    x.d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) + '</span>' + one(x.top10, "top10") + one(x.all, "all") + '</div>').join("") + '</div>';
 }
 function listsShelfHTML(pool, shown, name){
   return '<div class="lsshelfhd"><b>' + esc(name) + '</b><span>' + pool.length.toLocaleString("en") + ' LIST' + (pool.length === 1 ? "" : "S") + '</span></div>' +
@@ -30264,10 +30438,10 @@ function listsFullScreen(st){
       '<div class="lsbtns">' + b4Btn("Share", "listsShare()", "dark") + b4Btn("Next list", next, "gold") + '</div>' });
 }
 function listsPickNext(){
-  const g = LSG, C = LISTS_DATA.catalog || [], s = listsState();
-  const pool = C.filter(c => c.kind === (g ? g.kind : "all") && c.id !== (g && g.id) && !s.best[c.id] && Math.abs(c.diff - (g ? g.entry.diff : 3)) <= 1);
-  const pick = pool[Math.floor(Math.random() * pool.length)];
-  if(pick) listsIntro(pick.id); else listsShelf();
+  const g = LSG, s = listsState(), kind = g ? g.kind : "all";
+  const ids = listsPast().map(x => x[kind]).concat(listsPast().map(x => x[kind === "top10" ? "all" : "top10"]));
+  const pick = ids.find(id => id && id !== (g && g.id) && !s.best[id]);
+  if(pick) listsIntro(pick); else listsShelf();
 }
 function listsShare(){
   audio();

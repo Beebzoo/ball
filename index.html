@@ -6578,33 +6578,54 @@
   .b6anshint{margin-top:6px}
 
 
-  /* ---------- WHO IS HE? ---------- */
-  .gwlog{display:flex;flex-direction:column;gap:6px;margin:0 0 10px}
-  .gwline{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:var(--th-card);color:var(--th-card-ink);border:2px solid var(--th-edge);font:700 14px/1.2 'Barlow Semi Condensed',sans-serif}
-  .gwline small{flex:0 0 auto;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
-  .gwline span{flex:1}
-  .gwline b{flex:0 0 auto;font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;padding:4px 9px;border-radius:999px}
-  .gwline.yes b{background:var(--th-pill);color:#241B08}
-  .gwline.no b{background:rgba(255,255,255,.16);color:#F8F1DD}
-  .gwgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;perspective:600px}
-  .gwcard{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 3px 6px;border-radius:10px;border:2px solid #fff;background:#F8F1DD;color:#123D24;
-    box-shadow:0 3px 0 rgba(0,0,0,.12);cursor:pointer;min-width:0;transform-origin:50% 100%;transition:transform .45s cubic-bezier(.5,0,.3,1),opacity .45s,filter .45s}
-  .gwcard img{width:30px;height:auto;border-radius:2px;box-shadow:0 0 0 1px rgba(18,61,36,.25)}
-  .gwcard b{font:italic 900 13px/1.05 'Barlow Semi Condensed',sans-serif;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .gwcard small{font:700 9.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;opacity:.65}
-  .gwcard.down{transform:rotateX(70deg);opacity:.28;filter:grayscale(1);cursor:default;box-shadow:none}
+  /* ---------- WHO IS HE? THE TRAY (design A, 22 Oct 2026) ---------- */
+  .gwlog{display:flex;gap:8px;margin:0 0 10px}
+  .gwline{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding:6px 9px 7px;border-radius:10px;background:linear-gradient(#14422A,#0b2416);color:#F8F1DD;border:2px solid #fff;
+    box-shadow:0 3px 8px rgba(0,0,0,.2);font:700 13px/1.2 'Barlow Semi Condensed',sans-serif}
+  .gwline small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8FB79E}
+  .gwline span{font:italic 400 13px/1.25 'Lora',Georgia,serif}
+  .gwline b{align-self:flex-start;font:italic 900 13px/1 'Barlow Semi Condensed',sans-serif;padding:3px 7px;border-radius:4px}
+  .gwline.yes b{background:#e9b84c;color:#241B08}
+  .gwline.no b{background:#F8F1DD;color:#241B08}
+  .gwline.none span{color:#8FB79E}
+  .gwtray{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;padding:10px;border:2px solid #fff;border-radius:14px;
+    background:linear-gradient(#14422A,#0b2416);box-shadow:0 8px 18px rgba(0,0,0,.3),inset 0 2px 0 rgba(255,255,255,.08)}
+  .gwslot{position:relative;height:84px;border-radius:6px;background:rgba(0,0,0,.28);box-shadow:inset 0 2px 4px rgba(0,0,0,.5);perspective:260px}
+  .gwslot::after{content:"";position:absolute;left:6px;right:6px;bottom:3px;height:3px;border-radius:2px;background:#06140c}
+  .gwcard{position:relative;display:block;width:100%;padding:0;border:0;border-radius:6px;background:#F8F1DD;color:#241B08;cursor:pointer;min-width:0;
+    box-shadow:0 0 0 2px #fff,0 4px 6px rgba(0,0,0,.4);transform-origin:50% 100%;transition:transform .45s cubic-bezier(.5,0,.3,1),background .3s}
+  .gwslot .gwcard{position:absolute;inset:0 0 5px;width:auto}
+  .gwfront{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;height:100%;padding:3px 2px 2px}
+  .gwshirt{width:44px;height:41px;display:block;flex:0 0 auto}
+  .gwcard b{font:italic 900 13px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .gwcard small{display:flex;align-items:center;gap:3px;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.05em;color:#5b4a23;white-space:nowrap}
+  .gwcard small img{width:14px;height:9px;object-fit:cover;border-radius:1px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+  .gwback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;gap:4px;border-radius:5px;background:linear-gradient(#1a5233,#0e3520);border:2px solid rgba(255,255,255,.4)}
+  .gwback svg{width:18px;height:18px}
+  .gwback i{font:800 10px/1 'Barlow Semi Condensed',sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:#8FB79E;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .gwcard.down{transform:rotateX(66deg);background:transparent;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+  .gwcard.down .gwfront{visibility:hidden}.gwcard.down .gwback{display:flex}
+  .gwcard.down:disabled{cursor:default}
   .gwcard.fall{animation:gwfall .6s cubic-bezier(.5,0,.3,1) both}
-  @keyframes gwfall{from{transform:none;opacity:1;filter:none}to{transform:rotateX(70deg);opacity:.28;filter:grayscale(1)}}
-  .gwcard.me{background:var(--th-card);color:var(--th-card-ink);border-color:#e9b84c}
-  .gwmine{display:flex;align-items:center;gap:12px;margin:14px 0 4px}
-  .gwmine>small{flex:1;font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#3d4a38}
-  .gwmine .gwcard{width:96px;flex:0 0 auto;cursor:default}
+  .gwcard.fall .gwback{animation:gwbackin .6s both}
+  @keyframes gwfall{from{transform:none}to{transform:rotateX(66deg)}}
+  @keyframes gwbackin{0%,45%{opacity:0}100%{opacity:1}}
+  .gwtray.aiming .gwcard.aim{box-shadow:0 0 0 3px #e9b84c,0 4px 6px rgba(0,0,0,.4)}
+  .gwleft{font:italic 900 .95rem/1 'Barlow Semi Condensed',sans-serif;opacity:.8;margin:0 6px}
+  .gwledge{display:flex;gap:12px;align-items:flex-start;margin:14px 0 4px}
+  .gwmine{width:96px;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:5px}
+  .gwmine>small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7a5a10}
+  .gwmine>em{font:italic 400 11px/1 'Lora',Georgia,serif;color:#5b4a23}
+  .gwmine .gwcard{height:84px;box-shadow:0 0 0 2px #e9b84c,0 4px 8px rgba(0,0,0,.35)}
+  .gwcard.me{box-shadow:0 0 0 2px #e9b84c,0 4px 8px rgba(0,0,0,.35)}
+  .gwacts{flex:1;min-width:0;display:flex;flex-direction:column}
+  .gwacts .b4btn{margin-top:0}.gwacts .b4btn+.b4btn{margin-top:12px}
+  .gwacts .b6qs{margin-top:16px}
   .gwreveal{display:flex;gap:14px;justify-content:center;margin:6px 0 14px}
   .gwreveal>div{display:flex;flex-direction:column;align-items:center;gap:6px}
   .gwreveal>div>small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3d4a38}
-  .gwreveal .gwcard{width:120px;cursor:default;padding:12px 6px}
-  .gwreveal .gwcard img{width:44px}.gwreveal .gwcard b{font-size:18px}
-  .gwgrid.aiming .gwcard.aim{border-color:#e9b84c;box-shadow:0 0 0 2px #e9b84c,0 3px 0 rgba(0,0,0,.12)}
+  .gwreveal .gwcard{width:120px;height:132px;cursor:default}
+  .gwreveal .gwshirt{width:76px;height:71px}.gwreveal .gwcard b{font-size:18px}
   .gwthink{margin:14px 0;text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:#3d4a38;animation:gwpulse 1s ease-in-out infinite alternate}
   @keyframes gwpulse{from{opacity:.45}to{opacity:1}}
   .gwcover{display:flex;flex-direction:column;align-items:stretch;margin-top:10px}
@@ -6614,7 +6635,12 @@
   .gwqs .b6hdr{margin-top:10px;color:#f3cd6b}
   .gwqb{display:block;width:100%;margin:6px 0 0;padding:11px 14px;border-radius:12px;border:2px solid var(--th-edge);background:var(--th-row);color:var(--th-row-ink);
     font:700 15px/1.2 'Barlow Semi Condensed',sans-serif;text-align:left;cursor:pointer}
-  @media (prefers-reduced-motion: reduce){ .gwcard,.gwcard.fall{transition:none;animation:none} .gwthink{animation:none} }
+  .gwfile{text-align:left;margin:4px 0 14px}
+  .gwfact{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(143,183,158,.35)}
+  .gwfact small{flex:0 0 84px;font:800 10px/1.6 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8FB79E}
+  .gwfact span{flex:1;font:700 15px/1.35 'Barlow Semi Condensed',sans-serif}
+  .gwfact img{width:16px;height:10px;object-fit:cover;vertical-align:middle;border-radius:1px}
+  @media (prefers-reduced-motion: reduce){ .gwcard,.gwcard.fall,.gwcard.fall .gwback{transition:none;animation:none} .gwthink{animation:none} }
   /* ---------- SIMPLE BALL: flags on the picker, the game in the house look ---------- */
   .smq .smf{width:26px;height:auto;border-radius:3px;box-shadow:0 0 0 1px rgba(18,61,36,.25);flex:0 0 auto}
   .smq.on .smf{box-shadow:0 0 0 1px #fff}
@@ -31353,37 +31379,52 @@ function simpleStart(){
    turns a cover hides the board until the right person has the phone.
    OUT LOUD (Martijn, 22 Oct 2026), for two who know their football: no list,
    you ask each other anything and each taps down the cards the answer rules
-   out, exactly like the board game. The app only keeps the boards apart. */
+   out, exactly like the board game. The app only keeps the boards apart.
+   THE TRAY, LEVELS AND BEST OF THREE (Martijn, 22 Oct 2026; design A on the
+   canvas https://claude.ai/artifact/NXFaTgUp8H5eY24N8Ej2JE): the cards stand
+   in a green tray, each a shirt from the back in his nation's kit, and tip
+   over flat when they fall. The level picks the cards (Easy household names,
+   Medium well-known, Hard mostly deep cuts) and how sharp the computer is.
+   A match is one board or best of three (GW_MATCH); the sides take turns to
+   start a board. Your own man's file (clubs, tournaments) is a tap away, so
+   you can answer out loud about a player you have never heard of. */
 const GW_KEY = "ball4-gw";
 const GW_DATA = { pack: null };
-let GW_VIEW = null, GW = null;
+let GW_VIEW = null, GW = null, GW_MATCH = null, GW_UID = 0;
 const GW_CONT = { eu: "Europe", sa: "South America", af: "Africa", na: "North or Central America", as: "Asia", oc: "Oceania" };
 const GW_POS = { GK: "a goalkeeper", DF: "a defender", MF: "a midfielder", FW: "a forward" };
+const GW_POSN = { GK: "Goalkeeper", DF: "Defender", MF: "Midfielder", FW: "Forward" };
 const GW_LEAGUE = { gb: "England or Scotland", es: "Spain", it: "Italy", de: "Germany", fr: "France", nl: "the Netherlands", pt: "Portugal", tr: "Turkey",
   us: "the USA", sa: "Saudi Arabia", br: "Brazil", ar: "Argentina", be: "Belgium", ru: "Russia", gr: "Greece", mx: "Mexico", jp: "Japan", cn: "China", qa: "Qatar", ae: "the Emirates" };
+/* the pack is sorted by fame: Easy deals from the top 200, Medium from the top
+   700, Hard takes 6 from the top 500 and 18 from everyone below */
+const GW_LEVELS = {
+  easy: { label: "Easy", top: 200, say: "Household names only.", cpu: "The computer asks almost anything." },
+  normal: { label: "Medium", top: 700, say: "Well-known players.", cpu: "The computer asks good questions." },
+  hard: { label: "Hard", known: 500, deep: 18, say: "Mostly deep cuts: squad players, old names, other leagues.", cpu: "The computer asks the best question every time." } };
 function gwPrefs(){
   let p = null; try{ p = JSON.parse(localStorage.getItem(GW_KEY) || "null"); }catch(e){}
   p = p && typeof p === "object" ? p : {};
   return { level: ["easy", "normal", "hard"].includes(p.level) ? p.level : "normal", vs: p.vs === "two" ? "two" : "cpu", ask: p.ask === "list" ? "list" : "loud",
-    names: Array.isArray(p.names) ? p.names.slice(0, 2) : [], played: p.played | 0, won: p.won | 0 };
+    best: p.best === 1 ? 1 : 3, names: Array.isArray(p.names) ? p.names.slice(0, 2) : [], played: p.played | 0, won: p.won | 0, matches: p.matches | 0, mwon: p.mwon | 0 };
 }
 function gwSave(p){ try{ localStorage.setItem(GW_KEY, JSON.stringify(p)); }catch(e){} }
 function gwLoad(){
   if(GW_DATA.pack) return Promise.resolve(GW_DATA.pack);
   return fetch("assets/guesswho/pack.json").then(r => { if(!r.ok) throw new Error("pack"); return r.json(); }).then(j => GW_DATA.pack = j);
 }
-function openGW(){ audio(); GW_VIEW = "setup"; GW = null; render(); gwLoad().then(() => render()).catch(() => {}); try{ window.scrollTo({ top: 0 }); }catch(e){} }
-function gwLeave(){ audio(); GW_VIEW = null; GW = null; closeSheet(); render(); }
+function openGW(){ audio(); GW_VIEW = "setup"; GW = null; GW_MATCH = null; render(); gwLoad().then(() => render()).catch(() => {}); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function gwLeave(){ audio(); GW_VIEW = null; GW = null; GW_MATCH = null; closeSheet(); render(); }
 function gwAskLeave(){
   audio();
-  sheet('<h2>Leave the game?</h2><p>This board is thrown away.</p><button class="b4btn gold" onclick="gwLeave()">Leave</button><button class="b4btn quiet" onclick="closeSheet()">Keep playing</button>');
+  sheet('<h2>Leave the game?</h2><p>' + (GW_MATCH && GW_MATCH.best > 1 ? "The match is thrown away." : "This board is thrown away.") + '</p><button class="b4btn gold" onclick="gwLeave()">Leave</button><button class="b4btn quiet" onclick="closeSheet()">Keep playing</button>');
 }
 function gwKeepNames(){ const p = gwPrefs(); [0, 1].forEach(i => { const el = document.getElementById("gwn" + i); if(el) p.names[i] = el.value.trim().slice(0, 16); }); gwSave(p); return p; }
 function gwSet(k, v){ audio(); const p = gwKeepNames(); p[k] = v; gwSave(p); render(); }
 const gwNat = n => { try{ return n === "gb" ? "Britain" : new Intl.DisplayNames(["en"], { type: "region" }).of(n.toUpperCase()); }catch(e){ return n; } };
 const gwRow = i => GW_DATA.pack.players[i];
 const gwShort = n => { const w = String(n).split(" "); if(w.length < 2) return n; const k = w.length - 2;
-  return /^(van|de|di|da|dos|del|der|le|el|al|ter|von)$/i.test(w[k]) ? w.slice(k).join(" ") : w[w.length - 1]; };
+  return /^(van|de|di|da|dos|del|der|le|el|al|ter|von|ben)$/i.test(w[k]) ? w.slice(k).join(" ") : w[w.length - 1]; };
 /* the two sides: whose board, whose secret, what each has asked */
 const gwSec = i => i ? GW.cpu : GW.mine;
 const gwUp = i => i ? GW.upCpu : GW.upMe;
@@ -31393,16 +31434,19 @@ const gwLastOf = i => i ? GW.cpuLast : GW.last;
 const gwTwo = () => GW && GW.vs === "two";
 const gwLoud = () => gwTwo() && GW.ask === "loud";
 const gwName = i => GW.names[i];
-/* 24 cards: well-known men, no country more than four times, at least two keepers */
-function gwBoard(){
-  const P = GW_DATA.pack.players, top = P.map((_, i) => i).slice(0, 420);
-  for(let tries = 0; tries < 50; tries++){
+const gwNeed = () => GW_MATCH ? Math.ceil(GW_MATCH.best / 2) : 1;
+/* 24 cards for the level: no country more than four times, at least two keepers */
+function gwBoard(level){
+  const P = GW_DATA.pack.players, L = GW_LEVELS[level] || GW_LEVELS.normal, all = P.map((_, i) => i);
+  const shuffle = a => a.slice().sort(() => Math.random() - .5);
+  for(let tries = 0; tries < 60; tries++){
     const pick = [], per = {};
-    const pool = top.slice().sort(() => Math.random() - .5);
-    for(const i of pool){ const n = P[i][3][0]; if((per[n] | 0) >= 4) continue; per[n] = (per[n] | 0) + 1; pick.push(i); if(pick.length === 24) break; }
-    if(pick.filter(i => P[i][2] === "GK").length >= 2 && new Set(pick.map(i => gwShort(P[i][0]))).size === 24) return pick;
+    const take = (pool, n) => { let got = 0; for(const i of pool){ if(got >= n || pick.length >= 24) break; const c = P[i][3][0]; if((per[c] | 0) >= 4 || pick.includes(i)) continue; per[c] = (per[c] | 0) + 1; pick.push(i); got++; } };
+    if(L.deep && P.length > L.known + L.deep){ take(shuffle(all.slice(L.known)), L.deep); take(shuffle(all.slice(0, L.known)), 24); }
+    else take(shuffle(all.slice(0, L.top || 700)), 24);
+    if(pick.length === 24 && pick.filter(i => P[i][2] === "GK").length >= 2 && new Set(pick.map(i => gwShort(P[i][0]))).size === 24) return shuffle(pick);
   }
-  return top.slice(0, 24);
+  return all.slice(0, 24);
 }
 /* every question this board can ask, worked out from the rows */
 function gwQuestions(board){
@@ -31423,17 +31467,24 @@ function gwQuestions(board){
   for(const y of [1998, 2002, 2006, 2010, 2014, 2018, 2022]) add("Tournaments", "wc" + y, "Was he at the " + y + " World Cup?", r => r[5].includes(y));
   return qs;
 }
-function gwStart(){
+/* a new match (from the setup or "New match"), or the next board of this one */
+function gwStart(next){
   if(!GW_DATA.pack){ toast("Still loading the players, one second", true); return; }
   audio();
-  const p = gwKeepNames(), two = p.vs === "two";
-  const board = gwBoard(), mine = Math.floor(Math.random() * 24);
+  if(next !== true || !GW_MATCH){
+    const p = gwKeepNames(), two = p.vs === "two";
+    GW_MATCH = { best: p.best, wins: [0, 0], board: 1, over: false, level: p.level, vs: p.vs, ask: p.ask,
+      names: two ? [p.names[0] || "Player 1", p.names[1] || "Player 2"] : ["You", "Computer"] };
+  }else GW_MATCH.board++;
+  const M = GW_MATCH, two = M.vs === "two", first = (M.board - 1) % 2;
+  const board = gwBoard(M.level), mine = Math.floor(Math.random() * 24);
   let cpu = Math.floor(Math.random() * 23); if(cpu >= mine) cpu++;
-  GW = { board, mine, cpu, upMe: board.map(() => true), upCpu: board.map(() => true), turn: 0, asked: [], cpuAsked: [], last: null, cpuLast: null,
-    level: p.level, vs: p.vs, ask: p.ask, guessing: false, names: two ? [p.names[0] || "Player 1", p.names[1] || "Player 2"] : ["You", "Computer"],
+  GW = { board, mine, cpu, upMe: board.map(() => true), upCpu: board.map(() => true), turn: first, asked: [], cpuAsked: [], last: null, cpuLast: null,
+    level: M.level, vs: M.vs, ask: M.ask, guessing: false, names: M.names.slice(),
     phase: "play", fall: [], winner: null, guesses: [0, 0], cover: two, done: false };
   GW.qs = gwQuestions(board);
   GW_VIEW = "play"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+  if(!two && first === 1) setTimeout(gwCpuTurn, 1500);
 }
 const gwLeft = up => up.filter(Boolean).length;
 /* the questions still worth asking on a board: the ones that split what is standing */
@@ -31448,6 +31499,20 @@ function gwAskSheet(){
   sheet('<h2>Ask a question</h2><p>' + (gwTwo() ? esc(gwName(1 - i)) + "'s player" : "The computer has to answer about its player") + ', yes or no.</p><div class="gwqs">' +
     cats.map(c => '<div class="b6hdr">' + c + '</div>' + qs.filter(q => q.cat === c).map(q => '<button class="gwqb" onclick="closeSheet();gwAsk(\'' + q.id + '\')">' + esc(q.text) + '</button>').join("")).join("") +
     '</div><button class="bigbtn ghost" onclick="closeSheet()">Not now</button>');
+}
+/* YOUR MAN'S FILE: what you need to answer about him, out loud or not */
+function gwFile(){
+  if(!GW || GW.cover) return;
+  audio();
+  const side = gwTwo() ? GW.turn : 0, r = gwRow(GW.board[gwSec(side)]), C = GW_DATA.pack.clubs;
+  const fact = (k, v) => '<div class="gwfact"><small>' + k + '</small><span>' + v + '</span></div>';
+  const years = a => a.length ? a.join(", ") : "never";
+  sheet('<h2>' + esc(r[0]) + '</h2><p>Your player. ' + (gwTwo() ? esc(gwName(1 - side)) + " asks" : "The computer asks") + ' about him.</p><div class="gwfile">' +
+    fact("Country", '<img src="assets/natflags/' + r[3][0] + '.png" alt=""> ' + esc(gwNat(r[3][0])) + (r[3].length > 1 ? " (also " + r[3].slice(1).map(gwNat).map(esc).join(", ") + ")" : "")) +
+    fact("Position", GW_POSN[r[2]] || r[2]) + fact("Born", r[1]) +
+    fact("Clubs", r[4].map(c => esc(C[c][1]) + (C[c][2] ? ' <img src="assets/natflags/' + C[c][2] + '.png" alt="' + esc(gwNat(C[c][2])) + '">' : "")).join(" · ")) +
+    fact("World Cups", years(r[5])) + fact("Euros", years(r[6])) +
+    '</div><button class="b4btn gold" onclick="closeSheet()">Back to the board</button>');
 }
 /* after a side has acted: the computer answers back, or the phone goes round */
 function gwAfter(){
@@ -31474,7 +31539,7 @@ function gwCardTap(k){
   if(!gwCanAct() || !gwUp(GW.turn)[k]) return;
   audio();
   const r = gwRow(GW.board[k]), other = gwTwo() ? esc(gwName(1 - GW.turn)) + "'s go" : "the computer's go";
-  sheet('<h2>Is it ' + esc(gwShort(r[0])) + '?</h2><p>' + esc(r[0]) + '. Right and you win. Wrong and his card falls and it\'s ' + other + '.</p>' +
+  sheet('<h2>Is it ' + esc(gwShort(r[0])) + '?</h2><p>' + esc(r[0]) + '. Right and you win the board. Wrong and his card falls and it\'s ' + other + '.</p>' +
     '<button class="b4btn gold" onclick="closeSheet();gwGuess(' + k + ')">It\'s him</button><button class="b4btn quiet" onclick="closeSheet()">Not sure yet</button>');
   GW.guessing = false;
 }
@@ -31513,49 +31578,92 @@ function gwCpuTurn(){
   GW.cpuLast = { text: q.text, yes, left: gwLeft(GW.upCpu) };
   GW.fall = []; GW.turn = 0; render();
 }
+/* a board is won: count it in the match, and the match when someone has enough */
 function gwEnd(){
-  const p = gwPrefs(); p.played++; if(!gwTwo() && GW.winner === 0) p.won++; gwSave(p);
-  try{ if(gwTwo() || GW.winner === 0){ confetti(70); ching(); } else buzzer(); }catch(e){}
-  try{ if(!gwTwo()) progAnswer({ ok: GW.winner === 0, tier: "normal", topic: "guesswho" }); }catch(e){}
+  const M = GW_MATCH || (GW_MATCH = { best: 1, wins: [0, 0], board: 1, names: GW.names.slice() });
+  M.wins[GW.winner]++;
+  M.over = M.wins[GW.winner] >= gwNeed();
+  const p = gwPrefs(); p.played++; if(!gwTwo() && GW.winner === 0) p.won++;
+  if(M.over && !gwTwo()){ p.matches++; if(GW.winner === 0) p.mwon++; }
+  gwSave(p);
+  try{ if(gwTwo() || GW.winner === 0){ confetti(M.over ? 110 : 60); ching(); } else buzzer(); }catch(e){}
+  try{ if(!gwTwo()) progAnswer({ ok: GW.winner === 0, tier: GW.level === "hard" ? "hard" : "normal", topic: "guesswho" }); }catch(e){}
   render();
 }
+/* his nation's shirt, from the pack's kits and the dressing room's DRESS_KIT */
+function gwKit(cc){
+  const k = (GW_DATA.pack.kits || {})[cc], dk = (k && DRESS_KIT[k[0]]) || {};
+  const body = dk.body || (k && dressHex(k[1])) || "#1c5a36", ink = dk.ink || kitInk(body);
+  return { body, ink, trim: dk.trim || ink, pattern: dk.pattern === "stripes" || dk.pattern === "checks" ? dk.pattern : null };
+}
+/* the back of his shirt: surname across the shoulders, his tournament number */
+function gwShirtSVG(r){
+  const k = gwKit(r[3][0]), id = "gwk" + (++GW_UID), nm = gwShort(r[0]).toUpperCase(), no = r[8] || "";
+  const shape = "M15 7 L23 3 Q30 7 37 3 L45 7 L57 17 L50 26 L45 22 L45 53 L15 53 L15 22 L10 26 L3 17 Z";
+  const pat = k.pattern === "stripes" ? [9, 21, 33, 45].map(x => '<rect x="' + x + '" y="0" width="6" height="56" fill="' + k.trim + '"/>').join("")
+    : k.pattern === "checks" ? Array.from({ length: 60 }, (_, i) => { const y = Math.floor(i / 10), x = i % 10; return (x + y) % 2 ? "" : '<rect x="' + (x * 6) + '" y="' + (y * 6 + 18) + '" width="6" height="6" fill="' + k.trim + '"/>'; }).join("") : "";
+  return '<svg class="gwshirt" viewBox="0 0 60 56" aria-hidden="true">' + (pat ? '<clipPath id="' + id + '"><path d="' + shape + '"/></clipPath>' : "") +
+    '<path d="' + shape + '" fill="' + k.body + '"/>' + (pat ? '<g clip-path="url(#' + id + ')" opacity=".85">' + pat + '</g>' : "") +
+    '<path d="' + shape + '" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="1"/>' +
+    '<path d="M23 3 Q30 8 37 3" fill="none" stroke="' + k.trim + '" stroke-width="2.4"/><path d="M57 17 L50 26 M3 17 L10 26" stroke="' + k.trim + '" stroke-width="2.4"/>' +
+    '<text x="30" y="18" text-anchor="middle" font-family="Barlow Semi Condensed,sans-serif" font-weight="800" font-size="' + (nm.length > 9 ? 4.6 : nm.length > 7 ? 5.4 : 6.6) + '" fill="' + k.ink + '">' + esc(nm) + '</text>' +
+    (no ? '<text x="30" y="44" text-anchor="middle" font-family="Barlow Semi Condensed,sans-serif" font-weight="900" font-style="italic" font-size="21" fill="' + k.ink + '" stroke="rgba(0,0,0,.18)" stroke-width=".6" paint-order="stroke">' + no + '</text>' : "") + '</svg>';
+}
+/* a card in the tray: the shirt, his name, flag, position and year; fallen,
+   it lies flat with the BALL on its back */
 function gwCardHTML(k, up, opts){
   const r = gwRow(GW.board[k]), o = opts || {};
-  return '<button class="gwcard' + (up ? "" : " down") + (o.fall ? " fall" : "") + (o.me ? " me" : "") + (o.aim ? " aim" : "") + '"' + (o.click ? ' onclick="' + o.click + '"' : "") + (up || o.flip ? "" : " disabled") + '>' +
-    '<img src="assets/natflags/' + r[3][0] + '.png" alt=""><b>' + esc(gwShort(r[0])) + '</b><small>' + r[2] + ' · ' + r[1] + '</small></button>';
+  return '<button class="gwcard' + (up ? "" : " down") + (o.fall ? " fall" : "") + (o.me ? " me" : "") + (o.aim ? " aim" : "") + '"' + (o.click ? ' onclick="' + o.click + '"' : "") + (up || o.flip ? "" : " disabled") +
+    ' aria-label="' + esc(r[0]) + (up ? "" : ", down") + '"><span class="gwfront">' + gwShirtSVG(r) + '<b>' + esc(gwShort(r[0])) + '</b><small><img src="assets/natflags/' + r[3][0] + '.png" alt="">' + r[2] + ' · ' + r[1] + '</small></span>' +
+    '<span class="gwback" aria-hidden="true">' + ballSVG("") + '<i>' + esc(gwShort(r[0])) + '</i></span></button>';
 }
 function gwSetupScreen(st){
-  const p = gwPrefs(), ready = !!GW_DATA.pack, two = p.vs === "two";
-  st.innerHTML = b4Page({ title: "Who is he?", ctx: "Yes or no · demo", back: "gwLeave()", body:
-    b4Q("Knock them down", "Each side gets a secret player from the same 24 cards. Take turns asking yes or no questions; the cards that don't fit fall down. Name the other side's player first to win.") +
+  const p = gwPrefs(), ready = !!GW_DATA.pack, two = p.vs === "two", L = GW_LEVELS[p.level];
+  const seg = (label, key, opts) => '<div class="b6hdr">' + label + '</div><div class="b6seg b6ans" role="group" aria-label="' + label + '">' +
+    opts.map(([v, l]) => '<button aria-pressed="' + (p[key] === v) + '" onclick="gwSet(\'' + key + '\',' + (typeof v === "number" ? v : "'" + v + "'") + ')">' + l + '</button>').join("") + '</div>';
+  st.innerHTML = b4Page({ title: "Who is he?", ctx: "Yes or no", back: "gwLeave()", body:
+    b4Q("Knock them down", "Each side gets a secret player from the same 24 cards. Take turns asking yes or no questions; the cards that don't fit fall down. Name the other side's player first to win the board.") +
     '<div class="b6hdr">Who\'s playing</div><div class="b6seg b6ans" role="group" aria-label="Who\'s playing">' +
       '<button aria-pressed="' + !two + '" onclick="gwSet(\'vs\',\'cpu\')">Against the computer</button><button aria-pressed="' + two + '" onclick="gwSet(\'vs\',\'two\')">Two of us · one phone</button></div>' +
     (two
       ? '<div class="partynames">' + [0, 1].map(i => '<input id="gwn' + i + '" class="partyname" maxlength="16" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' + esc(p.names[i] || "") + '">').join("") + '</div>' +
         '<div class="b6hdr">The questions</div><div class="b6seg b6ans" role="group" aria-label="The questions">' +
           '<button aria-pressed="' + (p.ask === "loud") + '" onclick="gwSet(\'ask\',\'loud\')">Out loud</button><button aria-pressed="' + (p.ask === "list") + '" onclick="gwSet(\'ask\',\'list\')">From the list</button></div>' +
-        '<div class="b6qs">' + (p.ask === "loud" ? "Ask each other anything, answer honestly, and tap down the players the answer rules out. For people who know their football." :
+        '<div class="b6qs">' + (p.ask === "loud" ? "Ask each other anything, answer honestly, and tap down the players the answer rules out. Tap your own card for his file." :
           "Pick a question and the app answers it, so nobody can get one wrong.") + ' Pass the phone after every go: a cover hides your board while it changes hands.</div>'
-      : '<div class="b6hdr">The computer</div><div class="b6seg b6ans" role="group" aria-label="Level">' +
-        [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]].map(([k, l]) => '<button aria-pressed="' + (p.level === k) + '" onclick="gwSet(\'level\',\'' + k + '\')">' + l + '</button>').join("") + '</div>' +
-        (p.won || p.played ? '<div class="b6qs">Won ' + p.won + ' against the computer</div>' : "")) +
+      : "") +
+    seg("Level", "level", [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]]) +
+    '<div class="b6qs">' + L.say + (two ? "" : " " + L.cpu) + '</div>' +
+    seg("The match", "best", [[1, "One board"], [3, "Best of three"]]) +
+    (!two && (p.won || p.played) ? '<div class="b6qs">Won ' + p.won + ' board' + (p.won === 1 ? "" : "s") + (p.matches ? ' and ' + p.mwon + ' of ' + p.matches + ' matches' : "") + ' against the computer</div>' : "") +
     '<button class="b6cta" onclick="gwStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Kick off ▶" : "Loading the players…") + '</button>' });
 }
 function gwRender(st){
   if(GW_VIEW === "setup" || !GW) return gwSetupScreen(st);
-  const g = GW, two = gwTwo(), over = g.phase === "over", i = two ? g.turn : 0;
-  const score = '<div class="b4sb"><div class="sb"><div class="sb-t' + (g.turn === 0 && !over ? " on" : "") + '" style="--tc:#e9b84c"><b>' + esc(gwName(0)) + '</b></div><div class="sb-mid"><b>' + gwLeft(g.upMe) + '</b><s></s><b>' + gwLeft(g.upCpu) +
-    '</b></div><div class="sb-t away' + (g.turn === 1 && !over ? " on" : "") + '" style="--tc:#2f6fe0"><b>' + esc(gwName(1)) + '</b></div></div><div class="b4sblabel">players still standing</div></div>';
-  const line = (who, x) => x ? '<div class="gwline' + (x.yes ? " yes" : " no") + '"><small>' + who + '</small><span>' + esc(x.text) + '</span><b>' + (x.yes ? "YES" : "NO") + '</b></div>' : "";
+  const g = GW, M = GW_MATCH || { best: 1, wins: [0, 0], board: 1 }, two = gwTwo(), over = g.phase === "over", i = two ? g.turn : 0, many = M.best > 1;
+  /* the TV scoreboard: boards won in a match, cards standing in a single board */
+  const side = (s, away) => '<div class="sb-t' + (away ? " away" : "") + (g.turn === s && !over ? " on" : "") + '" style="--tc:' + (s ? "#2f6fe0" : "#e9b84c") + '"><b>' + esc(gwName(s)) + '</b>' +
+    (many ? '<i class="gwleft">' + gwLeft(gwUp(s)) + '</i>' : "") + '</div>';
+  const score = '<div class="b4sb"><div class="sb">' + side(0, false) + '<div class="sb-mid"><b>' + (many ? M.wins[0] : gwLeft(g.upMe)) + '</b><s></s><b>' + (many ? M.wins[1] : gwLeft(g.upCpu)) +
+    '</b></div>' + side(1, true) + '</div><div class="b4sblabel">' + (many ? "Best of three · board " + M.board + " · first to " + gwNeed() : "players still standing") + '</div></div>';
+  const line = (who, x) => '<div class="gwline' + (x ? (x.yes ? " yes" : " no") : " none") + '"><small>' + who + '</small>' +
+    (x ? '<span>' + esc(x.text) + '</span><b>' + (x.yes ? "YES" : "NO") + (x.fell ? ' · ' + x.fell + ' fell' : "") + '</b>' : '<span>Nothing yet</span>') + '</div>';
   let body, ctx;
   if(over){
-    const w = g.winner, loser = 1 - w, theirs = gwRow(g.board[gwSec(loser)]), whose = gwRow(g.board[gwSec(w)]);
-    const goes = gwAsked(w).length + g.guesses[w];
-    body = (two ? b4Q(esc(gwName(w)) + " wins!", "It was " + esc(theirs[0]) + ". " + goes + " goes.")
-      : b4Q(w === 0 ? "You got him!" : "The computer got yours", w === 0 ? "It was " + esc(theirs[0]) + ". " + goes + " goes." : "It named " + esc(whose[0]) + ". Its player was " + esc(gwRow(g.board[g.cpu])[0]) + ".")) +
+    const w = g.winner, loser = 1 - w, theirs = gwRow(g.board[gwSec(loser)]);
+    const goes = gwAsked(w).length + g.guesses[w], tally = M.wins[0] + "–" + M.wins[1];
+    const who = two ? esc(gwName(w)) : w === 0 ? "You" : "The computer";
+    const head = !many ? (two ? who + " wins!" : w === 0 ? "You got him!" : "The computer got yours")
+      : M.over ? (two ? who + " wins the match!" : w === 0 ? "You win the match!" : "The computer wins the match")
+      : (two ? who + " takes the board" : w === 0 ? "You got him!" : "The computer got yours");
+    const how = (w === 0 || two ? "It was " + esc(theirs[0]) + ". " + goes + " goes." : "It named " + esc(gwRow(g.board[g.mine])[0]) + ". Its player was " + esc(gwRow(g.board[g.cpu])[0]) + ".") +
+      (many ? (M.over ? " " + tally + " over " + M.board + " boards." : " " + tally + " in the match, first to " + gwNeed() + ".") : "");
+    const nextUp = M.board % 2;
+    body = b4Q(head, how) +
       '<div class="gwreveal"><div><small>' + esc(two ? gwName(0) + "’s" : "Your player") + '</small>' + gwCardHTML(g.mine, true, { me: true }) + '</div><div><small>' + esc(two ? gwName(1) + "’s" : "The computer’s") + '</small>' + gwCardHTML(g.cpu, true, {}) + '</div></div>' +
-      b4Btn("Play again", "gwStart()", "gold") + b4Btn("Leave", "gwLeave()", "quiet");
-    ctx = "Full time";
+      (many && !M.over ? b4Btn("Next board · " + (two ? esc(gwName(nextUp)) + " starts" : nextUp ? "the computer starts" : "you start"), "gwStart(true)", "gold")
+        : b4Btn(many ? "New match" : "Play again", "gwStart()", "gold")) + b4Btn("Leave", "gwLeave()", "quiet");
+    ctx = many ? (M.over ? "Full time · " + tally : "Board " + M.board + " · " + tally) : "Full time";
   }else if(g.cover){
     /* THE COVER: nothing of either board, only whose go it is */
     body = '<div class="gwcover">' + b4Q(esc(gwName(i)) + ", your go", esc(gwName(1 - i)) + ", look away. Hand the phone to " + esc(gwName(i)) + ".") +
@@ -31564,16 +31672,20 @@ function gwRender(st){
   }else{
     const them = two ? esc(gwName(1 - i)) : "Computer";
     const loud = gwLoud();
+    const acts = loud && !g.done ? (g.guessing ? b4Btn("Not yet, back to the board", "gwGuessMode(false)", "dark")
+          : b4Btn("Done · pass to " + esc(gwName(1 - i)), "gwPass()", "gold") + b4Btn("I know who it is", "gwGuessMode(true)", "dark"))
+        : g.done ? b4Btn("Done · pass to " + esc(gwName(1 - i)), "gwPass()", "gold")
+        : two || g.turn === 0 ? b4Btn("Ask a question", "gwAskSheet()", "gold")
+        : '<div class="gwthink">The computer is thinking…</div>';
+    const hint = loud && !g.done ? (g.guessing ? "" : "A wrong guess knocks that card down and ends your go.")
+        : g.done ? "Then look away while " + esc(gwName(1 - i)) + " has a go."
+        : two || g.turn === 0 ? "Or tap a card to name him. A wrong guess costs your go." : "";
     body = (loud ? b4Q(g.guessing ? "Who is he?" : "Ask " + them + " out loud", g.guessing ? "Tap the card you think is " + them + "'s player." : "Anything, yes or no. Then tap down the players the answer rules out; tap again to stand one back up.")
         : '<div class="gwlog">' + line("You asked", gwLastOf(i)) + line(them + " asked", gwLastOf(1 - i)) + '</div>') +
-      '<div class="gwgrid' + (g.guessing ? " aiming" : "") + '">' + g.board.map((b, k) => gwCardHTML(k, gwUp(i)[k], { fall: g.fall.includes(k), click: "gwCardTap(" + k + ")", flip: loud && !g.guessing, aim: g.guessing && gwUp(i)[k] })).join("") + '</div>' +
-      '<div class="gwmine"><small>Your player · ' + (two ? esc(gwName(1 - i)) + " asks" : "the computer asks") + ' about him</small>' + gwCardHTML(gwSec(i), true, { me: true }) + '</div>' +
-      (loud && !g.done ? (g.guessing ? b4Btn("Not yet, back to the board", "gwGuessMode(false)", "dark")
-          : b4Btn("Done · pass to " + esc(gwName(1 - i)), "gwPass()", "gold") + b4Btn("I know who it is", "gwGuessMode(true)", "dark") + '<div class="b6qs">A wrong guess knocks that card down and ends your go.</div>')
-        : g.done ? b4Btn("Done · pass to " + esc(gwName(1 - i)), "gwPass()", "gold") + '<div class="b6qs">Then look away while ' + esc(gwName(1 - i)) + ' has a go.</div>'
-        : two || g.turn === 0 ? b4Btn("Ask a question", "gwAskSheet()", "gold") + '<div class="b6qs">Or tap a card to guess. A wrong guess costs your go.</div>'
-        : '<div class="gwthink">The computer is thinking…</div>');
-    ctx = two ? gwName(i) + "’s go" : g.turn === 0 ? "Your go" : "Computer's go";
+      '<div class="gwgrid gwtray' + (g.guessing ? " aiming" : "") + '">' + g.board.map((b, k) => '<div class="gwslot">' + gwCardHTML(k, gwUp(i)[k], { fall: g.fall.includes(k), click: "gwCardTap(" + k + ")", flip: loud && !g.guessing, aim: g.guessing && gwUp(i)[k] }) + '</div>').join("") + '</div>' +
+      '<div class="gwledge"><div class="gwmine"><small>Your player</small>' + gwCardHTML(gwSec(i), true, { me: true, click: "gwFile()" }) + '<em>tap for his file</em></div>' +
+      '<div class="gwacts">' + acts + (hint ? '<div class="b6qs">' + hint + '</div>' : "") + '</div></div>';
+    ctx = (many ? "Board " + M.board + " · " : "") + (two ? gwName(i) + "’s go" : g.turn === 0 ? "Your go" : "Computer's go");
   }
   st.innerHTML = b4Page({ title: "Who is he?", ctx, back: over ? "gwLeave()" : "gwAskLeave()", leave: over ? null : "gwAskLeave()", score, cls: "gwpage", body });
 }

@@ -6604,8 +6604,12 @@
   .gwreveal>div>small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3d4a38}
   .gwreveal .gwcard{width:120px;cursor:default;padding:12px 6px}
   .gwreveal .gwcard img{width:44px}.gwreveal .gwcard b{font-size:18px}
+  .gwgrid.aiming .gwcard.aim{border-color:#e9b84c;box-shadow:0 0 0 2px #e9b84c,0 3px 0 rgba(0,0,0,.12)}
   .gwthink{margin:14px 0;text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:#3d4a38;animation:gwpulse 1s ease-in-out infinite alternate}
   @keyframes gwpulse{from{opacity:.45}to{opacity:1}}
+  .gwcover{display:flex;flex-direction:column;align-items:stretch;margin-top:10px}
+  .gwcoverart{width:120px;height:120px;margin:22px auto 26px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.25))}
+  .gwcoverart svg{width:100%;height:100%;display:block}
   .gwqs{text-align:left;margin:4px 0 10px}
   .gwqs .b6hdr{margin-top:10px;color:#f3cd6b}
   .gwqb{display:block;width:100%;margin:6px 0 0;padding:11px 14px;border-radius:12px;border:2px solid var(--th-edge);background:var(--th-row);color:var(--th-row-ink);
@@ -31338,12 +31342,18 @@ function simpleStart(){
 }
 /* ---------- WHO IS HE? (demo of 21 Oct 2026) ----------
    Martijn's idea: the guess-the-face board game with footballers (our own
-   name: the board game's is a trademark). You and the computer each have
-   a secret player from the same 24 cards and take turns asking yes/no
-   questions; the app answers them from the player pack (assets/guesswho,
+   name: the board game's is a trademark). Two sides each have a secret player
+   from the same 24 cards and take turns asking yes/no questions; the app
+   answers them from the player pack (assets/guesswho,
    _tools/build-guesswho.js), so nobody can get one wrong. The cards that no
    longer fit fall by themselves. First to name the other's player wins; a
-   wrong guess knocks that card down and passes the turn. */
+   wrong guess knocks that card down and passes the turn.
+   Against the computer, or two of you on one phone (22 Oct 2026): side 0 is
+   mine/upMe/asked/last, side 1 is cpu/upCpu/cpuAsked/cpuLast, and between
+   turns a cover hides the board until the right person has the phone.
+   OUT LOUD (Martijn, 22 Oct 2026), for two who know their football: no list,
+   you ask each other anything and each taps down the cards the answer rules
+   out, exactly like the board game. The app only keeps the boards apart. */
 const GW_KEY = "ball4-gw";
 const GW_DATA = { pack: null };
 let GW_VIEW = null, GW = null;
@@ -31354,7 +31364,8 @@ const GW_LEAGUE = { gb: "England or Scotland", es: "Spain", it: "Italy", de: "Ge
 function gwPrefs(){
   let p = null; try{ p = JSON.parse(localStorage.getItem(GW_KEY) || "null"); }catch(e){}
   p = p && typeof p === "object" ? p : {};
-  return { level: ["easy", "normal", "hard"].includes(p.level) ? p.level : "normal", played: p.played | 0, won: p.won | 0 };
+  return { level: ["easy", "normal", "hard"].includes(p.level) ? p.level : "normal", vs: p.vs === "two" ? "two" : "cpu", ask: p.ask === "list" ? "list" : "loud",
+    names: Array.isArray(p.names) ? p.names.slice(0, 2) : [], played: p.played | 0, won: p.won | 0 };
 }
 function gwSave(p){ try{ localStorage.setItem(GW_KEY, JSON.stringify(p)); }catch(e){} }
 function gwLoad(){
@@ -31363,11 +31374,25 @@ function gwLoad(){
 }
 function openGW(){ audio(); GW_VIEW = "setup"; GW = null; render(); gwLoad().then(() => render()).catch(() => {}); try{ window.scrollTo({ top: 0 }); }catch(e){} }
 function gwLeave(){ audio(); GW_VIEW = null; GW = null; closeSheet(); render(); }
-function gwSetLevel(l){ audio(); const p = gwPrefs(); p.level = l; gwSave(p); render(); }
+function gwAskLeave(){
+  audio();
+  sheet('<h2>Leave the game?</h2><p>This board is thrown away.</p><button class="b4btn gold" onclick="gwLeave()">Leave</button><button class="b4btn quiet" onclick="closeSheet()">Keep playing</button>');
+}
+function gwKeepNames(){ const p = gwPrefs(); [0, 1].forEach(i => { const el = document.getElementById("gwn" + i); if(el) p.names[i] = el.value.trim().slice(0, 16); }); gwSave(p); return p; }
+function gwSet(k, v){ audio(); const p = gwKeepNames(); p[k] = v; gwSave(p); render(); }
 const gwNat = n => { try{ return n === "gb" ? "Britain" : new Intl.DisplayNames(["en"], { type: "region" }).of(n.toUpperCase()); }catch(e){ return n; } };
 const gwRow = i => GW_DATA.pack.players[i];
 const gwShort = n => { const w = String(n).split(" "); if(w.length < 2) return n; const k = w.length - 2;
   return /^(van|de|di|da|dos|del|der|le|el|al|ter|von)$/i.test(w[k]) ? w.slice(k).join(" ") : w[w.length - 1]; };
+/* the two sides: whose board, whose secret, what each has asked */
+const gwSec = i => i ? GW.cpu : GW.mine;
+const gwUp = i => i ? GW.upCpu : GW.upMe;
+const gwAsked = i => i ? GW.cpuAsked : GW.asked;
+const gwSetLast = (i, x) => { if(i) GW.cpuLast = x; else GW.last = x; };
+const gwLastOf = i => i ? GW.cpuLast : GW.last;
+const gwTwo = () => GW && GW.vs === "two";
+const gwLoud = () => gwTwo() && GW.ask === "loud";
+const gwName = i => GW.names[i];
 /* 24 cards: well-known men, no country more than four times, at least two keepers */
 function gwBoard(){
   const P = GW_DATA.pack.players, top = P.map((_, i) => i).slice(0, 420);
@@ -31401,10 +31426,12 @@ function gwQuestions(board){
 function gwStart(){
   if(!GW_DATA.pack){ toast("Still loading the players, one second", true); return; }
   audio();
+  const p = gwKeepNames(), two = p.vs === "two";
   const board = gwBoard(), mine = Math.floor(Math.random() * 24);
   let cpu = Math.floor(Math.random() * 23); if(cpu >= mine) cpu++;
   GW = { board, mine, cpu, upMe: board.map(() => true), upCpu: board.map(() => true), turn: 0, asked: [], cpuAsked: [], last: null, cpuLast: null,
-    level: gwPrefs().level, phase: "play", fall: [], winner: null, guesses: 0 };
+    level: p.level, vs: p.vs, ask: p.ask, guessing: false, names: two ? [p.names[0] || "Player 1", p.names[1] || "Player 2"] : ["You", "Computer"],
+    phase: "play", fall: [], winner: null, guesses: [0, 0], cover: two, done: false };
   GW.qs = gwQuestions(board);
   GW_VIEW = "play"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
 }
@@ -31412,46 +31439,63 @@ const gwLeft = up => up.filter(Boolean).length;
 /* the questions still worth asking on a board: the ones that split what is standing */
 const gwUseful = (up, asked) => GW.qs.filter(q => !asked.includes(q.id)).filter(q => {
   const n = GW.board.filter((b, k) => up[k] && q.test(gwRow(b))).length; return n > 0 && n < gwLeft(up); });
+/* the side holding the phone can act: its go, no cover, not yet done */
+const gwCanAct = () => GW && GW.phase === "play" && !GW.cover && !GW.done && (gwTwo() || GW.turn === 0);
 function gwAskSheet(){
-  if(!GW || GW.phase !== "play" || GW.turn !== 0) return;
+  if(!gwCanAct()) return;
   audio();
-  const qs = gwUseful(GW.upMe, GW.asked), cats = [...new Set(qs.map(q => q.cat))];
-  sheet('<h2>Ask a question</h2><p>The computer has to answer about its player.</p><div class="gwqs">' +
+  const i = GW.turn, qs = gwUseful(gwUp(i), gwAsked(i)), cats = [...new Set(qs.map(q => q.cat))];
+  sheet('<h2>Ask a question</h2><p>' + (gwTwo() ? esc(gwName(1 - i)) + "'s player" : "The computer has to answer about its player") + ', yes or no.</p><div class="gwqs">' +
     cats.map(c => '<div class="b6hdr">' + c + '</div>' + qs.filter(q => q.cat === c).map(q => '<button class="gwqb" onclick="closeSheet();gwAsk(\'' + q.id + '\')">' + esc(q.text) + '</button>').join("")).join("") +
     '</div><button class="bigbtn ghost" onclick="closeSheet()">Not now</button>');
 }
-function gwAsk(id){
-  const q = GW.qs.find(x => x.id === id); if(!q) return;
-  const yes = q.test(gwRow(GW.board[GW.cpu]));
-  GW.asked.push(id);
-  GW.fall = [];
-  GW.board.forEach((b, k) => { if(GW.upMe[k] && q.test(gwRow(b)) !== yes){ GW.upMe[k] = false; GW.fall.push(k); } });
-  GW.last = { text: q.text, yes, fell: GW.fall.length };
-  yes ? ching() : buzzer();
+/* after a side has acted: the computer answers back, or the phone goes round */
+function gwAfter(){
+  if(gwTwo()){ GW.done = true; render(); return; }
   GW.turn = 1; render();
   setTimeout(gwCpuTurn, 1700);
 }
+function gwAsk(id){
+  if(!gwCanAct()) return;
+  const q = GW.qs.find(x => x.id === id); if(!q) return;
+  const i = GW.turn, up = gwUp(i), yes = q.test(gwRow(GW.board[gwSec(1 - i)]));
+  gwAsked(i).push(id);
+  GW.fall = [];
+  GW.board.forEach((b, k) => { if(up[k] && q.test(gwRow(b)) !== yes){ up[k] = false; GW.fall.push(k); } });
+  gwSetLast(i, { text: q.text, yes, fell: GW.fall.length });
+  yes ? ching() : buzzer();
+  gwAfter();
+}
+/* out loud: a tap knocks a card down, or stands it back up */
+function gwFlip(k){ if(!gwCanAct()) return; const up = gwUp(GW.turn); up[k] = !up[k]; GW.fall = up[k] ? [] : [k]; try{ beep(up[k] ? 660 : 330, .06, "triangle", .05); }catch(e){} render(); }
+function gwGuessMode(on){ if(!gwCanAct()) return; audio(); GW.guessing = !!on; render(); }
 function gwCardTap(k){
-  if(!GW || GW.phase !== "play" || GW.turn !== 0 || !GW.upMe[k]) return;
+  if(gwLoud() && !GW.guessing) return gwFlip(k);
+  if(!gwCanAct() || !gwUp(GW.turn)[k]) return;
   audio();
-  const r = gwRow(GW.board[k]);
-  sheet('<h2>Is it ' + esc(gwShort(r[0])) + '?</h2><p>' + esc(r[0]) + '. Right and you win. Wrong and his card falls and it\'s the computer\'s go.</p>' +
+  const r = gwRow(GW.board[k]), other = gwTwo() ? esc(gwName(1 - GW.turn)) + "'s go" : "the computer's go";
+  sheet('<h2>Is it ' + esc(gwShort(r[0])) + '?</h2><p>' + esc(r[0]) + '. Right and you win. Wrong and his card falls and it\'s ' + other + '.</p>' +
     '<button class="b4btn gold" onclick="closeSheet();gwGuess(' + k + ')">It\'s him</button><button class="b4btn quiet" onclick="closeSheet()">Not sure yet</button>');
+  GW.guessing = false;
 }
 function gwGuess(k){
-  GW.guesses++;
-  if(k === GW.cpu){ GW.phase = "over"; GW.winner = 0; gwEnd(); return; }
+  if(!gwCanAct()) return;
+  const i = GW.turn;
+  GW.guesses[i]++;
+  if(k === gwSec(1 - i)){ GW.phase = "over"; GW.winner = i; gwEnd(); return; }
   buzzer(); flashBad();
-  GW.upMe[k] = false; GW.fall = [k];
-  GW.last = { text: "Is it " + gwShort(gwRow(GW.board[k])[0]) + "?", yes: false, fell: 1, guess: true };
-  GW.turn = 1; render();
-  setTimeout(gwCpuTurn, 1700);
+  gwUp(i)[k] = false; GW.fall = [k];
+  gwSetLast(i, { text: "Is it " + gwShort(gwRow(GW.board[k])[0]) + "?", yes: false, fell: 1, guess: true });
+  gwAfter();
 }
+/* one phone: the side that acted hands over, the cover goes up, the other takes it */
+function gwPass(){ if(!GW || GW.phase !== "play" || GW.cover || !(GW.done || gwLoud())) return; GW.guessing = false; audio(); GW.turn = 1 - GW.turn; GW.done = false; GW.cover = true; GW.fall = []; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function gwUncover(){ if(!GW) return; audio(); GW.cover = false; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
 /* THE COMPUTER: it asks what halves its board best (hard), one of the better
    halves (normal), or anything that still splits it (easy), and names your
    man when one is left standing (or takes a punt at two, on normal and hard) */
 function gwCpuTurn(){
-  if(!GW || GW.phase !== "play" || GW.turn !== 1) return;
+  if(!GW || gwTwo() || GW.phase !== "play" || GW.turn !== 1) return;
   const left = GW.board.map((b, k) => k).filter(k => GW.upCpu[k]);
   const punt = left.length === 2 && GW.level !== "easy" && Math.random() < .5;
   if(left.length === 1 || punt){
@@ -31470,46 +31514,68 @@ function gwCpuTurn(){
   GW.fall = []; GW.turn = 0; render();
 }
 function gwEnd(){
-  const p = gwPrefs(); p.played++; if(GW.winner === 0) p.won++; gwSave(p);
-  try{ if(GW.winner === 0){ confetti(70); ching(); } else buzzer(); }catch(e){}
-  try{ progAnswer({ ok: GW.winner === 0, tier: "normal", topic: "guesswho" }); }catch(e){}
+  const p = gwPrefs(); p.played++; if(!gwTwo() && GW.winner === 0) p.won++; gwSave(p);
+  try{ if(gwTwo() || GW.winner === 0){ confetti(70); ching(); } else buzzer(); }catch(e){}
+  try{ if(!gwTwo()) progAnswer({ ok: GW.winner === 0, tier: "normal", topic: "guesswho" }); }catch(e){}
   render();
 }
 function gwCardHTML(k, up, opts){
   const r = gwRow(GW.board[k]), o = opts || {};
-  return '<button class="gwcard' + (up ? "" : " down") + (o.fall ? " fall" : "") + (o.me ? " me" : "") + '"' + (o.click ? ' onclick="' + o.click + '"' : "") + (up ? "" : " disabled") + '>' +
+  return '<button class="gwcard' + (up ? "" : " down") + (o.fall ? " fall" : "") + (o.me ? " me" : "") + (o.aim ? " aim" : "") + '"' + (o.click ? ' onclick="' + o.click + '"' : "") + (up || o.flip ? "" : " disabled") + '>' +
     '<img src="assets/natflags/' + r[3][0] + '.png" alt=""><b>' + esc(gwShort(r[0])) + '</b><small>' + r[2] + ' · ' + r[1] + '</small></button>';
 }
 function gwSetupScreen(st){
-  const p = gwPrefs(), ready = !!GW_DATA.pack;
+  const p = gwPrefs(), ready = !!GW_DATA.pack, two = p.vs === "two";
   st.innerHTML = b4Page({ title: "Who is he?", ctx: "Yes or no · demo", back: "gwLeave()", body:
-    b4Q("Knock them down", "You and the computer each get a secret player from the same 24 cards. Take turns asking yes or no questions; the cards that don't fit fall down. Name the computer's player first to win.") +
-    '<div class="b6hdr">The computer</div><div class="b6seg b6ans" role="group" aria-label="Level">' +
-      [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]].map(([k, l]) => '<button aria-pressed="' + (p.level === k) + '" onclick="gwSetLevel(\'' + k + '\')">' + l + '</button>').join("") + '</div>' +
-    (p.played ? '<div class="b6qs">Played ' + p.played + ' · won ' + p.won + '</div>' : "") +
-    '<button class="b6cta" onclick="gwStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Kick off ▶" : "Loading the players…") + '</button>' +
-    '<div class="b6qs">Demo: against the computer for now. Two phones and pass-the-phone come next.</div>' });
+    b4Q("Knock them down", "Each side gets a secret player from the same 24 cards. Take turns asking yes or no questions; the cards that don't fit fall down. Name the other side's player first to win.") +
+    '<div class="b6hdr">Who\'s playing</div><div class="b6seg b6ans" role="group" aria-label="Who\'s playing">' +
+      '<button aria-pressed="' + !two + '" onclick="gwSet(\'vs\',\'cpu\')">Against the computer</button><button aria-pressed="' + two + '" onclick="gwSet(\'vs\',\'two\')">Two of us · one phone</button></div>' +
+    (two
+      ? '<div class="partynames">' + [0, 1].map(i => '<input id="gwn' + i + '" class="partyname" maxlength="16" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' + esc(p.names[i] || "") + '">').join("") + '</div>' +
+        '<div class="b6hdr">The questions</div><div class="b6seg b6ans" role="group" aria-label="The questions">' +
+          '<button aria-pressed="' + (p.ask === "loud") + '" onclick="gwSet(\'ask\',\'loud\')">Out loud</button><button aria-pressed="' + (p.ask === "list") + '" onclick="gwSet(\'ask\',\'list\')">From the list</button></div>' +
+        '<div class="b6qs">' + (p.ask === "loud" ? "Ask each other anything, answer honestly, and tap down the players the answer rules out. For people who know their football." :
+          "Pick a question and the app answers it, so nobody can get one wrong.") + ' Pass the phone after every go: a cover hides your board while it changes hands.</div>'
+      : '<div class="b6hdr">The computer</div><div class="b6seg b6ans" role="group" aria-label="Level">' +
+        [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]].map(([k, l]) => '<button aria-pressed="' + (p.level === k) + '" onclick="gwSet(\'level\',\'' + k + '\')">' + l + '</button>').join("") + '</div>' +
+        (p.won || p.played ? '<div class="b6qs">Won ' + p.won + ' against the computer</div>' : "")) +
+    '<button class="b6cta" onclick="gwStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Kick off ▶" : "Loading the players…") + '</button>' });
 }
 function gwRender(st){
   if(GW_VIEW === "setup" || !GW) return gwSetupScreen(st);
-  const g = GW, over = g.phase === "over", meLeft = gwLeft(g.upMe), cpuLeft = gwLeft(g.upCpu);
-  const score = '<div class="b4sb"><div class="sb"><div class="sb-t' + (g.turn === 0 && !over ? " on" : "") + '" style="--tc:#e9b84c"><b>You</b></div><div class="sb-mid"><b>' + meLeft + '</b><s></s><b>' + cpuLeft +
-    '</b></div><div class="sb-t away' + (g.turn === 1 && !over ? " on" : "") + '" style="--tc:#2f6fe0"><b>Computer</b></div></div><div class="b4sblabel">players still standing</div></div>';
+  const g = GW, two = gwTwo(), over = g.phase === "over", i = two ? g.turn : 0;
+  const score = '<div class="b4sb"><div class="sb"><div class="sb-t' + (g.turn === 0 && !over ? " on" : "") + '" style="--tc:#e9b84c"><b>' + esc(gwName(0)) + '</b></div><div class="sb-mid"><b>' + gwLeft(g.upMe) + '</b><s></s><b>' + gwLeft(g.upCpu) +
+    '</b></div><div class="sb-t away' + (g.turn === 1 && !over ? " on" : "") + '" style="--tc:#2f6fe0"><b>' + esc(gwName(1)) + '</b></div></div><div class="b4sblabel">players still standing</div></div>';
   const line = (who, x) => x ? '<div class="gwline' + (x.yes ? " yes" : " no") + '"><small>' + who + '</small><span>' + esc(x.text) + '</span><b>' + (x.yes ? "YES" : "NO") + '</b></div>' : "";
-  let body;
+  let body, ctx;
   if(over){
-    const r = gwRow(g.board[g.cpu]), m = gwRow(g.board[g.mine]);
-    body = b4Q(g.winner === 0 ? "You got him!" : "The computer got yours", g.winner === 0 ? "It was " + esc(r[0]) + ". " + (g.asked.length + g.guesses) + " goes." : "It named " + esc(m[0]) + ". Its player was " + esc(r[0]) + ".") +
-      '<div class="gwreveal"><div><small>The computer’s</small>' + gwCardHTML(g.cpu, true, {}) + '</div><div><small>Your player</small>' + gwCardHTML(g.mine, true, { me: true }) + '</div></div>' +
+    const w = g.winner, loser = 1 - w, theirs = gwRow(g.board[gwSec(loser)]), whose = gwRow(g.board[gwSec(w)]);
+    const goes = gwAsked(w).length + g.guesses[w];
+    body = (two ? b4Q(esc(gwName(w)) + " wins!", "It was " + esc(theirs[0]) + ". " + goes + " goes.")
+      : b4Q(w === 0 ? "You got him!" : "The computer got yours", w === 0 ? "It was " + esc(theirs[0]) + ". " + goes + " goes." : "It named " + esc(whose[0]) + ". Its player was " + esc(gwRow(g.board[g.cpu])[0]) + ".")) +
+      '<div class="gwreveal"><div><small>' + esc(two ? gwName(0) + "’s" : "Your player") + '</small>' + gwCardHTML(g.mine, true, { me: true }) + '</div><div><small>' + esc(two ? gwName(1) + "’s" : "The computer’s") + '</small>' + gwCardHTML(g.cpu, true, {}) + '</div></div>' +
       b4Btn("Play again", "gwStart()", "gold") + b4Btn("Leave", "gwLeave()", "quiet");
+    ctx = "Full time";
+  }else if(g.cover){
+    /* THE COVER: nothing of either board, only whose go it is */
+    body = '<div class="gwcover">' + b4Q(esc(gwName(i)) + ", your go", esc(gwName(1 - i)) + ", look away. Hand the phone to " + esc(gwName(i)) + ".") +
+      '<div class="gwcoverart" aria-hidden="true">' + ballSVG("") + '</div>' + b4Btn("I'm " + esc(gwName(i)) + " · show my board", "gwUncover()", "gold") + '</div>';
+    ctx = "Pass the phone";
   }else{
-    body = '<div class="gwlog">' + line("You asked", g.last) + line("Computer asked", g.cpuLast) + '</div>' +
-      '<div class="gwgrid">' + g.board.map((b, k) => gwCardHTML(k, g.upMe[k], { fall: g.fall.includes(k), click: "gwCardTap(" + k + ")" })).join("") + '</div>' +
-      '<div class="gwmine"><small>Your player · the computer asks about him</small>' + gwCardHTML(g.mine, true, { me: true }) + '</div>' +
-      (g.turn === 0 ? b4Btn("Ask a question", "gwAskSheet()", "gold") + '<div class="b6qs">Or tap a card to guess. A wrong guess costs your go.</div>'
+    const them = two ? esc(gwName(1 - i)) : "Computer";
+    const loud = gwLoud();
+    body = (loud ? b4Q(g.guessing ? "Who is he?" : "Ask " + them + " out loud", g.guessing ? "Tap the card you think is " + them + "'s player." : "Anything, yes or no. Then tap down the players the answer rules out; tap again to stand one back up.")
+        : '<div class="gwlog">' + line("You asked", gwLastOf(i)) + line(them + " asked", gwLastOf(1 - i)) + '</div>') +
+      '<div class="gwgrid' + (g.guessing ? " aiming" : "") + '">' + g.board.map((b, k) => gwCardHTML(k, gwUp(i)[k], { fall: g.fall.includes(k), click: "gwCardTap(" + k + ")", flip: loud && !g.guessing, aim: g.guessing && gwUp(i)[k] })).join("") + '</div>' +
+      '<div class="gwmine"><small>Your player · ' + (two ? esc(gwName(1 - i)) + " asks" : "the computer asks") + ' about him</small>' + gwCardHTML(gwSec(i), true, { me: true }) + '</div>' +
+      (loud && !g.done ? (g.guessing ? b4Btn("Not yet, back to the board", "gwGuessMode(false)", "dark")
+          : b4Btn("Done · pass to " + esc(gwName(1 - i)), "gwPass()", "gold") + b4Btn("I know who it is", "gwGuessMode(true)", "dark") + '<div class="b6qs">A wrong guess knocks that card down and ends your go.</div>')
+        : g.done ? b4Btn("Done · pass to " + esc(gwName(1 - i)), "gwPass()", "gold") + '<div class="b6qs">Then look away while ' + esc(gwName(1 - i)) + ' has a go.</div>'
+        : two || g.turn === 0 ? b4Btn("Ask a question", "gwAskSheet()", "gold") + '<div class="b6qs">Or tap a card to guess. A wrong guess costs your go.</div>'
         : '<div class="gwthink">The computer is thinking…</div>');
+    ctx = two ? gwName(i) + "’s go" : g.turn === 0 ? "Your go" : "Computer's go";
   }
-  st.innerHTML = b4Page({ title: "Who is he?", ctx: over ? "Full time" : g.turn === 0 ? "Your go" : "Computer's go", back: "gwLeave()", leave: over ? null : "gwLeave()", score, cls: "gwpage", body });
+  st.innerHTML = b4Page({ title: "Who is he?", ctx, back: over ? "gwLeave()" : "gwAskLeave()", leave: over ? null : "gwAskLeave()", score, cls: "gwpage", body });
 }
 /* ---------- SIMPLE BALL: THE SHELL ---------- */
 const SB_PHASES = /^(pick|question|judge|steal_offer|steal_q|steal_judge|deadq|w_answer|w_judge)$/;

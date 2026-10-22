@@ -6640,7 +6640,292 @@
   .gwfact small{flex:0 0 84px;font:800 10px/1.6 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8FB79E}
   .gwfact span{flex:1;font:700 15px/1.35 'Barlow Semi Condensed',sans-serif}
   .gwfact img{width:16px;height:10px;object-fit:cover;vertical-align:middle;border-radius:1px}
-  @media (prefers-reduced-motion: reduce){ .gwcard,.gwcard.fall,.gwcard.fall .gwback{transition:none;animation:none} .gwthink{animation:none} }
+  .gwrival{margin:0 0 10px;padding:7px 9px 8px;border-radius:10px;background:rgba(47,111,224,.08);border:2px dashed rgba(47,111,224,.55)}
+  .gwrivalhd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+  .gwrivalhd small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#2f5fb8}
+  .gwrivalhd b{font:italic 900 14px/1 'Barlow Semi Condensed',sans-serif;color:#241B08}
+  .gwminis{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:3px;perspective:120px}
+  .gwmini{display:block;height:22px;border-radius:2px;background:linear-gradient(var(--kc) 0 58%,#F8F1DD 58%);box-shadow:0 0 0 1px rgba(0,0,0,.18);transform-origin:50% 100%}
+  .gwmini.down{background:#1a5233;box-shadow:0 0 0 1px rgba(255,255,255,.25);transform:rotateX(70deg)}
+  .gwmini.fall{animation:gwminifall .55s var(--d,0ms) cubic-bezier(.5,0,.3,1) both}
+  @keyframes gwminifall{from{transform:none;background:linear-gradient(var(--kc) 0 58%,#F8F1DD 58%)}55%{background:#1a5233}to{transform:rotateX(70deg);background:#1a5233}}
+  .gwcat{margin:8px 0 0;border-radius:12px;border:2px solid var(--th-edge);overflow:hidden}
+  .gwcat>summary{display:flex;align-items:center;min-height:44px;padding:0 14px;cursor:pointer;list-style:none;
+    font:800 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#f3cd6b}
+  .gwcat>summary::-webkit-details-marker{display:none}
+  .gwcat>summary span{flex:1}
+  .gwcat>summary small{font:italic 900 15px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:0;color:#F8F1DD;opacity:.75}
+  .gwcat>summary::after{content:"›";margin-left:10px;font-size:22px;color:#F8F1DD;transition:transform .2s}
+  .gwcat[open]>summary::after{transform:rotate(90deg)}
+  .gwcat .gwqb{margin:0;border-radius:0;border:0;border-top:1px solid var(--th-edge)}
+  @media (prefers-reduced-motion: reduce){ .gwcard,.gwcard.fall,.gwcard.fall .gwback,.gwmini.fall,.gwcat>summary::after{transition:none;animation:none} .gwthink{animation:none} }
+  /* ---------- DEADLINE DAY (the Cluedo game, 22 Oct 2026; canvas https://claude.ai/artifact/1tKMxNofvBUMwQwbahDPVN) ---------- */
+  .ddplay .b6body{gap:0}
+  .ddwrap{display:flex;flex-direction:column;gap:10px;min-width:0}
+  .ddpage .cap{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7a5a10}
+  .ddpage .cap.gold{color:#f3cd6b}
+  .ddsb .sb-t.away b{font-size:.8rem;letter-spacing:.04em}
+  .ddsb .sb-mid b{font-variant-numeric:tabular-nums}
+  /* the case file: a brown folder with the AGREED stamp */
+  .ddfolder{position:relative;height:118px;margin:4px 0 14px;border-radius:4px 12px 12px 12px;background:linear-gradient(#b98a4e,#8f6332);box-shadow:0 0 0 2px #fff,0 8px 18px rgba(60,40,10,.3)}
+  .ddtab{position:absolute;left:0;top:-18px;padding:4px 14px 6px;border-radius:8px 8px 0 0;background:#b98a4e;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3d2a10;box-shadow:0 -2px 0 #fff}
+  .ddagreed{position:absolute;right:18px;top:16px;transform:rotate(-10deg);padding:4px 12px;border:3px solid #3d2a10;border-radius:5px;font:italic 900 26px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;color:#3d2a10;opacity:.82}
+  .ddfl{position:absolute;left:16px;bottom:14px;display:flex;flex-direction:column;gap:5px}
+  .ddfl b{display:block;width:150px;padding:3px 8px;border-radius:3px;background:#F8F1DD;font:800 10px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7a5a10}
+  .ddrivals{display:flex;gap:6px;min-width:0}
+  .ddrv{flex:1;min-width:0;display:flex;align-items:center;gap:6px;padding:5px 7px;border-radius:9px;background:#F8F1DD;box-shadow:0 0 0 2px #fff,0 2px 5px rgba(0,0,0,.12)}
+  .ddrv b{display:block;font:italic 900 12px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .ddrv small{display:block;font:700 10px/1.2 'Barlow Semi Condensed',sans-serif;color:#5b4a23;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ddrv span{min-width:0}
+  .ddrv.on{box-shadow:0 0 0 2px #e9b84c,0 2px 5px rgba(0,0,0,.12)}
+  .ddrv.out{opacity:.55}
+  .ddsetup .ddrivals,.ddpage .b6qs+.ddrivals{margin-top:2px}
+  .ddbadge{width:22px;height:22px;border-radius:50%;flex:none;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.2);display:inline-block}
+  .ddbadge.big{width:38px;height:38px}
+  /* the route: six stations on the gold line */
+  .ddstrip{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;padding:7px 10px;border:0;border-radius:8px;background:#F8F1DD;box-shadow:0 0 0 2px #fff;cursor:pointer;color:#241B08;text-align:left}
+  .ddstrip b{font:italic 900 15px/1 'Barlow Semi Condensed',sans-serif}
+  .ddroute{position:relative;padding:12px 6px 10px;border:2px solid #fff;border-radius:14px;background:linear-gradient(#14422A,#0b2416);box-shadow:0 8px 18px rgba(0,0,0,.3)}
+  .ddline{position:absolute;left:16.6%;right:16.6%;top:38px;height:96px;border:5px solid #e9b84c;border-left:0;border-radius:0 6px 6px 0;pointer-events:none}
+  .ddsts{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:8px}
+  .ddst{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 2px;border:0;background:none;font:inherit;color:#F8F1DD;cursor:pointer;min-width:0}
+  .ddst:disabled{cursor:default}
+  .ddst b{font:italic 900 13px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#F8F1DD;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ddring{position:relative;width:52px;height:52px;border-radius:50%;background:#0a1f13;border:3px solid #e9b84c;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(233,184,76,.25)}
+  .ddst.here .ddring{border-color:#f6d57c;box-shadow:0 0 0 4px rgba(246,213,124,.45),0 0 18px rgba(246,213,124,.6)}
+  .ddst.can .ddring{border-color:#F8F1DD;border-style:dashed}
+  .ddme{position:absolute;right:-6px;bottom:-4px;width:18px;height:22px;border-radius:3px;background:#F8F1DD;border:2px solid #241B08;box-shadow:0 2px 4px rgba(0,0,0,.4);
+    background-image:repeating-linear-gradient(180deg,transparent 0 4px,rgba(31,90,166,.35) 4px 5px)}
+  .ddpins{display:flex;gap:3px;align-items:center;min-height:14px}
+  .ddpin{width:12px;height:12px;border-radius:50%;border:2px solid #fff}
+  .ddpins small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#f3cd6b}
+  .ddhint{margin-top:6px;text-align:center;font:italic 400 12px/1.35 'Lora',Georgia,serif;color:#c9d8cd;min-height:16px}
+  .ddfeed{list-style:none;margin:0;padding:6px 10px;border-radius:10px;background:rgba(36,27,8,.06);display:flex;flex-direction:column;gap:5px}
+  .ddfeed li{display:flex;gap:7px;align-items:flex-start;font:italic 400 12px/1.35 'Lora',Georgia,serif;color:#3d4a38}
+  .ddfeed li .ddbadge{width:16px;height:16px;margin-top:1px}
+  .ddfeed b{font:italic 900 12px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .ddfeed em{font-style:normal;font-weight:600;color:#241B08}
+  .ddhandhead{display:flex;justify-content:space-between;align-items:baseline;margin:2px 2px -4px}
+  .ddhandhead em{font:italic 400 12px/1 'Lora',Georgia,serif;color:#5b4a23}
+  .ddhand{display:flex;justify-content:center;padding:4px 0 6px;min-height:118px}
+  .ddcardbtn{padding:0;border:0;background:none;cursor:pointer;flex:none;transition:transform .15s}
+  .ddcardbtn:focus-visible{outline:3px solid #e9b84c;outline-offset:2px;border-radius:8px}
+  .ddcard{position:relative;width:78px;height:108px;border-radius:8px;background:#F8F1DD;box-shadow:0 0 0 2px #fff,0 6px 12px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#241B08;padding:4px;box-sizing:border-box}
+  .ddcard b{font:italic 900 13px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ddcard small{display:flex;align-items:center;gap:3px;font:800 9px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;color:#7a5a10;text-transform:uppercase;white-space:nowrap}
+  .ddcard small img{width:14px;height:9px;object-fit:cover;border-radius:1px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+  .ddshirt{width:46px;height:43px;display:block}
+  .ddticket{width:56px;height:34px;border-radius:4px;background:#e9b84c;border:2px dashed #7a5a10;display:flex;align-items:center;justify-content:center;font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif;color:#241B08;box-sizing:border-box}
+  .dddesk{display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .ddchip{padding:3px 8px;border-radius:999px;background:rgba(36,27,8,.08);font:800 12px/1.2 'Barlow Semi Condensed',sans-serif;color:#5b4a23}
+  .ddacts{display:flex;flex-direction:column;gap:2px;margin-top:2px}
+  .ddacts .b4btn{margin-top:6px}
+  .ddrow2{display:flex;flex-direction:row;gap:10px;align-items:center}
+  .ddrow2 .b4btn{flex:1;margin-top:8px}
+  .ddacts .gwthink{margin:10px 0 4px}
+  /* the rumour */
+  .ddrumour{padding:12px 10px 14px;border:2px solid #fff;border-radius:16px;background:linear-gradient(#14422A,#0b2416);color:#F8F1DD;box-shadow:0 10px 22px rgba(0,0,0,.3);text-align:center}
+  .ddrumour .cap{color:#8FB79E}
+  .ddpieces{display:flex;justify-content:center;align-items:center;gap:6px;margin:10px 0}
+  .ddpieces .ddcard{width:88px;height:114px}
+  .ddplus{font:900 20px/1 'Barlow Semi Condensed',sans-serif;color:#e9b84c}
+  .ddsaid{font:italic 400 20px/1.25 'Lora',Georgia,serif}
+  .ddnobody{padding:12px;border-radius:14px;background:linear-gradient(#f6d57c,#c99a2e);box-shadow:0 0 0 2px #fff,0 6px 0 #7a5a10;text-align:center;color:#241B08;animation:ddpop .5s cubic-bezier(.2,1.4,.4,1) both}
+  .ddnobody b{display:block;font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+  .ddnobody em{font:italic 400 13px/1.4 'Lora',Georgia,serif}
+  @keyframes ddpop{from{transform:scale(.8);opacity:0}to{transform:none;opacity:1}}
+  .ddhead{margin:4px 2px -2px}
+  .ddtrow{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:12px;background:#F8F1DD;box-shadow:0 0 0 2px #fff,0 3px 8px rgba(0,0,0,.12)}
+  .ddtrow .ddbadge{width:30px;height:30px}
+  .ddtrow>div{flex:1;min-width:0}
+  .ddtrow b{display:block;font:italic 900 16px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .ddtrow em{font:italic 400 13px/1.3 'Lora',Georgia,serif;color:#5b4a23}
+  .ddtrow .cap{color:#8a7a56}
+  .ddtrow.dim{opacity:.6}
+  .ddshown{display:flex;align-items:center;gap:14px;padding:12px;border-radius:16px;border:2px dashed #1c2b4a;background:rgba(28,43,74,.07)}
+  .ddshown>div:last-child{flex:1;min-width:0}
+  .ddshown .cap{color:#1c2b4a}
+  .ddshown b{display:block;font:italic 900 22px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .ddshown em{display:block;margin-top:3px;font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#5b4a23}
+  .ddflipwrap{position:relative;width:110px;height:112px;flex:none;perspective:400px}
+  .ddback{position:absolute;left:0;top:10px;width:66px;height:92px;border-radius:8px;background:linear-gradient(#1a5233,#0e3520);border:2px solid #fff;box-shadow:0 5px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transform:rotate(-10deg)}
+  .ddback svg{width:24px;height:24px}
+  .ddflip{position:absolute!important;right:0;top:0;width:82px!important;height:110px!important;transform:rotate(4deg);animation:ddflip .7s cubic-bezier(.3,.9,.4,1) both}
+  @keyframes ddflip{0%{transform:translateX(-30px) rotateY(180deg);opacity:.2}55%{opacity:1}100%{transform:rotate(4deg)}}
+  .ddstamp{position:absolute;top:34%;left:50%;transform:translateX(-50%) rotate(-12deg);border:3px solid #241B08;border-radius:4px;padding:1px 6px;font:900 12px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;background:rgba(248,241,221,.85);color:#241B08}
+  .ddnote{display:flex;gap:8px;align-items:baseline;padding:9px 12px;border-radius:10px;background:#14422A;color:#F8F1DD;box-shadow:0 0 0 2px #fff}
+  .ddnote .cap{color:#f3cd6b;white-space:nowrap}
+  .ddnote em{font:italic 400 13px/1.35 'Lora',Georgia,serif}
+  /* the notebook */
+  .ddstill{padding:8px 12px;border-radius:10px;background:linear-gradient(#14422A,#0b2416);box-shadow:0 0 0 2px #fff;color:#F8F1DD}
+  .ddstill>div{display:flex;justify-content:space-between;align-items:baseline}
+  .ddstill .cap{color:#8FB79E}.ddstill .cap.gold{color:#f3cd6b}
+  .ddstill b{display:block;font:italic 900 20px/1.1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+  .ddstill em{font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#c9d8cd}
+  .ddsheet{padding:6px 10px 10px;border-radius:10px;background:#F8F1DD;box-shadow:0 0 0 2px #fff,0 8px 18px rgba(0,0,0,.16);
+    background-image:repeating-linear-gradient(180deg,transparent 0 25px,rgba(31,90,166,.12) 25px 26px)}
+  .ddr{display:grid;grid-template-columns:minmax(0,1fr) repeat(var(--cols),38px);align-items:center;min-height:26px}
+  .ddh{min-height:22px}
+  .ddh span{text-align:center;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#7a5a10}
+  .ddsec{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7a5a10;margin-top:6px;height:20px;display:flex;align-items:flex-end}
+  .ddnm{display:flex;align-items:center;gap:6px;min-width:0;padding:0;border:0;background:none;text-align:left;font:italic 900 15px/1.1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  button.ddnm{cursor:pointer;min-height:26px}
+  .ddnm.out{color:#9a8b68;text-decoration:line-through;text-decoration-thickness:2px}
+  .ddnm.live::before,.ddnm.deal::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#e9b84c;box-shadow:0 0 0 2px #7a5a10}
+  .ddnm.deal{color:#7a5a10}
+  .ddm{text-align:center;font:900 15px/1 'Barlow Semi Condensed',sans-serif}
+  .ddm.y{color:#1f6a3e}.ddm.x{color:#3d3424}.ddm.q{color:#1c2b4a;font-style:italic}.ddm.d{font-size:9px;font-weight:800;letter-spacing:.14em;color:#7a5a10}
+  .ddflash{padding:8px 12px;border-radius:10px;border:2px dashed #1c2b4a;background:rgba(28,43,74,.07)}
+  .ddflash .cap{color:#1c2b4a}
+  .ddflash em{display:block;font:italic 400 13px/1.4 'Lora',Georgia,serif;color:#241B08}
+  /* the sheets: chips to pick the pieces, the quiz, the card you show */
+  .ddchips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px}
+  .ddchips button{padding:8px 11px;min-height:40px;border-radius:999px;border:2px solid rgba(248,241,221,.7);background:transparent;color:var(--th-card-ink);font:italic 900 14px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;cursor:pointer}
+  .ddchips button.out{opacity:.5;text-decoration:line-through}
+  .ddchips button[aria-pressed="true"]{background:#e9b84c;border-color:#e9b84c;color:#241B08;opacity:1;text-decoration:none}
+  #overlay .sheet .b6hdr{color:#f3cd6b;margin-top:8px}
+  #overlay .sheet p.ddsay{font:italic 400 18px/1.3 'Lora',Georgia,serif;color:#F8F1DD;margin:8px 0 2px;text-align:center}
+  #overlay .sheet h2.ddbad{color:#ff8a7a}
+  .ddquiz{display:flex;flex-direction:column;gap:7px;margin:6px 0 8px;text-align:left}
+  .ddquiz b{font:700 16px/1.3 'Barlow Semi Condensed',sans-serif;color:var(--th-card-ink)}
+  .ddopt{padding:11px 14px;border-radius:12px;border:2px solid var(--th-edge);background:var(--th-row);color:var(--th-row-ink);font:700 15px/1.2 'Barlow Semi Condensed',sans-serif;text-align:left;cursor:pointer}
+  .ddshowpick{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0 12px}
+  .ddshowpick button{padding:0;border:0;background:none;cursor:pointer;border-radius:8px}
+  .ddshowpick button:focus-visible{outline:3px solid #e9b84c;outline-offset:3px}
+  .ddshowpick.big .ddcard{width:140px;height:190px}
+  .ddshowpick.big .ddshirt{width:90px;height:84px}.ddshowpick.big .ddcard b{font-size:20px}
+  .ddshowpick.big .ddpatch{width:70px;height:84px}.ddshowpick.big .ddticket{width:100px;height:60px;font-size:30px}
+  /* the scoop */
+  .ddboard{position:relative;height:300px;border-radius:16px;border:2px solid #fff;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.35);background-color:#0b2416;
+    background-image:repeating-linear-gradient(0deg,transparent 0 54px,rgba(233,184,76,.08) 54px 55px),repeating-linear-gradient(90deg,transparent 0 76px,rgba(233,184,76,.08) 76px 77px)}
+  .ddwall{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-content:space-around;justify-items:center;opacity:.16;font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;color:#e9b84c}
+  .ddsigned{position:absolute;top:14px;left:0;right:0;text-align:center;font:italic 900 52px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b;text-shadow:0 3px 0 #7a5a10,0 8px 18px rgba(0,0,0,.5);letter-spacing:.02em;animation:ddpop .6s .1s cubic-bezier(.2,1.4,.4,1) both}
+  .ddpress{position:absolute;left:50%;bottom:0;width:250px;height:229px;transform:translateX(-50%)}
+  .ddwho{position:absolute;left:10px;bottom:12px;display:flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;border-radius:999px;background:#F8F1DD;box-shadow:0 0 0 2px #fff}
+  .ddwho b{font:italic 900 14px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .ddretract{position:absolute;right:10px;bottom:16px;transform:rotate(-8deg);padding:4px 10px;border:3px solid #b8261c;border-radius:4px;background:rgba(248,241,221,.92);font:900 15px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;color:#b8261c}
+  .ddheadline{text-align:center}
+  .ddheadline b{display:block;font:italic 900 24px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .ddheadline em{display:block;margin-top:4px;font:italic 400 14px/1.4 'Lora',Georgia,serif;color:#5b4a23}
+  .ddchips2 .b4chip{font-size:12px}
+  .ddcareer{padding:10px 12px 12px;border-radius:14px;background:#F8F1DD;box-shadow:0 0 0 2px #fff,0 6px 14px rgba(0,0,0,.14)}
+  .ddcareer>div:first-child{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .ddcareer em{font:italic 400 12px/1 'Lora',Georgia,serif;color:#5b4a23}
+  .ddstops{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));row-gap:10px;margin-top:10px}
+  .ddstop{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+  .ddstop::before{content:"";position:absolute;left:0;right:0;top:9px;height:4px;background:#c9b88f;z-index:0}
+  .ddstop:nth-child(4n+1)::before{left:50%}.ddstop:nth-child(4n)::before,.ddstop:last-child::before{right:50%}
+  .ddstop .dot{position:relative;z-index:1;width:22px;height:22px;border-radius:50%;border:3px solid #F8F1DD;box-shadow:0 0 0 2px #c9b88f;box-sizing:border-box}
+  .ddstop b{font:italic 900 11px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;text-align:center;color:#241B08;max-width:100%;overflow-wrap:anywhere}
+  .ddstop small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;color:#5b4a23}
+  .ddstop.deal .dot{box-shadow:0 0 0 3px #e9b84c,0 0 10px rgba(233,184,76,.8)}
+  .ddstop.deal b{color:#7a5a10}
+  @media (prefers-reduced-motion: reduce){ .ddflip,.ddnobody,.ddsigned{animation:none} .ddcardbtn{transition:none} }
+  /* ---------- LETTER BOX (the mock-ups of 22 Oct 2026: the draw, the round, VAR, full time) ---------- */
+  .lbpage .b6body{gap:10px}
+  .lbrules{display:flex;flex-direction:column;gap:7px;padding:12px 14px;border-radius:14px;background:var(--th-row);border:2px solid #fff;box-shadow:0 4px 10px rgba(18,61,36,.12)}
+  .lbrules>b{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7a5a10}
+  .lbrules>span{display:flex;gap:6px;flex-wrap:wrap}
+  .lbrules small{font:italic 400 13px/1.4 'Lora',Georgia,serif;color:#5b4a23}
+  .lbnames{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lbtag{display:inline-block;font:800 10px/1.3 'Barlow Semi Condensed',sans-serif;font-style:normal;letter-spacing:.08em;padding:2px 6px;border-radius:4px;white-space:nowrap;text-transform:uppercase}
+  .lbtag.t1{background:#ece0bd;color:#5b4a23}.lbtag.t2{background:#e9b84c;color:#241B08}.lbtag.t3{background:#1f6a3e;color:#F8F1DD}.lbtag.t0{background:#d9cfb3;color:#5b4a23}
+  .lbcap{font:800 10px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  /* the draw: the glass bowl, the tile, the face-down slips */
+  .lbstage{position:relative;height:236px;margin:-14px -16px 0}
+  .lbbowl{position:absolute;left:50%;top:-34px;width:290px;height:268px;transform:translateX(-50%)}
+  .lbb{animation:lbtumble .5s ease-in-out 3 alternate both;animation-delay:var(--d);transform-box:fill-box;transform-origin:center}
+  @keyframes lbtumble{from{transform:translate(0,0) rotate(0)}to{transform:translate(4px,-10px) rotate(25deg)}}
+  .lbtile{position:absolute;left:50%;top:0;width:118px;height:130px;margin-left:-59px;border-radius:18px;background:#F8F1DD;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 4px #e9b84c,0 10px 0 #7a5a10,0 18px 30px rgba(0,0,0,.35);transform:rotate(-4deg);animation:lbtile .6s 1.4s cubic-bezier(.2,1.4,.4,1) both}
+  .lbtile b{font:italic 900 116px/1 'Barlow Semi Condensed',sans-serif;color:#123D24;text-shadow:4px 4px 0 #e9b84c,7px 7px 0 #7a5a10}
+  @keyframes lbtile{from{transform:translateY(120px) rotate(30deg) scale(.2);opacity:0}to{transform:rotate(-4deg) scale(1);opacity:1}}
+  .lbtile.small{position:relative;left:auto;top:auto;margin:22px auto 26px;width:110px;height:122px;animation:none}
+  .lbtile.small b{font-size:108px}
+  .lbsay{text-align:center;margin-top:-4px}
+  .lbsay b{display:block;font:italic 900 24px/1.1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-ink)}
+  .lbsay small{display:block;font:italic 400 15px/1.35 'Lora',Georgia,serif;color:#5b4a23}
+  .lbslipshd{display:flex;justify-content:space-between;margin:4px 2px -4px;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7a5a10}
+  .lbslips{display:flex;flex-direction:column;gap:6px}
+  .lbslip{display:flex;align-items:center;gap:10px;height:32px;padding:0 12px;border-radius:10px;background:linear-gradient(#14422A,#0b2416);border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+  .lbslip i{width:22px;height:22px;border-radius:50%;background:#e9b84c;flex:none;display:flex;align-items:center;justify-content:center;font:900 12px/1 'Barlow Semi Condensed',sans-serif;font-style:normal;color:#241B08}
+  .lbslip span{height:8px;border-radius:4px;background:rgba(143,183,158,.3)}
+  /* the round: the letter, the TV clock and who is playing, in the band */
+  .lbsb .lbbar{display:flex;align-items:stretch;border:2px solid #fff;border-radius:6px;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+  .lblt{width:52px;flex:none;background:#F8F1DD;display:flex;align-items:center;justify-content:center;font:italic 900 30px/1 'Barlow Semi Condensed',sans-serif;color:#123D24;text-shadow:2px 2px 0 #e9b84c;border-right:3px solid #e9b84c}
+  .lbclock{flex:1;background:#0a1f13;color:#f3cd6b;font:900 30px/1 'Barlow Semi Condensed',sans-serif;display:flex;align-items:center;justify-content:center;letter-spacing:.06em;font-variant-numeric:tabular-nums;padding:6px 0}
+  .lbclock.late{color:#0a1f13;background:#e9b84c;animation:lbpulse .5s ease-in-out infinite alternate}
+  @keyframes lbpulse{from{opacity:.75}to{opacity:1}}
+  .lbrd{max-width:42%;padding:0 12px;background:#14422A;color:#F8F1DD;display:flex;align-items:center;font:800 12px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lbboxes{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+  .lbbox{display:flex;gap:10px;align-items:center;padding:9px 10px 10px;border-radius:14px;background:linear-gradient(#14422A,#0b2416);border:2px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.22);scroll-margin:120px 0 260px}
+  .lbbox:focus-within{border-color:#e9b84c;box-shadow:0 0 0 3px rgba(233,184,76,.45),0 4px 10px rgba(0,0,0,.22)}
+  .lbbox.ok{border-color:#e9b84c}
+  .lbic{width:38px;height:38px;flex:none;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center}
+  .lbball{width:26px;height:26px;display:block}.lbball svg{width:100%;height:100%;display:block}
+  .lbin{flex:1;min-width:0}
+  .lbin label{display:block;font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;color:#f3cd6b;text-transform:uppercase;margin-bottom:4px}
+  .lbin input{width:100%;box-sizing:border-box;height:40px;border:0;border-radius:8px;background:#F8F1DD;padding:0 10px;font:800 18px/1 'Barlow Semi Condensed',sans-serif;color:#241B08}
+  .lbin input::placeholder{color:#a99b78}
+  .lbin input:focus{outline:none;box-shadow:inset 0 0 0 2px #e9b84c}
+  .lbbox.ok .lbin input{box-shadow:inset 0 0 0 2px #e9b84c}
+  .lbnote{display:block;min-height:0;margin-top:3px;font:italic 400 12px/1.2 'Lora',Georgia,serif;color:#8FB79E}
+  .lbnote:empty{display:none}
+  .lbbox.ok .lbnote{color:#f3cd6b}.lbbox.ok .lbnote::before{content:"✓ ";font-style:normal;font-weight:900}
+  .lbfoot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:2px 2px 0}
+  .lbfoot span:first-child{font:italic 400 13px/1.3 'Lora',Georgia,serif;color:#5b4a23}
+  #lbcount{white-space:nowrap}
+  .lbfoot span:last-child{font:800 10px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7a5a10;text-align:right}
+  /* VAR: the boxes already checked on cream, the one being checked on a dark screen with a scan line */
+  .lbdone{display:grid;grid-template-columns:repeat(var(--n,2),minmax(0,1fr));gap:4px 8px;align-items:center;padding:6px 10px;border-radius:10px;background:#F8F1DD;box-shadow:0 0 0 2px #fff}
+  .lbdone .q{grid-column:1/-1;font:800 10px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;color:#7a5a10;text-transform:uppercase}
+  .lbdone .a{display:flex;justify-content:space-between;align-items:center;gap:6px;min-width:0;font:italic 900 15px/1.1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .lbdone .a>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .lbdone .a.clash>span:first-child{text-decoration:line-through;text-decoration-thickness:2px;color:#8a7a56}
+  .lbpage .b6body>.lbdone+.lbdone{margin-top:-4px}
+  .lbvar{position:relative;padding:12px 12px 14px;border-radius:16px;border:2px solid #fff;background:linear-gradient(#14422A,#0b2416);color:#F8F1DD;box-shadow:0 10px 22px rgba(0,0,0,.3);overflow:hidden}
+  .lbvar::after{content:"";position:absolute;left:0;right:0;top:58%;height:2px;background:linear-gradient(90deg,transparent,rgba(243,205,107,.8),transparent);pointer-events:none;animation:lbscan 1.6s ease-in-out both}
+  @keyframes lbscan{from{top:8%}to{top:58%}}
+  .lbvarhd{display:flex;justify-content:space-between;align-items:baseline;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FB79E}
+  .lbvarhd span:last-child{color:#f3cd6b}
+  .lbvarq{font:italic 900 24px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;margin-top:4px}
+  .lbsides{display:grid;grid-template-columns:repeat(var(--n,2),minmax(0,1fr));gap:10px;margin-top:10px}
+  .lbside{border-radius:12px;padding:10px 8px;background:rgba(0,0,0,.25);text-align:center;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .lbside .lbcap{color:#8FB79E;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lbside>b{display:block;font:italic 900 22px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere;max-width:100%}
+  .lbsides[style*="--n:3"] .lbside>b{font-size:17px}
+  .lbstamp{display:inline-block;padding:3px 10px;border:3px solid;border-radius:5px;font:900 16px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;transform:rotate(-6deg);animation:lbstamp .35s .9s cubic-bezier(.2,1.6,.4,1) both}
+  .lbstamp.goal{color:#f3cd6b;border-color:#f3cd6b}.lbstamp.clash{color:#F8F1DD;border-color:#F8F1DD}.lbstamp.out{color:#c9d8cd;border-color:#c9d8cd}
+  .lbsides[style*="--n:3"] .lbstamp{font-size:13px;padding:2px 6px}
+  @keyframes lbstamp{from{transform:rotate(-6deg) scale(2.2);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+  .lbwhy{font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#c9d8cd}
+  .lbwho{font:italic 400 12px/1.3 'Lora',Georgia,serif;color:#c9d8cd}
+  .lblink{min-height:32px;padding:4px 6px;border:0;background:none;color:#f3cd6b;font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .lbalso{margin-top:12px;padding-top:8px;border-top:1px dashed rgba(143,183,158,.4)}
+  .lbalso span{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FB79E}
+  .lbalso b{display:block;font:800 15px/1.3 'Barlow Semi Condensed',sans-serif;margin-top:3px}
+  /* full time */
+  .lbsq{display:inline-flex;gap:3px;vertical-align:middle}
+  .lbsq i{width:14px;height:14px;border-radius:3px;display:inline-block}
+  .lbsq i.c1{background:#F8F1DD}.lbsq i.c2{background:#e9b84c}.lbsq i.c3{background:#2f9a57}.lbsq i.c0{background:#3a4a3f}
+  .lblegend .lbsq i.c0{background:#8a8f84}
+  .lbpage .b4table td{vertical-align:middle}
+  .lbpage .b4table b.lbL{font:italic 900 22px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
+  .lbpage .b4table tr.tot td{font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;background:rgba(233,184,76,.12)}
+  .lbfh{display:inline-block;margin-left:5px;font:800 9px/1.3 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;color:#241B08;background:#e9b84c;border-radius:3px;padding:1px 4px;vertical-align:middle;white-space:nowrap}
+  .lblegend{display:flex;gap:6px 12px;justify-content:center;flex-wrap:wrap;font:800 10px/1.4 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5b4a23}
+  .lbbest{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:12px;background:#F8F1DD;box-shadow:0 0 0 2px #fff,0 4px 10px rgba(0,0,0,.12)}
+  .lbbest>div{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+  .lbbest .lbcap{color:#7a5a10}
+  .lbbest b{font:italic 900 20px/1.1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
+  .lbbest small{font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#5b4a23}
+  .lbbest .lbtag{font-size:11px;padding:3px 7px}
+  .lbshare{padding:10px 12px;border-radius:12px;border:2px dashed #c9b88f}
+  .lbshare .lbcap{color:#7a5a10}
+  .lbshare div{font:800 14px/1.3 'Barlow Semi Condensed',sans-serif;margin-top:3px;color:#241B08}
+  .lbacts{display:flex;gap:10px}
+  .lbacts .b4btn{flex:1;margin-top:0}
+  @media (prefers-reduced-motion: reduce){ .lbb,.lbtile,.lbstamp,.lbvar::after,.lbclock.late{animation:none} }
   /* ---------- SIMPLE BALL: flags on the picker, the game in the house look ---------- */
   .smq .smf{width:26px;height:auto;border-radius:3px;box-shadow:0 0 0 1px rgba(18,61,36,.25);flex:0 0 auto}
   .smq.on .smf{box-shadow:0 0 0 1px #fff}
@@ -26505,6 +26790,8 @@ function renderMain(){
   if(CUP_VIEW) return renderCup(b4Stage(st, () => { const c = cupRun(); return { title: "The Cup", ctx: "World Cup " + (c ? c.year : cupYear()) + (c && c.alive ? (c.round === "group" ? " · Group " + c.group : " · " + CUP_ROUND_SHORT[c.round]) : ""), back: "closeCup()", cls: "b4cup" }; }));
   if(TT_VIEW) return ttRender(st);
   if(GW_VIEW) return gwRender(st);
+  if(DD_VIEW) return ddRender(st);
+  if(LB_VIEW) return lbRender(st);
   if(GTP_VIEW) return gtpRender(st);
   if(LISTS_VIEW) return listsRender(st);
   if(DREAM_VIEW) return renderDream(st);
@@ -31481,7 +31768,7 @@ function gwStart(next){
   let cpu = Math.floor(Math.random() * 23); if(cpu >= mine) cpu++;
   GW = { board, mine, cpu, upMe: board.map(() => true), upCpu: board.map(() => true), turn: first, asked: [], cpuAsked: [], last: null, cpuLast: null,
     level: M.level, vs: M.vs, ask: M.ask, guessing: false, names: M.names.slice(),
-    phase: "play", fall: [], winner: null, guesses: [0, 0], cover: two, done: false };
+    phase: "play", fall: [], winner: null, guesses: [0, 0], cover: two, done: false, lastFall: [[], []], rivalAnim: false };
   GW.qs = gwQuestions(board);
   GW_VIEW = "play"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
   if(!two && first === 1) setTimeout(gwCpuTurn, 1500);
@@ -31497,7 +31784,11 @@ function gwAskSheet(){
   audio();
   const i = GW.turn, qs = gwUseful(gwUp(i), gwAsked(i)), cats = [...new Set(qs.map(q => q.cat))];
   sheet('<h2>Ask a question</h2><p>' + (gwTwo() ? esc(gwName(1 - i)) + "'s player" : "The computer has to answer about its player") + ', yes or no.</p><div class="gwqs">' +
-    cats.map(c => '<div class="b6hdr">' + c + '</div>' + qs.filter(q => q.cat === c).map(q => '<button class="gwqb" onclick="closeSheet();gwAsk(\'' + q.id + '\')">' + esc(q.text) + '</button>').join("")).join("") +
+    /* one folding section per kind, the first one open: on Hard a board can
+       offer forty questions and the sheet was a long scroll */
+    cats.map((c, n) => { const these = qs.filter(q => q.cat === c);
+      return '<details class="gwcat"' + (n ? "" : " open") + '><summary><span>' + c + '</span><small>' + these.length + '</small></summary>' +
+        these.map(q => '<button class="gwqb" onclick="closeSheet();gwAsk(\'' + q.id + '\')">' + esc(q.text) + '</button>').join("") + '</details>'; }).join("") +
     '</div><button class="bigbtn ghost" onclick="closeSheet()">Not now</button>');
 }
 /* YOUR MAN'S FILE: what you need to answer about him, out loud or not */
@@ -31528,11 +31819,13 @@ function gwAsk(id){
   GW.fall = [];
   GW.board.forEach((b, k) => { if(up[k] && q.test(gwRow(b)) !== yes){ up[k] = false; GW.fall.push(k); } });
   gwSetLast(i, { text: q.text, yes, fell: GW.fall.length });
+  GW.lastFall[i] = GW.fall.slice();
   yes ? ching() : buzzer();
   gwAfter();
 }
 /* out loud: a tap knocks a card down, or stands it back up */
-function gwFlip(k){ if(!gwCanAct()) return; const up = gwUp(GW.turn); up[k] = !up[k]; GW.fall = up[k] ? [] : [k]; try{ beep(up[k] ? 660 : 330, .06, "triangle", .05); }catch(e){} render(); }
+function gwFlip(k){ if(!gwCanAct()) return; const up = gwUp(GW.turn), lf = GW.lastFall[GW.turn]; up[k] = !up[k]; GW.fall = up[k] ? [] : [k];
+  if(up[k]){ if(lf.includes(k)) lf.splice(lf.indexOf(k), 1); }else if(!lf.includes(k)) lf.push(k); try{ beep(up[k] ? 660 : 330, .06, "triangle", .05); }catch(e){} render(); }
 function gwGuessMode(on){ if(!gwCanAct()) return; audio(); GW.guessing = !!on; render(); }
 function gwCardTap(k){
   if(gwLoud() && !GW.guessing) return gwFlip(k);
@@ -31549,13 +31842,13 @@ function gwGuess(k){
   GW.guesses[i]++;
   if(k === gwSec(1 - i)){ GW.phase = "over"; GW.winner = i; gwEnd(); return; }
   buzzer(); flashBad();
-  gwUp(i)[k] = false; GW.fall = [k];
+  gwUp(i)[k] = false; GW.fall = [k]; GW.lastFall[i] = [k];
   gwSetLast(i, { text: "Is it " + gwShort(gwRow(GW.board[k])[0]) + "?", yes: false, fell: 1, guess: true });
   gwAfter();
 }
 /* one phone: the side that acted hands over, the cover goes up, the other takes it */
-function gwPass(){ if(!GW || GW.phase !== "play" || GW.cover || !(GW.done || gwLoud())) return; GW.guessing = false; audio(); GW.turn = 1 - GW.turn; GW.done = false; GW.cover = true; GW.fall = []; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
-function gwUncover(){ if(!GW) return; audio(); GW.cover = false; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function gwPass(){ if(!GW || GW.phase !== "play" || GW.cover || !(GW.done || gwLoud())) return; GW.guessing = false; audio(); GW.turn = 1 - GW.turn; GW.done = false; GW.cover = true; GW.fall = []; GW.lastFall[GW.turn] = []; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function gwUncover(){ if(!GW) return; audio(); GW.cover = false; GW.rivalAnim = true; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
 /* THE COMPUTER: it asks what halves its board best (hard), one of the better
    halves (normal), or anything that still splits it (easy), and names your
    man when one is left standing (or takes a punt at two, on normal and hard) */
@@ -31567,15 +31860,17 @@ function gwCpuTurn(){
     const k = left[Math.floor(Math.random() * left.length)], name = gwShort(gwRow(GW.board[k])[0]);
     if(k === GW.mine){ GW.cpuLast = { text: "Is it " + name + "?", yes: true, guess: true }; GW.phase = "over"; GW.winner = 1; gwEnd(); return; }
     GW.upCpu[k] = false; GW.cpuLast = { text: "Is it " + name + "?", yes: false, guess: true, left: gwLeft(GW.upCpu) };
-    GW.turn = 0; render(); return;
+    GW.lastFall[1] = [k]; GW.rivalAnim = true; GW.turn = 0; render(); return;
   }
   const qs = gwUseful(GW.upCpu, GW.cpuAsked).map(q => ({ q, d: Math.abs(left.filter(k => q.test(gwRow(GW.board[k]))).length - left.length / 2) })).sort((a, b) => a.d - b.d);
   if(!qs.length){ GW.turn = 0; render(); return; }
   const q = (GW.level === "hard" ? qs[0] : GW.level === "normal" ? qs[Math.floor(Math.random() * Math.min(3, qs.length))] : qs[Math.floor(Math.random() * qs.length)]).q;
   const yes = q.test(gwRow(GW.board[GW.mine]));
   GW.cpuAsked.push(q.id);
-  GW.board.forEach((b, k) => { if(GW.upCpu[k] && q.test(gwRow(b)) !== yes) GW.upCpu[k] = false; });
-  GW.cpuLast = { text: q.text, yes, left: gwLeft(GW.upCpu) };
+  const fell = [];
+  GW.board.forEach((b, k) => { if(GW.upCpu[k] && q.test(gwRow(b)) !== yes){ GW.upCpu[k] = false; fell.push(k); } });
+  GW.cpuLast = { text: q.text, yes, left: gwLeft(GW.upCpu), fell: fell.length };
+  GW.lastFall[1] = fell; GW.rivalAnim = true;
   GW.fall = []; GW.turn = 0; render();
 }
 /* a board is won: count it in the match, and the match when someone has enough */
@@ -31616,6 +31911,71 @@ function gwCardHTML(k, up, opts){
   return '<button class="gwcard' + (up ? "" : " down") + (o.fall ? " fall" : "") + (o.me ? " me" : "") + (o.aim ? " aim" : "") + '"' + (o.click ? ' onclick="' + o.click + '"' : "") + (up || o.flip ? "" : " disabled") +
     ' aria-label="' + esc(r[0]) + (up ? "" : ", down") + '"><span class="gwfront">' + gwShirtSVG(r) + '<b>' + esc(gwShort(r[0])) + '</b><small><img src="assets/natflags/' + r[3][0] + '.png" alt="">' + r[2] + ' · ' + r[1] + '</small></span>' +
     '<span class="gwback" aria-hidden="true">' + ballSVG("") + '<i>' + esc(gwShort(r[0])) + '</i></span></button>';
+}
+/* THE OTHER SIDE'S BOARD, small: 24 cards in a row in their kit colours, the
+   ones its last go knocked down tipping over as you watch. It gives nothing
+   away: you know your own man, it only shows how close they are. */
+function gwRivalHTML(i){
+  const o = 1 - i, up = gwUp(o), anim = GW.rivalAnim ? GW.lastFall[o] : [];
+  GW.rivalAnim = false;
+  return '<div class="gwrival"><div class="gwrivalhd"><small>' + (gwTwo() ? esc(gwName(o)) + "’s board" : "The computer’s board") + '</small><b>' + gwLeft(up) + ' left</b></div>' +
+    '<div class="gwminis" role="img" aria-label="' + gwLeft(up) + ' of 24 still standing">' + GW.board.map((b, k) =>
+      '<i class="gwmini' + (up[k] ? "" : " down") + (anim.includes(k) ? " fall" : "") + '" style="--kc:' + gwKit(gwRow(b)[3][0]).body + (anim.includes(k) ? ";--d:" + (anim.indexOf(k) * 70) + "ms" : "") + '"></i>').join("") + '</div></div>';
+}
+/* SHARE: a line of text and a square card of the board it was won on */
+function gwShareText(){
+  const g = GW, M = GW_MATCH || { best: 1, wins: [0, 0] }, w = g.winner, lv = (GW_LEVELS[g.level] || GW_LEVELS.normal).label;
+  const n = gwAsked(w).length + g.guesses[w], qs = n + (n === 1 ? " question" : " questions");
+  const score = Math.max(M.wins[0], M.wins[1]) + "–" + Math.min(M.wins[0], M.wins[1]);
+  const head = gwTwo() ? (M.best > 1 && M.over ? gwName(w) + " beat " + gwName(1 - w) + " " + score : gwName(w) + " got him in " + qs)
+    : M.best > 1 && M.over ? (w === 0 ? "Won the match " + score + " against the computer" : "Lost the match " + score + " to the computer")
+    : w === 0 ? "Got him in " + qs : "The computer got mine first";
+  return "BALL · Who is he? " + head + " · " + lv + "\nbeebzoo.github.io/ball";
+}
+function gwCanvas(){
+  if(!GW || GW.phase !== "over" || typeof document === "undefined") return null;
+  const g = GW, side = gwTwo() ? g.winner : 0, up = gwUp(side), sec = gwSec(1 - side);
+  const c = document.createElement("canvas"); c.width = 1080; c.height = 1080;
+  const x = c.getContext && c.getContext("2d"); if(!x) return null;
+  const [head, url] = gwShareText().replace("BALL · Who is he? ", "").split("\n");
+  const parts = head.split(" · ");
+  x.fillStyle = "#efe4c8"; x.fillRect(0, 0, 1080, 1080);
+  x.fillStyle = "#123D24"; x.fillRect(0, 0, 1080, 230);
+  x.textAlign = "center"; x.fillStyle = "#F8F1DD"; x.font = "italic 900 104px 'Barlow Semi Condensed', sans-serif"; x.fillText("WHO IS HE?", 540, 140);
+  x.fillStyle = "#e9b84c"; x.font = "800 34px 'Barlow Semi Condensed', sans-serif"; x.fillText(("BALL · " + parts[parts.length - 1]).toUpperCase(), 540, 198);
+  /* the tray, 4 by 6: standing cards cream with a band of his kit, fallen ones
+     flat and dark, the man who was found in gold; no names on it */
+  const L = 300, T = 280, cw = 110, ch = 76, gap = 10;
+  const shirt = typeof Path2D !== "undefined" ? new Path2D("M15 7 L23 3 Q30 7 37 3 L45 7 L57 17 L50 26 L45 22 L45 53 L15 53 L15 22 L10 26 L3 17 Z") : null;
+  if(!shirt) return null;
+  x.fillStyle = "#0b2416"; x.fillRect(L - 20, T - 20, 4 * cw + 3 * gap + 40, 6 * ch + 5 * gap + 40);
+  g.board.forEach((b, k) => {
+    const cx = L + (k % 4) * (cw + gap), cy = T + Math.floor(k / 4) * (ch + gap);
+    if(!up[k]){ x.fillStyle = "#1a5233"; x.fillRect(cx, cy + ch - 26, cw, 26); return; }
+    const found = k === sec && g.winner === side;
+    x.fillStyle = found ? "#e9b84c" : "#F8F1DD"; x.fillRect(cx, cy, cw, ch);
+    if(found){ x.fillStyle = "#7a5a10"; x.fillRect(cx, cy + ch - 8, cw, 8); }
+    x.save(); x.translate(cx + 25, cy + 6); x.scale(1, 1.08);
+    x.fillStyle = gwKit(gwRow(b)[3][0]).body; x.fill(shirt);
+    x.strokeStyle = "rgba(0,0,0,.3)"; x.lineWidth = 1.5; x.stroke(shirt); x.restore();
+  });
+  x.fillStyle = "#123D24"; x.font = "italic 900 64px 'Barlow Semi Condensed', sans-serif"; x.fillText(parts.slice(0, -1).join(" · ").toUpperCase(), 540, 900);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56"; x.fillText(url, 540, 970);
+  return c;
+}
+function gwShare(){
+  audio();
+  if(!GW || GW.phase !== "over") return;
+  const text = gwShareText();
+  const copy = () => { try{ navigator.clipboard.writeText(text).then(() => toast("Copied. Send it on."), () => toast("Could not copy", true)); }catch(e){ toast("Could not copy", true); } };
+  const c = gwCanvas();
+  if(!c || !c.toBlob) return copy();
+  c.toBlob(blob => {
+    if(!blob) return copy();
+    const file = new File([blob], "who-is-he.png", { type: "image/png" });
+    if(navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], text }).catch(() => {});
+    copy();
+  }, "image/png");
 }
 function gwSetupScreen(st){
   const p = gwPrefs(), ready = !!GW_DATA.pack, two = p.vs === "two", L = GW_LEVELS[p.level];
@@ -31662,7 +32022,7 @@ function gwRender(st){
     body = b4Q(head, how) +
       '<div class="gwreveal"><div><small>' + esc(two ? gwName(0) + "’s" : "Your player") + '</small>' + gwCardHTML(g.mine, true, { me: true }) + '</div><div><small>' + esc(two ? gwName(1) + "’s" : "The computer’s") + '</small>' + gwCardHTML(g.cpu, true, {}) + '</div></div>' +
       (many && !M.over ? b4Btn("Next board · " + (two ? esc(gwName(nextUp)) + " starts" : nextUp ? "the computer starts" : "you start"), "gwStart(true)", "gold")
-        : b4Btn(many ? "New match" : "Play again", "gwStart()", "gold")) + b4Btn("Leave", "gwLeave()", "quiet");
+        : b4Btn(many ? "New match" : "Play again", "gwStart()", "gold")) + b4Btn("Share", "gwShare()", "dark") + b4Btn("Leave", "gwLeave()", "quiet");
     ctx = many ? (M.over ? "Full time · " + tally : "Board " + M.board + " · " + tally) : "Full time";
   }else if(g.cover){
     /* THE COVER: nothing of either board, only whose go it is */
@@ -31681,13 +32041,1503 @@ function gwRender(st){
         : g.done ? "Then look away while " + esc(gwName(1 - i)) + " has a go."
         : two || g.turn === 0 ? "Or tap a card to name him. A wrong guess costs your go." : "";
     body = (loud ? b4Q(g.guessing ? "Who is he?" : "Ask " + them + " out loud", g.guessing ? "Tap the card you think is " + them + "'s player." : "Anything, yes or no. Then tap down the players the answer rules out; tap again to stand one back up.")
-        : '<div class="gwlog">' + line("You asked", gwLastOf(i)) + line(them + " asked", gwLastOf(1 - i)) + '</div>') +
+        : '<div class="gwlog">' + line("You asked", gwLastOf(i)) + line(them + " asked", gwLastOf(1 - i)) + '</div>') + gwRivalHTML(i) +
       '<div class="gwgrid gwtray' + (g.guessing ? " aiming" : "") + '">' + g.board.map((b, k) => '<div class="gwslot">' + gwCardHTML(k, gwUp(i)[k], { fall: g.fall.includes(k), click: "gwCardTap(" + k + ")", flip: loud && !g.guessing, aim: g.guessing && gwUp(i)[k] }) + '</div>').join("") + '</div>' +
       '<div class="gwledge"><div class="gwmine"><small>Your player</small>' + gwCardHTML(gwSec(i), true, { me: true, click: "gwFile()" }) + '<em>tap for his file</em></div>' +
       '<div class="gwacts">' + acts + (hint ? '<div class="b6qs">' + hint + '</div>' : "") + '</div></div>';
     ctx = (many ? "Board " + M.board + " · " : "") + (two ? gwName(i) + "’s go" : g.turn === 0 ? "Your go" : "Computer's go");
   }
   st.innerHTML = b4Page({ title: "Who is he?", ctx, back: over ? "gwLeave()" : "gwAskLeave()", leave: over ? null : "gwAskLeave()", score, cls: "gwpage", body });
+}
+/* ---------- DEADLINE DAY ---------- (the Cluedo game, 22 Oct 2026)
+   _plans/deadline-day.md; the look is the canvas
+   https://claude.ai/artifact/1tKMxNofvBUMwQwbahDPVN (route, rumour, notebook,
+   scoop). A transfer has been agreed and nobody has announced it: you and up
+   to three rival journalists work out WHO signed, for WHICH CLUB and in WHICH
+   YEAR. 18 cards (6 players, 6 clubs, 6 years), 3 sealed in the envelope, the
+   rest dealt round the table with the leftovers face up on the desk. Float a
+   rumour at the club you are at and the first rival clockwise who holds one
+   of the three shows you one. The twist on Cluedo: the answer is always a
+   real transfer (assets/deadline, _tools/build-deadline.js), so knowing the
+   careers rules combinations out without any card.
+   Every rule is a pure function on a game object (ddNew, ddRumour, ddFinish,
+   ddAccuse, ddCpuTurn, ddProp), so _tests/dd-test.js can play hundreds of
+   games without a screen; DD is the one on screen, DD_VIEW which screen. */
+const DD_KEY = "ball4-dd";
+const DD_DATA = { names: null, cases: {} };
+let DD_VIEW = null, DD = null, DD_UID = 0, DD_TIMER = null;
+/* §9: the level picks the case file, the order the rivals come in, the
+   notebook and how forgiving a wrong story is */
+const DD_LEVELS = {
+  easy: { label: "Easy", file: "easy", tier: "easy", lineup: ["tabloid", "insider", "agent"], rivals: 2, auto: true, facts: 3, retract: 1,
+    say: "Household names. The notebook fills itself in, three fact checks, and one wrong story is forgiven." },
+  normal: { label: "Medium", file: "medium", tier: "normal", lineup: ["insider", "tabloid", "agent"], rivals: 2, auto: true, facts: 0, retract: 0,
+    say: "Well-known players. The notebook fills itself in; a wrong story and you're off the case." },
+  hard: { label: "Hard", file: "hard", tier: "hard", lineup: ["agent", "insider", "tabloid"], rivals: 3, auto: false, facts: 0, retract: 0,
+    say: "Deep cuts. You keep the notebook yourself (auto is a switch), and the Agent knows every career." } };
+/* the rivals (our own names, no real outlets) and how each one thinks (§8) */
+const DD_RIVALS = {
+  tabloid: { name: "The Tabloid", short: "Tabloid", ab: "TAB", badge: "linear-gradient(90deg,#c8102e 50%,#fff 50%)", pin: "#c8102e", say: "Fast and reckless" },
+  insider: { name: "The Insider", short: "Insider", ab: "INS", badge: "#1c2b4a", pin: "#1c2b4a", say: "Careful, a long memory" },
+  agent: { name: "The Agent", short: "Agent", ab: "AGT", badge: "linear-gradient(135deg,#111 50%,#e9b84c 50%)", pin: "#111111", say: "Knows every career" } };
+const DD_FIRST = 9, DD_SHUT = 23;     // the window: 09:00 to 23:00, an hour a lap
+function ddPrefs(){
+  let p = null; try{ p = JSON.parse(localStorage.getItem(DD_KEY) || "null"); }catch(e){}
+  p = p && typeof p === "object" ? p : {};
+  const level = DD_LEVELS[p.level] ? p.level : "normal", rv = p.rv && typeof p.rv === "object" ? p.rv : {};
+  /* how many rivals is remembered per level: Easy starts with two, Hard with all three (§9) */
+  return { level, rv, rivals: [1, 2, 3].includes(rv[level]) ? rv[level] : DD_LEVELS[level].rivals, auto: p.auto === true,
+    played: p.played | 0, won: p.won | 0, best: p.best | 0, seen: p.seen && typeof p.seen === "object" ? p.seen : {} };
+}
+function ddSave(p){ try{ localStorage.setItem(DD_KEY, JSON.stringify(p)); }catch(e){} }
+function ddLoad(level){
+  const f = (DD_LEVELS[level] || DD_LEVELS.normal).file;
+  const get = u => fetch(u).then(r => { if(!r.ok) throw new Error(u); return r.json(); });
+  return Promise.all([DD_DATA.names ? DD_DATA.names : get("assets/deadline/names.json").then(j => DD_DATA.names = j),
+    DD_DATA.cases[f] ? DD_DATA.cases[f] : get("assets/deadline/cases-" + f + ".json").then(j => DD_DATA.cases[f] = j)]);
+}
+const ddReady = level => !!(DD_DATA.names && DD_DATA.cases[(DD_LEVELS[level] || DD_LEVELS.normal).file]);
+
+/* ---- the engine ---- */
+/* cards are 0-17: players 0-5, clubs 6-11, years 12-17 */
+const ddKind = c => Math.floor(c / 6);
+const ddCat = k => [0, 1, 2, 3, 4, 5].map(i => k * 6 + i);
+const ddShuffle = (a, rnd) => { a = a.slice(); for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+/* a seeded random for the tests; the game itself uses Math.random */
+const ddSeeded = seed => { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
+/* WHAT ONE SEAT KNOWS: for every place a card can be (each seat, then the
+   envelope last) 1 = there, -1 = not there, 0 = not known; plus the "showed
+   one of these three" notes. deep = full Cluedo deduction (the Insider, the
+   Agent, your auto notebook); shallow only keeps what it has seen with its
+   own eyes (the Tabloid, your notebook with auto off). */
+function ddKnow(G, o, deep){
+  const n = G.seats.length, h = Array.from({ length: n + 1 }, () => new Array(18).fill(0));
+  for(let c = 0; c < 18; c++){
+    if(G.desk.includes(c)) for(const row of h) row[c] = -1;
+    else if(o >= 0) h[o][c] = G.seats[o].hand.includes(c) ? 1 : -1;
+  }
+  const K = { o, deep: !!deep, h, cons: [], sizes: G.seats.map(s => s.hand.length), bad: false };
+  ddProp(K);
+  return K;
+}
+function ddProp(K){
+  const h = K.h, E = h.length - 1;
+  let ch = true, guard = 0;
+  const set = (s, c, v) => { if(h[s][c] === v) return; if(h[s][c] !== 0){ K.bad = true; return; } h[s][c] = v; ch = true; };
+  while(ch && guard++ < 60){
+    ch = false;
+    for(let c = 0; c < 18; c++){
+      const at = h.findIndex(r => r[c] === 1);
+      if(at >= 0){ for(let s = 0; s <= E; s++) if(s !== at) set(s, c, -1); continue; }
+      /* only one place left it can be: it is there (desk cards are nowhere) */
+      if(K.deep && !h.every(r => r[c] === -1)){ const open = h.map((r, s) => r[c] === 0 ? s : -1).filter(s => s >= 0); if(open.length === 1 && h.filter(r => r[c] === -1).length === E) set(open[0], c, 1); }
+    }
+    /* the envelope holds exactly one of each kind */
+    for(let k = 0; k < 3; k++){
+      const cat = ddCat(k), inn = cat.filter(c => h[E][c] === 1), can = cat.filter(c => h[E][c] !== -1);
+      if(inn.length) cat.forEach(c => { if(c !== inn[0]) set(E, c, -1); });
+      else if(can.length === 1) set(E, can[0], 1);
+    }
+    if(!K.deep) continue;
+    /* a full hand has nothing else in it; a hand with exactly enough room has the rest */
+    for(let s = 0; s < E; s++){
+      const ones = h[s].filter(v => v === 1).length, open = h[s].map((v, c) => v === 0 ? c : -1).filter(c => c >= 0);
+      if(!open.length) continue;
+      if(ones === K.sizes[s]) open.forEach(c => set(s, c, -1));
+      else if(ones + open.length === K.sizes[s]) open.forEach(c => set(s, c, 1));
+    }
+    /* "showed one of these three": with two of them ruled out, it was the third */
+    for(const k of K.cons){
+      if(k.cards.some(c => h[k.s][c] === 1)) continue;
+      const live = k.cards.filter(c => h[k.s][c] !== -1);
+      if(live.length === 1) set(k.s, live[0], 1);
+    }
+  }
+  return K;
+}
+/* a note in one seat's book: a card seen, a pass, or "showed one of these" */
+function ddNote(K, what, s, cards){
+  if(what === "see") K.h[s][cards[0]] === 0 && (K.h[s][cards[0]] = 1);
+  else if(what === "pass"){ if(K.deep) cards.forEach(c => { if(K.h[s][c] === 0) K.h[s][c] = -1; }); }
+  else if(what === "cons") K.cons.push({ s, cards: cards.slice() });
+}
+/* what a book says can still be in the envelope, kind by kind */
+const ddPossible = K => [0, 1, 2].map(k => ddCat(k).filter(c => K.h[K.h.length - 1][c] !== -1));
+/* the real transfers still possible by a book: the rule only fans (and the Agent) use */
+const ddCombos = (G, K) => { const E = K.h.length - 1; return G.cs.real.filter(r => K.h[E][r[0]] !== -1 && K.h[E][6 + r[1]] !== -1 && K.h[E][12 + r[2]] !== -1); };
+/* a new case: the pieces from the names table, the envelope, the deal round
+   the table. kinds: "you" for the phone, or a rival per seat */
+function ddNew(names, row, o){
+  o = o || {};
+  const rnd = o.rnd || Math.random, kinds = o.kinds || ["you", "insider"];
+  const [pl, cl, ys, deal, real] = row;
+  const P = pl.map(i => { const r = names.players[i]; return { name: r[0], short: ddShort(r[0]), born: r[1], pos: r[2], nat: r[3], no: r[4],
+    career: r[5].map(([ci, a, b]) => ({ club: ddClubRow(names.clubs[ci]), from: a, to: b || null })) }; });
+  const C = cl.map(i => ddClubRow(names.clubs[i]));
+  const env = [deal[0], 6 + deal[1], 12 + deal[2]];
+  const G = { level: o.level || "normal", P, C, Y: ys.slice(), cs: { deal: deal.slice(), real: real.map(r => r.slice()) }, caseNo: o.caseNo | 0, env,
+    seats: kinds.map(k => ({ kind: k, hand: [], at: 0, out: false })), desk: [], turn: 0, lap: 0, phase: "play", winner: null, why: null,
+    moved: false, rumoured: false, leakLap: 0, retract: o.retract | 0, facts: o.facts | 0, factsDone: [], log: [], feed: [], ask: null,
+    shownTo: kinds.map(() => ({})), worked: [], accused: [], stats: { rumours: 0, leaks: 0, taxis: 0 }, rnd };
+  const rest = ddShuffle([...Array(18).keys()].filter(c => !env.includes(c)), rnd), per = Math.floor(rest.length / kinds.length);
+  G.seats.forEach((s, i) => { s.hand = rest.slice(i * per, (i + 1) * per).sort((a, b) => a - b); s.at = Math.floor(rnd() * 6); });
+  G.desk = rest.slice(per * kinds.length).sort((a, b) => a - b);
+  G.seats.forEach((s, i) => { s.know = ddKnow(G, i, s.kind === "insider" || s.kind === "agent" || s.kind === "you"); });
+  /* your notebook with auto off: only what you have seen yourself */
+  const me = kinds.indexOf("you");
+  G.me = me;
+  if(me >= 0) G.seen = ddKnow(G, me, false);
+  return G;
+}
+const ddShort = n => { const w = String(n).split(" "); if(w.length < 2) return n; const k = w.length - 2;
+  return /^(van|de|di|da|dos|del|der|le|el|al|ter|von|ben)$/i.test(w[k]) ? w.slice(k).join(" ") : w[w.length - 1]; };
+const ddClubRow = r => ({ slug: r[0], name: r[1], cc: r[2], code: r[3] || String(r[1]).replace(/^(FC|AC|AS|SC|SV|CF|CD|RC|SS|US|VfB|VfL|1\.) /, "").slice(0, 3).toUpperCase(), c1: r[4] || "", c2: r[5] || "", p: r[6] || "plain" });
+/* a card's name as the cards and the notebook say it */
+const ddName = (G, c) => { const k = ddKind(c), i = c % 6; return k === 0 ? G.P[i].short : k === 1 ? G.C[i].name : String(G.Y[i]); };
+const ddFull = (G, c) => { const k = ddKind(c), i = c % 6; return k === 0 ? G.P[i].name : ddName(G, c); };
+const ddSeatName = (G, s) => G.seats[s].kind === "you" ? "You" : DD_RIVALS[G.seats[s].kind].name;
+const ddHour = G => Math.min(DD_SHUT, DD_FIRST + G.lap);
+const ddClock = G => String(ddHour(G)).padStart(2, "0") + ":00";
+/* MOVING: one stop, or two with a Taxi question right (wrong: one stop that way) */
+function ddTravel(G, s, to, right){
+  const from = G.seats[s].at, d = Math.abs(to - from);
+  if(d < 1 || d > 2 || to < 0 || to > 5) return null;
+  if(d === 2 && !right) to = from + Math.sign(to - from);
+  G.seats[s].at = to;
+  if(s === G.me) G.moved = true;
+  return to;
+}
+/* A RUMOUR: round the table clockwise from the one who floats it; the first
+   who holds any of the three shows one. If that's you with two or more, the
+   game waits for you to choose (G.ask) and ddFinish carries on. */
+function ddRumour(G, a, cards){
+  const n = G.seats.length, res = { by: a, at: G.seats[a].at, cards: cards.slice(), steps: [], shower: null, shown: null, need: null, hour: ddHour(G) };
+  G.stats.rumours += a === G.me ? 1 : 0;
+  if(a === G.me) G.rumoured = true;
+  for(let k = 1; k < n; k++){
+    const s = (a + k) % n, has = G.seats[s].hand.filter(c => cards.includes(c));
+    if(!has.length){ res.steps.push({ s, pass: true }); continue; }
+    res.shower = s;
+    if(G.seats[s].kind === "you" && has.length > 1){ res.need = { s, options: has }; G.ask = res; return res; }
+    return ddFinish(G, res, has.length === 1 ? has[0] : ddCpuShowPick(G, s, a, has));
+  }
+  return ddFinish(G, res, null);
+}
+/* the rumour settles: everyone writes down what they could see of it */
+function ddFinish(G, res, card){
+  const n = G.seats.length;
+  if(res.need && !res.need.options.includes(card)) return res;
+  res.need = null; G.ask = null; res.shown = card;
+  if(res.shower != null){
+    res.steps.push({ s: res.shower, shown: card });
+    for(let k = 1; k < n; k++){ const s = (res.by + k) % n; if(!res.steps.some(x => x.s === s)) res.steps.push({ s, skip: true }); }
+    G.shownTo[res.shower][res.by + ":" + card] = 1;
+  }
+  const before = G.me >= 0 ? G.seats[G.me].know.h[n].slice() : null;
+  const write = (K, o, tabloid) => {
+    for(const st of res.steps) if(st.pass) ddNote(K, "pass", st.s, res.cards);
+    if(res.shower != null){
+      if(o === res.by){ if(!(tabloid && G.rnd() < .15)) ddNote(K, "see", res.shower, [card]); }   // the Tabloid misses one now and then
+      else if(o !== res.shower) ddNote(K, "cons", res.shower, res.cards);
+    }
+    ddProp(K);
+  };
+  G.seats.forEach((seat, o) => write(seat.know, o, seat.kind === "tabloid"));
+  if(G.seen) write(G.seen, G.me, false);
+  if(before) ddWorked(G, before, res.by === G.me ? card : null);
+  G.log.push(res);
+  return res;
+}
+/* the "Worked out" line: what your auto notebook crossed off by itself */
+function ddWorked(G, before, direct){
+  const K = G.seats[G.me].know, E = K.h.length - 1, got = [];
+  for(let c = 0; c < 18; c++){
+    if(before[c] !== -1 && K.h[E][c] === -1 && c !== direct && !G.seats[G.me].hand.includes(c)){
+      const s = K.h.findIndex((r, i) => i < E && r[c] === 1);
+      got.push({ c, s, text: ddName(G, c) + (s >= 0 ? " is out: " + ddSeatName(G, s).replace(/^The/, "the") + " must have it." : " is out.") });
+    }
+    if(before[c] !== 1 && K.h[E][c] === 1) got.push({ c, deal: true, text: ddName(G, c) + " is in the deal: nobody can hold it." });
+  }
+  if(got.length) G.worked = got;
+  return got;
+}
+/* a rival with several of the three shows one it has shown that journalist
+   before if it can (the sharp ones give nothing new away) */
+function ddCpuShowPick(G, s, a, has){
+  const again = has.filter(c => G.shownTo[s][a + ":" + c]);
+  if(again.length && G.seats[s].kind !== "tabloid") return again[0];
+  return has[Math.floor(G.rnd() * has.length)];
+}
+/* BREAKING THE STORY: right wins; wrong is "Story retracted" and you are off
+   the case (Easy forgives one) */
+function ddAccuse(G, s, cards){
+  const ok = cards[0] === G.env[0] && cards[1] === G.env[1] && cards[2] === G.env[2];
+  G.accused.push({ s, cards: cards.slice(), ok, hour: ddHour(G) });
+  if(ok){ G.phase = "over"; G.winner = s; G.why = "scoop"; return { ok: true }; }
+  if(s === G.me && G.retract > 0){ G.retract--; return { ok: false, again: true }; }
+  G.seats[s].out = true;
+  if(s === G.me){ G.phase = "over"; G.winner = null; G.why = "retracted"; }
+  else if(G.seats.every(x => x.out)){ G.phase = "over"; G.winner = null; G.why = "nobody"; }
+  return { ok: false };
+}
+/* the next journalist still on the case; a lap is an hour, and at 23:00 the window shuts */
+function ddNext(G){
+  if(G.phase !== "play") return;
+  const n = G.seats.length;
+  let t = G.turn;
+  for(let k = 0; k < n; k++){ t = (t + 1) % n; if(t === 0) G.lap++; if(!G.seats[t].out) break; }
+  G.turn = t; G.moved = false; G.rumoured = false;
+  if(DD_FIRST + G.lap >= DD_SHUT){ G.phase = "over"; G.winner = null; G.why = "shut"; }
+}
+/* A LEAK (once a lap, for a right answer): a random rival shows you a random
+   card you didn't know about */
+function ddLeak(G, right){
+  G.leakLap = G.lap;
+  if(!right || G.me < 0) return null;
+  const K = G.seats[G.me].know, opts = [];
+  G.seats.forEach((s, i) => { if(i !== G.me) s.hand.forEach(c => { if(K.h[i][c] !== 1) opts.push([i, c]); }); });
+  if(!opts.length) return null;
+  const [s, c] = opts[Math.floor(G.rnd() * opts.length)];
+  const before = K.h[K.h.length - 1].slice();
+  ddNote(K, "see", s, [c]); ddProp(K);
+  ddNote(G.seen, "see", s, [c]); ddProp(G.seen);
+  ddWorked(G, before, c);
+  G.stats.leaks++;
+  return { s, card: c };
+}
+/* THE COMPUTER (§8). The Tabloid floats anything and gambles when it is
+   down to two; the Insider deduces everything and asks about what it doesn't
+   know; the Agent does that and also knows which transfers really happened,
+   so it breaks the story as soon as one real one is left. */
+/* THE AGENT'S RESTRAINT. It knows every career, so floating the real
+   transfers one by one would crack most cases on its first or second rumour
+   (three Agents: 2.7 rumours a game) and you'd never get a go. So it only
+   asks about players and years still in a real transfer, never a whole real
+   transfer at once (DD_AGENT_DIRECT), and it only stakes its name on the
+   last real one once the cards are down to four combinations or fewer
+   (DD_SURE). Three Agents then take about 5 rumours; against you, Hard is
+   still mostly the Agent's (_tests/dd-test.js plays it out). */
+let DD_SURE = 4, DD_AGENT_DIRECT = false;
+function ddCpuAccuse(G, s){
+  const seat = G.seats[s], K = seat.know, [P, C, Y] = ddPossible(K), n = P.length * C.length * Y.length;
+  if(n === 1) return [P[0], C[0], Y[0]];
+  if(seat.kind === "agent" && n <= DD_SURE){ const r = ddCombos(G, K); if(r.length === 1) return [r[0][0], 6 + r[0][1], 12 + r[0][2]]; }
+  if(seat.kind === "tabloid" && n <= 4 && G.rnd() < .35){ const pk = a => a[Math.floor(G.rnd() * a.length)]; return [pk(P), pk(C), pk(Y)]; }
+  return null;
+}
+/* where it wants to be: a club still in the running (for the Agent, one in a real transfer still possible) */
+function ddCpuMove(G, s){
+  const seat = G.seats[s], K = seat.know, E = K.h.length - 1, at = seat.at;
+  let want;
+  if(seat.kind === "agent"){ const r = ddCombos(G, K); want = [...new Set(r.map(x => x[1]))]; }
+  else if(seat.kind === "insider") want = [0, 1, 2, 3, 4, 5].filter(i => K.h[E][6 + i] !== -1);
+  else want = [Math.max(0, Math.min(5, at + (G.rnd() < .5 ? -1 : 1)))];
+  if(!want.length || want.includes(at)) return at;
+  const to = want.slice().sort((a, b) => Math.abs(a - at) - Math.abs(b - at) || G.rnd() - .5)[0];
+  const d = to - at, step = Math.abs(d) >= 2 ? 2 : 1;
+  const taxi = step === 2 && G.rnd() < (seat.kind === "agent" ? .75 : seat.kind === "insider" ? .6 : .45);
+  seat.at = at + Math.sign(d) * (taxi ? 2 : 1);
+  return seat.at;
+}
+/* what to float at this club: the pieces it knows least about */
+function ddCpuPick(G, s, club){
+  const seat = G.seats[s], K = seat.know, [P, , Y] = ddPossible(K);
+  const unknown = c => !K.h.some(r => r[c] === 1);
+  const pk = a => a[Math.floor(G.rnd() * a.length)];
+  const best = a => { const u = a.filter(unknown); return pk(u.length ? u : a); };
+  if(seat.kind === "tabloid") return [pk(P.length ? P : ddCat(0)), pk(Y.length ? Y : ddCat(2))];
+  if(seat.kind === "agent" && DD_AGENT_DIRECT){
+    const here = ddCombos(G, K).filter(r => 6 + r[1] === club);
+    if(here.length){
+      const sc = here.map(r => ({ r, v: (unknown(r[0]) ? 1 : 0) + (unknown(12 + r[2]) ? 1 : 0) + G.rnd() * .5 })).sort((a, b) => b.v - a.v)[0].r;
+      return [sc[0], 12 + sc[2]];
+    }
+  }
+  if(seat.kind === "agent"){
+    /* only ask about players and years that are still in a real transfer */
+    const r = ddCombos(G, K), rp = P.filter(c => r.some(x => x[0] === c)), ry = Y.filter(c => r.some(x => 12 + x[2] === c));
+    return [best(rp.length ? rp : P.length ? P : ddCat(0)), best(ry.length ? ry : Y.length ? Y : ddCat(2))];
+  }
+  return [best(P.length ? P : ddCat(0)), best(Y.length ? Y : ddCat(2))];
+}
+/* one rival's go: break the story, or move and float a rumour. Returns what
+   it did, for the feed; if it needs you to show a card it stops at G.ask. */
+function ddCpuTurn(G){
+  const s = G.turn, seat = G.seats[s];
+  if(G.phase !== "play" || G.ask || !seat || seat.kind === "you" || seat.out) return null;
+  const acc = ddCpuAccuse(G, s);
+  if(acc){ const r = ddAccuse(G, s, acc), ev = { s, kind: "accuse", cards: acc, ok: r.ok, hour: ddHour(G) }; G.feed.push(ev); ddNext(G); return ev; }
+  ddCpuMove(G, s);
+  const club = 6 + seat.at, [p, y] = ddCpuPick(G, s, club);
+  const res = ddRumour(G, s, [p, club, y]), ev = { s, kind: "rumour", res, hour: res.hour };
+  G.feed.push(ev);
+  if(!res.need) ddCpuAfter(G, s);
+  return ev;
+}
+/* after its rumour a rival may break the story at once, then the go passes */
+function ddCpuAfter(G, s){
+  if(G.phase !== "play") return;
+  const acc = ddCpuAccuse(G, s);
+  if(acc){ const r = ddAccuse(G, s, acc); G.feed.push({ s, kind: "accuse", cards: acc, ok: r.ok, hour: ddHour(G) }); }
+  ddNext(G);
+}
+/* the notebook, row by row: per card the mark in each seat's column, and
+   whether it is still possible */
+function ddNotebook(G, auto){
+  const K = auto ? G.seats[G.me].know : G.seen, deep = G.seats[G.me].know, E = K.h.length - 1, n = G.seats.length;
+  return [...Array(18).keys()].map(c => {
+    const desk = G.desk.includes(c), mine = G.seats[G.me].hand.includes(c);
+    const cells = G.seats.map((x, s) => {
+      if(desk) return "d";
+      if(s === G.me) return mine ? "y" : "";
+      if(K.h[s][c] === 1) return "x";
+      if(deep.cons.some(k => k.s === s && k.cards.includes(c) && !k.cards.some(z => K.h[s][z] === 1)) && K.h[s][c] !== -1) return "q";
+      return "";
+    });
+    const struck = !auto && G.marks && G.marks[c];
+    return { c, name: ddName(G, c), cells, out: K.h[E][c] === -1 || !!struck, deal: K.h[E][c] === 1, mine, desk, n };
+  });
+}
+/* a multiple-choice question for the Taxi or a Leak, from the Matchday bank
+   at the level, one that names a player or club in the case if there is one */
+function ddQuestion(G){
+  const tier = (DD_LEVELS[G.level] || DD_LEVELS.normal).tier;
+  const bank = ((typeof DECKS !== "undefined" && DECKS["classic-mc"]) || {})[tier] || [];
+  const ok = bank.filter(q => q && q.o && q.o.length === 4 && !(G.qUsed || {})[q.q]);
+  if(!ok.length) return null;
+  const keys = G.P.map(p => p.short).concat(G.C.map(c => c.name)).filter(k => k && k.length > 3);
+  const near = ok.filter(q => keys.some(k => q.q.includes(k)));
+  const pool = near.length ? near : ok, q = pool[Math.floor(G.rnd() * pool.length)];
+  (G.qUsed = G.qUsed || {})[q.q] = 1;
+  return { q: q.q, o: q.o.slice(), k: q.k, a: q.a };
+}
+
+/* ---- the screens ---- */
+function openDD(){ audio(); DD_VIEW = "setup"; DD = null; render(); ddLoad(ddPrefs().level).then(() => render()).catch(() => {}); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function ddLeave(){ audio(); clearTimeout(DD_TIMER); DD_VIEW = null; DD = null; closeSheet(); render(); }
+function ddAskLeave(){
+  audio();
+  sheet('<h2>Leave the case?</h2><p>The story goes to the rivals and this case is thrown away.</p><button class="b4btn gold" onclick="ddLeave()">Leave</button><button class="b4btn quiet" onclick="closeSheet()">Keep digging</button>');
+}
+function ddSet(k, v){
+  audio();
+  const p = ddPrefs();
+  if(k === "rivals") p.rv[p.level] = v; else p[k] = v;
+  delete p.rivals; ddSave(p); render();
+  if(k === "level") ddLoad(v).then(() => render()).catch(() => {});
+}
+/* a case you haven't had lately, from the level's file */
+function ddStart(){
+  const p = ddPrefs(), L = DD_LEVELS[p.level];
+  if(!ddReady(p.level)){ toast("Still loading the case files, one second", true); return; }
+  audio(); clearTimeout(DD_TIMER);
+  const all = DD_DATA.cases[L.file], seen = p.seen[p.level] || [];
+  let k = Math.floor(Math.random() * all.length);
+  for(let n = 0; n < 30 && seen.includes(k); n++) k = Math.floor(Math.random() * all.length);
+  p.seen[p.level] = seen.concat(k).slice(-60); ddSave(p);
+  DD = ddNew(DD_DATA.names, all[k], { level: p.level, caseNo: k, kinds: ["you"].concat(L.lineup.slice(0, p.rivals)), retract: L.retract, facts: L.facts });
+  DD.auto = L.auto || p.auto; DD.marks = {}; DD.ended = false;
+  DD_VIEW = "play"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+const ddMyGo = () => DD && DD.phase === "play" && DD.turn === DD.me && !DD.ask && !DD.busy;
+/* the stations: one stop is a tap, two is a Taxi question */
+function ddStation(i){
+  if(!ddMyGo() || DD.moved || DD.rumoured) return;
+  const d = Math.abs(i - DD.seats[DD.me].at);
+  if(d === 1){ audio(); ddTravel(DD, DD.me, i, false); try{ beep(660, .06, "triangle", .05); }catch(e){} render(); return; }
+  if(d === 2) ddTaxi(i);
+}
+function ddQuizSheet(head, sub, q, fn){
+  sheet('<h2>' + head + '</h2><p>' + sub + '</p><div class="ddquiz"><b>' + esc(q.q) + '</b>' +
+    q.o.map((o, i) => '<button class="ddopt" onclick="' + fn + '(' + i + ')">' + esc(String(o)) + '</button>').join("") + '</div>' +
+    '<button class="b4btn quiet" onclick="closeSheet()">Not now</button>');
+}
+function ddTaxi(i){
+  const q = ddQuestion(DD);
+  if(!q){ toast("No taxis yet, the questions are still loading", true); return; }
+  audio(); DD.taxi = { to: i, q };
+  ddQuizSheet("Taxi to " + esc(DD.C[i].name) + "?", "Answer right and you go two stops. Wrong, and the driver drops you one stop that way.", q, "ddTaxiAnswer");
+}
+function ddTaxiAnswer(k){
+  if(!DD || !DD.taxi) return;
+  const t = DD.taxi, right = k === t.q.k; DD.taxi = null; DD.stats.taxis++;
+  const to = ddTravel(DD, DD.me, t.to, right);
+  right ? ching() : buzzer();
+  sheet('<h2>' + (right ? "Two stops" : "One stop") + '</h2><p>' + (right ? "Right. You're at " : "It was " + esc(String(t.q.a)) + ". You get as far as ") + esc(DD.C[to].name) + '.</p>' +
+    b4Btn("Float a rumour here", "closeSheet();ddRumourSheet()", "gold") + '<button class="b4btn quiet" onclick="closeSheet();render()">Back to the route</button>');
+  render();
+}
+/* the chips for picking a player, club or year in a sheet */
+function ddChips(kind, sel, fn, onlyLive){
+  const nb = ddNotebook(DD, DD.auto);
+  return '<div class="ddchips" role="group">' + ddCat(kind).map(c => '<button aria-pressed="' + (sel === c) + '"' + (nb[c].out ? ' class="out"' : "") + ' onclick="' + fn + '(' + c + ')">' + esc(ddName(DD, c)) + '</button>').join("") + '</div>';
+}
+function ddRumourSheet(){
+  if(!ddMyGo() || DD.rumoured) return;
+  audio();
+  const pk = DD.pick = DD.pick || {}, club = 6 + DD.seats[DD.me].at;
+  sheet('<h2>A rumour at ' + esc(DD.C[club - 6].name) + '</h2><p>Who joined ' + esc(DD.C[club - 6].name) + ', and when? The first rival who can deny it shows you one card.</p>' +
+    '<div class="b6hdr">The player</div>' + ddChips(0, pk.p, "ddPickP") + '<div class="b6hdr">Joined in</div>' + ddChips(2, pk.y, "ddPickY") +
+    (pk.p != null && pk.y != null ? '<p class="ddsay">“' + esc(DD.P[pk.p].short) + ' to ' + esc(DD.C[club - 6].name) + ' in ' + DD.Y[pk.y - 12] + '?”</p>' : "") +
+    '<button class="b4btn gold" onclick="ddFloat()"' + (pk.p != null && pk.y != null ? "" : " disabled") + '>Float it</button><button class="b4btn quiet" onclick="closeSheet()">Not yet</button>');
+}
+function ddPickP(c){ DD.pick.p = c; ddRumourSheet(); }
+function ddPickY(c){ DD.pick.y = c; ddRumourSheet(); }
+function ddFloat(){
+  if(!ddMyGo() || !DD.pick || DD.pick.p == null || DD.pick.y == null) return;
+  closeSheet();
+  const club = 6 + DD.seats[DD.me].at;
+  DD.last = ddRumour(DD, DD.me, [DD.pick.p, club, DD.pick.y]);
+  DD.pick = {};
+  DD.last.shown == null ? ching() : beep(520, .08, "triangle", .05);
+  DD_VIEW = "rumour"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+/* your go is over: back to the route, and the rivals take theirs */
+function ddEndGo(){
+  if(!DD || DD.phase !== "play") return ddAfterAll();
+  audio(); closeSheet();
+  DD_VIEW = "play";
+  if(DD.turn === DD.me){ DD.feed = []; ddNext(DD); }
+  DD.busy = true; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+  clearTimeout(DD_TIMER); DD_TIMER = setTimeout(ddRivalStep, 700);
+}
+function ddRivalStep(){
+  if(!DD || DD.phase !== "play"){ if(DD) DD.busy = false; return ddAfterAll(); }
+  if(DD.turn === DD.me){ DD.busy = false; render(); return ddMaybeLeak(); }
+  const ev = ddCpuTurn(DD);
+  render();
+  if(ev && ev.kind === "rumour" && ev.res.need) return ddShowSheet();
+  if(DD.phase !== "play"){ DD.busy = false; return ddAfterAll(); }
+  clearTimeout(DD_TIMER); DD_TIMER = setTimeout(ddRivalStep, 1100);
+}
+/* a rival's rumour you can deny with more than one card: you choose */
+function ddShowSheet(){
+  const r = DD && DD.ask; if(!r) return;
+  const who = DD_RIVALS[DD.seats[r.by].kind].name;
+  sheet('<h2>' + who + ' asks</h2><p>“' + esc(ddName(DD, r.cards[0])) + ', ' + esc(ddName(DD, r.cards[1])) + ', ' + esc(ddName(DD, r.cards[2])) + '?” Show one of yours. Only ' + who.replace(/^The/, "the") + ' sees it.</p>' +
+    '<div class="ddshowpick">' + r.need.options.map(c => '<button onclick="ddShowMine(' + c + ')" aria-label="Show ' + esc(ddFull(DD, c)) + '">' + ddCardHTML(DD, c, { tag: "span" }) + '</button>').join("") + '</div>');
+  try{ const o = $("#overlay"); if(o) o.onclick = null; }catch(e){}
+}
+function ddShowMine(c){
+  if(!DD || !DD.ask) return;
+  const r = DD.ask; audio(); closeSheet();
+  ddFinish(DD, r, c); ddCpuAfter(DD, r.by);
+  render();
+  if(DD.phase !== "play"){ DD.busy = false; return ddAfterAll(); }
+  clearTimeout(DD_TIMER); DD_TIMER = setTimeout(ddRivalStep, 900);
+}
+/* once a lap, when the table has been round: a leak question */
+function ddMaybeLeak(){
+  if(!ddMyGo() || DD.lap < 1 || DD.leakLap >= DD.lap) return;
+  const q = ddQuestion(DD);
+  if(!q){ DD.leakLap = DD.lap; return; }
+  DD.leakQ = q;
+  ddQuizSheet("A leak", "Somebody on the inside will talk, for a right answer: a rival's card, shown to you.", q, "ddLeakAnswer");
+}
+function ddLeakAnswer(k){
+  if(!DD || !DD.leakQ) return;
+  const q = DD.leakQ, right = k === q.k; DD.leakQ = null;
+  const got = ddLeak(DD, right);
+  right ? ching() : buzzer();
+  if(got) sheet('<h2>The leak</h2><p>' + DD_RIVALS[DD.seats[got.s].kind].name + ' holds this one, so it isn\'t the deal.</p><div class="ddshowpick">' + ddCardHTML(DD, got.card, { stamp: "DENIED" }) + '</div>' +
+    b4Btn("Into the notebook", "closeSheet();render()", "gold"));
+  else sheet('<h2>' + (right ? "Nothing new" : "No leak") + '</h2><p>' + (right ? "Right, but they had nothing you don't know." : "It was " + esc(String(q.a)) + ". Nobody talks this hour.") + '</p>' + b4Btn("Back to the route", "closeSheet();render()", "gold"));
+  render();
+}
+/* BREAK THE STORY: pick the three, then right or wrong */
+function ddBreakSheet(){
+  if(!DD || DD.phase !== "play" || DD.turn !== DD.me || DD.ask || DD.busy) return;
+  audio();
+  const b = DD.brk = DD.brk || {}, full = b.p != null && b.c != null && b.y != null;
+  sheet('<h2>Break the story</h2><p>' + (DD.retract ? "Get it wrong and the story is retracted; on Easy you get one of those." : "Get it wrong and the story is retracted: you're off the case.") + '</p>' +
+    '<div class="b6hdr">Who</div>' + ddChips(0, b.p, "ddBrkP") + '<div class="b6hdr">Which club</div>' + ddChips(1, b.c, "ddBrkC") + '<div class="b6hdr">Joined in</div>' + ddChips(2, b.y, "ddBrkY") +
+    (full ? '<p class="ddsay">“' + esc(DD.P[b.p].name) + ' · ' + esc(DD.C[b.c - 6].name) + ' · ' + DD.Y[b.y - 12] + '”</p>' : "") +
+    '<button class="b4btn gold" onclick="ddBreak()"' + (full ? "" : " disabled") + '>Break it</button><button class="b4btn quiet" onclick="closeSheet()">Not yet</button>');
+}
+function ddBrkP(c){ DD.brk.p = c; ddBreakSheet(); }
+function ddBrkC(c){ DD.brk.c = c; ddBreakSheet(); }
+function ddBrkY(c){ DD.brk.y = c; ddBreakSheet(); }
+function ddBreak(){
+  const b = DD && DD.brk; if(!b || b.p == null || b.c == null || b.y == null) return;
+  closeSheet();
+  const r = ddAccuse(DD, DD.me, [b.p, b.c, b.y]);
+  DD.brk = {};
+  if(r.again){
+    buzzer(); flashBad();
+    sheet('<h2 class="ddbad">Story retracted</h2><p>It wasn\'t ' + esc(DD.P[b.p].short) + ', ' + esc(DD.C[b.c - 6].name) + ', ' + DD.Y[b.y - 12] + '. On Easy you live to dig again, but that was your one retraction.</p>' + b4Btn("Back to the route", "closeSheet();render()", "gold"));
+    return render();
+  }
+  ddAfterAll();
+}
+/* EASY: the fact check, three a case: did this transfer ever happen? */
+function ddFactSheet(){
+  if(!DD || DD.facts < 1) return;
+  audio();
+  const f = DD.fc = DD.fc || {}, full = f.p != null && f.c != null && f.y != null;
+  sheet('<h2>Fact check</h2><p>Pick a player, a club and a year: the desk tells you if that transfer ever happened. Not whether it is the deal. ' + DD.facts + ' left.</p>' +
+    '<div class="b6hdr">Who</div>' + ddChips(0, f.p, "ddFcP") + '<div class="b6hdr">Which club</div>' + ddChips(1, f.c, "ddFcC") + '<div class="b6hdr">Joined in</div>' + ddChips(2, f.y, "ddFcY") +
+    '<button class="b4btn gold" onclick="ddFact()"' + (full ? "" : " disabled") + '>Check it</button><button class="b4btn quiet" onclick="closeSheet()">Not now</button>');
+}
+function ddFcP(c){ DD.fc.p = c; ddFactSheet(); }
+function ddFcC(c){ DD.fc.c = c; ddFactSheet(); }
+function ddFcY(c){ DD.fc.y = c; ddFactSheet(); }
+const ddIsReal = (G, p, c, y) => G.cs.real.some(r => r[0] === p && 6 + r[1] === c && 12 + r[2] === y);
+function ddFact(){
+  const f = DD && DD.fc; if(!f || f.p == null || f.c == null || f.y == null || DD.facts < 1) return;
+  DD.facts--;
+  const real = ddIsReal(DD, f.p, f.c, f.y);
+  DD.factsDone.push({ p: f.p, c: f.c, y: f.y, real });
+  DD.fc = {};
+  sheet('<h2>' + (real ? "It happened" : "Never happened") + '</h2><p>' + esc(DD.P[f.p].name) + (real ? " did join " : " never joined ") + esc(DD.C[f.c - 6].name) + ' in ' + DD.Y[f.y - 12] + '. ' + DD.facts + ' fact check' + (DD.facts === 1 ? "" : "s") + ' left.</p>' +
+    b4Btn("Back to the notebook", "closeSheet();render()", "gold"));
+  render();
+}
+function ddNotebookOpen(){ if(!DD) return; audio(); DD.from = DD_VIEW; DD_VIEW = "notebook"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function ddNotebookBack(){ audio(); DD_VIEW = DD && DD.from === "rumour" ? "rumour" : "play"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function ddAutoToggle(){ if(!DD) return; audio(); DD.auto = !DD.auto; const p = ddPrefs(); p.auto = DD.auto; ddSave(p); render(); }
+/* with auto off you cross rows out yourself */
+function ddMark(c){ if(!DD || DD.auto) return; DD.marks[c] = !DD.marks[c]; try{ beep(DD.marks[c] ? 330 : 660, .05, "triangle", .04); }catch(e){} render(); }
+/* the end of a case: count it once, the scoop on screen */
+function ddAfterAll(){
+  if(!DD) return;
+  clearTimeout(DD_TIMER); DD.busy = false;
+  if(DD.phase === "over") ddEnd();
+  render();
+}
+function ddEnd(){
+  if(!DD || DD.ended) return;
+  DD.ended = true;
+  const won = DD.winner === DD.me, p = ddPrefs();
+  p.played++; if(won){ p.won++; if(!p.best || DD.stats.rumours < p.best) p.best = DD.stats.rumours; }
+  ddSave(p);
+  try{ if(won){ confetti(110); ching(); } else buzzer(); }catch(e){}
+  try{ progAnswer({ ok: won, tier: DD.level === "hard" ? "hard" : "normal", topic: "deadline" }); }catch(e){}
+  DD_VIEW = "over";
+}
+function ddCardBig(c){
+  if(!DD) return; audio();
+  sheet('<div class="ddshowpick big">' + ddCardHTML(DD, c, {}) + '</div><p>' + esc(ddFull(DD, c)) + (ddKind(c) === 0 ? ", " + (GW_POSN[DD.P[c].pos] || DD.P[c].pos).toLowerCase() + ", born " + DD.P[c].born : "") +
+    '. Your source: it is not part of the deal.</p>' + b4Btn("Back", "closeSheet()", "gold"));
+}
+
+/* ---- the drawing ---- */
+/* our own shield patch from the club's two colours and kit pattern (no real crest) */
+function ddPatchSVG(cl, w){
+  const c1 = /^#[0-9a-f]{6}$/i.test(cl.c1) ? cl.c1 : "#5a6470", c2 = /^#[0-9a-f]{6}$/i.test(cl.c2) ? cl.c2 : "#F8F1DD", id = "ddp" + (++DD_UID);
+  const shape = "M4 2 H36 V22 Q36 38 20 46 Q4 38 4 22 Z", light = dressLum(c1) > 170, ink = light ? (dressLum(c2) < 140 ? c2 : "#241B08") : (dressLum(c2) > 150 ? c2 : "#fff");
+  const pat = { stripes: '<path d="M14 0 V48 M26 0 V48" stroke="' + c2 + '" stroke-width="5"/>', hoops: '<path d="M0 13 H40 M0 25 H40 M0 37 H40" stroke="' + c2 + '" stroke-width="5"/>',
+    halves: '<rect x="20" y="0" width="20" height="48" fill="' + c2 + '"/>', band: '<rect x="0" y="15" width="40" height="7" fill="' + c2 + '"/>',
+    sash: '<path d="M2 4 L38 42" stroke="' + c2 + '" stroke-width="7"/>' }[cl.p] || "";
+  return '<svg class="ddpatch" viewBox="0 0 40 48" width="' + w + '" height="' + Math.round(w * 1.2) + '" role="img" aria-label="' + esc(cl.name) + ' patch">' +
+    (pat ? '<clipPath id="' + id + '"><path d="' + shape + '"/></clipPath>' : "") + '<path d="' + shape + '" fill="' + c1 + '"/>' + (pat ? '<g clip-path="url(#' + id + ')">' + pat + '</g>' : "") +
+    '<path d="' + shape + '" fill="none" stroke="' + (light ? "#241B08" : "#fff") + '" stroke-width="2"/>' +
+    '<text x="20" y="28" text-anchor="middle" font-family="Barlow Semi Condensed,sans-serif" font-weight="900" font-size="11" fill="' + ink + '" stroke="' + c1 + '" stroke-width="2.5" paint-order="stroke">' + esc(String(cl.code || "").slice(0, 3)) + '</text></svg>';
+}
+/* his nation's shirt from the back (the kits as Who is he? has them) */
+function ddKit(cc){
+  const k = ((DD_DATA.names && DD_DATA.names.kits) || {})[cc], dk = (k && DRESS_KIT[k[0]]) || {};
+  const body = dk.body || (k && dressHex(k[1])) || "#1c5a36", ink = dk.ink || kitInk(body);
+  return { body, ink, trim: dk.trim || ink, pattern: dk.pattern === "stripes" ? "stripes" : null };
+}
+function ddShirtSVG(name, kit, no, cls){
+  const id = "dds" + (++DD_UID), nm = String(name).toUpperCase();
+  const shape = "M15 7 L23 3 Q30 7 37 3 L45 7 L57 17 L50 26 L45 22 L45 53 L15 53 L15 22 L10 26 L3 17 Z";
+  const pat = kit.pattern === "stripes" ? [9, 21, 33, 45].map(x => '<rect x="' + x + '" y="0" width="6" height="56" fill="' + kit.trim + '"/>').join("") : "";
+  return '<svg class="' + (cls || "ddshirt") + '" viewBox="0 0 60 56" aria-hidden="true">' + (pat ? '<clipPath id="' + id + '"><path d="' + shape + '"/></clipPath>' : "") +
+    '<path d="' + shape + '" fill="' + kit.body + '"/>' + (pat ? '<g clip-path="url(#' + id + ')" opacity=".85">' + pat + '</g>' : "") +
+    '<path d="' + shape + '" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="1"/>' +
+    '<path d="M23 3 Q30 8 37 3" fill="none" stroke="' + kit.trim + '" stroke-width="2.4"/><path d="M57 17 L50 26 M3 17 L10 26" stroke="' + kit.trim + '" stroke-width="2.4"/>' +
+    '<text x="30" y="18" text-anchor="middle" font-family="Barlow Semi Condensed,sans-serif" font-weight="800" font-size="' + (nm.length > 9 ? 4.6 : nm.length > 7 ? 5.4 : 6.6) + '" fill="' + kit.ink + '">' + esc(nm) + '</text>' +
+    (no ? '<text x="30" y="44" text-anchor="middle" font-family="Barlow Semi Condensed,sans-serif" font-weight="900" font-style="italic" font-size="21" fill="' + kit.ink + '">' + no + '</text>' : "") + '</svg>';
+}
+const ddFlag = cc => cc ? '<img src="assets/natflags/' + cc + '.png" alt="">' : "";
+/* a card: the shirt, the patch or the ticket stub */
+function ddCardHTML(G, c, o){
+  o = o || {};
+  const k = ddKind(c), i = c % 6, tag = o.tag || "div";
+  const art = k === 0 ? ddShirtSVG(G.P[i].short, ddKit(G.P[i].nat), G.P[i].no) : k === 1 ? ddPatchSVG(G.C[i], 38) : '<span class="ddticket">' + G.Y[i] + '</span>';
+  const sub = k === 0 ? ddFlag(G.P[i].nat) + G.P[i].pos + ' · ' + G.P[i].born : k === 1 ? ddFlag(G.C[i].cc) + "club" : "joined in";
+  return '<' + tag + ' class="ddcard k' + k + (o.cls ? " " + o.cls : "") + '"' + (o.style ? ' style="' + o.style + '"' : "") + '>' + art + '<b>' + esc(ddName(G, c)) + '</b><small>' + sub + '</small>' +
+    (o.stamp ? '<span class="ddstamp">' + o.stamp + '</span>' : "") + '</' + tag + '>';
+}
+const ddBadge = (kind, cls) => '<i class="ddbadge' + (cls ? " " + cls : "") + '" style="background:' + DD_RIVALS[kind].badge + '"></i>';
+/* the TV scoreboard: you, the clock, when the window shuts */
+function ddScore(G, label){
+  return '<div class="b4sb ddsb"><div class="sb"><div class="sb-t" style="--tc:#e9b84c"><b>You</b></div><div class="sb-mid"><b>' + ddClock(G) + '</b></div>' +
+    '<div class="sb-t away" style="--tc:#0a1f13"><b>Shuts 23:00</b></div></div><div class="b4sblabel">' + esc(label) + '</div></div>';
+}
+/* "Still possible": 2 players · 3 clubs · 2 years (Easy also counts the real ones) */
+function ddStill(G){
+  const nb = ddNotebook(G, G.auto), live = k => nb.filter(r => ddKind(r.c) === k && !r.out).length;
+  const pl = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+  const P = live(0), C = live(1), Y = live(2);
+  const real = G.cs.real.filter(r => !nb[r[0]].out && !nb[6 + r[1]].out && !nb[12 + r[2]].out).length;
+  return { text: pl(P, "player") + " · " + pl(C, "club") + " · " + pl(Y, "year"), combos: P * C * Y, real };
+}
+/* a line in the feed: what a rival did while you waited */
+function ddFeedLine(G, ev){
+  const who = DD_RIVALS[G.seats[ev.s].kind], badge = ddBadge(G.seats[ev.s].kind);
+  if(ev.kind === "accuse") return '<li>' + badge + '<span><b>' + who.short + ' broke the story</b> ' + esc(ddFull(G, ev.cards[0])) + ', ' + esc(ddName(G, ev.cards[1])) + ', ' + esc(ddName(G, ev.cards[2])) +
+    (ev.ok ? '.' : '. <em>Retracted: off the case.</em>') + '</span></li>';
+  const r = ev.res, q = esc(ddName(G, r.cards[0])) + ', ' + esc(ddName(G, r.cards[1])) + ', ' + esc(ddName(G, r.cards[2])) + '?';
+  const end = r.need ? "you have to show one." : r.shower == null ? "<em>nobody could deny it.</em>" : r.shower === G.me ? "you showed " + esc(ddName(G, r.shown)) + "." :
+    ddSeatName(G, r.shower).replace(/^The/, "the") + " showed a card.";
+  return '<li>' + badge + '<span><b>' + who.short + '</b> “' + q + '” ' + end + '</span></li>';
+}
+function ddSetupScreen(st){
+  const p = ddPrefs(), L = DD_LEVELS[p.level], ready = ddReady(p.level), lineup = L.lineup.slice(0, p.rivals);
+  const seg = (label, key, opts) => '<div class="b6hdr">' + label + '</div><div class="b6seg b6ans" role="group" aria-label="' + label + '">' +
+    opts.map(([v, l]) => '<button aria-pressed="' + (p[key] === v) + '" onclick="ddSet(\'' + key + '\',' + (typeof v === "number" ? v : "'" + v + "'") + ')">' + l + '</button>').join("") + '</div>';
+  st.innerHTML = b4Page({ title: "Deadline Day", ctx: "The case file", back: "ddLeave()", cls: "ddpage", body:
+    '<div class="ddfolder" aria-hidden="true"><span class="ddtab">Case file</span><span class="ddagreed">AGREED</span><div class="ddfl"><b>Who</b><b>Which club</b><b>Which year</b></div></div>' +
+    b4Q("A transfer is agreed", "Nobody has announced it yet. Work out who signed, for which club and in which year, before the rival journalists do. Every deal really happened, so what you know about careers is your edge.") +
+    seg("Level", "level", [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]]) + '<div class="b6qs">' + L.say + '</div>' +
+    seg("Rivals on the case", "rivals", [[1, "One"], [2, "Two"], [3, "Three"]]) +
+    '<div class="ddrivals">' + lineup.map(k => '<div class="ddrv">' + ddBadge(k) + '<span><b>' + DD_RIVALS[k].short + '</b><small>' + DD_RIVALS[k].say + '</small></span></div>').join("") + '</div>' +
+    (p.played ? '<div class="b6qs">Broke ' + p.won + ' of ' + p.played + ' stories' + (p.best ? ', fastest in ' + p.best + ' rumour' + (p.best === 1 ? "" : "s") : "") + '</div>' : "") +
+    '<button class="b4btn gold" onclick="ddStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Open the case" : "Loading the case files…") + '</button>' });
+}
+function ddRouteScreen(st){
+  const G = DD, me = G.seats[G.me], mine = ddMyGo(), still = ddStill(G), n = G.seats.length;
+  /* the stations snake round: 0 1 2 along the top, 3 under 2, then 4 and 5 back */
+  const order = [0, 1, 2, 5, 4, 3];
+  const station = i => {
+    const d = Math.abs(i - me.at), can = mine && !G.moved && !G.rumoured && (d === 1 || d === 2);
+    const pins = G.seats.map((x, s) => s !== G.me && x.at === i ? '<span class="ddpin" style="background:' + DD_RIVALS[x.kind].pin + '" title="' + DD_RIVALS[x.kind].short + '"></span>' : "").join("");
+    return '<button class="ddst' + (i === me.at ? " here" : "") + (can ? " can" : "") + '" onclick="ddStation(' + i + ')"' + (can ? "" : " disabled") + ' aria-label="' + esc(G.C[i].name) + (i === me.at ? ", you are here" : can ? (d === 1 ? ", one stop" : ", two stops by taxi") : "") + '">' +
+      '<span class="ddring">' + ddPatchSVG(G.C[i], 30) + (i === me.at ? '<span class="ddme" aria-hidden="true"></span>' : "") + '</span><b>' + esc(G.C[i].name) + '</b>' +
+      '<span class="ddpins">' + pins + (can ? '<small>' + (d === 1 ? "1 stop" : "taxi") + '</small>' : "") + '</span></button>';
+  };
+  const here = G.C[me.at].name;
+  const hint = !mine ? (G.ask ? "Your turn to show a card." : "The rivals are making calls…") : G.rumoured ? "" : G.moved ? "You're at " + esc(here) + ". Float a rumour about this club." :
+    "You're at " + esc(here) + ". One stop a go, two with a Taxi question.";
+  const hand = me.hand, nh = hand.length, ov = nh > 5 ? -22 : nh > 4 ? -12 : -6;
+  const fan = hand.map((c, k) => { const a = (k - (nh - 1) / 2) * (nh > 5 ? 5 : 6), y = Math.abs(k - (nh - 1) / 2) * 3;
+    return '<button class="ddcardbtn" style="margin:0 ' + (ov / 2) + 'px;transform:rotate(' + a.toFixed(1) + 'deg) translateY(' + y.toFixed(0) + 'px)" onclick="ddCardBig(' + c + ')" aria-label="' + esc(ddFull(G, c)) + ', your source">' + ddCardHTML(G, c, { tag: "span" }) + '</button>'; }).join("");
+  const feed = G.feed.slice(-4);
+  const acts = mine ? b4Btn("Float a rumour at " + esc(here), "ddRumourSheet()", "gold") +
+      '<div class="ddrow2">' + b4Btn("Notebook", "ddNotebookOpen()", "dark") + b4Btn("Break the story", "ddBreakSheet()", "quiet") + '</div>'
+    : '<div class="ddrow2">' + b4Btn("Notebook", "ddNotebookOpen()", "dark") + '</div><div class="gwthink">' + (G.ask ? "Your card to show…" : G.turn === G.me ? "Back to you…" : DD_RIVALS[G.seats[G.turn].kind].name + " is on the phone…") + '</div>';
+  const body = '<div class="ddwrap">' +
+    '<button class="ddstrip" onclick="ddNotebookOpen()"><span class="cap">Still possible</span><b>' + still.text + '</b></button>' +
+    '<div class="ddroute"><div class="ddline" aria-hidden="true"></div><div class="ddsts">' + order.map(station).join("") + '</div><div class="ddhint">' + hint + '</div></div>' +
+    '<div class="ddrivals">' + G.seats.map((x, s) => s === G.me ? "" : '<div class="ddrv' + (x.out ? " out" : "") + (G.turn === s && G.phase === "play" ? " on" : "") + '">' + ddBadge(x.kind) + '<span><b>' + DD_RIVALS[x.kind].short + '</b><small>' + (x.out ? "off the case" : x.hand.length + " sources") + '</small></span></div>').join("") + '</div>' +
+    (feed.length ? '<ul class="ddfeed" aria-live="polite">' + feed.map(ev => ddFeedLine(G, ev)).join("") + '</ul>' : "") +
+    '<div class="ddhandhead"><span class="cap">Your sources</span><em>none of these is the deal</em></div>' +
+    '<div class="ddhand">' + fan + '</div>' +
+    (G.desk.length ? '<div class="dddesk"><span class="cap">On the desk</span>' + G.desk.map(c => '<span class="ddchip">' + esc(ddName(G, c)) + '</span>').join("") + '</div>' : "") +
+    '<div class="ddacts">' + acts + '</div></div>';
+  const ctx = ddClock(G) + " · " + (mine || G.turn === G.me ? "Your go" : G.ask ? "Show a card" : DD_RIVALS[G.seats[G.turn].kind].short + "'s go");
+  st.innerHTML = b4Page({ title: "Deadline Day", ctx, back: "ddAskLeave()", leave: "ddAskLeave()", cls: "ddpage ddplay", body,
+    score: ddScore(G, DD_LEVELS[G.level].label + " · " + (n - 1) + " rival" + (n === 2 ? "" : "s") + " on the case") });
+}
+function ddRumourScreen(st){
+  const G = DD, r = G.last, nb = ddNotebook(G, G.auto);
+  const pieces = r.cards.map((c, k) => (k ? '<span class="ddplus" aria-hidden="true">+</span>' : "") + ddCardHTML(G, c, {})).join("");
+  const rows = r.steps.map(x => {
+    const kind = G.seats[x.s].kind, nm = DD_RIVALS[kind].name;
+    if(x.pass) return '<div class="ddtrow">' + ddBadge(kind) + '<div><b>' + nm + '</b><em>can\'t deny it</em></div><span class="cap">pass</span></div>';
+    if(x.skip) return '<div class="ddtrow dim">' + ddBadge(kind) + '<div><b>' + nm + '</b><em>not asked, ' + DD_RIVALS[G.seats[r.shower].kind].name.replace(/^The/, "the") + ' got there first</em></div></div>';
+    return '<div class="ddshown"><div class="ddflipwrap"><span class="ddback" aria-hidden="true">' + ballSVG("") + '</span>' + ddCardHTML(G, x.shown, { cls: "ddflip", stamp: "DENIED" }) + '</div>' +
+      '<div><span class="cap">' + nm + ' shows you</span><b>Not ' + esc(ddName(G, x.shown)) + '</b><em>Only you saw it. The others know ' + nm.replace(/^The/, "the") + ' showed something.</em></div></div>';
+  }).join("");
+  const left = r.cards.filter(c => !nb[c].out).map(c => esc(ddName(G, c)));
+  const note = r.shower == null
+    ? (r.cards.filter(c => !G.seats[G.me].hand.includes(c)).length ? "Nobody could deny it. Whatever isn't in your own hand is in the envelope." : "Nobody could deny it, but you hold all three yourself.")
+    : (G.auto ? esc(ddName(G, r.shown)) + " crossed off." + (left.length ? " " + left.join(" and ") + " still possible." : "") : "Write it down: " + esc(ddName(G, r.shown)) + " isn't it.");
+  const worked = G.auto && G.worked.length ? G.worked.map(w => esc(w.text)).join(" ") : "";
+  const body = '<div class="ddwrap">' +
+    '<div class="ddrumour"><span class="cap">You float, at ' + esc(G.C[r.at].name) + '</span><div class="ddpieces">' + pieces + '</div><div class="ddsaid">“' + esc(G.P[r.cards[0]].short) + ' to ' + esc(G.C[r.cards[1] - 6].name) + ' in ' + G.Y[r.cards[2] - 12] + '?”</div></div>' +
+    (r.shower == null ? '<div class="ddnobody"><b>Nobody could deny it</b><em>Round the table and back: not one source.</em></div>' : "") +
+    '<div class="ddhead cap">Round the table</div>' + rows +
+    '<div class="ddnote"><span class="cap">Notebook</span><em>' + note + (worked ? " " + worked : "") + '</em></div>' +
+    '<div class="ddacts">' + b4Btn("Back to the route", "ddEndGo()", "gold") + '<div class="ddrow2">' + b4Btn("Notebook", "ddNotebookOpen()", "dark") + b4Btn("Break the story", "ddBreakSheet()", "quiet") + '</div></div></div>';
+  st.innerHTML = b4Page({ title: "Deadline Day", ctx: ddClock(G) + " · The rumour", back: "ddEndGo()", leave: "ddAskLeave()", cls: "ddpage ddplay", body });
+}
+function ddNotebookScreen(st){
+  const G = DD, nb = ddNotebook(G, G.auto), still = ddStill(G), L = DD_LEVELS[G.level];
+  const heads = G.seats.map((x, s) => s === G.me ? "You" : DD_RIVALS[x.kind].ab);
+  const MK = { y: "✓", x: "✕", q: "?", d: "" };
+  const sec = (k, label) => '<div class="ddsec">' + label + '</div>' + nb.filter(r => ddKind(r.c) === k).map(r =>
+    '<div class="ddr" style="--cols:' + G.seats.length + '">' + (G.auto ? '<span' : '<button onclick="ddMark(' + r.c + ')"') + ' class="ddnm' + (r.out ? " out" : r.deal ? " deal" : " live") + '">' + esc(r.name) + (G.auto ? '</span>' : '</button>') +
+    (r.desk ? '<span class="ddm d" style="grid-column:span ' + G.seats.length + '">ON THE DESK</span>' : r.cells.map(c => '<span class="ddm ' + c + '">' + (MK[c] || "") + '</span>').join("")) + '</div>').join("");
+  const strip = '<div class="ddstill"><div><span class="cap">Still possible</span><span class="cap gold">' + (G.auto ? "auto notebook on" : "your own notebook") + '</span></div><b>' + still.text + '</b>' +
+    '<em>' + still.combos + ' combination' + (still.combos === 1 ? "" : "s") + ' left.' + (L.facts ? " Only " + still.real + " of them ever happened." : " Do you know which of them ever happened?") + '</em></div>';
+  const flash = G.auto && G.worked.length ? '<div class="ddflash"><span class="cap">Worked out</span><em>' + G.worked.map(w => esc(w.text)).join(" ") + '</em></div>' : "";
+  const facts = G.factsDone.length ? '<div class="ddflash"><span class="cap">Fact checks</span><em>' + G.factsDone.map(f => esc(G.P[f.p].short) + ", " + esc(G.C[f.c - 6].name) + ", " + G.Y[f.y - 12] + ": " + (f.real ? "it happened" : "never happened")).join(". ") + '.</em></div>' : "";
+  const side = L.facts ? b4Btn("Fact check · " + G.facts + " left", "ddFactSheet()", "dark") : G.level === "hard" ? b4Btn("Auto " + (G.auto ? "on" : "off"), "ddAutoToggle()", "dark") : "";
+  const body = '<div class="ddwrap">' + strip + '<div class="ddsheet"><div class="ddr ddh" style="--cols:' + G.seats.length + '"><span></span>' + heads.map(h => '<span>' + h + '</span>').join("") + '</div>' +
+    sec(0, "Players") + sec(1, "Clubs") + sec(2, "Joined in") + '</div>' + flash + facts +
+    (G.auto ? "" : '<div class="b6qs">Tap a name to cross it out yourself.</div>') +
+    '<div class="ddacts ddrow2">' + side + b4Btn("Back", "ddNotebookBack()", "gold") + '</div></div>';
+  st.innerHTML = b4Page({ title: "Deadline Day", ctx: "The notebook · " + ddClock(G), back: "ddNotebookBack()", leave: G.phase === "play" ? "ddAskLeave()" : null, cls: "ddpage ddplay", body });
+}
+/* THE SCOOP: the press-conference board, his shirt in the club's colours
+   holding up the club's scarf, and how we know (his career, from the data) */
+function ddScoopScreen(st){
+  const G = DD, won = G.winner === G.me, pi = G.env[0], ci = G.env[1] - 6, yi = G.env[2] - 12, pl = G.P[pi], cl = G.C[ci];
+  const c1 = /^#[0-9a-f]{6}$/i.test(cl.c1) ? cl.c1 : "#5a6470", c2 = /^#[0-9a-f]{6}$/i.test(cl.c2) ? cl.c2 : "#F8F1DD", arc = "ddarc" + (++DD_UID);
+  const kit = { body: c1, ink: dressLum(c1) > 150 ? "#241B08" : "#fff", trim: c2, pattern: cl.p === "stripes" ? "stripes" : null };
+  /* his club shirt carries no number: the one we know is his national team's */
+  const art = '<svg class="ddpress" viewBox="0 0 240 220" aria-hidden="true"><g transform="translate(10 26)">' +
+    '<path d="M16 46 Q110 -10 204 46" fill="none" stroke="#06140c" stroke-width="30" stroke-linecap="round" opacity=".5"/>' +
+    '<path d="M16 40 Q110 -16 204 40" fill="none" stroke="' + c1 + '" stroke-width="26" stroke-linecap="round"/>' +
+    '<path d="M16 40 Q110 -16 204 40" fill="none" stroke="' + c2 + '" stroke-width="20" stroke-linecap="round"/>' +
+    '<path d="M16 40 Q110 -16 204 40" fill="none" stroke="' + c1 + '" stroke-width="14" stroke-linecap="round"/>' +
+    '<path id="' + arc + '" d="M30 44 Q110 -10 190 44" fill="none"/>' +
+    '<text font-family="Barlow Semi Condensed,sans-serif" font-weight="900" font-size="' + (cl.name.length > 14 ? 11 : 15) + '" fill="' + (dressLum(c1) > 150 ? "#241B08" : "#fff") + '" letter-spacing="2"><textPath href="#' + arc + '" startOffset="50%" text-anchor="middle">' + esc(cl.name.toUpperCase()) + '</textPath></text>' +
+    '<path d="M14 42 L4 74 M20 44 L14 76 M200 42 L210 74 M194 44 L200 76" stroke="' + c1 + '" stroke-width="5"/></g>' +
+    '<g transform="translate(40 66) scale(2.67)">' + ddShirtSVG(pl.short, kit, null, "ddbig").replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "") + '</g></svg>';
+  const winner = G.winner != null && G.winner !== G.me ? G.seats[G.winner].kind : null;
+  const lead = won ? "You broke it first." + (G.stats.rumours ? " " + G.stats.rumours + " rumour" + (G.stats.rumours === 1 ? "" : "s") + " to crack it." : "")
+    : winner ? DD_RIVALS[winner].name + " broke it first. This is what was in the envelope."
+    : G.why === "retracted" ? "Your story was retracted, and the deal was announced without you."
+    : G.why === "shut" ? "23:00, the window shut. Nobody broke it, and the club announced it themselves."
+    : "Nobody broke it. The club announced it themselves.";
+  const stops = pl.career.map(s => { const deal = s.club.slug === cl.slug && s.from === G.Y[yi];
+    return '<div class="ddstop' + (deal ? " deal" : "") + '"><span class="dot" style="background:' + (/^#[0-9a-f]{6}$/i.test(s.club.c1) ? s.club.c1 : "#8a7a56") + '"></span><b>' + esc(s.club.name) + '</b><small>' + s.from + (s.to && s.to !== s.from ? "–" + s.to : s.to ? "" : "–") + '</small></div>'; }).join("");
+  const body = '<div class="ddwrap">' +
+    '<div class="ddboard" role="img" aria-label="Press conference: a ' + esc(cl.name) + ' shirt with ' + esc(pl.short) + ' on the back, holding up the scarf">' +
+      '<div class="ddwall" aria-hidden="true">' + Array(25).fill("<span>BALL</span>").join("") + '</div><div class="ddsigned">SIGNED</div>' + art +
+      (winner ? '<div class="ddwho">' + ddBadge(winner, "big") + '<b>' + DD_RIVALS[winner].short + '</b></div>' : "") +
+      (G.why === "retracted" ? '<span class="ddretract">STORY RETRACTED</span>' : "") + '</div>' +
+    '<div class="ddheadline"><b>' + esc(pl.name) + ' · ' + esc(cl.name) + ' · ' + G.Y[yi] + '</b><em>' + lead + '</em></div>' +
+    '<div class="dddesk ddchips2">' + b4Chip(G.stats.rumours + " rumour" + (G.stats.rumours === 1 ? "" : "s"), "dark") + (G.stats.leaks ? b4Chip(G.stats.leaks + " leak" + (G.stats.leaks === 1 ? "" : "s"), "dark") : "") + b4Chip(DD_LEVELS[G.level].label, "dark") + b4Chip(ddClock(G), "dark") + '</div>' +
+    '<div class="ddcareer"><div><span class="cap">How we know · his career</span><em>from the player database</em></div><div class="ddstops">' + stops + '</div></div>' +
+    '<div class="ddacts ddrow2">' + b4Btn("Next case", "ddStart()", "gold") + b4Btn("Leave", "ddLeave()", "dark") + '</div></div>';
+  st.innerHTML = b4Page({ title: "Deadline Day", ctx: "The scoop · " + ddClock(G), back: "ddLeave()", cls: "ddpage ddplay", body });
+}
+function ddRender(st){
+  if(DD_VIEW === "setup" || !DD) return ddSetupScreen(st);
+  if(DD.phase === "over" && DD_VIEW !== "notebook"){ if(!DD.ended) ddEnd(); return ddScoopScreen(st); }
+  if(DD_VIEW === "notebook") return ddNotebookScreen(st);
+  if(DD_VIEW === "rumour" && DD.last) return ddRumourScreen(st);
+  return ddRouteScreen(st);
+}
+/* ---------- LETTER BOX ----------
+   _plans/letter-box.md (Martijn, 22 Oct 2026), the Scattergories game with
+   footballers; mock-ups https://claude.ai/artifact/1tKMxNofvBUMwQwbahDPVN.
+   A letter comes out of the draw, five boxes go up ("A Dutch defender", "A
+   club from Italy", "Was at Euro 2016"...), the clock runs, and every box
+   wants something that starts with the letter. At the whistle VAR checks them
+   one by one: a right answer scores by how rare it is (Classic 1, Good one 2,
+   Deep cut 3), the same answer as an opponent's is a CLASH and scores nothing
+   for either, and a wrong one is DISALLOWED with the reason, taken from the
+   data. Five right is a full house, +3.
+   The pack is assets/letterbox (_tools/build-letterbox.js): the men, the
+   clubs, the countries, the letters each name counts for and the box
+   catalogue with its counts, so the phone never has to decide what "starts
+   with a D" means. Every rule here is a plain function (lbRound, lbCheck,
+   lbScore, lbCpu) so _tests/lb-test.js can play without a screen.
+   Against the computer, or two to six on one phone: each fills the same boxes
+   in turn behind a cover, then one VAR check for everybody. */
+const LB_KEY = "ball4-lb", LB_FIX_KEY = "ball4-lb-fix";
+const LB_DATA = { P: null, C: null, B: null, idx: null, cache: {} };
+let LB_VIEW = null, LB = null, LB_TIMER = null;
+/* fame and club thresholds match the build: a box is only drawn on a level
+   where it has three answers of that fame or more */
+const LB_LEVELS = {
+  easy: { label: "Easy", k: 0, clock: 120, fame: 60, club: 40, no: "UYZIEQX", say: "Broad boxes, two minutes a letter, and a tick as soon as you leave a box.",
+    cpu: "The computer goes for the obvious ones and leaves a box or two empty." },
+  normal: { label: "Medium", k: 1, clock: 90, fame: 40, club: 15, no: "QX", say: "Mixed boxes, ninety seconds a letter, checked at the whistle.",
+    cpu: "The computer mixes the obvious with the less so." },
+  hard: { label: "Hard", k: 2, clock: 60, fame: 25, club: 3, no: "QX", say: "Narrow boxes, a minute a letter, checked at the whistle.",
+    cpu: "The computer hunts deep cuts, to dodge your answers." } };
+const LB_LVK = ["easy", "normal", "hard"];
+/* a round: two player boxes, a club box, a country or tournament box, one other */
+const LB_SLOTS = [["natpos", "nat", "club", "league", "era"], ["clubbox"], ["country", "tour"], ["career", "mate", "wild"]];
+const LB_FAMW = { wild: .5 };
+const LB_RARE = { 1: ["Classic", "t1"], 2: ["Good one", "t2"], 3: ["Deep cut", "t3"] };
+const LB_POS = { GK: "goalkeeper", DF: "defender", MF: "midfielder", FW: "forward" };
+const LB_CONT = { eu: "Europe", sa: "South America", af: "Africa", na: "North or Central America", as: "Asia", oc: "Oceania" };
+const LB_SAY = ["One", "Two", "Three", "Four", "Five"];
+const LB_SECS = { 60: "Sixty seconds", 90: "Ninety seconds", 120: "Two minutes" };
+/* club words that are no letter of their own (§3): Real Madrid is R and M, AC Milan only M */
+const LB_GENERIC = new Set(["fc", "afc", "ac", "as", "ss", "ssc", "us", "sc", "sv", "cf", "cd", "sd", "rc", "ud", "ca", "se", "ec", "fk", "nk", "sk", "club", "de", "of", "the",
+  "1", "b", "ii", "football", "del", "la", "y", "e", "and", "da", "do"]);
+
+/* ---------- the pack ---------- */
+function lbLoad(){
+  if(LB_DATA.idx) return Promise.resolve(LB_DATA);
+  const get = f => fetch("assets/letterbox/" + f + ".json").then(r => { if(!r.ok) throw new Error(f); return r.json(); });
+  return Promise.all([get("players"), get("clubs"), get("boxes")]).then(([P, C, B]) => lbUse(P, C, B));
+}
+/* THE KEYS A NAME IS FOUND BY (the same as build-letterbox.js autoKeys): the
+   full name, every tail of it (de Vrij, Vrij) and the last half of a
+   double-barrelled surname, plus the other names the pack stores (Son,
+   Cristiano, Mo Salah). A key finds the man; the letters he counts for are
+   his own, from the build. */
+function lbKeys(name){
+  const w = String(name).trim().split(/\s+/), out = [listsNorm(name)];
+  for(let i = 1; i < w.length; i++) out.push(listsNorm(w.slice(i).join(" ")));
+  const h = w[w.length - 1].split("-");
+  if(w.length > 1 && h.length > 1) out.push(listsNorm(h[h.length - 1]));
+  return out;
+}
+const lbClubWords = n => listsNorm(n).split(" ").filter(x => x && !LB_GENERIC.has(x) && !/^\d+$/.test(x));
+function lbUse(P, C, B){
+  const idx = new Map();
+  const put = (key, ref) => { if(!key || key.length < 2) return; const a = idx.get(key); if(a){ if(!a.some(r => r.k === ref.k && r.i === ref.i)) a.push(ref); } else idx.set(key, [ref]); };
+  P.forEach((p, i) => {
+    const full = listsNorm(p[0]);
+    lbKeys(p[0]).forEach(k => put(k, { k: "p", i, full: k === full }));
+    p[9].forEach(a => put(listsNorm(a), { k: "p", i, full: true }));
+  });
+  C.forEach((c, i) => {
+    [c[0], ...c[4]].forEach(n => { put(listsNorm(n), { k: "c", i, full: true }); const w = lbClubWords(n); put(w.join(" "), { k: "c", i, full: true }); w.filter(x => x.length >= 3).forEach(x => put(x, { k: "c", i, full: false })); });
+  });
+  B.countries.forEach((n, i) => [n[1], ...n[6]].forEach(a => { put(listsNorm(a), { k: "n", i, full: true }); put(listsNorm(a.replace(/^the /i, "")), { k: "n", i, full: true }); }));
+  B.byId = {}; B.boxes.forEach(b => B.byId[b.id] = b);
+  B.wc0 = Math.min(...B.countries.flatMap(n => n[4])); B.eu0 = Math.min(...B.countries.flatMap(n => n[5]));
+  Object.assign(LB_DATA, { P, C, B, idx, cache: {}, mates: {} });
+  return LB_DATA;
+}
+const lbBox = id => LB_DATA.B.byId[id];
+const lbId = r => r ? r.k + r.i : "";
+const lbRow = r => r.k === "p" ? LB_DATA.P[r.i] : r.k === "c" ? LB_DATA.C[r.i] : LB_DATA.B.countries[r.i];
+const lbName = r => r.k === "n" ? lbRow(r)[1] : lbRow(r)[0];
+const lbLetters = r => r.k === "p" ? lbRow(r)[1] : lbRow(r)[2];
+/* a man's clubs (the numbers), and where each club plays its football */
+const lbClubsOf = p => [...new Set(p[6].map(x => Array.isArray(x) ? x[0] : x))];
+const lbLeague = j => LB_DATA.C[j][5] || LB_DATA.C[j][1];
+const lbPlace = cc => cc === "gb" ? "Britain" : cc === "us" ? "the USA" : (LB_DATA.B.dem[cc] && LB_DATA.B.dem[cc][0]) || (() => { const n = LB_DATA.B.countries.find(x => x[0] === cc); return n ? n[1] : gwNat(cc); })();
+const lbDem = cc => LB_DATA.B.dem[cc] ? LB_DATA.B.dem[cc][1] : "from " + lbPlace(cc);
+const lbPosList = p => p[3].split(" ");
+const lbMates = a => LB_DATA.mates[a] || (LB_DATA.mates[a] = new Set(LB_DATA.B.mates[a] || []));
+/* RARITY (§5): a man by his fame, a club by how many well-known men played there; a country is always a Classic */
+const lbRare = r => r.k === "p" ? (lbRow(r)[5] >= 70 ? 1 : lbRow(r)[5] >= 45 ? 2 : 3) : r.k === "c" ? (lbRow(r)[3] >= 60 ? 1 : lbRow(r)[3] >= 15 ? 2 : 3) : 1;
+/* on a level's shelf: Easy counts men of fame >= 60, clubs with 40 known men */
+const lbOnLevel = (r, k) => k == null ? true : r.k === "p" ? lbRow(r)[5] >= LB_LEVELS[LB_LVK[k]].fame : r.k === "c" ? lbRow(r)[3] >= LB_LEVELS[LB_LVK[k]].club : true;
+
+/* ---------- does it fit the box (the same rules as build-letterbox.js) ---------- */
+function lbFitP(r, p, i){
+  if(r.nat && p[2][0] !== r.nat) return false;
+  if(r.pos && !lbPosList(p).includes(r.pos)) return false;
+  if(r.cont && gtpCont(p[2][0]) !== r.cont) return false;
+  if(r.club != null && !lbClubsOf(p).includes(r.club)) return false;
+  if(r.lg && !lbClubsOf(p).some(j => lbLeague(j) === r.lg)) return false;
+  if(r.lgs && !r.lgs.every(l => lbClubsOf(p).some(j => lbLeague(j) === l))) return false;
+  if(r.y0 && !(p[4] >= r.y0)) return false;
+  if(r.y1 && !(p[4] && p[4] <= r.y1)) return false;
+  if(r.wc != null && !(r.wc ? p[7].includes(r.wc) : p[7].length)) return false;
+  if(r.eu != null && !(r.eu ? p[8].includes(r.eu) : p[8].length)) return false;
+  if(r.nc && lbClubsOf(p).length < r.nc) return false;
+  if(r.nk && new Set(lbClubsOf(p).map(j => LB_DATA.C[j][1]).filter(Boolean)).size < r.nk) return false;
+  if(r.mate != null && !lbMates(r.mate).has(i)) return false;
+  return true;
+}
+const lbFitC = (r, c, j) => (!r.cc || c[1] === r.cc) && (r.of == null || lbClubsOf(LB_DATA.P[r.of]).includes(j)) && (!r.cl || c[6] === 1);
+const lbFitN = (r, n) => (r.wc == null || (r.wc ? n[4].includes(r.wc) : n[4].length > 0)) && (r.eu == null || (r.eu ? n[5].includes(r.eu) : n[5].length > 0)) && (!r.cont || n[3] === r.cont);
+const lbWants = (box, kind) => box.k === "w" || box.k === kind;
+function lbFit(box, ref){
+  if(!lbWants(box, ref.k)) return false;
+  const row = lbRow(ref);
+  return ref.k === "p" ? lbFitP(box.r, row, ref.i) : ref.k === "c" ? lbFitC(box.r, row, ref.i) : lbFitN(box.r, row);
+}
+/* every right answer for a box and a letter, most famous first; k: only those on that level's shelf */
+function lbAnswers(box, L, k){
+  const key = box.id + ":" + L;
+  let all = LB_DATA.cache[key];
+  if(!all){
+    all = [];
+    const D = LB_DATA;
+    if(lbWants(box, "p")) D.P.forEach((p, i) => { if(p[1].includes(L) && lbFitP(box.r, p, i)) all.push({ k: "p", i }); });
+    if(lbWants(box, "c")) D.C.forEach((c, i) => { if(c[2].includes(L) && lbFitC(box.r, c, i)) all.push({ k: "c", i }); });
+    if(lbWants(box, "n")) D.B.countries.forEach((n, i) => { if(n[2].includes(L) && lbFitN(box.r, n)) all.push({ k: "n", i }); });
+    LB_DATA.cache[key] = all;
+  }
+  return k == null ? all : all.filter(r => lbOnLevel(r, k));
+}
+
+/* THE SURE ANSWERS: the same, but a position box only takes men on their primary
+   position (the first in the pack: the database's, or POS_FIX). A typed answer gets the
+   benefit of the doubt from the squad lists' positions (van Persie on the wing); the
+   computer, "they'd also have counted" and the build's counts never lean on it. */
+function lbSure(box, L, k){
+  const a = lbAnswers(box, L, k);
+  return box.r.pos ? a.filter(r => r.k !== "p" || lbPosList(lbRow(r))[0] === box.r.pos) : a;
+}
+
+/* ---------- WHY NOT: the reason a VAR check gives, always a fact from the pack ---------- */
+const lbAn = w => (/^[aeiou]/i.test(w) ? "an " : "a ") + w;
+const lbAnd = a => a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
+const lbOr = a => a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + " or " + a[a.length - 1];
+const lbYrs = (f, t) => f + "–" + (t ? t : "now");
+function lbClubList(p){
+  const cs = lbClubsOf(p).map(j => LB_DATA.C[j][0]);
+  return cs.length ? (cs.length > 3 ? cs.slice(0, 3).join(", ") + " and " + (cs.length - 3) + " more" : lbAnd(cs)) : "no club we know of";
+}
+/* the years he spent at a club, when the pack has them (the men of fame >= 40) */
+function lbSpan(p, j){
+  const sp = p[6].filter(x => Array.isArray(x) && x[0] === j);
+  if(!sp.length) return "";
+  return sp.map(x => lbYrs(x[1], x[2])).join(", ");
+}
+function lbWhyP(r, p, i){
+  const N = p[0], pos = lbPosList(p).map(x => LB_POS[x]);
+  if(r.nat && p[2][0] !== r.nat) return N + " is " + lbDem(p[2][0]) + ", not " + lbDem(r.nat) + ".";
+  if(r.pos && !lbPosList(p).includes(r.pos)) return N + " played as " + lbOr(pos.map(lbAn)) + ", not " + lbAn(LB_POS[r.pos]) + ".";
+  if(r.cont && gtpCont(p[2][0]) !== r.cont) return N + " is from " + lbPlace(p[2][0]) + ", in " + LB_CONT[gtpCont(p[2][0])] + ".";
+  if(r.club != null && !lbClubsOf(p).includes(r.club)) return N + " never played for " + LB_DATA.C[r.club][0] + ". We have him at " + lbClubList(p) + ".";
+  const lgs = [...new Set(lbClubsOf(p).map(lbLeague).filter(Boolean))].map(lbPlace);
+  if(r.lg && !lbClubsOf(p).some(j => lbLeague(j) === r.lg)) return N + " never played in " + lbPlace(r.lg) + (lgs.length ? ". His clubs were in " + lbAnd(lgs.slice(0, 4)) : "") + ".";
+  if(r.lgs){ const miss = r.lgs.filter(l => !lbClubsOf(p).some(j => lbLeague(j) === l)); if(miss.length) return N + " never played in " + lbAnd(miss.map(lbPlace)) + "."; }
+  if((r.y0 && !(p[4] >= r.y0)) || (r.y1 && !(p[4] && p[4] <= r.y1))) return p[4] ? N + " was born in " + p[4] + "." : "We don't know when " + N + " was born.";
+  if(r.wc != null && !(r.wc ? p[7].includes(r.wc) : p[7].length))
+    return r.wc ? N + " wasn't in a squad at the " + r.wc + " World Cup" + (p[7].length ? " (he was there in " + lbAnd(p[7]) + ")" : "") + "." : N + " isn't in a World Cup squad since " + LB_DATA.B.wc0 + ".";
+  if(r.eu != null && !(r.eu ? p[8].includes(r.eu) : p[8].length))
+    return r.eu ? N + " wasn't in a squad at Euro " + r.eu + (p[8].length ? " (he was there in " + lbAnd(p[8]) + ")" : "") + "." : N + " isn't in a Euros squad since " + LB_DATA.B.eu0 + ".";
+  const n = lbClubsOf(p).length;
+  if(r.nc && n < r.nc) return "We have " + N + " at " + n + " club" + (n === 1 ? "" : "s") + ": " + lbClubList(p) + ".";
+  const cs = [...new Set(lbClubsOf(p).map(j => LB_DATA.C[j][1]).filter(Boolean))];
+  if(r.nk && cs.length < r.nk) return N + " played in " + cs.length + " countr" + (cs.length === 1 ? "y" : "ies") + (cs.length ? ": " + lbAnd(cs.map(lbPlace)) : "") + ".";
+  if(r.mate != null && !lbMates(r.mate).has(i)){
+    const A = LB_DATA.P[r.mate];
+    if(r.mate === i) return "That's " + A[0] + " himself.";
+    const both = lbClubsOf(p).filter(j => lbClubsOf(A).includes(j));
+    if(both.length){
+      const j = both[0], ya = lbSpan(A, j), yp = lbSpan(p, j);
+      return "Both played for " + LB_DATA.C[j][0] + ", but not at the same time" + (ya && yp ? " (" + A[0] + " " + ya + ", " + N + " " + yp + ")" : "") + ".";
+    }
+    return N + " and " + A[0] + " never played for the same club.";
+  }
+  return "";
+}
+function lbWhy(box, ref){
+  const kinds = { p: "a player", c: "a club", n: "a country" };
+  if(!lbWants(box, ref.k)) return lbName(ref) + " is " + kinds[ref.k] + "; this box wants " + kinds[box.k] + ".";
+  const row = lbRow(ref), r = box.r;
+  if(ref.k === "p") return lbWhyP(r, row, ref.i);
+  if(ref.k === "c"){
+    if(r.cc && row[1] !== r.cc) return row[1] ? row[0] + " is from " + lbPlace(row[1]) + ", not " + lbPlace(r.cc) + "." : "We don't know where " + row[0] + " is from.";
+    if(r.of != null && !lbClubsOf(LB_DATA.P[r.of]).includes(ref.i)) return LB_DATA.P[r.of][0] + " never played for " + row[0] + ". We have him at " + lbClubList(LB_DATA.P[r.of]) + ".";
+    if(r.cl && row[6] !== 1) return row[0] + " hasn't won the European Cup.";
+    return "";
+  }
+  if(r.wc != null && !(r.wc ? row[4].includes(r.wc) : row[4].length)) return r.wc ? row[1] + " wasn't at the " + r.wc + " World Cup." : row[1] + " hasn't been to a World Cup since " + LB_DATA.B.wc0 + ".";
+  if(r.eu != null && !(r.eu ? row[5].includes(r.eu) : row[5].length)) return r.eu ? row[1] + " wasn't at Euro " + r.eu + "." : row[1] + " hasn't been to a Euros since " + LB_DATA.B.eu0 + ".";
+  if(r.cont && row[3] !== r.cont) return row[1] + " is in " + LB_CONT[row[3]] + ".";
+  return "";
+}
+/* WHO THE APP UNDERSTOOD (§6): "Stefan de Vrij · NL · DF · 1992" */
+function lbWho(ref){
+  const row = lbRow(ref);
+  if(ref.k === "p") return [row[0], (row[2][0] || "").toUpperCase(), lbPosList(row).join("/"), row[4] || ""].filter(Boolean).join(" · ");
+  if(ref.k === "c") return row[0] + (row[1] ? " · " + lbPlace(row[1]) : "") + " · club";
+  return row[1] + " · " + LB_CONT[row[3]];
+}
+
+/* ---------- CHECKING AN ANSWER (§6) ----------
+   1. fold it (listsNorm); 2. an exact key, of the kind the box wants; 3. no
+   exact key at all: one typo on 7+ letters, two on 12+, but only against the
+   right answers of this box with this letter, so Dumfreis is Dumfries and a
+   typo never turns into somebody else; 4. several with that name: the one who
+   fits, the most famous if more do; 5. otherwise disallowed, with the reason.
+   st: goal | no | empty; ref: who it was read as; why: the reason. */
+function lbCheck(box, L, typed){
+  const t = listsNorm(typed);
+  if(!t) return { st: "empty" };
+  const D = LB_DATA, refs = (D.idx.get(t) || []);
+  const fame = r => r.k === "p" ? D.P[r.i][5] : r.k === "c" ? D.C[r.i][3] : 999;
+  const best = a => a.slice().sort((x, y) => (y.full ? 1 : 0) - (x.full ? 1 : 0) || fame(y) - fame(x))[0];
+  const kind = refs.filter(r => lbWants(box, r.k));
+  const hasL = r => lbLetters(r).includes(L);
+  const ok = kind.filter(r => hasL(r) && lbFit(box, r));
+  /* two men of one name who both fit: the one on his primary position first */
+  const sure = box.r.pos ? ok.filter(r => r.k !== "p" || lbPosList(lbRow(r))[0] === box.r.pos) : ok;
+  if(ok.length){ const r = best(sure.length ? sure : ok); return { st: "goal", ref: { k: r.k, i: r.i }, rare: lbRare(r) }; }
+  if(kind.length){
+    /* the man you meant: one who fits (then it's the letter), else one with the letter */
+    const fits = kind.filter(r => lbFit(box, r)), withL = kind.filter(hasL);
+    const r = best(fits.length ? fits : withL.length ? withL : kind), ref = { k: r.k, i: r.i };
+    const why = fits.length ? lbName(r) + " fits, but goes under " + lbOr(lbLetters(r).split("")) + ", not " + L + "." : lbWhy(box, r);
+    return { st: "no", ref, why, kind: fits.length ? "letter" : "fit" };
+  }
+  if(refs.length){ const r = best(refs); return { st: "no", ref: { k: r.k, i: r.i }, why: lbWhy(box, r), kind: "kind" }; }
+  /* a typo, only against this box's right answers */
+  let near = null, dist = 99, tie = false;
+  for(const r of lbAnswers(box, L)){
+    const keys = r.k === "p" ? lbKeys(D.P[r.i][0]).concat(D.P[r.i][9].map(listsNorm)) : r.k === "c" ? [D.C[r.i][0], ...D.C[r.i][4]].map(listsNorm) : [D.B.countries[r.i][1], ...D.B.countries[r.i][6]].map(listsNorm);
+    let d = 99;
+    for(const k of keys){ const n = listsTypo(k); if(n && Math.abs(k.length - t.length) <= n){ const x = listsDL(t, k, n); if(x <= n && x < d) d = x; } }
+    if(d < dist){ dist = d; near = r; tie = false; } else if(d === dist && d < 99 && lbId(r) !== lbId(near)) tie = true;
+  }
+  if(near && !tie) return { st: "goal", ref: near, rare: lbRare(near), typo: true };
+  /* a first name: Virgil is not a V */
+  const first = lbWants(box, "p") ? D.P.findIndex((p, i) => p[0].includes(" ") && listsNorm(p[0].split(" ")[0]) === t && lbFitP(box.r, p, i)) : -1;
+  if(first >= 0) return { st: "no", why: "First names don't count: " + D.P[first][0] + " goes under " + lbOr(D.P[first][1].split("")) + ".", kind: "first" };
+  return { st: "no", why: "We don't know that name.", kind: "unknown" };
+}
+
+/* ---------- THE DRAW (§4): a letter weighted by its boxes, then five boxes ---------- */
+function lbRound(level, used, rnd){
+  rnd = rnd || Math.random;
+  const lv = LB_LEVELS[level] || LB_LEVELS.normal, k = lv.k, B = LB_DATA.B.boxes;
+  const pickW = (arr, w) => { const tot = arr.reduce((s, a) => s + w(a), 0); let x = rnd() * tot; for(const a of arr){ x -= w(a); if(x <= 0) return a; } return arr[arr.length - 1]; };
+  const at = L => B.filter(b => b.n[L] && b.n[L][k] > 0);
+  const opts = [];
+  for(const L of "ABCDEFGHIJKLMNOPQRSTUVWXYZ"){
+    if(lv.no.includes(L) || (used || []).includes(L)) continue;
+    const bs = at(L);
+    if(LB_SLOTS.every((fs, s) => bs.filter(b => fs.includes(b.f)).length >= (s === 0 ? 2 : 1))) opts.push([L, bs]);
+  }
+  if(!opts.length) return null;
+  /* a letter whose boxes can't make a round without two on the same nation or club is put back, and another drawn */
+  while(opts.length){
+  const o = pickW(opts, o => o[1].length), [L, bs] = o;
+  opts.splice(opts.indexOf(o), 1);
+  for(let tries = 0; tries < 40; tries++){
+    const got = [], subj = new Set(), fams = new Set();
+    const take = (fs, apart) => {
+      let pool = bs.filter(b => fs.includes(b.f) && !got.includes(b) && !b.x.some(x => subj.has(x)));
+      if(apart && pool.some(b => !fams.has(b.f))) pool = pool.filter(b => !fams.has(b.f));
+      if(!pool.length) return false;
+      const fam = pickW([...new Set(pool.map(b => b.f))], f => LB_FAMW[f] || 1);
+      /* Easy leans to the broad boxes, Hard to the narrow ones */
+      const b = pickW(pool.filter(b => b.f === fam), b => k === 0 ? Math.sqrt(b.s) : k === 2 ? 1 / Math.sqrt(b.s + 1) : 1);
+      got.push(b); b.x.forEach(x => subj.add(x)); fams.add(b.f);
+      return true;
+    };
+    /* the scarce club box first, then the country or tournament box, the two player boxes, the other */
+    if(take(LB_SLOTS[1]) && take(LB_SLOTS[2]) && take(LB_SLOTS[0]) && take(LB_SLOTS[0], true) && take(LB_SLOTS[3]))
+      return { L, ids: [got[2], got[0], got[1], got[3], got[4]].map(b => b.id) };
+  }
+  }
+  return null;
+}
+
+/* ---------- THE COMPUTER (§7): Easy the classics and a blank or two, Medium a mix, Hard deep cuts. Never wrong. ---------- */
+function lbCpu(ids, L, level, rnd){
+  rnd = rnd || Math.random;
+  const k = (LB_LEVELS[level] || LB_LEVELS.normal).k, used = new Set(), out = ids.map(() => "");
+  const blanks = k === 0 ? 1 + (rnd() < .5 ? 1 : 0) : k === 1 ? (rnd() < .5 ? 1 : 0) : 0, skip = new Set();
+  while(skip.size < blanks) skip.add(Math.floor(rnd() * ids.length));
+  ids.forEach((id, j) => {
+    if(skip.has(j)) return;
+    const pool = lbSure(lbBox(id), L, k).filter(r => !used.has(lbId(r)));
+    if(!pool.length) return;
+    const want = k === 0 ? 1 : k === 1 ? (rnd() < .35 ? 1 : rnd() < .6 ? 2 : 3) : (rnd() < .8 ? 3 : 2);
+    let sub = pool.filter(r => lbRare(r) === want);
+    if(!sub.length) sub = k === 0 ? pool.filter(r => lbRare(r) < 3) : pool;
+    if(!sub.length) return;
+    const r = k === 0 ? sub[Math.floor(rnd() * Math.min(4, sub.length))] : sub[Math.floor(rnd() * sub.length)];
+    used.add(lbId(r)); out[j] = lbName(r);
+  });
+  return out;
+}
+
+/* ---------- SCORING (§2, §5): rarity, clashes, the same man twice, the full house ----------
+   res[side][box] from lbCheck; app[side][box] true where an appeal or the
+   group let it count (1 point). Out per side: cells [{st, pts}], fh, total. */
+function lbScore(res, app){
+  const n = res.length, boxes = res[0].length;
+  const out = res.map(() => ({ cells: [], fh: 0, total: 0 }));
+  for(let s = 0; s < n; s++){
+    const seen = new Set();
+    for(let b = 0; b < boxes; b++){
+      const r = res[s][b], a = app && app[s] && app[s][b];
+      let st = a ? "appeal" : r.st, pts = 0;
+      if(st === "goal"){
+        const id = lbId(r.ref);
+        if(seen.has(id)) st = "twice";
+        else{ seen.add(id); pts = r.rare; }
+      }
+      if(st === "appeal") pts = 1;
+      out[s].cells.push({ st, pts });
+    }
+  }
+  /* THE CLASH: the same answer in the same box as anyone else, nothing for either */
+  for(let b = 0; b < boxes; b++){
+    const ids = res.map((r, s) => out[s].cells[b].st === "goal" ? lbId(r[b].ref) : null);
+    ids.forEach((id, s) => { if(id && ids.some((x, t) => t !== s && x === id)){ out[s].cells[b].st = "clash"; out[s].cells[b].pts = 0; } });
+  }
+  for(const o of out){
+    o.fh = o.cells.every(c => c.st === "goal" || c.st === "clash" || c.st === "appeal") ? 3 : 0;
+    o.total = o.cells.reduce((t, c) => t + c.pts, 0) + o.fh;
+  }
+  return out;
+}
+
+/* ---------- the game ---------- */
+function lbPrefs(){
+  let p = null; try{ p = JSON.parse(localStorage.getItem(LB_KEY) || "null"); }catch(e){}
+  p = p && typeof p === "object" ? p : {};
+  return { level: LB_LVK.includes(p.level) ? p.level : "normal", vs: p.vs === "party" ? "party" : "cpu", n: Math.max(2, Math.min(6, p.n | 0 || 2)),
+    per: [1, 3, 5].includes(p.per) ? p.per : 3, names: Array.isArray(p.names) ? p.names.slice(0, 6) : [], played: p.played | 0, won: p.won | 0, best: p.best | 0 };
+}
+function lbSave(p){ try{ localStorage.setItem(LB_KEY, JSON.stringify(p)); }catch(e){} }
+/* THE FIX LIST: appeals, the group's overrules and unknown names, kept on the phone for a later data fix */
+function lbFix(o){
+  try{ const a = JSON.parse(localStorage.getItem(LB_FIX_KEY) || "[]"); a.push(Object.assign({ at: Date.now() }, o)); localStorage.setItem(LB_FIX_KEY, JSON.stringify(a.slice(-200))); }catch(e){}
+}
+function openLB(){ audio(); LB_VIEW = "setup"; LB = null; render(); lbLoad().then(() => render()).catch(() => {}); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function lbStop(){ if(LB_TIMER){ clearInterval(LB_TIMER); LB_TIMER = null; } }
+function lbLeave(){ audio(); lbStop(); LB_VIEW = null; LB = null; closeSheet(); render(); }
+function lbAskLeave(){
+  audio();
+  sheet('<h2>Leave the game?</h2><p>This game is thrown away.</p><button class="b4btn gold" onclick="lbLeave()">Leave</button><button class="b4btn quiet" onclick="closeSheet()">Keep playing</button>');
+}
+function lbKeepNames(){ const p = lbPrefs(); for(let i = 0; i < 6; i++){ const el = document.getElementById("lbn" + i); if(el) p.names[i] = el.value.trim().slice(0, 16); } lbSave(p); return p; }
+function lbSet(k, v){ audio(); const p = lbKeepNames(); p[k] = v; lbSave(p); render(); }
+const lbTwo = () => LB && LB.vs === "party";
+const lbCur = () => LB && LB.rounds[LB.rounds.length - 1];
+function lbStart(){
+  if(!LB_DATA.idx){ toast("Still loading the players, one second", true); return; }
+  audio();
+  const p = lbKeepNames(), party = p.vs === "party";
+  const names = party ? Array.from({ length: p.n }, (_, i) => p.names[i] || "Player " + (i + 1)) : ["You", "Computer"];
+  LB = { level: p.level, vs: p.vs, per: p.per, names, rounds: [], phase: "draw", turn: 0, ends: 0, varAt: 0, appeals: 2, live: [] };
+  LB_VIEW = "game";
+  lbNextLetter();
+}
+function lbNextLetter(){
+  const used = LB.rounds.map(r => r.L);
+  const rd = lbRound(LB.level, used) || lbRound(LB.level, []);
+  const n = LB.names.length;
+  LB.rounds.push({ L: rd.L, ids: rd.ids, ans: Array.from({ length: n }, () => rd.ids.map(() => "")), res: null, app: Array.from({ length: n }, () => rd.ids.map(() => false)), sc: null });
+  LB.phase = "draw"; LB.turn = 0; LB.varAt = 0; LB.live = [];
+  lbStop(); render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+const lbClockOf = () => LB_LEVELS[LB.level].clock;
+const lbLeft = () => LB && LB.phase === "play" ? Math.max(0, Math.ceil((LB.ends - Date.now()) / 1000)) : 0;
+const lbClockText = s => String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+function lbKick(){
+  if(!LB) return;
+  audio();
+  if(lbTwo()){ LB.phase = "cover"; render(); return; }
+  const rd = lbCur();
+  rd.ans[1] = lbCpu(rd.ids, rd.L, LB.level);
+  lbGo();
+}
+/* the clock starts when the boxes show: for a pass-and-play side, when the cover comes off */
+function lbGo(){
+  LB.phase = "play"; LB.live = []; LB.ends = Date.now() + lbClockOf() * 1000;
+  render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+  lbStop();
+  LB_TIMER = setInterval(lbTick, 250);
+}
+function lbTick(){
+  if(!LB || LB.phase !== "play"){ lbStop(); return; }
+  const s = lbLeft(), el = typeof document !== "undefined" && document.getElementById("lbclock");
+  if(el){ el.textContent = lbClockText(s); el.classList.toggle("late", s <= 10); el.setAttribute("aria-label", s + " seconds left"); }
+  if(s <= 0) lbWhistle();
+}
+/* typing: kept as you go, refused once the clock is at zero */
+function lbType(j, el){
+  if(!LB || LB.phase !== "play") return false;
+  if(lbLeft() <= 0){ if(el) el.value = lbCur().ans[LB.turn][j]; lbWhistle(); return false; }
+  lbCur().ans[LB.turn][j] = String(el ? el.value : "").slice(0, 40);
+  const c = typeof document !== "undefined" && document.getElementById("lbcount");
+  if(c) c.textContent = lbCur().ans[LB.turn].filter(v => v.trim()).length + " of 5";
+  if(LB.live[j]){ LB.live[j] = null; lbLiveMark(j); }
+  return true;
+}
+/* EASY CHECKS LIVE: a tick as soon as you leave a box, and you can still change it */
+function lbBlur(j){
+  if(!LB || LB.phase !== "play" || LB.level !== "easy") return;
+  const rd = lbCur(), v = rd.ans[LB.turn][j];
+  LB.live[j] = v.trim() ? lbCheck(lbBox(rd.ids[j]), rd.L, v) : null;
+  lbLiveMark(j);
+}
+function lbLiveMark(j){
+  if(typeof document === "undefined") return;
+  const card = document.getElementById("lbbox" + j), note = document.getElementById("lbnote" + j), r = LB.live[j];
+  if(card){ card.classList.toggle("ok", !!(r && r.st === "goal")); card.classList.toggle("bad", !!(r && r.st === "no")); }
+  if(note) note.textContent = r ? (r.st === "goal" ? "Counts · " + LB_RARE[r.rare][0] : "Doesn't count yet") : "";
+}
+function lbFocus(el){
+  /* the box you type in scrolls above the keyboard */
+  setTimeout(() => { try{ el.scrollIntoView({ block: "center", behavior: lbCalm() ? "auto" : "smooth" }); }catch(e){} }, 280);
+}
+const lbCalm = () => { try{ return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){ return true; } };
+function lbKey(e, j){
+  if(e.key !== "Enter") return;
+  e.preventDefault();
+  const next = document.getElementById("lbi" + (j + 1));
+  if(next) next.focus(); else try{ e.target.blur(); }catch(x){}
+}
+/* THE WHISTLE: the next player behind the cover, or VAR for everyone */
+function lbWhistle(){
+  if(!LB || LB.phase !== "play") return;
+  lbStop();
+  try{ if(typeof document !== "undefined" && document.activeElement) document.activeElement.blur(); }catch(e){}
+  try{ beep(880, .25, "square", .05); }catch(e){}
+  if(lbTwo() && LB.turn < LB.names.length - 1){ LB.turn++; LB.phase = "cover"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} return; }
+  const rd = lbCur();
+  rd.res = rd.ans.map(a => a.map((v, j) => lbCheck(lbBox(rd.ids[j]), rd.L, v)));
+  rd.sc = lbScore(rd.res, rd.app);
+  LB.phase = "var"; LB.varAt = 0;
+  render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+function lbUncover(){ if(!LB || LB.phase !== "cover") return; audio(); lbGo(); }
+/* the scoreboard counts along with the check: earlier letters, then this letter's boxes so far */
+function lbTotals(){
+  const n = LB.names.length, t = Array(n).fill(0);
+  LB.rounds.forEach((rd, ri) => {
+    if(!rd.sc) return;
+    const last = ri === LB.rounds.length - 1 && LB.phase === "var";
+    rd.sc.forEach((o, s) => { t[s] += last ? o.cells.slice(0, LB.varAt + 1).reduce((x, c) => x + c.pts, 0) + (LB.varAt >= 4 ? o.fh : 0) : o.total; });
+  });
+  return t;
+}
+function lbVarNext(){
+  if(!LB || LB.phase !== "var") return;
+  audio();
+  if(LB.varAt < 4){ LB.varAt++; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} return; }
+  if(LB.rounds.length < LB.per) return lbNextLetter();
+  lbEnd();
+}
+/* THE APPEAL: against the computer two a game that count straight away; on one
+   phone the group can let any answer count. 1 point, marked, on the fix list. */
+function lbAppealSheet(s){
+  if(!LB || LB.phase !== "var") return;
+  audio();
+  const rd = lbCur(), j = LB.varAt, r = rd.res[s][j], box = lbBox(rd.ids[j]);
+  const can = lbTwo() || LB.appeals > 0;
+  sheet('<h2>' + (lbTwo() ? "The group decides" : "Appeal") + '</h2><p>' + esc(rd.ans[s][j]) + ' for <b>' + esc(box.t) + '</b> with ' + rd.L + '. ' + esc(r.why || "") + '</p>' +
+    (r.ref ? lbFileHTML(r.ref) : "") +
+    (can ? b4Btn(lbTwo() ? "The group says it counts" : "I'm sure · count it (" + LB.appeals + " left)", "closeSheet();lbAppeal(" + s + ")", "gold") : '<p>No appeals left this game.</p>') +
+    b4Btn("VAR was right", "closeSheet()", "quiet"));
+}
+function lbAppeal(s){
+  if(!LB || LB.phase !== "var") return;
+  const rd = lbCur(), j = LB.varAt, r = rd.res[s][j];
+  if(rd.sc[s].cells[j].st !== "no" && rd.sc[s].cells[j].st !== "twice") return;
+  if(!lbTwo()){ if(LB.appeals <= 0) return; LB.appeals--; }
+  rd.app[s][j] = true;
+  rd.sc = lbScore(rd.res, rd.app);
+  lbFix({ kind: lbTwo() ? "group" : "appeal", L: rd.L, box: rd.ids[j], typed: rd.ans[s][j], why: r.why || "", who: r.ref ? lbWho(r.ref) : "" });
+  try{ ching(); }catch(e){}
+  render();
+}
+function lbReport(s){
+  if(!LB || LB.phase !== "var") return;
+  const rd = lbCur(), j = LB.varAt;
+  lbFix({ kind: "report", L: rd.L, box: rd.ids[j], typed: rd.ans[s][j] });
+  rd.res[s][j].reported = true;
+  toast("Saved for the fix list"); render();
+}
+/* his file: what the pack knows, to settle an appeal */
+function lbFileHTML(ref){
+  const row = lbRow(ref), fact = (k, v) => '<div class="gwfact"><small>' + k + '</small><span>' + v + '</span></div>';
+  const flag = c => /^[a-z]{2}$/.test(c) ? '<img src="assets/natflags/' + c + '.png" alt=""> ' : "";
+  if(ref.k === "p") return '<div class="gwfile">' + fact("Name", esc(row[0])) +
+    fact("Country", row[2].map(c => flag(c) + esc(lbPlace(c))).join(", ")) + fact("Position", lbPosList(row).map(x => LB_POS[x]).join(", ")) + fact("Born", row[4] || "?") +
+    fact("Clubs", lbClubsOf(row).map(j => esc(LB_DATA.C[j][0]) + (lbSpan(row, j) ? " <small>" + lbSpan(row, j) + "</small>" : "")).join(" · ") || "none we know of") +
+    fact("World Cups", row[7].length ? row[7].join(", ") : "none since " + LB_DATA.B.wc0) + fact("Euros", row[8].length ? row[8].join(", ") : "none since " + LB_DATA.B.eu0) + '</div>';
+  if(ref.k === "c") return '<div class="gwfile">' + fact("Club", esc(row[0])) + fact("Country", row[1] ? flag(row[1]) + esc(lbPlace(row[1])) : "?") + fact("Known men", row[3]) + '</div>';
+  return '<div class="gwfile">' + fact("Country", flag(row[0]) + esc(row[1])) + fact("In", LB_CONT[row[3]]) + fact("World Cups", row[4].join(", ") || "none") + fact("Euros", row[5].join(", ") || "none") + '</div>';
+}
+/* full time: the prefs, the progression once a game against the computer */
+function lbEnd(){
+  LB.phase = "full";
+  const t = lbTotals(), p = lbPrefs();
+  p.played++;
+  if(!lbTwo()){ if(t[0] > t[1]) p.won++; p.best = Math.max(p.best, t[0]); }
+  lbSave(p);
+  try{ if(lbTwo() || t[0] >= t[1]){ confetti(80); ching(); } else buzzer(); }catch(e){}
+  try{ if(!lbTwo()) progAnswer({ ok: t[0] > t[1], tier: LB.level === "hard" ? "hard" : "normal", topic: "letterbox" }); }catch(e){}
+  render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+/* THEY'D ALSO HAVE COUNTED: three right answers nobody gave, a Classic, a Good one and a Deep cut where the box has them */
+function lbAlso(rd, j, n){
+  const box = lbBox(rd.ids[j]), k = LB_LEVELS[LB.level].k, given = new Set(rd.res.map(r => lbId(r[j].ref)));
+  const pool = lbSure(box, rd.L, k).filter(r => !given.has(lbId(r)));
+  const out = [];
+  for(const want of [1, 2, 3]){ const r = pool.find(x => lbRare(x) === want && !out.includes(x)); if(r) out.push(r); }
+  for(const r of pool){ if(out.length >= (n || 3)) break; if(!out.includes(r)) out.push(r); }
+  return out.slice(0, n || 3);
+}
+/* the best answer of the game: the most points, the rarer on a tie */
+function lbBest(s){
+  let best = null;
+  LB.rounds.forEach(rd => { if(!rd.sc) return; rd.sc[s].cells.forEach((c, j) => { if(c.st === "goal" && (!best || c.pts > best.pts)) best = { pts: c.pts, rd, j, ref: rd.res[s][j].ref }; }); });
+  return best;
+}
+
+/* ---------- the share ---------- */
+const lbLettersStr = () => LB.rounds.map(r => r.L).join(" ");
+function lbShareText(){
+  const t = lbTotals(), lv = LB_LEVELS[LB.level].label;
+  const head = "BALL · Letter Box · " + lbLettersStr() + " · " + (lbTwo() ? LB.names.map((n, i) => n + " " + t[i]).join(", ") : t[0] + " points · " + lv);
+  const lines = lbTwo() ? [] : LB.rounds.map(rd => rd.L + ": " + rd.sc[0].cells.map(c => c.pts).join(" · ") + (rd.sc[0].fh ? " · full house +3" : "") + " = " + rd.sc[0].total);
+  return [head].concat(lines).concat(["beebzoo.github.io/ball"]).join("\n");
+}
+/* THE SHARE PICTURE: the letters, your five squares each in their rarity colour, the score */
+function lbCanvas(){
+  if(!LB || LB.phase !== "full" || typeof document === "undefined") return null;
+  const c = document.createElement("canvas"); c.width = 1080; c.height = 1080;
+  const x = c.getContext("2d"); if(!x) return null;
+  const t = lbTotals(), col = { 1: "#F8F1DD", 2: "#e9b84c", 3: "#2f9a57", 0: "#3a4a3f" };
+  x.fillStyle = "#efe4c8"; x.fillRect(0, 0, 1080, 1080);
+  x.fillStyle = "#123D24"; x.fillRect(0, 0, 1080, 250);
+  x.fillStyle = "#F8F1DD"; x.textAlign = "center";
+  x.font = "italic 900 100px 'Barlow Semi Condensed', sans-serif"; x.fillText("LETTER BOX", 540, 150);
+  x.fillStyle = "#e9b84c"; x.font = "800 34px 'Barlow Semi Condensed', sans-serif";
+  x.fillText(("BALL · " + LB_LEVELS[LB.level].label + " · " + lbLettersStr()).toUpperCase(), 540, 215);
+  const rows = LB.rounds.length, rh = Math.min(120, 440 / rows), top = 330 + (440 - rh * rows) / 2;
+  LB.rounds.forEach((rd, i) => {
+    const y = top + i * rh;
+    x.fillStyle = "#123D24"; x.textAlign = "left"; x.font = "italic 900 " + Math.round(rh * .8) + "px 'Barlow Semi Condensed', sans-serif"; x.fillText(rd.L, 170, y + rh * .78);
+    rd.sc[0].cells.forEach((cl, j) => { x.fillStyle = col[cl.st === "goal" ? cl.pts : 0]; x.fillRect(300 + j * (rh * .9 + 18), y + rh * .1, rh * .9, rh * .8); x.strokeStyle = "#123D24"; x.lineWidth = 3; x.strokeRect(300 + j * (rh * .9 + 18), y + rh * .1, rh * .9, rh * .8); });
+  });
+  x.textAlign = "center"; x.fillStyle = "#123D24"; x.font = "italic 900 84px 'Barlow Semi Condensed', sans-serif";
+  x.fillText(lbTwo() ? LB.names[0] + " " + t[0] : t[0] + " POINTS" + (t[0] > t[1] ? " · WON" : ""), 540, 890);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
+  return c;
+}
+function lbShare(){
+  audio();
+  if(!LB || LB.phase !== "full") return;
+  const text = lbShareText();
+  const copy = () => { try{ navigator.clipboard.writeText(text).then(() => toast("Copied. Send it on."), () => toast("Could not copy", true)); }catch(e){ toast("Could not copy", true); } };
+  const c = lbCanvas();
+  if(!c || !c.toBlob) return copy();
+  c.toBlob(blob => {
+    if(!blob) return copy();
+    const file = new File([blob], "letter-box.png", { type: "image/png" });
+    if(navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], text }).catch(() => {});
+    copy();
+  }, "image/png");
+}
+
+/* ---------- the screens ---------- */
+/* the small icons on the boxes: a shirt for a player box, a patch for a club, a flag for a country, a cup, two men, a ball */
+function lbIcon(box){
+  const f = box.f, s = 'fill="none" stroke="#F8F1DD" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
+  if(f === "clubbox") return '<svg viewBox="0 0 40 48" width="24" height="29" aria-hidden="true"><path d="M4 2 H36 V22 Q36 38 20 46 Q4 38 4 22 Z" ' + s + '/></svg>';
+  if(f === "country") return '<svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><path d="M8 36 V5 M8 6 H32 L27 13 L32 20 H8" ' + s + '/></svg>';
+  if(f === "tour") return '<svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><path d="M8 6 H32 V14 Q32 24 20 26 Q8 24 8 14 Z M14 26 V32 H26 V26 M10 34 H30" ' + s + '/></svg>';
+  if(f === "mate") return '<svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><circle cx="14" cy="14" r="6" ' + s + '/><circle cx="27" cy="14" r="6" ' + s + '/><path d="M4 34 Q14 22 20 30 Q27 22 36 34" ' + s + '/></svg>';
+  if(f === "wild") return '<span class="lbball">' + ballSVG("") + '</span>';
+  if(box.r && box.r.pos === "GK") return '<svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><path d="M8 34 V16 Q8 6 20 6 Q32 6 32 16 V34 M8 20 H32" ' + s + '/></svg>';
+  return '<svg viewBox="0 0 60 56" width="28" height="26" aria-hidden="true"><path d="M15 7 L23 3 Q30 7 37 3 L45 7 L57 17 L50 26 L45 22 L45 53 L15 53 L15 22 L10 26 L3 17 Z" fill="#e9b84c" stroke="#fff" stroke-width="2"/></svg>';
+}
+/* the TV scoreboard: you and the computer, or everyone on one phone */
+function lbScoreHTML(label){
+  const t = lbTotals(), n = LB.names.length, cols = ["#e9b84c", "#2f6fe0"].concat(SB_COLS.slice(2));
+  const side = (i, away) => '<div class="sb-t' + (away ? " away" : "") + '" style="--tc:' + (n > 2 ? SB_COLS[i % SB_COLS.length] : cols[i]) + '"><b>' + esc(LB.names[i]) + '</b>' + (n > 2 ? '<i>' + t[i] + '</i>' : "") + '</div>';
+  if(n > 2) return '<div class="b4sb sbmany' + (n > 3 ? " rows2" : "") + (n === 4 ? " n4" : "") + '"><div class="sb">' + LB.names.map((_, i) => side(i, false)).join("") + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
+  return '<div class="b4sb"><div class="sb">' + side(0, false) + '<div class="sb-mid"><b>' + t[0] + '</b><s></s><b>' + t[1] + '</b></div>' + side(1, true) + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
+}
+function lbSetupScreen(st){
+  const p = lbPrefs(), ready = !!LB_DATA.idx, party = p.vs === "party", L = LB_LEVELS[p.level];
+  const seg = (label, key, opts) => '<div class="b6hdr">' + label + '</div><div class="b6seg b6ans" role="group" aria-label="' + label + '">' +
+    opts.map(([v, l]) => '<button aria-pressed="' + (p[key] === v) + '" onclick="lbSet(\'' + key + '\',' + (typeof v === "number" ? v : "'" + v + "'") + ')">' + l + '</button>').join("") + '</div>';
+  st.innerHTML = b4Page({ title: "Letter Box", ctx: "The draw", back: "lbLeave()", cls: "lbpage", body:
+    b4Q("One letter, five boxes", "A letter comes out of the draw. Fill every box with something that starts with it before the clock runs out. The less obvious your answer, the more it scores; the same answer as someone else scores nothing.") +
+    seg("Who's playing", "vs", [["cpu", "Against the computer"], ["party", "2 to 6 · one phone"]]) +
+    (party ? seg("How many", "n", [[2, "2"], [3, "3"], [4, "4"], [5, "5"], [6, "6"]]) +
+      '<div class="partynames lbnames">' + Array.from({ length: p.n }, (_, i) => '<input id="lbn' + i + '" class="partyname" maxlength="16" autocomplete="off" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' + esc(p.names[i] || "") + '">').join("") + '</div>' +
+      '<div class="b6qs">Everyone gets the same letter and the same boxes, in turn: a cover hides your answers while the phone goes round. Then VAR checks them all together.</div>' : "") +
+    seg("Level", "level", [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]]) +
+    '<div class="b6qs">' + L.say + (party ? "" : " " + L.cpu) + '</div>' +
+    seg("Letters a game", "per", [[1, "1"], [3, "3"], [5, "5"]]) +
+    '<div class="lbrules"><b>How it counts</b><span><i class="lbtag t1">Classic +1</i><i class="lbtag t2">Good one +2</i><i class="lbtag t3">Deep cut +3</i></span>' +
+      '<small>Players go under their surname, with or without the particle (de Vrij is a D and a V), or the one name they go by (Pelé). First names don\'t count. Clubs count for any word of their name but FC and the like; countries by their English name. A clash scores 0 for both; all five right is a full house, +3.</small></div>' +
+    (!party && p.played ? '<div class="b6qs">Played ' + p.played + ', won ' + p.won + ' against the computer · best ' + p.best + ' points</div>' : "") +
+    '<button class="b6cta" onclick="lbStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "To the draw ▶" : "Loading the players…") + '</button>' });
+}
+/* THE DRAW: a glass bowl of gold balls on the paper, one letter out on a tile */
+function lbBowlSVG(L){
+  const balls = [[160, 262, 17], [196, 272, 17], [230, 258, 17], [176, 234, 17], [214, 230, 17], [250, 226, 16], [142, 230, 16], [196, 200, 16]];
+  const pool = "ABCDEFGHIJKLMNOPRSTVW".replace(L, "").split("");
+  return '<svg class="lbbowl" viewBox="0 0 390 360" aria-hidden="true"><ellipse cx="195" cy="340" rx="120" ry="12" fill="rgba(0,0,0,.18)"/>' +
+    '<rect x="150" y="300" width="90" height="34" rx="6" fill="#7a5a10"/><rect x="140" y="292" width="110" height="14" rx="5" fill="#c99a2e"/>' +
+    '<circle cx="195" cy="212" r="96" fill="rgba(255,255,255,.35)" stroke="#fff" stroke-width="3"/>' +
+    '<g class="lbballs" font-family="Barlow Semi Condensed,sans-serif" font-weight="900" font-size="12" text-anchor="middle" fill="#7a5a10">' +
+    balls.map(([x, y, r], i) => '<g class="lbb" style="--d:' + (i * 70) + 'ms"><circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="' + (i % 2 ? "#f3cd6b" : "#e9b84c") + '"/><text x="' + x + '" y="' + (y + 4) + '">' + pool[(i * 5 + L.charCodeAt(0)) % pool.length] + '</text></g>').join("") + '</g>' +
+    '<path d="M130 160 Q150 128 190 120" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".7"/></svg>';
+}
+function lbDrawScreen(){
+  const rd = lbCur(), lv = LB_LEVELS[LB.level];
+  const body = '<div class="lbstage">' + lbBowlSVG(rd.L) + '<div class="lbtile" aria-label="The letter ' + rd.L + '"><b>' + rd.L + '</b></div></div>' +
+    '<div class="lbsay"><b>It\'s ' + (/^[AEFHILMNORSX]$/.test(rd.L) ? "an " : "a ") + rd.L + '</b><small>Five boxes. ' + LB_SECS[lv.clock] + '. The less obvious, the more it scores.</small></div>' +
+    '<div class="lbslipshd"><span>The boxes · face down until kick-off</span><span>' + lv.label + '</span></div>' +
+    '<div class="lbslips">' + rd.ids.map((_, i) => '<div class="lbslip"><i>' + (i + 1) + '</i><span style="flex:' + [1, .8, .9, .6, .75][i] + '"></span></div>').join("") + '</div>' +
+    b4Btn("Kick off", "lbKick()", "gold");
+  return { ctx: "Letter " + LB.rounds.length + " of " + LB.per + " · the draw", body };
+}
+function lbCoverScreen(){
+  const i = LB.turn, others = LB.names.filter((_, k) => k !== i);
+  const body = '<div class="gwcover">' + b4Q(esc(LB.names[i]) + ", your go", esc(lbAnd(others)) + ", look away. Hand the phone to " + esc(LB.names[i]) + ". The clock starts when the boxes show.") +
+    '<div class="lbtile small" aria-hidden="true"><b>' + lbCur().L + '</b></div>' + b4Btn("I'm " + esc(LB.names[i]) + " · show my boxes", "lbUncover()", "gold") + '</div>';
+  return { ctx: "Letter " + LB.rounds.length + " of " + LB.per + " · pass the phone", body };
+}
+function lbPlayScreen(){
+  const rd = lbCur(), s = lbLeft(), me = LB.turn, easy = LB.level === "easy";
+  const score = '<div class="b4sb lbsb"><div class="lbbar"><div class="lblt" aria-label="Letter ' + rd.L + '">' + rd.L + '</div>' +
+    '<div id="lbclock" class="lbclock' + (s <= 10 ? " late" : "") + '" role="timer" aria-label="' + s + ' seconds left">' + lbClockText(s) + '</div>' +
+    '<div class="lbrd">' + (lbTwo() ? esc(LB.names[me]) : "vs Computer") + '</div></div></div>';
+  const filled = rd.ans[me].filter(v => v.trim()).length;
+  const body = '<div class="lbboxes">' + rd.ids.map((id, j) => {
+      const box = lbBox(id), live = LB.live[j];
+      return '<div id="lbbox' + j + '" class="lbbox' + (live && live.st === "goal" ? " ok" : live && live.st === "no" ? " bad" : "") + '"><span class="lbic">' + lbIcon(box) + '</span><div class="lbin">' +
+        '<label for="lbi' + j + '">' + esc(box.t) + '</label><input id="lbi' + j + '" value="' + esc(rd.ans[me][j]) + '" placeholder="' + rd.L + '…" maxlength="40" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" enterkeyhint="' + (j < 4 ? "next" : "done") + '"' +
+        ' oninput="lbType(' + j + ',this)" onfocus="lbFocus(this)" onblur="lbBlur(' + j + ')" onkeydown="lbKey(event,' + j + ')">' +
+        (easy ? '<small id="lbnote' + j + '" class="lbnote" aria-live="polite">' + (live ? (live.st === "goal" ? "Counts · " + LB_RARE[live.rare][0] : "Doesn't count yet") : "") + '</small>' : "") + '</div></div>';
+    }).join("") + '</div>' +
+    '<div class="lbfoot"><span>' + (easy ? "Easy: each box is checked when you leave it." : "Checked at the whistle. No suggestions while you type.") + '</span><span id="lbcount">' + filled + ' of 5</span></div>' +
+    b4Btn("Blow the whistle", "lbWhistle()", "gold");
+  return { ctx: "Letter " + LB.rounds.length + " of " + LB.per + " · " + LB_LEVELS[LB.level].label, body, score };
+}
+const lbTagHTML = c => c.st === "goal" ? '<span class="lbtag t' + c.pts + '">' + LB_RARE[c.pts][0].toUpperCase() + ' +' + c.pts + '</span>'
+  : c.st === "clash" ? '<span class="lbtag t0">CLASH 0</span>' : c.st === "appeal" ? '<span class="lbtag t2">COUNTED +1</span>'
+  : c.st === "twice" ? '<span class="lbtag t0">TWICE 0</span>' : c.st === "empty" ? '<span class="lbtag t0">EMPTY</span>' : '<span class="lbtag t0">OUT 0</span>';
+function lbVarScreen(){
+  const rd = lbCur(), j = LB.varAt, box = lbBox(rd.ids[j]), n = LB.names.length;
+  const done = rd.ids.slice(0, j).map((id, b) => '<div class="lbdone" style="--n:' + Math.min(n, 3) + '"><span class="q">' + (b + 1) + ' · ' + esc(lbBox(id).t) + '</span>' +
+    LB.names.map((nm, s) => { const c = rd.sc[s].cells[b]; return '<span class="a' + (c.st === "clash" ? " clash" : "") + '"><span>' + esc(rd.ans[s][b] || "—") + '</span>' + (n > 2 ? '<span class="lbtag t' + (c.st === "goal" ? c.pts : c.st === "appeal" ? 2 : 0) + '">' + (c.pts ? "+" + c.pts : "0") + '</span>' : lbTagHTML(c)) + '</span>'; }).join("") + '</div>').join("");
+  const stamp = c => c.st === "goal" ? '<span class="lbstamp goal">GOAL</span>' : c.st === "clash" ? '<span class="lbstamp clash">CLASH</span>' : c.st === "appeal" ? '<span class="lbstamp goal">COUNTED</span>'
+    : c.st === "empty" ? '<span class="lbstamp out">NO ANSWER</span>' : '<span class="lbstamp out">DISALLOWED</span>';
+  const sides = LB.names.map((nm, s) => {
+    const c = rd.sc[s].cells[j], r = rd.res[s][j], v = rd.ans[s][j];
+    const why = c.st === "twice" ? "Already used in another box: a name counts once a round." : c.st === "clash" ? (n > 2 ? "Same answer as someone else: 0." : "Same answer: 0 for both.") : c.st === "appeal" ? (lbTwo() ? "The group let it count." : "Appeal: counted, and saved for the fix list.") : r.st === "no" ? r.why : "";
+    const who = r.ref && (c.st === "goal" || (c.st === "clash" && n < 3)) ? '<small class="lbwho">' + esc(lbWho(r.ref)) + (r.typo ? " · read as" : "") + '</small>' : "";
+    const appeal = (c.st === "no" || c.st === "twice") && (lbTwo() || (s === 0 && LB.appeals > 0)) ? '<button class="lblink" onclick="lbAppealSheet(' + s + ')">' + (lbTwo() ? "The group says it counts" : "I'm sure · appeal") + '</button>' : "";
+    const report = c.st === "no" && r.kind === "unknown" && !r.reported ? '<button class="lblink" onclick="lbReport(' + s + ')">Report it</button>' : r.reported ? '<small class="lbwho">Reported</small>' : "";
+    return '<div class="lbside"><span class="lbcap">' + esc(nm) + '</span><b>' + esc(v || "—") + '</b>' + stamp(c) + (c.st === "goal" ? '<div>' + lbTagHTML(c) + '</div>' : "") +
+      (why ? '<div class="lbwhy">' + esc(why) + '</div>' : "") + who + appeal + report + '</div>';
+  }).join("");
+  const also = lbAlso(rd, j);
+  const body = done + '<div class="lbvar"><div class="lbvarhd"><span>Checking · box ' + (j + 1) + '</span><span>letter ' + rd.L + '</span></div><div class="lbvarq">' + esc(box.t) + '</div>' +
+    '<div class="lbsides" style="--n:' + Math.min(n, 3) + '">' + sides + '</div>' +
+    (also.length ? '<div class="lbalso"><span>They\'d also have counted</span><b>' + also.map(r => esc(lbName(r))).join(" · ") + '</b></div>' : "") + '</div>' +
+    '<div class="lbfoot"><span>' + (lbTwo() ? "Tap Next when everyone has seen it." : "Appeals left this game: " + LB.appeals) + '</span><span>' + (j < 4 ? "next: " + esc(lbBox(rd.ids[j + 1]).t) : rd.sc.some(o => o.fh) ? "full house +3" : "") + '</span></div>' +
+    b4Btn(j < 4 ? "Next box" : LB.rounds.length < LB.per ? "Next letter" : "Full time", "lbVarNext()", "gold");
+  return { ctx: "VAR check · box " + (j + 1) + " of 5", body };
+}
+function lbFullScreen(){
+  const t = lbTotals(), n = LB.names.length, two = lbTwo();
+  const sq = cells => '<span class="lbsq">' + cells.map(c => '<i class="c' + (c.st === "goal" ? c.pts : c.st === "appeal" ? 2 : 0) + '"></i>').join("") + '</span>';
+  const cols = two ? ["Letter"].concat(LB.names.map(esc)) : ["Letter", "Your boxes", "You", "CPU"];
+  const rows = LB.rounds.map(rd => ({ cells: two ? ['<b class="lbL">' + rd.L + '</b>'].concat(rd.sc.map(o => o.total + (o.fh ? ' <span class="lbfh">FH</span>' : "")))
+    : ['<b class="lbL">' + rd.L + '</b>', sq(rd.sc[0].cells) + (rd.sc[0].fh ? '<span class="lbfh">FULL HOUSE +3</span>' : ""), rd.sc[0].total, rd.sc[1].total] }));
+  rows.push({ cls: "tot", cells: ["", ...(two ? t.map(x => x) : ["Total", t[0], t[1]])] });
+  const top = Math.max(...t), winners = LB.names.filter((_, i) => t[i] === top);
+  const head = two ? (winners.length > 1 ? lbAnd(winners.map(esc)) + " share it on " + top : esc(winners[0]) + " wins with " + top)
+    : t[0] > t[1] ? "You win " + t[0] + "–" + t[1] : t[0] < t[1] ? "The computer wins " + t[1] + "–" + t[0] : "A draw, " + t[0] + "–" + t[1];
+  const fhs = LB.rounds.filter(rd => rd.sc[0].fh).map(rd => rd.L);
+  const deep = LB.rounds.reduce((x, rd) => x + rd.sc[0].cells.filter(c => c.st === "goal" && c.pts === 3).length, 0);
+  const sub = two ? "Over " + LB.rounds.length + " letter" + (LB.rounds.length === 1 ? "" : "s") + ": " + lbLettersStr() + "."
+    : fhs.length ? "A full house on " + lbAnd(fhs) + "." : deep ? deep + " deep cut" + (deep === 1 ? "" : "s") + " in your boxes." : "No deep cuts this time: the computer had them.";
+  /* the best answer: yours, or on one phone the best of anyone's */
+  let best = null, bs = 0;
+  (two ? LB.names.map((_, i) => i) : [0]).forEach(s => { const b = lbBest(s); if(b && (!best || b.pts > best.pts)){ best = b; bs = s; } });
+  const bestHTML = best ? '<div class="lbbest"><div><span class="lbcap">' + (two ? esc(LB.names[bs]) + "'s best answer" : "Your best answer") + '</span><b>' + esc(lbName(best.ref)) + '</b><small>' + best.rd.L + ' · ' + esc((t => t.charAt(0).toLowerCase() + t.slice(1))(lbBox(best.rd.ids[best.j]).t)) + '. ' + esc(lbWho(best.ref)) + '</small></div>' + lbTagHTML({ st: "goal", pts: best.pts }) + '</div>' : "";
+  const body = b4Q(head, sub) + b4Table(cols, rows) +
+    (two ? "" : '<div class="lblegend"><span>' + sq([{ st: "goal", pts: 1 }]) + ' Classic 1</span><span>' + sq([{ st: "goal", pts: 2 }]) + ' Good one 2</span><span>' + sq([{ st: "goal", pts: 3 }]) + ' Deep cut 3</span><span>' + sq([{ st: "no" }]) + ' clash or out</span></div>') +
+    bestHTML + '<div class="lbshare"><span class="lbcap">Share card</span><div>' + esc(lbShareText().split("\n")[0]) + '</div></div>' +
+    '<div class="lbacts">' + b4Btn("Play again", "lbStart()", "gold") + b4Btn("Share", "lbShare()", "dark") + '</div>' + b4Btn("Leave", "lbLeave()", "quiet");
+  return { ctx: "Full time · " + LB.rounds.length + " letter" + (LB.rounds.length === 1 ? "" : "s"), body, label: LB_LEVELS[LB.level].label + " · " + LB.rounds.map(r => r.L).join(", ") };
+}
+function lbRender(st){
+  if(LB_VIEW === "setup" || !LB) return lbSetupScreen(st);
+  const ph = LB.phase;
+  const o = ph === "draw" ? lbDrawScreen() : ph === "cover" ? lbCoverScreen() : ph === "play" ? lbPlayScreen() : ph === "var" ? lbVarScreen() : lbFullScreen();
+  const label = o.label || LB_LEVELS[LB.level].label + " · " + (lbTwo() ? LB.names.length + " players" : "vs the computer");
+  st.innerHTML = b4Page({ title: "Letter Box", ctx: o.ctx, back: ph === "full" ? "lbLeave()" : "lbAskLeave()", leave: ph === "full" ? null : "lbAskLeave()",
+    score: o.score || (ph === "cover" ? "" : lbScoreHTML(label)), cls: "lbpage lb-" + ph, body: o.body });
 }
 /* ---------- SIMPLE BALL: THE SHELL ---------- */
 const SB_PHASES = /^(pick|question|judge|steal_offer|steal_q|steal_judge|deadq|w_answer|w_judge)$/;
@@ -32052,6 +33902,10 @@ function b6Front(saved){
         <div class="m"><b>Tiki-Taka-Toe</b><small>Three in a row is a goal</small></div><div class="art">${ttArt()}<span class="chev">›</span></div></button>
       <button class="b6fix" onclick="openGW()">${(() => { const n = gwPrefs().played; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
         <div class="m"><b>Who is he?</b><small>Yes-or-no questions · demo</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true">${[0,1,2].map(r => [0,1,2].map(c => '<rect x="' + (4 + c * 13) + '" y="' + (4 + r * 13) + '" width="10" height="10" rx="2" fill="' + ((r * 3 + c) % 4 === 1 ? "rgba(18,61,36,.25)" : r === 1 && c === 1 ? "#e9b84c" : "#0b2416") + '" stroke="#fff" stroke-width="1"/>').join("")).join("")}</svg><span class="chev">›</span></div></button>
+      <button class="b6fix" onclick="openDD()">${(() => { const n = ddPrefs().played; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
+        <div class="m"><b>Deadline Day</b><small>Who signed, where and when?</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="5" y="9" width="34" height="27" rx="3" fill="#b98a4e" stroke="#fff" stroke-width="2"/><path d="M5 13 H17 L20 9" fill="none" stroke="#fff" stroke-width="2"/><rect x="11" y="18" width="22" height="9" rx="2" transform="rotate(-10 22 22)" fill="none" stroke="#0b2416" stroke-width="2"/><circle cx="34" cy="33" r="6" fill="#e9b84c" stroke="#fff" stroke-width="1.5"/></svg><span class="chev">›</span></div></button>
+      <button class="b6fix" onclick="openLB()">${(() => { const p = lbPrefs(); return p.best ? newOrBest(p.best, "BEST") : p.played ? newOrBest(p.played, "PLAYED") : newOrBest(null); })()}
+        <div class="m"><b>Letter Box</b><small>One letter, five boxes</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="7" y="5" width="30" height="34" rx="6" fill="#F8F1DD" stroke="#e9b84c" stroke-width="2.5" transform="rotate(-4 22 22)"/><text x="22" y="32" text-anchor="middle" font-family="Barlow Semi Condensed,sans-serif" font-weight="900" font-style="italic" font-size="26" fill="#123D24" stroke="#e9b84c" stroke-width=".8" paint-order="stroke">D</text></svg><span class="chev">›</span></div></button>
       <button class="b6fix" onclick="b4Explain('lists', openLists)">${(() => { const n = Object.keys(listsState().best).length; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
         <div class="m"><b>The Lists</b><small>Top 10s and name them all</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="3" y="4" width="38" height="36" rx="6" fill="#0b2416" stroke="#fff" stroke-width="2"/>${[0,1,2,3].map(i => '<rect x="9" y="' + (10 + i * 7) + '" width="' + [26,22,18,13][i] + '" height="4" rx="2" fill="' + (i < 2 ? "#e9b84c" : "rgba(255,255,255,.35)") + '"/>').join("")}</svg><span class="chev">›</span></div></button>
     </div>

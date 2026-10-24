@@ -6926,6 +6926,68 @@
   .lbacts{display:flex;gap:10px}
   .lbacts .b4btn{flex:1;margin-top:0}
   @media (prefers-reduced-motion: reduce){ .lbb,.lbtile,.lbstamp,.lbvar::after,.lbclock.late{animation:none} }
+  /* ---------- TIMELINE (the Hitster game) ---------- */
+  .yrpage .b6body{gap:10px}
+  .yrcard{position:relative;display:flex;flex-direction:column;gap:8px;padding:14px 16px 14px 20px;border-radius:16px;background:#F8F1DD;color:#241B08;
+    box-shadow:0 0 0 2px #fff,0 8px 18px rgba(18,61,36,.22);overflow:hidden}
+  .yrcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--yc,#e9b84c)}
+  .yrkind{display:flex;align-items:center;gap:6px;color:#7a5a10;font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  .yrkind .lbstamp{margin-left:auto;font-size:14px}
+  .yrkind .lbstamp.goal{color:#2f7a45;border-color:#2f7a45}.yrkind .lbstamp.clash{color:#2f6fe0;border-color:#2f6fe0}.yrkind .lbstamp.out{color:#b8261c;border-color:#b8261c}
+  .yrtext{font:italic 900 21px/1.15 'Barlow Semi Condensed',sans-serif;color:#123D24}
+  .yryear{align-self:flex-start;perspective:400px}
+  .yryear span{display:inline-block;min-width:96px;padding:2px 12px;border-radius:8px;background:#123D24;color:#f3cd6b;text-align:center;
+    font:italic 900 34px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em;text-shadow:2px 2px 0 #7a5a10;box-shadow:0 0 0 2px #fff}
+  .yrcard.flip .yryear span{animation:yrflip .55s cubic-bezier(.3,1.4,.5,1) both}
+  @keyframes yrflip{from{transform:rotateX(90deg);opacity:0}to{transform:rotateX(0);opacity:1}}
+  .yrhd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5b4a23}
+  .yrtip{font:italic 400 14px/1.35 'Lora',Georgia,serif;color:#5b4a23;text-align:center}
+  .yrtok{display:inline-flex;align-items:center;gap:3px}
+  .yrtok em{font-style:normal;margin-right:6px}
+  .yrtok i{width:11px;height:11px;border-radius:50%;border:1.5px solid #c99a2e;display:inline-block}
+  .yrtok i.on{background:radial-gradient(circle at 35% 35%,#f6d57c,#c99a2e);border-color:#7a5a10}
+  /* the row: year tiles with a gap between each */
+  .yrrow{display:flex;flex-direction:column;gap:4px}
+  .yrtile{display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:12px;background:linear-gradient(180deg,#14422A,#0b2416);color:#F8F1DD;box-shadow:0 0 0 2px #fff,0 3px 8px rgba(0,0,0,.18)}
+  .yrtile b{flex:0 0 auto;min-width:54px;font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
+  .yrtile span{font:600 13px/1.25 'Barlow Semi Condensed',sans-serif;color:#dfe9e1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .yrtile.hot{box-shadow:0 0 0 3px #e9b84c,0 6px 14px rgba(0,0,0,.25);animation:yrhot .5s cubic-bezier(.3,1.5,.5,1) both}
+  @keyframes yrhot{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+  .yrslot{display:flex;align-items:center;justify-content:center;gap:8px;min-height:34px;padding:4px 10px;border:2px dashed rgba(18,61,36,.35);border-radius:10px;background:transparent;
+    color:#5b6b56;font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+  .yrrow:not(.live) .yrslot{border-style:solid;border-color:transparent;min-height:26px}
+  .yrslot.on{min-height:48px;border:2px solid #fff;background:linear-gradient(180deg,#f6d57c,#c99a2e);color:#241B08;box-shadow:0 4px 0 #7a5a10}
+  .yrslot.marked{border:2px solid #2f6fe0;color:#123D24;background:rgba(47,111,224,.1)}
+  .yrslot.marked i{font-style:normal;padding:2px 6px;border-radius:4px;background:#2f6fe0;color:#fff;letter-spacing:.08em}
+  .yrslot:disabled{opacity:.55;cursor:default}
+  .yrslot.static{cursor:default}
+  .yrcaller{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:8px 10px;border-radius:12px;background:#F8F1DD;box-shadow:0 0 0 2px #fff}
+  .yrcaller .lbcap{color:#7a5a10}
+  .yrcaller .lblink{color:#7a5a10}
+  .yrcaller b{font:italic 900 30px/1 'Barlow Semi Condensed',sans-serif;color:#123D24;min-width:72px;text-align:center}
+  .yrstep{width:40px;height:40px;border-radius:50%;border:2px solid #fff;background:#123D24;color:#F8F1DD;font:900 22px/1 'Barlow Semi Condensed',sans-serif;cursor:pointer}
+  .yrgo{position:sticky;bottom:10px;z-index:2;display:flex;flex-direction:column;gap:8px}
+  .yrgo .b4btn{margin-top:0}
+  .yrcaller{box-shadow:0 0 0 2px #fff,0 6px 16px rgba(18,61,36,.25)}
+  .yrextra{display:flex;justify-content:center;gap:6px 14px;flex-wrap:wrap}
+  .lblink.dark{color:#5b4a23}
+  .yrthink{text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:#5b4a23;padding:8px;animation:yrpulse 1.2s ease-in-out infinite alternate}
+  @keyframes yrpulse{from{opacity:.45}to{opacity:1}}
+  .yrwho{display:flex;flex-direction:column;gap:8px}
+  .yrwho .b4btn{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:0}
+  .yrwho .yrtok i{border-color:#e9b84c}
+  .yrverdict{text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:#241B08}
+  .yrsteals{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+  .yrsteals span{padding:3px 8px;border-radius:6px;background:rgba(18,61,36,.1);font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5b4a23}
+  .yrsteals span.ok{background:#2f6fe0;color:#fff}
+  /* full time */
+  .yrfin{padding:10px 12px;border-radius:12px;background:linear-gradient(180deg,#14422A,#0b2416);box-shadow:0 0 0 2px #fff}
+  .yrfin.win{box-shadow:0 0 0 3px #e9b84c}
+  .yrfin .yrhd{margin-top:0;color:#8FB79E}
+  .yrchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+  .yrchips span{padding:3px 8px;border-radius:6px;background:#F8F1DD;color:#123D24;font:italic 900 16px/1.1 'Barlow Semi Condensed',sans-serif}
+  .yrfin.win .yrchips span{background:linear-gradient(180deg,#f6d57c,#c99a2e);color:#241B08}
+  @media (prefers-reduced-motion: reduce){ .yrcard.flip .yryear span,.yrtile.hot,.yrthink{animation:none} }
   /* ---------- SIMPLE BALL: flags on the picker, the game in the house look ---------- */
   .smq .smf{width:26px;height:auto;border-radius:3px;box-shadow:0 0 0 1px rgba(18,61,36,.25);flex:0 0 auto}
   .smq.on .smf{box-shadow:0 0 0 1px #fff}
@@ -26792,6 +26854,7 @@ function renderMain(){
   if(GW_VIEW) return gwRender(st);
   if(DD_VIEW) return ddRender(st);
   if(LB_VIEW) return lbRender(st);
+  if(YR_VIEW) return yrRender(st);
   if(GTP_VIEW) return gtpRender(st);
   if(LISTS_VIEW) return listsRender(st);
   if(DREAM_VIEW) return renderDream(st);
@@ -33539,6 +33602,430 @@ function lbRender(st){
   st.innerHTML = b4Page({ title: "Letter Box", ctx: o.ctx, back: ph === "full" ? "lbLeave()" : "lbAskLeave()", leave: ph === "full" ? null : "lbAskLeave()",
     score: o.score || (ph === "cover" ? "" : lbScoreHTML(label)), cls: "lbpage lb-" + ph, body: o.body });
 }
+/* ---------- TIMELINE ----------
+   _plans/timeline.md (Martijn, 24 Oct 2026), the Hitster game with football
+   moments. Everyone builds a row of cards in date order. A new card comes up
+   without its year; you tap the gap in your row where it belongs. Right, and
+   it stays; first to the target wins. Call the exact year as well for a
+   token; spend a token to steal (claim another gap in someone's row) or skip,
+   three to buy a card outright.
+   The deck is assets/years/cards.json (_tools/build-timeline.js): the hand
+   deck, fact-checked on the web, plus the checked Deadline Day transfers.
+   Every rule here is a plain function (yrFits, yrDraw, yrResolve, yrCpuPick,
+   yrCpuSteal) so _tests/yr-test.js can play without a screen.
+   Against the computer, 2 to 6 on one phone, or solo with three lives. */
+const YR_KEY = "ball4-yr";
+const YR_DATA = { cards: null, kinds: null };
+let YR_VIEW = null, YR = null, YR_T = null;
+/* tier: the deepest cards a level deals; sd: how far off the computer's
+   feeling for a year is; steal: how keen it is to steal when it disagrees */
+const YR_LEVELS = {
+  easy: { label: "Easy", tier: 1, sd: 9, steal: .2, call: .08, say: "The big ones: World Cup finals, famous transfers, the moments everybody knows.",
+    cpu: "The computer has a feeling for the decade, not the year." },
+  normal: { label: "Medium", tier: 2, sd: 4.5, steal: .35, call: .2, say: "Add the older finals, the Ballon d'Ors and a lot more transfers.",
+    cpu: "The computer is usually within a few years." },
+  hard: { label: "Hard", tier: 3, sd: 2, steal: .55, call: .4, say: "Everything in the deck, back to the first rules of the game.",
+    cpu: "The computer knows its football history, and steals when it's sure." } };
+const YR_LVK = ["easy", "normal", "hard"];
+const YR_TOK = { start: 2, max: 5, skip: 1, buy: 3 };
+const YR_TRANSFERS = .35;
+const YR_KINDS = { wc: "World Cup", euro: "Euros", intl: "International", ucl: "Europe", award: "Ballon d'Or", club: "Club football", moment: "History", transfer: "Transfer" };
+
+/* ---------- the deck ---------- */
+function yrUse(d){ YR_DATA.kinds = d.kinds; YR_DATA.cards = d.cards; return YR_DATA; }
+function yrLoad(){
+  if(YR_DATA.cards) return Promise.resolve(YR_DATA);
+  return fetch("assets/years/cards.json").then(r => { if(!r.ok) throw new Error("years"); return r.json(); }).then(yrUse);
+}
+const yrCard = i => { const c = YR_DATA.cards[i]; return { i, t: c[0], y: c[1], k: YR_DATA.kinds[c[2]], tier: c[3], col: c[4] || "" }; };
+const yrY = i => YR_DATA.cards[i][1];
+function yrPool(level){ const t = YR_LEVELS[level].tier, out = []; YR_DATA.cards.forEach((c, i) => { if(c[3] <= t) out.push(i); }); return out; }
+/* THE DRAW: a card nobody has seen this game, at most about a third of them
+   transfers, so a row isn't all "X joins Y" */
+function yrDraw(G){
+  const used = new Set(G.used), pool = G.pool.filter(i => !used.has(i));
+  if(!pool.length){ G.used = []; return yrDraw(G); }
+  const tr = YR_DATA.kinds.indexOf("transfer");
+  const want = G.rnd() < YR_TRANSFERS, part = pool.filter(i => (YR_DATA.cards[i][2] === tr) === want);
+  const from = part.length ? part : pool, i = from[Math.floor(G.rnd() * from.length)];
+  G.used.push(i);
+  return i;
+}
+/* the opening cards, one each, at least eight years apart where the deck allows */
+function yrDeal(G, n){
+  const out = [];
+  for(let s = 0; s < n; s++){
+    const ok = G.pool.filter(i => !G.used.includes(i) && out.every(j => Math.abs(yrY(j) - yrY(i)) >= 8));
+    if(!ok.length){ out.push(yrDraw(G)); continue; }
+    const i = ok[Math.floor(G.rnd() * ok.length)];
+    G.used.push(i); out.push(i);
+  }
+  return out;
+}
+
+/* ---------- the rules ---------- */
+/* a row is card indices sorted by year; gap g sits before row[g] (g = row.length: after the last) */
+function yrBounds(row, g){ return [g > 0 ? yrY(row[g - 1]) : -Infinity, g < row.length ? yrY(row[g]) : Infinity]; }
+function yrFits(row, g, y){ const [lo, hi] = yrBounds(row, g); return lo <= y && y <= hi; }
+function yrRight(row, y){ const out = []; for(let g = 0; g <= row.length; g++) if(yrFits(row, g, y)) out.push(g); return out; }
+function yrInsert(row, i){ const y = yrY(i); let g = 0; while(g < row.length && yrY(row[g]) <= y) g++; row.splice(g, 0, i); return g; }
+function yrGapText(row, g){
+  const [lo, hi] = yrBounds(row, g);
+  return lo === -Infinity && hi === Infinity ? "Anywhere" : lo === -Infinity ? "Before " + hi : hi === Infinity ? "After " + lo : lo === hi ? "Also " + lo : "Between " + lo + " and " + hi;
+}
+/* the year to suggest when you call one: the middle of the gap, or ten years out at either end */
+function yrMid(row, g){
+  const [lo, hi] = yrBounds(row, g);
+  const y = lo === -Infinity && hi === Infinity ? 2000 : lo === -Infinity ? hi - 10 : hi === Infinity ? Math.min(2026, lo + 10) : Math.round((lo + hi) / 2);
+  return Math.max(1860, Math.min(2026, y));
+}
+/* THE REVEAL: who gets the card. The player in turn if their gap is right;
+   else the first stealer whose gap is right; else nobody. A right gap and the
+   exact year called is a token. */
+function yrResolve(G){
+  const s = G.turn, row = G.rows[s], y = yrY(G.card), right = yrFits(row, G.pick, y);
+  const res = { right, y, by: right ? s : null, called: G.call != null, exact: right && G.call === y, at: null, steals: G.steals.map(o => ({ s: o.s, g: o.g, ok: !right && yrFits(row, o.g, y) })) };
+  if(!right){ const win = res.steals.find(o => o.ok); if(win) res.by = win.s; }
+  if(res.by != null) res.at = yrInsert(G.rows[res.by], G.card);
+  if(res.exact) G.tokens[s] = Math.min(YR_TOK.max, G.tokens[s] + 1);
+  if(!right && G.vs === "solo") G.lives--;
+  return res;
+}
+const yrWinner = G => G.vs === "solo" ? (G.lives <= 0 ? 0 : null) : (i => i >= 0 ? i : null)(G.rows.findIndex(r => r.length >= G.target));
+
+/* ---------- the computer ---------- */
+/* its feeling for a year: the truth plus a bell-shaped error the size of the level */
+function yrGuess(G, y){
+  const u = Math.max(1e-9, G.rnd()), v = G.rnd();
+  return y + Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v) * YR_LEVELS[G.level].sd;
+}
+function yrGapOf(row, est){ for(let g = 0; g <= row.length; g++){ const [lo, hi] = yrBounds(row, g); if(est >= lo - .5 && est <= hi + .5) return g; } return row.length; }
+function yrCpuPick(G){
+  const y = yrY(G.card), est = yrGuess(G, y), row = G.rows[G.turn];
+  const g = yrGapOf(row, est);
+  return { g, call: G.rnd() < YR_LEVELS[G.level].call ? Math.round(est) : null };
+}
+/* it steals when its own feeling lands in another gap, it has a token, and the level is keen enough */
+function yrCpuSteal(G, s){
+  if(G.tokens[s] < 1) return null;
+  const row = G.rows[G.turn], g = yrGapOf(row, yrGuess(G, yrY(G.card)));
+  if(g === G.pick || G.steals.some(o => o.g === g)) return null;
+  return G.rnd() < YR_LEVELS[G.level].steal ? g : null;
+}
+
+/* ---------- the game ---------- */
+function yrPrefs(){
+  let p = null; try{ p = JSON.parse(localStorage.getItem(YR_KEY) || "null"); }catch(e){}
+  p = p && typeof p === "object" ? p : {};
+  return { level: YR_LVK.includes(p.level) ? p.level : "normal", vs: ["cpu", "party", "solo"].includes(p.vs) ? p.vs : "cpu", n: Math.max(2, Math.min(6, p.n | 0 || 2)),
+    rivals: Math.max(1, Math.min(3, p.rivals | 0 || 1)), target: [5, 8, 10].includes(p.target) ? p.target : 8, names: Array.isArray(p.names) ? p.names.slice(0, 6) : [],
+    played: p.played | 0, won: p.won | 0, best: p.best | 0 };
+}
+function yrSave(p){ try{ localStorage.setItem(YR_KEY, JSON.stringify(p)); }catch(e){} }
+function openYR(){ audio(); YR_VIEW = "setup"; YR = null; render(); yrLoad().then(() => render()).catch(() => {}); try{ window.scrollTo({ top: 0 }); }catch(e){} }
+function yrStop(){ if(YR_T){ clearTimeout(YR_T); YR_T = null; } }
+function yrLeave(){ audio(); yrStop(); YR_VIEW = null; YR = null; closeSheet(); render(); }
+function yrAskLeave(){
+  audio();
+  sheet('<h2>Leave the game?</h2><p>This game is thrown away.</p><button class="b4btn gold" onclick="yrLeave()">Leave</button><button class="b4btn quiet" onclick="closeSheet()">Keep playing</button>');
+}
+function yrKeepNames(){ const p = yrPrefs(); for(let i = 0; i < 6; i++){ const el = document.getElementById("yrn" + i); if(el) p.names[i] = el.value.trim().slice(0, 16); } yrSave(p); return p; }
+function yrSet(k, v){ audio(); const p = yrKeepNames(); p[k] = v; yrSave(p); render(); }
+/* "Your row", "Roberta's row": the player called You gets the plain possessive */
+const yrOf = n => n === "You" ? "Your" : esc(n) + "'s";
+const yrAnd = a => a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
+/* a fresh game, without the screen: the tests build one the same way */
+function yrNew(o, rnd){
+  const names = o.vs === "party" ? Array.from({ length: o.n }, (_, i) => (o.names || [])[i] || "Player " + (i + 1))
+    : o.vs === "solo" ? ["You"] : ["You"].concat(o.rivals > 1 ? Array.from({ length: o.rivals }, (_, i) => "Computer " + (i + 1)) : ["Computer"]);
+  const G = { level: o.level, vs: o.vs, target: o.vs === "solo" ? Infinity : o.target, names, cpu: names.map((_, i) => o.vs === "cpu" && i > 0),
+    rnd: rnd || Math.random, pool: yrPool(o.level), used: [], rows: [], tokens: names.map(() => YR_TOK.start), lives: 3, turn: 0, turns: 0,
+    card: null, pick: null, call: null, steals: [], stealer: null, phase: "turn", res: null, bought: false };
+  G.rows = yrDeal(G, names.length).map(i => [i]);
+  return G;
+}
+function yrStart(){
+  if(!YR_DATA.cards){ toast("Still loading the cards, one second", true); return; }
+  audio(); yrStop();
+  const p = yrKeepNames();
+  YR = yrNew(p);
+  YR_VIEW = "game";
+  yrNewCard();
+}
+const yrMe = () => YR && !YR.cpu[YR.turn];
+function yrNewCard(){
+  const G = YR;
+  G.card = yrDraw(G); G.pick = null; G.call = null; G.steals = []; G.stealer = null; G.res = null; G.bought = false; G.phase = "turn";
+  render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+  if(G.cpu[G.turn]){ yrStop(); YR_T = setTimeout(yrCpuGo, 1100); }
+}
+function yrCpuGo(){
+  if(!YR || YR.phase !== "turn" || !YR.cpu[YR.turn]) return;
+  const m = yrCpuPick(YR);
+  YR.pick = m.g; YR.call = m.call;
+  yrLock();
+}
+function yrPick(g){
+  if(!YR || YR.phase !== "turn" || !yrMe()) return;
+  audio();
+  YR.pick = g;
+  if(YR.call != null) YR.call = yrMid(YR.rows[YR.turn], g);
+  render();
+}
+function yrCallToggle(){ if(!YR || YR.pick == null) return; audio(); YR.call = YR.call == null ? yrMid(YR.rows[YR.turn], YR.pick) : null; render(); }
+function yrCallStep(d){ if(!YR || YR.call == null) return; YR.call = Math.max(1850, Math.min(2026, YR.call + d)); const el = document.getElementById("yrcall"); if(el) el.textContent = YR.call; else render(); }
+/* locked in: the computers decide on a steal at once; people get the steal screen */
+function yrLock(){
+  const G = YR;
+  if(!G || G.pick == null) return;
+  audio();
+  if(G.vs !== "solo") G.names.forEach((_, s) => { if(s === G.turn || !G.cpu[s]) return; const g = yrCpuSteal(G, s); if(g != null){ G.steals.push({ s, g }); G.tokens[s]--; } });
+  const people = G.names.some((_, s) => s !== G.turn && !G.cpu[s] && G.tokens[s] > 0);
+  if(G.vs === "solo" || !people) return yrReveal();
+  G.phase = "steal"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+function yrStealWho(s){ if(!YR || YR.phase !== "steal" || YR.tokens[s] < 1 || YR.steals.some(o => o.s === s)) return; audio(); YR.stealer = s; render(); }
+function yrStealGap(g){
+  const G = YR;
+  if(!G || G.stealer == null || g === G.pick || G.steals.some(o => o.g === g)) return;
+  audio();
+  G.steals.push({ s: G.stealer, g }); G.tokens[G.stealer]--; G.stealer = null;
+  render();
+}
+function yrStealBack(){ if(YR){ audio(); YR.stealer = null; render(); } }
+function yrReveal(){
+  const G = YR;
+  yrStop();
+  G.res = yrResolve(G); G.phase = "reveal"; G.turns++;
+  try{
+    if(G.res.by != null && !G.cpu[G.res.by]){ ching(); if(G.res.exact) confetti(40); }
+    else if(G.vs === "cpu" && G.res.by == null && G.turn === 0) buzzer();
+    else if(G.vs !== "cpu" && G.res.by == null) buzzer();
+  }catch(e){}
+  render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+function yrSkip(){
+  const G = YR;
+  if(!G || G.phase !== "turn" || !yrMe() || G.tokens[G.turn] < YR_TOK.skip) return;
+  audio(); G.tokens[G.turn] -= YR_TOK.skip; toast("Skipped. A new card");
+  yrNewCard();
+}
+function yrBuy(){
+  const G = YR;
+  if(!G || G.phase !== "turn" || !yrMe() || G.tokens[G.turn] < YR_TOK.buy) return;
+  audio(); G.tokens[G.turn] -= YR_TOK.buy;
+  const at = yrInsert(G.rows[G.turn], G.card);
+  G.res = { right: true, y: yrY(G.card), by: G.turn, at, bought: true, steals: [] }; G.phase = "reveal"; G.turns++;
+  try{ ching(); }catch(e){}
+  render();
+}
+function yrNext(){
+  const G = YR;
+  if(!G) return;
+  audio();
+  if(yrWinner(G) != null) return yrEnd();
+  if(G.vs !== "solo") G.turn = (G.turn + 1) % G.names.length;
+  yrNewCard();
+}
+function yrEnd(){
+  const G = YR, w = yrWinner(G), p = yrPrefs();
+  G.phase = "full"; yrStop();
+  p.played++;
+  if(G.vs === "solo") p.best = Math.max(p.best, G.rows[0].length);
+  if(G.vs === "cpu" && w === 0) p.won++;
+  yrSave(p);
+  try{ if(G.vs === "party" || w === 0 || G.vs === "solo"){ confetti(80); ching(); } else buzzer(); }catch(e){}
+  try{ if(G.vs !== "party") progAnswer({ ok: G.vs === "solo" ? G.rows[0].length >= 8 : w === 0, tier: G.level === "hard" ? "hard" : "normal", topic: "timeline" }); }catch(e){}
+  render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
+}
+
+/* ---------- the share ---------- */
+function yrShareText(){
+  const G = YR, me = 0, row = G.rows[me], lv = YR_LEVELS[G.level].label, w = yrWinner(G);
+  const head = "BALL · Timeline · " + lv + " · " + (G.vs === "solo" ? row.length + " in a row" : G.vs === "party" ? G.names.map((n, i) => n + " " + G.rows[i].length).join(", ") : (w === 0 ? "won " : "lost ") + G.rows.map(r => r.length).join("-"));
+  return [head, row.map(yrY).join(" · "), "beebzoo.github.io/ball"].join("\n");
+}
+/* THE SHARE PICTURE: your row as gold year tiles on the paper */
+function yrCanvas(){
+  if(!YR || YR.phase !== "full" || typeof document === "undefined") return null;
+  const c = document.createElement("canvas"); c.width = 1080; c.height = 1080;
+  const x = c.getContext("2d"); if(!x) return null;
+  const G = YR, row = G.rows[0];
+  x.fillStyle = "#efe4c8"; x.fillRect(0, 0, 1080, 1080);
+  x.fillStyle = "#123D24"; x.fillRect(0, 0, 1080, 250);
+  x.fillStyle = "#F8F1DD"; x.textAlign = "center";
+  x.font = "italic 900 100px 'Barlow Semi Condensed', sans-serif"; x.fillText("TIMELINE", 540, 150);
+  x.fillStyle = "#e9b84c"; x.font = "800 34px 'Barlow Semi Condensed', sans-serif";
+  x.fillText(("BALL · " + YR_LEVELS[G.level].label + (G.vs === "solo" ? " · solo" : "")).toUpperCase(), 540, 215);
+  const per = row.length > 8 ? 4 : row.length > 4 ? 4 : row.length, rows = Math.ceil(row.length / per), w = 200, h = 110, gap = 24;
+  const top = 330 + (440 - rows * (h + gap)) / 2;
+  row.forEach((i, k) => {
+    const r = Math.floor(k / per), cols = Math.min(per, row.length - r * per), left = 540 - (cols * w + (cols - 1) * gap) / 2, cx = left + (k % per) * (w + gap), cy = top + r * (h + gap);
+    x.fillStyle = "#123D24"; x.fillRect(cx, cy, w, h); x.strokeStyle = "#fff"; x.lineWidth = 4; x.strokeRect(cx, cy, w, h);
+    x.fillStyle = "#f3cd6b"; x.font = "italic 900 64px 'Barlow Semi Condensed', sans-serif"; x.fillText(String(yrY(i)), cx + w / 2, cy + 78);
+  });
+  x.textAlign = "center"; x.fillStyle = "#123D24"; x.font = "italic 900 84px 'Barlow Semi Condensed', sans-serif";
+  x.fillText(G.vs === "solo" ? row.length + " IN A ROW" : row.length + " CARDS" + (yrWinner(G) === 0 ? " · WON" : ""), 540, 890);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
+  return c;
+}
+function yrShare(){
+  audio();
+  if(!YR || YR.phase !== "full") return;
+  const text = yrShareText();
+  const copy = () => { try{ navigator.clipboard.writeText(text).then(() => toast("Copied. Send it on."), () => toast("Could not copy", true)); }catch(e){ toast("Could not copy", true); } };
+  const c = yrCanvas();
+  if(!c || !c.toBlob) return copy();
+  c.toBlob(blob => {
+    if(!blob) return copy();
+    const file = new File([blob], "timeline.png", { type: "image/png" });
+    if(navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], text }).catch(() => {});
+    copy();
+  }, "image/png");
+}
+
+/* ---------- the screens ---------- */
+/* the small icon on a card: a cup, stars, a flag, a ball, a shield, a clock, two arrows */
+function yrIcon(k){
+  const s = 'fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"';
+  const p = {
+    wc: '<path d="M10 5 H30 V12 Q30 23 20 25 Q10 23 10 12 Z M15 25 V31 H25 V25 M11 35 H29" ' + s + '/>',
+    euro: '<path d="M20 4 L23 13 H32 L25 19 L28 28 L20 22 L12 28 L15 19 L8 13 H17 Z" ' + s + '/>',
+    intl: '<path d="M8 36 V5 M8 6 H32 L27 13 L32 20 H8" ' + s + '/>',
+    ucl: '<path d="M8 6 H32 V18 Q32 30 20 35 Q8 30 8 18 Z M14 14 L20 26 L26 14" ' + s + '/>',
+    award: '<circle cx="20" cy="15" r="10" ' + s + '/><path d="M14 24 L11 36 L20 31 L29 36 L26 24" ' + s + '/>',
+    club: '<path d="M6 8 H34 V20 Q34 32 20 37 Q6 32 6 20 Z M6 16 H34" ' + s + '/>',
+    moment: '<circle cx="20" cy="20" r="14" ' + s + '/><path d="M20 11 V20 L27 24" ' + s + '/>',
+    transfer: '<path d="M6 14 H30 L24 8 M34 26 H10 L16 32" ' + s + '/>' }[k] || "";
+  return '<svg viewBox="0 0 40 40" width="20" height="20" aria-hidden="true">' + p + '</svg>';
+}
+function yrCardHTML(i, o){
+  o = o || {};
+  const c = yrCard(i);
+  return '<div class="yrcard' + (o.flip ? " flip" : "") + (o.cls ? " " + o.cls : "") + '"' + (c.col ? ' style="--yc:' + c.col + '"' : "") + '>' +
+    '<div class="yrkind">' + yrIcon(c.k) + '<span>' + YR_KINDS[c.k] + '</span>' + (o.tag || "") + '</div>' +
+    '<b class="yrtext">' + esc(c.t) + '</b>' +
+    '<div class="yryear" aria-label="' + (o.flip ? "The year: " + c.y : "Year hidden") + '">' + (o.flip ? '<span>' + c.y + '</span>' : '<span>????</span>') + '</div></div>';
+}
+function yrTile(i, cls){ const c = yrCard(i); return '<div class="yrtile' + (cls ? " " + cls : "") + '"><b>' + c.y + '</b><span>' + esc(c.t) + '</span></div>'; }
+/* a row with its gaps. o.pick: the chosen gap; o.click: the handler (gap index appended); o.marks: {gap: label}; o.off: gaps that can't be picked */
+function yrRowHTML(row, o){
+  o = o || {};
+  let h = '<div class="yrrow' + (o.click ? " live" : "") + '">';
+  for(let g = 0; g <= row.length; g++){
+    const on = o.pick === g, mark = o.marks && o.marks[g], off = o.off && o.off.includes(g);
+    if(o.click) h += '<button class="yrslot' + (on ? " on" : "") + (mark ? " marked" : "") + '"' + (off ? " disabled" : "") + ' aria-pressed="' + on + '" onclick="' + o.click + '(' + g + ')">' +
+      '<span>' + (on ? "Here: " : "") + yrGapText(row, g) + '</span>' + (mark ? '<i>' + esc(mark) + '</i>' : "") + '</button>';
+    else if(mark) h += '<div class="yrslot marked static"><span>' + yrGapText(row, g) + '</span><i>' + esc(mark) + '</i></div>';
+    if(g < row.length) h += yrTile(row[g], o.hot === g ? "hot" : "");
+  }
+  return h + '</div>';
+}
+function yrScoreHTML(label){
+  const G = YR, n = G.names.length;
+  if(G.vs === "solo") return '<div class="b4sb solo"><div class="sb"><div class="sb-t" style="--tc:#e9b84c"><b>You</b></div><div class="sb-mid"><b>' + G.rows[0].length + '</b></div></div>' +
+    '<div class="b4sblabel">' + esc(label) + ' · ' + "♥".repeat(Math.max(0, G.lives)) + "♡".repeat(3 - Math.max(0, G.lives)) + '</div></div>';
+  const cols = ["#e9b84c", "#2f6fe0"];
+  const side = (i, away) => '<div class="sb-t' + (away ? " away" : "") + (i === G.turn && G.phase !== "full" ? " on" : "") + '" style="--tc:' + (n > 2 ? SB_COLS[i % SB_COLS.length] : cols[i]) + '"><b>' + esc(G.names[i]) + '</b>' + (n > 2 ? '<i>' + G.rows[i].length + '</i>' : "") + '</div>';
+  if(n > 2) return '<div class="b4sb sbmany' + (n > 3 ? " rows2" : "") + (n === 4 ? " n4" : "") + '"><div class="sb">' + G.names.map((_, i) => side(i, false)).join("") + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
+  return '<div class="b4sb"><div class="sb">' + side(0, false) + '<div class="sb-mid"><b>' + G.rows[0].length + '</b><s></s><b>' + G.rows[1].length + '</b></div>' + side(1, true) + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
+}
+const yrTokHTML = (n, label) => '<span class="yrtok" aria-label="' + n + ' tokens">' + (label ? '<em>' + label + '</em>' : "") + Array.from({ length: YR_TOK.max }, (_, k) => '<i class="' + (k < n ? "on" : "") + '"></i>').join("") + '</span>';
+function yrSetupScreen(st){
+  const p = yrPrefs(), ready = !!YR_DATA.cards, L = YR_LEVELS[p.level];
+  const seg = (label, key, opts) => '<div class="b6hdr">' + label + '</div><div class="b6seg b6ans" role="group" aria-label="' + label + '">' +
+    opts.map(([v, l]) => '<button aria-pressed="' + (p[key] === v) + '" onclick="yrSet(\'' + key + '\',' + (typeof v === "number" ? v : "'" + v + "'") + ')">' + l + '</button>').join("") + '</div>';
+  st.innerHTML = b4Page({ title: "Timeline", ctx: "Kick-off", back: "yrLeave()", cls: "yrpage", body:
+    b4Q("Put football in order", "A card comes up without its year. Slot it into your row where it belongs: before, between or after the years you already have. Right, and it's yours. First to " + p.target + " cards wins.") +
+    seg("Who's playing", "vs", [["cpu", "Computer"], ["party", "One phone"], ["solo", "Solo"]]) +
+    (p.vs === "cpu" ? seg("Rivals", "rivals", [[1, "1"], [2, "2"], [3, "3"]]) : "") +
+    (p.vs === "party" ? seg("How many", "n", [[2, "2"], [3, "3"], [4, "4"], [5, "5"], [6, "6"]]) +
+      '<div class="partynames yrnames">' + Array.from({ length: p.n }, (_, i) => '<input id="yrn' + i + '" class="partyname" maxlength="16" autocomplete="off" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' + esc(p.names[i] || "") + '">').join("") + '</div>' +
+      '<div class="b6qs">Pass the phone round. Everyone sees every card, so argue about it: that\'s the fun. Steal with a token when you think they got it wrong.</div>' : "") +
+    (p.vs === "solo" ? '<div class="b6qs">One row, three lives. How long can you make it?</div>' : "") +
+    seg("Level", "level", [["easy", "Easy"], ["normal", "Medium"], ["hard", "Hard"]]) +
+    '<div class="b6qs">' + L.say + (p.vs === "cpu" ? " " + L.cpu : "") + '</div>' +
+    (p.vs !== "solo" ? seg("First to", "target", [[5, "5"], [8, "8"], [10, "10"]]) : "") +
+    '<div class="lbrules yrrules"><b>Tokens</b><span>' + yrTokHTML(2, "you start with") + '</span>' +
+      '<small>Call the exact year as well and get it right: +1 token. Spend 1 to skip a card' + (p.vs === "solo" ? "" : " or to steal: claim another gap in someone else\'s row, and if they\'re wrong and you\'re right, the card is yours") + '. Spend 3 to buy a card without guessing. The same year as a neighbour counts on either side.</small></div>' +
+    (p.played ? '<div class="b6qs">Played ' + p.played + (p.won ? ", won " + p.won + " against the computer" : "") + (p.best ? " · solo best " + p.best + " in a row" : "") + '</div>' : "") +
+    '<button class="b6cta" onclick="yrStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Deal the cards ▶" : "Shuffling the cards…") + '</button>' });
+}
+function yrTurnScreen(){
+  const G = YR, s = G.turn, me = !G.cpu[s], row = G.rows[s], tok = G.tokens[s];
+  const who = yrOf(G.names[s]) + " row";
+  let body = yrCardHTML(G.card) +
+    '<div class="yrhd"><span>' + who + ' · ' + row.length + (G.target !== Infinity ? ' of ' + G.target : "") + '</span>' + yrTokHTML(tok) + '</div>';
+  if(!me){
+    body += yrRowHTML(row, {}) + '<div class="yrthink" aria-live="polite">' + esc(G.names[s]) + ' is thinking…</div>';
+    return { ctx: yrOf(G.names[s]) + " go", body };
+  }
+  body += '<div class="yrtip">' + (G.pick == null ? "Tap where it goes in your row." : "Happy with it? Lock it in.") + '</div>' + yrRowHTML(row, { click: "yrPick", pick: G.pick });
+  if(G.pick != null) body += '<div class="yrgo"><div class="yrcaller">' + (G.call == null
+      ? '<button class="lblink" onclick="yrCallToggle()">Call the exact year too · +1 token if spot on</button>'
+      : '<span class="lbcap">Your call</span><button class="yrstep" onclick="yrCallStep(-1)" aria-label="A year earlier">−</button><b id="yrcall">' + G.call + '</b><button class="yrstep" onclick="yrCallStep(1)" aria-label="A year later">+</button><button class="lblink" onclick="yrCallToggle()">No call</button>') + '</div>' +
+    b4Btn("Lock it in", "yrLock()", "gold") + '</div>';
+  const extra = [];
+  if(tok >= YR_TOK.skip) extra.push('<button class="lblink dark" onclick="yrSkip()">Skip this card · 1 token</button>');
+  if(tok >= YR_TOK.buy) extra.push('<button class="lblink dark" onclick="yrBuy()">Buy it · 3 tokens</button>');
+  if(extra.length) body += '<div class="yrextra">' + extra.join("") + '</div>';
+  return { ctx: G.vs === "solo" ? "Card " + (G.turns + 1) : yrOf(G.names[s]) + " go", body };
+}
+function yrStealScreen(){
+  const G = YR, s = G.turn, row = G.rows[s];
+  const marks = { [G.pick]: G.names[s] + "'s pick" };
+  G.steals.forEach(o => { marks[o.g] = (marks[o.g] ? marks[o.g] + " · " : "") + G.names[o.s] + " steals"; });
+  if(G.stealer != null){
+    const body = yrCardHTML(G.card) + '<div class="yrtip">' + esc(G.names[G.stealer]) + ', where does it go in ' + esc(G.names[s]) + '\'s row?</div>' +
+      yrRowHTML(row, { click: "yrStealGap", marks, off: [G.pick].concat(G.steals.map(o => o.g)) }) + b4Btn("Back", "yrStealBack()", "quiet");
+    return { ctx: esc(G.names[G.stealer]) + " steals", body };
+  }
+  const can = G.names.map((n, k) => k).filter(k => k !== s && !G.cpu[k] && G.tokens[k] > 0 && !G.steals.some(o => o.s === k));
+  const body = yrCardHTML(G.card) +
+    b4Q("Anyone steal?", "Think " + esc(G.names[s]) + " got it wrong? Spend a token and claim another gap. If they're wrong and you're right, the card goes in your row.") +
+    yrRowHTML(row, { marks }) +
+    (can.length ? '<div class="yrwho">' + can.map(k => '<button class="b4btn dark" onclick="yrStealWho(' + k + ')">' + esc(G.names[k]) + (G.names[k] === "You" ? " steal" : " steals") + yrTokHTML(G.tokens[k]) + '</button>').join("") + '</div>' : "") +
+    b4Btn(G.steals.length ? "Reveal" : "No steal · reveal", "yrReveal()", "gold");
+  return { ctx: "Steal?", body };
+}
+function yrRevealScreen(){
+  const G = YR, r = G.res, s = G.turn, by = r.by;
+  const stamp = r.bought ? '<span class="lbstamp goal">BOUGHT</span>' : r.right ? '<span class="lbstamp goal">RIGHT</span>' : by != null ? '<span class="lbstamp clash">STOLEN</span>' : '<span class="lbstamp out">WRONG</span>';
+  const line = r.bought ? esc(G.names[s]) + " bought it with three tokens."
+    : r.right ? (r.exact ? "Right, and the exact year: +1 token." : r.called ? "Right gap. The call was " + G.call + ": no token." : "Right where it belongs.")
+    : (by != null ? esc(G.names[by]) + " stole it: it goes in " + yrOf(G.names[by]).replace(/^Your$/, "your") + " row." : "It didn't fit there." + (G.vs === "solo" ? " A life gone." : " The card is out."));
+  const steals = (r.steals || []).length ? '<div class="yrsteals">' + r.steals.map(o => '<span class="' + (o.ok ? "ok" : "") + '">' + esc(G.names[o.s]) + ': ' + (o.ok ? "right" : r.right ? "wrong, token gone" : "wrong") + '</span>').join("") + '</div>' : "";
+  const w = yrWinner(G);
+  const showRow = by != null ? G.rows[by] : G.rows[s];
+  const body = '<div class="yrflipwrap">' + yrCardHTML(G.card, { flip: true, tag: stamp }) + '</div>' +
+    '<div class="yrverdict">' + line + '</div>' + steals +
+    '<div class="yrhd"><span>' + yrOf(G.names[by != null ? by : s]) + " row" + ' · ' + showRow.length + (G.target !== Infinity ? ' of ' + G.target : "") + '</span>' + yrTokHTML(G.tokens[by != null ? by : s]) + '</div>' +
+    (by != null ? yrRowHTML(showRow, { hot: r.at }) : yrRowHTML(showRow, { marks: Object.fromEntries(yrRight(showRow, r.y).slice(0, 1).map(g => [g, "it went here"])) })) +
+    b4Btn(w != null ? "Full time" : G.vs === "solo" ? "Next card" : "Next: " + yrOf(G.names[(s + 1) % G.names.length]) + " go", "yrNext()", "gold");
+  return { ctx: r.y + " · " + (r.bought ? "bought" : r.right ? "right" : by != null ? "stolen" : "wrong"), body };
+}
+function yrFullScreen(){
+  const G = YR, w = yrWinner(G), solo = G.vs === "solo";
+  const head = solo ? G.rows[0].length + " in a row" : G.vs === "party" ? esc(G.names[w]) + " wins" : w === 0 ? "You win" : esc(G.names[w]) + " wins";
+  const sub = solo ? (G.rows[0].length >= yrPrefs().best ? "Your best solo run." : "Your best is " + yrPrefs().best + ".") + " Three wrong and out."
+    : "First to " + G.target + " cards, in " + G.turns + " turns.";
+  const rows = G.names.map((n, k) => '<div class="yrfin' + (k === w && !solo ? " win" : "") + '"><div class="yrhd"><span>' + esc(n) + ' · ' + G.rows[k].length + '</span>' + (k === w && !solo ? '<span class="lbtag t2">WINNER</span>' : "") + '</div>' +
+    '<div class="yrchips">' + G.rows[k].map(i => '<span title="' + esc(yrCard(i).t) + '">' + yrY(i) + '</span>').join("") + '</div></div>').join("");
+  const mine = G.rows[0], span = mine.length > 1 ? yrY(mine[mine.length - 1]) - yrY(mine[0]) : 0;
+  const body = b4Q(head, sub) + rows +
+    (mine.length > 1 ? '<div class="lbbest"><div><span class="lbcap">' + (G.vs === "party" ? esc(G.names[0]) + "'s row spans" : "Your row spans") + '</span><b>' + span + ' years</b><small>' + yrY(mine[0]) + ': ' + esc(yrCard(mine[0]).t) + '.<br>' + yrY(mine[mine.length - 1]) + ': ' + esc(yrCard(mine[mine.length - 1]).t) + '.</small></div></div>' : "") +
+    '<div class="lbshare"><span class="lbcap">Share card</span><div>' + esc(yrShareText().split("\n")[0]) + '</div></div>' +
+    '<div class="lbacts">' + b4Btn("Play again", "yrStart()", "gold") + b4Btn("Share", "yrShare()", "dark") + '</div>' + b4Btn("Leave", "yrLeave()", "quiet");
+  return { ctx: "Full time", body };
+}
+function yrRender(st){
+  if(YR_VIEW === "setup" || !YR) return yrSetupScreen(st);
+  const ph = YR.phase;
+  const o = ph === "turn" ? yrTurnScreen() : ph === "steal" ? yrStealScreen() : ph === "reveal" ? yrRevealScreen() : yrFullScreen();
+  const label = YR_LEVELS[YR.level].label + " · " + (YR.vs === "solo" ? "solo" : YR.vs === "party" ? "first to " + YR.target : "vs the computer · first to " + YR.target);
+  st.innerHTML = b4Page({ title: "Timeline", ctx: o.ctx, back: ph === "full" ? "yrLeave()" : "yrAskLeave()", leave: ph === "full" ? null : "yrAskLeave()",
+    score: yrScoreHTML(label), cls: "yrpage yr-" + ph, body: o.body });
+}
 /* ---------- SIMPLE BALL: THE SHELL ---------- */
 const SB_PHASES = /^(pick|question|judge|steal_offer|steal_q|steal_judge|deadq|w_answer|w_judge)$/;
 const SB_COLS = ["#e9b84c", "#2f6fe0", "#1d9a8a", "#7b4fc4", "#e07b2a", "#d4588f"];
@@ -33906,6 +34393,8 @@ function b6Front(saved){
         <div class="m"><b>Deadline Day</b><small>Who signed, where and when?</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="5" y="9" width="34" height="27" rx="3" fill="#b98a4e" stroke="#fff" stroke-width="2"/><path d="M5 13 H17 L20 9" fill="none" stroke="#fff" stroke-width="2"/><rect x="11" y="18" width="22" height="9" rx="2" transform="rotate(-10 22 22)" fill="none" stroke="#0b2416" stroke-width="2"/><circle cx="34" cy="33" r="6" fill="#e9b84c" stroke="#fff" stroke-width="1.5"/></svg><span class="chev">›</span></div></button>
       <button class="b6fix" onclick="openLB()">${(() => { const p = lbPrefs(); return p.best ? newOrBest(p.best, "BEST") : p.played ? newOrBest(p.played, "PLAYED") : newOrBest(null); })()}
         <div class="m"><b>Letter Box</b><small>One letter, five boxes</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="7" y="5" width="30" height="34" rx="6" fill="#F8F1DD" stroke="#e9b84c" stroke-width="2.5" transform="rotate(-4 22 22)"/><text x="22" y="32" text-anchor="middle" font-family="Barlow Semi Condensed,sans-serif" font-weight="900" font-style="italic" font-size="26" fill="#123D24" stroke="#e9b84c" stroke-width=".8" paint-order="stroke">D</text></svg><span class="chev">›</span></div></button>
+      <button class="b6fix" onclick="openYR()">${(() => { const p = yrPrefs(); return p.played ? newOrBest(p.played, "PLAYED") : newOrBest(null); })()}
+        <div class="m"><b>Timeline</b><small>Put football in order</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true">${[0,1,2].map(i => '<rect x="' + (4 + i * 3) + '" y="' + (5 + i * 12) + '" width="30" height="9" rx="2" fill="' + (i === 1 ? "#e9b84c" : "#0b2416") + '" stroke="#fff" stroke-width="1.5"/>').join("")}</svg><span class="chev">›</span></div></button>
       <button class="b6fix" onclick="b4Explain('lists', openLists)">${(() => { const n = Object.keys(listsState().best).length; return n ? newOrBest(n, "PLAYED") : newOrBest(null); })()}
         <div class="m"><b>The Lists</b><small>Top 10s and name them all</small></div><div class="art"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><rect x="3" y="4" width="38" height="36" rx="6" fill="#0b2416" stroke="#fff" stroke-width="2"/>${[0,1,2,3].map(i => '<rect x="9" y="' + (10 + i * 7) + '" width="' + [26,22,18,13][i] + '" height="4" rx="2" fill="' + (i < 2 ? "#e9b84c" : "rgba(255,255,255,.35)") + '"/>').join("")}</svg><span class="chev">›</span></div></button>
     </div>

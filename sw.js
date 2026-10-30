@@ -1,6 +1,6 @@
 /* BALL quiz service worker: network-first so updates land instantly,
    cache fallback so the pub's dead wifi can't stop the game. */
-const CACHE = "ball-quiz-4-v47";
+const CACHE = "ball-quiz-4-v50";
 const NATFLAGS = "ad,ae,af,ag,al,am,ao,ar,at,au,az,ba,be,bf,bg,bi,bj,bm,bn,bo,br,by,ca,cd,cf,cg,ch,ci,cl,cm,cn,co,cr,cu,cv,cy,cz,de,dk,do,dz,ec,ee,eg,es,et,fi,fr,ga,gb,gd,ge,gh,gm,gn,gq,gr,gt,gw,gy,hn,hr,ht,hu,id,ie,il,in,iq,ir,is,it,jm,jo,jp,ke,kn,kr,kw,kz,lb,lc,li,lk,lr,lt,lu,lv,ly,ma,md,me,mg,mk,ml,mr,mt,mu,mw,mx,my,mz,na,ne,ng,nl,no,nz,pa,pe,ph,pk,pl,pt,py,qa,ro,rs,ru,rw,sa,sc,sd,se,si,sk,sl,sm,sn,so,sr,st,sv,sy,sz,td,tg,th,tl,tm,tn,tr,tt,tz,ua,ug,us,uy,uz,ve,vn,ws,xk,za,zm,zw".split(",");
 /* These two lists are generated, by _tools/build-stickers.py and by the
    Eredivisie build-ere.js, and they are declared HERE, above EXTRA_ASSETS,
@@ -24,7 +24,7 @@ const CLUB_DECKS = ["assets/eredivisie/clubs.json","assets/eredivisie/index.json
 const POOL_FILES = ["assets/wc2006/index.json","assets/wc1998/index.json","assets/wc2002/index.json","assets/wc2010/index.json","assets/wc2014/index.json","assets/wc2018/index.json","assets/wc2026/index.json","assets/wc2022/index.json","assets/euro2000/index.json","assets/euro2004/index.json","assets/euro2008/index.json","assets/euro2012/index.json","assets/euro2016/index.json","assets/euro2020/index.json","assets/euro2024/index.json","assets/finals/index.json","assets/cup/2022.json","assets/cup/2018.json","assets/cup/2014.json","assets/cup/2010.json","assets/cup/2006.json","assets/cup/2002.json","assets/cup/1998.json"];
 const POOL_FLAGS = ["assets/natflags/al.png","assets/natflags/ao.png","assets/natflags/ar.png","assets/natflags/at.png","assets/natflags/au.png","assets/natflags/ba.png","assets/natflags/be.png","assets/natflags/bg.png","assets/natflags/br.png","assets/natflags/ca.png","assets/natflags/ch.png","assets/natflags/china-pr.png","assets/natflags/ci.png","assets/natflags/cl.png","assets/natflags/cm.png","assets/natflags/co.png","assets/natflags/cr.png","assets/natflags/cura-ao.png","assets/natflags/cv.png","assets/natflags/cz.png","assets/natflags/de.png","assets/natflags/dk.png","assets/natflags/dr-congo.png","assets/natflags/dz.png","assets/natflags/ec.png","assets/natflags/eg.png","assets/natflags/england.png","assets/natflags/es.png","assets/natflags/fi.png","assets/natflags/fr-yugoslavia.png","assets/natflags/fr.png","assets/natflags/ge.png","assets/natflags/gh.png","assets/natflags/gr.png","assets/natflags/hn.png","assets/natflags/hr.png","assets/natflags/ht.png","assets/natflags/hu.png","assets/natflags/iq.png","assets/natflags/ir.png","assets/natflags/is.png","assets/natflags/it.png","assets/natflags/jm.png","assets/natflags/jo.png","assets/natflags/jp.png","assets/natflags/kr.png","assets/natflags/lv.png","assets/natflags/ma.png","assets/natflags/mk.png","assets/natflags/mx.png","assets/natflags/ng.png","assets/natflags/nl.png","assets/natflags/no.png","assets/natflags/north-korea.png","assets/natflags/northern-ireland.png","assets/natflags/nz.png","assets/natflags/pa.png","assets/natflags/pe.png","assets/natflags/pl.png","assets/natflags/pt.png","assets/natflags/py.png","assets/natflags/qa.png","assets/natflags/republic-of-ireland.png","assets/natflags/ro.png","assets/natflags/rs.png","assets/natflags/ru.png","assets/natflags/sa.png","assets/natflags/scotland.png","assets/natflags/se.png","assets/natflags/serbia-and-montenegro.png","assets/natflags/si.png","assets/natflags/sk.png","assets/natflags/sn.png","assets/natflags/tg.png","assets/natflags/tn.png","assets/natflags/tr.png","assets/natflags/tt.png","assets/natflags/ua.png","assets/natflags/us.png","assets/natflags/uy.png","assets/natflags/uz.png","assets/natflags/wales.png","assets/natflags/za.png"];
 /* ---- end of the generated club list ---- */
-const EXTRA_ASSETS = ["assets/vendor/ball3d.js", "assets/grass-match.jpg", "assets/grass-match@3x.jpg", "assets/grass-night@3x.jpg", "assets/club-countries.json", "assets/question-ratings.json", "icons/favicon-32.png", "icons/favicon-16.png", "assets/clubs-identity.json", "assets/vendor/crests.js", "assets/natflags/codes.json", "assets/caps/index.json", "assets/goals/index.json", "assets/facts/index.json", "assets/deep/index.json", "assets/nicknames/index.json", "assets/awards/index.json", "assets/extra/index.json", "assets/sfx/crowd.wav", "assets/sfx/goal.wav", "assets/mc/index.json", "assets/wc2006/index.json", "assets/cup/1998.json", "assets/cup/2002.json", "assets/cup/2006.json", "assets/cup/2010.json", "assets/cup/2014.json", "assets/cup/2018.json", "assets/cup/2022.json", "assets/finals/index.json", "assets/wc2022/index.json", "assets/eredivisie/index.json",
+const EXTRA_ASSETS = ["assets/vendor/ball3d.js", "assets/grass-match.jpg", "assets/grass-match@2x.jpg", "assets/grass-match@3x.jpg", "assets/grass-night@3x.jpg", "assets/club-countries.json", "assets/question-ratings.json", "icons/favicon-32.png", "icons/favicon-16.png", "assets/clubs-identity.json", "assets/vendor/crests.js", "assets/natflags/codes.json", "assets/caps/index.json", "assets/goals/index.json", "assets/facts/index.json", "assets/deep/index.json", "assets/nicknames/index.json", "assets/awards/index.json", "assets/extra/index.json", "assets/sfx/crowd.wav", "assets/sfx/goal.wav", "assets/mc/index.json", "assets/wc2006/index.json", "assets/cup/1998.json", "assets/cup/2002.json", "assets/cup/2006.json", "assets/cup/2010.json", "assets/cup/2014.json", "assets/cup/2018.json", "assets/cup/2022.json", "assets/finals/index.json", "assets/wc2022/index.json", "assets/eredivisie/index.json",
   /* The 680 portraits are NOT precached: images you only see on a
      reveal should not sit in the install. The network-first fetch handler
      caches each one the first time it is shown, so a face you have already
@@ -34,6 +34,9 @@ const EXTRA_ASSETS = ["assets/vendor/ball3d.js", "assets/grass-match.jpg", "asse
   "assets/vendor/supabase.js",
   "assets/vendor/zdog.dist.min.js",
   "assets/vendor/three.min.js",
+  /* the footballers and the light of the 3D scenes (loaded with index.html) */
+  "assets/ball3d/players.js", "assets/ball3d/stage.js",
+  "assets/ball3d/motion.js",
   /* The interface font, precached rather than fetched: a pub with no signal
      would otherwise fall back mid-match and reflow the whole menu. Both
      subsets, because latin alone drops the accented names. */
@@ -134,16 +137,40 @@ self.addEventListener("activate", e => {
   );
 });
 
+/* APP FEEL (_plans/audit-app-feel.md):
+   - only a good answer goes in the cache. It used to store whatever came back,
+     so one 404 or 500 (or a captive-portal page) overwrote the good copy and
+     was then what the phone served offline.
+   - the app page itself is asked for with no-cache, so the HTTP cache cannot
+     hand back yesterday's index.html: a new version lands on the next open.
+   - and if the network sits there (the pub's wifi that is connected but
+     dead) the cached page is shown after 4 seconds instead of a white screen
+     until the request gives up; the network copy still lands in the cache. */
+const NAV_WAIT = 4000;
+const keep = (req, res) => {
+  if (res && res.ok && (res.type === "basic" || res.type === "cors")) {
+    const copy = res.clone();
+    caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
+  }
+  return res;
+};
+const cached = req => caches.match(req, { ignoreSearch: true });
+
 self.addEventListener("fetch", e => {
-  if (e.request.method !== "GET") return;
-  e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
-        return res;
-      })
-      .catch(() => caches.match(e.request, { ignoreSearch: true })
-        .then(hit => hit || caches.match("index.html")))
-  );
+  const req = e.request;
+  if (req.method !== "GET") return;
+  if (req.mode !== "navigate") {
+    e.respondWith(fetch(req).then(res => keep(req, res))
+      .catch(() => cached(req).then(hit => hit || Response.error())));
+    return;
+  }
+  const page = () => cached(req).then(hit => hit || caches.match("index.html"));
+  e.respondWith(new Promise(resolve => {
+    let done = false;
+    const give = r => { if (!done && r) { done = true; resolve(r); } };
+    const slow = setTimeout(() => page().then(give), NAV_WAIT);
+    fetch(req.url, { cache: "no-cache", credentials: "same-origin" })
+      .then(res => { clearTimeout(slow); give(keep(req, res)); })
+      .catch(() => { clearTimeout(slow); page().then(hit => give(hit || Response.error())); });
+  }));
 });

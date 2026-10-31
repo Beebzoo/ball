@@ -8083,12 +8083,13 @@
   .t3quick{margin-top:6px;padding:4px 0;border:0;background:none;color:var(--th-row-ink);font:800 12px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;cursor:pointer}
   .b4btn.dark.t3play{flex:none;width:auto;min-height:44px;margin:0;padding:0 20px}
   /* more games: a shelf of cream minis, sideways */
-  .t3shelf{display:flex;gap:10px;margin:0 -16px;padding:2px 16px 8px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none}
-  .t3shelf::-webkit-scrollbar{display:none}
-  .t3mini{flex:none;width:126px;min-height:64px;padding:11px 12px;font:inherit;text-align:left;cursor:pointer;scroll-snap-align:start}
+  /* More games, every one in sight: two to a row (it scrolled sideways with its scrollbar hidden, which a mouse can't) */
+  .t3shelf{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px}
+  .t3mini{min-width:0;min-height:64px;padding:11px 12px;font:inherit;text-align:left;cursor:pointer}
   .t3mini b{display:block;font:700 13px/1.15 var(--ui)}
   .t3mini small{display:block;margin-top:4px;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-row-dim)}
   .t3mini small.new{color:var(--th-acc-sh);font-weight:800}
+  .t3plnew .t3plm small{display:block;margin-top:2px;font:500 var(--fs-meta)/1.25 var(--ui);color:var(--th-row-dim)}
   /* a first open: one gold way in */
   .t3meta{display:flex;justify-content:space-between;margin-top:-6px;padding:0 8px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
   .t3safe{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:6px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
@@ -11076,7 +11077,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · match pages";
+const BUILD = "BALL 4 · 31 Oct 2026 · match reports and the home";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -36299,7 +36300,11 @@ function b6PlStrip(){
   }catch(e){ return null; }
 }
 const b6PlStripHTML = P => P ? '<button class="t3card t3pl" onclick="openLeague()"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
-  '<span class="t3plm"><span class="kick">' + esc(P.kick) + '</span><b>' + esc(P.line) + '</b></span><span class="t3chev" aria-hidden="true">›</span></button>' : "";
+  '<span class="t3plm"><span class="kick">' + esc(P.kick) + '</span><b>' + esc(P.line) + '</b></span><span class="t3chev" aria-hidden="true">›</span></button>' :
+  /* NOT IN A LEAGUE YET: Call It on the home all the same (Martijn, 31 Oct), the way in to this weekend's card */
+  (typeof PL_ON !== "undefined" && PL_ON ? '<button class="t3card t3pl t3plnew" onclick="openLeague()"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
+    '<span class="t3plm"><span class="kick">Call It</span><b>Call this weekend\'s matches</b><small>The Card of the week, on your own or with friends</small></span>' +
+    '<span class="t3chev" aria-hidden="true">›</span></button>' : "");
 /* Matchday, the cream card with the dark Play, and the quick way in under it */
 const b6MatchdayCard = () => '<div class="t3card t3md"><div class="t3mdm"><div class="t3mdh">Matchday</div><div class="t3lora">Every pass is a question.</div>' +
   '<button class="t3quick" onclick="quickMatch()">Quick match ›</button></div><button class="b4btn dark t3play" onclick="b6Play()">Play</button></div>';
@@ -36308,16 +36313,17 @@ function b6Shelf(){
   const best = bestOf();
   const hilo = (best.caps != null || best.goals != null) ? Math.max(best.caps == null ? -1 : best.caps, best.goals == null ? -1 : best.goals) : null;
   const cups = (() => { try{ return Object.values(progLoad().trophies || {}).filter(t => t.kind === "cup").reduce((a, t) => a + (t.count || 1), 0); }catch(e){ return 0; } })();
-  const sub = (k, v, word) => b6IsNew(k) ? "New" : v != null && v !== "" && v > 0 ? word + " " + v : "Play";
+  /* not played yet: what the game is, in the Play menu's words */
+  const sub = (k, v, word, line) => b6IsNew(k) ? "New" : v != null && v !== "" && v > 0 ? word + " " + v : line;
   const items = [
     ["Higher or Lower", hilo != null && hilo >= 0 ? "Best " + hilo : "Caps and goals", "b6MoreSheet('hilo')"],
     ["Career Path", best.career != null ? "Best " + best.career : "Name him from his clubs", "b6MoreSheet('career')"],
     ["The Cup", cups ? "Won " + cups : "A whole World Cup", "openCup()"],
-    ["Tiki-Taka-Toe", sub("tt", ttPrefs().played, "Played"), "b6MarkSeen('tt');openTT()"],
-    ["Who is he?", sub("gw", gwPrefs().played, "Played"), "b6MarkSeen('gw');openGW()"],
-    ["Deadline Day", sub("dd", ddPrefs().played, "Played"), "b6MarkSeen('dd');openDD()"],
-    ["Letter Box", (() => { const p = lbPrefs(); return b6IsNew("lb") ? "New" : p.best ? "Best " + p.best : p.played ? "Played " + p.played : "Play"; })(), "b6MarkSeen('lb');openLB()"],
-    ["Timeline", sub("yr", yrPrefs().played, "Played"), "b6MarkSeen('yr');openYR()"] ];
+    ["Tiki-Taka-Toe", sub("tt", ttPrefs().played, "Played", "Three in a row is a goal"), "b6MarkSeen('tt');openTT()"],
+    ["Who is he?", sub("gw", gwPrefs().played, "Played", "Yes or no, until one man is left"), "b6MarkSeen('gw');openGW()"],
+    ["Deadline Day", sub("dd", ddPrefs().played, "Played", "Who signed, where and when?"), "b6MarkSeen('dd');openDD()"],
+    ["Letter Box", (() => { const p = lbPrefs(); return b6IsNew("lb") ? "New" : p.best ? "Best " + p.best : p.played ? "Played " + p.played : "One letter, five boxes"; })(), "b6MarkSeen('lb');openLB()"],
+    ["Timeline", sub("yr", yrPrefs().played, "Played", "Put football in order"), "b6MarkSeen('yr');openYR()"] ];
   return '<div class="b6hdr">More games</div><div class="t3shelf">' + items.map(i => '<button class="t3card t3mini" onclick="' + i[2] + '"><b>' + esc(i[0]) + '</b><small' + (i[1] === "New" ? ' class="new"' : "") + '>' + esc(i[1]) + '</small></button>').join("") + '</div>';
 }
 function b6MoreSheet(k){
@@ -36401,7 +36407,8 @@ function b6FrontDone(saved){
     threeStreakCard(S3, { hi: true }) + (saved ? b6ContinueHTML(saved) : "") +
     '<div class="t3next"><div class="kick">Next three in</div><div class="t3cd" id="t3cd">' + threeClock() + '</div></div>' +
     '<div class="t3pills"><button class="b4btn dark" onclick="b6Play()">Matchday</button>' +
-      (P ? '<button class="b4btn dark" onclick="openLeague()">Call It' + (P.left ? " · " + P.left + " left" : "") + '</button>' : '<button class="b4btn dark" onclick="quickMatch()">Quick match</button>') + '</div>' +
+      (P || (typeof PL_ON !== "undefined" && PL_ON) ? '<button class="b4btn dark" onclick="openLeague()">Call It' + (P && P.left ? " · " + P.left + " left" : "") + '</button>'
+        : '<button class="b4btn dark" onclick="quickMatch()">Quick match</button>') + '</div>' +
     b6Shelf();
 }
 /* THE QUICK MATCH (plan §4.2): Easy against the computer as your country, no toss, tackles or bench, straight

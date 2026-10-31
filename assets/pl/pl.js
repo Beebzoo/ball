@@ -861,12 +861,13 @@ const clPts = n => n + (n === 1 ? " pt" : " pts");
 async function clMcLoad(comp){
   const sb = sbClient();
   if(!sb || !sb.from) throw new Error("no server");
-  const r = await sb.from("pl_fixtures").select("id,season,matchday,stage,kickoff_at,status,home_key,home_name,away_key,away_name,ft_home,ft_away,minute").eq("competition_id", comp);
+  const r = await sb.from("pl_fixtures").select("id,season,matchday,stage,kickoff_at,status,home_key,home_name,away_key,away_name,ft_home,ft_away,minute,ending,final_home,final_away").eq("competition_id", comp);
   if(r.error) throw r.error;
   const all = r.data || [], season = all.map(x => x.season).sort().pop();
   const rows = all.filter(x => x.season === season).map(x => ({ id: x.id, md: x.matchday, stg: x.stage, ko: Date.parse(x.kickoff_at), st: x.status,
     h: { key: x.home_key, name: x.home_name }, a: { key: x.away_key, name: x.away_name },
-    ft: x.ft_home != null && x.ft_away != null ? [x.ft_home, x.ft_away] : null, min: x.minute })).sort((p, q) => p.ko - q.ko || p.id - q.id);
+    ft: x.ft_home != null && x.ft_away != null ? [x.ft_home, x.ft_away] : null, min: x.minute,
+    end: x.ending || null, fin: x.final_home != null && x.final_away != null ? [x.final_home, x.final_away] : null })).sort((p, q) => p.ko - q.ko || p.id - q.id);
   CL.mc[comp] = { rows, season, at: Date.now(), table: clMcTable(rows) };
   return CL.mc[comp];
 }

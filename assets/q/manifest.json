@@ -1,5 +1,5 @@
 {
- "built": "2026-10-21",
+ "built": "2026-10-31",
  "decks": [
   {
    "id": "classic",
@@ -7,15 +7,15 @@
    "kind": "classic",
    "cc": null,
    "file": "assets/q/classic.json",
-   "v": "69e4166c",
-   "n": 8034,
-   "mc": 4651,
+   "v": "4e8976f6",
+   "n": 7553,
+   "mc": 4301,
    "tiers": {
-    "easy": 1587,
-    "normal": 1624,
-    "hard": 1771,
-    "extreme": 1592,
-    "ball": 1460
+    "easy": 1471,
+    "normal": 1503,
+    "hard": 1670,
+    "extreme": 1496,
+    "ball": 1413
    }
   },
   {
@@ -24,14 +24,14 @@
    "kind": "special",
    "cc": null,
    "file": "assets/q/special.json",
-   "v": "99f7fa57",
-   "n": 99,
-   "mc": 55,
+   "v": "4df1376d",
+   "n": 96,
+   "mc": 53,
    "tiers": {
-    "easy": 25,
+    "easy": 24,
     "normal": 23,
-    "hard": 19,
-    "extreme": 10,
+    "hard": 18,
+    "extreme": 9,
     "ball": 22
    }
   },
@@ -41,15 +41,15 @@
    "kind": "league",
    "cc": "nl",
    "file": "assets/q/eredivisie.json",
-   "v": "b566ce24",
-   "n": 1168,
-   "mc": 645,
+   "v": "34803a0d",
+   "n": 2724,
+   "mc": 1537,
    "tiers": {
-    "easy": 85,
-    "normal": 232,
-    "hard": 325,
-    "extreme": 353,
-    "ball": 173
+    "easy": 485,
+    "normal": 582,
+    "hard": 650,
+    "extreme": 577,
+    "ball": 430
    }
   },
   {
@@ -58,15 +58,15 @@
    "kind": "league",
    "cc": "england",
    "file": "assets/q/premier.json",
-   "v": "639da9ad",
-   "n": 1018,
-   "mc": 769,
+   "v": "6789fa34",
+   "n": 999,
+   "mc": 755,
    "tiers": {
-    "easy": 195,
-    "normal": 264,
-    "hard": 225,
-    "extreme": 199,
-    "ball": 135
+    "easy": 190,
+    "normal": 256,
+    "hard": 221,
+    "extreme": 196,
+    "ball": 136
    }
   },
   {
@@ -75,15 +75,15 @@
    "kind": "league",
    "cc": "es",
    "file": "assets/q/laliga.json",
-   "v": "b3e02485",
-   "n": 1026,
-   "mc": 735,
+   "v": "3a75280d",
+   "n": 1028,
+   "mc": 732,
    "tiers": {
     "easy": 197,
-    "normal": 233,
+    "normal": 231,
     "hard": 261,
     "extreme": 218,
-    "ball": 117
+    "ball": 121
    }
   },
   {
@@ -92,15 +92,15 @@
    "kind": "league",
    "cc": "de",
    "file": "assets/q/bundesliga.json",
-   "v": "58d0d3f3",
-   "n": 1049,
-   "mc": 746,
+   "v": "e00ef64e",
+   "n": 1042,
+   "mc": 739,
    "tiers": {
-    "easy": 198,
-    "normal": 236,
-    "hard": 274,
-    "extreme": 219,
-    "ball": 122
+    "easy": 192,
+    "normal": 233,
+    "hard": 273,
+    "extreme": 220,
+    "ball": 124
    }
   },
   {
@@ -109,15 +109,15 @@
    "kind": "league",
    "cc": "it",
    "file": "assets/q/seriea.json",
-   "v": "2008ddea",
-   "n": 1057,
-   "mc": 740,
+   "v": "f2c51e25",
+   "n": 1054,
+   "mc": 737,
    "tiers": {
-    "easy": 201,
-    "normal": 250,
+    "easy": 200,
+    "normal": 247,
     "hard": 272,
     "extreme": 210,
-    "ball": 124
+    "ball": 125
    }
   },
   {
@@ -126,15 +126,15 @@
    "kind": "league",
    "cc": "be",
    "file": "assets/q/belgian.json",
-   "v": "52297f97",
-   "n": 1034,
-   "mc": 589,
+   "v": "0d3e65f9",
+   "n": 1033,
+   "mc": 587,
    "tiers": {
     "easy": 219,
-    "normal": 246,
-    "hard": 247,
-    "extreme": 211,
-    "ball": 111
+    "normal": 248,
+    "hard": 246,
+    "extreme": 210,
+    "ball": 110
    }
   },
   {
@@ -143,15 +143,15 @@
    "kind": "league",
    "cc": "england",
    "file": "assets/q/championship.json",
-   "v": "e534b733",
-   "n": 244,
-   "mc": 185,
+   "v": "821ace3f",
+   "n": 285,
+   "mc": 219,
    "tiers": {
-    "easy": 13,
-    "normal": 50,
+    "easy": 35,
+    "normal": 49,
     "hard": 78,
     "extreme": 95,
-    "ball": 8
+    "ball": 28
    }
   },
   {
@@ -160,15 +160,15 @@
    "kind": "league",
    "cc": "es",
    "file": "assets/q/segunda.json",
-   "v": "f29731ff",
-   "n": 716,
-   "mc": 310,
+   "v": "e9766e33",
+   "n": 731,
+   "mc": 312,
    "tiers": {
     "easy": 85,
-    "normal": 169,
-    "hard": 206,
-    "extreme": 196,
-    "ball": 60
+    "normal": 168,
+    "hard": 205,
+    "extreme": 194,
+    "ball": 79
    }
   },
   {
@@ -177,15 +177,15 @@
    "kind": "league",
    "cc": "de",
    "file": "assets/q/bundesliga2.json",
-   "v": "ef3529e8",
-   "n": 184,
-   "mc": 109,
+   "v": "d6904401",
+   "n": 221,
+   "mc": 133,
    "tiers": {
-    "easy": 11,
-    "normal": 35,
+    "easy": 23,
+    "normal": 41,
     "hard": 59,
     "extreme": 73,
-    "ball": 6
+    "ball": 25
    }
   },
   {
@@ -194,15 +194,15 @@
    "kind": "league",
    "cc": "it",
    "file": "assets/q/serieb.json",
-   "v": "e80d92ef",
-   "n": 191,
-   "mc": 133,
+   "v": "868bb7f2",
+   "n": 231,
+   "mc": 148,
    "tiers": {
-    "easy": 16,
-    "normal": 35,
+    "easy": 36,
+    "normal": 34,
     "hard": 57,
-    "extreme": 77,
-    "ball": 6
+    "extreme": 76,
+    "ball": 28
    }
   },
   {
@@ -211,15 +211,15 @@
    "kind": "league",
    "cc": "be",
    "file": "assets/q/challenger.json",
-   "v": "ce565345",
-   "n": 71,
-   "mc": 21,
+   "v": "a569fb12",
+   "n": 113,
+   "mc": 31,
    "tiers": {
-    "easy": 7,
-    "normal": 15,
-    "hard": 20,
-    "extreme": 24,
-    "ball": 5
+    "easy": 12,
+    "normal": 24,
+    "hard": 30,
+    "extreme": 32,
+    "ball": 15
    }
   },
   {
@@ -228,15 +228,15 @@
    "kind": "league",
    "cc": "nl",
    "file": "assets/q/eerste.json",
-   "v": "d6da8d73",
-   "n": 664,
-   "mc": 297,
+   "v": "2acdbd1f",
+   "n": 707,
+   "mc": 321,
    "tiers": {
-    "easy": 86,
-    "normal": 177,
-    "hard": 179,
-    "extreme": 153,
-    "ball": 69
+    "easy": 96,
+    "normal": 179,
+    "hard": 187,
+    "extreme": 159,
+    "ball": 86
    }
   },
   {
@@ -245,15 +245,15 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/worldcup.json",
-   "v": "74acc770",
-   "n": 989,
-   "mc": 548,
+   "v": "cfeef1a1",
+   "n": 928,
+   "mc": 505,
    "tiers": {
-    "easy": 186,
-    "normal": 235,
-    "hard": 212,
-    "extreme": 192,
-    "ball": 164
+    "easy": 164,
+    "normal": 223,
+    "hard": 200,
+    "extreme": 184,
+    "ball": 157
    }
   },
   {
@@ -262,15 +262,15 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/euro.json",
-   "v": "a5a920a9",
-   "n": 265,
-   "mc": 179,
+   "v": "a1d0ba50",
+   "n": 287,
+   "mc": 194,
    "tiers": {
-    "easy": 40,
-    "normal": 92,
-    "hard": 63,
-    "extreme": 39,
-    "ball": 31
+    "easy": 52,
+    "normal": 88,
+    "hard": 58,
+    "extreme": 46,
+    "ball": 43
    }
   },
   {
@@ -296,12 +296,12 @@
    "kind": "league",
    "cc": "ar",
    "file": "assets/q/argentina.json",
-   "v": "2024780d",
+   "v": "80eda52a",
    "n": 976,
    "mc": 316,
    "tiers": {
-    "easy": 220,
-    "normal": 266,
+    "easy": 221,
+    "normal": 265,
     "hard": 202,
     "extreme": 165,
     "ball": 123
@@ -313,13 +313,13 @@
    "kind": "league",
    "cc": "at",
    "file": "assets/q/austria.json",
-   "v": "4d56515d",
-   "n": 330,
-   "mc": 178,
+   "v": "6aa5f1f9",
+   "n": 332,
+   "mc": 179,
    "tiers": {
     "easy": 64,
-    "normal": 95,
-    "hard": 76,
+    "normal": 96,
+    "hard": 77,
     "extreme": 57,
     "ball": 38
    }
@@ -330,15 +330,15 @@
    "kind": "league",
    "cc": "br",
    "file": "assets/q/brasileirao.json",
-   "v": "0e367183",
-   "n": 985,
+   "v": "9fbd0486",
+   "n": 987,
    "mc": 365,
    "tiers": {
     "easy": 212,
     "normal": 254,
-    "hard": 219,
+    "hard": 220,
     "extreme": 167,
-    "ball": 133
+    "ball": 134
    }
   },
   {
@@ -347,7 +347,7 @@
    "kind": "league",
    "cc": "cz",
    "file": "assets/q/czech.json",
-   "v": "da3bb5c8",
+   "v": "0c6201de",
    "n": 294,
    "mc": 139,
    "tiers": {
@@ -364,7 +364,7 @@
    "kind": "league",
    "cc": "dk",
    "file": "assets/q/denmark.json",
-   "v": "de0ad10c",
+   "v": "2f85c947",
    "n": 373,
    "mc": 164,
    "tiers": {
@@ -398,13 +398,13 @@
    "kind": "league",
    "cc": "gr",
    "file": "assets/q/greece.json",
-   "v": "33077e58",
-   "n": 457,
-   "mc": 201,
+   "v": "02366087",
+   "n": 455,
+   "mc": 199,
    "tiers": {
-    "easy": 65,
+    "easy": 64,
     "normal": 115,
-    "hard": 135,
+    "hard": 134,
     "extreme": 96,
     "ball": 46
    }
@@ -415,13 +415,13 @@
    "kind": "league",
    "cc": "jp",
    "file": "assets/q/j1.json",
-   "v": "57fb2a2c",
-   "n": 347,
-   "mc": 191,
+   "v": "53c26cae",
+   "n": 346,
+   "mc": 190,
    "tiers": {
     "easy": 64,
     "normal": 90,
-    "hard": 91,
+    "hard": 90,
     "extreme": 65,
     "ball": 37
    }
@@ -432,12 +432,12 @@
    "kind": "league",
    "cc": "mx",
    "file": "assets/q/ligamx.json",
-   "v": "8074df4b",
-   "n": 915,
-   "mc": 401,
+   "v": "987cc50d",
+   "n": 916,
+   "mc": 402,
    "tiers": {
     "easy": 198,
-    "normal": 264,
+    "normal": 265,
     "hard": 188,
     "extreme": 157,
     "ball": 108
@@ -449,15 +449,15 @@
    "kind": "league",
    "cc": "fr",
    "file": "assets/q/ligue1.json",
-   "v": "631a66d6",
-   "n": 999,
-   "mc": 632,
+   "v": "c93360d5",
+   "n": 1003,
+   "mc": 634,
    "tiers": {
     "easy": 214,
-    "normal": 246,
+    "normal": 247,
     "hard": 228,
     "extreme": 182,
-    "ball": 129
+    "ball": 132
    }
   },
   {
@@ -466,11 +466,11 @@
    "kind": "league",
    "cc": "us",
    "file": "assets/q/mls.json",
-   "v": "ca0565d9",
-   "n": 958,
+   "v": "20931907",
+   "n": 959,
    "mc": 513,
    "tiers": {
-    "easy": 218,
+    "easy": 219,
     "normal": 238,
     "hard": 225,
     "extreme": 164,
@@ -483,12 +483,12 @@
    "kind": "league",
    "cc": "pt",
    "file": "assets/q/primeira.json",
-   "v": "2e9bc080",
+   "v": "e3373bd4",
    "n": 944,
    "mc": 531,
    "tiers": {
-    "easy": 198,
-    "normal": 214,
+    "easy": 199,
+    "normal": 213,
     "hard": 232,
     "extreme": 177,
     "ball": 123
@@ -500,11 +500,11 @@
    "kind": "league",
    "cc": "scotland",
    "file": "assets/q/scotland.json",
-   "v": "b1ba8c48",
-   "n": 1018,
+   "v": "2f635332",
+   "n": 1020,
    "mc": 510,
    "tiers": {
-    "easy": 208,
+    "easy": 210,
     "normal": 283,
     "hard": 221,
     "extreme": 171,
@@ -517,11 +517,11 @@
    "kind": "league",
    "cc": "tr",
    "file": "assets/q/superlig.json",
-   "v": "f773e10b",
-   "n": 838,
-   "mc": 500,
+   "v": "8b83179e",
+   "n": 839,
+   "mc": 501,
    "tiers": {
-    "easy": 169,
+    "easy": 170,
     "normal": 180,
     "hard": 208,
     "extreme": 195,
@@ -551,14 +551,14 @@
    "kind": "competition",
    "cc": null,
    "file": "assets/q/ucl.json",
-   "v": "2b955c67",
-   "n": 1228,
-   "mc": 767,
+   "v": "1f723be0",
+   "n": 1226,
+   "mc": 765,
    "tiers": {
     "easy": 255,
-    "normal": 322,
-    "hard": 296,
-    "extreme": 197,
+    "normal": 320,
+    "hard": 297,
+    "extreme": 196,
     "ball": 158
    }
   },
@@ -568,13 +568,13 @@
    "kind": "competition",
    "cc": null,
    "file": "assets/q/uel.json",
-   "v": "610d857d",
-   "n": 421,
-   "mc": 281,
+   "v": "2ffbc7cc",
+   "n": 418,
+   "mc": 279,
    "tiers": {
-    "easy": 97,
-    "normal": 124,
-    "hard": 98,
+    "easy": 96,
+    "normal": 123,
+    "hard": 97,
     "extreme": 60,
     "ball": 42
    }
@@ -602,12 +602,12 @@
    "kind": "nation",
    "cc": "es",
    "file": "assets/q/nat-es.json",
-   "v": "bafde0af",
-   "n": 77,
+   "v": "0ab3ce54",
+   "n": 76,
    "mc": 56,
    "tiers": {
     "easy": 14,
-    "normal": 17,
+    "normal": 16,
     "hard": 16,
     "extreme": 16,
     "ball": 14
@@ -620,15 +620,15 @@
    "kind": "nation",
    "cc": "ar",
    "file": "assets/q/nat-ar.json",
-   "v": "d46f95b4",
-   "n": 81,
-   "mc": 56,
+   "v": "332095bd",
+   "n": 84,
+   "mc": 57,
    "tiers": {
     "easy": 14,
     "normal": 26,
     "hard": 18,
-    "extreme": 12,
-    "ball": 11
+    "extreme": 13,
+    "ball": 13
    },
    "rank": 2
   },
@@ -638,15 +638,15 @@
    "kind": "nation",
    "cc": "fr",
    "file": "assets/q/nat-fr.json",
-   "v": "285d506f",
+   "v": "a3c1a876",
    "n": 80,
-   "mc": 64,
+   "mc": 63,
    "tiers": {
     "easy": 22,
-    "normal": 26,
-    "hard": 16,
-    "extreme": 9,
-    "ball": 7
+    "normal": 25,
+    "hard": 15,
+    "extreme": 10,
+    "ball": 8
    },
    "rank": 3
   },
@@ -656,15 +656,15 @@
    "kind": "nation",
    "cc": "england",
    "file": "assets/q/nat-gb-eng.json",
-   "v": "34442102",
-   "n": 82,
-   "mc": 65,
+   "v": "c49e9955",
+   "n": 85,
+   "mc": 66,
    "tiers": {
     "easy": 17,
     "normal": 24,
     "hard": 18,
-    "extreme": 13,
-    "ball": 10
+    "extreme": 14,
+    "ball": 12
    },
    "rank": 4
   },
@@ -674,15 +674,15 @@
    "kind": "nation",
    "cc": "pt",
    "file": "assets/q/nat-pt.json",
-   "v": "1b59ea0c",
-   "n": 84,
+   "v": "97c8c3b5",
+   "n": 85,
    "mc": 55,
    "tiers": {
     "easy": 20,
     "normal": 22,
-    "hard": 18,
-    "extreme": 13,
-    "ball": 11
+    "hard": 17,
+    "extreme": 14,
+    "ball": 12
    },
    "rank": 5
   },
@@ -692,15 +692,15 @@
    "kind": "nation",
    "cc": "br",
    "file": "assets/q/nat-br.json",
-   "v": "3715c247",
-   "n": 86,
-   "mc": 48,
+   "v": "5ac1a41b",
+   "n": 89,
+   "mc": 49,
    "tiers": {
     "easy": 22,
     "normal": 20,
     "hard": 19,
-    "extreme": 13,
-    "ball": 12
+    "extreme": 15,
+    "ball": 13
    },
    "rank": 6
   },
@@ -710,15 +710,15 @@
    "kind": "nation",
    "cc": "ma",
    "file": "assets/q/nat-ma.json",
-   "v": "aa4c11d3",
-   "n": 84,
-   "mc": 57,
+   "v": "f452b10a",
+   "n": 86,
+   "mc": 58,
    "tiers": {
-    "easy": 21,
+    "easy": 20,
     "normal": 26,
-    "hard": 18,
-    "extreme": 9,
-    "ball": 10
+    "hard": 17,
+    "extreme": 12,
+    "ball": 11
    },
    "rank": 7
   },
@@ -728,15 +728,15 @@
    "kind": "nation",
    "cc": "be",
    "file": "assets/q/nat-be.json",
-   "v": "fb559978",
-   "n": 84,
-   "mc": 66,
+   "v": "26f1418d",
+   "n": 88,
+   "mc": 68,
    "tiers": {
     "easy": 16,
     "normal": 28,
     "hard": 17,
-    "extreme": 13,
-    "ball": 10
+    "extreme": 16,
+    "ball": 11
    },
    "rank": 8
   },
@@ -746,15 +746,15 @@
    "kind": "nation",
    "cc": "nl",
    "file": "assets/q/nat-nl.json",
-   "v": "26607f76",
-   "n": 80,
-   "mc": 61,
+   "v": "3e37ad85",
+   "n": 79,
+   "mc": 59,
    "tiers": {
-    "easy": 17,
-    "normal": 23,
-    "hard": 19,
-    "extreme": 12,
-    "ball": 9
+    "easy": 16,
+    "normal": 22,
+    "hard": 17,
+    "extreme": 14,
+    "ball": 10
    },
    "rank": 9
   },
@@ -764,15 +764,15 @@
    "kind": "nation",
    "cc": "mx",
    "file": "assets/q/nat-mx.json",
-   "v": "93118431",
-   "n": 89,
-   "mc": 60,
+   "v": "1ef17f02",
+   "n": 93,
+   "mc": 61,
    "tiers": {
     "easy": 26,
     "normal": 27,
     "hard": 18,
-    "extreme": 10,
-    "ball": 8
+    "extreme": 12,
+    "ball": 10
    },
    "rank": 10
   },
@@ -782,15 +782,15 @@
    "kind": "nation",
    "cc": "co",
    "file": "assets/q/nat-co.json",
-   "v": "d7d6baa0",
-   "n": 81,
-   "mc": 58,
+   "v": "5f1f4f3e",
+   "n": 84,
+   "mc": 59,
    "tiers": {
     "easy": 19,
     "normal": 26,
     "hard": 21,
-    "extreme": 11,
-    "ball": 4
+    "extreme": 13,
+    "ball": 5
    },
    "rank": 11
   },
@@ -800,15 +800,15 @@
    "kind": "nation",
    "cc": "ch",
    "file": "assets/q/nat-ch.json",
-   "v": "c1c2d78c",
-   "n": 93,
-   "mc": 75,
+   "v": "ea9e1bc0",
+   "n": 95,
+   "mc": 76,
    "tiers": {
     "easy": 28,
     "normal": 28,
-    "hard": 20,
-    "extreme": 9,
-    "ball": 8
+    "hard": 19,
+    "extreme": 11,
+    "ball": 9
    },
    "rank": 12
   },
@@ -818,7 +818,7 @@
    "kind": "nation",
    "cc": "de",
    "file": "assets/q/nat-de.json",
-   "v": "a62ff3a5",
+   "v": "fc0027f8",
    "n": 86,
    "mc": 70,
    "tiers": {
@@ -836,15 +836,15 @@
    "kind": "nation",
    "cc": "hr",
    "file": "assets/q/nat-hr.json",
-   "v": "6142bb88",
-   "n": 84,
-   "mc": 63,
+   "v": "9ad9e1fa",
+   "n": 87,
+   "mc": 65,
    "tiers": {
     "easy": 20,
     "normal": 29,
     "hard": 18,
-    "extreme": 10,
-    "ball": 7
+    "extreme": 12,
+    "ball": 8
    },
    "rank": 14
   },
@@ -854,15 +854,15 @@
    "kind": "nation",
    "cc": "it",
    "file": "assets/q/nat-it.json",
-   "v": "dba6a6fc",
-   "n": 85,
+   "v": "8fe8d17d",
+   "n": 86,
    "mc": 65,
    "tiers": {
-    "easy": 17,
+    "easy": 16,
     "normal": 24,
-    "hard": 20,
-    "extreme": 13,
-    "ball": 11
+    "hard": 19,
+    "extreme": 14,
+    "ball": 13
    },
    "rank": 15
   },
@@ -872,15 +872,15 @@
    "kind": "nation",
    "cc": "us",
    "file": "assets/q/nat-us.json",
-   "v": "33797e1f",
-   "n": 83,
-   "mc": 49,
+   "v": "bbed3ae2",
+   "n": 88,
+   "mc": 51,
    "tiers": {
     "easy": 24,
     "normal": 24,
     "hard": 19,
-    "extreme": 6,
-    "ball": 10
+    "extreme": 8,
+    "ball": 13
    },
    "rank": 16
   },
@@ -890,15 +890,15 @@
    "kind": "nation",
    "cc": "jp",
    "file": "assets/q/nat-jp.json",
-   "v": "cfa01a29",
-   "n": 82,
+   "v": "49371b55",
+   "n": 85,
    "mc": 60,
    "tiers": {
     "easy": 23,
     "normal": 28,
     "hard": 17,
-    "extreme": 6,
-    "ball": 8
+    "extreme": 7,
+    "ball": 10
    },
    "rank": 17
   },
@@ -908,15 +908,15 @@
    "kind": "nation",
    "cc": "sn",
    "file": "assets/q/nat-sn.json",
-   "v": "8a0eb9b7",
-   "n": 85,
-   "mc": 61,
+   "v": "c1f88690",
+   "n": 89,
+   "mc": 63,
    "tiers": {
-    "easy": 24,
+    "easy": 25,
     "normal": 26,
     "hard": 18,
-    "extreme": 9,
-    "ball": 8
+    "extreme": 10,
+    "ball": 10
    },
    "rank": 18
   },
@@ -926,15 +926,15 @@
    "kind": "nation",
    "cc": "no",
    "file": "assets/q/nat-no.json",
-   "v": "13daca4f",
-   "n": 88,
-   "mc": 57,
+   "v": "a5cf9499",
+   "n": 91,
+   "mc": 59,
    "tiers": {
     "easy": 19,
     "normal": 30,
     "hard": 19,
-    "extreme": 10,
-    "ball": 10
+    "extreme": 11,
+    "ball": 12
    },
    "rank": 19
   },
@@ -944,15 +944,15 @@
    "kind": "nation",
    "cc": "uy",
    "file": "assets/q/nat-uy.json",
-   "v": "4e376197",
-   "n": 86,
-   "mc": 58,
+   "v": "5daab78c",
+   "n": 90,
+   "mc": 60,
    "tiers": {
     "easy": 20,
     "normal": 29,
     "hard": 19,
-    "extreme": 10,
-    "ball": 8
+    "extreme": 11,
+    "ball": 11
    },
    "rank": 20
   },
@@ -962,15 +962,15 @@
    "kind": "nation",
    "cc": "dk",
    "file": "assets/q/nat-dk.json",
-   "v": "f9eaa7c0",
-   "n": 81,
-   "mc": 60,
+   "v": "54a9e52e",
+   "n": 83,
+   "mc": 61,
    "tiers": {
-    "easy": 22,
+    "easy": 23,
     "normal": 21,
-    "hard": 20,
-    "extreme": 9,
-    "ball": 9
+    "hard": 19,
+    "extreme": 10,
+    "ball": 10
    },
    "rank": 21
   },
@@ -980,15 +980,15 @@
    "kind": "nation",
    "cc": "at",
    "file": "assets/q/nat-at.json",
-   "v": "9759b343",
-   "n": 93,
-   "mc": 65,
+   "v": "4c783a2a",
+   "n": 97,
+   "mc": 67,
    "tiers": {
     "easy": 22,
     "normal": 32,
     "hard": 20,
-    "extreme": 10,
-    "ball": 9
+    "extreme": 12,
+    "ball": 11
    },
    "rank": 22
   },
@@ -998,15 +998,15 @@
    "kind": "nation",
    "cc": "ir",
    "file": "assets/q/nat-ir.json",
-   "v": "d51cd936",
-   "n": 89,
-   "mc": 51,
+   "v": "334f0fd6",
+   "n": 92,
+   "mc": 53,
    "tiers": {
     "easy": 26,
     "normal": 27,
     "hard": 19,
-    "extreme": 10,
-    "ball": 7
+    "extreme": 12,
+    "ball": 8
    },
    "rank": 23
   },
@@ -1016,15 +1016,15 @@
    "kind": "nation",
    "cc": "ec",
    "file": "assets/q/nat-ec.json",
-   "v": "ad72808a",
-   "n": 89,
-   "mc": 56,
+   "v": "cd4c9a09",
+   "n": 91,
+   "mc": 57,
    "tiers": {
     "easy": 25,
     "normal": 26,
     "hard": 19,
-    "extreme": 10,
-    "ball": 9
+    "extreme": 11,
+    "ball": 10
    },
    "rank": 24
   },
@@ -1034,15 +1034,15 @@
    "kind": "nation",
    "cc": "eg",
    "file": "assets/q/nat-eg.json",
-   "v": "a37a59d8",
-   "n": 83,
-   "mc": 53,
+   "v": "3e1088c8",
+   "n": 88,
+   "mc": 55,
    "tiers": {
     "easy": 22,
     "normal": 29,
     "hard": 18,
-    "extreme": 7,
-    "ball": 7
+    "extreme": 9,
+    "ball": 10
    },
    "rank": 25
   },
@@ -1052,15 +1052,15 @@
    "kind": "nation",
    "cc": "au",
    "file": "assets/q/nat-au.json",
-   "v": "b0f4748b",
-   "n": 87,
-   "mc": 58,
+   "v": "ffe6066a",
+   "n": 91,
+   "mc": 60,
    "tiers": {
     "easy": 20,
-    "normal": 28,
+    "normal": 27,
     "hard": 23,
-    "extreme": 9,
-    "ball": 7
+    "extreme": 11,
+    "ball": 10
    },
    "rank": 26
   },
@@ -1070,15 +1070,15 @@
    "kind": "nation",
    "cc": "ca",
    "file": "assets/q/nat-ca.json",
-   "v": "0a6eb97d",
-   "n": 92,
+   "v": "6e7c9e2b",
+   "n": 97,
    "mc": 48,
    "tiers": {
     "easy": 24,
     "normal": 29,
     "hard": 19,
-    "extreme": 10,
-    "ball": 10
+    "extreme": 12,
+    "ball": 13
    },
    "rank": 27
   },
@@ -1088,15 +1088,15 @@
    "kind": "nation",
    "cc": "dz",
    "file": "assets/q/nat-dz.json",
-   "v": "eb517bc5",
-   "n": 92,
-   "mc": 58,
+   "v": "804f12f7",
+   "n": 97,
+   "mc": 59,
    "tiers": {
     "easy": 29,
     "normal": 24,
     "hard": 20,
-    "extreme": 10,
-    "ball": 9
+    "extreme": 12,
+    "ball": 12
    },
    "rank": 28
   },
@@ -1106,15 +1106,15 @@
    "kind": "nation",
    "cc": "ci",
    "file": "assets/q/nat-ci.json",
-   "v": "789d02d5",
-   "n": 88,
-   "mc": 55,
+   "v": "0f211965",
+   "n": 93,
+   "mc": 56,
    "tiers": {
     "easy": 27,
     "normal": 25,
     "hard": 17,
-    "extreme": 10,
-    "ball": 9
+    "extreme": 12,
+    "ball": 12
    },
    "rank": 29
   },
@@ -1124,17 +1124,697 @@
    "kind": "nation",
    "cc": "ng",
    "file": "assets/q/nat-ng.json",
-   "v": "3d54fc4a",
-   "n": 92,
-   "mc": 60,
+   "v": "9689df23",
+   "n": 96,
+   "mc": 62,
    "tiers": {
     "easy": 25,
     "normal": 30,
     "hard": 18,
-    "extreme": 10,
-    "ball": 9
+    "extreme": 12,
+    "ball": 11
    },
    "rank": 30
+  },
+  {
+   "id": "nigeria",
+   "label": "NPFL",
+   "kind": "league",
+   "cc": "ng",
+   "file": "assets/q/nigeria.json",
+   "v": "9b6ae2e3",
+   "n": 130,
+   "mc": 46,
+   "tiers": {
+    "easy": 35,
+    "normal": 34,
+    "hard": 31,
+    "extreme": 15,
+    "ball": 15
+   }
+  },
+  {
+   "id": "ghana",
+   "label": "Ghana Premier League",
+   "kind": "league",
+   "cc": "gh",
+   "file": "assets/q/ghana.json",
+   "v": "3d1f562c",
+   "n": 137,
+   "mc": 26,
+   "tiers": {
+    "easy": 36,
+    "normal": 34,
+    "hard": 29,
+    "extreme": 18,
+    "ball": 20
+   }
+  },
+  {
+   "id": "kenya",
+   "label": "Kenyan Premier League",
+   "kind": "league",
+   "cc": "ke",
+   "file": "assets/q/kenya.json",
+   "v": "989f7b3c",
+   "n": 73,
+   "mc": 8,
+   "tiers": {
+    "easy": 16,
+    "normal": 19,
+    "hard": 16,
+    "extreme": 9,
+    "ball": 13
+   }
+  },
+  {
+   "id": "southafrica",
+   "label": "Premier Soccer League",
+   "kind": "league",
+   "cc": "za",
+   "file": "assets/q/southafrica.json",
+   "v": "006553e2",
+   "n": 143,
+   "mc": 61,
+   "tiers": {
+    "easy": 38,
+    "normal": 36,
+    "hard": 30,
+    "extreme": 18,
+    "ball": 21
+   }
+  },
+  {
+   "id": "jamaica",
+   "label": "Jamaica Premier League",
+   "kind": "league",
+   "cc": "jm",
+   "file": "assets/q/jamaica.json",
+   "v": "a4d2ff6e",
+   "n": 81,
+   "mc": 24,
+   "tiers": {
+    "easy": 23,
+    "normal": 20,
+    "hard": 17,
+    "extreme": 8,
+    "ball": 13
+   }
+  },
+  {
+   "id": "trinidad",
+   "label": "TT Premier League",
+   "kind": "league",
+   "cc": "tt",
+   "file": "assets/q/trinidad.json",
+   "v": "8a1c72cd",
+   "n": 82,
+   "mc": 23,
+   "tiers": {
+    "easy": 25,
+    "normal": 21,
+    "hard": 15,
+    "extreme": 10,
+    "ball": 11
+   }
+  },
+  {
+   "id": "indonesia",
+   "label": "Liga Indonesia",
+   "kind": "league",
+   "cc": "id",
+   "file": "assets/q/indonesia.json",
+   "v": "2fc060c0",
+   "n": 149,
+   "mc": 50,
+   "tiers": {
+    "easy": 42,
+    "normal": 37,
+    "hard": 30,
+    "extreme": 17,
+    "ball": 23
+   }
+  },
+  {
+   "id": "vietnam",
+   "label": "V.League 1",
+   "kind": "league",
+   "cc": "vn",
+   "file": "assets/q/vietnam.json",
+   "v": "e81d072d",
+   "n": 131,
+   "mc": 19,
+   "tiers": {
+    "easy": 33,
+    "normal": 32,
+    "hard": 28,
+    "extreme": 18,
+    "ball": 20
+   }
+  },
+  {
+   "id": "nat-gh",
+   "label": "Ghana",
+   "kind": "nation",
+   "cc": "gh",
+   "file": "assets/q/nat-gh.json",
+   "v": "ce772d3e",
+   "n": 86,
+   "mc": 46,
+   "tiers": {
+    "easy": 23,
+    "normal": 22,
+    "hard": 18,
+    "extreme": 9,
+    "ball": 14
+   }
+  },
+  {
+   "id": "nat-ke",
+   "label": "Kenya",
+   "kind": "nation",
+   "cc": "ke",
+   "file": "assets/q/nat-ke.json",
+   "v": "931d04ce",
+   "n": 48,
+   "mc": 14,
+   "tiers": {
+    "easy": 12,
+    "normal": 12,
+    "hard": 10,
+    "extreme": 6,
+    "ball": 8
+   }
+  },
+  {
+   "id": "nat-za",
+   "label": "South Africa",
+   "kind": "nation",
+   "cc": "za",
+   "file": "assets/q/nat-za.json",
+   "v": "2f43d6f6",
+   "n": 81,
+   "mc": 49,
+   "tiers": {
+    "easy": 23,
+    "normal": 19,
+    "hard": 17,
+    "extreme": 9,
+    "ball": 13
+   }
+  },
+  {
+   "id": "nat-jm",
+   "label": "Jamaica",
+   "kind": "nation",
+   "cc": "jm",
+   "file": "assets/q/nat-jm.json",
+   "v": "8af88258",
+   "n": 83,
+   "mc": 24,
+   "tiers": {
+    "easy": 24,
+    "normal": 20,
+    "hard": 17,
+    "extreme": 10,
+    "ball": 12
+   }
+  },
+  {
+   "id": "nat-tt",
+   "label": "Trinidad and Tobago",
+   "kind": "nation",
+   "cc": "tt",
+   "file": "assets/q/nat-tt.json",
+   "v": "61235983",
+   "n": 46,
+   "mc": 24,
+   "tiers": {
+    "easy": 12,
+    "normal": 12,
+    "hard": 8,
+    "extreme": 6,
+    "ball": 8
+   }
+  },
+  {
+   "id": "nat-id",
+   "label": "Indonesia",
+   "kind": "nation",
+   "cc": "id",
+   "file": "assets/q/nat-id.json",
+   "v": "30801b06",
+   "n": 85,
+   "mc": 30,
+   "tiers": {
+    "easy": 25,
+    "normal": 19,
+    "hard": 18,
+    "extreme": 10,
+    "ball": 13
+   }
+  },
+  {
+   "id": "nat-vn",
+   "label": "Vietnam",
+   "kind": "nation",
+   "cc": "vn",
+   "file": "assets/q/nat-vn.json",
+   "v": "d441596e",
+   "n": 77,
+   "mc": 27,
+   "tiers": {
+    "easy": 23,
+    "normal": 16,
+    "hard": 18,
+    "extreme": 10,
+    "ball": 10
+   }
+  },
+  {
+   "id": "club-ajax",
+   "label": "Ajax",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-ajax.json",
+   "v": "49789a67",
+   "n": 732,
+   "mc": 432,
+   "tiers": {
+    "easy": 119,
+    "normal": 171,
+    "hard": 177,
+    "extreme": 131,
+    "ball": 134
+   }
+  },
+  {
+   "id": "club-psv",
+   "label": "PSV Eindhoven",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-psv.json",
+   "v": "ffee1ea8",
+   "n": 414,
+   "mc": 261,
+   "tiers": {
+    "easy": 65,
+    "normal": 90,
+    "hard": 103,
+    "extreme": 92,
+    "ball": 64
+   }
+  },
+  {
+   "id": "club-feyenoord",
+   "label": "Feyenoord",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-feyenoord.json",
+   "v": "ff02d724",
+   "n": 365,
+   "mc": 186,
+   "tiers": {
+    "easy": 59,
+    "normal": 93,
+    "hard": 84,
+    "extreme": 65,
+    "ball": 64
+   }
+  },
+  {
+   "id": "club-az-alkmaar",
+   "label": "AZ Alkmaar",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-az-alkmaar.json",
+   "v": "c3a6c180",
+   "n": 159,
+   "mc": 103,
+   "tiers": {
+    "easy": 31,
+    "normal": 36,
+    "hard": 34,
+    "extreme": 29,
+    "ball": 29
+   }
+  },
+  {
+   "id": "club-twente",
+   "label": "FC Twente",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-twente.json",
+   "v": "b50a66da",
+   "n": 140,
+   "mc": 86,
+   "tiers": {
+    "easy": 28,
+    "normal": 28,
+    "hard": 32,
+    "extreme": 27,
+    "ball": 25
+   }
+  },
+  {
+   "id": "club-fc-utrecht",
+   "label": "FC Utrecht",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-fc-utrecht.json",
+   "v": "8914e1e4",
+   "n": 138,
+   "mc": 69,
+   "tiers": {
+    "easy": 27,
+    "normal": 28,
+    "hard": 30,
+    "extreme": 29,
+    "ball": 24
+   }
+  },
+  {
+   "id": "club-go-ahead-eagles",
+   "label": "Go Ahead Eagles",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-go-ahead-eagles.json",
+   "v": "111b9126",
+   "n": 123,
+   "mc": 67,
+   "tiers": {
+    "easy": 19,
+    "normal": 23,
+    "hard": 29,
+    "extreme": 28,
+    "ball": 24
+   }
+  },
+  {
+   "id": "club-sparta-rotterdam",
+   "label": "Sparta Rotterdam",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-sparta-rotterdam.json",
+   "v": "b7a32b5e",
+   "n": 130,
+   "mc": 60,
+   "tiers": {
+    "easy": 22,
+    "normal": 26,
+    "hard": 27,
+    "extreme": 29,
+    "ball": 26
+   }
+  },
+  {
+   "id": "club-sc-heerenveen",
+   "label": "SC Heerenveen",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-sc-heerenveen.json",
+   "v": "4cd11a7d",
+   "n": 128,
+   "mc": 69,
+   "tiers": {
+    "easy": 24,
+    "normal": 28,
+    "hard": 29,
+    "extreme": 26,
+    "ball": 21
+   }
+  },
+  {
+   "id": "club-excelsior",
+   "label": "Excelsior",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-excelsior.json",
+   "v": "7934cce5",
+   "n": 130,
+   "mc": 75,
+   "tiers": {
+    "easy": 22,
+    "normal": 28,
+    "hard": 28,
+    "extreme": 27,
+    "ball": 25
+   }
+  },
+  {
+   "id": "club-pec-zwolle",
+   "label": "PEC Zwolle",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-pec-zwolle.json",
+   "v": "454fa1b8",
+   "n": 124,
+   "mc": 60,
+   "tiers": {
+    "easy": 22,
+    "normal": 28,
+    "hard": 29,
+    "extreme": 29,
+    "ball": 16
+   }
+  },
+  {
+   "id": "club-fc-groningen",
+   "label": "FC Groningen",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-fc-groningen.json",
+   "v": "206adda4",
+   "n": 134,
+   "mc": 63,
+   "tiers": {
+    "easy": 23,
+    "normal": 26,
+    "hard": 32,
+    "extreme": 30,
+    "ball": 23
+   }
+  },
+  {
+   "id": "club-fortuna-sittard",
+   "label": "Fortuna Sittard",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-fortuna-sittard.json",
+   "v": "0c161d42",
+   "n": 123,
+   "mc": 68,
+   "tiers": {
+    "easy": 19,
+    "normal": 25,
+    "hard": 31,
+    "extreme": 29,
+    "ball": 19
+   }
+  },
+  {
+   "id": "club-telstar",
+   "label": "Telstar",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-telstar.json",
+   "v": "147de980",
+   "n": 122,
+   "mc": 67,
+   "tiers": {
+    "easy": 21,
+    "normal": 27,
+    "hard": 31,
+    "extreme": 27,
+    "ball": 16
+   }
+  },
+  {
+   "id": "club-nec-nijmegen",
+   "label": "NEC Nijmegen",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-nec-nijmegen.json",
+   "v": "9fae922b",
+   "n": 138,
+   "mc": 68,
+   "tiers": {
+    "easy": 20,
+    "normal": 30,
+    "hard": 30,
+    "extreme": 31,
+    "ball": 27
+   }
+  },
+  {
+   "id": "club-ado-den-haag",
+   "label": "ADO Den Haag",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-ado-den-haag.json",
+   "v": "2fdbbe01",
+   "n": 127,
+   "mc": 67,
+   "tiers": {
+    "easy": 23,
+    "normal": 25,
+    "hard": 27,
+    "extreme": 28,
+    "ball": 24
+   }
+  },
+  {
+   "id": "club-sc-cambuur",
+   "label": "SC Cambuur",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-sc-cambuur.json",
+   "v": "d7dbf7f4",
+   "n": 121,
+   "mc": 66,
+   "tiers": {
+    "easy": 23,
+    "normal": 23,
+    "hard": 26,
+    "extreme": 25,
+    "ball": 24
+   }
+  },
+  {
+   "id": "club-willem-ii",
+   "label": "Willem II",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-willem-ii.json",
+   "v": "bfd7d725",
+   "n": 119,
+   "mc": 59,
+   "tiers": {
+    "easy": 25,
+    "normal": 25,
+    "hard": 28,
+    "extreme": 24,
+    "ball": 17
+   }
+  },
+  {
+   "id": "ere-1956-1969",
+   "label": "Eredivisie 1956-1969",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/ere-1956-1969.json",
+   "v": "f5b4f916",
+   "n": 205,
+   "mc": 104,
+   "tiers": {
+    "easy": 31,
+    "normal": 41,
+    "hard": 52,
+    "extreme": 55,
+    "ball": 26
+   }
+  },
+  {
+   "id": "ere-1970s",
+   "label": "Eredivisie in the 70s",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/ere-1970s.json",
+   "v": "1ae6bac7",
+   "n": 235,
+   "mc": 125,
+   "tiers": {
+    "easy": 30,
+    "normal": 53,
+    "hard": 53,
+    "extreme": 61,
+    "ball": 38
+   }
+  },
+  {
+   "id": "ere-1980s",
+   "label": "Eredivisie in the 80s",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/ere-1980s.json",
+   "v": "b8be1d6e",
+   "n": 229,
+   "mc": 140,
+   "tiers": {
+    "easy": 32,
+    "normal": 45,
+    "hard": 65,
+    "extreme": 48,
+    "ball": 39
+   }
+  },
+  {
+   "id": "ere-1990s",
+   "label": "Eredivisie in the 90s",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/ere-1990s.json",
+   "v": "9602aace",
+   "n": 277,
+   "mc": 169,
+   "tiers": {
+    "easy": 61,
+    "normal": 58,
+    "hard": 70,
+    "extreme": 56,
+    "ball": 32
+   }
+  },
+  {
+   "id": "ere-2000s",
+   "label": "Eredivisie in the 2000s",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/ere-2000s.json",
+   "v": "06bf5b46",
+   "n": 406,
+   "mc": 246,
+   "tiers": {
+    "easy": 65,
+    "normal": 88,
+    "hard": 109,
+    "extreme": 88,
+    "ball": 56
+   }
+  },
+  {
+   "id": "ere-2010s",
+   "label": "Eredivisie in the 2010s",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/ere-2010s.json",
+   "v": "378aa1de",
+   "n": 707,
+   "mc": 439,
+   "tiers": {
+    "easy": 83,
+    "normal": 180,
+    "hard": 187,
+    "extreme": 167,
+    "ball": 90
+   }
+  },
+  {
+   "id": "ere-2020s",
+   "label": "Eredivisie in the 2020s",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/ere-2020s.json",
+   "v": "719499c9",
+   "n": 393,
+   "mc": 259,
+   "tiers": {
+    "easy": 91,
+    "normal": 109,
+    "hard": 87,
+    "extreme": 53,
+    "ball": 53
+   }
   }
  ]
 }

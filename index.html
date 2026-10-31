@@ -804,13 +804,13 @@
   .b6cups{display:flex;flex-direction:column;gap:10px}
   .b6cup{display:flex;align-items:center;gap:12px;width:100%;padding:10px 14px 10px 10px;border-radius:16px;border:2px solid var(--th-edge);background:var(--th-card);color:var(--th-card-ink);text-align:left;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.14)}
   .b6cup:disabled{opacity:.6}
-  .b6cupb{flex:none;width:64px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}.b6cupb svg{display:block}
+  .b6cupb{flex:none;width:64px}
   .b6cupt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
   .b6cupt b{font:italic 900 20px/1.05 'Barlow Semi Condensed',sans-serif}
   .b6cupt small{font:500 13px/1.3 'Barlow Semi Condensed',sans-serif;color:var(--th-card-dim)}
   .b6cupt em{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:#f3cd6b;margin-top:3px}
   .b6cup .go{font:900 18px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
-  .b6fine{margin:14px 2px 0;font:italic 400 12px/1.4 'Lora',Georgia,serif;color:#4b5a47}
+  .b6fine{margin:14px 2px 0;font:italic 400 12px/1.4 'Lora',Georgia,serif;color:var(--th-dim)}   /* the theme's dim ink: a fixed grey vanished on the dark themes */
   /* The Lists: the pitch, the day switch */
   .lspitch{position:relative;display:flex;flex-direction:column;justify-content:space-around;gap:4px;min-height:calc(var(--rows) * 86px * var(--sz) + 24px);padding:12px 6px;border-radius:16px;overflow:hidden;
     background:repeating-linear-gradient(180deg,#1f6a35 0 48px,#1a5c2e 48px 96px);border:2px var(--th-edge-style) var(--th-edge);box-shadow:0 6px 0 rgba(0,0,0,.14),0 12px 24px rgba(18,61,36,.3)}
@@ -8117,6 +8117,33 @@
   /* Daily Ball's result: what you did first, then one Share, tomorrow, and the next of today's three (plan §4.3) */
   .b4daily .dsnext{margin:2px 0;text-align:center;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-dim)}
   .b4daily .dstitle .dslost{color:var(--th-ink)}
+  /* ---------- COMPETITION BADGES (_plans/competition-badges) ----------
+     BALL's own struck medals as WebP. The image has its own edge and clear corners: no shadow, no rounding */
+  .cbadge{display:block;flex:none}
+  .smq .cbadge,.b6flags .cbadge{width:26px;height:26px}
+  .b6lg .cbadge{grid-row:1/3;width:40px;height:40px}
+  .b6yr .cbadge{width:56px;height:56px;margin-bottom:-2px}
+  .b6yr .cbadge+b{font-size:30px}   /* the year, smaller under its badge */
+  .b6cupb .cbadge{width:64px;height:64px}
+  .b6ic>.cbadge{width:52px;height:52px}
+  .cbfan{position:relative;display:block;width:60px;height:56px}
+  .cbfan .cbadge{position:absolute;width:38px;height:38px}
+  .cbfan.n2 .cbadge:nth-child(1){left:0;top:0;transform:rotate(-8deg)}
+  .cbfan.n2 .cbadge:nth-child(2){right:0;bottom:0;transform:rotate(8deg)}
+  .cbfan.n3 .cbadge:nth-child(1){left:0;top:16px;transform:rotate(-12deg)}
+  .cbfan.n3 .cbadge:nth-child(2){left:11px;top:0;z-index:1}
+  .cbfan.n3 .cbadge:nth-child(3){right:0;top:16px;transform:rotate(12deg)}
+  /* ---------- THE EREDIVISIE'S CLUBS AND ERAS in Which questions? and Simple Ball ---------- */
+  .b6qclubs{margin:-2px 0 2px}
+  .b6qn{margin:-2px 2px 4px;font:600 var(--fs-meta)/1.3 var(--ui);color:var(--th-dim)}
+  .b6eraic{font:italic 900 15px/1 var(--th-hf),sans-serif;color:var(--th-card-ink);text-align:center}
+  .b6eras{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:-2px 0 2px}
+  .b6era{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;border-radius:var(--r-card, 14px);border:2px solid var(--th-edge);
+    background:var(--th-card);color:var(--th-card-ink);cursor:pointer;font-family:inherit;text-align:left}
+  .b6era b{font:italic 900 22px/1 var(--th-hf),sans-serif}
+  .b6era small{font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-card-dim)}
+  .b6era.sel{border-color:var(--goldhi);box-shadow:0 0 0 3px rgba(233,184,76,.4)}
+  .b6qflag{width:52px;height:auto;border-radius:var(--r-chip, 4px)}
 </style>
 </head>
 <body>
@@ -10701,6 +10728,17 @@ const POOLS = {
   "czech-greats": {label:"Czech First League greats", group:"Greats", of:"czech", lazy:true, file:"assets/greats/czech.json", flags:null, ext:".png"},
   "j1-greats": {label:"J1 League greats", group:"Greats", of:"j1", lazy:true, file:"assets/greats/j1.json", flags:null, ext:".png"},
   "aleague-greats": {label:"A-League greats", group:"Greats", of:"aleague", lazy:true, file:"assets/greats/aleague.json", flags:null, ext:".png"},
+  /* THE NEW MARKETS (31 Oct 2026): their leagues' all-time elevens, made the same way (a thin league takes anyone who
+     played there), and every national team's from the World Cup and Euro squads (_tools/build-squads.js) */
+  "nigeria-greats": {label:"NPFL greats", group:"Greats", of:"nigeria", lazy:true, file:"assets/greats/nigeria.json", flags:null, ext:".png"},
+  "ghana-greats": {label:"Ghana Premier League greats", group:"Greats", of:"ghana", lazy:true, file:"assets/greats/ghana.json", flags:null, ext:".png"},
+  "kenya-greats": {label:"Kenyan Premier League greats", group:"Greats", of:"kenya", lazy:true, file:"assets/greats/kenya.json", flags:null, ext:".png"},
+  "southafrica-greats": {label:"Premier Soccer League greats", group:"Greats", of:"southafrica", lazy:true, file:"assets/greats/southafrica.json", flags:null, ext:".png"},
+  "jamaica-greats": {label:"Jamaica Premier League greats", group:"Greats", of:"jamaica", lazy:true, file:"assets/greats/jamaica.json", flags:null, ext:".png"},
+  "trinidad-greats": {label:"TT Premier League greats", group:"Greats", of:"trinidad", lazy:true, file:"assets/greats/trinidad.json", flags:null, ext:".png"},
+  "indonesia-greats": {label:"Liga Indonesia greats", group:"Greats", of:"indonesia", lazy:true, file:"assets/greats/indonesia.json", flags:null, ext:".png"},
+  "vietnam-greats": {label:"V.League 1 greats", group:"Greats", of:"vietnam", lazy:true, file:"assets/greats/vietnam.json", flags:null, ext:".png"},
+  nations: {label:"National teams", group:"Nations", lazy:true, file:"assets/greats/nations.json", flags:"assets/natflags/", ext:".png"},
   /* Champions League seasons: the clubs of that season, each with the men who
      were there then (assets/ucl, _tools/build-squads.js) */
   "ucl-2000-01": {label:"Champions League 2000/01", group:"Champions League", of:"ucl", lazy:true, file:"assets/ucl/2000-01.json", flags:null, ext:".png"},
@@ -10772,35 +10810,35 @@ const QUIZZES = {
      same code that draws Feyenoord over a Feyenoord one. BALL 1 needed a
      bespoke screen for that. */
   spec:    {label:"Special", ic:"book", ac:"#e2453c",
-            spoken:"assets/special/index.json", mc:null,   // no mc deck shipped: asking for it was a 404 on every load
+            deck:"special",   // the bank's: its multiple choice too, which the old deck never had
             pool:null, flags:null, ext:".png",
             blurb:"MVV, Las Palmas, Morocco, and the two countries at the table."},
   /* THE LEAGUES all wear the same icon on purpose. They are the same KIND of
      thing, so they read as a family and tell themselves apart by their accent
      colour, the way a shelf of league badges does. */
   ere:     {label:"Eredivisie", ic:"stripes", ac:"#f5a35c",
-            spoken:"assets/eredivisie/index.json", mc:"assets/eredivisie/mc.json",
+            deck:"eredivisie",
             pool:"ere-clubs", flags:null, ext:".png",
             blurb:"The Dutch top flight, with 2007-08 to 2017-18 at its heart."},
   premier: {label:"Premier League", ic:"stripes", ac:"#6f4fc4",
-            spoken:"assets/premier/index.json", mc:"assets/premier/mc.json",
+            deck:"premier",
             pool:"premier-clubs", flags:null, ext:".png",
             blurb:"England's top flight, from the 1992 breakaway to last season."},
   laliga:  {label:"La Liga", ic:"stripes", ac:"#e0574f",
-            spoken:"assets/laliga/index.json", mc:"assets/laliga/mc.json",
+            deck:"laliga",
             pool:"laliga-clubs", flags:null, ext:".png",
             blurb:"Spain, and not only the two of them."},
   bundesliga:{label:"Bundesliga", ic:"stripes", ac:"#3d4450",
-            spoken:"assets/bundesliga/index.json", mc:"assets/bundesliga/mc.json",
+            deck:"bundesliga",
             pool:"bundesliga-clubs", flags:null, ext:".png",
             blurb:"Germany: the Meisterschale, the Ruhr, and the ones who broke the run."},
   seriea:  {label:"Serie A", ic:"stripes", ac:"#3f7fd0",
-            spoken:"assets/seriea/index.json", mc:"assets/seriea/mc.json",
+            deck:"seriea",
             pool:"seriea-clubs", flags:null, ext:".png",
             blurb:"Italy, from catenaccio to Calciopoli and out the other side."},
   /* EUROPEAN NIGHTS (21 Oct 2026): the first decks read straight from the
-     question bank, assets/q/<deck>.json (_plans/question-bank.md step 5, done
-     for these three; the rest follow there). One pool for all three: the top
+     question bank, assets/q/<deck>.json (_plans/question-bank.md step 5). Since
+     31 Oct every league and Special does too; Let's Ball is the one left. One pool for all three: the top
      flights' clubs, so you can be Ajax on a Champions League night. */
   ucl:     {label:"Champions League", ic:"trophy", ac:"#e9b84c", deck:"ucl", euro:true,
             pool:"euro-clubs", flags:null, ext:".png",
@@ -10830,8 +10868,17 @@ const QUIZZES = {
   czech: {label:"Czech First League", ic:"stripes", ac:"#11457e", deck:"czech", lazy:true, pool:"czech-greats", flags:null, ext:".png", blurb:"Czech First League, with each club's all-time eleven."},
   j1: {label:"J1 League", ic:"stripes", ac:"#bc002d", deck:"j1", lazy:true, pool:"j1-greats", flags:null, ext:".png", blurb:"J1 League, with each club's all-time eleven."},
   aleague: {label:"A-League", ic:"stripes", ac:"#f2a900", deck:"aleague", lazy:true, pool:"aleague-greats", flags:null, ext:".png", blurb:"A-League, with each club's all-time eleven."},
+  /* the new markets' leagues (31 Oct 2026), plain names and never a sponsor's; ac is their badge's ring */
+  nigeria: {label:"NPFL", ic:"stripes", ac:"#008751", deck:"nigeria", lazy:true, pool:"nigeria-greats", flags:null, ext:".png", blurb:"Nigeria's top flight, with each club's all-time eleven."},
+  ghana: {label:"Ghana Premier League", ic:"stripes", ac:"#2a2a2a", deck:"ghana", lazy:true, pool:"ghana-greats", flags:null, ext:".png", blurb:"Ghana's top flight, with each club's all-time eleven."},
+  kenya: {label:"Kenyan Premier League", ic:"stripes", ac:"#bb0000", deck:"kenya", lazy:true, pool:"kenya-greats", flags:null, ext:".png", blurb:"Kenya's top flight, with each club's all-time eleven."},
+  southafrica: {label:"Premier Soccer League", ic:"stripes", ac:"#ffb81c", deck:"southafrica", lazy:true, pool:"southafrica-greats", flags:null, ext:".png", blurb:"South Africa's top flight, with each club's all-time eleven."},
+  jamaica: {label:"Jamaica Premier League", ic:"stripes", ac:"#fed100", deck:"jamaica", lazy:true, pool:"jamaica-greats", flags:null, ext:".png", blurb:"Jamaica's top flight, with each club's all-time eleven."},
+  trinidad: {label:"TT Premier League", ic:"stripes", ac:"#da1a35", deck:"trinidad", lazy:true, pool:"trinidad-greats", flags:null, ext:".png", blurb:"Trinidad and Tobago's top flight, with each club's all-time eleven."},
+  indonesia: {label:"Liga Indonesia", ic:"stripes", ac:"#ce1126", deck:"indonesia", lazy:true, pool:"indonesia-greats", flags:null, ext:".png", blurb:"Indonesia's top flight, with each club's all-time eleven."},
+  vietnam: {label:"V.League 1", ic:"stripes", ac:"#da251d", deck:"vietnam", lazy:true, pool:"vietnam-greats", flags:null, ext:".png", blurb:"Vietnam's top flight, with each club's all-time eleven."},
   belgian: {label:"Pro League", ic:"stripes", ac:"#e8b21c",
-            spoken:"assets/belgian/index.json", mc:"assets/belgian/mc.json",
+            deck:"belgian",
             pool:"belgian-clubs", flags:null, ext:".png",
             blurb:"Belgium, which Limburg can see from the window."},
   /* THE SECOND DIVISION UNDER EACH OF THE SIX, and they are quizzes in their
@@ -10846,27 +10893,27 @@ const QUIZZES = {
      says which country and the lightness says which tier, and the shelf they
      sit on says it again in words. */
   champ:   {label:"Championship", ic:"stripes", ac:"#9b7ff0",
-            spoken:"assets/championship/index.json", mc:"assets/championship/mc.json",
+            deck:"championship",
             pool:"champ-clubs", flags:null, ext:".png",
             blurb:"England's second tier, and the richest match in football at the end of it."},
   segunda: {label:"Segunda División", ic:"stripes", ac:"#f08a72",
-            spoken:"assets/segunda/index.json", mc:"assets/segunda/mc.json",
+            deck:"segunda",
             pool:"segunda-clubs", flags:null, ext:".png",
             blurb:"Spain's second tier, where Oviedo, Zaragoza and Deportivo are waiting."},
   bundesliga2:{label:"2. Bundesliga", ic:"stripes", ac:"#6b7688",
-            spoken:"assets/bundesliga2/index.json", mc:"assets/bundesliga2/mc.json",
+            deck:"bundesliga2",
             pool:"bundesliga2-clubs", flags:null, ext:".png",
             blurb:"Germany's second tier, and it holds more old champions than you would think."},
   serieb:  {label:"Serie B", ic:"stripes", ac:"#6fa8e8",
-            spoken:"assets/serieb/index.json", mc:"assets/serieb/mc.json",
+            deck:"serieb",
             pool:"serieb-clubs", flags:null, ext:".png",
             blurb:"Italy's second tier, which Juventus, Napoli and Parma have all had to play."},
   challenger:{label:"Challenger Pro League", ic:"stripes", ac:"#f0cf5c",
-            spoken:"assets/challenger/index.json", mc:"assets/challenger/mc.json",
+            deck:"challenger",
             pool:"challenger-clubs", flags:null, ext:".png",
             blurb:"Belgium's second tier, reserve sides and all."},
   eerste:  {label:"Eerste Divisie", ic:"stripes", ac:"#f7c08a",
-            spoken:"assets/eerste/index.json", mc:"assets/eerste/mc.json",
+            deck:"eerste",
             pool:"eerste-clubs", flags:null, ext:".png",
             blurb:"The Dutch second tier, MVV and De Geusselt included."},
 };
@@ -10902,11 +10949,62 @@ const PICTURE_MODES = {
   goals:  {label:"Goals",       ic:"goal",  ac:"#4fc3d9"},
 };
 const MODE_ROW = id => QUIZZES[id] || PICTURE_MODES[id] || null;
+/* BALL'S OWN COMPETITION BADGES (_brand/competitions, _plans/competition-badges): a struck medal per European cup,
+   World Cup, Euro and league, drawn once by build.js and shipped as WebP in assets/badges. A league's quiz key is its
+   badge id and a World Cup or Euro goes by its pool; the three cups have names of their own. */
+const COMP_BADGE_CUP = { ucl: "champions", uel: "europa", uecl: "conference" };
+/* the international cups, for when their decks exist under these keys */
+const COMP_BADGE_INTL = new Set(["unl", "cnl", "copa", "afcon", "asiancup", "goldcup", "ofc", "asean"]);
+function compBadgeId(key){
+  if(COMP_BADGE_CUP[key]) return COMP_BADGE_CUP[key];
+  if(COMP_BADGE_INTL.has(key)) return QUIZZES[key] ? key : null;
+  if(QUIZZES[key] && QUIZZES[key].ic === "stripes") return key;            // every league
+  const g = POOLS[key] && POOLS[key].group;
+  return g === "World Cups" || g === "Euros" ? key : null;                 // wc1998 … euro2024
+}
+/* px is the CSS size; under 96 the small version, which has no ring to read. alt stays empty where a label sits
+   next to it */
+function compBadge(key, px, cls, alt){
+  const id = compBadgeId(key);
+  if(!id) return "";
+  return '<img class="cbadge' + (cls ? " " + cls : "") + '" src="assets/badges/' + id + (px < 96 ? "-s" : "") +
+    '.webp" width="' + px + '" height="' + px + '" alt="' + esc(alt || "") + '" decoding="async">';
+}
+/* two or three of them fanned out in an option's icon box (the World Cup and the Euros, the three cups); the middle one of three sits on top */
+const compFan = keys => { const b = keys.map(k => compBadge(k, 40)).filter(Boolean);
+  return b.length ? '<span class="cbfan n' + b.length + '">' + b.join("") + '</span>' : ""; };
+/* THE EREDIVISIE BY CLUB AND BY ERA (Martijn, 31 Oct 2026; _plans/eredivisie-clubs-eras.md). The question bank keeps
+   them as views over its rows (assets/q/club-<slug>.json, ere-<decade>.json); here each is a quiz of its own, played
+   with this season's Eredivisie clubs, from "Which questions?" and in Simple Ball. A club quiz starts you as that
+   club. The eras are Martijn's blocks, two of the bank's decades each, put together as they load. */
+const ERE_CLUBS = [["ajax", "Ajax"], ["psv", "PSV Eindhoven"], ["feyenoord", "Feyenoord"], ["az-alkmaar", "AZ"], ["twente", "Twente"],
+  ["fc-utrecht", "Utrecht"], ["go-ahead-eagles", "Go Ahead Eagles"], ["sparta-rotterdam", "Sparta Rotterdam"], ["sc-heerenveen", "Heerenveen"],
+  ["excelsior", "Excelsior"], ["pec-zwolle", "PEC Zwolle"], ["fc-groningen", "Groningen"], ["fortuna-sittard", "Fortuna Sittard"],
+  ["telstar", "Telstar"], ["nec-nijmegen", "NEC"], ["ado-den-haag", "ADO Den Haag"], ["sc-cambuur", "Cambuur"], ["willem-ii", "Willem II"]];
+const ERE_ERAS = [["ere-1956-1979", "1956–1979", ["ere-1956-1969", "ere-1970s"]], ["ere-1980-1999", "1980–1999", ["ere-1980s", "ere-1990s"]],
+  ["ere-2000-2019", "2000–2019", ["ere-2000s", "ere-2010s"]], ["ere-2020s", "The 2020s", ["ere-2020s"]]];
+for(const [slug, team] of ERE_CLUBS) QUIZZES["club-" + slug] = { label: team, ic: "crest", ac: QUIZZES.ere.ac, deck: "club-" + slug, lazy: true,
+  pool: "ere-clubs", flags: null, ext: ".png", view: "club", team, blurb: "Questions about " + team + " and nothing else." };
+for(const [id, years, decks] of ERE_ERAS) QUIZZES[id] = { label: "Eredivisie " + years.replace("The ", ""), ic: "clock", ac: QUIZZES.ere.ac, deck: decks,
+  lazy: true, pool: "ere-clubs", flags: null, ext: ".png", view: "era", years, blurb: "The Eredivisie of " + years.replace("The", "the") + "." };
+/* THE NATIONAL TEAMS (31 Oct 2026): the question bank's 37 national-team decks (assets/q/nat-<code>.json), each played
+   as that country's all-time eleven against another's (POOLS.nations). By confederation, the way the step shows them */
+const NATS = [["Europe", [["es", "Spain"], ["fr", "France"], ["gb-eng", "England", "england"], ["pt", "Portugal"], ["nl", "Netherlands"], ["de", "Germany"],
+    ["it", "Italy"], ["be", "Belgium"], ["hr", "Croatia"], ["ch", "Switzerland"], ["dk", "Denmark"], ["no", "Norway"], ["at", "Austria"]]],
+  ["South America", [["ar", "Argentina"], ["br", "Brazil"], ["uy", "Uruguay"], ["co", "Colombia"], ["ec", "Ecuador"]]],
+  ["Africa", [["ma", "Morocco"], ["sn", "Senegal"], ["ng", "Nigeria"], ["gh", "Ghana"], ["ci", "Ivory Coast"], ["eg", "Egypt"], ["dz", "Algeria"],
+    ["za", "South Africa"], ["ke", "Kenya"]]],
+  ["North America & the Caribbean", [["mx", "Mexico"], ["us", "United States"], ["ca", "Canada"], ["jm", "Jamaica"], ["tt", "Trinidad and Tobago"]]],
+  ["Asia & Oceania", [["jp", "Japan"], ["ir", "Iran"], ["au", "Australia"], ["id", "Indonesia"], ["vn", "Vietnam"]]]];
+for(const [, list] of NATS) for(const [code, name, flag] of list) QUIZZES["nat-" + code] = { label: name, ic: "flag", ac: "#e9b84c", deck: "nat-" + code,
+  lazy: true, pool: "nations", flags: null, ext: ".png", nation: true, team: name, flag: flag || code, blurb: "Questions about " + name + "'s national team." };
+/* the club a club quiz offers first: yours, when it is one of the eighteen */
+function ereClubFirst(){ try{ const m = clubMine(), q = m && m.slug ? "club-" + m.slug : null; if(q && QUIZZES[q]) return q; }catch(e){} return "club-ajax"; }
 /* What the team picker calls the thing you are choosing. Let's Ball is played
    as a nation from 2006; a league is played as one of its clubs, this season.
    Both go through the same screen, so the screen has to ask the right question
    rather than asking everybody about the World Cup. */
-const h2Kind = id => id === "classic"
+const h2Kind = id => id === "classic" || (QUIZZES[id] && QUIZZES[id].nation)
   ? {one:"country", many:"country",
      blurb:"Both of you pick a side from the 2006 World Cup. You get that country's kit and the eleven who actually went that summer."}
   : {one:"club", many:"club",
@@ -10978,7 +11076,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · the logo back on the homes";
+const BUILD = "BALL 4 · 31 Oct 2026 · badges, clubs and countries";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -10998,17 +11096,26 @@ function loadQuiz(id){
   grab(row.mc,     b => DECKS[id + "-mc"] = qrRetier(b));
   /* a question-bank deck: both decks from one file. Multiple choice is every row
      with wrong answers, the right one dropped in at a place fixed by its id */
-  if(row.deck) grab("assets/q/" + row.deck + ".json", b => { const d = bankDecks(b); DECKS[id] = qrRetier(d.say); DECKS[id + "-mc"] = qrRetier(d.mc); });
+  if(Array.isArray(row.deck)) Promise.all(row.deck.map(d => fetch("assets/q/" + d + ".json").then(r => r.ok ? r.json() : null).catch(() => null)))
+    .then(bs => { if(bs.every(Boolean)){ const d = bankDecks(bankMerge(bs)); DECKS[id] = qrRetier(d.say); DECKS[id + "-mc"] = qrRetier(d.mc); done(); } });
+  else if(row.deck) grab("assets/q/" + row.deck + ".json", b => { const d = bankDecks(b); DECKS[id] = qrRetier(d.say); DECKS[id + "-mc"] = qrRetier(d.mc); });
+}
+/* AN ERA IS TWO OF THE BANK'S DECADES: their tiers end to end, and a question about 1979-80, which is in both, once */
+function bankMerge(bs){
+  const out = {}, seen = new Set();
+  for(const t of ["easy", "normal", "hard", "extreme", "ball"])
+    out[t] = [].concat(...bs.map(b => Array.isArray(b[t]) ? b[t] : [])).filter(r => { const k = r.id || r.q; if(seen.has(k)) return false; seen.add(k); return true; });
+  return out;
 }
 function bankDecks(b){
   const say = {}, mc = {};
   for(const t of ["easy", "normal", "hard", "extreme", "ball"]){
     const rows = Array.isArray(b[t]) ? b[t] : [];
-    say[t] = rows.map(r => ({ id: r.id, q: r.q, a: r.a, sub: r.sub, cat: r.cat }));
+    say[t] = rows.map(r => ({ id: r.id, q: r.q, a: r.a, sub: r.sub, cat: r.cat, club: r.club, s: r.s }));
     mc[t] = rows.filter(r => Array.isArray(r.o) && r.o.length >= 3).map(r => {
       let h = 0; for(const ch of String(r.id || r.q)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
       const o = r.o.slice(0, 3), k = h % 4; o.splice(k, 0, r.a);
-      return { id: r.id, q: r.q, a: r.a, sub: r.sub, cat: r.cat, o, k };
+      return { id: r.id, q: r.q, a: r.a, sub: r.sub, cat: r.cat, club: r.club, s: r.s, o, k };
     });
   }
   return { say, mc };
@@ -14523,8 +14630,8 @@ function b6MatchBack(){
   render();
 }
 /* a side's badge: the country's flag, or the club's BALL patch */
-function b6SideImg(name, px){
-  const id = h2PoolId(), t = ((TEAMS[id] || {})[name]) || null;
+function b6SideImg(name, px, pool){
+  const id = pool || h2PoolId(), t = ((TEAMS[id] || {})[name]) || null;
   if(!t) return '<span class="b6sw" style="width:' + px + 'px"></span>';
   const flag = t.flag ? h2Badge(t.flag) : null;
   if(flag) return '<img class="b6flagimg" style="width:' + px + 'px" src="' + flag + '" alt="">';
@@ -14538,6 +14645,8 @@ function b6PickBlurb(){
   if(P.group === "World Cups" || P.group === "Euros")
     return "You get their kit and the squad that went to " + (B4_HOSTS[id] || "the finals") + " in " + (P.short || "") + ".";
   if(P.group === "Finals") return "Sides that played in a final. You get the eleven that started it.";
+  if(P.group === "Nations") return "You get its colours and its all-time eleven, from the World Cups and Euros. You can't both have the same one.";
+  if(P.group === "Greats") return "You get its colours and its all-time eleven. You can't both have the same one.";
   return "You get its colours and this season's first eleven. You can't both have the same one.";
 }
 
@@ -14659,6 +14768,7 @@ const h2League = () => {
      the rule is invisible otherwise, and knowing the striker asks about goals
      is a reason to put a man there rather than somewhere else. */
   const sp = S.qspec ? " \u00b7 " + (H2_SPEC_SAYS[S.qspec] || S.qspec) : "";
+  if(S.qd === "classic" && S.mode !== "classic") return " \u00b7 All football" + sp;   // the top-up from a dry deck
   if(S.qd && QUIZZES[S.qd]) return " \u00b7 " + QUIZZES[S.qd].label + sp;
   /* He has leagues and not one of them had a question left at this tier.
      Saying so is the difference between a rule and a glitch. */
@@ -14723,7 +14833,15 @@ function h2Draw(t, i, w){
   /* Nothing of his had anything left at this level, so the quiz's own bank
      answers instead. The card is told which leagues went dry, because it names
      the league out loud on every other ball and silence would read as a bug. */
-  if(!take(null)) return false;
+  if(!take(null)){
+    /* THE QUIZ'S OWN DECK IS DRY at this level: a club, a country or a new league has a hundred-odd questions, and a
+       match can ask more than its multiple choice holds. The whole of football tops it up (the card says so) rather
+       than the pass being refused; never when the match is on the whole of football already */
+    const all = DECKS[S.mc ? "classic-mc" : "classic"];
+    if(!all || bankFor(t) === all[t] || !take("classic")) return false;
+    S.qfall = null;
+    return true;
+  }
   S.qfall = mine.length ? mine.map(id => (QUIZZES[id] || {}).label || id) : null;
   return true;
 }
@@ -24543,6 +24661,7 @@ const TOPICS = {
   belgian: "Pro League", worldcup: "World Cup", euro: "Euro", finals: "Famous Finals", general: "Football",
   career: "Career Path", caps: "Higher or Lower" };
 const TOPIC_OF = { ere: "ere", eerste: "ere", "ere-clubs": "ere", "eerste-clubs": "ere", eredivisie: "ere",
+  ...Object.fromEntries(Object.keys(QUIZZES).filter(k => QUIZZES[k].view).map(k => [k, "ere"])),
   premier: "premier", champ: "premier", "premier-clubs": "premier", "champ-clubs": "premier", championship: "premier",
   laliga: "laliga", segunda: "laliga", "laliga-clubs": "laliga", "segunda-clubs": "laliga",
   bundesliga: "bundesliga", bundesliga2: "bundesliga", "bundesliga-clubs": "bundesliga", "bundesliga2-clubs": "bundesliga",
@@ -33172,7 +33291,15 @@ const B4_GREATS = [
   {pool:"swiss-greats", quiz:"swiss", flag:"ch", name:"Swiss Super League"},
   {pool:"czech-greats", quiz:"czech", flag:"cz", name:"Czech First League"},
   {pool:"j1-greats", quiz:"j1", flag:"jp", name:"J1 League"},
-  {pool:"aleague-greats", quiz:"aleague", flag:"au", name:"A-League"}];
+  {pool:"aleague-greats", quiz:"aleague", flag:"au", name:"A-League"},
+  {pool:"nigeria-greats", quiz:"nigeria", flag:"ng", name:"NPFL"},
+  {pool:"ghana-greats", quiz:"ghana", flag:"gh", name:"Ghana Premier League"},
+  {pool:"kenya-greats", quiz:"kenya", flag:"ke", name:"Kenyan Premier League"},
+  {pool:"southafrica-greats", quiz:"southafrica", flag:"za", name:"Premier Soccer League"},
+  {pool:"jamaica-greats", quiz:"jamaica", flag:"jm", name:"Jamaica Premier League"},
+  {pool:"trinidad-greats", quiz:"trinidad", flag:"tt", name:"TT Premier League"},
+  {pool:"indonesia-greats", quiz:"indonesia", flag:"id", name:"Liga Indonesia"},
+  {pool:"vietnam-greats", quiz:"vietnam", flag:"vn", name:"V.League 1"}];
 const B4_LEAGUES = [
   {pool:"ere-clubs", quiz:"ere", flag:"nl", name:"Eredivisie"},
   {pool:"premier-clubs", quiz:"premier", flag:"england", name:"Premier League"},
@@ -33196,105 +33323,10 @@ function b4Friend(){ audio(); b4Mate = !b4Mate; render(); }
    A tournament's own deck is a cut of the bank (assets/worldcup, assets/euro);
    a league's is its own. The famous finals have none, so they go straight in. */
 let b4Pend = null, b4QOwn = true;
+/* the Eredivisie's two more: "club" or "era" (with the one picked), or null for its own deck or all football */
+let b4QView = null, b4QClub = null, b4QEra = "ere-2000-2019";
+const b6QView = () => b4QView === "club" ? (b4QClub || ereClubFirst()) : b4QView === "era" ? b4QEra : null;
 const b6TourDeck = pool => { const g = (POOLS[pool] || {}).group; return g === "World Cups" ? "worldcup" : g === "Euros" ? "euro" : null; };
-/* ---------- EUROPEAN NIGHTS: the three cup badges ----------
-   _brand/competitions/ (round 2, "a tad closer"): our own medal, shield and
-   hexagon, never UEFA's starball, trophies or typefaces. Copied from the
-   board with its names prefixed (the app's TIERS are question levels). */
-const EB_TIERS = [
-  { key:"champions", word:"CHAMPIONS", sub:"Europe's elite", pips:3, shape:"medal", motif:"rays",
-    metal:["#fff2bf","#e9b84c","#a8740a","#e9b84c","#fbe39a"], ribbon:"#e9b84c", ink:"#241B08", field:["#5e1b38","#1a0610"],
-    ball:"cream",
-    name:"Champions", label:"Gold · medal",
-    why:"The top tier, so it gets gold and the round medal shape. A deep claret field with gold rays behind the ball, as if a stadium is lit up (deliberately not navy, which is the Champions League's own colour). Three gold pips, for the highest of three tiers.",
-    card:"From the group stage to the final" },
-  { key:"europa", word:"EUROPA", sub:"Thursday nights", pips:2, shape:"shield", motif:"stripes",
-    metal:["#ffffff","#c9d1d8","#7d8790","#c9d1d8","#f1f4f6"], ribbon:"#d5dce2", ink:"#141a1f", field:["#12434c","#03141a"],
-    ball:{hex:["#8a9097","#eceff1","#ffffff"], pent:["#22282d","#8f9aa4","#f4f7f9"], seam:"#3a4248", metal:false, pentMetal:true, spec:.75, rim:.4, edge:"#2a3036", groove:true, sheen:true},
-    name:"Europa", label:"Silver · shield",
-    why:"The second tier: silver, and a shield like a club crest. A deep teal field with slanted stripes, a nod to the Thursday-night TV broadcasts. Two silver pips. Its ball has silver pentagons.",
-    card:"Thursday nights, the long road to the final" },
-  { key:"conference", word:"CONFERENCE", sub:"The new road", pips:1, shape:"hex", motif:"rings",
-    metal:["#ffd9b0","#c98a4b","#7a4a1c","#c98a4b","#f2c08a"], ribbon:"#c98a4b", ink:"#1f1206", field:["#173a2b","#06140f"],
-    ball:{hex:["#a8865c","#f4ebd3","#fffdf5"], pent:["#3d1f08","#b8743a","#f8d3a8"], seam:"#5a3a18", metal:false, pentMetal:true, spec:.75, rim:.42, edge:"#4a2a0c", groove:true, sheen:true},
-    name:"Conference", label:"Bronze · hexagon",
-    why:"The youngest tier: bronze, and a modern hexagon, the shape of one panel of the ball. Rings ripple out from the ball like a new beginning. One bronze pip. Its ball has bronze pentagons.",
-    card:"The newest European cup, since 2021" },
-];
-
-/* ROUND 2, "a tad closer": the European-night feel through generic symbols and
-   colours (stars, midnight, each cup's accent), none of UEFA's actual designs */
-const EB_CLOSER = {
-  champions: {field:["#1b2b63","#040817"], motif:"rays", motifColor:"#c9d6ff", pips:0, arc:5,
-    why:"Midnight-blue field like a European night, with a crown of five gold stars over the ball. Starlight rays behind it. Stars are a generic symbol: what UEFA owns is eight white stars <i>forming</i> a ball (the starball). Ours are gold, there are five, and they float above our own ball.",
-    label:"Gold · medal · star crown"},
-  europa: {field:["#2b2f36","#0a0b0d"], motifColor:"#ff7a1a", ribbon:"#ff7a1a", ink:"#140a02", starPips:true,
-    why:"Charcoal field with orange stripes and an orange ribbon: the colour people associate with Thursday nights. Orange on its own is not protected. What we avoid is their trophy shape and logo. Two silver stars instead of diamonds.",
-    label:"Silver · shield · orange"},
-  conference: {field:["#0e5a3b","#03190f"], motifColor:"#5fe0a0", starPips:true,
-    why:"A brighter green field with mint rings, the green that fits this cup. Still our hexagon and our bronze, plus one star.",
-    label:"Bronze · hexagon · mint"},
-};
-let ebUid = 0;
-/* a plain five-point star, centred on x,y with outer radius r */
-const ebStar = (x, y, r) => { let d = ""; for (let i = 0; i < 10; i++){ const a = (i*36 - 90)*Math.PI/180, q = i%2 ? r*.42 : r; d += (i ? "L" : "M") + (x + q*Math.cos(a)).toFixed(2) + " " + (y + q*Math.sin(a)).toFixed(2); } return d + "Z"; };
-function ebShape(shape){
-  if (shape === "medal"){ // serrated medal edge
-    let d = ""; const N = 56;
-    for (let i = 0; i < N; i++){ const a = i/N*Math.PI*2 - Math.PI/2, r = i%2 ? 91 : 95; d += (i ? "L" : "M") + (100 + r*Math.cos(a)).toFixed(2) + " " + (110 + r*Math.sin(a)).toFixed(2); }
-    return {outer:d + "Z", inner:'<circle cx="100" cy="110" r="82"/>'};
-  }
-  if (shape === "shield"){
-    const p = "M100 14 L182 36 L182 108 C182 160 146 194 100 212 C54 194 18 160 18 108 L18 36 Z";
-    return {outer:p, inner:'<path d="' + p + '" transform="translate(100 112) scale(.86) translate(-100 -112)"/>'};
-  }
-  // hexagon, pointy top
-  let d = ""; for (let i = 0; i < 6; i++){ const a = (i*60 - 90)*Math.PI/180; d += (i ? "L" : "M") + (100 + 98*Math.cos(a)).toFixed(2) + " " + (112 + 98*Math.sin(a)).toFixed(2); }
-  let e = ""; for (let i = 0; i < 6; i++){ const a = (i*60 - 90)*Math.PI/180; e += (i ? "L" : "M") + (100 + 84*Math.cos(a)).toFixed(2) + " " + (112 + 84*Math.sin(a)).toFixed(2); }
-  return {outer:d + "Z", inner:'<path d="' + e + 'Z"/>'};
-}
-function ebMotif(kind, cx, cy, light){
-  if (kind === "rays"){ let s = ""; for (let i = 0; i < 24; i += 2){ const a1 = i/24*Math.PI*2, a2 = (i+1)/24*Math.PI*2;
-    s += '<path d="M' + cx + ' ' + cy + 'L' + (cx + 160*Math.cos(a1)).toFixed(1) + ' ' + (cy + 160*Math.sin(a1)).toFixed(1) + 'L' + (cx + 160*Math.cos(a2)).toFixed(1) + ' ' + (cy + 160*Math.sin(a2)).toFixed(1) + 'Z" fill="' + light + '" fill-opacity=".1"/>'; } return s; }
-  if (kind === "stripes"){ let s = ""; for (let x = -120; x < 260; x += 22) s += '<path d="M' + x + ' 230 L' + (x + 90) + ' -10 L' + (x + 101) + ' -10 L' + (x + 11) + ' 230Z" fill="' + light + '" fill-opacity=".09"/>'; return s; }
-  let s = ""; for (let r = 52; r < 150; r += 13) s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + light + '" stroke-opacity="' + (.2 - (r-52)/700).toFixed(3) + '" stroke-width="2"/>'; return s;
-}
-function ebBadge(t, small){
-  const n = ++ebUid, sh = ebShape(t.shape), m = t.metal;
-  const bx = 100, by = t.shape === "shield" ? 100 : 104, R = t.shape === "medal" ? 40 : 38;
-  const pips = Array.from({length:t.pips}, (_, i) => { const x = 100 + (i - (t.pips-1)/2) * 15, y = t.shape === "shield" ? 46 : 44;
-    return t.starPips
-      ? '<path d="' + ebStar(x, y, 6) + '" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".35" stroke-width=".8"/>'
-      : '<path d="M' + x + ' ' + (y-5) + ' L' + (x+5) + ' ' + y + ' L' + x + ' ' + (y+5) + ' L' + (x-5) + ' ' + y + 'Z" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".35" stroke-width=".8"/>'; }).join("") +
-    /* the star arc: an open crown of stars ABOVE the ball, never a ring and never a ball made of stars */
-    (t.arc ? Array.from({length:t.arc}, (_, i) => { const a = (-90 + (i - (t.arc-1)/2) * 21) * Math.PI/180, r = 58;
-      return '<path d="' + ebStar(bx + r*Math.cos(a), by + r*Math.sin(a), i === (t.arc-1)/2 ? 6.5 : 5) + '" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".3" stroke-width=".6"/>'; }).join("") : "");
-  const ry = t.shape === "shield" ? 150 : 152, rw = t.word.length > 8 ? 168 : 150, rx = 100 - rw/2;
-  const ribbon = '<g filter="url(#ds' + n + ')"><polygon points="' + (rx+8) + ',' + ry + ' ' + (rx+rw+8) + ',' + ry + ' ' + (rx+rw) + ',' + (ry+28) + ' ' + rx + ',' + (ry+28) + '" fill="' + t.ribbon + '"/></g>' +
-    '<polygon points="' + (rx+8) + ',' + ry + ' ' + (rx+rw+8) + ',' + ry + ' ' + (rx+rw+7.2) + ',' + (ry+4) + ' ' + (rx+7.2) + ',' + (ry+4) + '" fill="#fff" fill-opacity=".35"/>' +
-    '<text x="' + (100 + 4) + '" y="' + (ry + 21) + '" text-anchor="middle" font-family="Barlow Semi Condensed, Arial Narrow, sans-serif" font-weight="900" font-style="italic" font-size="22" letter-spacing="' + (t.word.length > 8 ? 1 : 2.5) + '" fill="' + t.ink + '" textLength="' + (rw - 30) + '" lengthAdjust="spacingAndGlyphs">' + t.word + '</text>';
-  const sub = ""; void '<text x="100" y="' + (ry + 44) + '" text-anchor="middle" font-family="Barlow Semi Condensed, Arial Narrow, sans-serif" font-weight="600" font-size="9.5" letter-spacing="3" fill="' + m[1] + '" fill-opacity=".9">' + t.sub.toUpperCase() + '</text>';
-  return '<svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>' +
-      '<linearGradient id="mt' + n + '" x1="0" y1="0" x2="1" y2="1">' + m.map((c, i) => '<stop offset="' + (i/(m.length-1)) + '" stop-color="' + c + '"/>').join("") + '</linearGradient>' +
-      '<radialGradient id="fd' + n + '" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="' + t.field[0] + '"/><stop offset="1" stop-color="' + t.field[1] + '"/></radialGradient>' +
-      '<clipPath id="cl' + n + '">' + sh.inner + '</clipPath>' +
-      '<filter id="ds' + n + '" x="-20%" y="-50%" width="140%" height="200%"><feDropShadow dx="2.5" dy="3" stdDeviation="0" flood-color="#000" flood-opacity=".4"/></filter></defs>' +
-    '<path d="' + sh.outer + '" fill="url(#mt' + n + ')" stroke="#000" stroke-opacity=".45" stroke-width="1.5" stroke-linejoin="round"/>' +
-    '<g clip-path="url(#cl' + n + ')"><rect width="200" height="220" fill="url(#fd' + n + ')"/>' + ebMotif(t.motif, bx, by, t.motifColor || m[1]) + '</g>' +
-    '<g fill="none" stroke="#000" stroke-opacity=".5" stroke-width="2">' + sh.inner + '</g>' +
-    '<g fill="none" stroke="' + m[1] + '" stroke-opacity=".55" stroke-width=".8">' + sh.inner.replace(/\/>$/, ' transform="translate(100 112) scale(.965) translate(-100 -112)"/>') + '</g>' +
-    pips + Ball3D.make({cx:bx, cy:by, R:R, palette:t.ball, stitch:!small, small:!!small, tx:-.16, ty:.2, spin:8, shadow:!small}) + ribbon + sub +
-  '</svg>';
-}
-
-const EB_TIERS2 = EB_TIERS.map(t => Object.assign({}, t, EB_CLOSER[t.key]));
-const EB_BY = {}; for(const t of EB_TIERS2) EB_BY[t.key] = t;
-/* the badge for "ucl" | "uel" | "uecl", px wide */
-function euroBadgeSVG(quiz, px){
-  const t = EB_BY[{ ucl: "champions", uel: "europa", uecl: "conference" }[quiz]];
-  if(!t || typeof Ball3D === "undefined") return "";
-  return ebBadge(t, px < 60).replace('<svg ', '<svg width="' + px + '" height="' + Math.round(px * 1.1) + '" ');
-}
 /* ---------- SIMPLE BALL (Martijn, 21 Oct 2026) ----------
    Matchday's other way to play: just question and answer, the BALL 3 board.
    One to six players on one phone take turns, each picks a level, answers,
@@ -33303,7 +33335,9 @@ function euroBadgeSVG(quiz, px){
 const SIMPLE_KEY = "ball4-simple";
 const SIMPLE_GROUPS = [["Everything", ["classic"]], ["Leagues", ["ere", "premier", "laliga", "bundesliga", "seriea", "belgian"]],
   ["European nights", ["ucl", "uel", "uecl"]], ["Second tiers", ["eerste", "champ", "segunda", "bundesliga2", "serieb", "challenger"]],
-  ["More leagues", ["ligue1", "primeira", "superlig", "scotland", "mls", "brasileirao", "argentina", "ligamx", "ekstraklasa", "greece", "denmark", "austria", "swiss", "czech", "j1", "aleague"]],
+  ["More leagues", ["ligue1", "primeira", "superlig", "scotland", "mls", "brasileirao", "argentina", "ligamx", "ekstraklasa", "greece", "denmark", "austria", "swiss", "czech", "j1", "aleague", "nigeria", "ghana", "kenya", "southafrica", "jamaica", "trinidad", "indonesia", "vietnam"]],
+  ["Eredivisie clubs", ERE_CLUBS.map(c => "club-" + c[0])], ["Eredivisie eras", ERE_ERAS.map(e => e[0])],
+  ["Countries", NATS.flatMap(([, list]) => list.map(n => "nat-" + n[0]))],
   ["Special", ["spec"]]];
 function simplePrefs(){
   let p = null; try{ p = JSON.parse(localStorage.getItem(SIMPLE_KEY) || "null"); }catch(e){}
@@ -33316,17 +33350,17 @@ function simpleName(i, v){ const p = simplePrefs(); p.names[i] = String(v || "")
 /* the league's flag (Martijn, 21 Oct 2026); the cups their badge, everything the ball */
 function simpleIcon(q){
   const Q = QUIZZES[q] || {};
-  if(Q.euro) return '<span class="smb">' + euroBadgeSVG(q, 26) + '</span>';
-  const L = B4_LEAGUES.concat(B4_GREATS).filter(x => x.quiz === q)[0];
-  if(L) return '<img class="smf" src="assets/natflags/' + L.flag + '.png" alt="">';
-  return '<span class="smb ball">' + ballSVG("") + '</span>';
+  if(Q.nation) return '<img class="smf" src="assets/natflags/' + Q.flag + '.png" alt="">';
+  if(Q.view === "club") return '<span class="smb">' + b6SideImg(Q.team, 26, Q.pool) + '</span>';
+  if(Q.view === "era") return compBadge("ere", 26);
+  return compBadge(q, 26) || '<span class="smb ball">' + ballSVG("") + '</span>';
 }
 function simpleStepHTML(){
   const p = simplePrefs(), mc = answerPref() !== "say";
   needQuiz(p.quiz);
   const tile = q => { const Q = QUIZZES[q]; if(!Q) return ""; const ready = !!DECKS[mc ? q + "-mc" : q] || (q === "classic" && (mc ? DECKS["classic-mc"] : typeof BANK !== "undefined"));
     return '<button class="smq' + (p.quiz === q ? " on" : "") + '" style="--qa:' + (Q.ac || "#e9b84c") + '" aria-pressed="' + (p.quiz === q) + '" onclick="simpleSet(\'quiz\',\'' + q + '\')"' + (ready || Q.lazy ? "" : " disabled") + '>' +
-      simpleIcon(q) + '<span>' + esc(q === "classic" ? "All football" : Q.label) + '</span></button>'; };
+      simpleIcon(q) + '<span>' + esc(q === "classic" ? "All football" : Q.view === "era" ? Q.years : Q.label) + '</span></button>'; };
   return b6StepHead(0, 0, "Simple Ball") +
     '<div class="b6q">Questions, nothing else</div><div class="b6qs">Take turns: pick a level, answer, score its points. First to the target wins.</div>' +
     SIMPLE_GROUPS.map(([g, qs]) => '<div class="b6hdr">' + g + '</div><div class="smqs">' + qs.map(tile).join("") + '</div>').join("") +
@@ -35881,15 +35915,31 @@ function firstMatchOver(){
   if(S && S.first && /^h_/.test(S.phase || "")) return;
   h2TackleOn = FIRST_TACKLE; FIRST_TACKLE = null;
 }
-function b4Kick(own){
-  const pool = b4Pend.pool, quiz = b4Pend.quiz, deck = b6OwnDeckId();
+/* THE EREDIVISIE'S CLUBS AND ERAS in Which questions?: a crest each, or Martijn's four blocks of years */
+function b6QViewsHTML(){
+  const club = b4QClub || ereClubFirst(), C = QUIZZES[club], E = QUIZZES[b4QEra];
+  const n = q => { const d = DECKS[q]; return d ? ["easy", "normal", "hard", "extreme", "ball"].reduce((a, t) => a + (d[t] || []).length, 0) : 0; };
+  if(b4QView === "era") for(const e of ERE_ERAS) needQuiz(e[0]);   // all four, so each block can say how many
+  const go = (v, q) => "b4QOwn=true;b4QView='" + v + "';" + (v === "club" ? "b4QClub" : "b4QEra") + "='" + q + "';needQuiz('" + q + "');render()";
+  return b6Opt(b4QView === "club", b6SideImg(C.team, 40, "ere-clubs"), "One club", '<small>A quiz about one club, and you play as them.</small>', go("club", club)) +
+    (b4QView === "club" ? '<div class="b6teams b6qclubs">' + ERE_CLUBS.map(([slug, team]) => { const q = "club-" + slug;
+      return '<button class="b6team' + (q === club ? " sel" : "") + '" onclick="' + go("club", q) + '">' + b6SideImg(team, 30, "ere-clubs") + '<span>' + esc(team) + '</span></button>'; }).join("") +
+      '</div><div class="b6qn">' + (n(club) ? nf(n(club)) + " questions about " + esc(C.team) : "Loading the questions…") + '</div>' : "") +
+    b6Opt(b4QView === "era", '<span class="b6eraic">' + esc(E.years.replace("The ", "")).replace("–", "<br>") + '</span>', "An era", '<small>The Eredivisie of one stretch of years.</small>', go("era", b4QEra)) +
+    (b4QView === "era" ? '<div class="b6eras">' + ERE_ERAS.map(([q, years]) => '<button class="b6era' + (q === b4QEra ? " sel" : "") + '" onclick="' + go("era", q) + '">' +
+      '<b>' + esc(years) + '</b><small>' + (n(q) ? nf(n(q)) + " questions" : "Loading…") + '</small></button>').join("") + '</div>' : "");
+}
+function b4Kick(own, view){
+  const pool = b4Pend.pool, quiz = view || b4Pend.quiz, deck = view || b6OwnDeckId();
+  if(view) needQuiz(view);
   if(own && deck && !DECKS[deck + "-mc"]) return toast("Those questions are still loading, give it a second", true);
   b4Explain('pitch', () => {
     b4Go(quiz, 'pitch', {level: setupAiLevel, mate: b4Mate, src: quiz === "classic" ? "own" : (own ? "own" : "classic")});
     if(S && isPitch(S.play)){
       S.qdeck = quiz === "classic" && own ? deck : null;
       S.pool = pool; S.lockPool = true;
-      const H = h2(); if(H) H.teams = [null, null];
+      /* a club quiz: you are that club, and the other side picks */
+      const me = (QUIZZES[quiz] || {}).team, H = h2(); if(H) H.teams = [me && TEAMS[pool] && TEAMS[pool][me] ? me : null, null];
       b4Step = null;
       render();
     }
@@ -35982,12 +36032,12 @@ function b6Next(){
   audio();
   if(b4Step === "opp") b4Step = b4Mate ? "comp" : "lvl";
   else if(b4Step === "lvl") b4Step = "comp";
-  else if(b4Step === "comp") b4Step = b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn";
+  else if(b4Step === "comp") b4Step = b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : b4Comp === "nat" ? "nation" : "tourn";
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function b6Back(){
   audio();
-  b4Step = ({hilo: null, how: null, simple: "how", opp: "how", ucl: "eu", lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : "tourn"})[b4Step] || null;
+  b4Step = ({hilo: null, how: null, simple: "how", opp: "how", ucl: "eu", lvl: "opp", comp: b4Mate ? "opp" : "lvl", tourn: "comp", league: "comp", eu: "comp", nation: "comp", qs: b4Comp === "lg" ? "league" : b4Comp === "eu" ? "eu" : b4Comp === "nat" ? "nation" : "tourn"})[b4Step] || null;
   render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function b6MeSheet(){
@@ -36036,10 +36086,12 @@ function b6Steps(){
     '</div><button class="b6cta" onclick="b6Next()">Next ›</button>';
   if(b4Step === "comp") return b6StepHead(steps, steps, "Matchday") +
     '<div class="b6q">Pick your competition</div><div class="b6qs">Who you can play as comes from what you pick.</div><div class="b6opts">' +
-    b6Opt(b4Comp === "int", B6_ART.globe, "World Cup or Euro", '<div class="b6chips"><span>World Cups 1998–2026</span><span>Euros 2000–2024</span></div>', "b4Comp='int';render()") +
-    b6Opt(b4Comp === "eu", B6_ART.nights, "European nights", '<small>Champions, Europa &amp; Conference</small>', "b4Comp='eu';render()") +
-    b6Opt(b4Comp === "lg", B6_ART.leagues, "Leagues", '<div class="b6flags">' + ["england", "es", "de", "it", "nl", "be"].map(f => '<img src="assets/natflags/' + f + '.png" alt="">').join("") +
+    b6Opt(b4Comp === "int", compFan(["wc2026", "euro2024"]) || B6_ART.globe, "World Cup or Euro", '<div class="b6chips"><span>World Cups 1998–2026</span><span>Euros 2000–2024</span></div>', "b4Comp='int';render()") +
+    b6Opt(b4Comp === "eu", compFan(["uel", "ucl", "uecl"]) || B6_ART.nights, "European nights", '<small>Champions, Europa &amp; Conference</small>', "b4Comp='eu';render()") +
+    b6Opt(b4Comp === "lg", B6_ART.leagues, "Leagues", '<div class="b6flags">' + ["ere", "premier", "laliga", "bundesliga", "seriea", "belgian"].map(k => compBadge(k, 26)).join("") +
       '</div><small>Top flights &amp; second tiers</small>', "b4Comp='lg';render()") +
+    b6Opt(b4Comp === "nat", '<span class="b6ballic">' + ballSVG("") + '</span>', "Countries", '<div class="b6flags">' + ["br", "ar", "fr", "england", "nl", "ng"].map(f => '<img src="assets/natflags/' + f + '.png" alt="">').join("") +
+      '</div><small>37 national teams, each its all-time eleven</small>', "b4Comp='nat';render()") +
     '</div><div class="b6summary"><span>' + (b4Mate ? "vs a friend" : "vs the computer") + '</span>' + (b4Mate ? "" : '<span>' + lvName + '</span>') + '</div>' +
     '<button class="b6cta" onclick="b6Next()">Kick off ' + ico("play") + '</button>';
   if(b4Step === "tourn"){
@@ -36050,7 +36102,7 @@ function b6Steps(){
       '<div class="b6seg"><button aria-pressed="' + (b4Cup === "wc") + '" onclick="b4SetCup(\'wc\')">World Cup</button>' +
       '<button aria-pressed="' + (b4Cup === "euro") + '" onclick="b4SetCup(\'euro\')">Euros</button></div>' +
       '<div class="b6years">' + ids.map(id => '<button class="b6yr" onclick="b4StartPitch(\'' + id + '\',\'classic\')"' + (TEAMS[id] ? "" : " disabled") + '>' +
-        '<b style="text-shadow:' + b4YrShadow() + '">' + b4Yr(id) + '</b><small>' + esc(B4_HOSTS[id] || POOLS[id].short) + '</small></button>').join("") + '</div>' +
+        compBadge(id, 56) + '<b style="text-shadow:' + b4YrShadow() + '">' + b4Yr(id) + '</b><small>' + esc(B4_HOSTS[id] || POOLS[id].short) + '</small></button>').join("") + '</div>' +
       (POOLS.finals ? '<button class="b6fix b6finals" onclick="b4StartPitch(\'finals\',\'classic\')"' + (TEAMS.finals ? "" : " disabled") + '>' +
         '<div class="t">40<small>SIDES</small></div><div class="m"><b>Famous finals</b><small>Elevens that played in one</small></div><div class="go">' + ico("play") + '</div></button>' : "");
   }
@@ -36058,12 +36110,12 @@ function b6Steps(){
     const cup = (q, sub) => { const Q = QUIZZES[q], n = DECKS[q] ? ["easy", "normal", "hard", "extreme", "ball"].reduce((a, t) => a + ((DECKS[q] || {})[t] || []).length, 0) : 0;
       const go = q === "ucl" ? "b4Pick(\'ucl\')" : "b4StartPitch(\'euro-clubs\',\'" + q + "\')", ok = q === "ucl" || TEAMS["euro-clubs"];
       return '<button class="b6cup" onclick="' + go + '"' + (ok ? "" : " disabled") + '>' +
-        '<span class="b6cupb">' + euroBadgeSVG(q, 64) + '</span><span class="b6cupt"><b>' + esc(Q.label) + '</b><small>' + sub + '</small>' +
+        '<span class="b6cupb">' + compBadge(q, 64) + '</span><span class="b6cupt"><b>' + esc(Q.label) + '</b><small>' + sub + '</small>' +
         (n ? '<em>' + nf(n) + ' questions</em>' : '<em>Loading…</em>') + '</span><span class="go">' + ico("play") + '</span></button>'; };
     return b6StepHead(0, 0, "European nights") +
       '<div class="b6q">Which cup?</div><div class="b6qs">You both play as clubs from the six top flights. The questions are about the cup.</div>' +
       '<div class="b6cups">' + cup("ucl", "Pick a season, then a club from it") + cup("uel", "Thursday nights, the long road to the final") + cup("uecl", "The newest European cup, since 2021") + '</div>' +
-      '<p class="b6fine">BALL is not affiliated with UEFA. Competition names only describe what the questions are about.</p>';
+      '<p class="b6fine">BALL is not affiliated with UEFA, FIFA or any league. Competition and league names only describe what the questions are about.</p>';
   }
   if(b4Step === "ucl"){
     const ids = Object.keys(POOLS).filter(id => /^ucl-/.test(id)).sort().reverse();
@@ -36075,16 +36127,29 @@ function b6Steps(){
         return '<button class="b6yr ucl" onclick="b4StartPitch(\'' + id + '\',\'ucl\')"' + (n ? "" : " disabled") + '><b style="text-shadow:' + b4YrShadow() + '">\'' + x.slice(2, 4) + '/' + x.slice(5) + '</b><small>' + (n ? n + " clubs" : "loading") + '</small></button>'; }).join("") + '</div>';
   }
   if(b4Step === "qs" && b4Pend){
+    needQuiz(b4Pend.quiz);   // a lazy deck (a country, a newer league) starts loading as its questions are offered
     const id = b6OwnDeckId(), name = b4Pend.quiz === "classic" ? (id === "worldcup" ? "World Cup" : "Euro") : ((QUIZZES[b4Pend.quiz] || {}).label || "League");
     return b6StepHead(0, 0, "Matchday") +
       '<div class="b6q">Which questions?</div><div class="b6qs">' + esc(b4StageLabel(b4Pend.pool)) + '</div><div class="b6opts">' +
-      b6Opt(b4QOwn, B6_ART[b4Pend.quiz === "classic" ? "globe" : "leagues"], esc(name) + " questions", '<small>Only about the ' + esc(name) + '.</small>', "b4QOwn=true;render()") +
-      b6Opt(!b4QOwn, '<span class="b6ballic">' + ballSVG("") + '</span>', "All football", '<small>Questions from the whole game.</small>', "b4QOwn=false;render()") +
-      '</div><button class="b6cta" onclick="b4Kick(b4QOwn)">Kick off \u25B6</button>';
+      b6Opt(b4QOwn && !b4QView, (QUIZZES[b4Pend.quiz] || {}).nation ? '<img class="b6qflag" src="assets/natflags/' + QUIZZES[b4Pend.quiz].flag + '.png" alt="">' :
+        compBadge(b4Pend.quiz === "classic" ? b4Pend.pool : b4Pend.quiz, 52) || B6_ART[b4Pend.quiz === "classic" ? "globe" : "leagues"],
+        esc(name) + " questions", '<small>Only about ' + ((QUIZZES[b4Pend.quiz] || {}).nation ? "" : "the ") + esc(name) + '.</small>', "b4QOwn=true;b4QView=null;render()") +
+      (b4Pend.quiz === "ere" ? b6QViewsHTML() : "") +
+      b6Opt(!b4QOwn, '<span class="b6ballic">' + ballSVG("") + '</span>', "All football", '<small>Questions from the whole game.</small>', "b4QOwn=false;b4QView=null;render()") +
+      '</div><button class="b6cta" onclick="b4Kick(b4QOwn, b6QView())">Kick off \u25B6</button>';
+  }
+  if(b4Step === "nation"){
+    needPool("nations");
+    const ok = !!TEAMS.nations;
+    return b6StepHead(0, 0, "Countries") +
+      '<div class="b6q">Which country?</div><div class="b6qs">Questions about its national team. You play as its all-time eleven.</div>' +
+      NATS.map(([conf, list]) => '<div class="b6hdr">' + esc(conf) + '</div><div class="b6lgs">' + list.map(([code, name, flag]) =>
+        '<button class="b6lg" onclick="b4StartPitch(\'nations\',\'nat-' + code + '\')"' + (ok ? "" : " disabled") + '><img src="assets/natflags/' + (flag || code) + '.png" alt="">' +
+        '<span>' + esc(name) + '</span><small>' + (ok ? "national team" : "loading") + '</small></button>').join("") + '</div>').join("");
   }
   if(b4Step === "league"){
     const tile = L => '<button class="b6lg" onclick="b4StartPitch(\'' + L.pool + '\',\'' + L.quiz + '\')"' + (TEAMS[L.pool] ? "" : " disabled") + '>' +
-      '<img src="assets/natflags/' + L.flag + '.png" alt=""><span>' + esc(L.name) + '</span><small>' +
+      (compBadge(L.quiz, 40) || '<img src="assets/natflags/' + L.flag + '.png" alt="">') + '<span>' + esc(L.name) + '</span><small>' +
       (TEAMS[L.pool] ? Object.keys(TEAMS[L.pool]).length + " clubs" : "loading") + '</small></button>';
     return b6StepHead(0, 0, "Leagues") +
       '<div class="b6q">Which league?</div><div class="b6qs">This season’s clubs. Both of you then pick one.</div>' +

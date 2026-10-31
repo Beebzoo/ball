@@ -291,7 +291,7 @@ function clRender(st){
   clTeamsLoad();
   const v = clV();
   const page = { card: clCardPage, calls: clCallsPage, new: clNewPage, invite: clInvitePage, join: clJoinPage,
-    table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage }[v.s];
+    table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage, match: clMatchPage }[v.s];
   st.innerHTML = page ? page(v) : clHome();
   clTickOn();
 }
@@ -949,6 +949,24 @@ function clMcMd(d){
   render();
 }
 function clClubGo(comp, key){ clGo("club", { comp, team: key, from: clV() }); }
+function clMatchGo(comp, fid){ clGo("match", { comp, fid, from: clV() }); }
+/* THE MATCH PAGE comes with its own files (assets/pl/mc.js, mc-stats.js and mc.css) the first time a match is
+   opened, not at app start (_plans/match-centre.md §3.5); till then the page is a skeleton */
+let MC_LOAD = 0;
+function mcNeed(){
+  if(MC_LOAD) return;
+  MC_LOAD = 1;
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/pl/mc.css"; document.head.appendChild(css);
+    const add = (src, next) => { const s = document.createElement("script"); s.src = src; s.onload = next; s.onerror = () => { MC_LOAD = 0; }; document.head.appendChild(s); };
+    add("assets/pl/mc-stats.js", () => add("assets/pl/mc.js", () => clRedraw()));
+  }catch(e){ MC_LOAD = 0; }
+}
+function clMatchPage(v){
+  if(typeof mcMatchPage === "function") return mcMatchPage(v);
+  mcNeed();
+  return b4Page({ title: "Match", ctx: "Loading…", back: "clBack()", cls: "clpage mcpage", body: '<div class="lgskel"></div>' });
+}
 /* the page class for a title: a long name gets the smaller title (pl.css) */
 const clTitleCls = t => "clpage" + (clStr(t).length > 16 ? " cl-long" : "");
 function clCompPage(v){
@@ -981,7 +999,7 @@ function clMcMatchesHTML(C, m, rk){
 }
 function clMcMatchHTML(C, x){
   return '<div class="cl-mm' + (clPlayed(x) ? " done" : "") + '"><button class="h" onclick="clClubGo(\'' + C.id + '\',\'' + clE(x.h.key) + '\')"><span>' + clE(clTeam(x.h).name) + '</span>' + clPatch(x.h, 24) + '</button>' +
-    '<span class="sc">' + clMcScore(x) + '</span>' +
+    '<button class="sc mcgo" onclick="clMatchGo(\'' + C.id + '\',\'' + clE(x.id) + '\')" aria-label="The match: ' + clE(clTeam(x.h).name) + ' v ' + clE(clTeam(x.a).name) + '">' + clMcScore(x) + '</button>' +
     '<button class="a" onclick="clClubGo(\'' + C.id + '\',\'' + clE(x.a.key) + '\')">' + clPatch(x.a, 24) + '<span>' + clE(clTeam(x.a).name) + '</span></button></div>';
 }
 function clClubPage(v){
@@ -994,8 +1012,8 @@ function clClubPage(v){
   const res = x => { const home = x.h.key === v.team, f = home ? x.ft[0] : x.ft[1], a = home ? x.ft[1] : x.ft[0]; return f > a ? "w" : f < a ? "l" : "d"; };
   const row = (x, done) => {
     const home = x.h.key === v.team, opp = home ? x.a : x.h, d = new Date(x.ko);
-    return '<button class="cl-crow" onclick="clClubGo(\'' + C.id + '\',\'' + clE(opp.key) + '\')"><span class="t">' + (x.md != null ? "MD " + x.md : clE(clStageShort(x.stg))) + '<br>' + CL_DAYS[d.getDay()] + " " + d.getDate() + " " + CL_MONTHS[d.getMonth()] + '</span>' +
-      '<span class="o">' + clPatch(opp, 22) + '<span>' + (home ? "v " : "at ") + clE(clTeam(opp).name) + '</span></span>' +
+    return '<button class="cl-crow" onclick="clMatchGo(\'' + C.id + '\',\'' + clE(x.id) + '\')"><span class="t">' + (x.md != null ? "MD " + x.md : clE(clStageShort(x.stg))) + '<br>' + CL_DAYS[d.getDay()] + " " + d.getDate() + " " + CL_MONTHS[d.getMonth()] + '</span>' +
+      '<span class="o clublink" onclick="event.stopPropagation();clClubGo(\'' + C.id + '\',\'' + clE(opp.key) + '\')">' + clPatch(opp, 22) + '<span>' + (home ? "v " : "at ") + clE(clTeam(opp).name) + '</span></span>' +
       (done ? '<span class="r ' + res(x) + '">' + (home ? x.ft[0] + "–" + x.ft[1] : x.ft[1] + "–" + x.ft[0]) + '</span>' : '<span class="r up">' + clMcScore(x) + '</span>') + '</button>';
   };
   const head = '<div class="b4card dark cl-clubhead">' + clPatch({ key: v.team, name }, 60) + '<div><span class="cl-kick">' + clE(C.name) + '</span><h2>' + clE(name) + '</h2>' +
@@ -1003,7 +1021,8 @@ function clClubPage(v){
   return b4Page({ title: name, ctx: C.name + (T ? " · " + ordinal(T.pos) : ""), back: "clBack()", cls: clTitleCls(name),
     body: head + (next.length ? b4Sec("Next") + next.slice(0, 5).map(x => row(x, false)).join("") : "") +
       (played.length ? b4Sec("Results") + played.map(x => row(x, true)).join("") : "") +
-      (next.length > 5 ? b4Sec("Later") + next.slice(5).map(x => row(x, false)).join("") : "") });
+      (next.length > 5 ? b4Sec("Later") + next.slice(5).map(x => row(x, false)).join("") : "") +
+      '<p class="cl-sum">Tap a match for its preview or result, or a club for its page.</p>' });
 }
 
 /* ---------- the clock on the front: the countdown keeps counting ---------- */

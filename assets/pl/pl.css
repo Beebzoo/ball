@@ -274,3 +274,6 @@
 /* the name may take two lines (Champions League, Belgian Pro League); the row grows with it */
 .cl-comp b{display:block;font:italic 900 15px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:break-word}
 .cl-comp small{display:block;margin-top:2px;font:500 12px/1.2 'Barlow Semi Condensed',sans-serif;color:var(--th-row-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* the match page (assets/pl/mc.js) opens from a match row's score and a club page's row; the opponent in a club page row opens its club */
+.cl-mm .sc.mcgo{border:0;justify-content:center;cursor:pointer}
+.cl-crow .o.clublink{cursor:pointer}

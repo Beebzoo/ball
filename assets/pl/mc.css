@@ -1,0 +1,45 @@
+/* BALL 4: THE MATCH PAGE (assets/pl/mc.js; _plans/match-centre.md §1.1, §3.1). House style tokens only
+   (_plans/look-and-feel.md §2): calm, the bars grow in with --ease-out and --stagger, nothing loud. */
+.mcpage .b4sb{margin-bottom:var(--sp-2)}
+.mc-names{display:flex;align-items:baseline;justify-content:center;gap:var(--sp-2);margin:0 0 var(--sp-2);text-align:center}
+.mc-names button{border:0;background:none;padding:2px 0;font:italic 900 var(--fs-section)/1.1 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-ink);cursor:pointer}
+.mc-names i{font:italic 400 var(--fs-human)/1 var(--serif);color:var(--th-dim)}
+.mc-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-2);margin-bottom:var(--sp-2)}
+.mc-note,.mc-none,.mc-fine{margin:var(--sp-1) 2px var(--sp-3);font:italic 400 var(--fs-meta)/1.4 var(--serif);color:var(--th-dim)}
+.mc-none{font-style:normal;font-family:var(--ui);font-weight:600}
+.mc-fine{margin-top:var(--sp-2)}
+/* the win chance fills from the left, once */
+.mc-chance{animation:mcFill var(--dur-sheet) var(--ease-out) both}
+@keyframes mcFill{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+/* form: the home side left, the away side right */
+.mc-fseg{margin:0 0 var(--sp-3)}
+.mc-form{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3)}
+.mc-fcol{display:flex;flex-direction:column;gap:var(--sp-1);padding:var(--sp-3);border-radius:var(--r-row);background:var(--th-card);color:var(--th-card-ink)}
+.mc-fcol.away{align-items:flex-end;text-align:right}
+.mc-fcol b{font:italic 900 var(--fs-body)/1.15 var(--th-hf),sans-serif;text-transform:uppercase}
+.mc-fcol small{font:600 var(--fs-meta)/1.2 var(--ui);color:var(--th-card-dim)}
+.mc-fcol .cl-form{margin-top:var(--sp-1)}
+.mc-fcol .cl-form i{width:18px;height:18px;font-size:10px;line-height:18px;animation:mcPop var(--dur-pop) var(--ease-out) both}
+.mc-fcol .cl-form i:nth-child(2){animation-delay:var(--stagger)}.mc-fcol .cl-form i:nth-child(3){animation-delay:calc(2 * var(--stagger))}
+.mc-fcol .cl-form i:nth-child(4){animation-delay:calc(3 * var(--stagger))}.mc-fcol .cl-form i:nth-child(5){animation-delay:calc(4 * var(--stagger))}
+@keyframes mcPop{from{opacity:0;transform:translateY(4px)}}
+/* this season, side by side */
+.mc-key{display:flex;justify-content:space-between;align-items:center;margin:0 2px var(--sp-2);font:800 var(--fs-kicker)/1 var(--ui);letter-spacing:var(--ls-kicker);text-transform:uppercase;color:var(--th-dim)}
+.mc-key span{display:inline-flex;align-items:center;gap:6px}
+.mc-mirror{display:flex;flex-direction:column;gap:var(--sp-3);padding:var(--sp-4) var(--sp-3);border-radius:var(--r-card-2);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--depth-lift)}
+.mc-st{display:grid;grid-template-columns:62px 1fr 1fr 62px;grid-template-areas:"lab lab lab lab" "vh bh ba va";column-gap:6px;row-gap:5px;align-items:center}
+.mc-st small{grid-area:lab;text-align:center;font:700 var(--fs-kicker)/1.25 var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--th-card-dim)}
+.mc-st .v{display:flex;flex-direction:column;font:italic 900 22px/1 var(--th-hf),sans-serif;font-variant-numeric:tabular-nums;color:var(--th-card-ink)}
+.mc-st .v.h{grid-area:vh;align-items:flex-start}
+.mc-st .v.a{grid-area:va;align-items:flex-end}
+.mc-st .v em{margin-top:3px;font:700 10.5px/1 var(--ui);font-style:normal;letter-spacing:.04em;color:var(--th-card-dim)}
+.mc-st .bar{display:flex;height:10px;border-radius:var(--r-chip);background:var(--res-off-dark);overflow:hidden}
+.mc-st .bar.h{grid-area:bh;justify-content:flex-end}
+.mc-st .bar.a{grid-area:ba}
+.mc-st .bar i{display:block;height:100%;border-radius:var(--r-chip);background:var(--res-off-mark);animation:mcGrow var(--dur-sheet) var(--ease-out) both;animation-delay:calc(var(--i, 0) * var(--stagger))}
+.mc-st .bar.h i{transform-origin:right center}
+.mc-st .bar.a i{transform-origin:left center}
+.mc-st .bar.on i{background:var(--th-acc)}
+.mc-st .v.on{color:var(--th-acc)}
+@keyframes mcGrow{from{transform:scaleX(0)}}
+@media (prefers-reduced-motion: reduce){ .mc-chance,.mc-st .bar i,.mc-fcol .cl-form i{animation:none} }

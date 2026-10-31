@@ -6,8 +6,11 @@
 /* the hub keeps the League band; the pages are b4Page with a short band */
 .clhub .cl-next{margin-top:2px}
 .clpage .b6body{padding-bottom:28px}
-/* a long title (a league's name, a round's label) never runs under the ‹ */
+/* a long title (a league's name, a round's label) never runs under the ‹; a long competition or club name
+   (more than 16 letters: Belgian Pro League, Hapoel Beer Sheva) is set smaller so it fits whole */
 .clpage .b6stitle{max-width:calc(100% - 92px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.clpage.cl-long .b6stitle{font-size:24px}
+@media (max-width:374px){ .clpage.cl-long .b6stitle{font-size:20px} }
 .cl-tsub{margin:0 2px 2px}
 .cl-kick{display:block;font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--th-card-dim)}
 .cl-when{margin:4px 0 0;font:italic 400 15px/1.3 'Lora',Georgia,serif;color:var(--th-card-dim)}
@@ -156,7 +159,8 @@
 .cl-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 6px}
 .cl-chips button{min-height:34px;padding:0 12px;border-radius:999px;cursor:pointer;border:2px solid rgba(18,61,36,.25);border-color:color-mix(in srgb,var(--th-ink) 30%,transparent);
   background:none;color:var(--th-ink);font:700 14px/1 'Barlow Semi Condensed',sans-serif}
-.cl-series{display:flex;flex-direction:column;gap:8px}
+.cl-series{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cl-series button:first-child{grid-column:1 / -1}
 .cl-series button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;
   border:2px solid rgba(18,61,36,.2);border-color:color-mix(in srgb,var(--th-ink) 20%,transparent);background:var(--th-row);color:var(--th-row-ink)}
 .cl-series button b{font:italic 900 19px/1 'Barlow Semi Condensed',sans-serif}
@@ -259,3 +263,14 @@
 .cl-crow .r.up{display:flex;flex-direction:column;gap:2px;background:var(--th-card);color:var(--th-card-ink)}
 .cl-crow .r.up b{font:italic 900 15px/1 'Barlow Semi Condensed',sans-serif}
 .cl-crow .r.up small{font:800 9px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--th-card-dim)}
+
+/* the front's way into the tables: nine competitions, two to a row */
+.cl-comps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.cl-comp{display:flex;align-items:center;gap:8px;min-width:0;padding:10px;border-radius:14px;cursor:pointer;text-align:left;
+  border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 3px 0 rgba(0,0,0,.08)}
+.cl-comp .cl-mcico{display:flex;flex:none;width:34px;height:34px;align-items:center;justify-content:center;border-radius:9px;background:var(--th-card);color:var(--th-acc1)}
+.cl-comp .cl-mcico svg{width:20px;height:20px}
+.cl-comp .m{min-width:0}
+/* the name may take two lines (Champions League, Belgian Pro League); the row grows with it */
+.cl-comp b{display:block;font:italic 900 15px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:break-word}
+.cl-comp small{display:block;margin-top:2px;font:500 12px/1.2 'Barlow Semi Condensed',sans-serif;color:var(--th-row-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

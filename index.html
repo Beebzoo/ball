@@ -8004,27 +8004,31 @@
   .h2man.lbl-r .h2lb{left:auto;right:-6px;transform:none}
   .h2pitch.tilt .h2man.lbl-l .h2lb,.h2pitch.tilt .h2man.lbl-r .h2lb{transform:rotateX(-46deg) translateZ(3px)}
   /* ---------- HOUSE STYLE V2, PHASE 2: THE HOMES (_plans/look-and-feel.md §4.1, boards I, G and H) ----------
-     The band is low on the day's home and tall only for a first open and a finished day; the big wordmark gives
-     way to the band's own words. Everything here in tokens, so every theme dresses it. */
-  .b6:is(.home-first,.home-daily,.home-done) .mdp-slot{display:none}
+     The band is low on the day's home and tall only for a first open and a finished day. Everything here in
+     tokens, so every theme dresses it.
+     THE LOGO STAYS ON TOP (Martijn, 31 Oct: "can we still keep our ball logo on the top"): Matchday Pro, kick-off
+     intro and all, over each home's band and out of the flow, so the band keeps its height. Big and centred for a
+     new phone, where the old home had it; small at the top left of the day's and the done home, in the same place
+     on both, without the tag line, which is too small to read there. */
+  .b6:is(.home-first,.home-daily,.home-done) .mdp-slot{position:absolute;top:0;left:0;right:0}
+  .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:flex-start;padding:18px 0 0 40px!important;font-size:44px}
+  .b6:is(.home-daily,.home-done) .mdp .tagbar{display:none}
   .b6.home-daily .b6band{height:112px;clip-path:polygon(0 0,100% 0,100% 78%,0 100%)}
   .b6.home-first .b6band{height:430px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%)}
-  .b6.home-done .b6band{height:250px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
+  .b6.home-done .b6band{height:292px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
   .b6:is(.home-first,.home-daily,.home-done) .b6body{gap:var(--sp-3)}
   :is(.t3card,.t3band,.t3next,.t3three) .kick{font:700 var(--fs-kicker)/1.2 var(--ui);letter-spacing:var(--ls-kicker);text-transform:uppercase}
-  .t3band{position:relative;display:flex;align-items:center;justify-content:space-between;height:70px;padding-top:env(safe-area-inset-top,0px)}
-  .t3logo{font:italic 900 30px/1 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-logo);text-shadow:2px 2px 0 var(--th-acc2)}
+  .t3band{position:relative;display:flex;align-items:center;justify-content:flex-end;height:70px;padding-top:env(safe-area-inset-top,0px)}
   .t3band .kick{color:var(--th-band-ink);opacity:.9}
   .t3band.first{display:block;height:420px}   /* the band is 430 tall and slants: what follows starts under it */
-  .t3band.first .t3logo{font-size:34px;padding-top:6px}
-  .t3fb{position:absolute;right:0;top:62px;width:150px;height:150px}
-  .t3fb svg{width:100%;height:100%}
   .t3hl{position:absolute;left:0;top:216px;font:italic 900 54px/.9 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-band-ink);text-shadow:3px 3px 0 var(--th-acc2);text-wrap:balance}
-  .t3band.done{display:block;height:206px;text-align:center;padding-top:calc(30px + env(safe-area-inset-top,0px))}
+  .t3band.done{display:block;height:248px;text-align:center;padding-top:calc(72px + env(safe-area-inset-top,0px))}
   .t3grade{margin-top:10px;font:italic 900 var(--fs-grade)/.92 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-band-ink);text-shadow:4px 4px 0 var(--th-acc2);white-space:nowrap}
   /* a grade word is as big as it can be and still fit ("Consolation" is eleven letters; 16-Bit's face is wider) */
   .t3grade{font-size:min(var(--fs-grade), calc((min(100vw, 480px) - 40px) / (var(--n, 8) * .56)))}
   body[data-theme="bit16"] .t3grade{font-size:min(56px, calc((min(100vw, 480px) - 40px) / (var(--n, 8) * .82)))}
+  /* 16-Bit's small art draws its touchline at a page band's foot, which on this taller band runs through the grade word */
+  body[data-theme="bit16"] .b6.home-done .tha-px{display:none}
   .t3lora{font:italic 400 var(--fs-human)/1.35 var(--serif)}
   .t3band .t3lora{margin-top:8px;color:var(--th-band-ink)}
   .t3lora.big{padding:0 8px;font-size:17px;line-height:1.4;color:var(--th-ink)}
@@ -10974,7 +10978,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · house style, phase 2";
+const BUILD = "BALL 4 · 31 Oct 2026 · the logo back on the homes";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -28085,8 +28089,9 @@ function themeArt(){
     document.querySelectorAll(".b6band").forEach(b => {
       let el = b.querySelector(":scope > .th-art");
       if(!t || (!THEME_ART[t] && t !== "club")){ if(el) el.remove(); return; }
-      /* the home art (logo props: stamp, plaque, cup) only in the band behind the wordmark */
-      const home = !!(b.parentElement && b.parentElement.querySelector(".mdp-slot")) && !b.parentElement.classList.contains("home-daily");   /* the day's home has a low band */
+      /* the home art (logo props: stamp, plaque, cup) only in the band behind the big wordmark. The day's and the
+         done home wear the logo small in the top corner, which is where a page's title goes, so the small art fits */
+      const home = !!(b.parentElement && b.parentElement.querySelector(".mdp-slot")) && !/\bhome-(daily|done)\b/.test(b.parentElement.className);
       const key = (t === "club" ? themeEquipped() : t) + (home ? ":h" : ":s");
       if(el && el.dataset.k === key) return;
       if(!el){ el = document.createElement("div"); el.className = "th-art"; el.setAttribute("aria-hidden", "true"); b.appendChild(el); }
@@ -36189,6 +36194,8 @@ function threeScarfSVG(n, o){
   if(!o.today){ s += '<rect class="t3slot" x="' + (x + 1) + '" y="5" width="' + (bw - 1) + '" height="34"/>'; x += bw; d++; }
   const next = THREE_MILES.find(m => m >= d);
   if(next && x + (next - d + 1) * bw <= 352){
+    /* the rows still to knit before the gold one, so the scarf reads as one strip and not two pieces */
+    if(next > d) s += '<rect class="t3rest" x="' + (x + 1) + '" y="5" width="' + ((next - d) * bw - 2) + '" height="34"/>';
     x += (next - d) * bw;
     s += '<rect class="t3gold" x="' + (x + 1) + '" y="5" width="' + (bw - 1) + '" height="34"/><text class="t3gn" x="' + (x + bw / 2 + .5) + '" y="27" text-anchor="middle">' + next + '</text>';
     x += bw;
@@ -36303,8 +36310,7 @@ function threeClockTick(){
 }
 /* THE HOMES */
 function b6FrontFirst(saved){
-  return '<div class="t3band first"><div class="t3logo">BALL</div><span class="t3fb" aria-hidden="true">' + ballSVG("") + '</span>' +
-      '<div class="t3hl">Football,<br>played<br>like a match</div></div>' +
+  return '<div class="t3band first"><div class="t3hl">Football,<br>played<br>like a match</div></div>' +
     (saved ? b6ContinueHTML(saved) : "") +
     '<div class="t3lora big">Three short puzzles a day, the same for everyone. Then a match whenever you fancy one.</div>' +
     '<button class="b6cta" onclick="dailyStart()">Start today’s three</button>' +
@@ -36316,7 +36322,7 @@ function b6FrontDaily(saved){
   const T = threeToday(), S3 = threeStreak(), P = b6PlStrip();
   const installHidden = (() => { try{ return localStorage.getItem("ball4-install-hide") === "1"; }catch(e){ return false; } })();
   b6CountdownTick();
-  return '<div class="t3band"><div class="t3logo">BALL</div><div class="kick t3date">' + t3Date(new Date()) + '</div></div>' +
+  return '<div class="t3band"><div class="kick t3date">' + t3Date(new Date()) + '</div></div>' +
     threeStreakCard(S3) + (saved ? b6ContinueHTML(saved) : "") + threeCard(T) + b6PlStripHTML(P) + b6MatchdayCard() + b6Shelf() +
     (isStandalone() || installHidden ? "" : '<div class="b6inst"><button class="b6instgo" onclick="installApp()">Add BALL to your home screen</button><button class="b6instx" onclick="b6InstallHide()" aria-label="Hide this">×</button></div>');
 }

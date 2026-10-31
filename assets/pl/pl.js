@@ -215,6 +215,15 @@ function clFoundClub(){
 }
 
 /* ---------- loading ---------- */
+/* WHAT THE HOME SAYS ABOUT CALL IT (house style v2, board G), kept on the phone so the home can say it without
+   loading Call It: the round in play, how many calls are left and when the next one locks */
+function clStripSave(){
+  try{
+    const c = (CL.leagues || []).length ? clTop() : null;
+    if(!c){ localStorage.removeItem("ball4-pl-strip"); return; }
+    localStorage.setItem("ball4-pl-strip", JSON.stringify({ at: Date.now(), label: c.label, matches: c.matches | 0, called: c.called | 0, open: c.open | 0, lock: c.next_lock || null }));
+  }catch(e){}
+}
 async function clLoad(force){
   clTeamsLoad();
   if(CL.loading) return;
@@ -224,6 +233,7 @@ async function clLoad(force){
     const [a, b] = await Promise.all([clRpc("pl_my_cards"), clRpc("pl_my_leagues")]);
     if(!a.ok || !b.ok) throw new Error("not ok");
     CL.cards = a.cards || []; CL.leagues = b.leagues || []; CL.at = Date.now();
+    clStripSave();
     const top = clTop();
     if(top){
       await clLoadCard(top.card, true);

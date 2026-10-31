@@ -508,6 +508,8 @@
     --ease-pop: cubic-bezier(.34,1.32,.64,1);
     --ease-celebrate: linear(0, .5 15%, 1.08 35%, .98 55%, 1.01 75%, 1);
     --stagger: 40ms; --motion: 1;
+    /* the scarf's fringe, a row still to knit, and the rest of it (board G) */
+    --scarf-fringe: #e0cfa6; --scarf-slot: #a9946a; --scarf-rest: #d9c9a0;
   }
   /* reduced motion, once for everything that uses the tokens: short fades, nothing travels */
   @media (prefers-reduced-motion: reduce){
@@ -8001,6 +8003,116 @@
   .h2man.lbl-l .h2lb{left:-6px;transform:none}
   .h2man.lbl-r .h2lb{left:auto;right:-6px;transform:none}
   .h2pitch.tilt .h2man.lbl-l .h2lb,.h2pitch.tilt .h2man.lbl-r .h2lb{transform:rotateX(-46deg) translateZ(3px)}
+  /* ---------- HOUSE STYLE V2, PHASE 2: THE HOMES (_plans/look-and-feel.md §4.1, boards I, G and H) ----------
+     The band is low on the day's home and tall only for a first open and a finished day; the big wordmark gives
+     way to the band's own words. Everything here in tokens, so every theme dresses it. */
+  .b6:is(.home-first,.home-daily,.home-done) .mdp-slot{display:none}
+  .b6.home-daily .b6band{height:112px;clip-path:polygon(0 0,100% 0,100% 78%,0 100%)}
+  .b6.home-first .b6band{height:430px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%)}
+  .b6.home-done .b6band{height:250px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
+  .b6:is(.home-first,.home-daily,.home-done) .b6body{gap:var(--sp-3)}
+  :is(.t3card,.t3band,.t3next,.t3three) .kick{font:700 var(--fs-kicker)/1.2 var(--ui);letter-spacing:var(--ls-kicker);text-transform:uppercase}
+  .t3band{position:relative;display:flex;align-items:center;justify-content:space-between;height:70px;padding-top:env(safe-area-inset-top,0px)}
+  .t3logo{font:italic 900 30px/1 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-logo);text-shadow:2px 2px 0 var(--th-acc2)}
+  .t3band .kick{color:var(--th-band-ink);opacity:.9}
+  .t3band.first{display:block;height:420px}   /* the band is 430 tall and slants: what follows starts under it */
+  .t3band.first .t3logo{font-size:34px;padding-top:6px}
+  .t3fb{position:absolute;right:0;top:62px;width:150px;height:150px}
+  .t3fb svg{width:100%;height:100%}
+  .t3hl{position:absolute;left:0;top:216px;font:italic 900 54px/.9 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-band-ink);text-shadow:3px 3px 0 var(--th-acc2);text-wrap:balance}
+  .t3band.done{display:block;height:206px;text-align:center;padding-top:calc(30px + env(safe-area-inset-top,0px))}
+  .t3grade{margin-top:10px;font:italic 900 var(--fs-grade)/.92 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-band-ink);text-shadow:4px 4px 0 var(--th-acc2);white-space:nowrap}
+  /* a grade word is as big as it can be and still fit ("Consolation" is eleven letters; 16-Bit's face is wider) */
+  .t3grade{font-size:min(var(--fs-grade), calc((min(100vw, 480px) - 40px) / (var(--n, 8) * .56)))}
+  body[data-theme="bit16"] .t3grade{font-size:min(56px, calc((min(100vw, 480px) - 40px) / (var(--n, 8) * .82)))}
+  .t3lora{font:italic 400 var(--fs-human)/1.35 var(--serif)}
+  .t3band .t3lora{margin-top:8px;color:var(--th-band-ink)}
+  .t3lora.big{padding:0 8px;font-size:17px;line-height:1.4;color:var(--th-ink)}
+  /* the cream card: supporting blocks (the dark --th-card is for the main one) */
+  .t3card{box-sizing:border-box;background:var(--th-card-2);color:var(--th-row-ink);border:2px var(--th-edge-style) var(--th-edge);
+    border-radius:calc(var(--r-card-2) * var(--th-round));box-shadow:var(--depth-lift)}
+  .t3card .kick{color:var(--th-row-dim)}
+  .t3streak{padding:12px 14px 10px}
+  .t3sh{display:flex;align-items:baseline;gap:8px}
+  .t3big{font:italic 900 34px/.9 var(--th-hf),sans-serif;font-variant-numeric:tabular-nums}
+  .t3right{margin-left:auto;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-row-dim);text-align:right}
+  .t3scarf{display:block;width:100%;height:auto;margin-top:6px}
+  .t3fr{stroke:var(--scarf-fringe);stroke-width:2;stroke-linecap:round;fill:none}
+  .t3slot{fill:none;stroke:var(--scarf-slot);stroke-width:1.5;stroke-dasharray:3 3}
+  .t3gold{fill:none;stroke:var(--th-acc2);stroke-width:2;stroke-dasharray:3 3}
+  .t3gn{font:italic 900 13px var(--th-hf),sans-serif;fill:var(--th-acc-sh)}
+  .t3rest{fill:none;stroke:var(--scarf-rest);stroke-width:1.5;stroke-dasharray:2 5}
+  .t3hi{fill:none;stroke:var(--th-acc2);stroke-width:2.5}
+  /* today's three, the dark card */
+  .t3three{padding:14px 16px 4px}
+  .t3th{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .t3h{font:italic 900 28px/.95 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-card-ink);text-shadow:2px 2px 0 var(--th-acc2)}
+  .t3three .t3lora{margin-top:2px;color:var(--th-card-dim)}
+  .t3ring{flex:none}
+  .t3rb{stroke:rgba(255,255,255,.15)}
+  .t3ra{stroke:var(--th-acc1)}
+  .t3rt{font:italic 900 16px var(--th-hf),sans-serif;fill:var(--th-card-ink)}
+  .t3row{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:10px 0;border:0;border-top:1px solid rgba(255,255,255,.12);
+    background:none;color:var(--th-card-ink);font:700 15px/1.2 var(--ui);text-align:left;cursor:pointer}
+  .t3row:first-of-type{margin-top:10px}
+  .t3ic{flex:none;display:grid;place-items:center;width:22px;height:22px;box-sizing:border-box;border-radius:50%;border:2px dashed rgba(255,255,255,.35)}
+  .t3ic .ic{width:12px;height:12px;margin:0}
+  .t3row.done .t3ic{border:2px solid var(--th-card-dim);color:var(--th-card-dim)}
+  .t3row.next .t3ic{border:2px solid var(--th-acc1);color:var(--th-acc1)}
+  .t3nm{flex:1;min-width:0}
+  .t3n{font:500 13px/1.2 var(--ui);color:var(--th-card-dim)}
+  .t3go{padding:7px 16px;border-radius:var(--th-pill-r);background:var(--th-pill);color:var(--th-acc-ink);box-shadow:0 3px 0 var(--th-acc-sh);
+    font:italic 900 15px/1 var(--th-hf),sans-serif;text-transform:uppercase}
+  .t3foot{padding:8px 0 10px;border-top:1px solid rgba(255,255,255,.12);font:500 var(--fs-meta)/1 var(--ui);color:var(--th-card-dim)}
+  /* Call It, one line; Matchday, cream with the dark Play */
+  .t3pl{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;font:inherit;text-align:left;cursor:pointer}
+  .t3kit{display:flex;gap:2px}
+  .t3kit i{width:4px;height:26px;border-radius:2px;background:var(--th-acc)}
+  .t3kit i+i{background:var(--th-ink)}
+  .t3plm{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+  .t3plm b{font:700 15px/1.2 var(--ui)}
+  .t3chev{font:700 18px/1 var(--ui)}
+  .t3md{display:flex;align-items:center;gap:12px;padding:12px 14px}
+  .t3mdm{flex:1;min-width:0}
+  .t3mdh{font:italic 900 24px/1 var(--th-hf),sans-serif;text-transform:uppercase}
+  .t3md .t3lora{color:var(--th-row-dim)}
+  .t3quick{margin-top:6px;padding:4px 0;border:0;background:none;color:var(--th-row-ink);font:800 12px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;cursor:pointer}
+  .b4btn.dark.t3play{flex:none;width:auto;min-height:44px;margin:0;padding:0 20px}
+  /* more games: a shelf of cream minis, sideways */
+  .t3shelf{display:flex;gap:10px;margin:0 -16px;padding:2px 16px 8px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none}
+  .t3shelf::-webkit-scrollbar{display:none}
+  .t3mini{flex:none;width:126px;min-height:64px;padding:11px 12px;font:inherit;text-align:left;cursor:pointer;scroll-snap-align:start}
+  .t3mini b{display:block;font:700 13px/1.15 var(--ui)}
+  .t3mini small{display:block;margin-top:4px;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-row-dim)}
+  .t3mini small.new{color:var(--th-acc-sh);font-weight:800}
+  /* a first open: one gold way in */
+  .t3meta{display:flex;justify-content:space-between;margin-top:-6px;padding:0 8px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
+  .t3safe{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:6px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
+  .t3safe .ic{color:var(--res-right)}
+  /* a finished day: the share grid, the scarf, tomorrow */
+  .t3share{padding:14px 16px}
+  .t3sharehd{display:flex;justify-content:space-between;align-items:baseline}
+  .t3h2{font:italic 900 20px/1 var(--th-hf),sans-serif;text-transform:uppercase}
+  .t3grid{display:grid;grid-template-columns:120px 1fr;gap:10px 12px;align-items:center;margin-top:12px;font:700 13px/1.2 var(--ui)}
+  .t3sqs{display:flex;gap:5px}
+  .t3sq{width:20px;height:20px;border-radius:calc(4px * var(--th-round))}
+  .t3sq.ok{background:var(--res-right)}
+  .t3sq.ex{background:var(--res-exact)}
+  .t3sq.off{background:var(--res-off-mark)}
+  .t3sq.no{border:2px dashed var(--res-off-mark);box-sizing:border-box}
+  .t3bar{display:flex;align-items:center;gap:8px}
+  .t3track{flex:1;height:10px;border-radius:5px;background:var(--res-off);overflow:hidden}
+  .t3track i{display:block;height:100%;background:var(--res-right)}
+  .t3share .b6cta{width:100%;margin-top:14px}
+  .t3note{margin-top:8px;font:500 11px/1.3 var(--ui);color:var(--th-row-dim);text-align:center}
+  .t3next{text-align:center}
+  .t3next .kick{color:var(--th-dim)}
+  .t3cd{margin-top:2px;font:italic 900 var(--fs-hero)/1 var(--th-hf),sans-serif;color:var(--th-ink);font-variant-numeric:tabular-nums}
+  .t3pills{display:flex;gap:10px}
+  .t3pills .b4btn{flex:1;margin:0}
+  /* Daily Ball's result: what you did first, then one Share, tomorrow, and the next of today's three (plan §4.3) */
+  .b4daily .dsnext{margin:2px 0;text-align:center;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-dim)}
+  .b4daily .dstitle .dslost{color:var(--th-ink)}
 </style>
 </head>
 <body>
@@ -10862,7 +10974,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · 3D match moments";
+const BUILD = "BALL 4 · 31 Oct 2026 · house style, phase 2";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -15240,7 +15352,7 @@ function mineSave(){
    further down the file, and a const in the temporal dead zone throws on the
    line that reads it, which would be a blank app rather than a missing export. */
 const EXPORT_KEYS = ["ball4-mine", "ball4-prog", "ball4-quiz-history-v1", "ball4-crew",
-                     "ball4-outcomes", "ball4-names", "ball4-mp-name", "ball4-outbox", "ball4-acct", "ball4-gtp", "ball4-lists", "ball4-theme", "ball4-party", "ball4-club"];
+                     "ball4-outcomes", "ball4-names", "ball4-mp-name", "ball4-outbox", "ball4-acct", "ball4-gtp", "ball4-lists", "ball4-theme", "ball4-party", "ball4-club", "ball4-three"];
 function exportMine(){
   const out = {app: "BALL 4", at: new Date().toISOString(), data: {}};
   for(const k of EXPORT_KEYS){
@@ -16181,6 +16293,7 @@ function dsFinish(sh, r){
     dsStreak(sh);
   }
   mineSave();
+  try{ threeStreak(); }catch(e){}   // today's three: the scarf's row, even if the app is closed before home
   S.phase = "ds_done";
   render();
   if(r === "won") setTimeout(() => { try{ confetti(110); whistlefx(); }catch(e){} }, 200);
@@ -16369,10 +16482,14 @@ function dsRender(st){
   /* ds_done */
   const st2 = (fycTrial() ? fycGuest().streak : mine().streak) || {played: 0};
   const R = dsRows(sh), won = sh.result === "won";
+  /* THE RESULT LEADS WITH WHAT YOU DID (plan §4.3): how many you got right, then the score. A right answer can
+     still be saved, so "3 of 5 right" and a 1–4 defeat can both be true; one Share, tomorrow's countdown, and the
+     next of today's three */
+  const right = sh.kicks.filter(k => k && k.right).length, nextUp = (() => { try{ return threeToday().rows.find(r => !r.done); }catch(e){ return null; } })();
   st.innerHTML =
     '<div class="kick">' + ico('trophy') + 'Daily Ball · vs ' + esc(D.opp.name) + '</div>' + guestLineHTML() +
-    '<h1 class="title dstitle">' + (won ? 'Won it<br><span class="gold">' + R.my + '–' + R.their + '</span>'
-      : 'Lost ' + R.my + '–' + R.their + '<br><span class="gold">Back tomorrow</span>') + '</h1>' +
+    '<h1 class="title dstitle">' + right + ' of ' + sh.kicks.length + ' right<br>' + (won ? '<span class="gold">Won ' + R.my + '–' + R.their + '</span>'
+      : '<span class="dslost">Lost ' + R.my + '–' + R.their + '</span>') + '</h1>' +
     (won ? '<div class="dsscarf"><canvas id="dsscarf"></canvas></div>' : "") +
     dsBoardHTML(sh) +
     (won ? '<div class="dsstyle">Style ' + dsStar(1, 20) + ' ' + sh.style + '</div>' : "") +
@@ -16380,9 +16497,11 @@ function dsRender(st){
       '<div><b>' + (st2.played || 0) + '</b><i>day' + (st2.played === 1 ? "" : "s") + ' played in a row</i></div>' +
       '<div><b>' + (st2.won || 0) + '</b><i>shootout' + (st2.won === 1 ? "" : "s") + ' won in a row</i></div>' +
     '</div>' +
-    '<button class="bigbtn" onclick="copyDaily()">' + ico('copy') + 'Copy the result</button>' +
-    (dailyCanShare() ? '<button class="bigbtn ghost" onclick="shareDailyImage()">' + ico('image') + 'Share as a picture</button>' : "") +
-    '<button class="bigbtn ghost" onclick="toMenu()">Back</button>';
+    '<button class="bigbtn" onclick="' + (dailyCanShare() ? 'shareDailyImage()' : 'copyDaily()') + '">' + ico('share') + 'Share the result</button>' +
+    '<div class="dsnext">Next one in ' + b6Countdown() + '</div>' +
+    (nextUp ? '<button class="bigbtn ghost" onclick="toMenu();setTimeout(function(){' + nextUp.go.replace(/"/g, "&quot;") + '},0)">Next: ' + esc(nextUp.name) + ' ›</button>'
+      : '<button class="bigbtn ghost" onclick="toMenu()">Today’s three: done ›</button>') +
+    '<button class="b4btn quiet" onclick="toMenu()">Back</button>';
   if(won){
     try{
       const cv = document.getElementById("dsscarf");
@@ -27967,7 +28086,7 @@ function themeArt(){
       let el = b.querySelector(":scope > .th-art");
       if(!t || (!THEME_ART[t] && t !== "club")){ if(el) el.remove(); return; }
       /* the home art (logo props: stamp, plaque, cup) only in the band behind the wordmark */
-      const home = !!(b.parentElement && b.parentElement.querySelector(".mdp-slot"));
+      const home = !!(b.parentElement && b.parentElement.querySelector(".mdp-slot")) && !b.parentElement.classList.contains("home-daily");   /* the day's home has a low band */
       const key = (t === "club" ? themeEquipped() : t) + (home ? ":h" : ":s");
       if(el && el.dataset.k === key) return;
       if(!el){ el = document.createElement("div"); el.className = "th-art"; el.setAttribute("aria-hidden", "true"); b.appendChild(el); }
@@ -32158,6 +32277,7 @@ function gtpGuess(idx){
     }
   }
   gtpSave(s);
+  if(s.done){ try{ threeStreak(); }catch(e){} }   // today's three
   return { ok: true, won, done: s.done };
 }
 /* XP like the Daily: playing, a win, the streak bonus capped the same way.
@@ -32575,6 +32695,7 @@ function listsEnd(how){
     }
   }
   listsSave(s);
+  if(g.daily){ try{ threeStreak(); }catch(e){} }   // today's three
   g.result.xp = progLists({ kind: g.kind, medal, daily: g.daily, streak, golds: s.golds });
   g.result.streak = streak;
   try{ if(LISTS_TIMER){ clearInterval(LISTS_TIMER); LISTS_TIMER = null; } }catch(e){}
@@ -35990,6 +36111,246 @@ function b6IsNew(k, now){
   let since = t; try{ since = progLoad().since || t; }catch(e){}
   return since < added && t < added + 30 * 864e5;
 }
+/* ---------- TODAY'S THREE AND THE HOMES (house style v2, phase 2) ----------
+   _plans/look-and-feel.md §4.1, boards I, G and H of the canvas "BALL 4 front page options". The home is one of:
+   "first"  a new phone, until a daily is finished or anything else is played (board I): one gold way in, no tabs;
+   "daily"  the normal day (G): the scarf streak, today's three, Call It, Matchday, more games;
+   "done"   today's three finished (H): the grade word, the share grid, the scarf, tomorrow's countdown.
+   The fourth, a Call It match being played (J), waits for Call It's live round (call-it.md, stage 5).
+   Today's three: Daily Ball, Guess the player and today's Top 10. ?home=0 on a phone is the home as it was. */
+let HOME_V2 = true;
+try{ if(new URLSearchParams(location.search).get("home") === "0") HOME_V2 = false; }catch(e){}
+const THREE_KEY = "ball4-three", THREE_MILES = [7, 30, 100, 365];
+/* the grade word (plan §7, Martijn 31 Oct), best first, from the three results' average, with its one line */
+const THREE_GRADES = [[.85, "Worldie", "Unplayable."], [.7, "Top bins", "Sharp all over."], [.55, "Clinical", "Job done."],
+  [.4, "Tidy", "Solid enough."], [.25, "Scrappy", "Ugly, but it counts."], [0, "Consolation", "Not your day."]];
+const T3_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], T3_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const t3Date = d => T3_DAYS[d.getDay()] + " " + d.getDate() + " " + T3_MONTHS[d.getMonth()];
+/* what each of today's three says about today: done, a word on it, a score from 0 to 1 for the grade */
+function threeToday(){
+  const day = dayKey(), m = mine(), sh = m.shoot && m.shoot.date === day ? m.shoot : null;
+  const g = gtpState(), L = listsState(), top = (L.daily && L.daily.top10) || null;
+  const R = sh && sh.done ? (() => { try{ return dsRows(sh); }catch(e){ return null; } })() : null;
+  const kicks = sh ? Math.min(5, (sh.kicks || []).length) : 0, goals = sh ? (sh.kicks || []).slice(0, 5).filter(k => k && k.goal).length : 0;
+  const found = top && top.done ? (top.found || []).length : 0;
+  const rows = [
+    { k: "daily", name: "Daily Ball", done: !!(sh && sh.done), go: "dailyStart()", R,   /* straight in, no explainer (plan §4.3) */
+      note: sh && sh.done ? (sh.result === "won" ? "Won " : "Lost ") + (R ? R.my + "–" + R.their : "") : sh ? (kicks < 5 ? "Kick " + (kicks + 1) + " of 5" : "Sudden death") : "A shootout, five kicks",
+      score: sh && sh.done ? goals / 5 : 0 },
+    { k: "gtp", name: "Guess the player", done: !!g.done, go: "openGtp()", g,
+      note: g.done ? (g.won ? "Found in " + g.guesses.length : "Not this time") : g.guesses.length ? g.guesses.length + " of 6 guesses" : "One footballer, six guesses",
+      score: g.done && g.won ? (7 - g.guesses.length) / 6 : 0 },
+    { k: "list", name: "Today’s list · Top 10", done: !!(top && top.done), go: "listsToday()", found,
+      note: top && top.done ? found + "/10" : "About two minutes", score: Math.min(1, found / 10) } ];
+  const done = rows.filter(r => r.done).length;
+  return { day, rows, done, all: done === 3 };
+}
+function threeLoad(){ try{ return JSON.parse(localStorage.getItem(THREE_KEY) || "null"); }catch(e){ return null; } }
+/* THE STREAK: a day counts once all three are finished, won or lost. It starts from the Daily Ball streak a
+   player already had, so nobody's run falls to nothing the day this ships. Run on the way home and as each daily
+   ends, so a day finished and closed before midnight still counts */
+function threeStreak(){
+  const yd = new Date(); yd.setDate(yd.getDate() - 1);
+  const today = dayKey(), yday = dayKey(yd);
+  let t = threeLoad();
+  if(!t || typeof t !== "object"){
+    const st = mine().streak || {};
+    t = st.played > 0 && (st.last === today || st.last === yday)
+      ? { streak: st.last === today ? st.played - 1 : st.played, last: st.last === today ? yday : st.last, best: st.played }
+      : { streak: 0, last: null, best: 0 };
+  }
+  if(threeToday().all && t.last !== today){ t.streak = (t.last === yday ? (t.streak | 0) : 0) + 1; t.last = today; t.best = Math.max(t.best | 0, t.streak); }
+  try{ localStorage.setItem(THREE_KEY, JSON.stringify(t)); }catch(e){}
+  const n = t.last === today || t.last === yday ? (t.streak | 0) : 0, next = THREE_MILES.find(x => x > n) || null;
+  return { n, best: t.best | 0, today: t.last === today, next, toGo: next ? next - n : 0 };
+}
+/* which home: a new phone has played nothing at all */
+function b6HomeState(){
+  const T = threeToday();
+  if(T.all) return "done";
+  let any = T.done > 0;
+  try{ const p = progLoad(), t = threeLoad(); any = any || p.xp > 0 || p.matches > 0 || !!(t && t.best > 0) || ((mine().streak || {}).played | 0) > 0 || gtpState().played > 0 || ((listsState().streak || {}).played | 0) > 0; }catch(e){}
+  return any ? "daily" : "first";
+}
+/* the scarf knits in your club's colours, BALL's green and cream until you have one */
+function threeScarfCols(){ try{ if(!fycTrial()){ const c = clubMine().colours; if(c && c[0] && c[1]) return [c[0], c[1]]; } }catch(e){} return ["#1f5a36", "#f3ead2"]; }
+/* THE SCARF (plan §6, drawn still here; the knitting moment is phase 4): a band a day, gold at 7, 30, 100 and 365;
+   today's band dashed until it is knitted, then the next milestone's, numbered */
+function threeScarfSVG(n, o){
+  o = o || {};
+  const [c1, c2] = threeScarfCols(), bw = 26, x0 = 10, shown = Math.min(n, 12), from = n - shown;
+  let s = '<svg class="t3scarf" viewBox="0 0 354 44" role="img" aria-label="' + (n ? "Your scarf, " + n + (n === 1 ? " row" : " rows") + " long" : "Your scarf, still to start") + '">' +
+    '<defs><pattern id="t3knit" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 1L3 5L6 1" stroke="rgba(0,0,0,.2)" fill="none" stroke-width="1"/></pattern></defs>' +
+    '<path class="t3fr" d="M4 8v-6M4 22v-6M4 36v-6M4 42v-4"/>';
+  for(let i = 0; i < shown; i++){ const d = from + i + 1; s += '<rect x="' + (x0 + i * bw) + '" y="4" width="' + bw + '" height="36" fill="' + (THREE_MILES.includes(d) ? "#e9b84c" : d % 2 ? c1 : c2) + '"/>'; }
+  if(shown) s += '<rect x="' + x0 + '" y="4" width="' + shown * bw + '" height="36" fill="url(#t3knit)"/>';
+  if(o.hi && shown) s += '<rect class="t3hi" x="' + (x0 + (shown - 1) * bw - 1) + '" y="1" width="' + (bw + 2) + '" height="42"/>';
+  let x = x0 + shown * bw, d = n + 1;
+  if(!o.today){ s += '<rect class="t3slot" x="' + (x + 1) + '" y="5" width="' + (bw - 1) + '" height="34"/>'; x += bw; d++; }
+  const next = THREE_MILES.find(m => m >= d);
+  if(next && x + (next - d + 1) * bw <= 352){
+    x += (next - d) * bw;
+    s += '<rect class="t3gold" x="' + (x + 1) + '" y="5" width="' + (bw - 1) + '" height="34"/><text class="t3gn" x="' + (x + bw / 2 + .5) + '" y="27" text-anchor="middle">' + next + '</text>';
+    x += bw;
+  }
+  if(x < 340) s += '<rect class="t3rest" x="' + (x + 1) + '" y="5" width="' + (350 - x) + '" height="34"/>';
+  return s + '</svg>';
+}
+function threeStreakCard(S3, o){
+  o = o || {};
+  const right = !S3.n ? "Finish today’s three to start your scarf" : S3.next ? (S3.toGo === 1 ? (S3.today ? "Gold stripe tomorrow" : "Gold stripe today") : S3.toGo + " more to the gold stripe") : "Tassels on";
+  return '<div class="t3card t3streak"><div class="t3sh"><span class="t3big">' + S3.n + '</span><span class="kick">day streak</span><span class="t3right">' + esc(right) + '</span></div>' +
+    threeScarfSVG(S3.n, { today: S3.today, hi: o.hi }) + '</div>';
+}
+const threeRing = n => '<svg class="t3ring" width="52" height="52" viewBox="0 0 52 52" role="img" aria-label="' + n + ' of 3 done"><circle cx="26" cy="26" r="21" fill="none" stroke-width="6" class="t3rb"/>' +
+  (n ? '<circle cx="26" cy="26" r="21" fill="none" stroke-width="6" stroke-linecap="round" class="t3ra" stroke-dasharray="' + (n * 44) + ' 132" transform="rotate(-90 26 26)"/>' : "") +
+  '<text x="26" y="31" text-anchor="middle" class="t3rt">' + n + '/3</text></svg>';
+/* TODAY'S THREE, the dark card: the ring, a row each, the next one with the gold Play */
+function threeCard(T){
+  const next = T.rows.find(r => !r.done);
+  const line = ["Three short ones, about a minute each.", "One done. Keep the scarf growing.", "Two down. One more for today’s row."][T.done] || "";
+  return '<div class="b4card dark t3three"><div class="t3th"><div><div class="t3h">Today’s three</div><div class="t3lora">' + line + '</div></div>' + threeRing(T.done) + '</div>' +
+    T.rows.map(r => '<button class="t3row' + (r.done ? " done" : r === next ? " next" : "") + '" onclick="' + r.go + '">' +
+      '<span class="t3ic" aria-hidden="true">' + (r.done ? ico("check") : r === next ? ico("play") : "") + '</span><span class="t3nm">' + esc(r.name) + '</span>' +
+      (r === next ? '<span class="t3go">Play</span>' : '<span class="t3n">' + esc(r.note) + '</span>') + '</button>').join("") +
+    '<div class="t3foot">New three in <span id="b6cd">' + b6Countdown() + '</span></div></div>';
+}
+/* the Call It line, from what Call It last knew (pl.js keeps it on the phone, so the home needn't load it) */
+function b6PlStrip(){
+  try{
+    if(typeof PL_ON === "undefined" || !PL_ON) return null;
+    const s = JSON.parse(localStorage.getItem("ball4-pl-strip") || "null");
+    if(!s || Date.now() - s.at > 3 * 864e5) return null;
+    const left = Math.max(0, Math.min(s.open | 0, (s.matches | 0) - (s.called | 0))), lock = s.lock && s.lock > Date.now() ? new Date(s.lock) : null;
+    const at = lock ? T3_DAYS[lock.getDay()] + " " + String(lock.getHours()).padStart(2, "0") + ":" + String(lock.getMinutes()).padStart(2, "0") : "";
+    return { kick: "Call It · " + (s.label || "this round"), line: left && at ? left + (left === 1 ? " call" : " calls") + " left · locks " + at : left ? left + " calls left" : (s.open | 0) ? "All called" + (at ? " · first lock " + at : "") : "Round in play", left };
+  }catch(e){ return null; }
+}
+const b6PlStripHTML = P => P ? '<button class="t3card t3pl" onclick="openLeague()"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
+  '<span class="t3plm"><span class="kick">' + esc(P.kick) + '</span><b>' + esc(P.line) + '</b></span><span class="t3chev" aria-hidden="true">›</span></button>' : "";
+/* Matchday, the cream card with the dark Play, and the quick way in under it */
+const b6MatchdayCard = () => '<div class="t3card t3md"><div class="t3mdm"><div class="t3mdh">Matchday</div><div class="t3lora">Every pass is a question.</div>' +
+  '<button class="t3quick" onclick="quickMatch()">Quick match ›</button></div><button class="b4btn dark t3play" onclick="b6Play()">Play</button></div>';
+/* MORE GAMES, a shelf: a cream mini each, with your best. Two of them choose how first, in a sheet */
+function b6Shelf(){
+  const best = bestOf();
+  const hilo = (best.caps != null || best.goals != null) ? Math.max(best.caps == null ? -1 : best.caps, best.goals == null ? -1 : best.goals) : null;
+  const cups = (() => { try{ return Object.values(progLoad().trophies || {}).filter(t => t.kind === "cup").reduce((a, t) => a + (t.count || 1), 0); }catch(e){ return 0; } })();
+  const sub = (k, v, word) => b6IsNew(k) ? "New" : v != null && v !== "" && v > 0 ? word + " " + v : "Play";
+  const items = [
+    ["Higher or Lower", hilo != null && hilo >= 0 ? "Best " + hilo : "Caps and goals", "b6MoreSheet('hilo')"],
+    ["Career Path", best.career != null ? "Best " + best.career : "Name him from his clubs", "b6MoreSheet('career')"],
+    ["The Cup", cups ? "Won " + cups : "A whole World Cup", "openCup()"],
+    ["Tiki-Taka-Toe", sub("tt", ttPrefs().played, "Played"), "b6MarkSeen('tt');openTT()"],
+    ["Who is he?", sub("gw", gwPrefs().played, "Played"), "b6MarkSeen('gw');openGW()"],
+    ["Deadline Day", sub("dd", ddPrefs().played, "Played"), "b6MarkSeen('dd');openDD()"],
+    ["Letter Box", (() => { const p = lbPrefs(); return b6IsNew("lb") ? "New" : p.best ? "Best " + p.best : p.played ? "Played " + p.played : "Play"; })(), "b6MarkSeen('lb');openLB()"],
+    ["Timeline", sub("yr", yrPrefs().played, "Played"), "b6MarkSeen('yr');openYR()"] ];
+  return '<div class="b6hdr">More games</div><div class="t3shelf">' + items.map(i => '<button class="t3card t3mini" onclick="' + i[2] + '"><b>' + esc(i[0]) + '</b><small' + (i[1] === "New" ? ' class="new"' : "") + '>' + esc(i[1]) + '</small></button>').join("") + '</div>';
+}
+function b6MoreSheet(k){
+  audio();
+  const best = bestOf();
+  if(k === "hilo") return sheet('<h2>Higher or Lower</h2><p>Two internationals side by side: who has more?</p>' +
+    '<button class="b4btn gold" onclick="closeSheet();b4Explain(\'hilo\', ()=>hiloSetup(\'caps\'))">Caps' + (best.caps != null ? " · best " + best.caps : "") + '</button>' +
+    '<button class="b4btn dark" onclick="closeSheet();b4Explain(\'hilo\', ()=>hiloSetup(\'goals\'))">Goals' + (best.goals != null ? " · best " + best.goals : "") + '</button>');
+  if(k === "career") return sheet('<h2>Career Path</h2><p>Name him from his clubs, one stop at a time.</p>' +
+    '<button class="b4btn gold" onclick="closeSheet();setAnswerPref(\'mc\');b4Explain(\'career\', ()=>b4Go(\'career\',\'board\'))">Pick from four</button>' +
+    '<button class="b4btn dark" onclick="closeSheet();careerPartySheet()">Say it, with friends</button>');
+}
+/* the grade word: the three results' average, each scored 0 to 1 (goals of five, guesses left, names of ten) */
+function threeGrade(T){
+  const avg = T.rows.reduce((a, r) => a + r.score, 0) / 3;
+  const g = THREE_GRADES.find(x => avg >= x[0]) || THREE_GRADES[THREE_GRADES.length - 1];
+  return { word: g[1], line: g[2], avg };
+}
+/* THE SHARE GRID: no spoilers, just how it went (a goal, a Panenka, a miss; the guesses; the names found) */
+function threeGridHTML(T){
+  const [ds, gp, li] = T.rows, sq = c => '<span class="t3sq ' + c + '"></span>';
+  const kicks = ds.R ? ds.R.me5.map(m => sq(m === "\u{1F3AF}" ? "ex" : m === "–" ? "no" : m === "❌" ? "off" : "ok")).join("") : "";
+  const gs = gp.g ? [0, 1, 2, 3, 4, 5].map(i => i < gp.g.guesses.length ? sq(gp.g.won && i === gp.g.guesses.length - 1 ? "ok" : "off") : sq("no")).join("") : "";
+  return '<div class="t3grid"><span>Daily Ball</span><span class="t3sqs" role="img" aria-label="' + esc(ds.note) + '">' + kicks + '</span>' +
+    '<span>Guess the player</span><span class="t3sqs" role="img" aria-label="' + esc(gp.note) + '">' + gs + '</span>' +
+    '<span>Top 10</span><span class="t3bar"><span class="t3track"><i style="width:' + Math.round(li.score * 100) + '%"></i></span><b>' + li.found + '/10</b></span></div>';
+}
+function threeShareText(T, S3){
+  const [ds, gp, li] = T.rows;
+  const kicks = ds.R ? ds.R.me5.map(m => m === "\u{1F3AF}" ? "🟨" : m === "❌" ? "⬛" : m === "–" ? "⬜" : "🟩").join("") : "";
+  const gs = gp.g ? gp.g.guesses.map((x, i) => gp.g.won && i === gp.g.guesses.length - 1 ? "🟩" : "⬛").join("") : "";
+  return "BALL · " + t3Date(new Date()) + (S3 && S3.n ? " · streak " + S3.n : "") + "\nDaily Ball " + kicks + "\nGuess the player " + gs + "\nTop 10 " + li.found + "/10\nbeebzoo.github.io/ball";
+}
+function threeShare(){
+  audio();
+  const t = threeShareText(threeToday(), threeStreak());
+  try{ if(navigator.share) return navigator.share({ text: t }).catch(() => {}); }catch(e){}
+  try{ navigator.clipboard.writeText(t).then(() => toast("Copied. Go and gloat."), () => toast("Could not copy", true)); }catch(e){ toast("Could not copy", true); }
+}
+/* tomorrow's three, to the second, under a kicker (plan §3: the countdown) */
+function threeClock(now){
+  now = now || new Date();
+  const s = Math.max(0, Math.floor((new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1) - now) / 1000));
+  return [Math.floor(s / 3600), Math.floor(s % 3600 / 60), s % 60].map(v => String(v).padStart(2, "0")).join(":");
+}
+/* midnight is when the day's key changes, not when the clock reads 00:00:00: that is the second before it, and a
+   home drawn then is still today's "done" one, counting down from 23:59:59 to the day after */
+let t3Timer = null;
+function threeClockTick(){
+  if(t3Timer) return;
+  const day0 = dayKey();
+  try{ t3Timer = setInterval(() => { const el = document.getElementById("t3cd"); if(!el){ clearInterval(t3Timer); t3Timer = null; return; }
+    if(dayKey() !== day0){ clearInterval(t3Timer); t3Timer = null; if(!S) render(); return; }   // midnight: a new three
+    el.textContent = threeClock(); }, 1000); }catch(e){}
+}
+/* THE HOMES */
+function b6FrontFirst(saved){
+  return '<div class="t3band first"><div class="t3logo">BALL</div><span class="t3fb" aria-hidden="true">' + ballSVG("") + '</span>' +
+      '<div class="t3hl">Football,<br>played<br>like a match</div></div>' +
+    (saved ? b6ContinueHTML(saved) : "") +
+    '<div class="t3lora big">Three short puzzles a day, the same for everyone. Then a match whenever you fancy one.</div>' +
+    '<button class="b6cta" onclick="dailyStart()">Start today’s three</button>' +
+    '<div class="t3meta"><span>About 60 seconds</span><span>Day 1 of your streak</span></div>' +
+    '<button class="b4btn dark" onclick="quickMatch()">Or a quick match</button>' +
+    '<div class="t3safe">' + ico("shield") + 'No account needed. Saved on this phone.</div>';
+}
+function b6FrontDaily(saved){
+  const T = threeToday(), S3 = threeStreak(), P = b6PlStrip();
+  const installHidden = (() => { try{ return localStorage.getItem("ball4-install-hide") === "1"; }catch(e){ return false; } })();
+  b6CountdownTick();
+  return '<div class="t3band"><div class="t3logo">BALL</div><div class="kick t3date">' + t3Date(new Date()) + '</div></div>' +
+    threeStreakCard(S3) + (saved ? b6ContinueHTML(saved) : "") + threeCard(T) + b6PlStripHTML(P) + b6MatchdayCard() + b6Shelf() +
+    (isStandalone() || installHidden ? "" : '<div class="b6inst"><button class="b6instgo" onclick="installApp()">Add BALL to your home screen</button><button class="b6instx" onclick="b6InstallHide()" aria-label="Hide this">×</button></div>');
+}
+function b6FrontDone(saved){
+  const T = threeToday(), S3 = threeStreak(), G = threeGrade(T), P = b6PlStrip();
+  threeClockTick();
+  return '<div class="t3band done"><div class="kick">Today’s three · done</div><div class="t3grade" style="--n:' + G.word.length + '">' + esc(G.word) + '</div>' +
+      '<div class="t3lora">' + esc(G.line) + ' The scarf grows a row.</div></div>' +
+    '<div class="t3card t3share"><div class="t3sharehd"><span class="t3h2">BALL · ' + t3Date(new Date()) + '</span><span class="kick">Streak ' + S3.n + '</span></div>' +
+      threeGridHTML(T) + '<button class="b6cta" onclick="threeShare()">Share the grid</button><div class="t3note">No spoilers in the grid.</div></div>' +
+    threeStreakCard(S3, { hi: true }) + (saved ? b6ContinueHTML(saved) : "") +
+    '<div class="t3next"><div class="kick">Next three in</div><div class="t3cd" id="t3cd">' + threeClock() + '</div></div>' +
+    '<div class="t3pills"><button class="b4btn dark" onclick="b6Play()">Matchday</button>' +
+      (P ? '<button class="b4btn dark" onclick="openLeague()">Call It' + (P.left ? " · " + P.left + " left" : "") + '</button>' : '<button class="b4btn dark" onclick="quickMatch()">Quick match</button>') + '</div>' +
+    b6Shelf();
+}
+/* THE QUICK MATCH (plan §4.2): Easy against the computer as your country, no toss, tackles or bench, straight
+   onto the pitch: the first match's own set-up, any time */
+function quickMatch(){
+  audio();
+  const pool = firstPool();
+  if(!pool) return b4Pick("how");
+  needPool(pool); needPool(QUIZZES.classic.pool);
+  if(!TEAMS[pool] || !modeReady("classic", "pitch", true, "own")){
+    const tries = (quickMatch._tries = (quickMatch._tries || 0) + 1);
+    if(tries > 12){ quickMatch._tries = 0; return b4Pick("how"); }
+    if(tries === 1) toast("Setting up your match…");
+    return setTimeout(quickMatch, 400);
+  }
+  quickMatch._tries = 0;
+  tlmEvent("game_open", { g: "quick_match" });
+  firstMatch(pool);
+}
+/* the home as it was before phase 2 (?home=0) */
 function b6Front(saved){
   const best = bestOf(), m = mine(), dst = m.streak || {played: 0};
   const today = dayKey(new Date());
@@ -36091,12 +36452,13 @@ function b6Countdown(now){
 let b6CdTimer = null;
 function b6CountdownTick(){
   if(b6CdTimer) return;
+  const day0 = dayKey();   // the countdown rounds up, so it never reads "0h 00m": midnight is the day's key changing
   try{
     b6CdTimer = setInterval(() => {
       const el = document.getElementById("b6cd");
       if(!el){ clearInterval(b6CdTimer); b6CdTimer = null; return; }
+      if(dayKey() !== day0){ clearInterval(b6CdTimer); b6CdTimer = null; if(!S) render(); return; }   // midnight: a new Daily
       el.textContent = b6Countdown();
-      if(el.textContent === "0h 00m" && !S) render();   // midnight: a new Daily
     }, 60000);
   }catch(e){}
 }
@@ -36138,18 +36500,21 @@ function renderSetup(st){
   const saved = (()=>{ try{ const s=JSON.parse(localStorage.getItem(SAVE_KEY)); return s && s.phase!=="setup" && s.phase!=="results" && s.play!=="daily" ? s : null; }catch(e){ return null; }})();
   if(typeof document !== "undefined" && document.body && document.body.classList) document.body.classList.add("b6paper");
   const stepping = !!b4Step;
-  const body = stepping ? b6Steps() : b6Front(saved);
-  const chips = stepping ? "" : b6Chips();
-  b6Tabs(stepping ? null : "play");
+  /* house style v2, phase 2: which home (first open, the day, done), each with its own band */
+  const home = !stepping && HOME_V2 ? b6HomeState() : null;
+  const body = stepping ? b6Steps() : home === "first" ? b6FrontFirst(saved) : home === "done" ? b6FrontDone(saved) : home ? b6FrontDaily(saved) : b6Front(saved);
+  const chips = stepping || home ? "" : b6Chips();
+  /* a new phone's first screen has one way in and nothing else (board I), so no tabs */
+  b6Tabs(stepping || home === "first" ? null : "play");
   /* THE LOGO IS DRAWN ONCE AND LEFT ALONE: re-inserting it restarts its
      animation, so a redraw only rewrites what is under it */
   const root = st.querySelector && st.querySelector(".b6");
   /* only the front page's own root: a game page (b4Page) is a .b6 with a
      .b6body too, and reusing it came home without the logo */
   const kept = root && root.querySelector(".mdp-slot") && root.querySelector(".b6body");
-  if(kept){ root.className = "b6" + (stepping ? " step" : "") + (chips ? " chipped" : ""); const cw = root.querySelector(".b6chipsw"); if(cw) cw.innerHTML = chips; kept.innerHTML = body; return; }
+  if(kept){ root.className = "b6" + (stepping ? " step" : "") + (home ? " home-" + home : "") + (chips ? " chipped" : ""); const cw = root.querySelector(".b6chipsw"); if(cw) cw.innerHTML = chips; kept.innerHTML = body; return; }
   st.innerHTML = `
-    <div class="b6${stepping ? " step" : ""}${chips ? " chipped" : ""}">
+    <div class="b6${stepping ? " step" : ""}${home ? " home-" + home : ""}${chips ? " chipped" : ""}">
       <div class="b6band"></div>
       <div class="b6chipsw">${chips}</div>
       <h1 class="mdp-slot" onclick="goHome()" title="Back to the start" aria-label="BALL, football quiz">${matchdayPro({intro: !b4IntroDone})}</h1>

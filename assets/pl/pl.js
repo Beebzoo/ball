@@ -69,12 +69,13 @@ function clInk(c){
 const clReduced = () => { try{ return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); }catch(e){ return false; } };
 /* the card's matches that count (a match moved out of the card's days doesn't) */
 const clF = id => ((CL.card[id] && CL.card[id].fixtures) || []).filter(f => f.in !== false);
-/* how long until ms: [the number, what it counts] */
+/* how long until ms: [the figure, its label]. "3h 05m", never "3:05 hrs left", which reads as a time of day
+   (_plans/look-and-feel.md §3, the countdown: a kicker label over a 900i tabular figure) */
 function clLeft(ms){
   const s = Math.max(0, Math.floor((ms - clNow()) / 1000));
-  if(s >= 48 * 3600) return [String(Math.floor(s / 86400)), "days left"];
-  if(s >= 3600) return [Math.floor(s / 3600) + ":" + clPad(Math.floor(s % 3600 / 60)), "hrs left"];
-  return [String(Math.max(1, Math.ceil(s / 60))), "min left"];
+  if(s >= 48 * 3600) return [Math.floor(s / 86400) + " days", "Kick-off in"];
+  if(s >= 3600) return [Math.floor(s / 3600) + "h " + clPad(Math.floor(s % 3600 / 60)) + "m", "Kick-off in"];
+  return [Math.max(1, Math.ceil(s / 60)) + " min", "Kick-off in"];
 }
 
 async function clRpc(fn, args){
@@ -363,7 +364,7 @@ function clNextCard(){
     '<div class="cl-top"><div><span class="cl-kick">' + clE(t.label) + ' · ' + clE(t.series_name) + '</span>' +
     '<h2>' + (open ? (all ? "All called" : "Call it") : "Locked") + '</h2>' +
     '<p class="cl-when">' + (first ? (all ? "See you at " : "First kick-off ") + clDay(first) : "Every match has kicked off") + '</p></div>' +
-    (left && open ? '<div class="cl-cd"><b data-cl-until="' + first + '">' + left[0] + '</b><small>' + left[1] + '</small></div>' : "") + '</div>' +
+    (left && open ? '<div class="cl-cd"><small>' + left[1] + '</small><b data-cl-until="' + first + '">' + left[0] + '</b></div>' : "") + '</div>' +
     pips + '<div class="cl-prog"><span><b>' + called + ' of ' + n + '</b> called</span>' +
     (armF ? '<span>Armband on ' + clE(clTeam(armF.home).name) + ' – ' + clE(clTeam(armF.away).name) + '</span>' : "") + '</div>' +
     (mine.wait ? '<p class="cl-wait">Not sent yet: ' + mine.wait + ' change' + (mine.wait === 1 ? "" : "s") + '. They go as soon as BALL reaches the server.</p>' : "") +

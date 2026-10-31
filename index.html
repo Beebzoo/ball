@@ -451,12 +451,12 @@
     --th-band-wash: linear-gradient(180deg,rgba(5,20,10,.45),rgba(5,20,10,.15) 45%,rgba(5,20,10,.35));
     --th-band-art: none;
     --th-band-ink: #F8F1DD;
-    --th-page: #e9dcbd;
-    --th-page-art: radial-gradient(120% 70% at 50% 0%, rgba(255,250,236,.85), rgba(255,250,236,0) 60%),
-      radial-gradient(90% 60% at 50% 110%, rgba(150,120,70,.18), rgba(150,120,70,0) 70%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E"),
-      linear-gradient(180deg,#f3e9d2,#e9dcbd);
-    --th-ink: #123D24; --th-dim: #5b6b56;
+    /* the paper of the canvas boards (house style v2): #efe4c8 with its fine grain, under the light from the top.
+       Its grey, --th-dim, reads 4.65:1 on it; the old #e9dcbd with a dark vignette at the bottom left the grey
+       at 4.19:1, under AA, which is why the paper and the grey changed together (_plans/look-and-feel.md §14) */
+    --th-page: #efe4c8;
+    --th-page-art: radial-gradient(120% 70% at 50% 0%, rgba(255,250,236,.85), rgba(255,250,236,0) 60%), var(--th-page-grain);
+    --th-ink: #123D24; --th-dim: #4f6b56;
     --th-card: linear-gradient(180deg,#14422A,#0b2416); --th-card-ink: #F8F1DD; --th-card-dim: #8FB79E;
     --th-edge: #fff; --th-lift: 0 5px 0 rgba(0,0,0,.12),0 12px 24px rgba(18,61,36,.22);
     --th-hero: linear-gradient(115deg,#0b2416 0 46%,#123D24 46.2% 100%);
@@ -467,8 +467,52 @@
     --th-logo: #F8F1DD;
     --th-tab: linear-gradient(180deg,#14422A,#0b2416); --th-tab-ink: rgba(248,241,221,.72); --th-tab-on: #f3cd6b; --th-tab-edge: #fff;
     --th-round: 1; --th-hf: 'Barlow Semi Condensed';
-    --th-row-dim: #5b6b56; --th-edge-style: solid; --th-pill-r: 999px;
+    --th-row-dim: #4f6b56; --th-edge-style: solid; --th-pill-r: 999px;
     --th-wall: #e6d9b8; --th-shelf: linear-gradient(180deg,#0f3220,#081a10); --th-wait: #3d4a38;
+  }
+  /* HOUSE STYLE V2 (_plans/look-and-feel.md §2; values from row 3 of the canvas
+     "BALL 4 front page options", https://claude.ai/artifact/5rhZ8CWycgQaT6wMxbMSGr).
+     The tokens the next phases build with: defined here, used by nothing yet, so
+     nothing looks different. The two --th-* ones get a value in every theme from
+     the :where() rule under the themes. The rest are the same in every theme on
+     purpose: a result, a live match, the type, the spacing and the motion read
+     the same whatever you wear (as the red already does, themes.md §3).
+     _tests/look-tokens-test.js keeps them, and checks each chip's contrast. */
+  :root{
+    /* the cream card (a supporting block; the main one is the dark --th-card) and the paper's fine grain */
+    --th-card-2: #F8F1DD;
+    --th-page-grain: radial-gradient(rgba(120,90,40,.07) 1px,transparent 1.2px) 0 0/5px 5px;
+    /* a result: your call next to a final or a live score, in a chip of the colour with its ink. The three
+       differ in lightness, not only in colour (plan §10), so off is board J's chip, a step lighter than the
+       gold; board H's share-grid square (no text on it) is --res-off-mark */
+    --res-exact: #d6a53a; --res-exact-ink: #1a1405;
+    --res-right: #2c7a48; --res-right-ink: #ffffff;
+    --res-off: #e6dcc2; --res-off-ink: #10301e; --res-off-mark: #c9bd9c;
+    --res-off-dark: rgba(255,255,255,.12); --res-off-dark-ink: #cfdcd2;   /* off, on a dark card */
+    /* red is for live and errors, nothing else */
+    --live: #c8322b; --live-ink: #ffffff;
+    /* the type scale (the faces stay --ui, --serif and the theme's --th-hf) */
+    --fs-grade: 76px; --fs-title: 30px; --fs-section: 20px; --fs-hero: 40px; --fs-hero-xl: 110px;
+    --fs-body: 15px; --fs-meta: 12.5px; --fs-kicker: 11px; --ls-kicker: 2.2px; --fs-human: 15px;
+    /* space: a 4-point scale, 16 at the sides of a screen */
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --gutter: 16px;
+    /* corners, as lengths: use them as calc(var(--r-row) * var(--th-round)), the way the themes square them off */
+    --r-chip: 6px; --r-row: 10px; --r-card-2: 16px; --r-card: 18px;
+    /* depth, two levels and no others. Not "--lift": a pass already uses that name for its arc (the h2 pass) */
+    --depth-lift: 0 3px 0 rgba(16,48,30,.12); --depth-lift-dark: 0 3px 0 rgba(16,48,30,.18);
+    --depth-stage: 0 10px 24px rgba(0,0,0,.45);
+    /* motion: in and responding --ease-out, a right answer --ease-pop, a real celebration --ease-celebrate;
+       exits take --dur-exit-k of the time; --motion is the one switch for how far things move */
+    --dur-press: 120ms; --dur-pop: 180ms; --dur-sheet: 320ms; --dur-screen: 360ms; --dur-exit-k: .7;
+    --ease-out: cubic-bezier(.23,1,.32,1);
+    --ease-pop: cubic-bezier(.34,1.32,.64,1);
+    --ease-celebrate: linear(0, .5 15%, 1.08 35%, .98 55%, 1.01 75%, 1);
+    --stagger: 40ms; --motion: 1;
+  }
+  /* reduced motion, once for everything that uses the tokens: short fades, nothing travels */
+  @media (prefers-reduced-motion: reduce){
+    :root{ --dur-pop: 120ms; --dur-sheet: 160ms; --dur-screen: 160ms; --stagger: 0ms; --motion: 0;
+      --ease-pop: cubic-bezier(.23,1,.32,1); --ease-celebrate: cubic-bezier(.23,1,.32,1); }
   }
   /* THE THEMES: one token set per board of the canvas "BALL 4 Themes"
      (https://claude.ai/artifact/JTqra1kaLBGQdsmCfeA7vA), values copied from
@@ -483,6 +527,10 @@
   body[data-theme="hof"],.thpv[data-theme="hof"]{--th-band:radial-gradient(60% 70% at 50% 0%,rgba(255,235,180,.22),transparent 70%),repeating-linear-gradient(130deg,transparent 0 40px,rgba(255,255,255,.07) 40px 41px,transparent 41px 95px),repeating-linear-gradient(40deg,transparent 0 70px,rgba(255,255,255,.04) 70px 71px,transparent 71px 150px),linear-gradient(120deg,#0d0d0d,#1d1c19 45%,#0b0b0b);--th-band-ink:#f3cd6b;--th-page:#0f0e0c;--th-page-art:radial-gradient(80% 40% at 50% 0%,rgba(255,235,180,.09),transparent 70%),repeating-linear-gradient(128deg,transparent 0 60px,rgba(243,205,107,.05) 60px 61px,transparent 61px 140px),repeating-linear-gradient(52deg,transparent 0 90px,rgba(255,255,255,.03) 90px 91px,transparent 91px 170px);--th-ink:#f6ecd2;--th-dim:#bba97c;--th-card:linear-gradient(180deg,#1b1915,#0c0b09);--th-card-ink:#f6ecd2;--th-card-dim:#c9b98f;--th-edge:#e2b75a;--th-lift:inset 0 0 0 4px rgba(226,183,90,.16),0 12px 26px rgba(0,0,0,.6);--th-hero:linear-gradient(180deg,#1b1915,#0c0b09);--th-row:#14130f;--th-row-ink:#f6ecd2;--th-row-dim:#bba97c;--th-pill:linear-gradient(180deg,#fbe6a2,#c99a2e);--th-acc-hi:#fbe6a2;--th-acc1:#fbe6a2;--th-acc:#fbe6a2;--th-acc2:#c99a2e;--th-acc-ink:#1d1503;--th-acc-sh:#6b4c05;--th-ctx-ink:#1d1503;--th-logo:#f3cd6b;--th-logo-shadow:.035em .035em 0 #c99a2e,.07em .07em 0 rgba(0,0,0,.35);--th-tab:#090807;--th-tab-ink:#bba97c;--th-tab-on:#f3cd6b;--th-tab-edge:#c99a2e;--th-round:0.333;--th-pill-r:999px;--th-hf:'Barlow Semi Condensed'}
   body[data-theme="bit16"],.thpv[data-theme="bit16"]{--th-band:linear-gradient(45deg,rgba(0,0,0,.07) 25%,transparent 25% 75%,rgba(0,0,0,.07) 75%) 0 0/8px 8px,repeating-linear-gradient(90deg,#3fa34d 0 40px,#36924a 40px 80px);--th-band-ink:#ffffff;--th-page:#1b1b2f;--th-page-art:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/8px 8px,linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px) 0 0/8px 8px;--th-ink:#ffffff;--th-dim:#b6b9e0;--th-card:#2b2b55;--th-card-ink:#ffffff;--th-card-dim:#cdd0f2;--th-edge:#ffffff;--th-lift:6px 6px 0 #0b0b18;--th-hero:#2b2b55;--th-row:#232347;--th-row-ink:#ffffff;--th-row-dim:#bfc3ea;--th-pill:linear-gradient(180deg,#ffd23f,#ffb300);--th-acc-hi:#ffd23f;--th-acc1:#ffd23f;--th-acc:#ffd23f;--th-acc2:#ffb300;--th-acc-ink:#1b1b2f;--th-acc-sh:#a35d00;--th-ctx-ink:#1b1b2f;--th-logo:#ffffff;--th-logo-shadow:.035em .035em 0 #ffb300,.07em .07em 0 rgba(0,0,0,.35);--th-tab:#0f0f22;--th-tab-ink:#b6b9e0;--th-tab-on:#ffd23f;--th-tab-edge:#ffd23f;--th-round:0;--th-pill-r:0px;--th-hf:'Silkscreen'}
   body[data-theme]{--th-wall:var(--th-row);--th-shelf:var(--th-card);--th-wait:var(--th-row-dim)}
+  /* house style v2 in every theme (Your Club too): the cream card is the theme's own light row, and the
+     paper keeps its own texture. Declared on the themed element, so var() reads that theme's values; no
+     specificity, so a theme can still set its own */
+  :where(body[data-theme],.thpv[data-theme]){--th-card-2:var(--th-row);--th-page-grain:none}
   /* a theme dresses the wordmark too (Classic keeps its gold block) */
   body[data-theme] .mdp .word,body[data-theme] .mdp .word .ch{text-shadow:var(--th-logo-shadow)!important}
   body[data-theme] .mdp .tagbar{background:var(--th-acc);color:var(--th-acc-ink)}
@@ -717,8 +765,8 @@
   .dsans.told .dsa.mine{opacity:1;border-color:#e9b84c;box-shadow:0 0 0 2px #e9b84c}
   .dsans.told .dsa.right{animation:dsRight .3s ease var(--rv,2.4s) forwards}
   .dsans.told .dsa.wrong{animation:dsWrong .3s ease var(--rv,2.4s) forwards}
-  @keyframes dsRight{to{opacity:1;background:#1f7a3a;border-color:#7ee2a0;color:#fff}}
-  @keyframes dsWrong{to{opacity:1;background:#8e1f1f;border-color:#f19c9c;color:#fff}}
+  @keyframes dsRight{to{opacity:1;background:var(--res-right);border-color:#fff;color:var(--res-right-ink)}}
+  @keyframes dsWrong{to{opacity:1;background:var(--res-off-dark);border-color:rgba(248,241,221,.55);color:var(--res-off-dark-ink)}}
   .dswait .dsboard,.dswait .dsline,.dswait .bigbtn{opacity:0;animation:dsShow .35s ease var(--rv,2.4s) forwards}
   @keyframes dsShow{to{opacity:1}}
   .dskeep{display:block;margin-top:3px;font:italic 600 11.5px/1.1 'Barlow Semi Condensed',sans-serif;opacity:.8}
@@ -4783,12 +4831,11 @@
   .h2opt .k{flex:none;width:21px;height:21px;border-radius:6px;display:grid;place-items:center;
     background:var(--board-line);color:var(--board);font:800 .74rem var(--ui)}
   .h2opt:disabled{cursor:default}
-  .h2opt.right{border-color:#3ddc91;background:rgba(61,220,145,.16);
-    box-shadow:0 0 0 1px #3ddc91 inset, 0 0 18px -6px #3ddc91}
-  .h2opt.right .k{background:#3ddc91;color:#0b2a1a;opacity:1}
-  .h2opt.wrong{border-color:#e04a34;background:rgba(224,74,52,.14);
-    box-shadow:0 0 0 1px #e04a34 inset}
-  .h2opt.wrong .k{background:#e04a34;color:#fff;opacity:1}
+  /* a calm result (house style v2): right is --res-right with a white edge, wrong is off and dashed; no glow, no red */
+  .h2opt.right{border-color:#fff;background:var(--res-right);color:var(--res-right-ink);box-shadow:none}
+  .h2opt.right .k{background:#fff;color:var(--res-right);opacity:1}
+  .h2opt.wrong{border:1px dashed rgba(248,241,221,.55);background:var(--res-off-dark);color:var(--res-off-dark-ink);box-shadow:none}
+  .h2opt.wrong .k{background:rgba(248,241,221,.25);color:var(--res-off-dark-ink);opacity:1}
   .h2opt.dim{opacity:.4}
 
   /* the scoreline */
@@ -5803,9 +5850,9 @@
   .dsrow span img{width:20px;height:14px;object-fit:cover;border-radius:2px}
   .dsrow div{flex:1;display:flex;gap:5px}
   .dsrow i{width:18px;height:18px;border-radius:50%;border:2px solid rgba(143,183,158,.45)}
-  .dsrow i.g{background:#3FA34D;border-color:#3FA34D}
-  .dsrow i.p{background:#e9b84c;border-color:#e9b84c}
-  .dsrow i.x{background:#B3412F;border-color:#B3412F}
+  .dsrow i.g{background:var(--res-right);border-color:#fff}
+  .dsrow i.p{background:var(--res-exact);border-color:var(--res-exact)}
+  .dsrow i.x{background:var(--res-off-dark);border-color:rgba(248,241,221,.35)}
   .dsrow b{font:italic 900 26px/1 'Barlow Semi Condensed',sans-serif;color:#F3CD6B}
   .dssd{font:600 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-card-dim);text-align:right}
   .dsline{text-align:center;font:600 17px/1.25 'Barlow Semi Condensed',sans-serif;color:#C8C0A6}
@@ -5813,13 +5860,13 @@
   .dsline.good{color:#F3CD6B} .dsline.bad{color:#e8a597}
   .dsbanner{align-self:center;transform:skewX(-14deg);padding:7px 18px;font:800 15px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;box-shadow:4px 4px 0 rgba(0,0,0,.35)}
   .dsbanner.win{background:#e9b84c;color:#0a1f13}
-  .dsbanner.alive{background:#B3412F;color:var(--th-card-ink)}
+  .dsbanner.alive{background:var(--th-card);color:var(--th-card-ink);box-shadow:inset 0 0 0 2px var(--th-edge),4px 4px 0 rgba(0,0,0,.35)}
   .dsq{text-align:center;font:italic 900 22px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-card-ink);letter-spacing:.03em}
   .dsqtext{text-align:center;font:700 21px/1.25 'Barlow Semi Condensed',sans-serif;color:var(--th-card-ink);display:flex;flex-direction:column;gap:6px}
   .dsqtext small{font:600 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-card-dim)}
   .dsclock{height:8px;border-radius:9px;background:rgba(0,0,0,.35);overflow:hidden}
   .dsclock i{display:block;height:100%;background:linear-gradient(90deg,#c99a2e,#f3cd6b);transition:width .1s linear}
-  .dsclock.low i{background:#B3412F}
+  .dsclock.low i{background:#F8F1DD}
   .dsgoal{position:relative;width:100%;aspect-ratio:2.15/1;margin:10px 0 34px;border:7px solid #F4EBD3;border-bottom:0;border-radius:4px 4px 0 0;
     box-shadow:0 4px 0 rgba(0,0,0,.25),inset 0 0 30px rgba(0,0,0,.35)}
   .dsgoal::after{content:"";position:absolute;left:-40px;right:-40px;bottom:-30px;height:30px;background:linear-gradient(180deg,#1d5a33,#14422A)}
@@ -6055,8 +6102,9 @@
   .bigbtn:active{transform:translateY(3px);box-shadow:0 2px 0 #7a5a10,0 6px 12px rgba(0,0,0,.25)}
   .bigbtn.ghost{background:var(--th-card);border:2px solid rgba(248,241,221,.85);color:var(--th-card-ink);
     font:italic 900 18px/1.1 'Barlow Semi Condensed','Arial Narrow',sans-serif;box-shadow:0 5px 0 rgba(0,0,0,.25)}
-  .bigbtn.ok{background:linear-gradient(180deg,#5FBE86,#2f8f57);color:#0a1f13;box-shadow:0 5px 0 #1d5a36}
-  .bigbtn.bad{background:linear-gradient(180deg,#e8705a,#b3412f);color:#fff;box-shadow:0 5px 0 #6e2219}
+  /* marking yourself right or wrong: the gold pill and the dark one (red is for live and errors) */
+  .bigbtn.ok,.bigbtn.ok.lesser{background:var(--th-pill);color:var(--th-acc-ink);border:0;box-shadow:0 5px 0 var(--th-acc-sh)}
+  .bigbtn.bad{background:var(--th-card);color:var(--th-card-ink);border:2px solid var(--th-edge);box-shadow:0 4px 0 rgba(0,0,0,.14)}
   .bigbtn kbd{display:none}
   /* the toast in the house colours: dark pitch, gold edge, cream letters */
   .toast{background:#123D24;color:var(--th-card-ink);border:2px solid #e9b84c;font:italic 900 16px/1.1 'Barlow Semi Condensed','Arial Narrow',sans-serif;
@@ -6671,10 +6719,10 @@
   .gwgot span{font:italic 900 20px/1.1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
   .gwgot small{display:block;margin-top:4px;font:italic 400 13px/1.3 'Lora',Georgia,serif;text-transform:none;color:#c9d8cd}
   .gwgot.mine{margin:0 0 12px;padding:8px 12px}.gwgot.mine b{font-size:36px;min-width:30px}.gwgot.mine span{font-size:16px}
-  .gwrival{margin:0 0 10px;padding:7px 9px 8px;border-radius:10px;background:rgba(47,111,224,.08);border:2px dashed rgba(47,111,224,.55)}
+  .gwrival{margin:0 0 10px;padding:7px 9px 8px;border-radius:10px;background:var(--th-card);border:2px var(--th-edge-style) var(--th-edge)}
   .gwrivalhd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
-  .gwrivalhd small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#2f5fb8}
-  .gwrivalhd b{font:italic 900 14px/1 'Barlow Semi Condensed',sans-serif;color:#241B08}
+  .gwrivalhd small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-card-dim)}
+  .gwrivalhd b{font:italic 900 14px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-card-ink)}
   .gwminis{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:3px;perspective:120px}
   .gwmini{display:block;height:22px;border-radius:2px;background:linear-gradient(var(--kc) 0 58%,#F8F1DD 58%);box-shadow:0 0 0 1px rgba(0,0,0,.18);transform-origin:50% 100%}
   .gwmini.down{background:#1a5233;box-shadow:0 0 0 1px rgba(255,255,255,.25);transform:rotateX(70deg)}
@@ -6996,10 +7044,10 @@
   .yrtile.hot{box-shadow:0 0 0 3px #e9b84c,0 6px 14px rgba(0,0,0,.25);animation:yrhot .5s cubic-bezier(.3,1.5,.5,1) both}
   @keyframes yrhot{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
   .yrslot{display:flex;align-items:center;justify-content:center;gap:8px;min-height:34px;padding:4px 10px;border:2px dashed rgba(18,61,36,.35);border-radius:10px;background:transparent;
-    color:#5b6b56;font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+    color:var(--th-dim);font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
   .yrrow:not(.live) .yrslot{border-style:solid;border-color:transparent;min-height:26px}
   .yrslot.on{min-height:48px;border:2px solid #fff;background:linear-gradient(180deg,#f6d57c,#c99a2e);color:#241B08;box-shadow:0 4px 0 #7a5a10}
-  .yrslot.marked{border:2px solid #2f6fe0;color:#123D24;background:rgba(47,111,224,.1)}
+  .yrslot.marked{border:2px dashed var(--th-ink);color:var(--th-ink);background:rgba(18,61,36,.06)}
   .yrslot.marked i{font-style:normal;padding:2px 6px;border-radius:4px;background:#2f6fe0;color:#fff;letter-spacing:.08em}
   .yrslot:disabled{opacity:.55;cursor:default}
   .yrslot.static{cursor:default}
@@ -7505,7 +7553,7 @@
   .b4daily .dsqtext{color:var(--th-ink)}
   .b4daily .dsqtext small{color:var(--th-dim)}
   .b4daily .dsline{color:#3d4a38}
-  .b4daily .dsline.good{color:#1d7a45}.b4daily .dsline.bad{color:#b3261e}
+  .b4daily .dsline.good{color:#1d7a45}.b4daily .dsline.bad{color:var(--th-ink)}
   .b4daily .dstitle{color:var(--th-ink)}
   .b4daily .dstreak div{background:var(--th-row);border:2px var(--th-edge-style) var(--th-edge);color:var(--th-ink)}
   .b4daily .dstreak i{color:var(--th-dim)}
@@ -7676,8 +7724,8 @@
   .dsg3{margin:6px 0 4px}
   .dsgm .h2gmc.dsg span{display:inline-block;max-width:90%;padding:7px 9px;border-radius:10px;background:rgba(6,20,12,.84);border:2px solid rgba(243,205,107,.65);
     color:var(--th-card-ink);font:700 13px/1.15 'Barlow Semi Condensed',sans-serif;text-align:center;box-shadow:0 3px 8px rgba(0,0,0,.4)}
-  .dsgm .h2gmc.dsg.right span{background:#2f8f57;border-color:#5FBE86}
-  .dsgm .h2gmc.dsg.wrong span{background:#8c2a1e;border-color:#e8705a}
+  .dsgm .h2gmc.dsg.right span{background:var(--res-right);border-color:#fff}
+  .dsgm .h2gmc.dsg.wrong span{background:#283e32;border-color:rgba(248,241,221,.55)}
   .dsgm .h2gmc.dsg.dim span{opacity:.35}
   div.h2gmc.dsg{pointer-events:none}
 
@@ -7862,13 +7910,87 @@
   /* The Cup: long country names wrap to two lines like the Matchday pick */
   .cupnat span{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.05}
   /* the sticky pick bar: solid paper under its label, so "Tap a country" never sits on a card */
-  .b6pickbar{background:linear-gradient(180deg,transparent,var(--th-page,#e9dcbd) 26px)}
+  .b6pickbar{background:linear-gradient(180deg,transparent,var(--th-page,#efe4c8) 26px)}
   /* Me as a guest: the guest line pushes the header down, so the grass grows with it */
   .meme:has(.b6body>.guestline) .b6band{height:356px!important}
   /* League and Locker: the title clear of the top edge */
   .b6.step.lgpage .b6body,.b6.step.lkpage .b6body{padding-top:calc(22px + env(safe-area-inset-top,0px))}
   .lgpage .b6band{height:248px}
   .lkpage .b6band{height:222px}
+  /* ---------- HOUSE STYLE V2, PHASE 1: THE AMATEUR SIGNALS (_plans/look-and-feel.md §8) ----------
+     Collisions and clipping found by the before picture (_proto/look-v2). Last in the sheet, like the block above. */
+  /* a game title with Leave keeps clear of both buttons on any phone and in any face (16-Bit's Silkscreen is
+     wider): it takes a second, balanced line before it touches one. The headers have room for two */
+  .b6stephead:has(.b6quit) .b6stitle{max-width:calc(100% - 140px);text-wrap:balance}
+  /* Higher or Lower: the points tag inside its locker, which clips everything that hangs over its edge */
+  .drribbon{right:8px}
+  /* a change of player (both benches) is drawn straight onto the stage, which has no sides on paper: its lines,
+     its grid and its button get the 16 px every other screen has */
+  body.b6paper #stage:has(>.h2bench)>:is(.h2big,.h2hintline,.h2bench,.bigbtn){margin-left:16px;margin-right:16px}
+  body.b6paper #stage:has(>.h2bench)>.bigbtn{width:auto}
+  /* the gold context bar never runs off the screen: a label too long for it ends in an ellipsis */
+  .b6ctx{overflow:hidden}
+  .b6ctx span{max-width:100%;overflow:hidden;text-overflow:ellipsis;vertical-align:top}
+  /* toasts are sentences ("Found Gakpo.", not "FOUND GAKPO."), and on a game screen, which has no tab bar to
+     clear, they come in at the top instead of over the main button */
+  .toast{text-transform:none;letter-spacing:0}
+  body:not(:has(#b6tabs:not([hidden]))) .toast{bottom:auto;top:calc(18px + env(safe-area-inset-top,0px))}
+  /* READABLE ON THE PAPER (4.5:1). A match screen is paper under cream text unless a rule says otherwise, and
+     these said nothing: the card that prices your pass (1.2:1), the line under the shot (1.2:1), the press line */
+  body.b4skin .h2confirm{background:var(--th-card);color:var(--th-card-ink);border:2px var(--th-edge-style) var(--th-edge);
+    box-shadow:inset 0 4px 0 var(--dc),var(--depth-lift-dark)}
+  body.b4skin .h2confirm :is(.h2mcmeta,.h2mcdid,.h2cwhy){opacity:1}
+  body.b4skin .h2confirm :is(.h2mcmeta,.h2mcdid){color:var(--th-card-dim)}
+  body.b4skin .h2confirm.contested{animation:none}
+  body.b4skin .h2confirm :is(.h2cwhy.up,.h2cwhy.spec){color:var(--th-card-dim)}
+  body.b4skin .h2confirm .h2cwhy.down{color:var(--th-acc1)}
+  body.b4skin .h2duel{color:var(--th-ink)}
+  body.b4skin .h2duel .h2grz{opacity:1;color:var(--th-dim)}
+  body.b4skin .h2heat{opacity:1;color:var(--th-dim)}
+  body.b4skin .h2heat.warm{color:var(--th-acc-sh)}
+  body.b4skin .h2heat.hot{color:var(--th-ink)}
+  body.b4skin .h2heat .h2pips i{background:rgba(18,61,36,.16);box-shadow:none}
+  body.b4skin .h2heat .h2pips i.on{background:var(--th-dim)}
+  body.b4skin .h2heat.warm .h2pips i.on{background:var(--th-acc2)}
+  body.b4skin .h2heat.hot .h2pips i.on{background:var(--th-ink)}
+  body.b4skin .h2big.tackle{color:var(--th-ink)}
+  body.b4skin .h2trman i{opacity:1}
+  /* labels that faded themselves below the line: the Daily's streaks, the Cup's odds and records, the build line */
+  .b4daily .dstreak i,.b4cup .cupodds i,.b4cup .cupcard .cupsay,.b4cup .cuprec h3{opacity:1}
+  .b6foot .buildline{color:var(--th-dim);opacity:1}
+  /* "Playing since" sits where the grass meets the paper: its own dark backing reads on either */
+  .mesince{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:999px;background:rgba(10,31,19,.62)}
+  /* ONE PALETTE (plan §2): no purple, blue, neon or kit-coloured surfaces. Right is --res-right, exact --res-exact,
+     off --res-off; red only for live and errors; gold says "do this" or "you won" */
+  /* a multiple-choice answer: the board's own sage, then a calm result (no glow, no red) */
+  .h2opt{border-color:rgba(143,183,158,.45)}
+  .h2opt .k{background:var(--th-card-dim);color:#0b2416}
+  /* (the answers' result, Daily Ball's board and banner, and Who is he?'s computer board are fixed where they are
+     defined, so their old colours are gone from the file: _tests/look-palette-test.js) */
+  /* the hand-off and the computer's half-minute: the dark card, the side's kit as a stripe along the top */
+  .h2hand{background:var(--th-card);color:var(--th-card-ink);border:2px solid var(--th-edge);
+    box-shadow:inset 0 8px 0 var(--hk,#2b6b46),var(--depth-stage)}
+  /* ONE ICON SET (plan §3): the shared ico() where ▶, ★ and the emoji were. A trailing icon needs no gap after
+     it (the words before it have theirs), and one alone in its cell sits in the middle of it */
+  :is(.b6cta,.b6pill) .ic{width:.8em;height:.8em;margin:0 0 0 .1em}
+  .b6fix .go .ic{width:22px;height:22px;margin:0}
+  .b6fix .t .ic{width:16px;height:16px;margin:0}
+  .b6fix .t.new .ic{width:18px;height:18px}
+  .melv .ic,.metitle .ic{vertical-align:-.12em;margin-right:.2em}
+  .pglad i .ic{width:14px;height:14px;margin:0}
+  /* Timeline's three lives, as pips */
+  .yrlives{display:inline-flex;gap:3px;vertical-align:middle}
+  .yrlives i{width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor;box-sizing:border-box}
+  .yrlives i.on{background:currentColor}
+  .wllives .ic{margin:0 2px 0 0}
+  /* the aim's four corners: each word a readable chip in the middle of its quarter (it was 9.5 px by the post,
+     clipped by its own quarter, and the bottom pair sat on the shooter) */
+  .h2gm.quad .h2gmc span{padding:5px 8px;border-radius:8px;background:rgba(6,20,12,.78);border:1.5px solid rgba(243,205,107,.6);
+    font-size:11.5px;letter-spacing:.04em;text-shadow:none}
+  /* the flat pitch: a man by the touchline keeps his whole name on screen */
+  .h2man.lbl-l .h2lb{left:-6px;transform:none}
+  .h2man.lbl-r .h2lb{left:auto;right:-6px;transform:none}
+  .h2pitch.tilt .h2man.lbl-l .h2lb,.h2pitch.tilt .h2man.lbl-r .h2lb{transform:rotateX(-46deg) translateZ(3px)}
 </style>
 </head>
 <body>
@@ -7896,12 +8018,15 @@
 <script>
 "use strict";
 /* ============================== QUESTION BANK ============================== */
+/* a tier's colour is the house palette, quiet to loud (sage, cream, gold, deep gold, bright gold for the BALL),
+   and the same on the pass line, its chip and the card that prices it (P3D's tierColour reads it too). Was green,
+   blue, orange, red and a purple route one: _plans/look-and-feel.md §2 */
 const TIERS = {
-  easy:   {label:"Easy",    pts:1,  color:"#0a9e5c"},
-  normal: {label:"Normal",  pts:2,  color:"#2563eb"},
-  hard:   {label:"Hard",    pts:5,  color:"#d97706"},
-  extreme:{label:"Extreme", pts:10, color:"#dc2626"},
-  ball:   {label:"BALL",    pts:20, color:"#c9932e"},
+  easy:   {label:"Easy",    pts:1,  color:"#8FB79E"},
+  normal: {label:"Normal",  pts:2,  color:"#F8F1DD"},
+  hard:   {label:"Hard",    pts:5,  color:"#e9b84c"},
+  extreme:{label:"Extreme", pts:10, color:"#c99a2e"},
+  ball:   {label:"BALL",    pts:20, color:"#f6d57c"},
 };
 /* Stadium mode pays on a ladder instead of all-or-nothing: the ground's name
    takes the lot, the city takes most of it, the country is the consolation.
@@ -10727,7 +10852,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · Call It, nine competitions";
+const BUILD = "BALL 4 · 31 Oct 2026 · house style, phase 1";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -11449,7 +11574,7 @@ function tlReveal(){
   const who=S.players[S.turn];
   if(pts>0){
     who.score+=pts;
-    if(pts>=5){ ching(); confetti(64); toast(`⚽ ${who.name} runs the timeline! +5`); }
+    if(pts>=5){ ching(); confetti(64); toast(`${who.name} runs the timeline! +5`); }
     else { popfx(); toast(`${who.name} +${pts}`); }
   } else { buzzer(); flashBad(); toast(`${who.name}: nothing in place`, true); }
   if(maybeFinish()) return;
@@ -11969,7 +12094,7 @@ window.addEventListener("beforeinstallprompt", e=>{
   e.preventDefault(); installEv=e;
   if(!S || S.phase==="setup") render();
 });
-window.addEventListener("appinstalled", ()=>{ installEv=null; toast("BALL is on your home screen ⚽"); render(); });
+window.addEventListener("appinstalled", ()=>{ installEv=null; toast("BALL is on your home screen."); render(); });
 const isStandalone = () => (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone===true;
 function installApp(){
   audio();
@@ -12297,7 +12422,7 @@ const IPATHS = {
   grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
   shirt:'<path d="M15.5 3a3.5 3.5 0 0 1-7 0L3 6.5l2.5 4 2-1.2V21h9V9.3l2 1.2 2.5-4z"/>',
   tl:'<line x1="2" y1="12" x2="22" y2="12"/><circle cx="6" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="18" cy="12" r="1.8"/>',
-  card:'<rect x="7.5" y="3.5" width="9" height="14" rx="1.5" fill="#f0c419" stroke="none" transform="rotate(8 12 10.5)"/>',
+  card:'<rect x="7.5" y="3.5" width="9" height="14" rx="1.5" fill="#f3cd6b" stroke="none" transform="rotate(8 12 10.5)"/>',
   mic:'<path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="18" x2="12" y2="22"/>',
   pencil:'<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
   route:'<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
@@ -12316,6 +12441,17 @@ const IPATHS = {
   /* the old Eredivisie mark: three bars running into a ball */
   stripes:'<line x1="2.5" y1="7" x2="12.5" y2="7"/><line x1="2.5" y1="12" x2="11" y2="12"/><line x1="2.5" y1="17" x2="12.5" y2="17"/><circle cx="17.5" cy="12" r="4.5"/>',
   trophy:'<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/>',
+  /* house style v2 (_plans/look-and-feel.md §3): the icons that replace the glyphs and emoji in the UI */
+  play:'<polygon points="7 4.5 19 12 7 19.5 7 4.5" fill="currentColor"/>',
+  check:'<polyline points="20 6 9 17 4 12"/>',
+  close:'<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+  star:'<polygon points="12 2.5 14.9 8.6 21.5 9.4 16.7 14 17.9 20.6 12 17.4 6.1 20.6 7.3 14 2.5 9.4 9.1 8.6 12 2.5" fill="currentColor"/>',
+  share:'<path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>',
+  copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+  image:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  ball:'<circle cx="12" cy="12" r="9"/><path d="M12 7.5l4 2.9-1.5 4.6h-5L8 10.4z"/>',
+  lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
 };
 const ico = n => `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IPATHS[n]}</svg>`;
 function toast(msg, bad){
@@ -12346,7 +12482,6 @@ function confetti(n){
     s.style.animationDelay=((i%6)*.045)+"s";
     s.style.animationDuration=(1.35+((i%5)*.16))+"s";
     if(i%4===0){ s.style.borderRadius="50%"; }     // some of it is round
-    if(i%9===0){ s.textContent="⚽"; s.style.background="none"; s.style.fontSize=(size+9)+"px"; }
     c.appendChild(s);
   }
   document.body.appendChild(c);
@@ -14020,9 +14155,19 @@ const h2      = () => S.h2h;
 /* A NAME AND ITS VERB. A lone player is called "You" and one computer side is
    "The Pressers", so "You picks it up" and "The Pressers's possession" came out
    of every line that put a side's name in front of a verb. */
-const nmMany = n => n === "You" || /^the [^ ]+ers$/i.test(String(n || ""));
+/* AND A SIDE IS A TEAM: a country in this match takes the plural, as "Germany kick off" always has */
+const nmMany = n => n === "You" || /^the [^ ]+ers$/i.test(String(n || "")) ||
+  !!(typeof S !== "undefined" && S && S.h2h && S.h2h.teams && S.h2h.teams.indexOf(n) > -1);
 const nmVerb = (n, one, many) => n + " " + (nmMany(n) ? many : one);
-const nmPoss = n => n === "You" ? "your" : nmMany(n) ? n + "'" : n + "'s";
+/* the possessive follows the last letter, not the count: "The Pressers'", but "Germany's" */
+const nmPoss = n => n === "You" ? "your" : /s$/i.test(String(n || "")) ? n + "'" : n + "'s";
+const nmTheir = n => n === "You" ? "your" : n === "The computer" ? "its" : nmMany(n) ? "their" : "his";
+/* THE SIDE A LINE IS ABOUT, as its subject. The computer is its country once it has one ("Italy are reading it"),
+   and "The computer" before then; never its style's name ("The Pressers says") or "You" as a third person.
+   A person is "You", or their own name. _plans/look-and-feel.md §4.2 and §7 */
+const h2Subj = w => { try{ return aiIsOn(w) ? (h2Team(w) || "The computer") : S.players[w].name; }
+  catch(e){ return (S && S.players && S.players[w] && S.players[w].name) || "The computer"; } };
+const h2SubjP = p => h2Subj(S.players.indexOf(p));
 const h2Other = () => 1 - h2().who;
 const h2X     = (i, w) => { const p = h2Spot(i, w); return w === 0 ? p.x : 100 - p.x; };
 const h2Y     = (i, w) => { const p = h2Spot(i, w); return w === 0 ? p.y : 100 - p.y; };
@@ -15419,8 +15564,8 @@ function dailyStreak(d){
     const id = albumId(DAILY_BOOK, card.side, card.m);
     if(id){
       const isNew = albumStick(id);
-      albumCheckPage(DAILY_BOOK, card.side);
-      toast(card.m.n + (isNew ? " is yours." : " again. One for swapping."));
+      albumCheckPage(DAILY_BOOK, card.side, !ALBUM_ON);
+      if(ALBUM_ON) toast(card.m.n + (isNew ? " is yours." : " again. One for swapping."));
     }
   }
 }
@@ -16051,8 +16196,8 @@ function dsStreak(sh){
     const card = sh.man ? dailyManCard(sh.man) : null;
     if(card){
       const id = albumId(DAILY_BOOK, card.side, card.m);
-      if(id){ const isNew = albumStick(id); albumCheckPage(DAILY_BOOK, card.side);
-        setTimeout(() => toast(card.m.n + (isNew ? " is yours." : " again. One for swapping.")), 1600); }
+      if(id){ const isNew = albumStick(id); albumCheckPage(DAILY_BOOK, card.side, !ALBUM_ON);
+        if(ALBUM_ON) setTimeout(() => toast(card.m.n + (isNew ? " is yours." : " again. One for swapping.")), 1600); }
     }
   }else if(st.lastWon !== sh.date) st.won = 0;
   if(trial){ fycGuestSave(g); fycGameDone("daily", { won: sh.result === "won" }); }
@@ -16119,7 +16264,7 @@ function dailyCanvas(){
       g.beginPath(); g.arc(x, y, 38, 0, Math.PI * 2);
       if(m === "–"){ g.strokeStyle = "rgba(143,183,158,.5)"; g.lineWidth = 4; g.stroke(); return; }
       const good = m !== "❌";
-      g.fillStyle = good ? (m === "\u{1F3AF}" ? "#e9b84c" : "#3FA34D") : "#B3412F"; g.fill();
+      g.fillStyle = good ? (m === "\u{1F3AF}" ? "#d6a53a" : "#2c7a48") : "rgba(255,255,255,.12)"; g.fill();   // --res-exact, --res-right, --res-off-dark
       g.strokeStyle = "#F8F1DD"; g.lineWidth = 7;
       if(good){ g.beginPath(); g.moveTo(x - 16, y); g.lineTo(x - 4, y + 13); g.lineTo(x + 18, y - 14); g.stroke(); }
       else { g.beginPath(); g.moveTo(x - 13, y - 13); g.lineTo(x + 13, y + 13); g.moveTo(x + 13, y - 13); g.lineTo(x - 13, y + 13); g.stroke(); }
@@ -16225,8 +16370,8 @@ function dsRender(st){
       '<div><b>' + (st2.played || 0) + '</b><i>day' + (st2.played === 1 ? "" : "s") + ' played in a row</i></div>' +
       '<div><b>' + (st2.won || 0) + '</b><i>shootout' + (st2.won === 1 ? "" : "s") + ' won in a row</i></div>' +
     '</div>' +
-    '<button class="bigbtn" onclick="copyDaily()">' + ico('users') + 'Copy the result</button>' +
-    (dailyCanShare() ? '<button class="bigbtn ghost" onclick="shareDailyImage()">' + ico('flag') + 'Share as a picture</button>' : "") +
+    '<button class="bigbtn" onclick="copyDaily()">' + ico('copy') + 'Copy the result</button>' +
+    (dailyCanShare() ? '<button class="bigbtn ghost" onclick="shareDailyImage()">' + ico('image') + 'Share as a picture</button>' : "") +
     '<button class="bigbtn ghost" onclick="toMenu()">Back</button>';
   if(won){
     try{
@@ -17494,7 +17639,7 @@ function cupCrown(side, year){
     const id = albumId(book, side, m);
     if(id && !albumHas(id)){ albumStick(id); stuck++; }
   }
-  albumCheckPage(book, side);
+  albumCheckPage(book, side, !ALBUM_ON);
   albumGive(5, "the World Cup");
   if(stuck && ALBUM_ON) toast(side + " complete: " + stuck + " sticker" + (stuck === 1 ? "" : "s") + " for winning it.");
 }
@@ -18496,7 +18641,9 @@ function packRevealCheck(){
    on the draw that actually latched the foil, and false every other time,
    including on a page that was already finished. Every caller written before the
    pack screen ignores the answer and is unaffected by it. */
-function albumCheckPage(book, side){
+/* quiet: the page is still closed and paid for, without the toast. The Cup and Daily Ball close pages
+   while the album is off (ALBUM_ON), and "Germany complete" means nothing to someone who can't open it */
+function albumCheckPage(book, side, quiet){
   if(!albumDone(book, side)) return false;
   const b = albumBookState(book);
   if(b.foils.indexOf(side) > -1) return false;
@@ -18510,8 +18657,8 @@ function albumCheckPage(book, side){
      needed the same check on the card it prints the same news on, and finding
      it there is what turned this up. */
   const t = (albumBook(book) || {})[side] || {};
-  toast(side + " complete." + ((t.bench || []).length ? " Their bench is yours." : ""));
-  albumCheckBook(book);
+  if(!quiet) toast(side + " complete." + ((t.bench || []).length ? " Their bench is yours." : ""));
+  albumCheckBook(book, quiet);
   return true;
 }
 /* WHAT A FINISHED BOOK IS WORTH, and the number comes straight out of what
@@ -18543,14 +18690,14 @@ const ALBUM_BOOK_PACKS = 12;
    than worked out again later off a shelf somebody may by then have half traded
    away. That matters more now than it did, because the flag is the only thing
    stopping the twelve packs being paid out a second time. */
-function albumCheckBook(book){
+function albumCheckBook(book, quiet){
   const b = albumBookState(book);
   if(b.done) return;
   const sides = albumSides(book);
   if(!sides.length || !sides.every(s => b.foils.indexOf(s) > -1)) return;
   b.done = true;
   albumGive(ALBUM_BOOK_PACKS, null);
-  toast(((POOLS[book] || {}).label || book) + ", finished. Every page. " +
+  if(!quiet) toast(((POOLS[book] || {}).label || book) + ", finished. Every page. " +
         ALBUM_BOOK_PACKS + " packs for the next one.");
 }
 /* ---------- doubles ---------- */
@@ -18922,7 +19069,7 @@ function h2Settle(ok){
        rather than drawn: the camera has already swung and a ring on the new
        view would be pointing at the wrong shape. Saying it is also the better
        moment, because it settles the argument about whether he read it. */
-    toast("Lost it. " + nmVerb(S.players[H.who].name, "picks", "pick") + " it up on " + h2Of(H.at, H.who) + "." +
+    toast("Lost it. " + nmVerb(h2Subj(H.who), "picks", "pick") + " it up on " + h2Of(H.at, H.who) + "." +
           (wasMarking ? " He was marking " + wasMarking + "." : ""), true);
     return h2Next();
   }
@@ -19798,8 +19945,7 @@ function h2DLineHTML(){
    MARTIJN'S CHOICE (20 Oct): letting go of a team mate plays the pass straight
    away, like the prototype; a quick tap does the same. */
 const P3D = (function(){
-const TIER_COL = { easy: "#5fd38a", normal: "#f2c94c", hard: "#ff9a3c", extreme: "#ff5a4f" };
-const tierColour = t => TIER_COL[t] || "#b07cff";
+const tierColour = t => (TIERS[t] || TIERS.ball).color;
 /* the app's view percentages to metres: x across (68 m), z along (105 m),
    the goal being attacked at z = -52.5 */
 const V = (vx, vy) => [(vx - 50)/100*68, (vy - 50)/100*105];
@@ -20719,7 +20865,8 @@ function h2PitchHTML(tappable){
     if(way) mv += ';--rh:' + way.h.toFixed(2) + ';--rh2:' + (-way.h).toFixed(2) + ';--rv:' + Math.abs(way.v).toFixed(2);
     /* the receiver takes the ball on the flight's own clock */
     const tovars = o.to && A ? ';--dur:' + (A.dur || (R ? H2_RUN_MS : (!A.tier || !H2_SAFE.includes(A.tier)) && A.tier === "hard" ? 640 : A.tier && H2_SAFE.includes(A.tier) ? 800 : 920)) + 'ms' : "";
-    return '<div class="h2man ' + cls + '" style="left:' + px + '%;top:' + py +
+    /* a man by the touchline keeps his name on the screen: it hangs inward, as the 3D pitch's does */
+    return '<div class="h2man ' + cls + (px < 16 ? ' lbl-l' : px > 84 ? ' lbl-r' : '') + '" style="left:' + px + '%;top:' + py +
       '%;--i:' + i + vars + tovars + mv + '" data-i="' + i + '" data-side="' + (mine ? "mine" : "them") + '">' +
       '<span class="h2sh"></span>' +
       (o.hold ? '<span class="h2ring"></span>' : "") +
@@ -22531,7 +22678,9 @@ function h2GoalSceneHTML(state, over){
     for(const c of Object.keys(quarter)){
       const a = quarter[c][0], b = quarter[c][1];
       const pts = [at(a, b), at(a + .5, b), at(a + .5, b + .5), at(a, b + .5)].map(p => f(p.x) + " " + f(p.y)).join(",");
-      const lab = at(a + (c[1] === "l" ? .14 : .36), b + (c[0] === "t" ? .16 : .34));
+      /* the word sits in the middle of its own quarter, where it has the most room either side (by the post it
+         was clipped by its own quarter), and the bottom two sit higher, clear of the shooter */
+      const lab = at(a + .25, b + (c[0] === "t" ? .25 : .14));
       over = over.replace('<button class="h2gmc ' + c, '<button style="clip-path:polygon(' + pts + ');--lx:' + f(lab.x) + ';--ly:' + f(lab.y) + '" class="h2gmc ' + c);
     }
     const mid = (a, b) => at(a, b);
@@ -22691,8 +22840,9 @@ function h2Mine(ph){
 }
 /* what he is doing on the private screen, in one place, so the card and the
    caption can never end up saying different things about the same beat */
-const h2AiSets = () => (h2Tactical() && h2TackleOn) ? "sets his line, and marks two of yours"
-                     : h2Tactical() ? "sets his line" : "marks two of yours";
+const h2AiSets = (n, ing) => { const v = (one, many, g) => ing ? g : nmMany(n) ? many : one, his = nmTheir(n);
+  return (h2Tactical() && h2TackleOn) ? v("sets", "set", "setting") + " " + his + " line, and " + v("marks", "mark", "marking") + " two of yours"
+       : h2Tactical() ? v("sets", "set", "setting") + " " + his + " line" : v("marks", "mark", "marking") + " two of yours"; };
 /* THE LINE ITSELF, as plain text rather than markup, so the one place that
    knows the wording is this one and a test can read it without picking a
    string apart.
@@ -22708,29 +22858,29 @@ function h2TurnLine(ph){
   const H = S.h2h, p = ph || S.phase;
   const w = h2ActorOf(p);
   if(w == null) return null;
-  const ai = aiIsOn(w), A = S.players[w].name;
+  const ai = aiIsOn(w), A = h2Subj(w);
   /* SOLO ONLY. Against a person the put-it-down card has just told him whose
      ball it is and a second telling is worse than one. */
   const solo = aiIsOn(0) || aiIsOn(1);
   const out = (line, open) => ({w: w, ai: ai, line: line, open: !!open});
   if(p === "h_pick")
-    return out(A + (A === "You" ? " have it on " : " has it on ") + h2Of(H.at, H.who), solo && h2Opened !== H.who);
+    return out(nmVerb(A, "has", "have") + " it on " + h2Of(H.at, H.who), solo && h2Opened !== H.who);
   if(!ai) return null;
   switch(p){
-    case "h_teams":  return out(A + " is picking a side...");
-    case "h_squad":  return out(A + " is naming his eleven...");
-    case "h_shape":  return out(A + " is setting them up...");
-    case "h_traits": return out(A + " is reading his own team sheet...");
-    case "h_toss":   return out(H.tossed ? A + " kicks off..." : A + " is calling it...");
-    case "h_mark":   return out(A + " " + h2AiSets());
+    case "h_teams":  return out(nmVerb(A, "is", "are") + " picking a side...");
+    case "h_squad":  return out(nmVerb(A, "is", "are") + " naming " + nmTheir(A) + " eleven...");
+    case "h_shape":  return out(nmVerb(A, "is", "are") + " setting them up...");
+    case "h_traits": return out(nmVerb(A, "is", "are") + " reading " + nmTheir(A) + " own team sheet...");
+    case "h_toss":   return out(H.tossed ? nmVerb(A, "kicks", "kick") + " off..." : nmVerb(A, "is", "are") + " calling it...");
+    case "h_mark":   return out(A + " " + h2AiSets(A));
     /* HE HAS TO READ IT TOO, which is the whole reason the question screen
        holds for a beat before he answers instead of flashing past. */
-    case "h_q": case "h_tackle": return out(A + " is reading it...");
+    case "h_q": case "h_tackle": return out(nmVerb(A, "is", "are") + " reading it...");
     /* THE DUEL HAS NOTHING TO READ, so neither line says he is reading. One
        man is choosing where to hit it and the other is choosing where to go,
        and they are the only two decisions in the mode taken blind. */
-    case "h_aim":  return out(A + " is picking his spot...");
-    case "h_dive": return out(A + " is setting himself...");
+    case "h_aim":  return out(nmVerb(A, "is", "are") + " picking " + nmTheir(A) + " spot...");
+    case "h_dive": return out(nmVerb(A, "is", "are") + " getting set...");
     /* AND HERE HE HAS ANSWERED IT. In Pick One the option he took is already
        sitting on H.pick by the time this screen is drawn, so the line is the
        answer itself and the card underneath stamps the verdict on it. Spoken,
@@ -22738,11 +22888,11 @@ function h2TurnLine(ph){
     case "h_judge": case "h_tjudge": {
       const Q = q();
       return out((h2IsMC() && Q && Q.o && H.pick != null)
-        ? A + " says: " + Q.o[H.pick] + "."
-        : A + " is thinking...");
+        ? nmVerb(A, "says", "say") + ": " + Q.o[H.pick] + "."
+        : nmVerb(A, "is", "are") + " thinking...");
     }
-    case "h_sub":    return out(A + " is looking at his bench...");
-    case "h_pens":   return out(A + " is stepping up...");
+    case "h_sub":    return out(nmVerb(A, "is", "are") + " looking at " + nmTheir(A) + " bench...");
+    case "h_pens":   return out(nmVerb(A, "is", "are") + " stepping up...");
   }
   return null;
 }
@@ -23040,7 +23190,7 @@ function h2Render(st){
       b6MatchHead(b4StageLabel(h2PoolId()), "b6MatchBack()", null) +
       '<div class="b6q">Pick your ' + kind + '</div>' +
       '<div class="b6qs">' + esc(b6PickBlurb()) + '</div>' +
-      '<div class="b6who"><span class="on"><i></i>' + (slot === 0 ? "You pick" : (turn.ai ? "The computer picks" : esc(turn.name) + " picks")) + '</span>' +
+      '<div class="b6who"><span class="on"><i></i>' + (slot === 0 ? "You pick" : (turn.ai ? "The computer picks" : esc(nmVerb(turn.name, "picks", "pick")))) + '</span>' +
         '<span class="off">' + (slot === 0 ? "Then " + who(1) : esc(S.players[0].name) + ": " + esc(H.teams[0])) + '</span></div>' +
       /* the other set of sides, only when the match was not started from the
          Matchday steps (which already chose it) */
@@ -23314,7 +23464,7 @@ function h2Render(st){
       (H.tossed
         ? '<div class="b6callit">' + (h2Squad(H.who) ? esc(h2Who(H.who === 0 ? cap0 : cap1, H.who)) + ' wins it. ' : '') +
             '<span>' + esc(h2Team(H.who) || S.players[H.who].name) + ' kick off.</span></div>' +
-          '<button class="b6cta" onclick="h2KickOff()">Kick off ▶</button>'
+          '<button class="b6cta" onclick="h2KickOff()">Kick off ' + ico("play") + '</button>'
         : H.flipping
           ? '<div class="b6callit">' + esc(caller) + ' called ' + H.call + '. <span>In the air…</span></div>'
           : H.call
@@ -23378,8 +23528,8 @@ function h2Render(st){
       h2ScoreHTML() +
       '<div class="h2hand h2wait" style="--hk:' + kit + ';--hi:' + kitInk(kit) + '">' +
         (badge ? '<img class="h2handbadge" src="' + badge + '" alt="">' : '') +
-        '<div class="h2handwho">' + esc(them.name) + '</div>' +
-        '<div class="h2handsub">He ' + h2AiSets() + '.</div>' +
+        '<div class="h2handwho">' + esc(h2Subj(w)) + '</div>' +
+        '<div class="h2handsub">' + esc(h2AiSets(h2Subj(w), true).replace(/^./, c => c.toUpperCase())) + '.</div>' +
       '</div>';
     return;
   }
@@ -23448,7 +23598,7 @@ function h2Render(st){
       '<div class="kick">' + ico('users') + (h2TackleOn ? 'Your tackle · ' : 'Your instructions · ') + esc(them.name) + '</div>' +
       '<div class="h2big">' + (h2TackleOn ? "Mark two of them." : "Set your line.") + '</div>' +
       (h2TackleOn
-        ? '<div class="h2hintline">They stay marked for the whole of ' + esc(nmPoss(me.name)) +
+        ? '<div class="h2hintline">They stay marked for the whole of ' + esc(nmPoss(h2SubjP(me))) +
           " possession. Play the ball into one and you get a <b>" + tier.label +
           '</b> question to take it off him.</div>'
         : '') +
@@ -23496,7 +23646,7 @@ function h2Render(st){
     };
     st.innerHTML =
       h2ScoreHTML() + h2PitchHTML(false) +
-      '<div class="h2big">' + esc(owner.name) + ', make a change.</div>' + h2TurnHTML() +
+      '<div class="h2big">' + (owner.name === "You" ? "Make a change." : esc(owner.name) + ", make a change.") + '</div>' + h2TurnHTML() +
       '<div class="h2hintline" style="margin-top:0">' +
         (sub.slot == null
           ? "Nothing has gone wrong. Take a man off because you want to, and the man who comes on faces no question. It costs five minutes."
@@ -23527,7 +23677,7 @@ function h2Render(st){
     const left = h2SubsLeft(sub.w);
     st.innerHTML =
       h2ScoreHTML() + h2PitchHTML(false) +
-      '<div class="h2big">' + esc(owner.name) + ', a change?</div>' + h2TurnHTML() +
+      '<div class="h2big">' + (owner.name === "You" ? "A change?" : aiIsOn(sub.w) ? esc(nmPoss(h2Subj(sub.w))) + " change" : esc(owner.name) + ", a change?") + '</div>' + h2TurnHTML() +
       '<div class="h2hintline" style="margin-top:0">' + esc(off) + ' got it wrong.' +
         ' Bring a man on and he faces a fresh ' + (t ? t.label : "") + ' question for the same ' +
         (H.pen ? 'penalty' : H.shooting ? 'shot' : 'ball') + '. ' +
@@ -23552,7 +23702,7 @@ function h2Render(st){
       '<div class="h2big">Full time.</div>' +
       '<div class="h2where">' + (level
         ? 'Level at ' + S.players[0].score + ' each. Penalties.'
-        : esc(S.players[S.players[0].score > S.players[1].score ? 0 : 1].name) + ' wins it, ' +
+        : esc(nmVerb(h2Subj(S.players[0].score > S.players[1].score ? 0 : 1), "wins", "win")) + ' it, ' +
           S.players[0].score + ' to ' + S.players[1].score + '.') + '</div>' +
       '<button class="bigbtn" onclick="h2AfterWhistle()">' + (level ? "Penalties" : "Results") + '</button>' +
       foot;
@@ -23573,16 +23723,16 @@ function h2Render(st){
         '<b>' + esc(S.players[w].name) + '</b><span class="h2so-kicks">' + pips + '</span><em>' + s[w] + '</em></div>';
     };
     const prev = so.n ? (so.first + so.n - 1) % 2 : null;
-    const next = S.players[h2SoNext(so)];
+    const ni = h2SoNext(so), next = S.players[ni];
     st.innerHTML =
       h2ScoreHTML() +
       '<div class="h2big">Penalties.</div>' + h2TurnHTML() +
       '<div class="h2hintline" style="margin-top:0">' + (prev == null
-        ? 'Level after ' + h2Mins() + ' minutes. ' + esc(next.name) + ' goes first.'
-        : esc(S.players[prev].name) + (so.kicks[prev].slice(-1)[0] ? ' scores. ' : ' misses. ') +
-          (so.n >= H2_SO_KICKS * 2 ? 'Sudden death. ' : '') + esc(next.name) + ' next.') + '</div>' +
+        ? 'Level after ' + h2Mins() + ' minutes. ' + esc(nmVerb(h2Subj(ni), "goes", "go")) + ' first.'
+        : esc(so.kicks[prev].slice(-1)[0] ? nmVerb(h2Subj(prev), "scores", "score") : nmVerb(h2Subj(prev), "misses", "miss")) + '. ' +
+          (so.n >= H2_SO_KICKS * 2 ? 'Sudden death. ' : '') + esc(h2Subj(ni)) + ' next.') + '</div>' +
       '<div class="h2so">' + row(0) + row(1) + '</div>' +
-      '<button class="bigbtn" onclick="h2SoKick()">' + esc(next.name) + ' steps up</button>' +
+      '<button class="bigbtn" onclick="h2SoKick()">' + esc(nmVerb(h2Subj(ni), "steps", "step")) + ' up</button>' +
       '<div class="h2hintline">' + TIERS[H2_SO_TAKER].label + ' to strike it, then a corner each. ' +
         H2_SO_KICKS + ' each, then sudden death.</div>' +
       foot;
@@ -23596,7 +23746,7 @@ function h2Render(st){
     const level = S.players[0].score === S.players[1].score;
     st.innerHTML =
       h2ScoreHTML() + h2PitchHTML(false) +
-      '<div class="h2where">' + esc(scorer.name) + ' scores. ' +
+      '<div class="h2where">' + esc(nmVerb(h2Subj(H.scorer), "scores", "score")) + '. ' +
         S.players[0].score + ' to ' + S.players[1].score + '.</div>' +
       '<button class="bigbtn" onclick="h2KickOn()">' +
         (won ? "Full time" : ft ? (level ? "Full time. Penalties" : "Full time") : "Kick off") + '</button>' +
@@ -23668,7 +23818,7 @@ function h2Render(st){
         '<span class="h2cwhy' + (moved < 0 ? " up" : " down") + '">' +
         (moved < 0 ? "a tier cheaper" : "a tier dearer") + ", their line</span>";
       bar = '<div class="h2confirm' + (contested ? " contested" : "") + '" style="--dc:' +
-              (contested ? "#e04a34" : tt.color) + '">' +
+              (contested ? "#e9b84c" : tt.color) + '">' +
               '<div class="h2cline"><span class="h2cwhat">' + h2PassName(H.at, H.sel) + '</span>' +
               '<span class="h2ctier">' + (contested ? "Contested" : tt.label) + '</span></div>' +
               /* AND WHO HE IS. The line above says what the ball is and what it
@@ -23682,8 +23832,8 @@ function h2Render(st){
                   esc(H2_SPEC_SAYS[h2Spec(H.sel)] || h2Spec(H.sel)) + '</span>'
                 : "") +
               (contested ? "" : why) +
-              (contested ? '<div class="h2hintline" style="margin:0 0 8px">' + esc(them.name) +
-                ' gets a ' + TIERS[H2_PRESS_TIER].label + ' question to take it off you first.</div>' : "") +
+              (contested ? '<div class="h2hintline" style="margin:0 0 8px">' + esc(nmVerb(h2SubjP(them), "gets", "get")) +
+                ' a ' + TIERS[H2_PRESS_TIER].label + ' question to take it off you first.</div>' : "") +
               '<button class="bigbtn" onclick="h2Play()">Play it</button></div>';
     }
     st.innerHTML =
@@ -23750,7 +23900,7 @@ function h2Render(st){
                 (H.pick === q().k ? (H.shooting ? "Strike it" : "Play on") : "Play on") + '</button>' +
               '<div class="h2hintline">' + (H.pick === q().k ? "Right." : H.pick == null ? "Out of time." : "Not that one.") + '</div>'
             : '<div class="h2hintline">' + (aiIsOn(H.who)
-            ? esc(nmVerb(me.name, "has", "have")) + ' one tap to find it.'
+            ? esc(nmVerb(h2SubjP(me), "has", "have")) + ' one tap to find it.'
             : 'Tap the one you think it is. Nobody has to judge anything.') + '</div>')
         : (shown && partyOn(H.who)
             ? partyJudgeHTML("h2Judge")
@@ -23785,8 +23935,8 @@ function h2Render(st){
     st.innerHTML =
       h2ScoreHTML() + h2PitchHTML(false) + h2TurnHTML() +
       '<div class="h2big tackle">' + (isTackle
-        ? esc(them.name) + ' read it'
-        : esc(nmVerb(them.name, "comes", "come")) + ' in for it') + '</div>' +
+        ? esc(h2SubjP(them)) + ' read it'
+        : esc(nmVerb(h2SubjP(them), "comes", "come")) + ' in for it') + '</div>' +
       (isTackle ? '<div class="h2hintline" style="margin-top:0">He was marking ' + esc(on) + '.</div>' : "") +
       '<div class="qcard' + h2Qin() + '" style="--dc:' + t.color + '">' +
         '<div class="kick">' + (isTackle ? "THE TACKLE" : "CLOSED DOWN") + ' · ' + esc(them.name) + ' · ' + t.label + h2League() + '</div>' +
@@ -23826,8 +23976,8 @@ function h2Render(st){
       h2ScoreHTML() + h2GoalSceneHTML("set", ai ? "" : h2CornersHTML("h2Aim", [])) + h2TurnHTML() +
       '<div class="h2big">' + esc(nmVerb(me.name, "shoots", "shoot")) + '!</div>' +
       '<div class="h2hintline" style="margin-top:0">' + (ai
-        ? esc(nmVerb(me.name, "is", "are")) + ' picking a corner, and never gets to see yours either.'
-        : 'Put it in a corner. ' + esc(them.name) + ' never sees which.') + '</div>' +
+        ? esc(nmVerb(h2SubjP(me), "is", "are")) + ' picking a corner, and never ' + (nmMany(h2SubjP(me)) ? 'get' : 'gets') + ' to see yours either.'
+        : 'Put it in a corner. ' + esc(h2SubjP(them)) + ' never ' + (nmMany(h2SubjP(them)) ? 'see' : 'sees') + ' which.') + '</div>' +
       foot;
     if(S.timed) startTimer(15, h2AimTimeUp, clockKey());
     return;
@@ -25274,7 +25424,7 @@ function progMoment(){
   const rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(m.kind === "rank"){
     const ladder = RANKS.slice().reverse().map((r, k) => { const i = RANKS.length - 1 - k, cur = r[0] === m.rank, done = rankOf(m.level).i > i;
-      return '<div class="pglad' + (cur ? " cur" : done ? " done" : "") + '"><i>' + (cur ? "★" : done ? "✓" : "") + '</i><b>' + esc(r[0]) + '</b><small>LV ' + r[1] + '</small></div>'; }).join("");
+      return '<div class="pglad' + (cur ? " cur" : done ? " done" : "") + '"><i>' + (cur ? ico("star") : done ? ico("check") : "") + '</i><b>' + esc(r[0]) + '</b><small>LV ' + r[1] + '</small></div>'; }).join("");
     o.innerHTML = '<div class="pgm-in"><span class="pgm-k">Rank up · level ' + m.level + '</span><h2>' + esc(m.rank) + '</h2>' +
       '<p>From ' + esc(m.from) + '.</p><div class="pgladder">' + ladder + '</div>' +
       '<div class="pgm-note"><span>Unlocked for your pennant</span>' + esc(rankOf(m.level).fringe) + ' fringe on your pennant.</div>' +
@@ -25386,8 +25536,8 @@ function renderMe(st){
   st.innerHTML = '<div class="b6 step pgme meme' + (club ? " meclubpage" : "") + '"><div class="b6band"></div><div class="b6body">' + (trial ? guestLineHTML() : "") +
     (club ? meClubHTML(p, L, rk, a) : '<div class="metop"><div class="mepen">' + progPennant(L.level) + '</div>' +
       '<div class="mewho"><span class="meat">' + esc(who) + '</span><span class="merank">' + esc(rk.name) + '</span>' +
-      '<span class="melv"><span>Level ' + L.level + (L.stars ? " · ★" + L.stars : "") + '</span></span>' +
-      '<button class="metitle" onclick="openTitles()">' + (p.title ? '<span aria-hidden="true">★</span> ' + esc(titleName(p.title, p.titles[p.title])) : 'Choose a title ›') + '</button>' +
+      '<span class="melv"><span>Level ' + L.level + (L.stars ? " · " + ico("star") + L.stars : "") + '</span></span>' +
+      '<button class="metitle" onclick="openTitles()">' + (p.title ? ico("star") + ' ' + esc(titleName(p.title, p.titles[p.title])) : 'Choose a title ›') + '</button>' +
       '<button class="metheme" onclick="openThemes()">Theme: ' + esc(/^club:/.test(themeEquipped()) ? themeEquipped().slice(5) : themeOf(themeEquipped()).name) + ' ›</button>' +
       '<span class="mesince">Playing since ' + since.toLocaleString("en-GB", { month: "long", year: "numeric" }) + '</span></div></div>') +
     (club ? "" : '<div class="pgxp mexp"><div class="pghead"><b>Level ' + L.level + ' · ' + esc(rk.name) + '</b><span>' + nf(L.into) + ' / ' + nf(L.need) + ' XP</span></div>' +
@@ -27447,7 +27597,7 @@ let routeDrop = null;
    The values come from the canvas boards (BALL 4 Themes); the unlock rules,
    the Locker shelf and Your Club are steps 3 to 5. */
 const THEMES = [
-  { id: "classic", name: "Classic", rarity: "Default", swatch: ["#1d5232", "#e9dcbd", "#e9b84c"] },
+  { id: "classic", name: "Classic", rarity: "Default", swatch: ["#1d5232", "#efe4c8", "#e9b84c"] },
   { id: "sunday", name: "Sunday League", rarity: "Common", swatch: ["#5c6b33", "#f3f1ea", "#ff8f33"] },
   { id: "floodlights", name: "Floodlights", rarity: "Rare", swatch: ["#0e2236", "#0d1824", "#f4fbff"] },
   { id: "retro", name: "Retro Programme", rarity: "Rare", swatch: ["#d0342c", "#f1e6cc", "#e8463a"] },
@@ -27669,7 +27819,7 @@ function themePreviewHTML(id){
   let style = "";
   if(club){ const t = themeClubTokens(club); style = ' style="' + THEME_CLUB_VARS.map(k => "--th-" + k + ":" + String(t.vars[k]).replace(/"/g, "'")).join(";") + '"'; }
   return '<div class="thpv" data-theme="' + (club ? "club" : id) + '"' + style + '><div class="thpv-band"><b>BALL</b><span>FOOTBALL QUIZ</span></div>' +
-    '<div class="thpv-hero"><b>Matchday</b><small>Every pass is a question.</small><i>Play ▶</i></div>' +
+    '<div class="thpv-hero"><b>Matchday</b><small>Every pass is a question.</small><i>Play ' + ico("play") + '</i></div>' +
     '<div class="thpv-row"><b>Daily Ball</b><small>Today’s shootout</small></div><div class="thpv-row"><b>The Lists</b><small>Two new lists every day</small></div>' +
     '<div class="thpv-tab"><span class="on">PLAY</span><span>LEAGUE</span><span>LOCKER</span><span>ME</span></div></div>';
 }
@@ -27713,6 +27863,11 @@ function themeInScope(){
   if(TT_VIEW === "play" && TT) return false;
   if(GTP_VIEW) return false;
   if(LISTS_VIEW && LISTS_VIEW.screen !== "shelf") return false;
+  /* the four newer games keep their own state, not S: their set-up is dressed, a game under way is Classic */
+  if(GW_VIEW && GW_VIEW !== "setup" && GW) return false;
+  if(DD_VIEW && DD_VIEW !== "setup" && DD) return false;
+  if(LB_VIEW && LB_VIEW !== "setup" && LB) return false;
+  if(YR_VIEW && YR_VIEW !== "setup" && YR) return false;
   if(!S || S.phase === "setup") return true;
   return S.phase === "h_teams" || S.phase === "h_toss";
 }
@@ -27848,7 +28003,7 @@ function renderMain(){
     st.innerHTML = `
       <h1 class="title" style="font-size:clamp(1.8rem,9vw,2.4rem);text-align:center">${esc(P.name)}</h1>
       ${grole==="pick"?`<div class="yourturn" style="margin-bottom:4px">Your turn. Pick your level</div>`:""}
-      ${remotePlayer(S.turn)?`<div class="hint waitline">⌛ ${esc(P.name)} is picking on their own phone.</div>`:""}
+      ${remotePlayer(S.turn)?`<div class="hint waitline">${esc(P.name)} is picking on their own phone.</div>`:""}
       <div class="board">
       ${Object.entries(TIERS).filter(([k])=>{ try{ return !!bankFor(k); }catch(e){ return false; } }).map(([k,t],i)=>{
         /* Stadium pays on a ladder, so that one lane carries three numbers
@@ -27885,7 +28040,7 @@ function renderMain(){
         <div class="qtext">${esc(q().q)}</div>${crestHTML(q())}
       </div>
       ${S.players.map((p,i)=> S.wsub&&S.wsub[i]
-        ? `<div class="lockedrow">🔒 ${esc(p.name)} locked their answer in from their phone</div>`
+        ? `<div class="lockedrow">${ico("lock")}${esc(p.name)} locked their answer in from their phone</div>`
         : `<input class="nm-in" id="wa${i}" placeholder="${esc(p.name)}'s answer" maxlength="60" autocomplete="off" value="${esc(S.wans[i]||"")}">`).join("")}
       ${S.timed?`<div class="clock" id="clock">
         <div class="digits">15.0</div>
@@ -27956,7 +28111,7 @@ function renderMain(){
         ? `<button class="bigbtn ghost" style="padding:11px" onclick="bzPull()">${ico('zoom')}Pull the camera back, drops to +${BADGE_BALL[bzStep()+1].pts}<kbd>Z</kbd></button>`:""}
       <button class="bigbtn ghost" style="padding:11px" onclick="skipQuestion()">↻ Skip, give me a new one<kbd>S</kbd></button>
       ${remotePlayer(stealing?S.stealer:S.turn)
-        ? `<div class="hint waitline">⌛ ${esc(who.name)} is typing their answer in on their own phone. Only reveal here if they'd rather shout it.</div>`
+        ? `<div class="hint waitline">${esc(who.name)} is typing their answer in on their own phone. Only reveal here if they'd rather shout it.</div>`
         : `<div class="hint">${S.timed
             ? "Fifteen seconds to read the question and answer. Then hit Reveal to show the answer, which stops the clock."
             : "No timer, so take your time. Read the question, let them answer, then hit Reveal to show the answer."} Seen it before? Skip for a fresh one at the same difficulty, no points lost.${isBadgeBall()?" Nobody recognising it? Pull the camera back for a wider shot, at the cost of points, and the clock starts again.":""}</div>`}`;
@@ -27992,7 +28147,7 @@ function renderMain(){
           <div class="atext hidden-ans"><span class="lbl">Answer</span>Hidden until ${esc(who.name)} has called it</div>
           ${S.ans?`<div class="atext said"><span class="lbl">${esc(who.name)} locked in</span>${esc(S.ans)}</div>`:""}
         </div>
-        <div class="hint waitline" style="text-align:center">⌛ Say nothing yet. If ${esc(who.name)} missed it, this is yours to steal.</div>
+        <div class="hint waitline" style="text-align:center">Say nothing yet. If ${esc(who.name)} missed it, this is yours to steal.</div>
         <div class="spacer"></div>
         ${isHost()?`
         <div class="hint" style="text-align:center">If their phone has frozen, you can still call it. You cannot see the answer either, so ask them what they said.</div>
@@ -28023,7 +28178,7 @@ function renderMain(){
       </div>
       ${S.timeUp?`<div class="hint" style="color:var(--card-r);font-weight:700">Time was already up. Only count an answer given before the buzzer.</div>`:""}
       ${grole==="judge"?`<div class="yourturn">Your call. Did you get it?</div>`:""}
-      ${remotePlayer(answerIdx())?`<div class="hint waitline">⌛ ${esc(who.name)} is calling it on their own phone. These buttons still work if they freeze.</div>`:""}
+      ${remotePlayer(answerIdx())?`<div class="hint waitline">${esc(who.name)} is calling it on their own phone. These buttons still work if they freeze.</div>`:""}
       <div class="spacer"></div>
       ${sp?`
       <button class="bigbtn ok" onclick="judge(true,'name')">Got the ground +${sp.name}<kbd>C</kbd></button>
@@ -28305,7 +28460,7 @@ function renderMain(){
     if(S.phase==="wl_play"){
       st.innerHTML = `
         <div class="kick">${ico('grid')}The Wall · Round ${S.round}</div>
-        <div class="wllives">${"⚽".repeat(S.wall.lives)}${"·".repeat(WALL_LIVES-S.wall.lives)}</div>
+        <div class="wllives">${ico("ball").repeat(S.wall.lives)}${"·".repeat(WALL_LIVES-S.wall.lives)}</div>
         ${rows}
         <div class="wlgrid">${grid}</div>
         <div class="hint" style="text-align:center">Four groups of four are hiding in there. Tap four that belong together.</div>
@@ -28518,7 +28673,7 @@ function renderMain(){
       const p=F.players[i], open=S.xi.got[i]!==null;
       return `<div class="xspot${open?" open":""}${S.xi.pick===i?" picked":""}" style="left:${s.x}%;top:${s.y}%" onclick="xiTap(${i})">
         <div class="xshirt" style="--kit:${F.kit};--kink:${kitInk(F.kit)}">${p.num}</div>
-        <div class="xname">${open||S.xi.pick===i?esc(p.n)+(p.cap?" ©":""):"&nbsp;"}</div>
+        <div class="xname">${open||S.xi.pick===i?esc(p.n)+(p.cap?" (C)":""):"&nbsp;"}</div>
       </div>`;
     }).join("");
     st.innerHTML = `
@@ -28601,10 +28756,10 @@ function renderMain(){
           '<div><b>' + streak.played + '</b><i>day' + (streak.played === 1 ? "" : "s") + ' in a row</i></div>' +
           '<div><b>' + streak.half + '</b><i>past halfway</i></div>' +
         '</div>' +
-        '<button class="bigbtn" onclick="copyDaily()">' + ico('users') + 'Copy the result</button>' +
+        '<button class="bigbtn" onclick="copyDaily()">' + ico('copy') + 'Copy the result</button>' +
         '<div class="h2hintline">Six squares and a line of text. It pastes into anything.</div>' +
         (dailyCanShare()
-          ? '<button class="bigbtn ghost" onclick="shareDailyImage()">' + ico('flag') +
+          ? '<button class="bigbtn ghost" onclick="shareDailyImage()">' + ico('image') +
             'The pitch, as a picture</button>' : "") +
         '<button class="bigbtn ghost" onclick="toMenu()">Back</button>';
       return;
@@ -28643,7 +28798,9 @@ function renderMain(){
     const sum = progSumNow(), pitch = isPitch(S.play) && S.h2h, ME = progMe(), OP = 1 - ME;
     const tryv = f => { try{ return f(); }catch(e){ return null; } };
     const sideOf = w => pitch ? { name: h2Team(w) || S.players[w].name, short: tryv(() => h2Abbr(w)), flag: tryv(() => h2Flag(w)), color: tryv(() => h2Kit(w)) } : { name: S.players[w].name };
-    const comp = pitch ? (S.lockPool ? b4StageLabel(h2PoolId()) : "Matchday") + (sum.ai ? " · vs the computer, " + AI_NAME[sum.ai] : sum.online ? " · online" : " · vs a friend") : matchLabel(S);
+    /* where it was played, nothing more: the two sides under the score already say who it was against, and the
+       longer "· vs the computer, Medium" ran off the end of the gold bar */
+    const comp = pitch ? (S.lockPool ? b4StageLabel(h2PoolId()) : "Matchday") : matchLabel(S);
     const two = S.players.length > 1;
     const score = two
       ? b4Score({ home: sideOf(ME), away: sideOf(OP), score: [S.players[ME].score, S.players[OP].score], label: "Full time" + (S.pens ? " · " + S.pens[ME] + "–" + S.pens[OP] + " on pens" : "") })
@@ -28674,12 +28831,12 @@ function renderMain(){
     st.innerHTML = `
       <div class="kick">${hitTarget?`${ico('flag')}First to ${S.target}`:ftLine}</div>
       <h1 class="title">${hitTarget?`${esc(champ.name)}<br><span class="gold">wins!</span>`:`Final<br><span class="gold">Whistle</span>`}</h1>
-      ${S.ref?`<div class="hint" style="text-align:center">🟨 Refereed by ${esc(S.ref)}</div>`:""}
+      ${S.ref?`<div class="hint" style="text-align:center">${ico("card")}Refereed by ${esc(S.ref)}</div>`:""}
       <div class="final">
         ${order.map((p,k)=>`
           <div class="frow${k===0&&p.score>=0?" w":""}">
             <span class="pos">${k+1}</span>
-            <span class="fn">${esc(p.name)}${k===0&&p.score>=0?" 🏆":""}</span>
+            <span class="fn">${esc(p.name)}${k===0&&p.score>=0?" "+ico("trophy"):""}</span>
             <span class="fs${p.score<0?" neg":""}">${p.score}${S.pens?` <small style="opacity:.7;font-size:.7em">(${S.pens[p.i]})</small>`:""}</span>
           </div>`).join("")}
       </div>
@@ -31316,7 +31473,7 @@ function ttPlayScreen(st){
         ? '<div class="ttswap">' + ttPen(t.goal.who, scorer.kit, scorer.name, 30) + '<span><b>' + esc(scorer.name) + ' scores</b><small>' + esc(b.names.join(" → ")) + '. ' +
           (t.over ? "That's the match." : esc(t.players[1 - t.goal.who].name) + " kicks off the next board.") + '</small></span></div>'
         : '<div class="ttswap"><span><b>A draw on board ' + b.no + '</b><small>Every square taken and no line. ' + (t.over ? "That's the match." : esc(t.players[1 - t.kickoff].name) + " kicks off the next one.") + '</small></span></div>') +
-      b4Btn(t.over ? "Full time ▶" : "Next board ▶", "audio();ttNextBoard();render()", "gold");
+      b4Btn((t.over ? "Full time " : "Next board ") + ico("play"), "audio();ttNextBoard();render()", "gold");
   } else {
     acts = '<div class="ttacts">' + b4Btn(t.mode === "tackle" ? "Pick a square ↑" : "Name a player", "ttName_()", "gold") +
       (t.tackles[me] ? b4Btn(t.mode === "tackle" ? "Cancel" : 'Tackle <small>' + t.tackles[me] + ' left</small>', "ttTackleMode()", "dark") : "") + '</div>' +
@@ -31456,7 +31613,7 @@ function ttSetupScreen(st){
       seg("Level", Object.keys(TT_LEVELS).map(k => btn(p.level === k, "ttSet('level','" + k + "')", TT_LEVELS[k].n, TT_LEVELS[k].sub))) +
       seg("Clock", [[10, "10 s", "blitz"], [20, "20 s", "normal"], [0, "None", "relaxed"]].map(c => btn(p.clock === c[0], "ttSet('clock'," + c[0] + ")", c[1], c[2]))) +
       '<p class="ttrules">Name a player who played for both to claim a square; three in a row is a goal. Once a match you can <b>tackle</b> a square with a rarer name, and a rare pick (under 10%) <b>locks</b> its square.</p>' +
-      b4Btn("Kick off ▶", "ttKickOff()", "gold") });
+      b4Btn("Kick off " + ico("play"), "ttKickOff()", "gold") });
 }
 function ttFullScreen(st){
   const t = TT;
@@ -31797,7 +31954,7 @@ function gtpCanvas(){
   for(let y = top; y < top + H; y += 18){ x.fillRect(L - 40, y, 30, 9); x.fillRect(L + W + 4, y, 30, 9); }
   x.fillStyle = "#123D24"; x.font = "italic 900 78px 'Barlow Semi Condensed', sans-serif";
   x.fillText(s.won ? "SOLVED IN " + s.guesses.length + "/" + GTP_MAX : "NOT TODAY · X/" + GTP_MAX, 540, 880);
-  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56";
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56";
   x.fillText("beebzoo.github.io/ball", 540, 960);
   return c;
 }
@@ -31829,7 +31986,7 @@ function gtpRowHTML(){
       '<small>' + (s.streak ? s.streak + "-day streak · " : "") + "next one in " + b6Countdown() + '</small></div><div class="go">›</div></button>';
   }
   return '<button class="b6fix tall daily gtprow" onclick="b4Explain(\'gtp\', openGtp)"><div class="t gold">?<small>' + (s.guesses.length ? "GUESS " + (s.guesses.length + 1) : "TODAY") + '</small></div>' +
-    '<div class="m"><b>Guess the player</b>' + pips + '<small>' + (s.streak && s.last ? s.streak + "-day streak · " : "") + 'Today’s mystery footballer</small></div><div class="go">▶</div></button>';
+    '<div class="m"><b>Guess the player</b>' + pips + '<small>' + (s.streak && s.last ? s.streak + "-day streak · " : "") + 'Today’s mystery footballer</small></div><div class="go">' + ico("play") + '</div></button>';
 }
 
 /* ---------- THE LISTS ----------
@@ -32398,7 +32555,7 @@ function listsRowHTML(){
   const pip = x => '<i class="' + (x && x.done ? (x.medal ? "w" : "l") : x ? "now" : "") + '"></i>';
   const med = x => x && x.medal ? '<span class="lsmini ' + x.medal + '"></span>' : '<span class="lsmini none"></span>';
   return '<button class="b6fix tall daily lsrow" onclick="b4Explain(\'lists\', openLists)"><div class="t gold">' + (both ? med(t) + med(a) : "2") + '<small>' + (both ? "DONE" : "TODAY") + '</small></div>' +
-    '<div class="m"><b>Today\'s lists</b><div class="b6pips lspips">' + pip(t) + pip(a) + '</div><small>' + (s.streak.played && s.streak.last ? s.streak.played + "-day lists streak · " : "") + (both ? "back tomorrow" : "A Top 10 and a Name them all") + '</small></div><div class="go">' + (both ? "›" : "▶") + '</div></button>';
+    '<div class="m"><b>Today\'s lists</b><div class="b6pips lspips">' + pip(t) + pip(a) + '</div><small>' + (s.streak.played && s.streak.last ? s.streak.played + "-day lists streak · " : "") + (both ? "back tomorrow" : "A Top 10 and a Name them all") + '</small></div><div class="go">' + (both ? "›" : ico("play")) + '</div></button>';
 }
 
 /* ---------- BALL 4: THE FRONT DOOR ----------
@@ -32677,7 +32834,7 @@ function simpleStepHTML(){
       '<button aria-pressed="' + mc + '" onclick="setAnswerPref(\'mc\')">Multiple choice</button><button aria-pressed="' + !mc + '" onclick="setAnswerPref(\'say\')">Say it</button></div>' +
     '<div class="b6hdr">Play to</div><div class="b6seg b6ans" role="group" aria-label="Target">' +
       [50, 100, 200].map(t => '<button aria-pressed="' + (p.target === t) + '" onclick="simpleSet(\'target\',' + t + ')">' + t + ' points</button>').join("") + '</div>' +
-    '<button class="b6cta" onclick="simpleStart()">Kick off ▶</button>';
+    '<button class="b6cta" onclick="simpleStart()">Kick off ' + ico("play") + '</button>';
 }
 function simpleStart(){
   const p = simplePrefs();
@@ -33041,7 +33198,7 @@ function gwCanvas(){
     x.strokeStyle = "rgba(0,0,0,.3)"; x.lineWidth = 1.5; x.stroke(shirt); x.restore();
   });
   x.fillStyle = "#123D24"; x.font = "italic 900 64px 'Barlow Semi Condensed', sans-serif"; x.fillText(parts.slice(0, -1).join(" · ").toUpperCase(), 540, 900);
-  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56"; x.fillText(url, 540, 970);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56"; x.fillText(url, 540, 970);
   return c;
 }
 function gwShare(){
@@ -33078,7 +33235,7 @@ function gwSetupScreen(st){
     '<div class="b6qs">' + L.say + (two ? "" : " " + L.cpu) + '</div>' +
     seg("The match", "best", [[1, "One board"], [3, "Best of three"]]) +
     (!two && (p.won || p.played) ? '<div class="b6qs">Won ' + p.won + ' board' + (p.won === 1 ? "" : "s") + (p.matches ? ' and ' + p.mwon + ' of ' + p.matches + ' matches' : "") + ' against the computer</div>' : "") +
-    '<button class="b6cta" onclick="gwStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Kick off ▶" : "Loading the players…") + '</button>' });
+    '<button class="b6cta" onclick="gwStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Kick off " + ico("play") : "Loading the players…") + '</button>' });
 }
 function gwRender(st){
   if(GW_VIEW === "setup" || !GW) return gwSetupScreen(st);
@@ -34472,7 +34629,7 @@ function lbCanvas(){
   });
   x.textAlign = "center"; x.fillStyle = "#123D24"; x.font = "italic 900 84px 'Barlow Semi Condensed', sans-serif";
   x.fillText(lbTwo() ? LB.names[0] + " " + t[0] : t[0] + " POINTS" + (t[0] > t[1] ? " · WON" : ""), 540, 890);
-  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
   return c;
 }
 function lbShare(){
@@ -34526,7 +34683,7 @@ function lbSetupScreen(st){
     '<div class="lbrules"><b>How it counts</b><span><i class="lbtag t1">Classic +1</i><i class="lbtag t2">Good one +2</i><i class="lbtag t3">Deep cut +3</i></span>' +
       '<small>Players go under their surname, with or without the particle (de Vrij is a D and a V), or the one name they go by (Pelé). First names don\'t count. Clubs count for any word of their name but FC and the like; countries by their English name. A clash scores 0 for both; all five right is a full house, +3.</small></div>' +
     (!party && p.played ? '<div class="b6qs">Played ' + p.played + ', won ' + p.won + ' against the computer · best ' + p.best + ' points</div>' : "") +
-    '<button class="b6cta" onclick="lbStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "To the draw ▶" : "Loading the players…") + '</button>' });
+    '<button class="b6cta" onclick="lbStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "To the draw " + ico("play") : "Loading the players…") + '</button>' });
 }
 /* THE DRAW: a glass bowl of gold balls on the paper, one letter out on a tile */
 function lbBowlSVG(L){
@@ -34893,7 +35050,7 @@ function yrCanvas(){
   });
   x.textAlign = "center"; x.fillStyle = "#123D24"; x.font = "italic 900 84px 'Barlow Semi Condensed', sans-serif";
   x.fillText(G.vs === "solo" ? row.length + " IN A ROW" : row.length + " CARDS" + (yrWinner(G) === 0 ? " · WON" : ""), 540, 890);
-  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#5b6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
   return c;
 }
 function yrShare(){
@@ -34952,7 +35109,7 @@ function yrRowHTML(row, o){
 function yrScoreHTML(label){
   const G = YR, n = G.names.length;
   if(G.vs === "solo") return '<div class="b4sb solo"><div class="sb"><div class="sb-t" style="--tc:#e9b84c"><b>You</b></div><div class="sb-mid"><b>' + G.rows[0].length + '</b></div></div>' +
-    '<div class="b4sblabel">' + esc(label) + ' · ' + "♥".repeat(Math.max(0, G.lives)) + "♡".repeat(3 - Math.max(0, G.lives)) + '</div></div>';
+    '<div class="b4sblabel">' + esc(label) + ' · ' + '<span class="yrlives" role="img" aria-label="' + Math.max(0, G.lives) + ' of 3 lives">' + [0, 1, 2].map(i => '<i' + (i < G.lives ? ' class="on"' : '') + '></i>').join("") + '</span>' + '</div></div>';
   const cols = ["#e9b84c", "#2f6fe0"];
   const side = (i, away) => '<div class="sb-t' + (away ? " away" : "") + (i === G.turn && G.phase !== "full" ? " on" : "") + '" style="--tc:' + (n > 2 ? SB_COLS[i % SB_COLS.length] : cols[i]) + '"><b>' + esc(G.names[i]) + '</b>' + (n > 2 ? '<i>' + G.rows[i].length + '</i>' : "") + '</div>';
   if(n > 2) return '<div class="b4sb sbmany' + (n > 3 ? " rows2" : "") + (n === 4 ? " n4" : "") + '"><div class="sb">' + G.names.map((_, i) => side(i, false)).join("") + '</div><div class="b4sblabel">' + esc(label) + '</div></div>';
@@ -34977,7 +35134,7 @@ function yrSetupScreen(st){
     '<div class="lbrules yrrules"><b>Tokens</b><span>' + yrTokHTML(2, "you start with") + '</span>' +
       '<small>Call the exact year as well and get it right: +1 token. Spend 1 to skip a card' + (p.vs === "solo" ? "" : " or to steal: claim another gap in someone else\'s row, and if they\'re wrong and you\'re right, the card is yours") + '. Spend 3 to buy a card without guessing. The same year as a neighbour counts on either side.</small></div>' +
     (p.played ? '<div class="b6qs">Played ' + p.played + (p.won ? ", won " + p.won + " against the computer" : "") + (p.best ? " · solo best " + p.best + " in a row" : "") + '</div>' : "") +
-    '<button class="b6cta" onclick="yrStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Deal the cards ▶" : "Shuffling the cards…") + '</button>' });
+    '<button class="b6cta" onclick="yrStart()"' + (ready ? "" : " disabled") + '>' + (ready ? "Deal the cards " + ico("play") : "Shuffling the cards…") + '</button>' });
 }
 function yrTurnScreen(){
   const G = YR, s = G.turn, me = !G.cpu[s], row = G.rows[s], tok = G.tokens[s];
@@ -35080,7 +35237,7 @@ function sbScoreHTML(quiz){
 function sbPickHTML(P, grole){
   const lv = Object.entries(TIERS).filter(([k]) => { try{ return !!bankFor(k); }catch(e){ return false; } });
   return b4Q(esc(P.name) + (grole === "pick" ? ", your pick" : " to pick"), "Choose a level. Get it right and score its points.") +
-    (remotePlayer(S.turn) ? '<div class="hint waitline">⌛ ' + esc(P.name) + ' is picking on their own phone.</div>' : "") +
+    (remotePlayer(S.turn) ? '<div class="hint waitline">' + esc(P.name) + ' is picking on their own phone.</div>' : "") +
     '<div class="sblv">' + lv.map(([k, t], i) => '<button class="sblvb' + (k === "ball" ? " ball" : "") + '" style="--dc:' + t.color + ';--d:' + i * 60 + 'ms" onclick="pickTier(\'' + k + '\')"' +
       (remaining(k) === 0 ? " disabled" : "") + '>' + (k === "ball" ? '<span class="sbic">' + ballSVG("") + '</span>' : '<span class="sbdot"></span>') +
       '<span class="sbn">' + esc(tlabel(k)) + '</span><span class="sbp"><b>' + t.pts + '</b><small>' + (t.pts === 1 ? "point" : "points") + '</small></span></button>').join("") + '</div>';
@@ -35114,7 +35271,7 @@ function hiloStepHTML(){
     (p.n > 1 ? '<div class="b6hdr">Play to · points</div><div class="b6seg b6ans" role="group" aria-label="Play to">' +
       HILO_LIMITS.map(t => '<button aria-pressed="' + (p.t === t) + '" onclick="hiloLimit(' + t + ')">' + (t ? t : "No limit") + '</button>').join("") + '</div>' +
       '<div class="b6qs">A right answer is a point, five in a row ten more. First to the limit wins.</div>' : "") +
-    '<button class="b6cta" onclick="hiloStart()">Kick off ▶</button>';
+    '<button class="b6cta" onclick="hiloStart()">Kick off ' + ico("play") + '</button>';
 }
 function hiloStart(){
   const p = hiloKeepNames();
@@ -35380,7 +35537,7 @@ function b6Steps(){
     b6Opt(b4Comp === "lg", B6_ART.leagues, "Leagues", '<div class="b6flags">' + ["england", "es", "de", "it", "nl", "be"].map(f => '<img src="assets/natflags/' + f + '.png" alt="">').join("") +
       '</div><small>Top flights &amp; second tiers</small>', "b4Comp='lg';render()") +
     '</div><div class="b6summary"><span>' + (b4Mate ? "vs a friend" : "vs the computer") + '</span>' + (b4Mate ? "" : '<span>' + lvName + '</span>') + '</div>' +
-    '<button class="b6cta" onclick="b6Next()">Kick off ▶</button>';
+    '<button class="b6cta" onclick="b6Next()">Kick off ' + ico("play") + '</button>';
   if(b4Step === "tourn"){
     const ids = Object.keys(POOLS).filter(id => POOLS[id].group === (b4Cup === "wc" ? "World Cups" : "Euros"))
       .sort((a, b) => (POOLS[a].short < POOLS[b].short ? -1 : 1));
@@ -35391,14 +35548,14 @@ function b6Steps(){
       '<div class="b6years">' + ids.map(id => '<button class="b6yr" onclick="b4StartPitch(\'' + id + '\',\'classic\')"' + (TEAMS[id] ? "" : " disabled") + '>' +
         '<b style="text-shadow:' + b4YrShadow() + '">' + b4Yr(id) + '</b><small>' + esc(B4_HOSTS[id] || POOLS[id].short) + '</small></button>').join("") + '</div>' +
       (POOLS.finals ? '<button class="b6fix b6finals" onclick="b4StartPitch(\'finals\',\'classic\')"' + (TEAMS.finals ? "" : " disabled") + '>' +
-        '<div class="t">40<small>SIDES</small></div><div class="m"><b>Famous finals</b><small>Elevens that played in one</small></div><div class="go">▶</div></button>' : "");
+        '<div class="t">40<small>SIDES</small></div><div class="m"><b>Famous finals</b><small>Elevens that played in one</small></div><div class="go">' + ico("play") + '</div></button>' : "");
   }
   if(b4Step === "eu"){
     const cup = (q, sub) => { const Q = QUIZZES[q], n = DECKS[q] ? ["easy", "normal", "hard", "extreme", "ball"].reduce((a, t) => a + ((DECKS[q] || {})[t] || []).length, 0) : 0;
       const go = q === "ucl" ? "b4Pick(\'ucl\')" : "b4StartPitch(\'euro-clubs\',\'" + q + "\')", ok = q === "ucl" || TEAMS["euro-clubs"];
       return '<button class="b6cup" onclick="' + go + '"' + (ok ? "" : " disabled") + '>' +
         '<span class="b6cupb">' + euroBadgeSVG(q, 64) + '</span><span class="b6cupt"><b>' + esc(Q.label) + '</b><small>' + sub + '</small>' +
-        (n ? '<em>' + nf(n) + ' questions</em>' : '<em>Loading…</em>') + '</span><span class="go">▶</span></button>'; };
+        (n ? '<em>' + nf(n) + ' questions</em>' : '<em>Loading…</em>') + '</span><span class="go">' + ico("play") + '</span></button>'; };
     return b6StepHead(0, 0, "European nights") +
       '<div class="b6q">Which cup?</div><div class="b6qs">You both play as clubs from the six top flights. The questions are about the cup.</div>' +
       '<div class="b6cups">' + cup("ucl", "Pick a season, then a club from it") + cup("uel", "Thursday nights, the long road to the final") + cup("uecl", "The newest European cup, since 2021") + '</div>' +
@@ -35463,12 +35620,12 @@ function b6Front(saved){
   const shoot = (m.shoot && m.shoot.date === today) ? m.shoot : null;
   const opp = DECKS["classic-mc"] ? dsDay(today).opp : null;
   const newOrBest = (v, word, k) => v != null && v !== "" && v !== -1 ? '<div class="t">' + v + '<small>' + (word || "BEST") + '</small></div>'
-    : k && b6IsNew(k) ? '<div class="t new">★<small>NEW</small></div>' : '<div class="t try">▶<small>PLAY</small></div>';
+    : k && b6IsNew(k) ? '<div class="t new">' + ico("star") + '<small>NEW</small></div>' : '<div class="t try">' + ico("play") + '<small>PLAY</small></div>';
   /* the Daily: today's opponent and the kicks as pips; finished, the score,
      a countdown to tomorrow's and Share */
   let daily;
   if(!opp){
-    daily = '<button class="b6fix tall daily" disabled><div class="t gold">…<small>TODAY</small></div><div class="m"><b>Daily Ball</b><small>Loading today’s shootout</small></div><div class="go">▶</div></button>';
+    daily = '<button class="b6fix tall daily" disabled><div class="t gold">…<small>TODAY</small></div><div class="m"><b>Daily Ball</b><small>Loading today’s shootout</small></div><div class="go">' + ico("play") + '</div></button>';
   } else {
     const R = shoot ? dsRows(shoot) : null;
     const pips = '<div class="b6pips">' + [0, 1, 2, 3, 4].map(i => {
@@ -35485,7 +35642,7 @@ function b6Front(saved){
     } else {
       daily = '<button class="b6fix tall daily" onclick="b4Explain(\'daily\', dailyStart)">' +
         '<div class="t gold"><img class="b6flag" src="assets/natflags/' + opp.flag + '.png" alt=""><small>' + (shoot ? "KICK " + Math.min(shoot.kicks.length + 1, 5) : "TODAY") + '</small></div>' +
-        '<div class="m"><b>Daily Ball</b>' + pips + '<small>' + esc("vs " + opp.name + (live ? " · " + dst.played + "-day streak" : " · same shootout for everyone")) + '</small></div><div class="go">▶</div></button>';
+        '<div class="m"><b>Daily Ball</b>' + pips + '<small>' + esc("vs " + opp.name + (live ? " · " + dst.played + "-day streak" : " · same for everyone")) + '</small></div><div class="go">' + ico("play") + '</div></button>';
     }
   }
   const hiloBest = (best.caps != null || best.goals != null) ? Math.max(best.caps == null ? -1 : best.caps, best.goals == null ? -1 : best.goals) : null;
@@ -35497,7 +35654,7 @@ function b6Front(saved){
       <span class="b6htxt"><span class="b6nm">Matchday</span><span class="b6sb">Every pass is a question.</span></span>
       <span class="b6hl" aria-hidden="true">${[64, 46, 56, 32].map((w, i) => '<i style="width:' + w + 'px;top:' + (i * 12) + 'px;opacity:' + (i === 1 || i === 2 ? 1 : .6) + '"></i>').join("")}</span>
       <span class="b6hb" aria-hidden="true">${ballSVG("")}</span>
-      <span class="b6pill">Play ▶</span>
+      <span class="b6pill">Play ${ico("play")}</span>
     </button>
     ${saved ? b6ContinueHTML(saved) : ""}
     <div class="b6hdr">Today &amp; more games</div>
@@ -35545,12 +35702,13 @@ function b6ContinueHTML(s){
   return '<div class="b6cont"><button class="b6cmain" onclick="resumeGame()"><span class="t"><b>' + esc(title) + '</b><small>' + esc(line) + '</small></span><span class="go">Continue</span></button>' +
     '<button class="b6cx" onclick="askCancelMatch()" aria-label="Throw this game away">×</button></div>';
 }
-/* tomorrow's Daily: hours and minutes to local midnight, ticked once a minute while it is on screen */
+/* tomorrow's Daily: hours and minutes to local midnight, ticked once a minute while it is on screen.
+   "2h 32m", never "2:32", which reads as a time of day (_plans/look-and-feel.md §7) */
 function b6Countdown(now){
   now = now || new Date();
   const mid = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
   const mins = Math.max(0, Math.ceil((mid - now) / 60000));
-  return Math.floor(mins / 60) + ":" + String(mins % 60).padStart(2, "0");
+  return Math.floor(mins / 60) + "h " + String(mins % 60).padStart(2, "0") + "m";
 }
 let b6CdTimer = null;
 function b6CountdownTick(){
@@ -35560,7 +35718,7 @@ function b6CountdownTick(){
       const el = document.getElementById("b6cd");
       if(!el){ clearInterval(b6CdTimer); b6CdTimer = null; return; }
       el.textContent = b6Countdown();
-      if(el.textContent === "0:00" && !S) render();   // midnight: a new Daily
+      if(el.textContent === "0h 00m" && !S) render();   // midnight: a new Daily
     }, 60000);
   }catch(e){}
 }
@@ -35919,7 +36077,7 @@ function judge(correct, level){
     goalFx(S.tier==="ball" && rung!=="country" && !(isBadgeBall()&&bzStep()===2), pts);
     const how = rung==="city" ? " (city)" : rung==="country" ? " (country only)"
               : isBadgeBall() && bzStep() ? ` (pulled back ${bzStep()===1?"once":"twice"})` : "";
-    toast(`⚽ GOAL! ${who.name} +${pts}${how}${stealing?" (stolen!)":""}`);
+    toast(`GOAL! ${who.name} +${pts}${how}${stealing?" (stolen!)":""}`);
     if(maybeFinish()) return; // reached the win target
     nextTurn();
   }else if(!stealing){
@@ -36109,7 +36267,7 @@ function cJudge(correct){
     const pts=cpot();
     who.score+=pts; ching();
     confetti(cdeck()[S.career.ci].c.length>=8 ? 80 : 52);
-    toast(`⚽ ${who.name} nails it! +${pts}`);
+    toast(`${who.name} nails it! +${pts}`);
     if(maybeFinish()) return;
     if(cPartyDone()) return;
     if(S.rr) return rrNext();
@@ -36205,7 +36363,7 @@ function alJudge(correct){
     const pts=alpot();
     who.score+=pts; ching();
     confetti(52);
-    toast(`⚽ ${who.name} nails it! +${pts}`);
+    toast(`${who.name} nails it! +${pts}`);
     if(maybeFinish()) return;
     if(S.rr) return rrNext();
     S.round++;
@@ -36353,7 +36511,7 @@ function mysGuess(gi){
   if(gi===S.mys.ti){
     const pts=mysPot();
     who.score+=pts; ching(); confetti(64);
-    toast(`⚽ ${who.name} has him! +${pts}`);
+    toast(`${who.name} has him! +${pts}`);
     S.mys.g.push(mysCompare(gi));
     S.phase="my_done";
     if(maybeFinish()) return;
@@ -36409,7 +36567,7 @@ function bidGot(){
     h.score+=S.bid.claim; c.score-=BID_STING;
     S.bid.win="holder";
     ching(); confetti(52);
-    toast(`⚽ ${h.name} delivers! +${S.bid.claim}`);
+    toast(`${h.name} delivers! +${S.bid.claim}`);
     S.phase="b_done";
     if(maybeFinish()) return;
   }else popfx();
@@ -36461,7 +36619,7 @@ function specJudge(ok){
   if(ok && who){
     who.score += Qs.p;
     ching(); goalFx(false, Qs.p);
-    toast(`⚽ ${who.name} +${Qs.p}`);
+    toast(`${who.name} +${Qs.p}`);
     if(maybeFinish()) return;
   }else if(!ok){ buzzer(); flashBad(); }
   specNext();

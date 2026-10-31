@@ -32,8 +32,8 @@
 .cl-top{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .cl-next h2{margin:6px 0 0;font:italic 900 34px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-card-ink)}
 .cl-cd{text-align:right;flex:none}
-.cl-cd b{display:block;font:italic 900 30px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc1);font-variant-numeric:tabular-nums}
-.cl-cd small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--th-card-dim)}
+.cl-cd b{display:block;margin-top:5px;font:italic 900 28px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc1);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cl-cd small{display:block;font:800 var(--fs-kicker)/1 'Barlow Semi Condensed',sans-serif;letter-spacing:var(--ls-kicker);text-transform:uppercase;color:var(--th-card-dim)}
 .cl-pips{display:flex;gap:5px;margin:16px 0 8px}
 .cl-pips span{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.13)}
 .cl-pips span.on{background:linear-gradient(90deg,#f6d57c,#c99a2e)}

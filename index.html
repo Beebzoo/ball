@@ -10363,42 +10363,71 @@ const OFFENCE_PENALTY = n => n<=1 ? 0 : n===2 ? 1 : 2;
 
 let S = null; // {players:[{name,score,off}], turn, round, phase, tier, qi, stealer, timeUp, used:{tier:[i,..]}}
 
-/* ======================= EXTRA CLASSIC QUESTION PACKS =======================
-   facts = generated from Wikidata (CC0, so no attribution tail unlike the photo
-   banks): home grounds, founding years, league winners.
-   deep  = handwritten Hard and BALL questions, never regenerated.
-   extra = the August 2026 top-up across all five tiers, written and then
-           fact-checked against sources before shipping. The checking was worth
-           more than the writing: nothing came back invented, but every question
-           phrased as a live record ("all-time top scorer", "most capped") had
-           either already broken or was about to, so they are all re-anchored to
-           a closed season now.
+/* ============== CLASSIC FROM THE QUESTION BANK (_plans/question-bank.md, step 5) ==============
+   Classic was the inline BANK above with five packs appended at boot (facts from Wikidata, the handwritten deep
+   Hard and BALL, nicknames, awards, the August top-up). Since 31 Oct 2026 (Martijn: "put all those new questions
+   into the app") it is the question bank's own Classic, assets/q/classic.json: the packs' questions corrected, the
+   repeats and the retired ones out, the new ones in, and wrong answers for multiple choice.
 
-   APPENDED to each tier, never inserted: S.used holds indexes, so putting these
-   anywhere but the end would scramble a saved match's list of seen questions.
-   The packs are loaded strictly in order for the same reason. Two loose
-   fetches could land either way round and quietly renumber the bank between
-   one page load and the next, which would point a resumed match's used-list at
-   the wrong questions. */
+   EVERY QUESTION KEEPS ITS PLACE. S.used and S.qi hold places, so the bank is laid into the old ones
+   (assets/classic-legacy.json: each place's question id, the inline BANK first and then the packs as they were
+   appended). A question the bank still has comes back at its place, in its current words; one it has dropped, or
+   moved to another level, keeps the place marked x and is never drawn again (liveQ); the bank's new questions follow.
+   So a match parked before this, or before the bank's next build, resumes on the questions it had. The inline BANK is
+   the first frame's Classic and the start of the same order, so a match begun before the bank lands is fine too.
+   Built in the same arrays, because DECKS.classic is BANK.
+
+   ITS MULTIPLE CHOICE joins classic-mc the same way, after the thousand the Daily Ball is dealt from (assets/mc,
+   whose ids are in the same file), marked nd, which dailyBank leaves out: every day's Daily stays the questions it
+   was. */
 /* the boot queue (see BOOT_FIRST below): declared here, above its first user */
 const BOOT_LATER = [];
 function bootLater(fn){ BOOT_LATER.push(fn); }
-const PACKS = ["assets/facts/index.json", "assets/deep/index.json", "assets/nicknames/index.json", "assets/awards/index.json", "assets/extra/index.json"];
-bootLater(async ()=>{
-  let n=0;
-  for(const url of PACKS){
-    try{
-      const res = await fetch(url);
-      if(!res.ok) continue;
-      const extra = await res.json();
-      for(const [tier,rows] of Object.entries(extra)){
-        if(!Array.isArray(BANK[tier]) || !Array.isArray(rows)) continue;
-        BANK[tier].push(...rows); n+=rows.length;
-      }
-    }catch(e){ /* offline first run: Classic runs on what it already has */ }
+const CLASSIC_TIERS = ["easy", "normal", "hard", "extreme", "ball"];
+let CLASSIC_BANK = null;      // {v, b, L} once the bank's Classic is in
+let CLASSIC_WAIT = null;      // its fetch, while that is on its way
+function classicMerge(b, L){
+  if(CLASSIC_BANK || !b || !L || !L.classic) return false;
+  const at = {}, placed = new Set(), out = {};
+  for(const t of CLASSIC_TIERS) for(const r of (Array.isArray(b[t]) ? b[t] : [])) if(r && r.id) at[r.id] = [t, r];
+  const say = r => ({ id: r.id, q: r.q, a: r.a, sub: r.sub, cat: r.cat });
+  for(const t of CLASSIC_TIERS){
+    const old = BANK[t] || [];
+    out[t] = (L.classic[t] || []).map((id, i) => {
+      const hit = at[id];
+      if(hit && hit[0] === t){ placed.add(id); return say(hit[1]); }
+      return Object.assign({}, old[i] || {}, { id, x: 1 });
+    });
   }
-  if(n && (!S || S.phase==="setup")) render(); // refresh the "n left" counts
-});
+  for(const t of CLASSIC_TIERS) for(const r of (Array.isArray(b[t]) ? b[t] : [])) if(r && r.id && !placed.has(r.id)){ placed.add(r.id); out[t].push(say(r)); }
+  for(const t of CLASSIC_TIERS){ if(!Array.isArray(BANK[t])) BANK[t] = []; BANK[t].length = 0; BANK[t].push(...out[t]); }
+  CLASSIC_BANK = { v: b.v || "", b, L };
+  classicMcMerge();
+  return true;
+}
+function classicMcMerge(){
+  const mc = typeof DECKS !== "undefined" ? DECKS["classic-mc"] : null;
+  if(!CLASSIC_BANK || !mc || mc._bank) return false;
+  const had = new Set();
+  for(const t of CLASSIC_TIERS) for(const id of ((CLASSIC_BANK.L.mc || {})[t] || [])) had.add(id);
+  const add = bankDecks(CLASSIC_BANK.b).mc;
+  for(const t of CLASSIC_TIERS) if(Array.isArray(mc[t])) for(const r of add[t] || []) if(!had.has(r.id)) mc[t].push(Object.assign(r, { nd: 1 }));
+  Object.defineProperty(mc, "_bank", { value: true });
+  return true;
+}
+/* how many Classic questions can still be drawn: every place but the marked ones */
+const classicLive = () => CLASSIC_TIERS.reduce((n, t) => n + (BANK[t] || []).filter(q => q && !q.x).length, 0);
+/* the fetch, at its turn in the boot queue or sooner when a parked match needs it; offline, Classic is the inline
+   BANK, which is the start of the same places */
+function classicNeed(){
+  if(CLASSIC_BANK) return null;
+  if(!CLASSIC_WAIT) CLASSIC_WAIT = Promise.all(["assets/q/classic.json", "assets/classic-legacy.json"].map(u =>
+      fetch(u).then(r => r.ok ? r.json() : null).catch(() => null)))
+    .then(([b, L]) => { if(classicMerge(b, L) && (!S || S.phase === "setup")) render(); })   // the "n left" counts
+    .catch(() => {}).then(() => { CLASSIC_WAIT = null; });
+  return CLASSIC_WAIT;
+}
+bootLater(classicNeed);
 
 /* ============================== STADIUM BANK ==============================
    300 photos in assets/stadiums/, curated from Wikimedia Commons (see
@@ -10793,7 +10822,9 @@ const QUIZZES = {
   classic: {label:"Let's Ball", ic:"trophy", ac:"#e9b84c",
             spoken:null, mc:"assets/mc/index.json",
             pool:"wc2006", flags:"assets/natflags/", ext:".png",
-            blurb:"The whole bank, 6,984 questions, and on the pitch you play it as a country from the 2006 World Cup."},
+            /* the count once the question bank's Classic is in, which it says itself */
+            get blurb(){ return "The whole question bank" + (CLASSIC_BANK ? ", " + classicLive().toLocaleString("en") + " questions," : "") +
+              " and on the pitch you play it as a country from the 2006 World Cup."; }},
   /* THE ONE WRITTEN FOR THE THREE OF YOU, and it sits second on purpose: the
      flagship is the whole bank, and the next thing on the shelf should be the
      deck that is about the people holding the phone.
@@ -11077,7 +11108,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · league medals and today's list";
+const BUILD = "BALL 4 · 31 Oct 2026 · Let's Ball on the question bank";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -11094,7 +11125,7 @@ function loadQuiz(id){
   const grab = (url, put) => { if(!url) return;
     fetch(url).then(r => r.ok ? r.json() : null).then(b => { if(b){ put(b); done(); } }).catch(()=>{}); };
   grab(row.spoken, b => DECKS[id] = qrRetier(b));
-  grab(row.mc,     b => DECKS[id + "-mc"] = qrRetier(b));
+  grab(row.mc,     b => { DECKS[id + "-mc"] = qrRetier(b); if(id === "classic") classicMcMerge(); });   // the bank's, if it came first
   /* a question-bank deck: both decks from one file. Multiple choice is every row
      with wrong answers, the right one dropped in at a place fixed by its id */
   if(Array.isArray(row.deck)) Promise.all(row.deck.map(d => fetch("assets/q/" + d + ".json").then(r => r.ok ? r.json() : null).catch(() => null)))
@@ -12828,7 +12859,28 @@ const liveQ = (bank, n) => !!(bank && bank[n]) && !bank[n].x;
 function q(){ if(S.mode==="badge") return badgeQ();
   const d = S.qd ? DECKS[S.mc ? S.qd + "-mc" : S.qd] : deckFor();
   return d && d[S.tier] ? d[S.tier][S.qi] : null; }
-function remaining(t){ return bankFor(t).length - S.used[t].length; }
+/* the questions a level can still draw: the marked places are not among them (the question bank's Classic keeps a
+   place for every question it has dropped) */
+function remaining(t){
+  const b = bankFor(t) || [], used = new Set(S.used[t] || []);
+  let n = 0; for(let i = 0; i < b.length; i++) if(!used.has(i) && liveQ(b, i)) n++;
+  return n;
+}
+/* A MATCH PARKED ON A QUESTION THE BANK HAS SINCE DROPPED, from a place the old packs filled: the place is kept but
+   its words are not, so the question in play is swapped for another of the same level. Only that case: anything with
+   words, or not a marked place, is left as it was */
+function qGoneSwap(){
+  try{
+    if(!S || S.mode === "badge" || S.qi == null || !S.tier || !(isQuiz(S.mode) || S.qd)) return false;
+    const d = S.qd ? DECKS[S.mc ? S.qd + "-mc" : S.qd] : deckFor(), bank = d && d[S.tier], cur = bank && bank[S.qi];
+    if(!cur || cur.q || !cur.x) return false;
+    const used = S.qd ? h2Used(S.qd, S.tier) : (S.used && S.used[S.tier]) || [];
+    const avail = bank.map((_, n) => n).filter(n => !used.includes(n) && liveQ(bank, n));
+    if(!avail.length) return false;
+    S.qi = avail[Math.floor(Math.random() * avail.length)]; used.push(S.qi);
+    return true;
+  }catch(e){ return false; }
+}
 async function wakeLock(){ try{ if(navigator.wakeLock) await navigator.wakeLock.request("screen"); }catch(e){} }
 document.addEventListener("visibilitychange",()=>{ if(!document.hidden && S) wakeLock(); });
 
@@ -15559,12 +15611,14 @@ function qKey(q){
   return h.toString(36);
 }
 /* the classic bank for a tier, as {key, i} sorted by key, which is the same
-   order on every phone whatever the build did to the array */
+   order on every phone whatever the build did to the array. Only the Daily's
+   own thousand: the question bank's multiple choice that joined them (nd) is
+   Matchday's, so every day keeps the questions it always had */
 const dailyBankCache = {};
 function dailyBank(tier){
   if(dailyBankCache[tier]) return dailyBankCache[tier];
   const bank = (DECKS["classic-mc"] || {})[tier] || [];
-  const rows = bank.map((q, i) => ({k: qKey(q), i: i, x: !!q.x})).filter(r => !r.x);
+  const rows = bank.map((q, i) => ({k: qKey(q), i: i, x: !!q.x || !!q.nd})).filter(r => !r.x);
   rows.sort((a, b) => a.k < b.k ? -1 : a.k > b.k ? 1 : 0);
   return (dailyBankCache[tier] = rows);
 }
@@ -36685,8 +36739,28 @@ function startGame(){
   if(isPitch(S.play)) h2Start();
   render();
 }
-function resumeGame(){
+/* DOES A PARKED MATCH POINT PAST THE CLASSIC PLACES THERE ARE YET? Until the question bank lands, Classic is the
+   inline BANK and its multiple choice the Daily's thousand; a match parked on Classic (or topped up from it) further in
+   than that waits for the rest. Anything else resumes at once, as it always did */
+function classicShort(s){
+  if(!s || CLASSIC_BANK) return false;
+  const deck = s.mc ? ((typeof DECKS !== "undefined" && DECKS["classic-mc"]) || {}) : BANK;
+  const past = (t, i) => i != null && i >= (deck[t] || []).length, own = s.mode === "classic" || s.qsrc === "classic";
+  for(const t of CLASSIC_TIERS){
+    if(own && ((s.used || {})[t] || []).some(i => past(t, i))) return true;
+    if((((s.usedQ || {}).classic || {})[t] || []).some(i => past(t, i))) return true;
+  }
+  return ((own && !s.qd) || s.qd === "classic") && CLASSIC_TIERS.includes(s.tier) && past(s.tier, s.qi);
+}
+function resumeGame(waited){
   audio(); wakeLock();
+  /* A PARKED MATCH POINTS INTO CLASSIC BY PLACE, and past the inline BANK's places it is the question bank that fills
+     them: if it has not landed yet it is fetched now and such a match waits for it, once (offline it goes on without) */
+  if(!waited && !CLASSIC_BANK){
+    let s = null; try{ s = JSON.parse(localStorage.getItem(SAVE_KEY)); }catch(e){}
+    const w = classicShort(s) ? classicNeed() : null;
+    if(w){ if(!resumeGame.w){ resumeGame.w = true; w.then(() => { resumeGame.w = false; resumeGame(true); }); } return; }
+  }
   try{ S=JSON.parse(localStorage.getItem(SAVE_KEY)); }catch(e){ return; }
   if(S.timed===undefined) S.timed=true; // saves from before the timer toggle existed
   if(S.mode===undefined) S.mode="classic"; // saves from before written mode existed
@@ -36805,6 +36879,7 @@ function resumeGame(){
       else { H.marks = []; S.phase = "h_pick"; }
     }
   }
+  qGoneSwap();   // the question in play, if the bank has dropped it since
   render();
 }
 /* Every function below that changes the score or the phase is host-only. On a

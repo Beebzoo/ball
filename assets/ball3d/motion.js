@@ -195,6 +195,18 @@ function holdBall(t, seed){
   else { P.nod = .15; P.look *= .5; }
   return { pose: P, roll };
 }
+/* SHIELDING IT: the man on the ball as the clock runs and somebody closes him
+   down. Knees bent, weight low over the ball, the shoulder turned into him and
+   the arm on his side out to hold him off. a (0..1) is how much; side is where
+   the man coming is, 1 his left, -1 his right. */
+function shield(t, seed, a, side){
+  const P = idle(t, seed, { style: 1 }), k = clamp(a), L = side < 0 ? "R" : "L", sd = (seed % 997)/97;
+  const mix = (key, v) => { P[key] = lerp(P[key] || 0, v, k); };
+  mix("z" + L, 1.05); mix("s" + L, .35); mix("e" + L, .5);
+  mix("lean", .22 + .03*Math.sin(t*2.6 + sd)); mix("kL", .34); mix("kR", .36); mix("hL", .26); mix("hR", .24);
+  mix("twist", -.3*(side < 0 ? -1 : 1)); mix("nod", .2); P.air = 0;
+  return P;
+}
 /* DEFENDING: side on, low, on his toes, arms out a little */
 function jockey(t, seed, o){
   o = o || {};
@@ -429,7 +441,7 @@ function snap(s, target){ s.p = target.slice(); s.v = target.map(() => 0); retur
 
 root.BallMotion = {
   JOINTS, apply, legHeight, seedOf, lerp, clamp, ease, sst, wrap, bump,
-  gait, cycleLen, idle, holdBall, jockey, pass, PASS_C, PASS_LEN, receive, RECV_LEN, RECV_AT,
+  gait, cycleLen, idle, holdBall, shield, jockey, pass, PASS_C, PASS_LEN, receive, RECV_LEN, RECV_AT,
   slide, brace, felled, kneeSlide, aeroplane, fistPump, toTheCrowd, leap, hug, clap, handsOnHead, handsOnKnees, crouch, sit, keeperDown,
   state, drive, track, stride, moving,
   flightE, flightY, roll, LAND, spring, snap,

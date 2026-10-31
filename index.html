@@ -542,6 +542,8 @@
   .tha-who{position:absolute;left:18px;top:206px;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6)}
   /* the Themes shelf in the Locker, and the preview (canvas board 1) */
   .thgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 18px}
+  /* a celebration's tile: the pose in the house ink, on a card the size of a theme's swatch */
+  .clic{display:flex;align-items:center;justify-content:center;flex:none;width:46px;height:46px;border-radius:12px;background:var(--th-card);color:var(--th-card-ink)}
   .tht{display:flex;gap:10px;align-items:center;min-height:80px;box-sizing:border-box;padding:8px;border-radius:14px;background:var(--th-row);color:var(--th-row-ink);border:2px solid var(--th-edge);
     box-shadow:0 3px 0 rgba(0,0,0,.06);text-align:left;cursor:pointer;font:inherit}
   .tht.on{border-color:var(--th-acc);box-shadow:0 0 0 2px var(--th-acc)}
@@ -7658,6 +7660,14 @@
   .p3dui{position:absolute;inset:0;pointer-events:none;z-index:3}
   .p3dnext{position:absolute;transform:translate(-50%,0);padding:2px 5px;border-radius:7px;background:rgba(110,30,22,.82);color:#fff;
     font:700 10.5px/1 'Barlow Semi Condensed',sans-serif;white-space:nowrap;display:none}
+  /* MOMENTUM: passes in a row, from two; gold once the side is on top (three) */
+  .p3dmo{position:absolute;left:50%;top:44px;transform:translateX(-50%);padding:4px 10px;border-radius:999px;background:rgba(6,20,12,.8);
+    color:#f3e6c0;font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;white-space:nowrap}
+  .p3dmo.top{background:#e9b84c;color:#241b08}
+  .p3dmo[hidden]{display:none}
+  /* the night it is played on, by the minute: Rain or Snow (clear says nothing) */
+  .sb-names em .sb-wx{margin-left:6px;padding:1px 6px;border-radius:999px;background:rgba(243,205,107,.2);color:#f3cd6b;font-style:normal;
+    letter-spacing:.08em;text-transform:uppercase}
   .p3daim{position:absolute;transform:translate(-50%,-140%);padding:3px 8px;border-radius:9px;font:800 11.5px/1.1 'Barlow Semi Condensed',sans-serif;
     color:#111;white-space:nowrap;display:none;box-shadow:0 2px 6px rgba(0,0,0,.5)}
   .p3dedge{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:4px;padding:3px 7px 3px 5px;border-radius:12px;
@@ -10852,7 +10862,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · house style, phase 1";
+const BUILD = "BALL 4 · 31 Oct 2026 · 3D match moments";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -20010,6 +20020,180 @@ let K = null, P = null;               // the shared core, and the pitch scene
 const men = new Map();                // "w:i" -> a man
 const teamKey = [null, null];
 let snap = null, lastWho = null, swing = null, flight = null, cele = null, chal = null, celeOver = 0, cross = null;
+/* THE QUESTION ON THE CLOCK, the view's own note of it and never the match's:
+   when the side on the ball was asked (h_q) and when it answered (the turn to
+   h_judge), so the man who would win it back can close as the clock runs and
+   the pass can be played the way it was answered. Filled by see(), spent by the
+   pass that follows. lunge is that man going to ground for a ball that got away
+   from him on the last second; presserKey is who he is, frame to frame. */
+let ask = null, lunge = null, presserKey = null;
+/* MOMENTUM, the view's own count again: passes in a row by the side on the
+   ball, back to nothing when it changes hands. At three that side is on top: it
+   pushes up (lift, metres, eased), the passes come quicker, and for a person
+   (not the computer) the crowd gets up and the far stand lifts its scarves in
+   his colours (roar). The pill over the pitch says how many. */
+let run = { who: null, n: 0 }, lift = 0, roar = null, scarfLv = 0;
+const ON_TOP = 3;
+/* how far the clock has run on the question that is open, 0..1. In a timed
+   match it is the match's own fifteen seconds; untimed, he takes ten seconds to
+   come and stops short at 0.85, so the clock never takes the ball off anybody */
+function pressure(t){
+  if(!ask || ask.ans || typeof S === "undefined" || !S || S.phase !== "h_q") return 0;
+  if(ask.timed && T && T.key && T.total > 0) return clamp(1 - Math.max(0, T.deadline - t)/T.total);
+  return Math.min(.85, (t - ask.t0)/10000);
+}
+/* how the pass was answered, read once by the pass and then spent: quick (a
+   timed clock with nine seconds or more left, untimed inside four), late (the
+   last three seconds of a timed clock), or neither. Only a person's answer: the
+   computer's beat is a beat, not a clock. */
+function paceClass(a, person){
+  if(!a || !person || a.out) return null;
+  if(a.left != null) return a.left >= 9000 ? "quick" : a.left <= 3000 ? "late" : null;
+  return a.ms <= 4000 ? "quick" : null;
+}
+function paceOf(){ const a = ask && ask.ans, person = ask && ask.person; ask = null; return paceClass(a, person); }
+/* THE SCARVES behind the far goal, built the first time the crowd has a reason
+   to lift them: one instanced mesh, two hundred and twenty of them in the
+   colours of the side that is on top and white, swaying while lv (0..1) is up */
+function scarfWall(kit, T, lv){
+  const THREE = P.THREE;
+  if(!P.scarves){
+    if(!P.farStand || lv <= .01) return;
+    const N = 220, geo = new THREE.PlaneGeometry(1.1, 2); geo.translate(0, 1, 0);
+    const im = new THREE.InstancedMesh(geo, new THREE.MeshBasicMaterial({ side: THREE.DoubleSide }), N);
+    const g = new THREE.Group(); g.position.copy(P.farStand.position); g.rotation.copy(P.farStand.rotation); g.add(im); P.scene.add(g);
+    const r = K.lcg(0x5ca7f), items = [];
+    for(let i = 0; i < N; i++) items.push([(r() - .5)*96, -12 + r()*22, r()*Math.PI*2, r()]);
+    P.own.push(geo, im.material);
+    P.scarves = { g, im, items, kit: null, d: new THREE.Object3D() };
+  }
+  const W3 = P.scarves;
+  if(kit && W3.kit !== kit){
+    W3.kit = kit;
+    const a = K.W.lin(kit).multiplyScalar(.8), b = K.W.lin(0xf4f4f0).multiplyScalar(.7);
+    W3.items.forEach((it, i) => W3.im.setColorAt(i, it[3] < .62 ? a : b));
+    if(W3.im.instanceColor) W3.im.instanceColor.needsUpdate = true;
+  }
+  W3.g.visible = lv > .01;
+  if(!W3.g.visible) return;
+  const d = W3.d;
+  for(let i = 0; i < W3.items.length; i++){
+    const it = W3.items[i];
+    d.position.set(it[0], it[1] + .6*lv*Math.abs(Math.sin(T*3 + it[2])), .4);
+    d.rotation.set(0, 0, .3*lv*Math.sin(T*2.2 + it[2])); d.scale.set(1, Math.max(.001, lv), 1);
+    d.updateMatrix(); W3.im.setMatrixAt(i, d.matrix);
+  }
+  W3.im.instanceMatrix.needsUpdate = true;
+}
+
+/* ---------- THE CONDITIONS ----------
+   Every 3D match is a night match, so every one has the floodlights: besides
+   the real shadow from the main bank, three soft ones from the other towers.
+   On top of that, per match and off the match itself (the two sides), so a
+   redraw never changes the weather: mostly clear, rain about one in five (a
+   wet sheen on the grass, spray off a ball on the floor), and in December,
+   January and February now and then snow (white over the grass, and the
+   orange ball). ?wx=clear|rain|snow on the address forces one. A phone that
+   cannot keep up, and reduced motion, get no falling rain or snow. */
+let wxKind = "clear", WX = null;
+function conditions(){
+  try { const f = new URLSearchParams(location.search).get("wx"); if(f === "clear" || f === "rain" || f === "snow") return f; } catch(e){}
+  try {
+    let h = 2166136261 >>> 0;
+    for(const ch of [0, 1].map(w => h2Kit(w) + ":" + h2Abbr(w)).join("|")) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0;
+    const r = h % 100, winter = [11, 0, 1].includes(new Date().getMonth());
+    return r < 21 ? "rain" : winter && r < 35 ? "snow" : "clear";
+  } catch(e){ return "clear"; }
+}
+const conditionsHTML = () => { const c = conditions(); return c === "clear" ? "" : '<span class="sb-wx">' + (c === "rain" ? "Rain" : "Snow") + '</span>'; };
+const TOWERS = [[55, -75], [-55, -75], [55, 75]];      /* the three that do not cast the real shadow */
+function weatherOn(kind){
+  wxKind = kind;
+  const THREE = P.THREE, W = K.W;
+  if(!WX){
+    const tex = W.canvasTex(32, 128, g => { const gr = g.createLinearGradient(0, 128, 0, 0); gr.addColorStop(0, "rgba(0,0,0,.85)"); gr.addColorStop(1, "rgba(0,0,0,0)");
+      g.fillStyle = gr; g.beginPath(); g.ellipse(16, 64, 13, 63, 0, 0, Math.PI*2); g.fill(); });
+    const L = 3, geo = new THREE.PlaneGeometry(.85, L); geo.translate(0, L/2, 0); geo.rotateX(-Math.PI/2);
+    const mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false, opacity: .2, toneMapped: false });
+    P.own.push(tex, geo, mat);
+    WX = { geo, mat, fakes: new Map(), rain: null, snow: null, spray: null, ex0: null, lastB: null };
+  }
+  if(kind === "rain" && !WX.rain){
+    const N = 1200, pos = new Float32Array(N*6), seeds = [], r = K.lcg(0x7a1d);
+    for(let i = 0; i < N; i++) seeds.push([(r() - .5)*70, r()*32, (r() - .5)*70, 22 + r()*8]);
+    const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    const obj = new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: 0xa9bccd, transparent: true, opacity: .3, depthWrite: false }));
+    obj.frustumCulled = false; P.scene.add(obj); P.own.push(geo, obj.material);
+    WX.rain = { obj, geo, pos, seeds, N };
+    const SN = 120, sp = new Float32Array(SN*3).fill(-50), sgeo = new THREE.BufferGeometry(); sgeo.setAttribute("position", new THREE.BufferAttribute(sp, 3));
+    const dot = W.canvasTex(32, 32, g => { const gr = g.createRadialGradient(16, 16, 0, 16, 16, 16); gr.addColorStop(0, "rgba(255,255,255,1)"); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(0, 0, 32, 32); });
+    const sobj = new THREE.Points(sgeo, new THREE.PointsMaterial({ size: .38, map: dot, transparent: true, opacity: .7, depthWrite: false, color: 0xd6e4ee }));
+    sobj.frustumCulled = false; P.scene.add(sobj); P.own.push(sgeo, sobj.material, dot);
+    WX.spray = { obj: sobj, geo: sgeo, pos: sp, vel: new Float32Array(SN*3), life: new Float32Array(SN), N: SN, i: 0 };
+  }
+  if(kind === "snow" && !WX.snow){
+    const N = 1200, pos = new Float32Array(N*3), seeds = [], r = K.lcg(0x5e0);
+    for(let i = 0; i < N; i++) seeds.push([(r() - .5)*70, r()*30, (r() - .5)*70, .8 + r()*1.1, r()*6.28]);
+    const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    const dot = W.canvasTex(32, 32, g => { const gr = g.createRadialGradient(16, 16, 0, 16, 16, 16); gr.addColorStop(0, "rgba(255,255,255,1)"); gr.addColorStop(.5, "rgba(255,255,255,.55)"); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(0, 0, 32, 32); });
+    const obj = new THREE.Points(geo, new THREE.PointsMaterial({ size: .45, map: dot, transparent: true, opacity: .95, depthWrite: false, color: 0xffffff }));
+    obj.frustumCulled = false; P.scene.add(obj);
+    /* soft drifts rather than squares: round patches, then the whole thing blurred */
+    const ct = W.canvasTex(512, 768, (g, w, h) => { const r2 = K.lcg(0x5a0); g.fillStyle = "rgba(236,241,246,.32)"; g.fillRect(0, 0, w, h);
+      try { g.filter = "blur(5px)"; } catch(e){}
+      for(let i = 0; i < 2200; i++){ g.fillStyle = "rgba(250,252,255," + (.04 + r2()*.14).toFixed(3) + ")"; g.beginPath(); g.arc(r2()*w, r2()*h, 4 + r2()*16, 0, Math.PI*2); g.fill(); }
+      try { g.filter = "none"; } catch(e){} });
+    const cover = new THREE.Mesh(new THREE.PlaneGeometry(80, 117), new THREE.MeshStandardMaterial({ map: ct, transparent: true, roughness: 1, depthWrite: false }));
+    cover.rotation.x = -Math.PI/2; cover.position.y = .02; cover.receiveShadow = true; P.scene.add(cover);
+    P.own.push(geo, obj.material, dot, ct, cover.geometry, cover.material);
+    WX.snow = { obj, geo, pos, seeds, N, cover };
+  }
+  if(WX.rain){ WX.rain.obj.visible = kind === "rain"; WX.spray.obj.visible = kind === "rain"; }
+  if(WX.snow){ WX.snow.obj.visible = kind === "snow"; WX.snow.cover.visible = kind === "snow"; }
+  if(P.pitch) P.pitch.material.roughness = kind === "rain" ? .4 : 1;
+  /* the orange ball in the snow */
+  const a = P.ballMesh.geometry.attributes.color, n = a.count/3;
+  for(let i = 0; i < n; i++){ const c = (i % 5 === 0) ? [.12, .14, .15] : kind === "snow" ? [1, .2, .02] : [.97, .97, .97]; for(let k = 0; k < 3; k++) a.setXYZ(i*3 + k, c[0], c[1], c[2]); }
+  a.needsUpdate = true;
+}
+/* each frame: the soft shadows follow the men, the rain and the snow fall round where the camera looks, the spray flies */
+function stepWeather(dt, T, look, ball, still){
+  if(!WX) return;
+  for(const [key, m] of men){
+    let F = WX.fakes.get(key);
+    if(!F){ const g = new P.THREE.Group(), parts = TOWERS.map(() => { const me = new P.THREE.Mesh(WX.geo, WX.mat); g.add(me); return me; }); P.scene.add(g); F = { g, parts, f: m.f }; WX.fakes.set(key, F); }
+    if(F.f !== m.f){ F.f = m.f; }
+    F.g.visible = !m.off && !low;
+    if(!F.g.visible) continue;
+    F.g.position.set(m.x, .022, m.z);
+    for(let k = 0; k < TOWERS.length; k++) F.parts[k].rotation.y = Math.atan2(-(m.x - TOWERS[k][0]), -(m.z - TOWERS[k][1]));
+  }
+  for(const [key, F] of WX.fakes) if(!men.has(key)){ P.scene.remove(F.g); WX.fakes.delete(key); }
+  const fall = !still && !low;
+  if(WX.rain){ const R = WX.rain; R.obj.visible = wxKind === "rain" && fall;
+    if(R.obj.visible){ R.obj.position.set(look[0], 0, look[2]); const p = R.pos;
+      for(let i = 0; i < R.N; i++){ const s = R.seeds[i]; s[1] -= s[3]*dt; if(s[1] < 0) s[1] += 32;
+        const j = i*6; p[j] = s[0]; p[j + 1] = s[1]; p[j + 2] = s[2]; p[j + 3] = s[0] + .12; p[j + 4] = s[1] + .75; p[j + 5] = s[2] + .05; }
+      R.geo.attributes.position.needsUpdate = true; } }
+  if(WX.spray && wxKind === "rain"){
+    const Sp = WX.spray, p = Sp.pos, v = Sp.vel, L = Sp.life, lb = WX.lastB;
+    const vx = lb && dt > 0 ? (ball[0] - lb[0])/dt : 0, vz = lb && dt > 0 ? (ball[2] - lb[2])/dt : 0, sp = Math.hypot(vx, vz);
+    if(fall && sp > 3 && sp < 60 && ball[1] < .11*1.9 + .08){
+      for(let k = 0; k < Math.min(4, Math.ceil(sp/6)); k++){ const i = Sp.i = (Sp.i + 1) % Sp.N, j = i*3;
+        p[j] = ball[0] + (Math.random() - .5)*.3; p[j + 1] = .06; p[j + 2] = ball[2] + (Math.random() - .5)*.3;
+        v[j] = -vx*.12 + (Math.random() - .5)*1.8; v[j + 1] = 1.3 + Math.random()*1.9; v[j + 2] = -vz*.12 + (Math.random() - .5)*1.8; L[i] = .45 + Math.random()*.25; } }
+    for(let i = 0; i < Sp.N; i++){ if(L[i] <= 0) continue; const j = i*3; L[i] -= dt;
+      if(L[i] <= 0 || p[j + 1] < 0){ L[i] = 0; p[j + 1] = -50; continue; }
+      v[j + 1] -= 9.8*dt; p[j] += v[j]*dt; p[j + 1] += v[j + 1]*dt; p[j + 2] += v[j + 2]*dt; }
+    Sp.geo.attributes.position.needsUpdate = true;
+  }
+  WX.lastB = ball.slice();
+  if(WX.snow){ const N = WX.snow; N.obj.visible = wxKind === "snow" && fall;
+    if(N.obj.visible){ N.obj.position.set(look[0], 0, look[2]); const p = N.pos;
+      for(let i = 0; i < N.N; i++){ const s = N.seeds[i]; s[1] -= s[3]*dt; if(s[1] < 0) s[1] += 30;
+        const j = i*3; p[j] = s[0] + Math.sin(T*.9 + s[4])*.8; p[j + 1] = s[1]; p[j + 2] = s[2] + Math.cos(T*.7 + s[4])*.5; }
+      N.geo.attributes.position.needsUpdate = true; } }
+}
 /* WHERE THE BALL SITS: just in front of his right boot, wherever he is and
    whichever way he faces (Martijn, 21 Oct 2026: it was a metre off, at the 2D
    ball spot, and passes flew between spots instead of feet) */
@@ -20085,6 +20269,7 @@ function build(){
         g.fillStyle = SK[(crnd()*SK.length)|0]; g.beginPath(); g.arc(x + 7 + crnd()*2, y + 5, 4.6, 0, Math.PI*2); g.fill(); } } });
   crowdTex.wrapS = THREE.RepeatWrapping; crowdTex.wrapT = THREE.RepeatWrapping;
   const crowdTexs = [];
+  let farStand = null;
   for(const [len, x, z, ry] of [[90, 0, -HL - 2, 0], [90, 0, HL + 2, Math.PI], [130, -HW - 2, 0, Math.PI/2], [130, HW + 2, 0, -Math.PI/2]]){
     const bt = boardTex.clone(); bt.needsUpdate = true; bt.repeat.set(len/32, 1);
     const b = new THREE.Mesh(new THREE.BoxGeometry(len, .9, .1), new THREE.MeshStandardMaterial({ map: bt, roughness: .6, emissive: 0x1a1a1a }));
@@ -20093,6 +20278,7 @@ function build(){
     const st = new THREE.Mesh(new THREE.PlaneGeometry(len + 20, 30), new THREE.MeshStandardMaterial({ map: ct, roughness: 1, color: 0x5e5e5e }));
     const d = 9; st.position.set(x + (ry === Math.PI/2 ? -d : ry === -Math.PI/2 ? d : 0), 11, z + (ry === 0 ? -d : ry === Math.PI ? d : 0));
     st.rotation.order = "YXZ"; st.rotation.y = ry; st.rotation.x = -.55; scene.add(st);
+    if(z < 0 && ry === 0) farStand = st;     /* behind the goal being attacked: where the scarves go up */
   }
   const apron = new THREE.Mesh(new THREE.PlaneGeometry(260, 300), mat(0x0f3219)); apron.rotation.x = -Math.PI/2; apron.position.y = -.03; scene.add(apron);
   const glow = canvasTex(128, 128, g => { const gr = g.createRadialGradient(64,64,0,64,64,64); gr.addColorStop(0,"rgba(255,250,230,1)"); gr.addColorStop(.15,"rgba(255,248,224,.6)"); gr.addColorStop(1,"rgba(255,248,224,0)"); g.fillStyle = gr; g.fillRect(0,0,128,128); });
@@ -20111,7 +20297,7 @@ function build(){
   ballShadow.rotation.x = -Math.PI/2; ballShadow.position.y = .025; scene.add(ballShadow);
   const aimMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: .9, depthWrite: false, toneMapped: false });
   try { if(window.BALL3D && BALL3D.stage) BALL3D.stage(THREE, K.W.renderer).dress(scene, { kind: "pitch", sun, pitch }); } catch(e){}
-  P = { THREE, scene, camera, sun, holdRing, nextRing, ball, ballMesh, ballShadow, aimMat, aimMesh: null, aimHead: null, aimFor: null, own, crowd: crowdTexs };
+  P = { THREE, scene, camera, sun, holdRing, nextRing, ball, ballMesh, ballShadow, aimMat, aimMesh: null, aimHead: null, aimFor: null, own, crowd: crowdTexs, farStand, scarves: null, pitch };
   /* THE FIRST SHOT SHOULD NOT STUTTER: its stadium is built already (core()),
      so its shaders are compiled now, while the team sheet is up, rather than on
      the frame the striker starts his run */
@@ -20147,6 +20333,8 @@ function teams(){
                              seed, mo: BM().state(seed), touch: null, meet: null });
     });
   }
+  /* and the night it is played on */
+  const wk = conditions(); if(!WX || wk !== wxKind) weatherOn(wk);
 }
 /* ---------- the match says what happened ---------- */
 function see(o){
@@ -20154,6 +20342,17 @@ function see(o){
   if(!build()) return;
   teams();
   const H = o.H, t = now(), other = H.who === 0 ? 1 : 0;
+  /* THE QUESTION: opened on h_q (a new one each time the screen comes back to
+     it), answered on the turn to h_judge, whether by a pick, a reveal or the
+     clock running out */
+  try {
+    const qk = [H.who, H.at, S.round, S.tier, S.qi].join(":");
+    if(S.phase === "h_q"){
+      if(!ask || ask.key !== qk || ask.ans) ask = { key: qk, t0: t, timed: !!S.timed, ans: null, person: !(typeof aiIsOn === "function" && aiIsOn(H.who)) };
+    } else if(S.phase === "h_judge" && ask && ask.key === qk && !ask.ans){
+      ask.ans = { ms: t - ask.t0, left: ask.timed && T.total > 0 ? Math.max(0, T.deadline - t) : null, out: typeof h2Expired !== "undefined" && !!h2Expired };
+    }
+  } catch(e){ ask = null; }
   /* POSSESSION CHANGED: the view is drawn from the side on the ball, so the
      whole world turns 180 degrees round the centre spot. It is turned
      instantly underneath an unchanged picture, and then the camera swings
@@ -20172,7 +20371,9 @@ function see(o){
   /* a cross is held in the box only while the striker who met it has the ball */
   if(cross && (H.who !== cross.w || H.at !== cross.i)) cross = null;
   lastWho = H.who;
-  const runMs = (typeof H2_RUN_MS !== "undefined" ? H2_RUN_MS : 1400), outMs = (typeof H2_OUT_MS !== "undefined" ? H2_OUT_MS : 950);
+  /* a new possession starts the count again */
+  if(run.who !== H.who) run = { who: H.who, n: 0 };
+  const runMs =(typeof H2_RUN_MS !== "undefined" ? H2_RUN_MS : 1400), outMs = (typeof H2_OUT_MS !== "undefined" ? H2_OUT_MS : 950);
   const movedFor = (i, mine) => o.F ? (o.F.filter(e => e.i === i && e.mine === mine)[0] || null) : null;
   for(const w of [0, 1]){
     const mine = w === H.who;
@@ -20190,9 +20391,21 @@ function see(o){
   /* THE PASS: ground balls roll, Hard is driven, the rest are lofted; the ball
      leaves on the kick and arrives when the rules say it does */
   if(o.A){
-    const A = o.A, tier = A.tier, ground = !!tier && H2_SAFE.includes(tier), drive = !ground && !o.R && !A.dur && tier === "hard";
-    const dur = A.dur ? A.dur : o.R ? runMs : drive ? 640 : ground ? 800 : 920;
+    const A = o.A, tier = A.tier;
+    let ground = !!tier && H2_SAFE.includes(tier), drive = !ground && !o.R && !A.dur && tier === "hard";
     const isCross = !o.R && !A.dur && (() => { try { return h2IsCross(A.from, A.to, H.who); } catch(e){ return false; } })();
+    /* AND HOW IT WAS ANSWERED. Quick: the ball on the floor is zipped and the one
+       in the air is driven. On the last seconds: it comes off his shin, bobbles
+       and wobbles off its line, and the man who was closing him slides in after
+       it, too late. The tier still decides everything else, and the ball still
+       arrives when the rules say: only how it gets there changes. */
+    const pace = !o.R && !A.dur && !isCross ? paceOf() : (ask = null, null);
+    let durK = 1, scuff = false;
+    if(pace === "quick"){ if(!ground) drive = true; durK = ground ? .78 : .88; }
+    else if(pace === "late"){ ground = true; drive = false; scuff = true; durK = 1.25; }
+    /* on top, it moves quicker */
+    if(run.who === H.who && run.n >= ON_TOP && !scuff) durK *= .88;
+    const dur = A.dur ? A.dur : o.R ? runMs : Math.round((drive ? 640 : ground ? 800 : 920)*durK);
     const from = V(A.fx, A.fy), to = o.R ? V(o.R.rx, o.R.ry) : V(A.tx, A.ty);
     const d = Math.hypot(to[0] - from[0], to[1] - from[1]);
     /* a turnover with a run goes to the spot the run was for, not to a man */
@@ -20203,7 +20416,17 @@ function see(o){
     /* the ball leaves on the boot: PASS_C into his kick is the contact */
     const C = Math.round(BM().PASS_C*1000);
     flight = { t0: t + C, dur: isCross ? 1150 : dur, from, to, fromKey: A.from == null ? null : H.who + ":" + A.from, toKey, kind,
-               h: isCross ? 6 : ground ? 0 : drive ? Math.min(2.4, .8 + d*.03) : Math.min(14, 3 + d*.18), ground: ground && !isCross };
+               h: isCross ? 6 : ground ? 0 : drive ? Math.min(2.4, .8 + d*.03) : Math.min(14, 3 + d*.18), ground: ground && !isCross, scuff };
+    if(scuff && presserKey) lunge = { key: presserKey, t0: t + C + 60, from: null, dir: 0 };
+    /* one more in a row; at three, and again at five, the crowd goes up as it arrives */
+    if(!o.R && A.to != null){
+      run.who = H.who; run.n++;
+      const person = !(typeof aiIsOn === "function" && aiIsOn(H.who));
+      if(person && (run.n === ON_TOP || run.n === ON_TOP + 2)){
+        let kit = null; try { kit = h2Kit(H.who); } catch(e){}
+        roar = { t0: t + C + flight.dur, dur: 2800, kit };
+      }
+    }
     const passer = men.get(H.who + ":" + A.from), recv = men.get(H.who + ":" + A.to);
     /* THE CROSS: whipped in from the wing, and the striker attacks the box to
        meet it, arriving with the ball */
@@ -20237,7 +20460,12 @@ function see(o){
      he runs, where his team-mates catch him) is drawn up on its first frame,
      from wherever everybody is standing then. It lasts until the kick-off. */
   if(o.cele){ const sc = H.who + ":" + H.at, m = men.get(sc);
-    cele = { t0: t, side: H.who, scorer: sc, style: m ? (m.seed >>> 3) % 3 : 0, plan: null, yaw0: null }; celeOver = t + 9000; }
+    /* yours is the one you picked in the Locker; the computer's men keep their own */
+    let style = m ? (m.seed >>> 3) % 4 : 0, kit = null;
+    const person = !(typeof aiIsOn === "function" && aiIsOn(H.who));
+    if(person){ try { style = celeStyle(); } catch(e){} try { kit = h2Kit(H.who); } catch(e){} }
+    /* and a goal of yours lifts the scarves behind the goal too */
+    cele = { t0: t, side: H.who, scorer: sc, style, plan: null, yaw0: null, person, kit }; celeOver = t + 9000; }
   let next = -1;
   try { next = h2NearestTo(H.at, H.who, other); } catch(e){ next = -1; }
   snap = { H, who: H.who, other, at: H.at, sel: H.sel, tappable: !!o.tappable, next: next >= 0 ? other + ":" + next : null,
@@ -20324,7 +20552,8 @@ function celeMan(m, key, ct, dt, rm){
         return { pose: B.kneeSlide(k, m.seed), tag: "slide", fd: .16 };
       }
       runTo(Pn.end[0], Pn.end[1], 4);
-      if(st === 1) return { pose: B.fistPump(k, m.seed), tag: "fist", fd: .25 };
+      /* the aeroplane lands in a fist pump, and the fist pump (3) is the run straight into one */
+      if(st === 1 || st === 3) return { pose: B.fistPump(k, m.seed), tag: "fist", fd: .25 };
       m.yaw = turnToward(m.yaw, Math.atan2(Pn.dir[0], Pn.dir[1]), rm ? 1 : dt*4);      /* to the crowd behind the flag */
       return { pose: B.toTheCrowd(k, m.seed), tag: "crowd", fd: .3 };
     }
@@ -20369,6 +20598,8 @@ function frame(t){
   const dt = Math.max(0, Math.min(.05, (t - lastNow)/1000)); lastNow = Math.max(lastNow, t);
   const t0 = now();
   const S_ = snap, celeOn = cele && t0 < celeOver;
+  /* how far the clock has run on the open question (0 when none is open) */
+  const clk = rm ? 0 : pressure(t0);
   const B = BM(), T = t0/1000;
   /* the men */
   const manAt = k => { const m = k && men.get(k); return m && !m.off ? m : null; };
@@ -20390,7 +20621,10 @@ function frame(t){
       if(!flight.fp) flight.fp = pm ? footOf(pm) : flight.from;
       const q = rm ? 1 : clamp((t0 - flight.t0)/flight.dur), e = B.flightE(q, flight.kind);
       const rmn = manAt(flight.toKey), to = rmn ? footOf(rmn) : flight.to;
-      return [lerp(flight.fp[0], to[0], e), lerp(flight.fp[1], to[1], e)];
+      let x = lerp(flight.fp[0], to[0], e), z = lerp(flight.fp[1], to[1], e);
+      /* scuffed: it wobbles off its line and comes back to him late */
+      if(flight.scuff){ const dx = to[0] - flight.fp[0], dz = to[1] - flight.fp[1], L = Math.hypot(dx, dz) || 1, w = .9*Math.sin(q*Math.PI*2.5)*(1 - q); x += -dz/L*w; z += dx/L*w; }
+      return [x, z];
     }
     const hm = manAt(S_.who + ":" + S_.at);
     if(!hm) return S_.rest;
@@ -20406,6 +20640,11 @@ function frame(t){
   if(!chal && !celeOn && !swing){ let bd = 1e9;
     for(const m of men.values()){ if(m.mine || m.off || m.i === 0) continue; const d = Math.hypot(m.tx - focus[0], m.tz - focus[1]); if(d < bd){ bd = d; presser = m; } }
     if(bd > 26) presser = null; }
+  /* THE CLOCK IS A DEFENDER. While a question is open the man coming is the
+     one who would win it back (the red ring), and he closes as the clock runs:
+     a walk at first, the last yards at the end */
+  if(clk > 0 && !chal && !celeOn && !swing && !flight){ const nm = S_.next && men.get(S_.next); if(nm && !nm.off) presser = nm; }
+  presserKey = presser ? presser.w + ":" + presser.i : null;
   const mates = []; for(const m of men.values()) if(m.mine && !m.off) mates.push(m);
   if(celeOn && !cele.plan) celePlan();
   const alive = !rm && !chal && !celeOn && !swing;
@@ -20436,7 +20675,14 @@ function frame(t){
           const o = drift(m, T, bx, bz, .35); tx += o[0]; tz += o[1];
           if(m === presser){ const gx = focus[0] + (m.tx < focus[0] ? -.5 : .5), gz = focus[1] - 2.6;
             const dx = gx - m.tx, dz = gz - m.tz, lim = Math.min(1, 11/Math.max(1e-3, Math.hypot(dx, dz)));
-            tx = m.tx + dx*lim; tz = m.tz + dz*lim; vmax = Math.max(vmax, flight ? 7 : 5.5); }
+            tx = m.tx + dx*lim; tz = m.tz + dz*lim; vmax = Math.max(vmax, flight ? 7 : 5.5);
+            /* THE CLOCK IS WHAT BRINGS HIM. While the pass is being chosen he
+               stands off, seven metres out on his own side of the ball; once the
+               question is on the clock he walks in, and only shuts the last
+               yards down at the end */
+            if(!flight && (clk > 0 || (typeof S !== "undefined" && S && S.phase === "h_pick"))){
+              const ux = m.tx - bx, uz = m.tz - bz, ul = Math.hypot(ux, uz) || 1, off = Math.min(7, ul), f = Math.pow(clk, 1.35);
+              tx = lerp(bx + ux/ul*off, bx + (m.x < bx ? -.8 : .8), f); tz = lerp(bz + uz/ul*off, bz - 1.6, f); vmax = clk > 0 ? 1.6 + 6*clk : 4; } }
         }
       }
       face = Math.atan2(bx - m.x, bz - m.z);
@@ -20452,6 +20698,18 @@ function frame(t){
       const r = celeMan(m, key, (t0 - cele.t0)/1000, dt, rm);
       PZ = r.pose; tag = r.tag; fd = r.fd || .25;
     }
+    /* THE LAST-SECOND BALL: he goes to ground after it as it leaves, three
+       metres along the grass, too late, and lies there a beat */
+    if(!PZ && lunge && key === lunge.key && t0 >= lunge.t0){
+      const q = (t0 - lunge.t0)/600;
+      if(q >= 1.8 || rm) lunge = null;
+      else {
+        if(!lunge.from){ lunge.from = [m.x, m.z]; lunge.dir = Math.atan2(bx - m.x, bz - m.z); }
+        const e = 1 - Math.pow(1 - clamp(q), 2);
+        m.x = lunge.from[0] + Math.sin(lunge.dir)*3.2*e; m.z = lunge.from[1] + Math.cos(lunge.dir)*3.2*e; m.vx = m.vz = 0; m.yaw = lunge.dir;
+        PZ = B.slide(1); tag = "slide"; fd = .08;
+      }
+    }
     if(!PZ && m.task){
       const q = (t0 - m.task.t0)/m.task.dur;
       if(q >= 0){
@@ -20465,6 +20723,8 @@ function frame(t){
       }
     }
     if(!PZ){
+      /* on top: the side on the ball pushes up, all but the man on it and the keeper */
+      if(lift > .01 && m.mine && m.i !== 0 && !holder && !(cross && key === cross.key)) tz -= lift;
       if(rm){ m.x = tx; m.z = tz; m.vx = m.vz = 0; }
       else steer(m, tx, tz, vmax, dt);
       B.track(m.mo, m.x, m.z, m.yaw, dt);
@@ -20483,7 +20743,12 @@ function frame(t){
         B.stride(m.mo, dt, 1.45*.93);
         PZ = B.moving(m.mo, { acc: clamp((vmax - sp)*.08)*clamp(sp/3) }); tag = "move";
       } else if(holder){
-        const hb = B.holdBall(rm ? 0 : T, m.seed); PZ = hb.pose; m.ballRoll = hb.roll; tag = "hold";
+        /* past half the clock, with somebody coming, he stops playing with it and shields it */
+        const hb = B.holdBall(rm ? 0 : T, m.seed), sh = presser && B.shield ? clamp((clk - .45)/.3) : 0;
+        if(sh > 0){
+          const side = (presser.x - m.x)*Math.cos(m.yaw) - (presser.z - m.z)*Math.sin(m.yaw) > 0 ? 1 : -1;
+          PZ = B.shield(T, m.seed, sh, side); m.ballRoll = hb.roll*(1 - sh); tag = "shield";
+        } else { PZ = hb.pose; m.ballRoll = hb.roll; tag = "hold"; }
       } else if(m.i === 0){
         PZ = B.idle(rm ? 0 : T, m.seed, { keeper: true, alert: m.mine ? 0 : clamp((34 - db)/12) }); tag = "keeper";
       } else if(!m.mine && (m === presser || db < 9)){
@@ -20497,7 +20762,8 @@ function frame(t){
   const R0 = .11*1.9;
   let by = R0;
   if(!celeOn){ const fb = ballXZ(); bx = fb[0]; bz = fb[1]; }
-  if(flight && t0 >= flight.t0){ const q = clamp((t0 - flight.t0)/flight.dur); by += B.flightY(q, flight.kind, flight.h); }
+  if(flight && t0 >= flight.t0){ const q = clamp((t0 - flight.t0)/flight.dur); by += B.flightY(q, flight.kind, flight.h);
+    if(flight.scuff) by += .3*Math.abs(Math.sin(q*Math.PI*4))*(1 - q); }
   /* in the net: it drops off the netting and settles */
   if(celeOn){ const ct = (t0 - cele.t0)/1000; bx = .15*Math.sin(Math.min(ct, 2)*1.3); bz = -53.4 - .25*Math.min(1, ct); by = R0 + .3*Math.max(0, 1 - ct*1.5)*Math.abs(Math.cos(ct*9)); }
   /* ROLLED by the grass it covers; in the air it keeps a slower spin */
@@ -20510,14 +20776,30 @@ function frame(t){
   const hold = men.get(S_.who + ":" + S_.at), nx = S_.next && men.get(S_.next);
   P.holdRing.visible = !!hold && !chal && !celeOn; if(hold) P.holdRing.position.set(hold.x, .04, hold.z);
   P.nextRing.visible = !!nx && !chal && !celeOn && !flight; if(nx) P.nextRing.position.set(nx.x, .04, nx.z);
+  /* his ring grows as he closes, and beats in the last part of the clock */
+  P.nextRing.scale.setScalar(1 + .25*clk + (clk > .7 ? .07*Math.sin(T*12) : 0));
   aim(S_);
-  /* THE CROWD on its feet for a goal */
-  if(P.crowd){ const jump = celeOn && !rm ? (t0 - cele.t0)/1000 : -1;
+  /* THE CROWD on its feet for a goal, and for a side on top */
+  const roarOn = !!roar && t0 >= roar.t0 && t0 < roar.t0 + roar.dur && !celeOn;
+  if(roar && t0 >= roar.t0 + roar.dur) roar = null;
+  if(P.crowd){ const jump = celeOn && !rm ? (t0 - cele.t0)/1000 : roarOn && !rm ? (t0 - roar.t0)/1000 : -1;
     for(let k = 0; k < P.crowd.length; k++) P.crowd[k].offset.y = jump >= 0 ? .012*Math.abs(Math.sin(jump*7.5 + k*1.7))*Math.min(1, jump*2) : 0; }
+  const scarfGoal = celeOn && cele.person && t0 - cele.t0 < 5000;
+  scarfLv += (((roarOn || scarfGoal) && !rm ? 1 : 0) - scarfLv)*(1 - Math.exp(-dt*4));
+  if(scarfLv > .01 || P.scarves) scarfWall(roarOn ? roar.kit : scarfGoal ? cele.kit : null, T, scarfLv);
+  /* the push up eases in and out over a second or so */
+  const topNow = run.who === S_.who && run.n >= ON_TOP && !celeOn;
+  lift = rm ? (topNow ? 6 : 0) : lift + ((topNow ? 6 : 0) - lift)*(1 - Math.exp(-dt*1.1));
+  /* and the pill over the pitch says how many passes, from two. Not "in a row":
+     that is the press's own count of short balls, under the pitch */
+  const moN = run.who === S_.who && !celeOn ? run.n : 0, moEl = stage._p3dMo || (stage._p3dMo = stage.querySelector(".p3dmo"));
+  if(moEl && moEl._n !== moN){ moEl._n = moN; moEl.hidden = moN < 2; moEl.classList.toggle("top", moN >= ON_TOP);
+    moEl.textContent = (moN >= ON_TOP ? "ON TOP · " : "") + moN + " PASSES"; }
   /* THE CAMERA, on a spring: behind and above the ball, looking up the pitch,
      leaning in towards the middle out wide, a touch ahead of a ball in flight;
      the finger adds to it. On a goal it comes down and in, round the scorer. */
-  const R = 30 / view.zoom, Hh = 15.5 * view.tilt / view.zoom;
+  /* and the camera leans in a little as the clock runs */
+  const push = 1 - .16*clk*clk, R = 30 / view.zoom*push, Hh = 15.5 * view.tilt / view.zoom*push;
   let sw = 0; if(swing){ const q = (t0 - swing.t0)/swing.dur; if(q >= 1 || rm) swing = null; else sw = Math.PI*(1 - ease(q)); }
   const yaw = view.yaw + Math.max(-.45, Math.min(.45, bx*.014)) + sw;
   const sc = celeOn ? men.get(cele.scorer) : null;
@@ -20560,7 +20842,12 @@ function frame(t){
   P.camera.position.set(camPos[0], camPos[1], camPos[2]); P.camera.lookAt(camLook[0], camLook[1], camLook[2]);
   K.sizeFor(w*pr, h*pr);
   const tj = now();
+  stepWeather(dt, T, camLook, [bx, by, bz], rm);
+  /* rain darkens the picture, only while the pitch is drawn: the renderer is shared */
+  const ren = K.W.renderer; if(WX && WX.ex0 == null) WX.ex0 = ren.toneMappingExposure;
+  if(WX) ren.toneMappingExposure = WX.ex0*(wxKind === "rain" ? .8 : 1);
   K.W.renderer.render(P.scene, P.camera);
+  if(WX) ren.toneMappingExposure = WX.ex0;
   if(cv.width !== Math.round(w*pr) || cv.height !== Math.round(h*pr)){ cv.width = Math.round(w*pr); cv.height = Math.round(h*pr); }
   cv.getContext("2d").drawImage(K.W.cv, 0, 0, cv.width, cv.height);
   overlay(stage, w, h, S_);
@@ -20714,9 +21001,9 @@ function bind(cv, stage){
 /* the markup h2PitchHTML adds in 3D: the canvas under everything, the layer for
    the arrows, the aim caption, the opponent's name and the reset button over it */
 const canvasHTML = () => '<canvas class="p3dc" aria-hidden="true"></canvas>';
-const uiHTML = () => '<div class="p3dui"><div class="p3dedges"></div><div class="p3daim"></div><span class="p3dnext"></span>' +
+const uiHTML = () => '<div class="p3dui"><div class="p3dedges"></div><div class="p3daim"></div><span class="p3dnext"></span><span class="p3dmo" hidden></span>' +
   '<button class="p3dreset" onclick="P3D.reset()">Look up the pitch</button></div>';
-return { on, ready, see, stop, reset, canvasHTML, uiHTML, V, tierColour, placeEdges, turnToward, wrap, looks,
+return { on, ready, see, stop, reset, canvasHTML, uiHTML, V, tierColour, placeEdges, turnToward, wrap, looks, paceClass, conditions, conditionsHTML,
          state: () => ({ men: men.size, swing: !!swing, flight: !!flight, cele: !!(cele && now() < celeOver), chal: !!chal, view: Object.assign({}, view), low,
                          perf: { frames: perf.n, js: +(perf.js/Math.max(1, perf.n)).toFixed(2), all: +(perf.all/Math.max(1, perf.n)).toFixed(2), max: +perf.max.toFixed(1) },
                          bad: [...men.values()].filter(m => !isFinite(m.x) || !isFinite(m.z) || !isFinite(m.yaw)).map(m => m.w + ":" + m.i),
@@ -21985,6 +22272,15 @@ function model(cfg, u){
   const shot = cfg.shot && CORNER[cfg.shot] ? cfg.shot : null;
   let tgt = shot ? CORNER[shot].slice() : [0, 1.2];
   if(out === "over") tgt = [tgt[0], GH + .6];
+  /* HOW IT MISSED, OR HOW IT WAS KEPT OUT (cfg.how; without it, exactly as
+     before): a miss goes over the bar, off the post or wide; a save is held,
+     parried back into the box, or tipped over with the fingertips. Only the
+     picture: the result is still the out the match decided. */
+  const how = out === "over" ? (cfg.how === "post" || cfg.how === "wide" ? cfg.how : null)
+            : out === "saved" ? (cfg.how === "parry" || cfg.how === "tip" ? cfg.how : null) : null;
+  const hy = CORNER[shot || "bl"][1];
+  if(how === "post") tgt = [(tgt[0] < 0 ? -1 : 1)*(GW/2 + PR - .15), Math.max(.45, Math.min(2.1, hy))];
+  if(how === "wide") tgt = [(tgt[0] < 0 ? -1 : 1)*(GW/2 + .6), Math.max(.35, Math.min(1.1, hy*.6))];
   const side = tgt[0] < 0 ? -1 : 1;
   const opp = { tl: "br", tr: "bl", bl: "br", br: "bl" };
   const dive = out === "saved" ? (shot || "bl") : (cfg.dive && CORNER[cfg.dive] ? cfg.dive : opp[shot || "bl"]);
@@ -22079,7 +22375,7 @@ function model(cfg, u){
       look: dSide*.4*d });
     const fall = ease(clamp((u - K.land - .03)/.1));
     if(fall > 0){ gy = lerp(gy, .18, fall); groll = lerp(groll, -dSide*1.5, fall);
-      if(out === "saved" && dLow) Object.assign(G, { zL: lerp(2.95, 1.6, fall), zR: lerp(2.95, 1.6, fall), eL: 1.4*fall, eR: 1.4*fall }); }
+      if(out === "saved" && dLow && how !== "parry") Object.assign(G, { zL: lerp(2.95, 1.6, fall), zR: lerp(2.95, 1.6, fall), eL: 1.4*fall, eR: 1.4*fall }); }
     hipsY = .93;
   }
   /* the ball */
@@ -22090,6 +22386,14 @@ function model(cfg, u){
     else {
       const t = clamp((u - K.land)/.25);
       if(out === "scored"){ bp = [tgt[0]*(1 - .08*t), Math.max(.11, lerp(tgt[1], .11, t*t)), -Math.min(1, t*3)*(ND - .2)]; spin = 22 + t*4; }
+      /* off the inside of the post and back out across the box */
+      else if(how === "post"){ bp = [tgt[0] + side*1.6*t, Math.max(.11, tgt[1] + .9*t - 2.8*t*t), 5.2*t]; spin = 22 - t*30; }
+      /* past the post, into the boards behind */
+      else if(how === "wide"){ bp = [tgt[0] + side*.5*t, Math.max(.11, tgt[1] - .6*t*t), -7*t]; spin = 22 + t*6; }
+      /* the fingertips: up, over the bar, and down behind the goal */
+      else if(how === "tip"){ bp = [tgt[0] + side*.5*t, tgt[1] + 4*t - 2.2*t*t, .5*t - 3.6*t*t]; spin = 22 + t*18; }
+      /* parried: pushed back out into the box, and it is loose */
+      else if(how === "parry"){ bp = [tgt[0] + side*1.9*t, Math.max(.11, tgt[1] + 1.4*t - 2.6*t*t), 4.2*t]; spin = 22 - t*20; }
       else if(out === "over"){ bp = [tgt[0]*(1 + .2*t), tgt[1] + 2.4*t, -9*t]; spin = 22 + t*12; }
       else if(dLow){ const f = ease(clamp((u - K.land - .03)/.1)); catchLow = true;
         bp = [lerp(tgt[0], gx + dSide*.15, f), lerp(tgt[1], gy + .55, f), lerp(0, gz + .2, f)]; spin = 22; }
@@ -22100,9 +22404,14 @@ function model(cfg, u){
   const bulge = out === "scored" && u > K.land ? Math.max(0, 1 - (u - K.land)/.28) * (1 - .4*Math.sin((u - K.land)*40)) : 0;
   /* the camera: a slow push in as he runs, and it follows the ball a little once it is hit */
   const push = ease(clamp((u - K.wait)/.5)), follow = ease(clamp((u - K.hit)/.2));
-  const camPos = [S.cam[0] + (S.look[0] - S.cam[0])*.04*push, S.cam[1], S.cam[2] + (S.look[2] - S.cam[2])*.04*push];
+  /* THE CONTACT: the picture gives a little as the ball meets the net, the post
+     or the glove (the clock has held still on that frame first: mount()), and
+     the post it hit shudders */
+  const hq = (u - K.land)/.06, hit = hq >= 0 && hq < 1 && (out === "scored" || how) ? 1 - hq : 0, shake = .035*hit*Math.sin(hq*26);
+  const post = how === "post" ? { side, amt: u > K.land ? Math.max(0, 1 - (u - K.land)/.12)*Math.sin((u - K.land)*160) : 0 } : null;
+  const camPos = [S.cam[0] + (S.look[0] - S.cam[0])*.04*push + shake, S.cam[1] + shake*.6, S.cam[2] + (S.look[2] - S.cam[2])*.04*push];
   const look = [S.look[0] + tgt[0]*.25*follow, S.look[1], S.look[2]];
-  return { u, cam, S, out, tgt, shot, dive, catchLow,
+  return { u, cam, S, out, how, post, tgt, shot, dive, catchLow,
     striker: { x: sx, z: sz, yaw, P }, def: D,
     keeper: { x: gx, y: gy, z: gz, roll: groll, face: kface*(1 - d), P: G, hipsY },
     ball: { p: bp, spin, squash, bend: S.bend*q }, net: { hit: out === "scored" ? tgt : null, amt: bulge },
@@ -22186,8 +22495,9 @@ function world(){
   pitch.rotation.x = -Math.PI/2; pitch.position.set((X0+X1)/2, 0, (Z0+Z1)/2); pitch.receiveShadow = true; scene.add(pitch);
   /* the goal and a net that can be pushed */
   const white = mat(0xf4f6f5, { flatShading: false, roughness: .4 });
-  const post = x => { const m = new THREE.Mesh(new THREE.CylinderGeometry(PR, PR, GH + PR, 12), white); m.position.set(x, (GH + PR)/2, 0); m.castShadow = true; scene.add(m); };
-  post(-GW/2 - PR); post(GW/2 + PR);
+  const post = x => { const m = new THREE.Mesh(new THREE.CylinderGeometry(PR, PR, GH + PR, 12), white); m.position.set(x, (GH + PR)/2, 0); m.castShadow = true; scene.add(m); return m; };
+  /* kept, so a ball off the post can make the post shudder */
+  const posts = [post(-GW/2 - PR), post(GW/2 + PR)];
   const bar = new THREE.Mesh(new THREE.CylinderGeometry(PR, PR, GW + 4*PR, 12), white); bar.rotation.z = Math.PI/2; bar.position.set(0, GH + PR, 0); bar.castShadow = true; scene.add(bar);
   for(const x of [-GW/2 - PR, GW/2 + PR]){
     const s = new THREE.Mesh(new THREE.CylinderGeometry(.025, .025, Math.hypot(ND, GH), 6), mat(0xb9c3c2));
@@ -22245,7 +22555,7 @@ function world(){
   for(let i = 0; i < n; i++){ const c = (i % 5 === 0) ? [.12,.14,.15] : [.97,.97,.97]; for(let k = 0; k < 3; k++) cols.push(...c); }
   bgeo.setAttribute("color", new THREE.Float32BufferAttribute(cols, 3));
   const ballMesh = new THREE.Mesh(bgeo, mat(0xffffff, { vertexColors: true })); ballMesh.castShadow = true; ball.add(ballMesh);
-  W = { THREE, renderer, cv, scene, camera, mat, canvasTex, lin, font, netGeo, netBase, ball, ballMesh, rigs: {}, pr, slow: 0, low: false };
+  W = { THREE, renderer, cv, scene, camera, mat, canvasTex, lin, font, netGeo, netBase, ball, ballMesh, posts, rigs: {}, pr, slow: 0, low: false };
   /* THE FOOTBALLERS (assets/ball3d/players.js): one skinned mesh per man, same rig contract as
      player() below, which stays as the fallback if that file did not load */
   try { W.B3 = window.BALL3D && BALL3D.players ? BALL3D.players(THREE, W) : null; } catch(e){ W.B3 = null; }
@@ -22364,6 +22674,8 @@ function draw(m, cfg){
   W.ball.position.set(bp[0], bp[1], bp[2]); W.ballMesh.rotation.set(-m.ball.spin, m.ball.spin*.3 + m.ball.bend, 0);
   W.ball.scale.set(m.ball.squash ? 1.2 : 1, m.ball.squash ? .82 : 1, 1);
   bulge(m.net.hit, m.net.amt);
+  if(W.posts){ const pw = m.post, a = pw ? pw.amt*.035 : 0;
+    W.posts[0].position.x = -GW/2 - PR + (pw && pw.side < 0 ? a : 0); W.posts[1].position.x = GW/2 + PR + (pw && pw.side > 0 ? a : 0); }
   W.camera.fov = m.view.fov; W.camera.updateProjectionMatrix();
   W.camera.position.set(m.view.pos[0], m.view.pos[1], m.view.pos[2]);
   W.camera.lookAt(m.view.look[0], m.view.look[1], m.view.look[2]);
@@ -22394,6 +22706,11 @@ function canvasEl(){
    skips it (skip()). Only when the caller asks (cfg.replay): the Daily
    Shootout and the shootout kicks keep their own pace. */
 const REPLAY_MS = 2600, R_FROM = K.run - .02, R_TO = K.land + .12;
+/* THE FREEZE: the clock holds still for a beat on the frame the ball meets the
+   net, the post or the glove, and the picture gives a little after it (model).
+   The scene runs RUN ms; the match's own holds already leave room for it. */
+const HOLD_MS = 90, LAND_MS = K.land*DUR, RUN = DUR + HOLD_MS;
+const uAt = el => el < LAND_MS ? el/DUR : el < LAND_MS + HOLD_MS ? K.land : (el - HOLD_MS)/DUR;
 const replayOn = () => !!(PEND && PEND.replay && !PEND.hold && !PEND.rm && PEND.out === "scored");
 function replayView(m, rp){
   /* on the side the ball goes in, so the keeper dives away from the lens */
@@ -22426,17 +22743,17 @@ function kick(){ if(!raf){ try { raf = requestAnimationFrame(mount); } catch(e){
 /* how long the scene still has to run, replay included, in ms */
 function left(){
   if(!PEND || PEND.hold || PEND.rm) return 0;
-  const total = DUR + (replayOn() ? REPLAY_MS : 0);
+  const total = RUN + (replayOn() ? REPLAY_MS : 0);
   return t0 ? Math.max(0, total - (nowMs() - t0)) : total;
 }
 /* A TAP WHILE IT PLAYS: the run-up jumps to the strike, the celebration jumps
    to the replay, the replay ends. Says what it did, or false for nothing. */
 function skip(){
   if(!PEND || PEND.hold || PEND.rm || !t0) return false;
-  const el = nowMs() - t0, u = el/DUR;
-  if(el >= DUR){ if(replayOn() && el < DUR + REPLAY_MS){ t0 -= DUR + REPLAY_MS - el; kick(); } return "end"; }
+  const el = nowMs() - t0, u = uAt(el);
+  if(el >= RUN){ if(replayOn() && el < RUN + REPLAY_MS){ t0 -= RUN + REPLAY_MS - el; kick(); } return "end"; }
   if(u < K.plant - .07){ t0 -= (K.plant - .07 - u)*DUR; kick(); return "jump"; }
-  if(replayOn() && u > K.land + .03){ t0 -= DUR - el; kick(); return "replay"; }
+  if(replayOn() && u > K.land + .03){ t0 -= RUN - el; kick(); return "replay"; }
   return false;
 }
 function paint(u, el, rp){
@@ -22468,9 +22785,9 @@ function mount(now){
   if(!PEND) return;
   if(PEND.hold || PEND.rm){ paint(PEND.hold ? STILL : 1); return; }
   if(!t0) t0 = now || 0;
-  const el = (now || 0) - t0, u = clamp(el / DUR);
-  if(el >= DUR && replayOn()){
-    const rp = (el - DUR)/REPLAY_MS;
+  const el = (now || 0) - t0, u = clamp(uAt(el));
+  if(el >= RUN && replayOn()){
+    const rp = (el - RUN)/REPLAY_MS;
     /* and back to the live picture, held, for the moment before the next screen */
     if(rp >= 1){ paint(1); return; }
     if(!paint(lerp(R_FROM, R_TO, rp), null, rp)) return;
@@ -22644,8 +22961,19 @@ function h2GoalSceneHTML(state, over){
      the defender beside him wears his side's outfield kit. */
   const sp = kitShorts(kit), gp = kitShorts(gkKit), dp = kitShorts(defKit);
   const striker = h2Who(H.at, H.who), keeper = h2Who(0, h2Other());
+  /* HOW IT MISSED OR WAS KEPT OUT, in 3D and for the picture only: a miss off
+     the post, wide or over; a high save tipped over, a low one parried or held.
+     Off the shot's own particulars and the minute, so a redraw of the same shot
+     is the same shot and the next one may well not be. */
+  let how = null;
+  if(told && (state === "saved" || state === "missed") && G3D.ready() && G3.size.dur === G3D.size.dur){
+    let hh = 2166136261 >>> 0;
+    for(const ch of [striker, keeper, shot || "-", H.min || 0, state].join("|")) hh = Math.imul(hh ^ ch.charCodeAt(0), 16777619) >>> 0;
+    how = state === "missed" ? ["post", "wide", null][hh % 3]
+        : shot === "tl" || shot === "tr" ? ["tip", "tip", null][hh % 3] : ["parry", null][hh % 2];
+  }
   G3.arm({
-    cam: cam, flip: flip, out: out, shot: shot, dive: went, hold: !told,
+    cam: cam, flip: flip, out: out, how: how, shot: shot, dive: went, hold: !told,
     /* a goal in the match gets its replay; a shootout kick keeps the shootout's pace */
     replay: state === "scored" && !H.so,
     no: h2No(H.at, H.who), kit: kit, shorts: sp, gkKit: gkKit, gkShorts: gp, defKit: defKit, defShorts: dp, ink: kitInk(kit), who: striker, gkWho: keeper,
@@ -22653,7 +22981,7 @@ function h2GoalSceneHTML(state, over){
        other phone moving can re-render the same screen halfway through a goal,
        and the CSS version restarted every animation when that happened. The
        loop only goes back to the first frame when this string changes. */
-    sig: [state, cam, flip ? 1 : 0, shot || "-", went || "-", kit, gkKit].join("|"),
+    sig: [state, cam, flip ? 1 : 0, shot || "-", went || "-", kit, gkKit, how || "-"].join("|"),
   });
   /* THE MOUTH, AND IT IS NOT WRITTEN DOWN IN THE STYLESHEET AT ALL. These four
      come out of the same goal rectangle the canvas paints the posts from, so
@@ -22692,7 +23020,7 @@ function h2GoalSceneHTML(state, over){
       ln(mid(.5, .04), mid(.5, .96)) + ln(mid(.04, .5), mid(.96, .5)) + '</svg>');
   }
   const cry = state === "scored" ? "GOAL" : state === "saved" ? "SAVED"
-            : state === "missed" ? "OVER" : "";
+            : state === "missed" ? (how === "post" ? "POST" : how === "wide" ? "WIDE" : "OVER") : "";
   /* one number for the shout, in seconds, off the same clock the canvas reads.
      Every delay in the old scene was a literal tuned against a ball that left
      the boot at time zero, so putting a run-up in front of it moved the strike
@@ -22947,7 +23275,7 @@ function h2ScoreHTML(){
       '<div class="sb-mid"><b>' + S.players[0].score + '</b><s></s><b>' + S.players[1].score + '</b></div>' +
       side(1, true) +
     '</div>' +
-    '<div class="sb-names">' + nm(0) + '<em>' + h2ClockLabel() + '</em>' + nm(1) + '</div>';
+    '<div class="sb-names">' + nm(0) + '<em>' + h2ClockLabel() + (P3D.on() ? P3D.conditionsHTML() : "") + '</em>' + nm(1) + '</div>';
 }
 /* THE FOUR THINGS THAT ARE NOT ABOUT THE MATCH. View, sound, tackles and the
    skin are chrome: they say nothing about who has the ball and they are on
@@ -25597,13 +25925,17 @@ function dsSceneHTML(sh, told){
   const shot = told ? (S.dtarget === undefined ? "bl" : S.dtarget) : null;      // null: down the middle
   const opp = { tl: "br", tr: "bl", bl: "br", br: "bl" };
   const how = told ? S.dhow : "";
-  const out = !told ? "scored" : goal ? "scored" : (how === "over" || how === "wide" || how === "panenka") ? "over" : "saved";
+  /* IN 3D A POST IS A POST and wide is wide (the 3D scene can draw both); the
+     Zdog scene still shows a post as a save and wide as over */
+  const g3d = (() => { try { return G3D.ready() && G3.size.dur === G3D.size.dur; } catch(e){ return false; } })();
+  const g3how = told && !goal && g3d && (how === "post" || how === "wide") ? how : null;
+  const out = !told ? "scored" : goal ? "scored" : (how === "over" || how === "wide" || how === "panenka" || g3how) ? "over" : "saved";
   const dive = !told ? null : goal ? opp[shot || "bl"] : out === "saved" ? (shot || "bl") : opp[shot || "bl"];
   const sp = (() => { try{ return kitShorts(DS_KIT); }catch(e){ return "#F8F1DD"; } })();
-  G3.arm({ cam: "pen", flip: false, out, shot, dive, hold: !told, no: 10, kit: DS_KIT, shorts: sp, gkKit: DS_GK, gkShorts: "#22252b",
-           defKit: DS_KIT, defShorts: sp, ink: "#F8F1DD", sig: ["ds", sh.date, sh.kicks.length, told ? 1 : 0, shot || "-", out].join("|") });
+  G3.arm({ cam: "pen", flip: false, out, how: g3how, shot, dive, hold: !told, no: 10, kit: DS_KIT, shorts: sp, gkKit: DS_GK, gkShorts: "#22252b",
+           defKit: DS_KIT, defShorts: sp, ink: "#F8F1DD", sig: ["ds", sh.date, sh.kicks.length, told ? 1 : 0, shot || "-", out, g3how || "-"].join("|") });
   const M = G3.mouth("pen", false);
-  const cry = !told ? "" : goal ? "GOAL" : out === "over" ? "OVER" : "SAVED";
+  const cry = !told ? "" : goal ? "GOAL" : g3how === "post" ? "POST" : g3how === "wide" ? "WIDE" : out === "over" ? "OVER" : "SAVED";
   const cryAt = (G3.clock.land + (out === "over" ? .08 : .02)) * G3.size.dur / 1000;
   return '<div class="g3 dsg3 ' + (told ? (goal ? "scored" : out === "over" ? "missed" : "saved") : "set") + '" style="--g3cry:' + cryAt.toFixed(2) + 's">' +
     '<canvas class="g3c" id="g3c" width="' + M.w + '" height="' + M.h + '" role="img" aria-label="The penalty, from behind the taker"></canvas>' +
@@ -27166,7 +27498,7 @@ function renderLocker(st){
       (tr.length ? tr.map(t => '<div class="lktro">' + trophySVG(t.shape, t.metal, 50) + '<b>' + esc(t.name) + '</b><span>' + esc(String(t.metal).toUpperCase()) + (t.count > 1 ? ' ×' + t.count : "") + '</span></div>').join("")
         : ["star", "shield", "plate"].map(s => '<div class="lktro ghost">' + trophySVG(s, "rgba(248,241,221,.14)", 50) + '</div>').join("") +
           '<p class="lkwait dark">Win The Cup, a league week or keep a streak going.</p>') + '<i class="lkplank"></i></div>' +
-    themeShelfHTML() +
+    themeShelfHTML() + celeShelfHTML() +
     '</div></div>';
 }
 function lockerScarf(team){
@@ -27854,6 +28186,52 @@ function themeClubPreview(team){
 }
 function themeSeen(id){ const t = themeState(); if(!t.seen.includes(id)){ t.seen.push(id); themeSaveState(t); } }
 function openThemes(){ openLocker(); setTimeout(() => { try{ const el = document.getElementById("lkthemes"); if(el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }catch(e){} }, 120); }
+
+/* ---------- CELEBRATIONS: what your scorer does in the 3D match ----------
+   Four, on a shelf under the themes and earned the same way, off the same
+   progress: the knee slide to start with, the rest won. The one you pick is
+   what your man does every time you score in the 3D view; the computer's men
+   keep their own, off their names (P3D). The styles are P3D's numbers. */
+const CELE_KEY = "ball4-cele";
+const CELES = [
+  { id: "knee", name: "Knee slide", style: 0, need: 0, have: () => 0, label: () => "" },
+  { id: "plane", name: "The aeroplane", style: 1, need: 1, have: p => p.wins | 0, label: () => "Win a match" },
+  { id: "crowd", name: "To the crowd", style: 2, need: 10, have: p => p.matches | 0, label: (h, n) => h + " / " + n + " Matchdays" },
+  { id: "fist", name: "Fist pump", style: 3, need: 10, have: p => p.wins | 0, label: (h, n) => h + " / " + n + " wins" }
+];
+const CELE_ICON = {
+  knee: '<circle cx="12" cy="5" r="2"/><path d="M12 7v6M12 9l-5-3M12 9l5-3M12 13l-4 4H4M12 13l4 4h4"/>',
+  plane: '<circle cx="12" cy="5" r="2"/><path d="M12 7v7M3 10h18M12 14l-3 6M12 14l3 6"/>',
+  crowd: '<circle cx="12" cy="6" r="2"/><path d="M12 8v6M12 10L7 4M12 10l5-6M12 14l-3 6M12 14l3 6"/>',
+  fist: '<circle cx="11" cy="6" r="2"/><path d="M11 8v6M11 10l5-7M11 10l-4 3M11 14l-3 6M11 14l4 6"/>'
+};
+function celeEquipped(){ try{ const c = JSON.parse(localStorage.getItem(CELE_KEY) || "null"); return c && CELES.some(x => x.id === c.equipped) ? c.equipped : "knee"; }catch(e){ return "knee"; } }
+function celeStatus(p){ p = p || progLoad(); return CELES.map(c => { const have = Math.min(c.need, c.have(p) | 0); return { c, have, unlocked: have >= c.need }; }); }
+/* the P3D style for a goal of yours: the one you picked, if you still have it */
+function celeStyle(){ const x = celeStatus().find(s => s.c.id === celeEquipped()); return x && x.unlocked ? x.c.style : 0; }
+function celeShelfHTML(){
+  const list = celeStatus(), eq = celeEquipped();
+  const tile = x => {
+    const on = eq === x.c.id && x.unlocked;
+    const sub = on ? '<small class="eq">Equipped</small>' : x.unlocked ? '<small>Unlocked · tap to use</small>'
+      : '<small>' + esc(x.c.label(x.have, x.c.need)) + '</small><span class="thpg"><i style="width:' + Math.round(100 * x.have / Math.max(1, x.c.need)) + '%"></i></span>';
+    return '<button class="tht' + (on ? " on" : "") + (x.unlocked ? "" : " lock") + '" onclick="celeTap(\'' + x.c.id + '\')">' +
+      '<span class="clic"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      CELE_ICON[x.c.id] + '</svg></span><span class="thtx"><b>' + esc(x.c.name) + '</b>' + sub + '</span></button>';
+  };
+  return '<div class="lkhdr" id="lkceles">Celebrations <small>' + list.filter(x => x.unlocked).length + ' of ' + list.length + '</small></div><div class="thgrid">' + list.map(tile).join("") + '</div>';
+}
+function celeTap(id){
+  audio();
+  const x = celeStatus().find(s => s.c.id === id);
+  if(!x) return;
+  if(!x.unlocked) return sheet('<h2>' + esc(x.c.name) + '</h2><p>' + esc(x.c.label(x.have, x.c.need)) + ' to unlock it.</p>' +
+    '<div class="thpgbig"><i style="width:' + Math.round(100 * x.have / Math.max(1, x.c.need)) + '%"></i></div><button class="bigbtn ghost" onclick="closeSheet()">Got it</button>');
+  if(celeEquipped() === id) return sheet('<h2>' + esc(x.c.name) + '</h2><p>Your scorer does this every time you score in the 3D view.</p><button class="bigbtn ghost" onclick="closeSheet()">Got it</button>');
+  try{ localStorage.setItem(CELE_KEY, JSON.stringify({ equipped: id })); }catch(e){}
+  toast(x.c.name + ". Your scorer does this now.");
+  render();
+}
 /* THE THEME ON SCREEN (_plans/themes.md §3): the equipped theme dresses the
    menus and the setup screens only. A match, a question, a round, a shot or
    full time always reads Classic, so the attribute comes off for those. */

@@ -11077,7 +11077,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · match reports and the home";
+const BUILD = "BALL 4 · 31 Oct 2026 · league medals and today's list";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -32961,6 +32961,10 @@ function listsShelfRedraw(){
   box.innerHTML = listsShelfHTML(pool, pool.slice(0, V.more ? 240 : 60), q ? "Found" : (LISTS_FAMS.find(f => f[0] === V.fam) || [0, ""])[1]);
 }
 function listsToday(){
+  /* from the home the lists may not be here yet (they come with the Lists screen), and without them there is no
+     "today's list" at all, which read as both played (Martijn, 31 Oct) */
+  if(!LISTS_DATA.catalog || !LISTS_DATA.daily)
+    return listsCatalog().then(() => listsToday(), () => toast("The lists didn't load. Check the connection and try again.", true));
   const s = listsState(), D = listsDaily(dayKey());
   const k = !(s.daily.top10 && s.daily.top10.done) && D.top10 ? "top10" : !(s.daily.all && s.daily.all.done) && D.all ? "all" : null;
   if(!k) return toast("Both of today's lists are played. Back tomorrow, or pick one from the shelf.");

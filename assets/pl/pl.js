@@ -932,10 +932,15 @@ function clMcSide(comp, t){
 }
 /* the front's way in: the tables and the matches of the leagues BALL follows */
 const CL_TABLE_SVG = '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 5h16M4 10h16M4 15h16M4 20h16M8 3v19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+/* BALL's own medal for each competition (compBadge in index.html, _brand/competitions), by its quiz key (Martijn, 31 Oct:
+   "put the logos we made for the leagues here and on top of the page") */
+const CL_BADGE = { "fb.DED": "ere", "fb.PL": "premier", "fb.CL": "ucl", "fb.PD": "laliga", "fb.SA": "seriea", "fb.BL1": "bundesliga",
+  "fb.FL1": "ligue1", "fb.NL2": "eerste", "fb.BE1": "belgian" };
+const clBadge = (id, px) => typeof compBadge === "function" && CL_BADGE[id] ? compBadge(CL_BADGE[id], px) : "";
 function clMcEntryHTML(){
   return b4Sec("Tables and matches") + '<div class="cl-comps">' + CL_COMPS.map(C => {
-    const m = CL.mc[C.id], top = m && m.table[0] && m.table[0].p ? m.table[0] : null;
-    return '<button class="cl-comp" onclick="clGo(\'comp\',{comp:\'' + C.id + '\'})"><span class="cl-mcico">' + CL_TABLE_SVG + '</span>' +
+    const m = CL.mc[C.id], top = m && m.table[0] && m.table[0].p ? m.table[0] : null, b = clBadge(C.id, 44);
+    return '<button class="cl-comp" onclick="clGo(\'comp\',{comp:\'' + C.id + '\'})"><span class="cl-mcico' + (b ? " badge" : "") + '">' + (b || CL_TABLE_SVG) + '</span>' +
       '<span class="m"><b>' + clE(C.name) + '</b><small>' + (top ? clE(clTeam(top).name) + " top · " + clPts(top.pts) : "Table and matches") + '</small></span></button>';
   }).join("") + '</div>';
 }
@@ -972,7 +977,10 @@ function clMatchPage(v){
 const clTitleCls = t => "clpage" + (clStr(t).length > 16 ? " cl-long" : "");
 function clCompPage(v){
   const C = CL_COMPS.find(c => c.id === v.comp) || CL_COMPS[0], m = clMcNeed(C.id), tab = v.tab || "table";
-  const seg = '<div class="lgseg lgseg2 cl-mcseg" role="group" aria-label="' + clE(C.name) + '">' + [["table", "Table"], ["matches", "Matches"]].map(t =>
+  /* the competition's medal on top, the full one with its ring, then the switch */
+  const medal = clBadge(C.id, 104);
+  const seg = (medal ? '<div class="cl-compmedal">' + medal + '</div>' : "") +
+    '<div class="lgseg lgseg2 cl-mcseg" role="group" aria-label="' + clE(C.name) + '">' + [["table", "Table"], ["matches", "Matches"]].map(t =>
     '<button aria-pressed="' + (tab === t[0]) + '" onclick="clMcTab(\'' + t[0] + '\')">' + t[1] + '</button>').join("") + '</div>';
   if(!m) return b4Page({ title: C.name, ctx: CL.mcErr || "Loading…", back: "clBack()", cls: clTitleCls(C.name), body: seg + (CL.mcErr ? "" : '<div class="lgskel"></div>') });
   const rk = v.rk != null ? v.rk : clMcNowRound(m.rows);

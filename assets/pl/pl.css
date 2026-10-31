@@ -270,6 +270,11 @@
   border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 3px 0 rgba(0,0,0,.08)}
 .cl-comp .cl-mcico{display:flex;flex:none;width:34px;height:34px;align-items:center;justify-content:center;border-radius:9px;background:var(--th-card);color:var(--th-acc1)}
 .cl-comp .cl-mcico svg{width:20px;height:20px}
+/* each competition's own medal in place of the table icon; the full one on top of its page */
+.cl-comp .cl-mcico.badge{width:42px;height:42px;border-radius:50%;background:none}
+.cl-comp .cl-mcico.badge .cbadge{width:42px;height:42px}
+.cl-compmedal{display:flex;justify-content:center;margin:2px 0 12px}
+.cl-compmedal .cbadge{width:104px;height:104px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
 .cl-comp .m{min-width:0}
 /* the name may take two lines (Champions League, Belgian Pro League); the row grows with it */
 .cl-comp b{display:block;font:italic 900 15px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:break-word}

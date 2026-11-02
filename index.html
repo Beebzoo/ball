@@ -148,7 +148,7 @@
   .stickpop{
     position:fixed;left:50%;bottom:8vh;z-index:60;pointer-events:none;
     transform:translateX(-50%);
-    animation:stickin .28s cubic-bezier(.2,1.6,.4,1) both, stickout .32s ease-in 1.18s both;
+    animation:stickin .28s var(--ease-pop) both, stickout .32s ease-in 1.18s both;
   }
   .stickpop img{
     height:min(38vh,300px);max-width:86vw;object-fit:contain;display:block;
@@ -241,12 +241,12 @@
     align-self:center;display:flex;align-items:center;gap:10px;padding:6px 16px 6px 8px;border-radius:99px;
     background:rgba(0,0,0,.34);border:1px solid color-mix(in srgb, var(--sa,#e2453c) 60%, transparent);
     font:800 .95rem var(--ui);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6);
-    animation:specpopin .5s cubic-bezier(.2,1.6,.4,1) both;
+    animation:specpopin .5s var(--ease-pop) both;
   }
   .specbadge img{width:34px;height:34px;object-fit:contain;border-radius:6px;animation:specnod 3.4s ease-in-out infinite}
-  .specpot{animation:specpopin .5s cubic-bezier(.2,1.6,.4,1) .06s both}
-  .speccard{animation:speccardin .5s cubic-bezier(.2,1.3,.35,1) .1s both}
-  .specans{margin-top:12px;padding-top:12px;border-top:2px dashed var(--edge);animation:specansin .45s cubic-bezier(.2,1.4,.4,1) both}
+  .specpot{animation:specpopin .5s var(--ease-pop) .06s both}
+  .speccard{animation:speccardin .5s var(--ease-pop) .1s both}
+  .specans{margin-top:12px;padding-top:12px;border-top:2px dashed var(--edge);animation:specansin .45s var(--ease-pop) both}
   .specans .anstext{font:800 1.35rem/1.25 var(--ui);color:#8df0b8;text-wrap:balance}
   .specans .anslabel{font:700 .72rem var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px}
   @keyframes specpopin{from{opacity:0;transform:translateY(-10px) scale(.9)}to{opacity:1;transform:none}}
@@ -298,7 +298,7 @@
   .mychip.hit{background:rgba(127,212,163,.22);color:#bff0d4;border-color:rgba(127,212,163,.5)}
   .mychip.miss{background:rgba(220,38,38,.14);color:#f0b9b9;border-color:rgba(220,38,38,.32)}
   .mychip img{width:18px;height:18px;object-fit:contain;background:#fff;border-radius:4px;padding:1px}
-  .alumrow.pop{animation:cardpop .5s cubic-bezier(.2,1.7,.4,1) both}
+  .alumrow.pop{animation:cardpop .5s var(--ease-pop) both}
   @media (prefers-reduced-motion: reduce){ .alumrow.pop{animation:none} }
 
   /* ---------- THE TWO LOOKS: WARM SCOREBOARD ----------
@@ -1157,7 +1157,7 @@
   body.careermode .clubgrid{gap:12px}
 
   /* logo pop-in */
-  .clubcard.pop{animation:cardpop .5s cubic-bezier(.2,1.7,.4,1) both}
+  .clubcard.pop{animation:cardpop .5s var(--ease-pop) both}
   @keyframes cardpop{
     from{transform:scale(.15) rotate(-8deg);opacity:0}
     60%{opacity:1}
@@ -1293,7 +1293,7 @@
   .bigreveal img{
     position:relative;width:min(62vw,330px);max-height:44vh;object-fit:contain;
     filter:drop-shadow(0 24px 48px rgba(0,0,0,.65));
-    animation:bigin 1.25s cubic-bezier(.22,1.35,.4,1) both;
+    animation:bigin 1.25s var(--ease-pop) both;
   }
   @keyframes bigin{
     0%{transform:scale(.04) rotate(-14deg);opacity:0}
@@ -1442,7 +1442,7 @@
       color-mix(in srgb,var(--kit,#888888) 74%,#0B0B0B));
     box-shadow:0 0 0 1px color-mix(in srgb,var(--kink,#fff) 30%,transparent),
       0 10px 26px rgba(0,0,0,.5);
-    animation:pkrvdrop .26s cubic-bezier(.2,1.6,.3,1) both}
+    animation:pkrvdrop .26s var(--ease-pop) both}
   .pkrv-flag{width:100%;height:100%;object-fit:cover;display:block}
   /* THE BOOK WITH NO FLAGS GETS THE SAME TILE with the side's own three letters
      standing in the hole the image would have filled. One book in sixteen is
@@ -1508,7 +1508,7 @@
      that would kill half the album block cannot touch any of this. */
   .pkrv-card .alsbg{animation:pkrvghost .24s .38s ease-out both}
   @keyframes pkrvghost{from{opacity:0}to{opacity:1}}
-  .pkrv-card .alsfig{animation:pkrvman .3s .44s cubic-bezier(.2,1.6,.3,1) both}
+  .pkrv-card .alsfig{animation:pkrvman .3s .44s var(--ease-pop) both}
   @keyframes pkrvman{from{opacity:0;transform:translateY(14px) scale(.86)}
                      to{opacity:1;transform:none}}
   /* THE ROTATION HAS TO BE IN BOTH ENDS OF THIS KEYFRAME. The surname is set
@@ -1554,14 +1554,14 @@
      that bites in six. */
   .pkrv-stamp{position:absolute;right:-9px;bottom:16%;padding:4px 9px;border-radius:4px;
     font:800 .82rem/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;
-    animation:pkrvstamp .26s .62s cubic-bezier(.2,1.6,.3,1) both}
+    animation:pkrvstamp .26s .62s var(--ease-pop) both}
   .pkrv-stamp.pkrv-new{background:#2C5A43;color:#BEF0D4;box-shadow:0 0 0 2px rgba(95,155,120,.5)}
   .pkrv-stamp.pkrv-shut{background:#3B2B08;color:var(--gold-hi);box-shadow:0 0 0 2px rgba(227,180,83,.55)}
   .pkrv-stamp.pkrv-dupe{background:#25231D;color:#9A8A5E;box-shadow:0 0 0 2px rgba(154,138,94,.32)}
   @keyframes pkrvstamp{from{opacity:0;transform:scale(2.4) rotate(-14deg)}
                        to{opacity:1;transform:scale(1) rotate(-9deg)}}
   .pkrv-card .alst.fresh::after,.pkrv-card .alst.shut::after{
-    animation:pkrvnews .26s .62s cubic-bezier(.2,1.6,.3,1) both}
+    animation:pkrvnews .26s .62s var(--ease-pop) both}
   @keyframes pkrvnews{from{opacity:0;transform:scale(2.2)}to{opacity:1;transform:none}}
   .pkrv-card .alst.dupe{animation:pkrvflat .26s .62s ease-out both}
   @keyframes pkrvflat{from{opacity:1}to{opacity:.6}}
@@ -1630,7 +1630,7 @@
     background:rgba(255,255,255,.055);
     border:1px solid var(--edge-soft);position:relative;
     color:var(--text-soft);
-    transition:background .15s ease, box-shadow .15s ease;
+    transition:background .15s ease;
   }
   /* whose turn it is: a lit panel with the turf's own light on it */
   .bug.active{
@@ -1786,7 +1786,7 @@
     background:var(--turf);border:1px solid var(--turf-deep);color:#fff;
     font:700 1.05rem/1.2 var(--ui);
     box-shadow:var(--shadow);
-    transition:transform .06s ease,filter .1s ease;
+    transition:transform .06s ease;
   }
   .bigbtn:active{transform:scale(.98);filter:brightness(.95)}
   .bigbtn.ghost{background:var(--card);border:1px solid var(--line);color:var(--chalk-dim);font-weight:600;box-shadow:none}
@@ -2168,7 +2168,7 @@
   .xspot:not(.open) .xshirt{opacity:.88}
   .xspot.picked{filter:drop-shadow(0 0 10px #e9b84c)}
   .xname{margin-top:2px;font:700 .58rem/1.15 var(--ui);color:#eef5ef;text-shadow:0 1px 3px rgba(0,0,0,.85);min-height:1.3em;opacity:0}
-  .xspot.open .xname,.xspot.picked .xname{opacity:1;animation:cardpop .45s cubic-bezier(.2,1.7,.4,1) both}
+  .xspot.open .xname,.xspot.picked .xname{opacity:1;animation:cardpop .45s var(--ease-pop) both}
   .xichips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
   .xichips .bigbtn{width:auto;flex:1 1 28%;padding:12px}
   /* timeline */
@@ -2185,7 +2185,7 @@
     box-shadow:0 14px 30px rgba(0,0,0,.55);
   }
   .grip{color:var(--text-dim);font-size:1.05rem;line-height:1;opacity:.8}
-  .tlrow.pop{animation:cardpop .5s cubic-bezier(.2,1.7,.4,1) both}
+  .tlrow.pop{animation:cardpop .5s var(--ease-pop) both}
   .tlrow.tlok{border-color:rgba(63,214,133,.65)}
   .tlrow.tlbad{border-color:rgba(217,74,74,.6);opacity:.85}
   .tlmark{margin-left:auto;font-weight:800}
@@ -2193,8 +2193,8 @@
   .tlbad .tlmark{color:var(--card-r)}
   .tlyear{min-width:56px;text-align:center;font:800 .95rem ui-monospace,Consolas,monospace;color:#e9b84c;background:rgba(0,0,0,.25);border-radius:8px;padding:4px 6px}
   .tlt{font:600 .92rem/1.3 var(--ui);color:var(--text)}
-  .popA{animation:cardpop .55s cubic-bezier(.2,1.7,.4,1) both;animation-delay:.15s}
-  .popB{animation:cardpop .55s cubic-bezier(.2,1.7,.4,1) both;animation-delay:.75s}
+  .popA{animation:cardpop .55s var(--ease-pop) both;animation-delay:.15s}
+  .popB{animation:cardpop .55s var(--ease-pop) both;animation-delay:.75s}
   @media (prefers-reduced-motion:reduce){
     .popA,.popB{animation:none}
     .natcard .halo{animation:none;opacity:.7}
@@ -2497,7 +2497,7 @@
     background:none;border:0;padding:0;
     width:calc(var(--ush) * 10 / 22);
     height:calc(var(--ush) * 4.6 / 22);
-    transition:height .34s cubic-bezier(.34,1.32,.64,1)}
+    transition:height .34s var(--ease-pop)}
   .uspeek.up{height:var(--usup)}
   /* THE WINDOW IS THE HEIGHT OF THE BUTTON, and that is the whole of what was
      wrong. This used to be a fixed --usup with overflow:hidden, so it drew ten
@@ -3083,7 +3083,7 @@
   .h2man.them > *{opacity:.72}
   .h2man.them .h2lb{display:none}
   .h2man.can{cursor:pointer}
-  .h2man .fig.pm{transition:transform .18s,filter .18s}
+  .h2man .fig.pm{transition:transform .18s}
   .h2man.can .fig.pm .f-torso{box-shadow:0 0 0 1px rgba(255,255,255,.32)}
   .h2man.sel .fig.pm{transform:scale(1.26);
     filter:drop-shadow(0 0 7px #fff) drop-shadow(0 3px 4px rgba(0,0,0,.6))}
@@ -3187,7 +3187,7 @@
     68%{transform:rotate(-5deg) translateY(-1px)}
     84%{transform:rotate(2deg) translateY(-2px)}
     100%{transform:rotate(0) translateY(0)}}
-  .h2man.to .fig.pm .f-leg.l{animation:h2touch .45s calc(var(--dur,.8s) + .1s) cubic-bezier(.3,1.3,.4,1) both}
+  .h2man.to .fig.pm .f-leg.l{animation:h2touch .45s calc(var(--dur,.8s) + .1s) var(--ease-pop) both}
   @keyframes h2touch{0%,100%{transform:rotate(0)}42%{transform:rotate(26deg)}}
   /* AND NOBODY STANDS LIKE A STATUE WHILE IT IS IN THE AIR. His own ten take
      a half step on the spot, staggered by shirt, for the length of the
@@ -3313,11 +3313,11 @@
      his arms up and the rest of his side's arms go up with him; their keeper
      is on the floor and the rest of them hang their heads. The stand throws a
      few flashes. */
-  .h2pitch.cele .h2man.hold .fig.pm{animation:h2jumpscorer .9s cubic-bezier(.3,1.5,.4,1) both}
+  .h2pitch.cele .h2man.hold .fig.pm{animation:h2jumpscorer .9s var(--ease-celebrate) both}
   @keyframes h2jumpscorer{0%{transform:translateY(0)}30%{transform:translateY(-16px) scale(1.18)}
     58%{transform:translateY(0)}78%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-  .h2pitch.cele .h2man:not(.them) .fig.pm .f-arm.l{animation:h2armsl .6s .12s cubic-bezier(.3,1.4,.4,1) both}
-  .h2pitch.cele .h2man:not(.them) .fig.pm .f-arm.r{animation:h2armsr .6s .12s cubic-bezier(.3,1.4,.4,1) both}
+  .h2pitch.cele .h2man:not(.them) .fig.pm .f-arm.l{animation:h2armsl .6s .12s var(--ease-celebrate) both}
+  .h2pitch.cele .h2man:not(.them) .fig.pm .f-arm.r{animation:h2armsr .6s .12s var(--ease-celebrate) both}
   @keyframes h2armsl{from{transform:rotate(8deg)}to{transform:rotate(152deg)}}
   @keyframes h2armsr{from{transform:rotate(-8deg)}to{transform:rotate(-152deg)}}
   .h2pitch.cele .h2man.them.gk .fig.pm{animation:h2gkdown 1.4s cubic-bezier(.4,0,.3,1) both}
@@ -3393,7 +3393,7 @@
   /* A GOAL stops the game. The scoring eleven go up one after another rather
      than as a block, the net takes the ball, and the word lands on top. */
   .h2pitch.cele .h2man:not(.them) .fig.pm{
-    animation:h2jump .75s cubic-bezier(.3,1.5,.4,1) both;
+    animation:h2jump .75s var(--ease-celebrate) both;
     animation-delay:calc(var(--i,0) * 55ms)}
   @keyframes h2jump{
     0%{transform:translateY(0)}
@@ -3413,7 +3413,7 @@
   .h2goalcry span{display:inline-block;font:900 clamp(2.3rem,13vw,3.4rem)/1 var(--ui);
     font-style:italic;letter-spacing:.05em;color:#f9e6ae;
     text-shadow:0 3px 0 #8a6414, 0 0 28px rgba(249,221,150,.85), 0 7px 26px rgba(0,0,0,.75);
-    animation:h2cry 1.6s cubic-bezier(.2,1.6,.3,1) both}
+    animation:h2cry 1.6s var(--ease-celebrate) both}
   @keyframes h2cry{
     0%{transform:scale(2.7) rotate(-10deg);opacity:0}
     16%{transform:scale(1) rotate(-4deg);opacity:1}
@@ -3893,11 +3893,11 @@
     pointer-events:none;opacity:0;
     font:900 clamp(1.5rem,8vw,2.2rem)/1 var(--ui);font-style:italic;letter-spacing:.05em}
   .g3.scored .g3-cry{color:#f9e6ae;text-shadow:0 2px 0 #8a6414,0 0 22px rgba(249,221,150,.85);
-    animation:g3cry .7s var(--g3cry) cubic-bezier(.2,1.6,.3,1) both}
+    animation:g3cry .7s var(--g3cry) var(--ease-celebrate) both}
   .g3.saved .g3-cry{color:#bfe6cf;text-shadow:0 2px 0 #17402a,0 0 20px rgba(120,220,170,.6);
-    animation:g3cry .6s var(--g3cry) cubic-bezier(.2,1.6,.3,1) both}
+    animation:g3cry .6s var(--g3cry) var(--ease-celebrate) both}
   .g3.missed .g3-cry{color:#ffc4b8;text-shadow:0 2px 0 #5a1d14,0 0 20px rgba(255,140,120,.55);
-    animation:g3cry .6s var(--g3cry) cubic-bezier(.2,1.6,.3,1) both}
+    animation:g3cry .6s var(--g3cry) var(--ease-celebrate) both}
   @keyframes g3cry{0%{transform:scale(2.2);opacity:0}100%{transform:scale(1);opacity:1}}
 
   /* ---------- THE FOUR CORNERS ----------
@@ -3920,7 +3920,7 @@
     background:rgba(255,255,255,.04);display:flex;padding:7px 9px;
     font:800 9.5px/1.15 var(--ui);letter-spacing:.06em;text-transform:uppercase;
     color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.95);
-    transition:background .12s ease, box-shadow .12s ease}
+    transition:background .12s ease}
   /* the word goes in the corner it names, so the label points at itself */
   .h2gmc.tl{align-items:flex-start;justify-content:flex-start;text-align:left}
   .h2gmc.tr{align-items:flex-start;justify-content:flex-end;text-align:right}
@@ -4831,7 +4831,7 @@
   .h2opt{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;
     border-radius:11px;border:1px solid var(--board-line);
     background:var(--board-hi);color:var(--board-ink);cursor:pointer;text-align:left;
-    font:700 .95rem/1.2 var(--ui);transition:all .18s}
+    font:700 .95rem/1.2 var(--ui);transition:background .18s,border-color .18s,color .18s}
   .h2opt .k{flex:none;width:21px;height:21px;border-radius:6px;display:grid;place-items:center;
     background:var(--board-line);color:var(--board);font:800 .74rem var(--ui)}
   .h2opt:disabled{cursor:default}
@@ -5400,7 +5400,7 @@
   .h2pitch.tilt .h2man.thru.stay .h2fig{animation:none}
   .h2man.thru.stay .fig.pm{transform:rotate(calc(var(--fall) + 14deg))}
   /* the card comes off the shirt as the whistle goes */
-  .h2man.thru .h2card{animation:h2cardup .5s cubic-bezier(.3,1.6,.4,1) both;animation-delay:.42s}
+  .h2man.thru .h2card{animation:h2cardup .5s var(--ease-pop) both;animation-delay:.42s}
   @keyframes h2cardup{
     0%{opacity:0;transform:translateY(6px) rotate(8deg) scale(.4)}
     100%{opacity:1;transform:translateY(0) rotate(8deg) scale(1)}}
@@ -5573,7 +5573,7 @@
      100% keyframe is left implicit on purpose, the way h2moved does it, so the
      rule above is the only copy of where it ends up. */
   .h2toss3.done .h2coinwrap{transform:translate(-17px,-55px) scale(1);
-    animation:h2tossshow .42s cubic-bezier(.3,1.5,.5,1)}
+    animation:h2tossshow .42s var(--ease-pop)}
   @keyframes h2tossshow{from{transform:scale(.34)}}
   /* HIS ARM, which is the same trick h2balance plays: one part of the figure
      rotating about the shoulder .f-arm already hinges on. It ends on the exact
@@ -5646,7 +5646,7 @@
       linear-gradient(180deg,#0d3a1c,#17552c 58%,#0d3a1c);
     width:100%;margin:14px 0 8px}
   .tflag{width:58px;height:39px;object-fit:cover;border-radius:4px;flex:none;
-    opacity:.42;transition:opacity .4s,transform .4s,box-shadow .4s;
+    opacity:.42;transition:opacity .4s,transform .4s;
     box-shadow:0 0 0 1px rgba(0,0,0,.6), 0 4px 12px rgba(0,0,0,.6)}
   .tflag.won{opacity:1;transform:scale(1.12);
     box-shadow:0 0 0 2px #f7e3a6, 0 0 22px -2px rgba(247,227,166,.75), 0 4px 14px rgba(0,0,0,.6)}
@@ -5673,7 +5673,7 @@
     92%{top:2px}
     100%{top:8px}
   }
-  .h2coin.landed{animation:h2land .45s cubic-bezier(.3,1.6,.5,1)}
+  .h2coin.landed{animation:h2land .45s var(--ease-pop)}
   @keyframes h2land{
     from{transform:rotateX(var(--end,0deg)) scale(1.22)}
     to{transform:rotateX(var(--end,0deg)) scale(1)}}
@@ -5731,7 +5731,7 @@
     display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   .bigreveal .bigclub{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;
     padding:26px 30px;border-radius:24px;background:#fff;color:#14213a;max-width:80vw;
-    box-shadow:0 24px 48px rgba(0,0,0,.65);animation:bigin 1.25s cubic-bezier(.22,1.35,.4,1) both}
+    box-shadow:0 24px 48px rgba(0,0,0,.65);animation:bigin 1.25s var(--ease-pop) both}
   .bigreveal .bigclub .shield{width:min(30vw,130px);height:min(30vw,130px)}
   .bigreveal .bigclub .cn{font:800 clamp(1.4rem,7vw,2.2rem)/1.1 var(--ui);text-align:center}
 
@@ -5757,7 +5757,7 @@
     .mdp.intro .ballw{animation:mdpBallIn .85s cubic-bezier(.15,.85,.3,1) both}
     .mdp.intro .ballw .m{animation:mdpRoll .85s cubic-bezier(.15,.85,.3,1) both}
     .mdp.intro .ballw .gw,.mdp.intro .lines{animation:mdpFadeIn .5s .55s ease-out both}
-    .mdp.intro .ch{animation:mdpSlam .42s cubic-bezier(.2,1.5,.4,1) both}
+    .mdp.intro .ch{animation:mdpSlam .42s var(--ease-celebrate) both}
     .mdp.intro .tagbar{animation:mdpWipe .45s 1.05s cubic-bezier(.3,.9,.3,1) both}
     .mdp.intro .flash{animation:mdpFlash .7s .78s ease-out both}
   }
@@ -5771,7 +5771,7 @@
   /* ---------- BALL 4: patches and scarves ---------- */
   .clubcard{height:112px}
   .clubcard .crest{width:56px;height:auto;flex:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
-  .bigreveal .bigscarf{position:relative;display:flex;justify-content:center;animation:bigin 1.25s cubic-bezier(.22,1.35,.4,1) both}
+  .bigreveal .bigscarf{position:relative;display:flex;justify-content:center;animation:bigin 1.25s var(--ease-pop) both}
   .bigreveal .bigscarf canvas{display:block;width:min(92vw,560px);height:auto;filter:drop-shadow(0 22px 40px rgba(0,0,0,.6))}
 
   /* ---------- BALL 4: the front page, after the phone mock ---------- */
@@ -5782,7 +5782,7 @@
   .b5kick{width:100%;padding:19px 0;border:0;border-radius:999px;cursor:pointer;
     background:linear-gradient(180deg,var(--th-acc1),var(--th-acc2));color:#241B08;
     font:italic 900 28px/1 'Barlow Semi Condensed','Arial Narrow',sans-serif;letter-spacing:.06em;text-transform:uppercase;
-    box-shadow:0 6px 0 var(--th-acc-sh),0 12px 24px rgba(0,0,0,.3);transition:transform .06s ease,box-shadow .06s ease}
+    box-shadow:0 6px 0 var(--th-acc-sh),0 12px 24px rgba(0,0,0,.3);transition:transform .06s ease}
   .b5kick:active{transform:translateY(4px);box-shadow:0 2px 0 #7a5a10,0 6px 14px rgba(0,0,0,.3)}
   .b5level{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:-2px 0 10px;
     font:500 14px/1 'Barlow Semi Condensed','Arial Narrow',sans-serif;color:var(--th-card-dim)}
@@ -6291,6 +6291,10 @@
   #lgcode{text-transform:uppercase;letter-spacing:.2em}
 
   /* the Locker tab (board Locker) */
+  /* BALL Supporter: the mark after a name and the Locker shelf's icon (the rest is assets/sup/sup.css) */
+  .supmark{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-left:5px;border-radius:50%;background:linear-gradient(180deg,#f6d57c,#c99a2e);color:#241B08;font:800 10px/1 'Barlow Semi Condensed',sans-serif;vertical-align:1px;box-shadow:0 1px 0 #7a5a10}
+  .supico{display:flex;align-items:center;justify-content:center;height:100%;color:var(--th-acc1)}
+  .supico .ic{width:28px;height:28px}
   .lkhdr{display:flex;align-items:center;gap:10px;white-space:nowrap;margin:18px 0 8px;font:800 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--th-ink)}
   .lkhdr::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,#c99a2e,transparent)}
   .lkhdr small{order:2;letter-spacing:.02em;color:var(--th-dim);font-size:11px;font-weight:700;text-transform:none}
@@ -6641,7 +6645,7 @@
   /* POP-UPS IN THE MIDDLE, above everything: they used to rise from the bottom
      on a layer below the tab bar, which covered their buttons */
   #overlay{z-index:60!important;align-items:center!important;padding:max(16px,env(safe-area-inset-top,0px)) 16px max(16px,env(safe-area-inset-bottom,0px))!important}
-  #overlay .sheet{max-height:calc(100dvh - 48px);overflow-y:auto;animation:sheetin .2s cubic-bezier(.2,1.3,.4,1)}
+  #overlay .sheet{max-height:calc(100dvh - 48px);overflow-y:auto;animation:sheetin .2s var(--ease-pop)}
   @keyframes sheetin{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
   @media (prefers-reduced-motion: reduce){ #overlay .sheet{animation:none} }
   /* AND OUT AGAIN. "show" goes the instant a sheet closes, so everything that
@@ -6821,7 +6825,7 @@
   .ddpieces .ddcard{width:88px;height:114px}
   .ddplus{font:900 20px/1 'Barlow Semi Condensed',sans-serif;color:#e9b84c}
   .ddsaid{font:italic 400 20px/1.25 'Lora',Georgia,serif}
-  .ddnobody{padding:12px;border-radius:14px;background:linear-gradient(#f6d57c,#c99a2e);box-shadow:0 0 0 2px #fff,0 6px 0 #7a5a10;text-align:center;color:#241B08;animation:ddpop .5s cubic-bezier(.2,1.4,.4,1) both}
+  .ddnobody{padding:12px;border-radius:14px;background:linear-gradient(#f6d57c,#c99a2e);box-shadow:0 0 0 2px #fff,0 6px 0 #7a5a10;text-align:center;color:#241B08;animation:ddpop .5s var(--ease-pop) both}
   .ddnobody b{display:block;font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
   .ddnobody em{font:italic 400 13px/1.4 'Lora',Georgia,serif}
   @keyframes ddpop{from{transform:scale(.8);opacity:0}to{transform:none;opacity:1}}
@@ -6890,7 +6894,7 @@
   .ddboard{position:relative;height:300px;border-radius:16px;border:2px solid #fff;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.35);background-color:#0b2416;
     background-image:repeating-linear-gradient(0deg,transparent 0 54px,rgba(233,184,76,.08) 54px 55px),repeating-linear-gradient(90deg,transparent 0 76px,rgba(233,184,76,.08) 76px 77px)}
   .ddwall{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-content:space-around;justify-items:center;opacity:.16;font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;color:#e9b84c}
-  .ddsigned{position:absolute;top:14px;left:0;right:0;text-align:center;font:italic 900 52px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b;text-shadow:0 3px 0 #7a5a10,0 8px 18px rgba(0,0,0,.5);letter-spacing:.02em;animation:ddpop .6s .1s cubic-bezier(.2,1.4,.4,1) both}
+  .ddsigned{position:absolute;top:14px;left:0;right:0;text-align:center;font:italic 900 52px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b;text-shadow:0 3px 0 #7a5a10,0 8px 18px rgba(0,0,0,.5);letter-spacing:.02em;animation:ddpop .6s .1s var(--ease-celebrate) both}
   .ddpress{position:absolute;left:50%;bottom:0;width:250px;height:229px;transform:translateX(-50%)}
   .ddwho{position:absolute;left:10px;bottom:12px;display:flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;border-radius:999px;background:#F8F1DD;box-shadow:0 0 0 2px #fff}
   .ddwho b{font:italic 900 14px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:#241B08}
@@ -6928,7 +6932,7 @@
   .lbb{animation:lbtumble .5s ease-in-out 3 alternate both;animation-delay:var(--d);transform-box:fill-box;transform-origin:center}
   @keyframes lbtumble{from{transform:translate(0,0) rotate(0)}to{transform:translate(4px,-10px) rotate(25deg)}}
   .lbtile{position:absolute;left:50%;top:0;width:118px;height:130px;margin-left:-59px;border-radius:18px;background:#F8F1DD;display:flex;align-items:center;justify-content:center;
-    box-shadow:0 0 0 4px #e9b84c,0 10px 0 #7a5a10,0 18px 30px rgba(0,0,0,.35);transform:rotate(-4deg);animation:lbtile .6s 1.4s cubic-bezier(.2,1.4,.4,1) both}
+    box-shadow:0 0 0 4px #e9b84c,0 10px 0 #7a5a10,0 18px 30px rgba(0,0,0,.35);transform:rotate(-4deg);animation:lbtile .6s 1.4s var(--ease-celebrate) both}
   .lbtile b{font:italic 900 116px/1 'Barlow Semi Condensed',sans-serif;color:#123D24;text-shadow:4px 4px 0 #e9b84c,7px 7px 0 #7a5a10}
   @keyframes lbtile{from{transform:translateY(120px) rotate(30deg) scale(.2);opacity:0}to{transform:rotate(-4deg) scale(1);opacity:1}}
   .lbtile.small{position:relative;left:auto;top:auto;margin:22px auto 26px;width:110px;height:122px;animation:none}
@@ -6985,7 +6989,7 @@
   .lbside .lbcap{color:#8FB79E;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .lbside>b{display:block;font:italic 900 22px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere;max-width:100%}
   .lbsides[style*="--n:3"] .lbside>b{font-size:17px}
-  .lbstamp{display:inline-block;padding:3px 10px;border:3px solid;border-radius:5px;font:900 16px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;transform:rotate(-6deg);animation:lbstamp .35s .9s cubic-bezier(.2,1.6,.4,1) both}
+  .lbstamp{display:inline-block;padding:3px 10px;border:3px solid;border-radius:5px;font:900 16px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;transform:rotate(-6deg);animation:lbstamp .35s .9s var(--ease-celebrate) both}
   .lbstamp.goal{color:#f3cd6b;border-color:#f3cd6b}.lbstamp.clash{color:#F8F1DD;border-color:#F8F1DD}.lbstamp.out{color:#c9d8cd;border-color:#c9d8cd}
   .lbsides[style*="--n:3"] .lbstamp{font-size:13px;padding:2px 6px}
   @keyframes lbstamp{from{transform:rotate(-6deg) scale(2.2);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
@@ -7032,7 +7036,7 @@
   .yryear{align-self:flex-start;perspective:400px}
   .yryear span{display:inline-block;min-width:96px;padding:2px 12px;border-radius:8px;background:#123D24;color:#f3cd6b;text-align:center;
     font:italic 900 34px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em;text-shadow:2px 2px 0 #7a5a10;box-shadow:0 0 0 2px #fff}
-  .yrcard.flip .yryear span{animation:yrflip .55s cubic-bezier(.3,1.4,.5,1) both}
+  .yrcard.flip .yryear span{animation:yrflip .55s var(--ease-pop) both}
   @keyframes yrflip{from{transform:rotateX(90deg);opacity:0}to{transform:rotateX(0);opacity:1}}
   .yrhd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5b4a23}
   .yrtip{font:italic 400 14px/1.35 'Lora',Georgia,serif;color:#5b4a23;text-align:center}
@@ -7045,7 +7049,7 @@
   .yrtile{display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:12px;background:linear-gradient(180deg,#14422A,#0b2416);color:#F8F1DD;box-shadow:0 0 0 2px #fff,0 3px 8px rgba(0,0,0,.18)}
   .yrtile b{flex:0 0 auto;min-width:54px;font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;color:#f3cd6b}
   .yrtile span{font:600 13px/1.25 'Barlow Semi Condensed',sans-serif;color:#dfe9e1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .yrtile.hot{box-shadow:0 0 0 3px #e9b84c,0 6px 14px rgba(0,0,0,.25);animation:yrhot .5s cubic-bezier(.3,1.5,.5,1) both}
+  .yrtile.hot{box-shadow:0 0 0 3px #e9b84c,0 6px 14px rgba(0,0,0,.25);animation:yrhot .5s var(--ease-pop) both}
   @keyframes yrhot{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
   .yrslot{display:flex;align-items:center;justify-content:center;gap:8px;min-height:34px;padding:4px 10px;border:2px dashed rgba(18,61,36,.35);border-radius:10px;background:transparent;
     color:var(--th-dim);font:800 11px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
@@ -7452,7 +7456,7 @@
   .ttball svg{width:100%;height:100%}
   @keyframes ttrun{from{left:var(--x0);top:var(--y0)}to{left:var(--x1);top:var(--y1)}}
   .ttgoal{position:absolute;left:0;right:0;top:50%;z-index:4;transform:translateY(-50%) rotate(-6deg);text-align:center;pointer-events:none;
-    font:italic 900 clamp(56px,20vw,86px)/1 'Barlow Semi Condensed',sans-serif;color:#fff;letter-spacing:.02em;text-shadow:3px 3px 0 #c99a2e,6px 6px 0 #6b4c05,0 0 40px rgba(255,240,190,.8);animation:ttgoal .5s cubic-bezier(.2,1.6,.4,1) both}
+    font:italic 900 clamp(56px,20vw,86px)/1 'Barlow Semi Condensed',sans-serif;color:#fff;letter-spacing:.02em;text-shadow:3px 3px 0 #c99a2e,6px 6px 0 #6b4c05,0 0 40px rgba(255,240,190,.8);animation:ttgoal .5s var(--ease-celebrate) both}
   @keyframes ttgoal{from{transform:translateY(-50%) rotate(-6deg) scale(.3);opacity:0}}
   .ttcomm{display:flex;flex-direction:column;gap:5px;margin:0 2px 14px;min-height:20px}
   .ttcomm div{display:flex;gap:8px;align-items:baseline;font:italic 400 13px/1.35 'Lora',Georgia,serif;color:#3d4a38}
@@ -7701,7 +7705,7 @@
   .b6tabbar{max-width:480px;margin:0 auto;left:0;right:0}
   .b6tab{transition:color .2s ease,transform .12s ease}
   .b6tab:active{transform:scale(.92)}
-  .b6tab.on span{animation:b6tabpop .32s cubic-bezier(.2,1.6,.4,1)}
+  .b6tab.on span{animation:b6tabpop .32s var(--ease-pop)}
   @keyframes b6tabpop{0%{transform:scale(.8)}100%{transform:scale(1)}}
   .b6tab.on::after{content:"";display:block;width:18px;height:3px;border-radius:2px;background:var(--th-acc);margin-top:2px}
   /* screen to screen */
@@ -7727,7 +7731,7 @@
   .b6.lgpage>.b6body,.b6.lkpage>.b6body{padding-top:26px}
   .lgpage .b6band{height:252px}
   .lkpage .b6band{height:226px}
-  .b6fix,.b6opt,.b6yr,.b6lg,.b6team,.b6cta,.b6dark,.b6hero,.pgtopic,.pgsp,.pgrate{transition:transform .12s ease,box-shadow .2s ease,border-color .2s ease}
+  .b6fix,.b6opt,.b6yr,.b6lg,.b6team,.b6cta,.b6dark,.b6hero,.pgtopic,.pgsp,.pgrate{transition:transform .12s ease,border-color .2s ease}
   .b6fix:active,.b6opt:active,.b6yr:active,.b6lg:active,.b6team:active,.pgtopic:active,.pgrate:active{transform:scale(.975)}
   @media (prefers-reduced-motion: reduce){ #stage.b6enter{animation:none} .b6tab.on span{animation:none} }
   .b6dark{cursor:pointer}
@@ -7789,7 +7793,7 @@
   .pgmoment.promo{background:radial-gradient(80% 55% at 50% 30%, #2a3d6a, #050b1f 75%)}
   .pgmoment.title{background:radial-gradient(80% 55% at 50% 30%, #5a4410, #110c02 78%)}
   .pgmoment.on{opacity:1}
-  .pgm-in{width:100%;max-width:420px;display:flex;flex-direction:column;gap:12px;transform:translateY(16px) scale(.98);transition:transform .4s cubic-bezier(.2,1.3,.4,1)}
+  .pgm-in{width:100%;max-width:420px;display:flex;flex-direction:column;gap:12px;transform:translateY(16px) scale(.98);transition:transform .4s var(--ease-pop)}
   .pgmoment.on .pgm-in{transform:none}
   .pgm-k{font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#f3cd6b}
   .pgm-in h2{margin:0;font:italic 900 52px/.9 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;text-shadow:2px 2px 0 #c99a2e,4px 4px 0 rgba(0,0,0,.4)}
@@ -8145,6 +8149,56 @@
   .b6era small{font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-card-dim)}
   .b6era.sel{border-color:var(--goldhi);box-shadow:0 0 0 3px rgba(233,184,76,.4)}
   .b6qflag{width:52px;height:auto;border-radius:var(--r-chip, 4px)}
+  /* ---------- HOUSE STYLE V2, PHASE 3: THE FEEL SYSTEM (_plans/look-and-feel.md §5) ----------
+     The one right/wrong feedback (fb.*), the celebration ladder (celebrate), the screen change (View
+     Transitions), the sound ask and the low-end mode. Every duration and curve is a §2 token; under reduced
+     motion the moments run in 1 ms to their end frame, so what you see is the result and not the journey. */
+  /* fb.correct: a gold edge on the chosen answer and a 1.04 pop */
+  @keyframes fbPop{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+  /* fb.wrong: the 6 px "no" nudge (two cycles of 120 ms) on the chosen answer... */
+  @keyframes fbNo{0%,100%{transform:translateX(0)}25%{transform:translateX(calc(-6px * var(--motion)))}75%{transform:translateX(calc(6px * var(--motion)))}}
+  /* ...and the right one slides 8 px in, in gold */
+  @keyframes fbIn{from{transform:translateX(calc(-8px * var(--motion)));opacity:.5}to{transform:none;opacity:1}}
+  .fbyes{box-shadow:0 0 0 3px var(--res-exact)!important;animation:fbPop var(--dur-pop) var(--ease-pop) both}
+  .fbno{animation:fbNo 120ms var(--ease-out) 2 both}
+  .fbright{box-shadow:0 0 0 3px var(--res-exact)!important;animation:fbIn var(--dur-pop) var(--ease-out) both}
+  /* the same two for templates that draw the verdict themselves: the chosen right answer pops, the chosen wrong one nudges */
+  .h2opt.right,.duelcard.chose.win,.drlocker.chose.win,.answrow.got,.dsans.told .dsa.mine.right{animation-name:fbPop;animation-duration:var(--dur-pop);animation-timing-function:var(--ease-pop);animation-fill-mode:both}
+  .h2opt.wrong,.duelcard.chose.lose,.drlocker.chose.lose,.cpopt.out{animation-name:fbNo;animation-duration:120ms;animation-timing-function:var(--ease-out);animation-iteration-count:2;animation-fill-mode:both}
+  .dsans.told .dsa.mine.wrong{animation:dsWrong .3s ease var(--rv,2.4s) forwards,fbNo 120ms var(--ease-out) var(--rv,2.4s) 2 both}
+  .dsans.told .dsa.mine.right{animation:dsRight .3s ease var(--rv,2.4s) forwards,fbPop var(--dur-pop) var(--ease-pop) var(--rv,2.4s) both}
+  /* the screen change: the old screen fades, the new one comes up 8 px in --dur-screen; the tab bar, a sheet
+     and a toast have their own names and stand still (a name must be unique on the page, so each is one element) */
+  @keyframes vtIn{from{opacity:0;transform:translateY(calc(8px * var(--motion)))}to{opacity:1;transform:none}}
+  @keyframes vtOut{from{opacity:1}to{opacity:0}}
+  ::view-transition-old(root){animation:vtOut calc(var(--dur-screen) * var(--dur-exit-k)) var(--ease-out) both}
+  ::view-transition-new(root){animation:vtIn var(--dur-screen) var(--ease-out) both}
+  #b6tabs{view-transition-name:tabbar}
+  #overlay{view-transition-name:overlay}
+  #toast{view-transition-name:toast}
+  ::view-transition-old(tabbar),::view-transition-new(tabbar),::view-transition-old(overlay),::view-transition-new(overlay),
+  ::view-transition-old(toast),::view-transition-new(toast){animation:none}
+  ::view-transition-group(tabbar),::view-transition-group(overlay),::view-transition-group(toast){animation-duration:0s}
+  /* a sheet scrolls on its own: a flick at its end never drags the page behind it */
+  #overlay .sheet{overscroll-behavior:contain}
+  /* the sound ask (§13.3): the house sheet, one gold pill */
+  .sndask p{color:var(--th-dim)}
+  /* the one celebration canvas: over everything, under nobody's thumb */
+  canvas.feelconf{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:65}
+  /* the house confetti colours, when the canvas is not here yet */
+  .confetti i{--c:var(--th-acc)}
+  /* low-end mode (§5.7, body.lowend): solid surfaces where there was a blur, nothing left to composite */
+  body.lowend *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  body.lowend .mdp .b.g{display:none}
+  body.lowend .tha-smoke,body.lowend .b6tabglow{display:none}
+  body.lowend ::view-transition-old(root),body.lowend ::view-transition-new(root){animation-duration:1ms}
+  /* reduced motion, for everything above: the end frame, at once (the §2 tokens already shorten the rest) */
+  @media (prefers-reduced-motion: reduce){
+    .fbyes,.fbno,.fbright,.h2opt.right,.h2opt.wrong,.duelcard.chose.win,.duelcard.chose.lose,.drlocker.chose.win,.drlocker.chose.lose,.answrow.got,.cpopt.out,
+    .dsans.told .dsa.mine.right,.dsans.told .dsa.mine.wrong{animation-duration:1ms;animation-iteration-count:1}
+    ::view-transition-old(root),::view-transition-new(root){animation-duration:1ms}
+    .confetti,canvas.feelconf{display:none}
+  }
 </style>
 </head>
 <body>
@@ -8165,10 +8219,10 @@
 <script defer src="assets/vendor/supabase.js"></script>
 <script src="assets/vendor/zdog.dist.min.js"></script>
 <script src="assets/vendor/ball3d.js"></script>
-<script src="assets/vendor/crests.js"></script>
-<script src="assets/ball3d/players.js"></script>
-<script src="assets/ball3d/stage.js"></script>
-<script src="assets/ball3d/motion.js"></script>
+<script defer src="assets/vendor/crests.js"></script>
+<script defer src="assets/ball3d/players.js"></script>
+<script defer src="assets/ball3d/stage.js"></script>
+<script defer src="assets/ball3d/motion.js"></script>
 <script>
 "use strict";
 /* ============================== QUESTION BANK ============================== */
@@ -10379,7 +10433,8 @@ let S = null; // {players:[{name,score,off}], turn, round, phase, tier, qi, stea
 
    ITS MULTIPLE CHOICE joins classic-mc the same way, after the thousand the Daily Ball is dealt from (assets/mc,
    whose ids are in the same file), marked nd, which dailyBank leaves out: every day's Daily stays the questions it
-   was. */
+   was. And since 1 Nov the thousand say the bank's checked words in their own places (classicDailyWords): the bank
+   had corrected or retired about a quarter of them. */
 /* the boot queue (see BOOT_FIRST below): declared here, above its first user */
 const BOOT_LATER = [];
 function bootLater(fn){ BOOT_LATER.push(fn); }
@@ -10412,8 +10467,38 @@ function classicMcMerge(){
   for(const t of CLASSIC_TIERS) for(const id of ((CLASSIC_BANK.L.mc || {})[t] || [])) had.add(id);
   const add = bankDecks(CLASSIC_BANK.b).mc;
   for(const t of CLASSIC_TIERS) if(Array.isArray(mc[t])) for(const r of add[t] || []) if(!had.has(r.id)) mc[t].push(Object.assign(r, { nd: 1 }));
+  classicDailyWords(mc);
   Object.defineProperty(mc, "_bank", { value: true });
   return true;
+}
+/* AND THE DAILY'S THOUSAND SAY THE BANK'S CHECKED WORDS, IN THEIR OWN PLACES. A day is dealt by the hash of a
+   question's words (dailyBank), so each keeps the key it has always been dealt by (dk) and every day deals the places
+   it always did. The words, the answer and the wrong answers are the bank's, set round the answer's old corner (k),
+   so a tap made before this ran is judged by what was on the screen. One the bank no longer ships in that level (a
+   repeat, or dropped as wrong) keeps its place in the deal, where taking it out would reshuffle every day, and says
+   one of the bank's additions of the same level instead, the same one on every phone; it leaves Matchday's draw (dx),
+   where that addition is dealt as itself. */
+function classicDailyWords(mc){
+  const bank = {};
+  for(const t of CLASSIC_TIERS) for(const r of (Array.isArray(CLASSIC_BANK.b[t]) ? CLASSIC_BANK.b[t] : []))
+    if(r && r.id && Array.isArray(r.o) && r.o.length >= 3) bank[r.id] = { t, q: r.q, a: r.a, sub: r.sub, cat: r.cat, wrong: r.o.slice(0, 3) };
+  for(const t of CLASSIC_TIERS){
+    const rows = Array.isArray(mc[t]) ? mc[t] : [], ids = (CLASSIC_BANK.L.mc || {})[t] || [];
+    const spare = rows.filter(r => r.nd).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
+      .map(r => ({ q: r.q, a: r.a, sub: r.sub, cat: r.cat, wrong: r.o.filter((_, j) => j !== r.k) }));
+    let next = 0;
+    ids.forEach((id, i) => {
+      const r = rows[i];
+      if(!r || r.nd || r.dk || !Array.isArray(r.o) || r.o.length !== 4 || !(r.k >= 0 && r.k < 4)) return;
+      const own = bank[id] && bank[id].t === t ? bank[id] : null, say = own || spare[next++];
+      if(!say) return;
+      r.dk = qKey(r);
+      const o = say.wrong.slice(0, 3); o.splice(r.k, 0, say.a);
+      r.q = say.q; r.a = say.a; r.o = o; r.cat = say.cat;
+      if(say.sub) r.sub = say.sub; else delete r.sub;
+      if(!own) r.dx = 1;
+    });
+  }
 }
 /* how many Classic questions can still be drawn: every place but the marked ones */
 const classicLive = () => CLASSIC_TIERS.reduce((n, t) => n + (BANK[t] || []).filter(q => q && !q.x).length, 0);
@@ -10482,10 +10567,10 @@ let natAnim = false; // entrance animation plays once per fresh One & Only quest
 let XI=null;
 let TLINE=null;
 let BADGE=null;
-fetch("assets/badges/index.json").then(r=>r.json()).then(b=>{
+bootLater(() => fetch("assets/badges/index.json").then(r=>r.json()).then(b=>{
   BADGE=b;
   if(!S || S.phase==="setup") render();
-}).catch(()=>{});
+}).catch(()=>{}));
 
 /* ============================== KIT BANK ==============================
    Guess the club from its home shirt. Unlike the crests, these kit graphics
@@ -10570,10 +10655,10 @@ function bzPull(){
    nothing: cdeck handed back an empty list and newCareer said the deck was
    still loading, for ever. */
 let MGRS=null;
-fetch("assets/managers/index.json").then(r=>r.json()).then(m=>{
+bootLater(() => fetch("assets/managers/index.json").then(r=>r.json()).then(m=>{
   MGRS=m;
   if(!S || S.phase==="setup") render();
-}).catch(()=>{});
+}).catch(()=>{}));
 
 /* ---------- the faces ----------
    221 of the 227 dugout careers have a freely licensed portrait on Wikimedia
@@ -11108,7 +11193,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 31 Oct 2026 · Let's Ball on the question bank";
+const BUILD = "BALL 4 · 2 Nov 2026 · go to market";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -11306,7 +11391,7 @@ function rushType(el){
   if(hit<0 || growing(hit)) return;
   S.rush.got.push(hit);
   el.value="";
-  popfx(); ching();
+  fb.correct(null);
   if(S.rush.got.length>=L.clubs.length){ rushTimeUp(); return; }
   render();
   const again=document.getElementById("rushin"); if(again) again.focus();
@@ -11318,8 +11403,8 @@ function rushTimeUp(){
   /* Naming a whole league inside thirty seconds deserves more than the last
      club being worth the same as the first. */
   if(got>=L.clubs.length){ pts+=10; ballGoal(); }
-  if(pts>0){ S.players[S.turn].score+=pts; ching(); toast(`${esc(S.players[S.turn].name)} +${pts}`); }
-  else buzzer();
+  if(pts>0){ S.players[S.turn].score+=pts; fb.correct(null); toast(`${esc(S.players[S.turn].name)} +${pts}`); }
+  else fb.wrong(null);
   S.phase="g_done";
   if(maybeFinish()) return;
   render();
@@ -11382,9 +11467,9 @@ function duelPick(which){
     /* Five in a row pays ten on top, which is what makes it worth carrying on
        rather than banking a point and passing the phone. */
     if(d.streak%5===0) pts+=10;
-    S.players[S.turn].score+=pts; ching(); popfx();
-    if(d.streak%5===0){ confetti(64); toast(`🔥 ${d.streak} in a row · ${esc(S.players[S.turn].name)} +${pts}`); }
-  }else{ buzzer(); flashBad(); }
+    S.players[S.turn].score+=pts; fb.correct(null, d.streak);
+    if(d.streak%5===0){ celebrate(2, {type: "streak5"}); toast(`🔥 ${d.streak} in a row · ${esc(S.players[S.turn].name)} +${pts}`); }
+  }else{ fb.wrong(null); }
   S.phase="d_show";
   if(d.right && maybeFinish()) return;
   render();
@@ -11553,9 +11638,9 @@ function capsPick(which){
     /* five in a row pays ten on top, which is what makes carrying on worth more
        than banking a point and passing the phone */
     if(d.streak % 5 === 0) pts += 10;
-    S.players[S.turn].score += pts; ching(); popfx();
-    if(d.streak % 5 === 0){ S.capHeat = (S.capHeat | 0) + 1; confetti(64); toast(d.streak + " in a row · " + S.players[S.turn].name + " +" + pts); }
-  }else{ buzzer(); flashBad(); }
+    S.players[S.turn].score += pts; fb.correct(null, d.streak);
+    if(d.streak % 5 === 0){ S.capHeat = (S.capHeat | 0) + 1; celebrate(2, {type: "streak5"}); toast(d.streak + " in a row · " + S.players[S.turn].name + " +" + pts); }
+  }else{ fb.wrong(null); }
   S.phase = "cp_show";
   if(d.right && maybeFinish()) return;
   render();
@@ -11764,8 +11849,8 @@ function xiTap(i){
 function xiAward(p){
   const i=S.xi.pick; if(i==null) return;
   S.xi.got[i]=p; S.xi.pick=null;
-  if(p>=0){ S.players[p].score+=1; ching(); }
-  if(S.xi.got.every(g=>g!==null)){ S.phase="x_done"; confetti(64); }
+  if(p>=0){ S.players[p].score+=1; fb.correct(null); }
+  if(S.xi.got.every(g=>g!==null)){ S.phase="x_done"; celebrate(2, {type: "xiDone"}); }
   render();
 }
 function xiRest(){ // give up on the stragglers: flip them, no points
@@ -11839,9 +11924,9 @@ function tlReveal(){
   const who=S.players[S.turn];
   if(pts>0){
     who.score+=pts;
-    if(pts>=5){ ching(); confetti(64); toast(`${who.name} runs the timeline! +5`); }
+    if(pts>=5){ fb.correct(null); celebrate(2, {type: "timeline"}); toast(`${who.name} runs the timeline! +5`); }
     else { popfx(); toast(`${who.name} +${pts}`); }
-  } else { buzzer(); flashBad(); toast(`${who.name}: nothing in place`, true); }
+  } else { fb.wrong(null); toast(`${who.name}: nothing in place`, true); }
   if(maybeFinish()) return;
   render();
 }
@@ -11984,7 +12069,7 @@ function maybeFinish(){
   S.phase="results";
   recordMatch();
   render();
-  confetti(64);
+  celebrate(3, {type: "matchWon"});
   return true;
 }
 // never write a null state: render() saves on every pass, so dropping back to
@@ -12628,22 +12713,206 @@ function tally(mode){
   return [...rows.values()].sort((a,b)=> b.wins-a.wins || b.pts-a.pts || a.played-b.played);
 }
 
-/* ============================== AUDIO ============================== */
-let AC=null;
-function audio(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return AC; }
-function beep(freq,dur,type="square",gain=.06){
-  const ac=audio(); if(!ac) return;
-  const o=ac.createOscillator(), g=ac.createGain();
-  o.type=type; o.frequency.value=freq; g.gain.value=gain;
-  o.connect(g); g.connect(ac.destination);
-  o.start(); g.gain.exponentialRampToValueAtTime(.0001, ac.currentTime+dur);
-  o.stop(ac.currentTime+dur);
+/* ============================== AUDIO, AND THE FEEL SYSTEM ==============================
+   House style v2, phase 3 (_plans/look-and-feel.md §5). Six small helpers, used everywhere:
+   fb.correct / fb.wrong (the one right-or-wrong feedback), celebrate (the ladder), haptic
+   (the named buzzes, with the old buzz() folded in), snd (the synth, made again), the
+   screen change in render(), and the low-end mode. The §13 decisions Martijn has not
+   confirmed sit behind one-line constants he can flip: SND_DEFAULT, INTRO_ONCE_A_DAY,
+   CONFETTI_FROM_TIER, VIEW_TRANSITIONS. */
+const SND_DEFAULT = false;          // §13.3: sound is off until the player says yes, asked once after the first goal
+const INTRO_ONCE_A_DAY = true;      // §13.6: the logo's kick-off intro plays on the first launch of the day, not every launch
+const CONFETTI_FROM_TIER = 3;       // §5.2: confetti from tier 3 (match won, level up); 2 would put it back on goals and the daily
+const VIEW_TRANSITIONS = true;      // §5.5: screen changes through document.startViewTransition, a plain swap without it
+const FEEL_KEY = "ball4-feel";      // {snd, hap, low, asked, askDue, n: {moment type: times seen}}
+let FEEL = (() => { try{ return JSON.parse(localStorage.getItem(FEEL_KEY)) || {}; }catch(e){ return {}; } })();
+function feelSave(){ try{ localStorage.setItem(FEEL_KEY, JSON.stringify(FEEL)); }catch(e){} }
+const reducedMotion = () => { try{ return !!matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){ return false; } };
+
+/* ---------- the settings: sound, vibration, lighter effects ---------- */
+/* an explicit choice first (this phone's Settings, or the match's old Sound button, which wrote ball4-mute), else the default */
+function sndOn(){
+  if(typeof FEEL.snd === "boolean") return FEEL.snd;
+  try{ const m = localStorage.getItem("ball4-mute"); if(m === "0") return true; if(m === "1") return false; }catch(e){}
+  return SND_DEFAULT;
 }
-const tick   = ()=>beep(880,.08,"square",.05);
-const buzzer = ()=>{beep(150,.5,"sawtooth",.1); setTimeout(()=>beep(110,.6,"sawtooth",.1),120);};
-const ching  = ()=>{beep(1047,.12,"sine",.09); setTimeout(()=>beep(1568,.25,"sine",.09),110);};
-const popfx  = ()=>{beep(520,.07,"sine",.08); setTimeout(()=>beep(790,.1,"sine",.07),70);};
-const slamfx = ()=>{beep(150,.22,"sawtooth",.08); setTimeout(()=>beep(620,.08,"sine",.08),300); setTimeout(()=>beep(930,.12,"sine",.07),380);};
+function sndSet(on){
+  FEEL.snd = !!on; FEEL.asked = true; FEEL.askDue = false; feelSave();
+  try{ localStorage.setItem("ball4-mute", on ? "0" : "1"); }catch(e){}
+  try{ h2Sound = !!on; if(on){ sndResume(); if(S && isPitch(S.play)) h2CrowdStart(); } else h2CrowdStop(); }catch(e){}
+  if(ME_VIEW === "settings") render();
+}
+function hapOn(){ return typeof FEEL.hap === "boolean" ? FEEL.hap : true; }
+function hapSet(on){ FEEL.hap = !!on; feelSave(); if(on) haptic("select"); if(ME_VIEW === "settings") render(); }
+/* low-end mode: the setting, else this phone (four cores or fewer, or a frame budget missed after the home drew) */
+let FEEL_SLOW = false;
+function lowEnd(){
+  if(typeof FEEL.low === "boolean") return FEEL.low;
+  try{ if(typeof navigator !== "undefined" && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) return true; }catch(e){}
+  return FEEL_SLOW;
+}
+function lowSet(on){ FEEL.low = !!on; feelSave(); feelApply(); if(ME_VIEW === "settings") render(); }
+function feelApply(){ try{ document.body.classList.toggle("lowend", lowEnd()); }catch(e){} }
+/* the frame budget: two seconds of frames after the first draw; four over 50 ms and the phone is treated as low-end */
+function feelProbe(){
+  if(typeof requestAnimationFrame !== "function" || typeof performance === "undefined") return;
+  let last = performance.now(), missed = 0, frames = 0;
+  const step = t => { if(t - last > 50) missed++; last = t;
+    if(++frames < 120 && missed < 4) requestAnimationFrame(step);
+    else if(missed >= 4 && !FEEL_SLOW){ FEEL_SLOW = true; feelApply(); } };
+  requestAnimationFrame(step);
+}
+/* Settings: the block */
+function feelSettingsHTML(){
+  const canBuzz = typeof navigator !== "undefined" && typeof navigator.vibrate === "function";
+  const row = (on, fn, b, s) => '<label class="fyccheck acnews feelrow"><input type="checkbox"' + (on ? " checked" : "") + ' onchange="' + fn + '(this.checked)"><span><b>' + b + '</b><small>' + s + '</small></span></label>';
+  return '<div class="b6hdr">Sound and feel</div>' +
+    row(sndOn(), "sndSet", "Sound", "The chimes, the net and the whistle. Your phone&#39;s silent switch still wins.") +
+    row(hapOn(), "hapSet", "Vibration", canBuzz ? "A tap you can feel on a goal, a right answer and a lock-in." : "Not on this phone: an iPhone doesn&#39;t let a web app buzz.") +
+    row(lowEnd(), "lowSet", "Lighter effects", "Fewer animations, no confetti." + (typeof FEEL.low === "boolean" ? "" : lowEnd() ? " On by itself: this phone asked for it." : " Comes on by itself on a slower phone."));
+}
+
+/* ---------- haptic: the named events (§5.3) ----------
+   navigator.vibrate where there is one (Android; an iPhone's web has none, so the visual snap carries it). Never on
+   scroll, never on a timer tick. buzz(pattern) is the old name and still works: a raw pattern passes straight through. */
+const HAPTIC = { tap: 8, select: 12, lockIn: [20, 30, 45], correct: 18, wrong: [30, 40, 30], warn: [20, 20, 20], goal: [40, 30, 70] };
+function haptic(name){
+  if(!hapOn()) return false;
+  const p = typeof name === "string" ? HAPTIC[name] : name;
+  if(p == null) return false;
+  try{ if(typeof navigator !== "undefined" && typeof navigator.vibrate === "function"){ navigator.vibrate(p); return true; } }catch(e){}
+  return false;
+}
+function buzz(pattern){ return haptic(pattern); }
+
+/* ---------- snd: the synth, made again (§5.4) ----------
+   Sine or triangle through a low-pass, a 5 ms fade in, notes of 30 to 120 ms, within 2% of the pitch asked so no two
+   chimes are the same. One master gain into a compressor, so a chime over the crowd never clips. Nothing starts at
+   full volume and nothing is square or sawtooth any more; the old names (beep, tick, buzzer, ching, popfx, slamfx)
+   stay and play the new notes. The context is resumed on the first tap; the iPhone's silent switch is respected
+   because nothing here asks it not to be (the default, ambient behaviour). */
+let AC = null, SND_OUT = null;
+function audio(){ if(!AC){ try{ AC = new (window.AudioContext || window.webkitAudioContext)(); }catch(e){} } return AC; }
+function sndResume(){ try{ const ac = audio(); if(ac && ac.state === "suspended") ac.resume(); }catch(e){} }
+function sndOut(){
+  const ac = audio(); if(!ac) return null;
+  if(!SND_OUT){
+    try{
+      const g = ac.createGain(); g.gain.value = .9;
+      const c = ac.createDynamicsCompressor(); c.threshold.value = -18; c.knee.value = 12; c.ratio.value = 4; c.attack.value = .003; c.release.value = .12;
+      g.connect(c); c.connect(ac.destination); SND_OUT = g;
+    }catch(e){ SND_OUT = ac.destination; }
+  }
+  return SND_OUT;
+}
+function note(freq, dur, type, gain, lp){
+  if(!sndOn()) return;
+  const ac = audio(), out = sndOut(); if(!ac || !out) return;
+  dur = Math.min(.12, Math.max(.03, dur || .08));
+  const t = ac.currentTime, o = ac.createOscillator(), f = ac.createBiquadFilter(), g = ac.createGain();
+  o.type = type === "triangle" ? "triangle" : "sine";
+  o.frequency.value = freq * (1 + (Math.random() * .04 - .02));
+  f.type = "lowpass"; f.frequency.value = lp || Math.min(6000, freq * 4);
+  g.gain.setValueAtTime(.0001, t); g.gain.linearRampToValueAtTime(gain || .06, t + .005); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  o.connect(f); f.connect(g); g.connect(out); o.start(t); o.stop(t + dur + .01);
+}
+/* the old entry point: square and sawtooth come out as triangle */
+function beep(freq, dur, type, gain){ note(freq, dur, type === "sine" ? "sine" : "triangle", gain); }
+const SEMI = Math.pow(2, 1 / 12);
+const snd = {
+  /* the chime rises a semitone for each right answer in a row, up to eight */
+  chime(n){ const f = 880 * Math.pow(SEMI, Math.min(8, Math.max(1, n | 0)) - 1); note(f, .09, "sine", .07); setTimeout(() => note(f * 1.5, .11, "sine", .05), 70); },
+  /* the soft falling tone of a wrong one */
+  fall(){ note(392, .1, "triangle", .05); setTimeout(() => note(311, .12, "triangle", .045), 90); },
+  tap(){ note(1200, .03, "sine", .03); },
+  tick(){ note(880, .05, "triangle", .035); },
+  thud(){ note(110, .12, "sine", .09, 400); },
+  on: sndOn, set: sndSet, resume: sndResume,
+};
+const tick   = () => snd.tick();
+const buzzer = () => snd.fall();
+const ching  = () => snd.chime(fb.run || 1);
+const popfx  = () => { note(520, .05, "sine", .05); setTimeout(() => note(790, .06, "sine", .04), 60); };
+const slamfx = () => { snd.thud(); setTimeout(() => snd.chime(3), 260); };
+/* the first tap wakes the audio, and a tap during a moment ends it */
+try{ if(typeof document !== "undefined" && document.addEventListener) document.addEventListener("pointerdown", () => { sndResume(); if(CELEB.live) CELEB.live.skip(); }, true); }catch(e){}
+/* the one-time ask (§13.3): armed by the first goal, shown on the next calm screen, once */
+function sndAskArm(){ if(FEEL.asked || typeof FEEL.snd === "boolean" || FEEL.askDue) return; FEEL.askDue = true; feelSave(); }
+function sndAskMaybe(){
+  if(!FEEL.askDue || FEEL.asked) return;
+  if(S && S.phase !== "setup" && S.phase !== "results" && S.phase !== "ds_done") return;
+  try{ if($("#overlay").classList.contains("show") || document.querySelectorAll(".pgmoment").length) return; }catch(e){ return; }
+  FEEL.asked = true; FEEL.askDue = false; feelSave();
+  setTimeout(() => { try{ if($("#overlay").classList.contains("show")) return;
+    sheet('<div class="sndask"><h2>Sound on?</h2><p>A chime for a right answer, the net when it goes in, the whistle. Off until you say so, and your phone&#39;s silent switch still wins.</p>' +
+      b4Btn("Sound on", "sndSet(true);closeSheet()", "gold") + b4Btn("Keep it quiet", "sndSet(false);closeSheet()", "quiet") + '</div>'); }catch(e){} }, 700);
+}
+
+/* ---------- fb: the one right-or-wrong feedback (§5.1) ----------
+   Correct: a gold edge on the chosen answer and a 1.04 pop (--ease-pop, --dur-pop), the chime a semitone up for
+   each in a row, haptic('correct'). Wrong: a 6 px "no" nudge on the chosen answer, the right one slides in gold,
+   the falling tone, haptic('wrong'), and the copy is warm (fb.word(): "Unlucky.", never "Wrong!"). No red flash.
+   el and rightEl may be an element, a selector, or nothing: a selector is looked up after the next render, since
+   most games draw the verdict in the render that follows the tap; a template that marks the verdict itself
+   (.h2opt.right, .duelcard.chose.win…) gets the same pop and nudge from the stylesheet, so it passes nothing. */
+const FB_PEND = [];
+function fbClass(el, cls){ try{ el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); if(cls === "fbno") setTimeout(() => { try{ el.classList.remove(cls); }catch(e){} }, 400); }catch(e){} }
+function fbMark(el, cls){ if(!el) return; if(typeof el === "string"){ FB_PEND.push([el, cls]); return; } fbClass(el, cls); }
+function fbFlush(){ while(FB_PEND.length){ const [sel, cls] = FB_PEND.shift(); try{ const el = document.querySelector(sel); if(el) fbClass(el, cls); }catch(e){} } }
+const FB_WORDS = ["Unlucky.", "Close.", "Not this time."];
+const fb = {
+  run: 0,                                   // right answers in a row, for the chime
+  correct(el, inARow){ fb.run = inARow != null ? (inARow | 0) : fb.run + 1; snd.chime(fb.run); haptic("correct"); fbMark(el, "fbyes"); return fb.run; },
+  wrong(el, rightEl){ fb.run = 0; snd.fall(); haptic("wrong"); fbMark(el, "fbno"); fbMark(rightEl, "fbright"); return 0; },
+  word(){ return FB_WORDS[Math.floor(Math.random() * FB_WORDS.length)]; },
+};
+
+/* ---------- celebrate: the ladder (§5.2) ----------
+   0 a tap (CSS), 1 a right answer (fb), 2 a goal or a daily done (a hold, then the moment, under 1.8 s), 3 a match
+   or round won, a level up, a streak milestone (confetti allowed), 4 the rare ones. One tier-2-or-more moment per
+   screen (render() opens a new screen); skippable with a tap; shorter from the fourth time (the count per moment
+   type is kept on the phone); low-end and reduced motion get the end frame. opts: type, n (confetti pieces),
+   hold (ms before then()), then. Confetti is canvas-confetti in the house colours, fetched on the first tier-3
+   moment; until it is here the old burst stands in. */
+const CELEB = { used: false, live: null };
+const CONF_COLOURS = ["#e9b84c", "#f6d57c", "#F8F1DD", "#2c7a48", "#14422A"];
+function celebrate(tier, o){
+  o = o || {}; const type = o.type || "moment";
+  if(type === "goal" || type === "ballGoal") sndAskArm();
+  if(!(tier >= 2) || CELEB.used) return null;
+  CELEB.used = true;
+  FEEL.n = FEEL.n || {}; const n = FEEL.n[type] = (FEEL.n[type] | 0) + 1; feelSave();
+  const brief = n > 3 || lowEnd(), still = reducedMotion();
+  const m = CELEB.live = { type, tier, n, brief, done: false, thenDone: !o.then, timers: [] };
+  const then = () => { if(m.thenDone) return; m.thenDone = true; try{ o.then(); }catch(e){} };
+  const finish = () => { if(m.done) return; m.done = true; m.timers.forEach(clearTimeout); if(CELEB.live === m) CELEB.live = null; then(); };
+  m.skip = () => { confettiStop(); finish(); };
+  if(tier >= CONFETTI_FROM_TIER && !still && !lowEnd()) confettiBurst(Math.round((o.n || 90) * (brief ? .55 : 1)), brief);
+  const hold = (still || brief) ? 0 : Math.min(600, o.hold | 0);
+  if(o.then) m.timers.push(setTimeout(then, hold));
+  m.timers.push(setTimeout(finish, Math.min(1800, hold + (brief ? 600 : 1200))));
+  return m;
+}
+celebrate.skip = () => { if(CELEB.live) CELEB.live.skip(); };
+let CONF_LOAD = 0, CONF_FN = null;
+function confettiNeed(){
+  if(CONF_LOAD || (typeof window !== "undefined" && typeof window.confetti === "function")) return;
+  CONF_LOAD = 1;
+  try{ const s = document.createElement("script"); s.src = "assets/vendor/confetti.browser.js"; s.onload = () => { CONF_LOAD = 2; }; s.onerror = () => { CONF_LOAD = -1; }; document.head.appendChild(s); }catch(e){ CONF_LOAD = -1; }
+}
+function confettiBurst(n, brief){
+  if(typeof window !== "undefined" && typeof window.confetti === "function"){
+    try{
+      if(!CONF_FN){ const cv = document.createElement("canvas"); cv.className = "feelconf"; document.body.appendChild(cv); CONF_FN = window.confetti.create(cv, { resize: true, useWorker: true }); }
+      CONF_FN({ particleCount: n, spread: 72, startVelocity: 38, decay: .92, gravity: 1, ticks: brief ? 110 : 190, origin: { x: .5, y: .62 }, colors: CONF_COLOURS, disableForReducedMotion: true });
+      return;
+    }catch(e){}
+  }
+  confettiDOM(n);
+  confettiNeed();
+}
+try{ feelApply(); bootLater(feelProbe); }catch(e){}
+function confettiStop(){ try{ if(CONF_FN) CONF_FN.reset(); }catch(e){} try{ document.querySelectorAll(".confetti").forEach(e => e.remove()); }catch(e){} }
 
 /* ============================== TIMER ============================== */
 let T = {raf:null, deadline:0, total:0, onDone:null, lastWhole:99};
@@ -12723,8 +12992,9 @@ function toast(msg, bad){
   const t=$("#toast"); t.textContent=msg; t.classList.toggle("bad",!!bad); t.classList.add("show");
   clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"), 2200);
 }
-const COLS=["#0a9e5c","#e9b84c","#2563eb","#dc2626","#ffffff"];
-function confetti(n){
+const COLS=["#e9b84c","#f6d57c","#F8F1DD","#2c7a48","#ffffff"];
+/* the house burst in paper: what celebrate() throws until canvas-confetti is here */
+function confettiDOM(n){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const c=document.createElement("div"); c.className="confetti";
   /* A flash under the paper. Fifty small squares crossing a dark pitch read
@@ -12760,7 +13030,7 @@ function confetti(n){
    It sits on the same timing as the goal toast rather than holding the game
    up: nothing waits for it, it removes itself, and it never takes a tap. */
 function ballGoal(){
-  confetti(120);
+  celebrate(2, {type: "ballGoal"});
   if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   /* Written mode awards each player with their own tap, so three right
      answers on a BALL question would stack three balls on top of each other.
@@ -12799,7 +13069,7 @@ function stickerPop(){
 }
 /* Everything else scales with what the answer was worth, because a +10 that
    celebrates exactly like a +1 is the app not paying attention. */
-const goalFx = (big, pts) => big ? ballGoal() : (stickerPop(), confetti(pts>=10 ? 110 : pts>=5 ? 85 : 65));
+const goalFx = (big, pts) => big ? ballGoal() : (stickerPop(), celebrate(2, {type: "goal"}));
 
 /* ---------- THE PHONE ITSELF ----------
    Two things in a match change the score, and both happen while the phone is
@@ -12812,18 +13082,8 @@ const goalFx = (big, pts) => big ? ballGoal() : (stickerPop(), confetti(pts>=10 
    striker missed. Every call is allowed to fail and most of them will: vibrate
    does not exist on iOS at all, and is refused on a page nobody has tapped
    yet. */
-function buzz(pattern){
-  try{
-    if(typeof navigator !== "undefined" && typeof navigator.vibrate === "function") navigator.vibrate(pattern);
-  }catch(e){}
-}
-function flashBad(){
-  buzz(18);
-  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const f=document.createElement("div"); f.className="redflash";
-  document.body.appendChild(f);
-  setTimeout(()=>f.remove(),600);
-}
+/* the red flash is gone (§5.1: no red flash): a time-up or a lost ball is a warning you can feel; a wrong answer goes through fb.wrong */
+function flashBad(){ haptic("warn"); }
 function others(){ return S.players.map((p,i)=>i).filter(i=>i!==S.turn); }
 /* Which deck this match is reading. It used to be a chain of mode tests, one
    link per mode, which is exactly the thing that did not scale: S.mode now
@@ -12852,7 +13112,9 @@ function bankFor(t){ const d = deckFor(); return d ? d[t] : null; }
 /* A QUESTION THE RE-TIER HAS MOVED is still in its old tier, marked, because
    taking it out would re-point every index above it and S.used holds indexes.
    Every draw skips anything marked; nothing else has to know. */
-const liveQ = (bank, n) => !!(bank && bank[n]) && !bank[n].x;
+/* x: a place whose question has gone; dx: one of the Daily's thousand the bank no longer ships, which stays in the
+   Daily's deal and nowhere else (classicDailyWords) */
+const liveQ = (bank, n) => !!(bank && bank[n]) && !bank[n].x && !bank[n].dx;
 /* S.qd says which deck the loaded question came out of, and only The Dugout
    ever sets it. Without this the index would be read back out of the quiz's
    own bank and answer a different question entirely. */
@@ -14174,16 +14436,10 @@ const h2No = (i, w) => { const m = h2Man(i, w); return (m && m.no) || h2Spot(i, 
    allowed to fail quietly rather than throwing. And render() runs constantly,
    so starting the bed has to be idempotent: it checks whether it is already
    going instead of stacking up a new one every frame. */
-let h2Sound = true;
-try{ h2Sound = localStorage.getItem("ball4-mute") !== "1"; }catch(e){}
+let h2Sound = sndOn();   /* one sound setting (house style v2, phase 3): Settings, or the match's own Sound button */
 let h2CrowdEl = null;
 
-function h2ToggleSound(){
-  h2Sound = !h2Sound;
-  try{ localStorage.setItem("ball4-mute", h2Sound ? "0" : "1"); }catch(e){}
-  if(h2Sound) h2CrowdStart(); else h2CrowdStop();
-  render();
-}
+function h2ToggleSound(){ sndSet(!h2Sound); render(); }
 function h2Sfx(name, vol){
   if(!h2Sound) return;
   try{
@@ -14208,23 +14464,25 @@ function noisefx(dur, gain, lp, hp){
   src.connect(f);
   if(hp){ const h = ac.createBiquadFilter(); h.type = "highpass"; h.frequency.value = hp; f.connect(h); h.connect(g); }
   else f.connect(g);
-  g.connect(ac.destination); src.start(); src.stop(ac.currentTime + dur);
+  g.connect(sndOut() || ac.destination); src.start(); src.stop(ac.currentTime + dur);
 }
+/* a slide between two pitches, through the master like every note: sine or triangle, a 5 ms fade in */
 function sweepfx(f0, f1, dur, type, gain){
-  const ac = audio(); if(!ac) return;
-  const o = ac.createOscillator(), g = ac.createGain();
-  o.type = type; o.frequency.setValueAtTime(f0, ac.currentTime);
-  o.frequency.exponentialRampToValueAtTime(f1, ac.currentTime + dur);
-  g.gain.value = gain; o.connect(g); g.connect(ac.destination);
-  o.start(); g.gain.exponentialRampToValueAtTime(.0001, ac.currentTime + dur); o.stop(ac.currentTime + dur);
+  const ac = audio(), out = sndOut(); if(!ac || !out) return;
+  const t = ac.currentTime, o = ac.createOscillator(), g = ac.createGain();
+  o.type = type === "sine" ? "sine" : "triangle"; o.frequency.setValueAtTime(f0, t);
+  o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+  g.gain.setValueAtTime(.0001, t); g.gain.linearRampToValueAtTime(gain, t + .005);
+  o.connect(g); g.connect(out);
+  o.start(t); g.gain.exponentialRampToValueAtTime(.0001, t + dur); o.stop(t + dur);
 }
 const h2Fx = fn => { if(typeof h2Sound !== "undefined" && h2Sound){ try { fn(); } catch(e){} } };
 const kickfx    = () => h2Fx(() => { noisefx(.07, .5, 700); sweepfx(140, 60, .11, "sine", .16); });
 const netfx     = () => h2Fx(() => noisefx(.28, .3, 2600, 500));
-const groanfx   = () => h2Fx(() => { sweepfx(230, 120, .55, "sawtooth", .035); noisefx(.5, .12, 900); });
+const groanfx   = () => h2Fx(() => { sweepfx(230, 120, .55, "triangle", .035); noisefx(.5, .12, 900); });
 /* one long peep for a kick-off, two short for a foul, the three for full time */
 const whistlefx = n => h2Fx(() => {
-  const peep = (at, len) => setTimeout(() => h2Fx(() => sweepfx(2650, 2900, len, "square", .045)), at);
+  const peep = (at, len) => setTimeout(() => h2Fx(() => sweepfx(2650, 2900, len, "triangle", .045)), at);
   if(n === 1) peep(0, .5); else if(n === 2){ peep(0, .14); peep(190, .14); } else { peep(0, .22); peep(300, .22); peep(600, .6); }
 });
 function h2CrowdStart(){
@@ -15018,7 +15276,7 @@ function h2TackleJudge(won){
     h2Swing();
     h2Lost = lostAt;
     h2Showmark = null;              // the camera has swung; the mark belonged to the old view
-    flashBad();
+    fb.wrong(null);
     toast(tackle ? "TACKLED. " + nmVerb(S.players[H.who].name, "reads", "read") + " it and " + (nmMany(S.players[H.who].name) ? "take" : "takes") + " it."
                  : "TACKLED. " + nmVerb(S.players[H.who].name, "takes", "take") + " it off him.", true);
     return h2Next();
@@ -15038,7 +15296,7 @@ function h2TackleJudge(won){
        passer's boot to be kicked a second time */
     const fx = C ? C.bx : h2BX(from, true), fy = C ? C.by2 : h2BY(from, true);
     h2Fly(fx, fy, h2BX(H.at, true), h2BY(H.at, true), from, H.at, undefined, h2TierFor(from, H.at));
-    ching();
+    fb.correct(null);
     toast("Goes past him, and finds " + h2Of(H.at, H.who) + ".");
     return h2Next();
   }
@@ -15052,7 +15310,7 @@ function h2TackleJudge(won){
   /* out of the freeze: he carries on THROUGH, which is what a mistimed tackle
      is, and the man he took out goes over the top of him */
   if(C){ whistlefx(2); h2Foul = Object.assign({}, C, {stay: false}); }
-  flashBad();
+  fb.wrong(null);
 
   /* through the back of one of the front three is a penalty, and it is priced
      to go in, which is what makes a last-ditch lunge at the striker frightening */
@@ -15613,12 +15871,13 @@ function qKey(q){
 /* the classic bank for a tier, as {key, i} sorted by key, which is the same
    order on every phone whatever the build did to the array. Only the Daily's
    own thousand: the question bank's multiple choice that joined them (nd) is
-   Matchday's, so every day keeps the questions it always had */
+   Matchday's, so every day keeps the questions it always had. Each is keyed by
+   the words it was first dealt by (dk), which the bank's corrections leave be */
 const dailyBankCache = {};
 function dailyBank(tier){
   if(dailyBankCache[tier]) return dailyBankCache[tier];
   const bank = (DECKS["classic-mc"] || {})[tier] || [];
-  const rows = bank.map((q, i) => ({k: qKey(q), i: i, x: !!q.x || !!q.nd})).filter(r => !r.x);
+  const rows = bank.map((q, i) => ({k: q.dk || qKey(q), i: i, x: !!q.x || !!q.nd})).filter(r => !r.x);
   rows.sort((a, b) => a.k < b.k ? -1 : a.k > b.k ? 1 : 0);
   return (dailyBankCache[tier] = rows);
 }
@@ -16440,8 +16699,8 @@ function dsShoot(c){
   try{ kickfx(); }catch(e){}
   /* the crowd only knows when the ball does */
   const landMs = dsLandMs(how);
-  setTimeout(() => { try{ goal ? (netfx(), ching()) : groanfx(); buzz(goal ? 40 : [60, 40, 60]); }catch(e){} }, landMs);
-  if(goal) setTimeout(() => { try{ confetti(dsDecided(sh) === "won" ? 90 : 40); }catch(e){} }, landMs + 80);
+  setTimeout(() => { try{ if(goal){ netfx(); fb.correct(null); haptic("goal"); } else { groanfx(); fb.wrong(null); } }catch(e){} }, landMs);
+  if(goal) setTimeout(() => { try{ celebrate(2, {type: "goal"}); }catch(e){} }, landMs + 80);
   dsAfterMine(sh, false);
   render();
 }
@@ -16473,7 +16732,7 @@ function dsFinish(sh, r){
   try{ threeStreak(); }catch(e){}   // today's three: the scarf's row, even if the app is closed before home
   S.phase = "ds_done";
   render();
-  if(r === "won") setTimeout(() => { try{ confetti(110); whistlefx(); }catch(e){} }, 200);
+  if(r === "won") setTimeout(() => { try{ celebrate(2, {type: "dailyDone"}); whistlefx(); }catch(e){} }, 200);
 }
 /* TWO STREAKS: days played (forgiving, as before) and shootouts won. A pack
    for turning up; the man of the day for winning. */
@@ -19326,7 +19585,7 @@ function h2Settle(ok){
     if(ok){ h2Fly(h2BX(H.at, true), h2BY(H.at, true), 50, H2_MOUTH, H.at, null); return h2ToSave(); }
     H.shooting = false; H.sel = null;
     H.result = "missed";
-    flashBad();
+    fb.wrong(null);
     S.phase = "h_strike";
     render();
     clearTimeout(h2StrikeHold);
@@ -19370,7 +19629,7 @@ function h2Settle(ok){
     h2Swing();
     h2Lost = lostAt;
     h2Showmark = null;            // the camera has swung; the marks belonged to the old view
-    flashBad();
+    fb.wrong(null);
     /* THE POSSESSION IS OVER, so the marks that were never found are told
        rather than drawn: the camera has already swung and a ring on the new
        view would be pointing at the wrong shape. Saying it is also the better
@@ -19412,7 +19671,7 @@ function h2Settle(ok){
   if(run)  h2FromPush(H.at, true, h2Shape(H.who)[H.at].x, h2Shape(H.who)[H.at].y);   // goes, and stays gone
   h2Fly(fx, fy, h2BX(H.at, true), h2BY(H.at, true), from, H.at,
         run ? H2_OUT_MS : undefined, tier);
-  ching();
+  fb.correct(null);
   toast("Found " + h2Of(H.at, H.who) + ".");
   h2Next();
 }
@@ -19546,7 +19805,7 @@ function h2SaveSettle(saved){
   /* Neither outcome takes effect yet. The strike is watched first, from behind
      the striker, and the consequences land when it is over. */
   H.result = saved ? "saved" : "scored";
-  if(!saved){ h2Sfx("goal", 0.95); netfx(); } else groanfx();
+  if(!saved){ h2Sfx("goal", 0.95); netfx(); haptic("goal"); celebrate(2, {type: "goal"}); } else groanfx();
   S.phase = "h_strike";
   render();
   clearTimeout(h2StrikeHold);
@@ -25659,21 +25918,38 @@ async function fycAppeal(){
 }
 /* Terms and Privacy, as pages */
 let LEGAL_VIEW = null;
-function legalPage(which){ audio(); closeSheet(); LEGAL_VIEW = which === "privacy" ? "privacy" : "terms"; render(); try{ window.scrollTo(0, 0); }catch(e){} }
+function legalPage(which){ audio(); closeSheet(); LEGAL_VIEW = which === "privacy" || which === "support" ? which : "terms"; render(); try{ window.scrollTo(0, 0); }catch(e){} }
 function legalRender(st){
-  const terms = LEGAL_VIEW === "terms";
+  const terms = LEGAL_VIEW === "terms", support = LEGAL_VIEW === "support";
   const P = t => '<p class="lgl">' + t + '</p>', H = t => '<div class="clbsec">' + t + '</div>';
-  st.innerHTML = b4Page({ title: terms ? "Terms" : "Privacy", ctx: terms ? "The house rules" : "What we keep, and why", back: "LEGAL_VIEW=null;render()", cls: "fycpage", body: terms
+  /* the short version lives here; the full page (controller, legal basis, retention, the support address) is the HTML file, filled by _tools/fill-legal.js */
+  const page = support ? "support" : terms ? "terms" : "privacy";
+  const full = P('The full page, with the address to write to: <a href="' + page + '.html" target="_blank" rel="noopener">' + page + '.html</a>.');
+  st.innerHTML = b4Page({ title: support ? "Support" : terms ? "Terms" : "Privacy", ctx: support ? "The questions that come up most" : terms ? "The house rules" : "What we keep, and why", back: "LEGAL_VIEW=null;render()", cls: "fycpage", body: (support
+    ? H("How do I install BALL as an app?") + P("Android: the browser menu, then Install app or Add to home screen. iPhone: Safari's Share button, then Add to Home Screen. Nothing to download from a store.") +
+      H("I lost my progress, or I have a new phone") + P("A guest's games live on the phone only. Found your club and your career is saved on the server; sign in on the new phone and it comes back.") +
+      H("A question is wrong") + P("Tap “Something wrong with this question?” under the answer, pick the reason, add a note. We read the reports every week and fix the bank.") +
+      H("How do leagues and codes work?") + P("Make a league and you get a six-character code; friends type it in and they're in. Up to 30 in a league. Every week closes on Sunday night. You need a username and to be 16 or older.") +
+      H("When does Call It lock?") + P("Each match locks at its own kick-off, on the server. Your calls stay hidden from your league until then. In cups the score after 90 minutes counts.") +
+      H("I'm under 16") + P("Every game, your club, XP, trophies and streaks are yours. Friends, leagues and a public username wait until you're 16; others see you as “Player NNNN”.") +
+      H("Delete my account") + P("Settings → Delete my account removes your profile, club, matches, leagues, calls and reports from the server. What's on this phone stays until you clear it.") +
+      H("Export my data") + P("Settings → Export my data downloads one file with everything, from this phone and from the server.") +
+      H("Reminders") + P("Off unless you turn them on in Settings: one a day at most, your streak at risk or your Call It card about to lock. Switch them off in Settings or in your browser.") +
+      H("Is BALL official?") + P("No. BALL is a football quiz made by one fan and is not affiliated with any club, league, UEFA or FIFA. The crests and badges are our own.")
+    : terms
     ? H("Your own club, not a real one") + P("Found a club of your own. Don't copy real clubs, players or people: their names, crests or kits. Support whoever you like; just don't pretend to be them.") +
       H("Names you'd shout in a stadium") + P("Nothing offensive, hateful or rude, in your club name, your username or the name on your shirt. If enough players report a name we hide it until we've had a look, and we may rename your club. You can always ask for a second look.") +
       H("Play it straight") + P("No looking answers up during league or online matches. Your friends are trusting you. We may remove results that clearly weren't played straight.") +
-      H("The small print") + P("BALL is a free football quiz made by one fan. It is not affiliated with any club, league, UEFA or FIFA. Club and player names in questions are used to describe facts. We may change these terms; if we do, we'll say so in the app.")
+      H("Played for glory") + P("There are no prizes and no money anywhere in BALL or Call It: nothing to pay in, nothing to be won but a place in the table.") +
+      H("The small print") + P("BALL is a free football quiz made by one fan. It is not affiliated with any club, league, UEFA or FIFA. Club and player names in questions are used to describe facts. Dutch law applies. We may change these terms; if we do, we'll say so in the app.")
     : H("What we keep") + P("Your email address (for signing in only; nobody else sees it), your username, your club's design, the club and national team you support and the country you live in (if you picked them), your game stats (matches, rating, XP, titles, leagues, answers to questions), and the reports you sent.") +
       H("Why") + P("To keep your club and your progress across phones, to run leagues with your friends, to rate how hard each question is, and to keep names in leagues clean.") +
       H("Who sees what") + P("League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as “Player NNNN” and your club stays private. Reports are anonymous.") +
       H("Emails") + P("Only the sign-in link, unless you ticked “Tell me about new modes”. You can switch that off any time in Settings.") +
       H("Your data, your call") + P("Export everything from Settings → Export my data. Delete your account in Settings: that removes your profile, club, matches, leagues and reports from the server.") +
-      H("Where") + P("Stored with Supabase, our database provider. Guests' games stay on their own phone and are never sent.") });
+      H("Crash reports and usage events") + P("If the app breaks it sends us the error, the build and a coarse browser label; a few events are counted (first open, a match done). Each carries a random id for this install, never your account, and is deleted after 180 days.") +
+      H("Reminders") + P("Only if you turn them on: your browser's push address stays with us until you switch them off, in Settings or in your browser.") +
+      H("Where") + P("Stored with Supabase, our database provider, in Ireland (EU). Guests' games stay on their own phone and are never sent.")) + full });
 }
 /* ---------- PLAYER 2 ON THIS PHONE (Martijn, 21 Oct 2026) ----------
    Before a "vs a friend" Matchday, the friend can sign in on this phone. Their
@@ -25983,6 +26259,7 @@ function progDaily(o){
     if([7, 30, 100, 365].includes(o.streak || 0)) progTrophy("streak", String(o.streak), o.streak + "-day streak", o.streak >= 100 ? "gold" : o.streak >= 30 ? "silver" : "bronze");
     if(o.day) outboxPush("daily", { id: "d_" + o.day, day: dayIso(o.day), goals: o.goals | 0, won: !!o.won, streak: o.streak | 0 }, "d_" + o.day);
     tlmEvent("daily_done", { won: o.won ? 1 : 0, goals: o.goals | 0, streak: o.streak | 0 });
+    pushHook("daily");
     return x;
   }catch(e){ return 0; }
 }
@@ -26087,7 +26364,7 @@ function progMoment(){
       '<button class="b6dark" onclick="progMomentNext(this)">Not now</button></div>';
   }
   document.body.appendChild(o);
-  if(!rm){ try{ confetti(70); }catch(e){} }
+  try{ celebrate(3, {type: "levelUp", n: 80}); }catch(e){}
   requestAnimationFrame(() => o.classList.add("on"));
 }
 function progMomentNext(btn){
@@ -26099,7 +26376,7 @@ function progMomentNext(btn){
 function progContinue(){ audio(); if(isGuest()){ progKeep = true; progShowReport = true; progMoment(); render(); return; } progShowReport = false; progMoment(); }
 function progSetTitle(key){ const p = progLoad(); p.title = key; progSave(p); if(ME_VIEW) render(); }
 /* ---------- Me ---------- */
-function openMe(){ audio(); ME_VIEW = "me"; ALBUM_VIEW = null; CUP_VIEW = null; LEAGUE_VIEW = null; LOCKER_VIEW = null; b4Step = null; render(); try{ window.scrollTo(0, 0); }catch(e){} }
+function openMe(){ audio(); ME_VIEW = "me"; ALBUM_VIEW = null; CUP_VIEW = null; LEAGUE_VIEW = null; LOCKER_VIEW = null; b4Step = null; render(); feelScrollBack("me:me"); }
 function openTitles(){ audio(); ME_VIEW = "titles"; render(); try{ window.scrollTo(0, 0); }catch(e){} }
 function closeMe(){ audio(); ME_VIEW = (ME_VIEW === "titles" || ME_VIEW === "settings") ? "me" : null; render(); }
 function progSpark(hist){
@@ -26118,6 +26395,7 @@ function renderMe(st){
   b6Paper(true);
   if(ME_VIEW === "titles") return renderTitles(st);
   if(ME_VIEW === "settings") return renderSettings(st);
+  if(ME_VIEW === "supporter") return typeof supRender === "function" ? supRender(st) : (st.innerHTML = b4Page({ title: "BALL Supporter", ctx: "One moment", back: "openSettings()", cls: "suppage" }));
   /* THE ME PAGE, built to the canvas board "Me" (_plans/polish-pass.md step 3):
      your pennant big on the grass with who you are beside it, the XP card, the
      rating card, two small cards (streak, league), your scarves, your record
@@ -26460,6 +26738,7 @@ async function acctBoot(){
   /* Call It's fast lane: a guest who came by an invite link has no account yet (the trial makes none), so the
      invite waits on the League tab, where one tap starts a guest account and opens the league */
   else if(PL_ON && acctLocal().join && !acctLocal().signedOut && fycTrial() && !LEAGUE_VIEW && (!S || S.phase === "setup")){ try{ openLeague(); }catch(e){} }
+  try{ supBoot(); }catch(e){}
   try{ p2Boot(); }catch(e){}
   if(ME_VIEW || LEAGUE_VIEW || LOCKER_VIEW) try{ render(); }catch(e){}
 }
@@ -26505,14 +26784,15 @@ function acctAfterLink(){
      errors   window.onerror / unhandledrejection, deduplicated, 15 a session
      events   a handful of named moments (TLM_EVENTS), never what was answered
      reports  "Something wrong with this question?", sent by the player
-   Errors and events only when TLM_ON: off until privacy.html says so and 008
-   has run (?tlm=1 turns it on for one phone, ?tlm=0 off). A report is the
+   Errors and events only when TLM_ON: on since the go-to-market build (2 Nov
+   2026), now that privacy.html lists them and 008 has run (?tlm=0 turns it
+   off for one phone, ?tlm=1 on). A report is the
    player's own act, so it is always kept and sent when the server can take it.
 
    All three carry the install id (tlmTid): random, made on this phone, never
    the account. Each has its own queue in localStorage so nothing is lost
    offline and nothing waits on the outbox, which skips guests by design. */
-const TLM_DEFAULT = false;
+const TLM_DEFAULT = true;   // privacy.html lists crash reports and usage events (go-to-market build, 2 Nov 2026)
 let TLM_ON = (() => { try{
   const q = (typeof location !== "undefined" && location.search) || "";
   if(/[?&]tlm=1\b/.test(q)) localStorage.setItem("ball4-tlm-on", "1");
@@ -26534,6 +26814,9 @@ const TLM_EVENTS = {
   share: "a result shared (what)",
   found_club: "a guest founded a club",
   report_sent: "a question reported",
+  push_ask: "the one-time reminders ask shown (why: daily, lockin)",
+  push_on: "reminders turned on (why: ask, settings)",
+  push_off: "reminders turned off",
 };
 function tlmTid(){
   try{
@@ -26963,6 +27246,9 @@ function renderSettings(st){
     '<div class="acsync">' + (a.server ? (q ? q + " thing" + (q === 1 ? "" : "s") + " waiting to sync" : (p.synced ? "✓ Synced" : "Connected")) : "Offline: everything is kept on this phone") + '</div>' +
     (fycClubOn() ? '<div class="b6hdr">Your club</div><button class="b6dark pgsmall" onclick="settingsRename()">Rename your club</button>' +
       '<label class="fyccheck acnews"><input type="checkbox"' + (acctLocal().marketing ? " checked" : "") + ' onchange="fycMarketing(this.checked)"><span><b>Tell me about new modes</b><small>An email now and then. Off unless you tick it.</small></span></label>' : "") +
+    pushSettingsRow() +
+    feelSettingsHTML() +
+    (SUP_SHOW ? '<div class="b6hdr">BALL Supporter</div><button class="b6dark pgsmall" onclick="openSupporter()">' + (isSupporter() ? "You're a Supporter · manage" : "Become a Supporter") + '</button>' : "") +
     '<div class="b6hdr">Your data</div>' +
     '<button class="b6dark pgsmall" onclick="acctExport()">Export my data</button>' +
     (a.signedIn && ACCT.server
@@ -26973,9 +27259,10 @@ function renderSettings(st){
       : "") +
     '<details class="acinfo"><summary>Privacy</summary><p>BALL stores a user id, your username, your email address (kept by our sign-in provider, Supabase Auth), your pennant design and your game stats: matches, rating, XP, titles, leagues and answers to questions. No real name, no birth date, no location, no contacts and no photos.</p>' +
       '<p>We use it to keep your career across phones, to run leagues with your friends and to rate how hard each question is. Only league mates see your username, pennant, level, rating and title.</p>' +
+      '<p>If the app breaks it sends us a crash report (the error, the build, a coarse browser label like "Chrome 141 · Android") and a few anonymous usage counts, under a random id for this install that is never linked to your account; they are deleted after 180 days. Reminders, if you turn them on, keep your browser\'s push address with us until you switch them off.</p>' +
       '<p>Export it any time from this page, or delete your account here: that removes everything on the server.</p></details>' +
     '<details class="acinfo"><summary>About</summary><p>BALL is a football quiz made by one fan. BALL is not affiliated with UEFA, FIFA or any league or club. Player and club facts come in part from <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a> (CC0).</p>' +
-      (FYC_ON ? '<p><button class="fyclink" onclick="legalPage(\'terms\')">Terms</button> · <button class="fyclink" onclick="legalPage(\'privacy\')">Privacy</button></p>' : "") +
+      (FYC_ON ? '<p><button class="fyclink" onclick="legalPage(\'terms\')">Terms</button> · <button class="fyclink" onclick="legalPage(\'privacy\')">Privacy</button> · <button class="fyclink" onclick="legalPage(\'support\')">Support</button></p>' : "") +
       '<p class="acbuild" onclick="freshen()" title="Tap to fetch the newest one">' + esc(BUILD) + '</p></details>' +
   '</div></div>';
 }
@@ -27068,6 +27355,42 @@ function leagueWeek(now){
    with ?pl=0 (remembered; ?pl=1 undoes it), and is then exactly the quiz
    league it was. The test harness has no location and keeps it off unless a
    test switches it on itself, like FYC_ON. */
+/* PUSH REMINDERS (_plans/go-to-market.md, the push stream): assets/push/push.js comes the first time it is wanted
+   (the one-time ask after the first Daily or lock-in, Settings, a day knitted, an app with reminders on), never at
+   start on a new phone. PUSH_DEFAULT on; ?push=0 / ?push=1 switch the whole feature for one phone. */
+const PUSH_DEFAULT = true;
+let PUSH_ON = (() => { try{
+  const q = (typeof location !== "undefined" && location.search) || "";
+  if(/[?&]push=1\b/.test(q)) localStorage.setItem("ball4-push-on", "1");
+  if(/[?&]push=0\b/.test(q)) localStorage.setItem("ball4-push-on", "0");
+  const v = localStorage.getItem("ball4-push-on");
+  return v === "1" ? true : v === "0" ? false : PUSH_DEFAULT;
+}catch(e){ return false; } })();
+let PUSH_LOAD = 0, PUSH_WAIT = [];      // 0 not asked, 1 on its way, 2 here, -1 failed
+function pushNeed(then){
+  if(!PUSH_ON) return false;
+  if(PUSH_LOAD === 2 || typeof pushState === "function"){ PUSH_LOAD = 2; if(then) then(); return true; }
+  if(then) PUSH_WAIT.push(then);
+  if(PUSH_LOAD === 1) return false;
+  PUSH_LOAD = 1;
+  const done = ok => { PUSH_LOAD = ok ? 2 : -1; const w = PUSH_WAIT; PUSH_WAIT = []; if(ok) w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/push/push.css"; document.head.appendChild(css);
+    const s = document.createElement("script"); s.src = "assets/push/push.js"; s.onload = () => done(typeof pushState === "function"); s.onerror = () => done(false); document.head.appendChild(s);
+  }catch(e){ done(false); }
+  return false;
+}
+/* the call sites: "daily" (Daily Ball finished), "lockin" (a Call It card locked in, from pl.js), "three" (today's
+   three knitted, arg = the day), "boot" (an app with reminders on) */
+function pushHook(kind, arg){ if(PUSH_ON) pushNeed(() => { try{ pushEvent(kind, arg); }catch(e){} }); }
+/* Settings: the Reminders block, once the file is here (Settings draws again when it lands) */
+function pushSettingsRow(){
+  if(!PUSH_ON) return "";
+  if(PUSH_LOAD === 2 || typeof pushState === "function") return pushSettingsHTML();
+  pushNeed(() => { if(ME_VIEW === "settings") render(); });
+  return "";
+}
+try{ if(PUSH_ON && /"on":true/.test(localStorage.getItem("ball4-push") || "")) setTimeout(() => pushHook("boot"), 4000); }catch(e){}
 const PL_DEFAULT = true;
 let PL_ON = (() => { try{
   const q = (typeof location !== "undefined" && location.search) || "";
@@ -27104,6 +27427,81 @@ function lgSeg(s){
   render();
   if(s === "quiz") leagueLoad();
 }
+
+/* ---------- BALL SUPPORTER: the door ----------
+   _plans/supporter.md. The paid tier (cosmetics, the archive, party mode to
+   twelve, the Call It organiser's league of 200) is a scaffold behind SUP_ON
+   until Martijn has a Stripe account. Its screens are assets/sup/sup.js +
+   sup.css, loaded on first need. ?sup=1 shows them on one phone for testing
+   (remembered; ?sup=0 undoes it). isSupporter() reads the flag the SERVER set
+   (my_supporter, 016_supporter.sql), cached on this phone and refreshed on
+   boot when signed in; the app never writes it. A flag that is set is
+   honoured whatever the switch says; the gates fire only when the tier shows. */
+const SUP_ON = false;
+let SUP_SHOW = (() => { try{
+  const q = (typeof location !== "undefined" && location.search) || "";
+  if(/[?&]sup=1\b/.test(q)) localStorage.setItem("ball4-sup-on", "1");
+  if(/[?&]sup=0\b/.test(q)) localStorage.setItem("ball4-sup-on", "0");
+  const v = localStorage.getItem("ball4-sup-on");
+  if(v === "1") return true;
+  if(v === "0") return false;
+  return SUP_ON && typeof location !== "undefined" && /^https?:$/.test(location.protocol || "");
+}catch(e){ return false; } })();
+const SUP_KEY = "ball4-sup";
+function supState(){ try{ return JSON.parse(localStorage.getItem(SUP_KEY)) || {}; }catch(e){ return {}; } }
+function isSupporter(){ const s = supState(); return !!(s.until && Date.parse(s.until) > Date.now()); }
+/* true when a free player is about to meet a Supporter-only thing: the gate then shows */
+const supGated = () => SUP_SHOW && !isSupporter();
+let SUP_LOAD = 0, SUP_WAIT = [];
+function supNeed(then){
+  if(SUP_LOAD === 2 || typeof supRender === "function"){ SUP_LOAD = 2; if(then) then(); return true; }
+  if(then) SUP_WAIT.push(then);
+  if(SUP_LOAD === 1) return false;
+  SUP_LOAD = 1;
+  const done = ok => { SUP_LOAD = ok ? 2 : -1; const w = SUP_WAIT; SUP_WAIT = []; if(ok) w.forEach(f => { try{ f(); }catch(e){} }); else toast("Couldn't open that right now.", true); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/sup/sup.css"; document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/sup/sup.js"; sc.onload = () => done(typeof supRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+/* the small sheet when a free player hits a cap: "archive" | "party" | "league" | "card". False when there is
+   nothing to show (the tier is off, or they are a Supporter), so the caller can fall back to its own words. */
+function supGate(feature){
+  if(!supGated()) return false;
+  audio();
+  supNeed(() => supGateSheet(feature));
+  return true;
+}
+function openSupporter(){ audio(); closeSheet(); ME_VIEW = "supporter"; LEAGUE_VIEW = null; LOCKER_VIEW = null; render(); supNeed(() => { if(ME_VIEW === "supporter") render(); }); try{ window.scrollTo(0, 0); }catch(e){} }
+/* on boot, once signed in: the flag from the server, and the way back from Stripe (?sup=ok | ?sup=no) */
+function supBoot(){
+  const q = (typeof location !== "undefined" && location.search) || "";
+  if(/[?&]sup=(ok|no)\b/.test(q)) supNeed(() => supReturn(/[?&]sup=ok\b/.test(q)));
+  if(SUP_SHOW || isSupporter()) supRefreshFlag();
+}
+async function supRefreshFlag(){
+  if(!ACCT.server || !acct().linked) return false;
+  try{
+    const r = await sbClient().rpc("my_supporter");
+    if(r.data && r.data.ok){
+      const was = isSupporter();
+      try{ localStorage.setItem(SUP_KEY, JSON.stringify({ until: r.data.until || null, source: r.data.source || null, at: Date.now() })); }catch(e){}
+      if(was !== isSupporter() && (ME_VIEW || LOCKER_VIEW || LEAGUE_VIEW)) render();
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+/* the Locker's shelf card and the mark after a Supporter's name (the table) */
+function supShelfHTML(){
+  if(!SUP_SHOW) return "";
+  const on = isSupporter();
+  return '<div class="lkhdr">Supporter</div>' + b4Row({ left: '<span class="supico">' + ico("star") + '</span>', onclick: "openSupporter()",
+    title: on ? "You're a BALL Supporter" : "BALL Supporter",
+    sub: on ? "Thank you. Your mark, your archive, your twelve." : "Keeps BALL free for everyone. A few things back, never an edge." });
+}
+const supMark = () => '<span class="supmark" title="BALL Supporter" aria-label="BALL Supporter">S</span>';
 /* the Predictions segment: the screens once they are here, the League's top and a skeleton until then */
 function plRender(st){
   if(plNeed() && typeof clRender === "function") return clRender(st);
@@ -27121,7 +27519,7 @@ function plJoinPending(code){
 let LEAGUE_VIEW = null;      // null | {tab: "week"|"alltime"|"h2h", sub: null|"friends", seg: "pl"|"quiz", cl: Call It's own screen}
 let LG = { list: null, cur: null, data: {}, err: null, loading: false, news: {} };
 const lgSegNow = () => { if(!PL_ON) return "quiz"; try{ return localStorage.getItem("ball4-lg-seg") === "quiz" ? "quiz" : "pl"; }catch(e){ return "pl"; } };
-function openLeague(){ audio(); if(PL_LOAD === -1) PL_LOAD = 0; LEAGUE_VIEW = { tab: "week", sub: null, seg: lgSegNow(), cl: null }; ME_VIEW = null; LOCKER_VIEW = null; ALBUM_VIEW = null; CUP_VIEW = null; b4Step = null; render(); if(LEAGUE_VIEW.seg === "quiz") leagueLoad(); try{ window.scrollTo(0, 0); }catch(e){} }
+function openLeague(){ audio(); if(PL_LOAD === -1) PL_LOAD = 0; LEAGUE_VIEW = { tab: "week", sub: null, seg: lgSegNow(), cl: null }; ME_VIEW = null; LOCKER_VIEW = null; ALBUM_VIEW = null; CUP_VIEW = null; b4Step = null; render(); if(LEAGUE_VIEW.seg === "quiz") leagueLoad(); feelScrollBack("league"); }
 /* why the League can't be shown right now, or "" when it can */
 function leagueBlocked(){
   const a = acct();
@@ -27749,7 +28147,7 @@ function progTrophy(kind, ref, name, metal){
 }
 /* ---------- the Locker tab ---------- */
 let LOCKER_VIEW = null;      // null | "locker" | "pennant" | {scarf: team}
-function openLocker(){ audio(); LOCKER_VIEW = "locker"; ME_VIEW = null; LEAGUE_VIEW = null; ALBUM_VIEW = null; CUP_VIEW = null; b4Step = null; render(); lockerLoad(); try{ window.scrollTo(0, 0); }catch(e){} }
+function openLocker(){ audio(); LOCKER_VIEW = "locker"; ME_VIEW = null; LEAGUE_VIEW = null; ALBUM_VIEW = null; CUP_VIEW = null; b4Step = null; render(); lockerLoad(); feelScrollBack("locker:locker"); }
 async function lockerLoad(){
   if(!ACCT.server) return;
   try{
@@ -27795,7 +28193,7 @@ function renderLocker(st){
       (tr.length ? tr.map(t => '<div class="lktro">' + trophySVG(t.shape, t.metal, 50) + '<b>' + esc(t.name) + '</b><span>' + esc(String(t.metal).toUpperCase()) + (t.count > 1 ? ' ×' + t.count : "") + '</span></div>').join("")
         : ["star", "shield", "plate"].map(s => '<div class="lktro ghost">' + trophySVG(s, "rgba(248,241,221,.14)", 50) + '</div>').join("") +
           '<p class="lkwait dark">Win The Cup, a league week or keep a streak going.</p>') + '<i class="lkplank"></i></div>' +
-    themeShelfHTML() + celeShelfHTML() +
+    themeShelfHTML() + celeShelfHTML() + supShelfHTML() +
     '</div></div>';
 }
 function lockerScarf(team){
@@ -28571,10 +28969,52 @@ function b6UpdateBar(){
     el.hidden = false;
   }catch(e){}
 }
+/* THE SCREEN CHANGE (house style v2, phase 3, §5.5). A render that opens another screen (a tab, a game, the home)
+   goes through document.startViewTransition where there is one: the old screen is kept as a picture, the new one is
+   drawn when the browser is ready for it, and the two cross in --dur-screen (the tab bar, a sheet and a toast stand
+   still: they have their own names in the stylesheet). Without it, or on a low-end phone, the swap is plain and at
+   once. The draw inside a transition comes a moment after this call, so a scrollTo asked in between (the openers
+   do, to the top or back to where that tab was) is kept and done after the draw. A render inside the same screen
+   is always at once, as before: the games draw constantly and read what they drew. One moment of tier 2 or more
+   per screen and phase: the ladder starts again when either changes (celebrate). */
+let FEEL_SCREEN = null, FEEL_MOMENT = null, FEEL_VT = null, FEEL_SCROLL = {}, FEEL_SCROLL_TO = null, FEEL_REAL_SCROLL = null;
+function feelScreenKey(){
+  try{
+    if(LEGAL_VIEW) return "legal"; if(FYC_RENAME || FYC_VIEW) return "fyc"; if(CLUB_VIEW && !CLUB_VIEW.quiet) return "club";
+    const setup = !S || S.phase === "setup";
+    if(ME_VIEW && setup) return "me:" + ME_VIEW; if(LEAGUE_VIEW && setup) return "league"; if(LOCKER_VIEW && setup) return "locker:" + LOCKER_VIEW;
+    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
+    if(YR_VIEW) return "yr"; if(GTP_VIEW) return "gtp"; if(LISTS_VIEW) return "lists"; if(DREAM_VIEW) return "dream";
+    if(setup) return showBoard ? "board" : b4Step ? "step:" + b4Step : "home";
+    return "game:" + S.play + ":" + S.mode + (S.phase === "results" ? ":results" : "");
+  }catch(e){ return "?"; }
+}
+/* finer than the screen: a phase of a match or of one of the newer games, so a goal and the full time are two moments */
+function feelMomentKey(key){
+  try{ return key + ":" + (S ? S.phase : "") + ":" + [typeof GW !== "undefined" && GW, typeof DD !== "undefined" && DD, typeof LB !== "undefined" && LB, typeof YR !== "undefined" && YR].map(g => g && g.phase || "").join("."); }catch(e){ return key; }
+}
+const feelVT = () => VIEW_TRANSITIONS && typeof document !== "undefined" && typeof document.startViewTransition === "function" && !FEEL_VT && !lowEnd() && !document.hidden;
 function render(){
   themeSync();
-  try{ renderMain(); }finally{ themeArt(); b4HistSync(); qrepAttach(); b6UpdateBar(); }
+  const key = feelScreenKey(), moved = key !== FEEL_SCREEN, mkey = feelMomentKey(key);
+  if(moved){ try{ if(FEEL_SCREEN) FEEL_SCROLL[FEEL_SCREEN] = window.scrollY || 0; }catch(e){} FEEL_SCREEN = key; }
+  if(mkey !== FEEL_MOMENT){ FEEL_MOMENT = mkey; CELEB.used = false; }
+  const draw = () => { try{ renderMain(); }finally{ themeArt(); b4HistSync(); qrepAttach(); b6UpdateBar(); fbFlush(); try{ sndAskMaybe(); }catch(e){} } };
+  if(moved && feelVT()){
+    try{
+      if(!FEEL_REAL_SCROLL) FEEL_REAL_SCROLL = window.scrollTo.bind(window);
+      FEEL_SCROLL_TO = null; window.scrollTo = (...a) => { FEEL_SCROLL_TO = a; };
+      const vt = FEEL_VT = document.startViewTransition(() => { window.scrollTo = FEEL_REAL_SCROLL; draw(); if(FEEL_SCROLL_TO){ const a = FEEL_SCROLL_TO; FEEL_SCROLL_TO = null; FEEL_REAL_SCROLL(...a); } });
+      vt.updateCallbackDone.catch(e => { try{ console.error(e); }catch(_){} });
+      vt.ready.catch(() => {});   /* a slow draw times the transition out (4 s); the screen is drawn all the same, so nothing to report */
+      vt.finished.catch(() => {}).then(() => { if(FEEL_VT === vt) FEEL_VT = null; });
+      return;
+    }catch(e){ if(FEEL_REAL_SCROLL) window.scrollTo = FEEL_REAL_SCROLL; FEEL_VT = null; }
+  }
+  draw();
 }
+/* a tab opener: back to where that tab was, else the top */
+function feelScrollBack(key){ const y = FEEL_SCROLL[key] || 0; try{ window.scrollTo(0, y); }catch(e){} }
 function renderMain(){
   firstMatchOver();
   if(!S || !/^h_/.test(S.phase || "")) b4Skin(false);
@@ -29663,7 +30103,7 @@ function setPlay(v){
   render();
 }
 function setMc(v){ snapshotNames(); setupMc=v; render(); }
-function goHome(){ snapshotNames(); FYC_VIEW=false; CLUB_VIEW=null; LEGAL_VIEW=null; if(TT_VIEW) stopTimer(); TT_VIEW=null; GTP_VIEW=false; if(LISTS_VIEW){ try{ if(LISTS_TIMER){ clearInterval(LISTS_TIMER); LISTS_TIMER=null; } listsKeep(); }catch(e){} LSG=null; } LISTS_VIEW=null; b4Step=null; b4Open=null; ME_VIEW=null; LEAGUE_VIEW=null; LOCKER_VIEW=null; setupMode=null; modesOpen=false; extraOpen=false; render(); window.scrollTo({top:0});  if(FYC_ON) setTimeout(fycMaybeAsk, 350); }
+function goHome(){ snapshotNames(); FYC_VIEW=false; CLUB_VIEW=null; LEGAL_VIEW=null; if(TT_VIEW) stopTimer(); TT_VIEW=null; GTP_VIEW=false; if(LISTS_VIEW){ try{ if(LISTS_TIMER){ clearInterval(LISTS_TIMER); LISTS_TIMER=null; } listsKeep(); }catch(e){} LSG=null; } LISTS_VIEW=null; b4Step=null; b4Open=null; ME_VIEW=null; LEAGUE_VIEW=null; LOCKER_VIEW=null; setupMode=null; modesOpen=false; extraOpen=false; render(); feelScrollBack("home");  if(FYC_ON) setTimeout(fycMaybeAsk, 350); }
 function toggleModes(){
   snapshotNames();
   modesOpen=!modesOpen;
@@ -32259,11 +32699,11 @@ function ttPick(id){
     return;
   }
   const res = ttClaim(cell, id);
-  if(res.ok){ (res.locked ? ching : popfx)(); if(res.goal) ttGoalFx(); }
-  else if(res.why === "wrong"){ buzzer(); toast(ttName(id) + " doesn't fit. Turn over.", true); }
+  if(res.ok){ fb.correct(null); if(res.goal) ttGoalFx(); }
+  else if(res.why === "wrong"){ fb.wrong(null); toast(fb.word() + " " + ttName(id) + " doesn't fit. Turn over.", true); }
   render();
 }
-function ttGoalFx(){ try{ slamfx(); confetti(60); }catch(e){} }
+function ttGoalFx(){ try{ slamfx(); celebrate(2, {type: "goal"}); }catch(e){} }
 function ttTackleSheet(k){
   const t = TT, a = t.players[k.fromWho].name, b = t.players[k.who].name;
   const p = (name, pct, who, cls) => '<div class="ttvp ' + cls + '"><span class="pc">' + pct + '</span><b>' + esc(name) + '</b><small>' + esc(who) + '</small></div>';
@@ -32582,9 +33022,8 @@ function gtpSubmit(){
   GTP_PICK = null;
   if(!r.ok){ GTP_MSG = r.why === "again" ? "You've had him already." : ""; return render(); }
   GTP_MSG = "";
-  if(r.won){ try{ ching(); confetti(60); }catch(e){} }
-  else if(r.done){ try{ slamfx(); }catch(e){} }
-  else { try{ popfx(); }catch(e){} }
+  if(r.won){ try{ fb.correct(null); celebrate(2, {type: "dailyDone"}); }catch(e){} }
+  else { try{ fb.wrong(null); }catch(e){} }
   render();
   try{ window.scrollTo({ top: 0 }); }catch(e){}
 }
@@ -32956,6 +33395,9 @@ function listsShelfScreen(st){
 }
 /* the last ten days, newest first: each day's Top 10 and Name them all, with your medal */
 const LISTS_BACK = 10;
+/* a Supporter's archive (_plans/supporter.md): any day since the lists began; the day switch shows the gate on day 11 */
+const LISTS_ARCHIVE = 365;
+const listsBackMax = () => isSupporter() ? LISTS_ARCHIVE : LISTS_BACK;
 /* GOING BACK (Martijn, 21 Oct 2026): no list of past titles to pick from;
    you play yesterday's and step back from inside the game, ten days at most,
    so eleven lists of each kind. A past day counts for your bests and medals,
@@ -32970,7 +33412,7 @@ function listsDayLabel(back){
 }
 function listsOpenDay(kind, back){
   audio();
-  back = Math.max(0, Math.min(LISTS_BACK, back | 0));
+  back = Math.max(0, Math.min(listsBackMax(), back | 0));
   const id = listsDaily(listsDayKey(back))[kind];
   if(!id) return toast("No list that day.", true);
   LISTS_NAV = { kind, back };
@@ -32979,7 +33421,8 @@ function listsOpenDay(kind, back){
 }
 /* the day switch, in the intro and at full time */
 function listsDayNav(kind, back){
-  return '<div class="lsdaynav">' + (back < LISTS_BACK ? '<button onclick="listsOpenDay(\'' + kind + '\', ' + (back + 1) + ')">‹ Day before</button>' : '<span></span>') +
+  return '<div class="lsdaynav">' + (back < listsBackMax() ? '<button onclick="listsOpenDay(\'' + kind + '\', ' + (back + 1) + ')">‹ Day before</button>'
+      : supGated() ? '<button onclick="supGate(\'archive\')">‹ Day before</button>' : '<span></span>') +
     '<b>' + esc(listsDayLabel(back)) + '</b>' + (back > 0 ? '<button onclick="listsOpenDay(\'' + kind + '\', ' + (back - 1) + ')">Day after ›</button>' : '<span></span>') + '</div>';
 }
 function listsPast(){
@@ -33077,15 +33520,15 @@ function listsSubmit(){
   if(!listsNorm(v)){ return; }
   const r = listsTry(v, true);
   if(r.kind === "hit") return listsAfterHit();
-  if(r.kind === "deep"){ try{ ching(); }catch(e){} }
-  else if(r.kind === "ball" || r.kind === "miss"){ try{ buzzer(); }catch(e){} }
+  if(r.kind === "deep"){ try{ fb.correct(null); }catch(e){} }
+  else if(r.kind === "ball" || r.kind === "miss"){ try{ fb.wrong("#lq"); }catch(e){} }
   if(LSG.done){ LISTS_VIEW = { screen: "full" }; render(); return; }
   render();
   setTimeout(() => { const q = document.getElementById("lq"); if(q){ q.value = r.kind === "dup" ? "" : ""; q.focus(); if(r.kind === "miss" || r.kind === "ball") { q.classList.add("shake"); } } }, 30);
 }
 function listsAfterHit(){
-  try{ popfx(); }catch(e){}
-  if(LSG.done){ try{ confetti(70); ching(); }catch(e){} LISTS_VIEW = { screen: "full" }; render(); return; }
+  try{ fb.correct(null); }catch(e){}
+  if(LSG.done){ try{ celebrate(2, {type: "dailyDone"}); }catch(e){} LISTS_VIEW = { screen: "full" }; render(); return; }
   render();
   setTimeout(() => { const q = document.getElementById("lq"); if(q){ q.value = ""; q.focus(); } }, 20);
 }
@@ -33260,11 +33703,13 @@ function setAnswerPref(v){ try{ localStorage.setItem(ANSWER_KEY, v === "say" ? "
    it was right. Two to four names, kept on this phone. Matchday and The Cup
    play it as one side against the computer with a tally of who knew most;
    Career Path is everyone for themselves. Never rated: the computer can't
-   hear who was right. */
-const PARTY_KEY = "ball4-party";
+   hear who was right. Two to six names (it was four), twelve for a BALL
+   Supporter (_plans/supporter.md): the 7+ button is the gate. */
+const PARTY_KEY = "ball4-party", PARTY_FREE = 6, PARTY_MAX = 12;
+const partyMax = () => isSupporter() ? PARTY_MAX : PARTY_FREE;
 function partyRaw(){ let p = null; try{ p = JSON.parse(localStorage.getItem(PARTY_KEY) || "null"); }catch(e){} return p && typeof p === "object" ? p : {}; }
 function partyNames(){
-  const p = partyRaw(), n = p.n >= 2 && p.n <= 4 ? p.n : 2, names = Array.isArray(p.names) ? p.names : [];
+  const p = partyRaw(), n = p.n >= 2 ? Math.min(p.n | 0, partyMax()) : 2, names = Array.isArray(p.names) ? p.names : [];
   return Array.from({ length: n }, (_, i) => String(names[i] || "").trim().slice(0, 16) || "Player " + (i + 1));
 }
 function partySave(p){ try{ localStorage.setItem(PARTY_KEY, JSON.stringify(p)); }catch(e){} }
@@ -33273,11 +33718,18 @@ function setPartyCount(n){
   const box = typeof document !== "undefined" && document.querySelector && document.querySelector(".partysheet");
   if(box) box.innerHTML = partyHTML(); else render();
 }
+/* the seventh player and up: a Supporter's; the gate for everyone else */
+function partyMore(){
+  if(partyMax() <= PARTY_FREE){ if(!supGate("party")) toast("Up to six of you round one phone."); return; }
+  const n = partyNames().length;
+  setPartyCount(n < PARTY_FREE + 1 || n >= PARTY_MAX ? PARTY_FREE + 1 : n + 1);
+}
 function setPartyName(i, v){ const p = partyRaw(); p.names = Array.isArray(p.names) ? p.names : []; p.names[i] = String(v || "").trim().slice(0, 16); partySave(p); }
 const partyHTML = () => {
   const names = partyNames(), raw = partyRaw().names || [];
   return '<div class="b6hdr">Who\'s playing</div><div class="b6seg b6ans" role="group" aria-label="How many players">' +
-    [2, 3, 4].map(n => '<button aria-pressed="' + (names.length === n) + '" onclick="setPartyCount(' + n + ')">' + n + ' players</button>').join("") + '</div>' +
+    [2, 3, 4, 5, 6].map(n => '<button aria-pressed="' + (names.length === n) + '" onclick="setPartyCount(' + n + ')">' + n + '</button>').join("") +
+    (SUP_SHOW ? '<button aria-pressed="' + (names.length > PARTY_FREE) + '" onclick="partyMore()">' + (names.length > PARTY_FREE ? names.length : "7+") + '</button>' : "") + '</div>' +
     '<div class="partynames">' + names.map((n, i) => '<input class="partyname" maxlength="16" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' +
       esc(String(raw[i] || "")) + '" onchange="setPartyName(' + i + ',this.value)">').join("") + '</div>';
 };
@@ -33287,7 +33739,7 @@ const answerSegHTML = party => '<div class="b6hdr">How you answer</div><div clas
   '<button aria-pressed="' + (answerPref() === "mc") + '" onclick="setAnswerPref(\'mc\')">Multiple choice</button>' +
   '<button aria-pressed="' + (answerPref() === "say") + '" onclick="setAnswerPref(\'say\')">Say it</button></div>' +
   '<div class="b6qs b6anshint">' + (answerPref() === "say"
-    ? "For two to four of you on one phone. Whoever knows it shouts it out first: tap who, see the answer, and say if it was right. Not rated."
+    ? "For two to six of you on one phone. Whoever knows it shouts it out first: tap who, see the answer, and say if it was right. Not rated."
     : "Four options, tap the one you think it is.") + '</div>' + (answerPref() === "say" && party !== false ? partyHTML() : "");
 /* Career Path's "Say it": who's playing first, then the game */
 function careerPartySheet(){
@@ -33656,7 +34108,7 @@ function gwGuess(k){
   const i = GW.turn;
   GW.guesses[i]++;
   if(k === gwSec(1 - i)){ GW.phase = "over"; GW.winner = i; gwEnd(); return; }
-  buzzer(); flashBad();
+  fb.wrong(null);
   gwUp(i)[k] = false; GW.fall = [k]; GW.lastFall[i] = [k];
   gwSetLast(i, { text: "Is it " + gwShort(gwRow(GW.board[k])[0]) + "?", yes: false, fell: 1, guess: true });
   gwAfter();
@@ -33696,7 +34148,7 @@ function gwEnd(){
   const p = gwPrefs(); p.played++; if(!gwTwo() && GW.winner === 0) p.won++;
   if(M.over && !gwTwo()){ p.matches++; if(GW.winner === 0) p.mwon++; }
   gwSave(p);
-  try{ if(gwTwo() || GW.winner === 0){ confetti(M.over ? 110 : 60); ching(); } else buzzer(); }catch(e){}
+  try{ if(gwTwo() || GW.winner === 0){ celebrate(M.over ? 3 : 2, {type: M.over ? "matchWon" : "boardWon"}); ching(); } else buzzer(); }catch(e){}
   try{ if(!gwTwo()) progAnswer({ ok: GW.winner === 0, tier: GW.level === "hard" ? "hard" : "normal", topic: "guesswho" }); }catch(e){}
   render();
 }
@@ -34301,7 +34753,7 @@ function ddTaxiAnswer(k){
   if(!DD || !DD.taxi) return;
   const t = DD.taxi, right = k === t.q.k; DD.taxi = null; DD.stats.taxis++;
   const to = ddTravel(DD, DD.me, t.to, right);
-  right ? ching() : buzzer();
+  right ? fb.correct(null) : fb.wrong(null);
   sheet('<h2>' + (right ? "Two stops" : "One stop") + '</h2><p>' + (right ? "Right. You're at " : "It was " + esc(String(t.q.a)) + ". You get as far as ") + esc(DD.C[to].name) + '.</p>' +
     b4Btn("Float a rumour here", "closeSheet();ddRumourSheet()", "gold") + '<button class="b4btn quiet" onclick="closeSheet();render()">Back to the route</button>');
   render();
@@ -34377,7 +34829,7 @@ function ddLeakAnswer(k){
   if(!DD || !DD.leakQ) return;
   const q = DD.leakQ, right = k === q.k; DD.leakQ = null;
   const got = ddLeak(DD, right);
-  right ? ching() : buzzer();
+  right ? fb.correct(null) : fb.wrong(null);
   if(got) sheet('<h2>The leak</h2><p>' + DD_RIVALS[DD.seats[got.s].kind].name + ' holds this one, so it isn\'t the deal.</p><div class="ddshowpick">' + ddCardHTML(DD, got.card, { stamp: "DENIED" }) + '</div>' +
     b4Btn("Into the notebook", "closeSheet();render()", "gold"));
   else sheet('<h2>' + (right ? "Nothing new" : "No leak") + '</h2><p>' + (right ? "Right, but they had nothing you don't know." : "It was " + esc(String(q.a)) + ". Nobody talks this hour.") + '</p>' + b4Btn("Back to the route", "closeSheet();render()", "gold"));
@@ -34402,7 +34854,7 @@ function ddBreak(){
   const r = ddAccuse(DD, DD.me, [b.p, b.c, b.y]);
   DD.brk = {};
   if(r.again){
-    buzzer(); flashBad();
+    fb.wrong(null);
     sheet('<h2 class="ddbad">Story retracted</h2><p>It wasn\'t ' + esc(DD.P[b.p].short) + ', ' + esc(DD.C[b.c - 6].name) + ', ' + DD.Y[b.y - 12] + '. On Easy you live to dig again, but that was your one retraction.</p>' + b4Btn("Back to the route", "closeSheet();render()", "gold"));
     return render();
   }
@@ -34449,7 +34901,7 @@ function ddEnd(){
   const won = DD.winner === DD.me, p = ddPrefs();
   p.played++; if(won){ p.won++; if(!p.best || DD.stats.rumours < p.best) p.best = DD.stats.rumours; }
   ddSave(p);
-  try{ if(won){ confetti(110); ching(); } else buzzer(); }catch(e){}
+  try{ if(won){ celebrate(3, {type: "matchWon"}); ching(); } else buzzer(); }catch(e){}
   try{ progAnswer({ ok: won, tier: DD.level === "hard" ? "hard" : "normal", topic: "deadline" }); }catch(e){}
   DD_VIEW = "over";
 }
@@ -35104,7 +35556,7 @@ function lbWhistle(){
   if(!LB || LB.phase !== "play") return;
   lbStop();
   try{ if(typeof document !== "undefined" && document.activeElement) document.activeElement.blur(); }catch(e){}
-  try{ beep(880, .25, "square", .05); }catch(e){}
+  try{ beep(880, .12, "triangle", .05); }catch(e){}
   if(lbTwo() && LB.turn < LB.names.length - 1){ LB.turn++; LB.phase = "cover"; render(); try{ window.scrollTo({ top: 0 }); }catch(e){} return; }
   const rd = lbCur();
   rd.res = rd.ans.map(a => a.map((v, j) => lbCheck(lbBox(rd.ids[j]), rd.L, v)));
@@ -35178,7 +35630,7 @@ function lbEnd(){
   p.played++;
   if(!lbTwo()){ if(t[0] > t[1]) p.won++; p.best = Math.max(p.best, t[0]); }
   lbSave(p);
-  try{ if(lbTwo() || t[0] >= t[1]){ confetti(80); ching(); } else buzzer(); }catch(e){}
+  try{ if(lbTwo() || t[0] >= t[1]){ celebrate(3, {type: "matchWon"}); ching(); } else buzzer(); }catch(e){}
   try{ if(!lbTwo()) progAnswer({ ok: t[0] > t[1], tier: LB.level === "hard" ? "hard" : "normal", topic: "letterbox" }); }catch(e){}
   render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
 }
@@ -35579,9 +36031,9 @@ function yrReveal(){
   yrStop();
   G.res = yrResolve(G); G.phase = "reveal"; G.turns++;
   try{
-    if(G.res.by != null && !G.cpu[G.res.by]){ ching(); if(G.res.exact) confetti(40); }
-    else if(G.vs === "cpu" && G.res.by == null && G.turn === 0) buzzer();
-    else if(G.vs !== "cpu" && G.res.by == null) buzzer();
+    if(G.res.by != null && !G.cpu[G.res.by]){ fb.correct(null); if(G.res.exact) celebrate(2, {type: "exact"}); }
+    else if(G.vs === "cpu" && G.res.by == null && G.turn === 0) fb.wrong(null);
+    else if(G.vs !== "cpu" && G.res.by == null) fb.wrong(null);
   }catch(e){}
   render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
 }
@@ -35615,7 +36067,7 @@ function yrEnd(){
   if(G.vs === "solo") p.best = Math.max(p.best, G.rows[0].length);
   if(G.vs === "cpu" && w === 0) p.won++;
   yrSave(p);
-  try{ if(G.vs === "party" || w === 0 || G.vs === "solo"){ confetti(80); ching(); } else buzzer(); }catch(e){}
+  try{ if(G.vs === "party" || w === 0 || G.vs === "solo"){ celebrate(3, {type: "matchWon"}); ching(); } else buzzer(); }catch(e){}
   try{ if(G.vs !== "party") progAnswer({ ok: G.vs === "solo" ? G.rows[0].length >= 8 : w === 0, tier: G.level === "hard" ? "hard" : "normal", topic: "timeline" }); }catch(e){}
   render(); try{ window.scrollTo({ top: 0 }); }catch(e){}
 }
@@ -36249,6 +36701,19 @@ function b6IsNew(k, now){
    Today's three: Daily Ball, Guess the player and today's Top 10. ?home=0 on a phone is the home as it was. */
 let HOME_V2 = true;
 try{ if(new URLSearchParams(location.search).get("home") === "0") HOME_V2 = false; }catch(e){}
+/* THE SHORTCUTS (manifest.webmanifest, the TWA's long-press menu; _store/): ?go=three is the home itself,
+   ?go=callit opens Call It, ?go=quick starts the quick match. Read once the home is drawn, then dropped from the
+   address so a reload is just the home. */
+function goShortcut(){
+  let go = null;
+  try{ const u = new URL(location.href); go = u.searchParams.get("go"); if(go){ u.searchParams.delete("go"); history.replaceState(history.state, "", u.pathname + (u.search || "") + u.hash); } }catch(e){ return; }
+  if(!go || go === "three") return;
+  try{
+    if(go === "callit" && typeof PL_ON !== "undefined" && PL_ON){ try{ localStorage.setItem("ball4-lg-seg", "pl"); }catch(e){} openLeague(); }
+    else if(go === "quick") quickMatch();
+  }catch(e){}
+}
+try{ if(/[?&]go=/.test(location.search)) setTimeout(goShortcut, 60); }catch(e){}
 const THREE_KEY = "ball4-three", THREE_MILES = [7, 30, 100, 365];
 /* the grade word (plan §7, Martijn 31 Oct), best first, from the three results' average, with its one line */
 const THREE_GRADES = [[.85, "Worldie", "Unplayable."], [.7, "Top bins", "Sharp all over."], [.55, "Clinical", "Job done."],
@@ -36288,7 +36753,7 @@ function threeStreak(){
       ? { streak: st.last === today ? st.played - 1 : st.played, last: st.last === today ? yday : st.last, best: st.played }
       : { streak: 0, last: null, best: 0 };
   }
-  if(threeToday().all && t.last !== today){ t.streak = (t.last === yday ? (t.streak | 0) : 0) + 1; t.last = today; t.best = Math.max(t.best | 0, t.streak); }
+  if(threeToday().all && t.last !== today){ t.streak = (t.last === yday ? (t.streak | 0) : 0) + 1; t.last = today; t.best = Math.max(t.best | 0, t.streak); pushHook("three", today); }
   try{ localStorage.setItem(THREE_KEY, JSON.stringify(t)); }catch(e){}
   const n = t.last === today || t.last === yday ? (t.streak | 0) : 0, next = THREE_MILES.find(x => x > n) || null;
   return { n, best: t.best | 0, today: t.last === today, next, toGo: next ? next - n : 0 };
@@ -36409,11 +36874,21 @@ function threeGridHTML(T){
     '<span>Guess the player</span><span class="t3sqs" role="img" aria-label="' + esc(gp.note) + '">' + gs + '</span>' +
     '<span>Top 10</span><span class="t3bar"><span class="t3track"><i style="width:' + Math.round(li.score * 100) + '%"></i></span><b>' + li.found + '/10</b></span></div>';
 }
+/* the way into your Call It league, from what pl.js keeps on the phone (ball4-pl-strip, clStripSave), so the home's
+   share carries it without loading Call It (_plans/go-to-market.md, the share stream); "" when there is none */
+function threeJoinLine(){
+  try{
+    if(typeof PL_ON === "undefined" || !PL_ON) return "";
+    const s = JSON.parse(localStorage.getItem("ball4-pl-strip") || "null"), l = s && s.lg;
+    if(!l || !l.code || Date.now() - s.at > 30 * 864e5) return "";
+    return "\nJoin my league " + String(l.name || "") + ": " + (acctRedirect() || "https://beebzoo.github.io/ball/").replace(/index\.html$/, "") + "?join=" + l.code;
+  }catch(e){ return ""; }
+}
 function threeShareText(T, S3){
   const [ds, gp, li] = T.rows;
   const kicks = ds.R ? ds.R.me5.map(m => m === "\u{1F3AF}" ? "🟨" : m === "❌" ? "⬛" : m === "–" ? "⬜" : "🟩").join("") : "";
   const gs = gp.g ? gp.g.guesses.map((x, i) => gp.g.won && i === gp.g.guesses.length - 1 ? "🟩" : "⬛").join("") : "";
-  return "BALL · " + t3Date(new Date()) + (S3 && S3.n ? " · streak " + S3.n : "") + "\nDaily Ball " + kicks + "\nGuess the player " + gs + "\nTop 10 " + li.found + "/10\nbeebzoo.github.io/ball";
+  return "BALL · " + t3Date(new Date()) + (S3 && S3.n ? " · streak " + S3.n : "") + "\nDaily Ball " + kicks + "\nGuess the player " + gs + "\nTop 10 " + li.found + "/10\nbeebzoo.github.io/ball" + threeJoinLine();
 }
 function threeShare(){
   audio();
@@ -36653,12 +37128,15 @@ function renderSetup(st){
     <div class="b6${stepping ? " step" : ""}${home ? " home-" + home : ""}${chips ? " chipped" : ""}">
       <div class="b6band"></div>
       <div class="b6chipsw">${chips}</div>
-      <h1 class="mdp-slot" onclick="goHome()" title="Back to the start" aria-label="BALL, football quiz">${matchdayPro({intro: !b4IntroDone})}</h1>
+      <h1 class="mdp-slot" onclick="goHome()" title="Back to the start" aria-label="BALL, football quiz">${matchdayPro({intro: !b4IntroDone && introDue()})}</h1>
       <div class="b6body">${body}</div>
     </div>`;
-  b4IntroDone = true; mdpIntroShown = true;
+  b4IntroDone = true; mdpIntroShown = true; introSeen();
 }
 let b4IntroDone = false;
+/* §13.6 (INTRO_ONCE_A_DAY): the kick-off intro on the first launch of the day; the day it played is kept on the phone */
+function introDue(){ if(!INTRO_ONCE_A_DAY) return true; try{ return localStorage.getItem("ball4-intro") !== String(dayKey()); }catch(e){ return true; } }
+function introSeen(){ try{ localStorage.setItem("ball4-intro", String(dayKey())); }catch(e){} }
 /* ---------- WHAT EACH GAME IS, ONCE ----------
    The front page no longer explains anything, so the first tap on a game
    shows one card saying what it is, and the next tap goes straight in.
@@ -36933,7 +37411,7 @@ function wTimeUp(){ if(isGuest()){ flashBad(); return; } if(S.phase==="w_answer"
 function wToggle(i){
   const pts=TIERS[S.tier].pts;
   S.wgot[i]=!S.wgot[i];
-  if(S.wgot[i]){ S.players[i].score+=pts; ching(); goalFx(S.tier==="ball", pts); }
+  if(S.wgot[i]){ S.players[i].score+=pts; fb.correct(null); goalFx(S.tier==="ball", pts); }
   else{ S.players[i].score-=pts; }
   render();
 }
@@ -36970,7 +37448,7 @@ function judge(correct, level){
   const stealing = S.phase==="steal_judge";
   const who = stealing ? S.players[S.stealer] : S.players[S.turn];
   if(correct){
-    who.score+=pts; ching();
+    who.score+=pts; fb.correct(null);
     /* a BALL question pays twenty, so it gets the ball. Not when the answer
        was only the country, and not when Badge Zoom had already pulled the
        camera all the way back: both of those pay single figures. */
@@ -36981,10 +37459,10 @@ function judge(correct, level){
     if(maybeFinish()) return; // reached the win target
     nextTurn();
   }else if(!stealing){
-    flashBad();
+    fb.wrong(null);
     S.phase="steal_offer"; render();
   }else{
-    flashBad();
+    fb.wrong(null);
     toast("Steal failed. No damage.", true);
     S.phase="deadq"; render();
   }
@@ -37158,15 +37636,15 @@ function cJudge(correct){
   if(S.career.guesser === 0 && correct && S.career.shown === 1) progDetective();
   if(S.career.say){
     /* solo, said out loud: the reveal and its summary either way, then cAfter */
-    if(correct){ const pts = cpot(); who.score += pts; S.career.won = pts; ching(); confetti(cdeck()[S.career.ci].c.length >= 8 ? 80 : 52); }
-    else { who.score -= 2; S.career.won = 0; flashBad(); buzzer(); }
+    if(correct){ const pts = cpot(); who.score += pts; S.career.won = pts; fb.correct(null); celebrate(2, {type: "career"}); }
+    else { who.score -= 2; S.career.won = 0; fb.wrong(null); }
     S.phase = "c_dead"; revealAnim = false; render();
     return;
   }
   if(correct){
     const pts=cpot();
-    who.score+=pts; ching();
-    confetti(cdeck()[S.career.ci].c.length>=8 ? 80 : 52);
+    who.score+=pts; fb.correct(null);
+    celebrate(2, {type: "career"});
     toast(`${who.name} nails it! +${pts}`);
     if(maybeFinish()) return;
     if(cPartyDone()) return;
@@ -37176,8 +37654,8 @@ function cJudge(correct){
   }else{
     who.score-=2;
     S.career.locked.push(S.career.guesser);
-    flashBad(); buzzer();
-    toast(`${who.name}: wrong! −2 and locked out`, true);
+    fb.wrong(null);
+    toast(`${who.name}: ${fb.word()} −2 and locked out`, true);
     if(S.career.locked.length>=S.players.length){ S.phase="c_dead"; }
     else S.phase="c_play";
     render();
@@ -37195,20 +37673,20 @@ function cSolo(i){
   if(name === C.n && S.career.shown === 1) progDetective();
   if(name === C.n){
     const pts = cpot();
-    S.players[0].score += pts; S.career.won = pts; ching();
-    confetti(C.c.length >= 8 ? 80 : 52);
+    S.players[0].score += pts; S.career.won = pts; fb.correct(null);
+    celebrate(2, {type: "career"});
     S.phase = "c_dead"; revealAnim = true; render();
   }else{
     S.players[0].score -= 2; S.career.wrong.push(i);
-    flashBad(); buzzer(); buzz(60);
-    toast("Not him. −2", true);
+    fb.wrong(null);
+    toast(fb.word() + " −2", true);
     render();
   }
 }
 /* a party plays ten careers too, then the table */
 function cPartyDone(){
   if(!(S.party && S.players.length > 1 && S.round >= CAREER_SOLO_ROUNDS)) return false;
-  stopTimer(); S.phase = "results"; recordMatch(); render(); confetti(64);
+  stopTimer(); S.phase = "results"; recordMatch(); render(); celebrate(3, {type: "matchWon"});
   return true;
 }
 function cAfter(){
@@ -37227,7 +37705,7 @@ function soloFinish(){
   S.prevBest = b[k] == null ? null : b[k];
   if(b[k] == null || sc > b[k]){ b[k] = sc; try{ localStorage.setItem(bestKey(), JSON.stringify(b)); }catch(e){} }
   S.phase = "results"; recordMatch(); render();
-  if(sc > 0) confetti(64);
+  if(sc > 0) celebrate(S.prevBest == null || sc > S.prevBest ? 3 : 2, {type: "soloDone"});
 }
 
 /* ---------------------------- ALUMNI ----------------------------
@@ -37261,8 +37739,8 @@ function alJudge(correct){
   const who=S.players[S.alum.guesser];
   if(correct){
     const pts=alpot();
-    who.score+=pts; ching();
-    confetti(52);
+    who.score+=pts; fb.correct(null);
+    celebrate(2, {type: "goal"});
     toast(`${who.name} nails it! +${pts}`);
     if(maybeFinish()) return;
     if(S.rr) return rrNext();
@@ -37271,8 +37749,8 @@ function alJudge(correct){
   }else{
     who.score-=2;
     S.alum.locked.push(S.alum.guesser);
-    flashBad(); buzzer();
-    toast(`${who.name}: wrong! −2 and locked out`, true);
+    fb.wrong(null);
+    toast(`${who.name}: ${fb.word()} −2 and locked out`, true);
     if(S.alum.locked.length>=S.players.length) S.phase="al_dead";
     else S.phase="al_play";
     render();
@@ -37323,7 +37801,7 @@ function wlLock(){
     S.wall.last=gs[0];
     S.wall.done.push(gs[0]);
     S.wall.sel=[];
-    ching();
+    fb.correct(null);
     /* three down means the last four are the last four */
     if(S.wall.done.length===3){
       const rest=S.wall.tiles.find(t=>!S.wall.done.includes(t.g));
@@ -37333,7 +37811,7 @@ function wlLock(){
   }else{
     S.wall.lives--;
     S.wall.sel=[];
-    flashBad(); buzzer();
+    fb.wrong(null);
     if(S.wall.lives<=0){ toast("Out of lives", true); S.phase="wl_done"; }
     else toast(`Not a four. ${S.wall.lives} ${S.wall.lives===1?"life":"lives"} left`, true);
   }
@@ -37344,10 +37822,10 @@ function wlAward(p){
   if(p>=0){
     S.players[p].score += WALL_PTS;
     if(solved){ S.players[p].score += WALL_ALL; }
-    ching();
+    fb.correct(null);
   }
   S.wall.last=null;
-  if(solved){ S.phase="wl_done"; confetti(64); }
+  if(solved){ S.phase="wl_done"; celebrate(2, {type: "wall"}); }
   else S.phase="wl_play";
   if(solved && maybeFinish()) return;
   render();
@@ -37410,7 +37888,7 @@ function mysGuess(gi){
   const who = S.players[S.turn] || S.players[0];
   if(gi===S.mys.ti){
     const pts=mysPot();
-    who.score+=pts; ching(); confetti(64);
+    who.score+=pts; fb.correct(null); celebrate(2, {type: "goal"});
     toast(`${who.name} has him! +${pts}`);
     S.mys.g.push(mysCompare(gi));
     S.phase="my_done";
@@ -37466,7 +37944,7 @@ function bidGot(){
     const h=S.players[S.bid.holder], c=S.players[S.bid.caller];
     h.score+=S.bid.claim; c.score-=BID_STING;
     S.bid.win="holder";
-    ching(); confetti(52);
+    fb.correct(null); celebrate(2, {type: "goal"});
     toast(`${h.name} delivers! +${S.bid.claim}`);
     S.phase="b_done";
     if(maybeFinish()) return;
@@ -37478,7 +37956,7 @@ function bidFail(){
   const h=S.players[S.bid.holder], c=S.players[S.bid.caller];
   h.score-=S.bid.claim; c.score+=BID_STING;
   S.bid.win="caller";
-  buzzer(); flashBad();
+  fb.wrong(null);
   toast(`${h.name} could not do it: −${S.bid.claim}`, true);
   S.phase="b_done";
   if(maybeFinish()) return;
@@ -37518,10 +37996,10 @@ function specJudge(ok){
   const Qs=SPEC[S.spec.qi], who=S.players[S.turn];
   if(ok && who){
     who.score += Qs.p;
-    ching(); goalFx(false, Qs.p);
+    fb.correct(null); goalFx(false, Qs.p);
     toast(`${who.name} +${Qs.p}`);
     if(maybeFinish()) return;
-  }else if(!ok){ buzzer(); flashBad(); }
+  }else if(!ok){ fb.wrong(null); }
   specNext();
 }
 function specNext(){
@@ -37557,7 +38035,7 @@ function book(i){
   p.off++;
   const pen=OFFENCE_PENALTY(p.off);
   p.score-=pen;
-  buzzer(); flashBad();
+  fb.wrong(null);
   toast(pen===0 ? `${p.name}: official warning` : `${p.name} booked: −${pen}`, true);
   closeSheet(); render();
 }
@@ -37630,7 +38108,7 @@ function endGame(){
   }catch(e){}
   if(S.players.length===1){ closeSheet(); return soloFinish(); }
   closeSheet(); stopTimer(); S.phase="results"; recordMatch(); render();
-  if(Math.max(...S.players.map(p=>p.score))>=0) confetti(48);
+  celebrate(S.players[0].score > Math.max(...S.players.slice(1).map(p=>p.score)) ? 3 : 2, {type: "matchWon"});
 }
 function rematch(){
   const names=S.players.map(p=>p.name);

@@ -175,6 +175,14 @@
 .cl-join input{text-transform:uppercase}
 .cl-invited h2{margin:6px 0 0;font:italic 900 30px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-card-ink)}
 .cl-invited .cl-who{margin-top:12px}
+/* the landing of an invite: the football, the players, the next round, before the tap (the share stream, 2 Nov) */
+.cl-facts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}
+.cl-facts span{display:flex;flex-direction:column;gap:3px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.08);min-width:0}
+.cl-facts small{font:800 var(--fs-kicker,10px)/1 'Barlow Semi Condensed',sans-serif;letter-spacing:var(--ls-kicker,.16em);text-transform:uppercase;color:var(--th-card-dim)}
+.cl-facts b{font:italic 900 17px/1.1 'Barlow Semi Condensed',sans-serif;color:var(--th-card-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* sharing the round or the table as a picture: quiet, under the thing itself */
+.cl-sharecard{margin-top:6px}
+.cl-sharetable{margin:-2px 0 8px}
 
 /* ---------- the table ---------- */
 .cl-table{padding:4px 0}

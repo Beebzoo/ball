@@ -1,6 +1,6 @@
 /* BALL quiz service worker: network-first so updates land instantly,
    cache fallback so the pub's dead wifi can't stop the game. */
-const CACHE = "ball-quiz-4-v53";
+const CACHE = "ball-quiz-4-v54";
 const NATFLAGS = "ad,ae,af,ag,al,am,ao,ar,at,au,az,ba,be,bf,bg,bi,bj,bm,bn,bo,br,by,ca,cd,cf,cg,ch,ci,cl,cm,cn,co,cr,cu,cv,cy,cz,de,dk,do,dz,ec,ee,eg,es,et,fi,fr,ga,gb,gd,ge,gh,gm,gn,gq,gr,gt,gw,gy,hn,hr,ht,hu,id,ie,il,in,iq,ir,is,it,jm,jo,jp,ke,kn,kr,kw,kz,lb,lc,li,lk,lr,lt,lu,lv,ly,ma,md,me,mg,mk,ml,mr,mt,mu,mw,mx,my,mz,na,ne,ng,nl,no,nz,pa,pe,ph,pk,pl,pt,py,qa,ro,rs,ru,rw,sa,sc,sd,se,si,sk,sl,sm,sn,so,sr,st,sv,sy,sz,td,tg,th,tl,tm,tn,tr,tt,tz,ua,ug,us,uy,uz,ve,vn,ws,xk,za,zm,zw".split(",");
 /* These two lists are generated, by _tools/build-stickers.py and by the
    Eredivisie build-ere.js, and they are declared HERE, above EXTRA_ASSETS,
@@ -177,5 +177,29 @@ self.addEventListener("fetch", e => {
     fetch(req.url, { cache: "no-cache", credentials: "same-origin" })
       .then(res => { clearTimeout(slow); give(keep(req, res)); })
       .catch(() => { clearTimeout(slow); page().then(hit => give(hit || Response.error())); });
+  }));
+});
+
+/* PUSH REMINDERS (assets/push/push.js; the sender is supabase/functions/push-send). The payload is JSON:
+   {title, body, url, tag, icon, badge}. One a day at most is the server's promise (015_push.sql, push_plan);
+   here it is shown as it comes, with BALL's own icon, and a tap brings an open BALL to the front or opens one.
+   A push with no readable payload still shows something: a push the phone received and never showed makes
+   Chrome show its own "This site has been updated in the background" instead. */
+self.addEventListener("push", e => {
+  let d = {};
+  try{ d = e.data ? e.data.json() : {}; }catch(x){ try{ d = { body: e.data ? e.data.text() : "" }; }catch(y){ d = {}; } }
+  const o = { body: d.body || "", icon: d.icon || "icons/icon-192.png", badge: d.badge || "icons/icon-192.png",
+    tag: d.tag || "ball", renotify: false, data: { url: d.url || "./" } };
+  e.waitUntil(self.registration.showNotification(d.title || "BALL", o));
+});
+self.addEventListener("notificationclick", e => {
+  e.notification.close();
+  const scope = self.registration.scope;
+  let url = scope;
+  try{ url = new URL((e.notification.data && e.notification.data.url) || "./", scope).href; }catch(x){}
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(list => {
+    const open = list.find(c => c.url.indexOf(scope) === 0 && "focus" in c);
+    if(open) return open.focus();
+    return self.clients.openWindow ? self.clients.openWindow(url) : null;
   }));
 });

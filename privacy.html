@@ -4,51 +4,135 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BALL · Privacy</title>
-<meta name="description" content="What BALL keeps about you, and why.">
+<meta name="description" content="What BALL keeps about you, why, for how long, and how to take it back.">
 <link rel="icon" href="icons/icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,700;0,800;1,900&family=Lora:ital@1&display=swap" rel="stylesheet">
 <style>
+  /* the app's own fonts (assets/fonts, OFL): no request leaves for Google when you read this page */
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/barlow-semicondensed-400-latin.woff2) format('woff2')}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700-latin.woff2) format('woff2')}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:900;font-display:swap;src:url(assets/fonts/barlow-semicondensed-900i-latin.woff2) format('woff2')}
+  @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-400i-latin.woff2) format('woff2')}
   :root{--ink:#123D24;--paper:#e9dcbb;--card:#f6efdc;--dim:#3d4a38;--gold:#e9b84c}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:#1b1d17;font:500 17px/1.55 'Barlow Semi Condensed',Arial,sans-serif}
+  body{margin:0;background:var(--paper);color:#1b1d17;font:400 17px/1.55 'Barlow Semi Condensed',Arial,sans-serif}
   header{background:#1d5232 url(assets/grass-match@3x.jpg) center top/780px auto;padding:34px 20px 46px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%);text-align:center}
   header a{color:#f3ecda;text-decoration:none;font:italic 900 22px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em}
   h1{margin:10px 0 0;color:#f3ecda;font:italic 900 44px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;text-shadow:2px 2px 0 #a8740a}
   main{max-width:640px;margin:0 auto;padding:6px 18px 48px}
   .lead{font:italic 400 17px/1.5 'Lora',Georgia,serif;color:var(--dim)}
-  h2{margin:26px 0 6px;color:var(--ink);font:800 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  h2{margin:26px 0 6px;color:var(--ink);font:700 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase}
   p{margin:0 0 10px}
   a{color:var(--ink);font-weight:700}
+  ul{margin:0 0 10px;padding-left:20px}
+  li{margin:0 0 6px}
+  .card{background:var(--card);border:2px solid #fff;border-radius:12px;padding:12px 16px;margin:0 0 12px}
+  .card b{display:block;color:var(--ink)}
+  .row{background:var(--card);border:2px solid #fff;border-radius:12px;padding:12px 16px;margin:0 0 10px}
+  .row b{display:block;color:var(--ink);font-size:18px}
+  .row p{margin:4px 0 0}
+  .row small{display:block;margin-top:6px;color:var(--dim);font-size:14px}
+  .row small i{font-style:normal;color:var(--ink);font-weight:700}
   footer{margin-top:34px;font-size:14px;color:var(--dim)}
 </style>
 </head>
 <body>
 <header><a href="./">BALL</a><h1>Privacy</h1></header>
 <main>
-  <p class="lead">What BALL keeps about you, why, and how to take it back. Last updated 30 October 2026.</p>
+  <p class="lead">What BALL keeps about you, why, for how long, and how to take it back. Last updated 2 November 2026.</p>
 
-  <h2>What we keep</h2>
-  <p>Your email address (for signing in only; nobody else sees it), your username, your club's design, the club and national team you support and the country you live in (if you picked them), your game stats (matches, rating, XP, titles, leagues, answers to questions), and the reports you sent.</p>
-  <p>In Call It, the prediction league: the score you call for each match, where you put your armband, your points, and the leagues you are in.</p>
-  <p>If you sign in with Google, we receive your email address and nothing else from your Google account.</p>
+  <h2>The short version</h2>
+  <ul>
+    <li>BALL is a free football quiz made by one fan. No ads, no ad trackers, nothing is sold.</li>
+    <li>Play as a guest and nothing about you leaves your phone.</li>
+    <li>Found your club and we keep your email (for signing in only), your username, your club and your game stats, so your career is there on every phone.</li>
+    <li>Crash reports and a few anonymous usage counts help us keep the app working. They carry a random id for your install, never your account.</li>
+    <li>Export or delete everything yourself, in Settings.</li>
+  </ul>
 
-  <h2>Why</h2>
-  <p>To keep your club and your progress across phones, to run leagues with your friends (the quiz leagues and Call It), to rate how hard each question is, and to keep names in leagues clean.</p>
+  <h2>Who is responsible</h2>
+  <div class="card">
+    <b>{{CONTROLLER_NAME}}</b>
+    {{CONTROLLER_ADDRESS}}<br>
+    <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>
+  </div>
+  <p>That is the controller in the sense of the GDPR: the one who decides what is kept and why, and the one to write to with any question about your data.</p>
+
+  <h2>What we keep, and why</h2>
+  <p>Each purpose below says what is kept, the legal basis for it, and how long it stays.</p>
+
+  <div class="row"><b>Your club and your career</b>
+    <p>Once you found your club: your email address (for signing in only; nobody else sees it), your username, your club's design (name, crest, kit, scarf, a motto from our list), the club and national team you support and the country you live in (if you picked them), whether you told us you are 16 or older, and your game stats: matches, rating, XP, titles, trophies, leagues and your answers to questions. No real name, no birth date, no location, no contacts, no photos.</p>
+    <small><i>Basis:</i> the agreement between us (the <a href="terms.html">terms</a>): this is what keeping your club means. <i>Kept:</i> until you delete your account.</small></div>
+
+  <div class="row"><b>Leagues with your friends</b>
+    <p>Which leagues you are in, your points and the weekly tables. League mates see your club name, crest, kit, scarf, @username, level and rating.</p>
+    <small><i>Basis:</i> the agreement between us. <i>Kept:</i> while you are in the league. When you delete your account, your name, id and club are removed from every closed week; only an empty place and its points remain.</small></div>
+
+  <div class="row"><b>Call It, the prediction league</b>
+    <p>The score you call for each match, where you put your armband, your points, and the leagues you are in. Nobody sees what you called before kick-off; afterwards your league mates do. Everyone's calls together (how many backed each result, never who) can be shown after kick-off too. A guest who calls matches does so under an anonymous account without an email address, so the calls can count.</p>
+    <small><i>Basis:</i> the agreement between us. <i>Kept:</i> while your account and the league live; Call It stores ids only, so deleting your account takes your calls with it.</small></div>
+
+  <div class="row"><b>Keeping names clean</b>
+    <p>Club names, usernames and the name on your shirt pass a word filter. A report about a name (who reported, which name, the reason, a note) and an appeal you send ("ask for a second look") are kept for our weekly look.</p>
+    <small><i>Basis:</i> our legitimate interest in a game you can play with your friends without abuse. <i>Kept:</i> until we have had a look and cleared them; they go with your account.</small></div>
+
+  <div class="row"><b>Crash reports and usage events</b>
+    <p>When the app breaks: the error message, the place in our code, a few lines of the stack, the build, the screen you were on and a coarse browser label like "Chrome 141 · Android". A few events as counts: first open, first answer, a match done, a Daily done, a share, a club founded. Each carries a random id made on your phone the first time it sends anything (22 characters). That id is not your account and is never joined to it, so none of this can be traced back to your name, club or email. No IP address is written down, no free text you typed, no answers to questions.</p>
+    <small><i>Basis:</i> our legitimate interest in an app that works, and in seeing where new players give up. <i>Kept:</i> 180 days, then deleted automatically.</small></div>
+
+  <div class="row"><b>Question reports</b>
+    <p>When you tap "Something wrong with this question?": the question and our answer, the reason you picked and a note of up to 300 characters, plus your account id if you are signed in, so a reply is possible.</p>
+    <small><i>Basis:</i> our legitimate interest in questions that are right. <i>Kept:</i> until the report is handled, then one more year; your account id is removed the moment you delete your account.</small></div>
+
+  <div class="row"><b>The news email</b>
+    <p>Only if you ticked "Tell me about new modes": we send an email now and then about what is new in BALL.</p>
+    <small><i>Basis:</i> your consent; untick it in Settings any time. <i>Kept:</i> while it is ticked.</small></div>
+
+  <div class="row"><b>Reminders (if you turn them on)</b>
+    <p>If you switch on reminders, your browser gives us a push address and keys, and we keep those with your timezone and which reminders you want (your streak at risk in the evening, your Call It card about to lock). One a day at most. The message travels through your browser maker's push service (Google, Mozilla or Apple, depending on your browser), encrypted so only your phone can read it.</p>
+    <small><i>Basis:</i> your consent; switch them off in Settings or in your browser's site settings. <i>Kept:</i> until you switch them off or delete your account.</small></div>
+
+  <div class="row"><b>Guests</b>
+    <p>Everything you do as a guest is saved on your phone only (your browser's local storage) and is never sent to us. The one exception is anything you choose to send yourself: a question report, or your Call It calls as a guest, under an anonymous account without an email address.</p>
+    <small><i>Basis:</i> none needed, nothing leaves the phone. <i>Kept:</i> until you clear the app's data.</small></div>
+
+  <h2>Signing in</h2>
+  <p>You sign in with a link we email you (sent by our sign-in provider, Supabase), or with Google. If you sign in with Google, we receive your email address and nothing else from your Google account; the sign-in itself is handled by Google under <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>. There are no passwords in BALL.</p>
 
   <h2>Who sees what</h2>
-  <p>League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as "Player NNNN" and your club stays private. Reports are anonymous.</p>
-  <p>In Call It nobody sees what you called before the match kicks off. After kick-off your league mates see your call, your armband and your points. Everyone's calls together (how many backed each result, never who) can be shown after kick-off too.</p>
+  <p>League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as "Player NNNN" and your club stays private. Reports are anonymous to the person reported. Nobody sees your email address but us and our sign-in provider.</p>
 
-  <h2>Emails</h2>
-  <p>Only the sign-in link, unless you ticked "Tell me about new modes". You can switch that off any time in Settings.</p>
+  <h2>Where it lives, and who helps us</h2>
+  <ul>
+    <li><b>Supabase</b> (database and sign-in), in Ireland (AWS eu-west-1, in the EU). The small programs that delete an account and that send the reminders (Edge Functions) also run on Supabase. Supabase processes your data on our behalf and under our instructions.</li>
+    <li><b>GitHub Pages</b> hosts the app's pages. Like any web host, GitHub's servers keep ordinary access logs (your IP address, the time, the page asked for) under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>; we never see them.</li>
+    <li><b>Google</b>, only if you choose to sign in with Google (see above).</li>
+    <li><b>API-Football</b> sends us fixtures and results for Call It and the match centre. Nothing about you goes there.</li>
+    <li><b>Your browser's push service</b>, only if you turn reminders on (see above).</li>
+  </ul>
+  <p>No analytics company, no advertising network, no data broker. We don't sell your data and never will.</p>
 
-  <h2>Your data, your call</h2>
-  <p>Export everything from Settings → Export my data (your Call It calls and leagues included). Delete your account in Settings: that removes your profile, club, matches, leagues, calls and reports from the server.</p>
+  <h2>Cookies and your phone</h2>
+  <p>BALL sets no cookies. It uses your browser's local storage for your game on this phone: your progress, settings and club, your sign-in session, the random install id, and the queue of things waiting to sync. It also keeps an offline copy of itself so it opens without a signal. Clearing the site's data in your browser wipes all of it from that phone.</p>
 
-  <h2>Where</h2>
-  <p>Stored with Supabase, our database provider, in the EU (Ireland). Guests' games stay on their own phone and are never sent; a guest who calls matches in Call It does so under an anonymous account without an email address, so the calls can count. Match fixtures and results come from API-Football; nothing about you is sent there. We don't sell your data and there are no ads or trackers.</p>
+  <h2>Your rights</h2>
+  <p>Under the GDPR you may ask to see what we hold about you (access), have it corrected (rectification), have it deleted (erasure), take it with you (portability), object to what we do on the basis of our legitimate interest (objection), and withdraw any consent you gave, at any time.</p>
+  <ul>
+    <li><b>See and take it:</b> Settings → Export my data downloads everything as one file, your Call It calls and leagues included.</li>
+    <li><b>Correct it:</b> rename your club or change your username in Settings.</li>
+    <li><b>Delete it:</b> Settings → Delete my account removes your profile, club, matches, leagues, calls and reports from the server. What is on your phone stays until you clear it.</li>
+    <li><b>Withdraw consent:</b> untick "Tell me about new modes" or switch reminders off, in Settings.</li>
+    <li><b>Anything else:</b> write to <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>. We answer within a month.</li>
+  </ul>
+  <p>If you think we handle your data wrongly, you can complain to the Dutch data protection authority, the <a href="https://www.autoriteitpersoonsgegevens.nl" rel="noopener">Autoriteit Persoonsgegevens</a>, or to the authority in the EU country where you live.</p>
 
-  <footer>See also the <a href="terms.html">terms</a>. Back to <a href="./">BALL</a>.</footer>
+  <h2>Children</h2>
+  <p>In the Netherlands you can agree to an online service's use of your data from the age of 16. When you found your club we ask once whether you are 16 or older. Under 16, everything still works and you keep your club and all you earn, but friends, leagues and a public username are off, and other players see you only as "Player NNNN". We never ask for a birth date. A parent who wants a child's account gone can write to us.</p>
+
+  <h2>Changes to this page</h2>
+  <p>If this page changes in a way that matters, we say so in the app and change the date at the top.</p>
+
+  <footer>See also the <a href="terms.html">terms</a> and <a href="support.html">support</a>. Back to <a href="./">BALL</a>.</footer>
 </main>
 </body>
 </html>

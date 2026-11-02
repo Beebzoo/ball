@@ -6,26 +6,45 @@
 <title>BALL · Terms</title>
 <meta name="description" content="The house rules of BALL.">
 <link rel="icon" href="icons/icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,700;0,800;1,900&family=Lora:ital@1&display=swap" rel="stylesheet">
 <style>
+  /* the app's own fonts (assets/fonts, OFL): no request leaves for Google when you read this page */
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/barlow-semicondensed-400-latin.woff2) format('woff2')}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-semicondensed-700-latin.woff2) format('woff2')}
+  @font-face{font-family:'Barlow Semi Condensed';font-style:italic;font-weight:900;font-display:swap;src:url(assets/fonts/barlow-semicondensed-900i-latin.woff2) format('woff2')}
+  @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-400i-latin.woff2) format('woff2')}
   :root{--ink:#123D24;--paper:#e9dcbb;--card:#f6efdc;--dim:#3d4a38;--gold:#e9b84c}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:#1b1d17;font:500 17px/1.55 'Barlow Semi Condensed',Arial,sans-serif}
+  body{margin:0;background:var(--paper);color:#1b1d17;font:400 17px/1.55 'Barlow Semi Condensed',Arial,sans-serif}
   header{background:#1d5232 url(assets/grass-match@3x.jpg) center top/780px auto;padding:34px 20px 46px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%);text-align:center}
   header a{color:#f3ecda;text-decoration:none;font:italic 900 22px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em}
   h1{margin:10px 0 0;color:#f3ecda;font:italic 900 44px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;text-shadow:2px 2px 0 #a8740a}
   main{max-width:640px;margin:0 auto;padding:6px 18px 48px}
   .lead{font:italic 400 17px/1.5 'Lora',Georgia,serif;color:var(--dim)}
-  h2{margin:26px 0 6px;color:var(--ink);font:800 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  h2{margin:26px 0 6px;color:var(--ink);font:700 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase}
   p{margin:0 0 10px}
   a{color:var(--ink);font-weight:700}
+  ul{margin:0 0 10px;padding-left:20px}
+  li{margin:0 0 6px}
+  .card{background:var(--card);border:2px solid #fff;border-radius:12px;padding:12px 16px;margin:0 0 12px}
+  .card b{display:block;color:var(--ink)}
   footer{margin-top:34px;font-size:14px;color:var(--dim)}
 </style>
 </head>
 <body>
 <header><a href="./">BALL</a><h1>Terms</h1></header>
 <main>
-  <p class="lead">The house rules. By founding a club you agree to them. Last updated 21 October 2026.</p>
+  <p class="lead">The house rules. By playing BALL, and by founding a club, you agree to them. Last updated 2 November 2026.</p>
+
+  <h2>Who runs BALL</h2>
+  <div class="card">
+    <b>{{CONTROLLER_NAME}}</b>
+    <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>
+  </div>
+  <p>BALL is made and run by one fan, in spare time. Write to that address for anything in these terms.</p>
+
+  <h2>What BALL is</h2>
+  <p>A free football quiz, and Call It, a prediction league you play with your friends. Both are played for glory and nothing else. There are no prizes and no money anywhere in it: you cannot pay anything in, and there is nothing to be won but a place in the table and the right to say you called it. A score you call is a score you call; it is never anything more.</p>
+  <p>If BALL ever sells anything (a Supporter badge, say: cosmetics only, never an advantage in the game), a separate note will cover it.</p>
 
   <h2>Your own club, not a real one</h2>
   <p>Found a club of your own. Don't copy real clubs, players or people: their names, crests or kits. Support whoever you like; just don't pretend to be them.</p>
@@ -35,11 +54,36 @@
 
   <h2>Play it straight</h2>
   <p>No looking answers up during league or online matches. Your friends are trusting you. We may remove results that clearly weren't played straight.</p>
+  <p>Leagues are for friends: you make one, get a code, and share it with the people you want in it. You may be in several. Everyone in a league sees everyone else's club and results. A league is as kind as the people in it; if one goes wrong, leave it.</p>
 
-  <h2>The small print</h2>
-  <p>BALL is a free football quiz made by one fan. It is not affiliated with any club, league, UEFA or FIFA. Club and player names in questions are used to describe facts. Player and club facts come in part from Wikidata. We may change these terms; if we do, we'll say so in the app.</p>
+  <h2>Moderation, and a second look</h2>
+  <p>A name reported by enough players is hidden while we look; the owner sees "A new name, please" and others see "Club NNNN" until it is sorted. We look every week. If a name breaks these rules we ask for a new one; we never ban anyone quietly for a name. If you think we got it wrong, ask for a second look: in the app, or by writing to <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>. One person reads it and answers.</p>
+  <p>Someone who keeps breaking these rules after being asked to stop may lose their account.</p>
 
-  <footer>See also <a href="privacy.html">privacy</a>. Back to <a href="./">BALL</a>.</footer>
+  <h2>Your account</h2>
+  <p>One account per person. You can play without one; a club saves your career across phones. You can delete your account in Settings at any time; that removes your profile, club, matches, leagues, calls and reports from the server. We can close accounts that break these rules, and we may remove accounts nobody has used for a very long time, after letting you know by email where we can.</p>
+  <p>Under 16 you can play everything and keep your club, but friends, leagues and a public username are off. The <a href="privacy.html">privacy page</a> says why.</p>
+
+  <h2>Availability</h2>
+  <p>BALL is offered as it is, by one fan, for free. It may be down now and then, it will change, and one day it may stop. We try to say so in the app when something big changes. You can export your data at any time, in Settings, so nothing of yours is locked in.</p>
+
+  <h2>Whose it is</h2>
+  <p>The app, its design, its badges and its questions as written are ours. Facts are nobody's: a player's clubs, a final's score, the year of a transfer. Club and player names in questions are used to describe those facts, not to suggest a link. Player and club facts come in part from <a href="https://www.wikidata.org" rel="noopener">Wikidata</a> (CC0). BALL is not affiliated with any club, league, UEFA or FIFA.</p>
+  <p>Your club's name and design are yours to use; you give us the right to show them in the game, which is what they are for.</p>
+
+  <h2>If something goes wrong</h2>
+  <p>BALL is free, and we offer it as it is. We are not liable for a lost streak, a wrong fact, a league week that didn't close as it should, a lost call, or time the app was down. What the law does not let us exclude stays excluded from this: our liability for intent or gross negligence, and the rights you have as a consumer under the law that applies to you.</p>
+
+  <h2>Which law</h2>
+  <p>Dutch law applies to these terms, and Dutch courts settle any dispute about them. If you live in another EU country, the protections of your own country's consumer law still apply to you.</p>
+
+  <h2>Changes</h2>
+  <p>We may change these terms. If we do, we say so in the app and change the date at the top. If you keep playing after that, the new terms apply; if you don't want them, you can delete your account.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>. One fan, so give it a few days.</p>
+
+  <footer>See also <a href="privacy.html">privacy</a> and <a href="support.html">support</a>. Back to <a href="./">BALL</a>.</footer>
 </main>
 </body>
 </html>

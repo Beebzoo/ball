@@ -1,7 +1,11 @@
 {
+  "id": "ball",
   "name": "BALL · Football Quiz",
   "short_name": "BALL",
-  "description": "The football quiz you play like a match: pass your way to goal, play the Daily Ball, higher or lower on caps and goals, and guess the career path.",
+  "description": "The daily football quiz, and your friends' prediction league. Three short puzzles a day, a match whenever you want one, and Call It: call the scores with your mates, a table all season, for glory.",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "sports", "entertainment"],
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
@@ -26,6 +30,45 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/store/01-home-the-day.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Three short puzzles, every day"
+    },
+    {
+      "src": "assets/store/06-call-it-card.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Call the scores with your mates"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Today's three",
+      "short_name": "Today",
+      "description": "Daily Ball, Guess the player and today's list",
+      "url": "./?go=three",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Call It",
+      "short_name": "Call It",
+      "description": "Call this weekend's scores",
+      "url": "./?go=callit",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Quick match",
+      "short_name": "Match",
+      "description": "A short match, nothing to set up",
+      "url": "./?go=quick",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
   ]
 }

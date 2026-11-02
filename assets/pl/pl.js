@@ -23,7 +23,10 @@
    reveal (the calls are in). Copy rule (06-ux.md): no gambling words, ever. */
 
 var CL = { cards: null, card: {}, leagues: null, table: {}, board: {}, teams: null, skew: 0, err: null,
-  loading: false, at: 0, i: {}, idWait: 0, asked: {}, mc: {}, mcErr: null };
+  loading: false, at: 0, i: {}, idWait: 0, asked: {}, mc: {}, mcErr: null, sup: {} };
+/* BALL Supporter (_plans/supporter.md; the door is in index.html): the organiser's league of 200, the mark on the table */
+const clSup = () => typeof SUP_SHOW !== "undefined" && SUP_SHOW;
+const clSupporter = () => typeof isSupporter === "function" && isSupporter();
 const CL_PEND = "ball4-pl-pend", CL_SEEN = "ball4-pl-seen";
 const CL_QUICK = [[1, 0], [2, 0], [2, 1], [3, 1], [1, 1], [0, 0], [2, 2], [0, 1], [1, 2], [0, 2]];
 /* the series a new league can play (013_more_competitions.sql); the Card of the week only once there is one */
@@ -221,7 +224,11 @@ function clStripSave(){
   try{
     const c = (CL.leagues || []).length ? clTop() : null;
     if(!c){ localStorage.removeItem("ball4-pl-strip"); return; }
-    localStorage.setItem("ball4-pl-strip", JSON.stringify({ at: Date.now(), label: c.label, matches: c.matches | 0, called: c.called | 0, open: c.open | 0, lock: c.next_lock || null }));
+    /* and the way into my league (the one calling this round, else my first), so Today's three's share can
+       carry it without loading Call It (threeJoinLine in index.html) */
+    const lg = (CL.leagues || []).find(l => l.series === c.series) || CL.leagues[0];
+    localStorage.setItem("ball4-pl-strip", JSON.stringify({ at: Date.now(), label: c.label, matches: c.matches | 0, called: c.called | 0, open: c.open | 0, lock: c.next_lock || null,
+      lg: lg && lg.code ? { code: lg.code, name: lg.name } : null }));
   }catch(e){}
 }
 async function clLoad(force){
@@ -257,6 +264,9 @@ async function clLoadBoard(league, card, quiet){
 async function clLoadTable(league){
   try{ const d = await clRpc("pl_league_table", { p_league: league }); if(d.ok) CL.table[league] = d; else CL.err = "You're not in that league any more."; }
   catch(e){ CL.err = "Not available right now."; }
+  if(clSup() && CL.table[league]){
+    try{ const d = await clRpc("pl_league_supporters", { p_league: league }); if(d.ok){ const m = {}; (d.users || []).forEach(u => { m[u] = 1; }); CL.sup[league] = m; } }catch(e){}
+  }
   clRedraw();
 }
 /* the card to call next: the one whose next kick-off comes first, else the first one */
@@ -484,12 +494,14 @@ function clQuickHTML(f, mine, k){
   const note = !armOn ? "" : '<p class="cl-armnote">' + (here ? "<b>Armband</b> on this match: its points count double. Tap C to take it off."
     : armF ? "<b>Armband:</b> on " + clE(clTeam(armF.home).name) + " – " + clE(clTeam(armF.away).name) + "." + (clOpen(armF) ? " Tap C to move it here." : " That match has kicked off, so it stays.")
     : "<b>Armband:</b> one match per round counts double. Tap C to put it here.") + '</p>';
-  return grid + '<div class="cl-act">' + arm + pill + '</div>' + note + clWaitNote(mine);
+  return grid + '<div class="cl-act">' + arm + pill + '</div>' + note + clWaitNote(mine) + clCardShareBtn(k);
 }
+/* the card as a picture for the group, with the way in */
+const clCardShareBtn = k => '<button class="b4btn quiet cl-sharecard" onclick="clCardShare(' + k.card.id + ')">Share the card</button>';
 function clDoneHTML(k, f, mine){
   const lg = (CL.leagues || []).find(l => l.series === k.card.series);
   return (lg ? b4Btn("See what your league called ›", "clReveal('" + lg.id + "'," + k.card.id + "," + f.id + ")") : "") +
-    '<div class="cl-two">' + b4Btn("‹ Match", "clStep(-1)", "dark") + b4Btn("Match ›", "clStep(1)", "dark") + '</div>' + clWaitNote(mine);
+    '<div class="cl-two">' + b4Btn("‹ Match", "clStep(-1)", "dark") + b4Btn("Match ›", "clStep(1)", "dark") + '</div>' + clWaitNote(mine) + clCardShareBtn(k);
 }
 function clWaitNote(mine){
   return mine.wait ? '<p class="cl-wait">Saved on this phone, not sent yet. It goes as soon as BALL reaches the server.</p>' : "";
@@ -574,6 +586,7 @@ async function clLockIn(){
   const sent = await clFlush();
   if(!sent && clMine(id).wait){ toast("Saved on this phone. They go as soon as BALL reaches the server."); return; }
   try{ buzz([20, 40, 30]); }catch(e){}
+  try{ pushHook("lockin"); }catch(e){}      /* the one-time reminders ask, after the first lock-in (assets/push/push.js) */
   clStamp(clStr(k && k.card.label), () => { if(clOn()) clHomeGo(); });
 }
 /* CALLED: the gold plate slams over the calls, then back to the league */
@@ -587,12 +600,14 @@ function clStamp(label, then){
   }catch(e){}
   setTimeout(() => { try{ if(el && el.remove) el.remove(); }catch(e){} then && then(); }, clReduced() ? 500 : 1300);
 }
-function clNudge(league, card){
-  audio();
-  const L = (CL.leagues || []).find(l => l.id === league), k = CL.card[card];
+/* the nudge: the round, when it locks, and the card as a picture with the way in (so the ones who aren't in yet can join) */
+async function clNudge(league, card){
+  audio(); clTlm("pl-nudge");
+  const L = (CL.leagues || []).find(l => l.id === league) || (CL.table[league] && CL.table[league].league), k = card != null ? CL.card[card] : null;
   const first = k ? clF(card).filter(clOpen).map(f => f.ko).sort((a, b) => a - b)[0] : null;
-  const text = clStr(k && k.card.label) + (first ? " locks " + clDay(first) : "") + ". Your calls, " + clStr(L && L.name) + "! " + acctRedirect() + "?join=" + clStr(L && L.code);
-  clShareText(text);
+  const text = (k ? clStr(k.card.label) + (first ? " locks " + clDay(first) : "") + ". " : "") + "Your calls, " + clStr(L && L.name) + "!\n" + clJoinLine(league);
+  const blob = k ? await clCardImage(card, league) : null;
+  return blob ? clSharePNG(blob, "ball-call-it-" + clFile(k.card.label) + ".png", text) : clShareText(text);
 }
 
 /* ---------- a new league ---------- */
@@ -628,6 +643,7 @@ function clNewPage(v){
     '<div class="cl-series">' + series.map(s => '<button class="' + (v.series === s.id ? "on" : "") + '" aria-pressed="' + (v.series === s.id) + '" onclick="clSeries(\'' + s.id + '\')"><b>' + clE(s.name) + '</b><small>' + clE(s.sub) + '</small></button>').join("") + '</div>' +
     '<p class="cl-rules"><b>The rules:</b> the right result 2 points, the right goal difference 1 more, the exact score 2 more (5 in all). ' +
     'The right winner that fewer than 1 in 5 of BALL called: 1 more. Your armband doubles one match a round.</p>' +
+    (clSup() ? '<p class="cl-sum">' + (clSupporter() ? "Your leagues take up to 200 players: you're a Supporter." : "Up to 50 players. A BALL Supporter's league takes 200.") + '</p>' : "") +
     b4Btn("Create the league", "clCreate()") });
 }
 function clNameUse(b){ audio(); const el = document.getElementById("clname"); if(el && b) el.value = b.textContent; }
@@ -656,16 +672,18 @@ function clInvitePage(v){
     (v.fresh ? '<p class="cl-lead">' + clE(v.name) + ' is ready. Now the fun part: get your mates in.</p>' : "") +
     '<div class="lgcode cl-code"><span><small>League code</small><b>' + clE(clCode(v.code)) + '</b></span><button class="cl-copy" onclick="clCopy()">Copy</button></div>' +
     b4Btn("Share the invite", "clInvite()") +
+    (clLeagueCard(v.league) ? b4Btn("Share the card", "clCardShare(" + clLeagueCard(v.league).card + ",'" + clE(v.league) + "')", "dark") : "") +
     '<p class="cl-sum">Your mates tap the link, call the round straight away (as a guest if they like), and they are in the table.</p>' +
     b4Sec("Seats · " + seats + " of " + max) +
+    (seats >= max && clSup() && !clSupporter() ? '<button class="b4btn quiet" onclick="supGate(\'league\')">Room for more?</button>' : "") +
     (v.fresh ? b4Btn("Call the round ›", "clHomeGo()", "dark") : "") });
 }
 function clInviteText(v){
-  return "Join my prediction league " + clStr(v.name) + " on BALL: call the scores every round. " + acctRedirect() + "?join=" + clStr(v.code);
+  return "Call the scores every round on BALL, in my league " + clStr(v.name) + ".\n" + "Join my league " + clStr(v.name) + ": " + clJoinURL(v.code);
 }
-function clShareText(text){
+function clShareText(text, said){
   try{ if(navigator.share) return navigator.share({ title: "BALL", text }).catch(() => {}); }catch(e){}
-  try{ navigator.clipboard.writeText(text).then(() => toast("Copied. Paste it in your group."), () => toast(text)); }catch(e){ toast(text); }
+  try{ navigator.clipboard.writeText(text).then(() => toast(said || "Copied. Paste it in your group."), () => toast(text)); }catch(e){ toast(text); }
 }
 function clInvite(){ audio(); const v = clV(); clShareText(clInviteText({ name: v.name || ((CL.leagues || []).find(l => l.id === v.league) || {}).name, code: v.code })); }
 function clCopy(){ audio(); const v = clV(); try{ navigator.clipboard.writeText(v.code).then(() => toast("Code copied: " + clCode(v.code)), () => toast(clCode(v.code))); }catch(e){ toast(clCode(v.code)); } }
@@ -678,11 +696,13 @@ function clJoinPage(v){
     '<div class="lgjoin cl-join"><input id="clcode" maxlength="7" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="K7Q 2PM" aria-label="League code" value="' + clE(v.code || "") + '">' +
     '<button class="acsmall" onclick="clLook()">Look</button></div>' + (v.err ? '<p class="cl-err">' + clE(v.err) + '</p>' : "") });
   const top = (p.top || []).map(r => '<span>' + clCrest(r, 26) + '<b>' + clE(r.display_name) + '</b><small>' + ordinal(r.pos) + '</small></span>').join("");
+  const facts = '<div class="cl-facts"><span><small>Football</small><b>' + clE(p.series_name) + '</b></span><span><small>Players</small><b>' + (p.members | 0) + '</b></span>' +
+    '<span><small>' + (p.card ? "Next up" : "Rounds") + '</small><b>' + (p.card ? clE(p.card.label) : "Every one") + '</b></span></div>';
   return b4Page({ title: "You're invited", ctx: p.series_name, back: "clBack()", cls: "clpage", body:
     '<div class="b4card dark cl-invited"><span class="cl-kick">Prediction league · ' + clE(p.series_name) + '</span><h2>' + clE(p.name) + '</h2>' +
     '<p class="cl-when">' + p.members + ' player' + (p.members === 1 ? "" : "s") + (p.card ? ' · ' + clE(p.card.label) + (p.card.next_lock ? ' locks ' + clDay(p.card.next_lock) : "") : "") + '</p>' +
-    (top ? '<div class="cl-who dark">' + top + '</div>' : "") + '</div>' +
-    (p.full ? '<div class="lgempty"><b>This league is full</b><span>Ask whoever sent the code to make room, or start your own.</span></div>' + b4Btn("Start your own", "clNew()", "dark")
+    facts + (top ? '<div class="cl-who dark">' + top + '</div>' : "") + '</div>' +
+    (p.full ? '<div class="lgempty"><b>This league is full</b><span>Ask whoever sent the code to make room, or start your own.' + (clSup() ? " A BALL Supporter's league takes 200: tell whoever runs it." : "") + '</span></div>' + b4Btn("Start your own", "clNew()", "dark")
       : b4Btn("Join the league", "clJoin()") + '<p class="cl-sum">You call every round: the score of each match. The right result is 2 points, the exact score 5.</p>') });
 }
 async function clLook(code){
@@ -747,14 +767,24 @@ function clTablePage(v){
   const mv = r => r.prev == null ? '<i class="eq">·</i>' : r.prev > r.pos ? '<i class="up">▲' + (r.prev - r.pos) + '</i>' : r.prev < r.pos ? '<i class="dn">▼' + (r.pos - r.prev) + '</i>' : '<i class="eq">=</i>';
   const body = '<div class="b4card cream cl-table">' + '<div class="cl-trow hd"><span>#</span><span></span><span>Club</span><span>Last</span><span>Pts</span></div>' +
     rows.map(r => '<div class="cl-trow' + (r.me ? " me" : "") + '"><span class="pos">' + (tied[r.pos] > 1 ? '<span class="tie">=</span>' : "") + r.pos + mv(r) + '</span>' + clCrest(r, 28) +
-      '<span class="nm"><b><span class="t">' + clE(r.display_name) + '</span>' + crown(r.crowns) + '</b><small>' + (r.me ? "you" : r.from_seq > L.from_seq && r.base ? "joined later, started on " + r.base : r.exact ? r.exact + " exact" : "") + '</small></span>' +
+      '<span class="nm"><b><span class="t">' + clE(r.display_name) + '</span>' + (CL.sup[L.id] && CL.sup[L.id][r.user_id] ? supMark() : "") + crown(r.crowns) + '</b><small>' + (r.me ? "you" : r.from_seq > L.from_seq && r.base ? "joined later, started on " + r.base : r.exact ? r.exact + " exact" : "") + '</small></span>' +
       '<span class="last">' + (r.last == null ? "–" : "+" + r.last) + '</span><span class="pts">' + r.pts + '</span></div>').join("") + '</div>';
   const solo = rows.length < 2 ? '<div class="lgempty"><b>Just you so far</b><span>Share the code and the table fills up. Everyone calls the same rounds.</span></div>' : "";
   const series = ((CL.leagues || []).find(l => l.id === L.id) || {}).series_name;
   return b4Page({ title: "The table", ctx: L.name, back: "clBack()", cls: "clpage",
     body: '<p class="cl-sum cl-tsub">' + (series ? clE(series) + ' · ' : "") + rows.length + ' player' + (rows.length === 1 ? "" : "s") + ' · code ' + clE(clCode(L.code)) + '</p>' + solo + body + '<p class="cl-sum">Points: the right result 2, the goal difference 1 more, the exact score 2 more. Level on points: more exact scores, then more right results.</p>' +
-      b4Btn("Invite your mates", "clInviteFrom('" + L.id + "')", "dark") +
+      clTableTools(L) +
       '<button class="b4btn quiet" onclick="clLeaveAsk(\'' + L.id + '\')">Leave this league</button>' });
+}
+/* under the table: the organiser nudges the league, shares the table and copies the invite link; the rest share the
+   table and invite a friend. One gold pill: the table as a picture, the one thing everyone wants to post */
+function clTableTools(L){
+  const owner = clOwner(L.id), k = clLeagueCard(L.id), card = k && k.open > 0 ? k.card : null;
+  return b4Btn("Share the table", "clTableShare('" + L.id + "')") +
+    (owner
+      ? '<div class="cl-two">' + (card != null ? b4Btn("Nudge the league", "clNudge('" + L.id + "'," + card + ")", "dark") : b4Btn("Invite a friend", "clInviteFrom('" + L.id + "')", "dark")) +
+        b4Btn("Copy the invite link", "clCopyLink('" + L.id + "')", "dark") + '</div>'
+      : b4Btn("Invite a friend", "clInviteFrom('" + L.id + "')", "dark"));
 }
 function clInviteFrom(id){ const t = CL.table[id]; if(t) clGo("invite", { league: id, code: t.league.code, name: t.league.name, from: clV() }); }
 const CL_CROWN = '<svg viewBox="0 0 24 18" width="16" height="12" aria-hidden="true"><path d="M2 16h20l-2-11-5 5-3-8-3 8-5-5z" fill="#e9b84c" stroke="#7a5a10" stroke-width="1.4" stroke-linejoin="round"/></svg>';
@@ -786,7 +816,9 @@ function clRevealBanner(){
   const full = f && (clF(t.card).find(x => +x.id === +f.id) || null);
   if(!f || !full) return "";
   return '<button class="cl-banner" onclick="clReveal(\'' + lg.id + '\',' + t.card + ',' + f.id + ')"><span class="cl-kick">The calls are in · ' + clE(lg.name) + '</span>' +
-    '<b>' + clE(clTeam(full.home).name) + ' v ' + clE(clTeam(full.away).name) + '</b><small>See what everyone called ›</small></button>';
+    '<b>' + clE(clTeam(full.home).name) + ' v ' + clE(clTeam(full.away).name) + '</b><small>See what everyone called ›</small></button>' +
+    /* the round is scored to the end: the table as a picture for the group */
+    (clCardDone(t.card) ? '<button class="b4btn quiet cl-sharetable" onclick="clTableShare(\'' + lg.id + '\')">Share the table</button>' : "");
 }
 function clReveal(league, card, fid){
   clGo("reveal", { league, card, fid, from: clV() });
@@ -818,7 +850,8 @@ function clRevealPage(v){
   const lines = clBanter(ms, v.fid, H.name, A.name, tot);
   return b4Page({ title: "The calls are in", ctx: clDay(fx.ko) + " · " + clStr(((CL.leagues || []).find(l => l.id === v.league) || {}).name), back: "clBack()", cls: "clpage clmoment",
     body: score + '<div class="cl-flips">' + cards + '</div>' + split + (lines.length ? '<div class="cl-banter">' + lines.map(l => '<p>' + l + '</p>').join("") + '</div>' : "") +
-      b4Btn("Back to the round ›", "clBack()") });
+      b4Btn("Back to the round ›", "clBack()") +
+      '<button class="b4btn quiet" onclick="clRevealShare(\'' + v.league + '\',' + v.card + ',' + v.fid + ')">Share this</button>' });
 }
 function clPatchURL(t){
   const T = clTeam(t), ident = T.own || (T.slug ? null : { name: T.name, code: T.code, c1: "#5a6470", c2: "#ffffff", p: "plain" });
@@ -1044,4 +1077,320 @@ function clTickOn(){
       try{ document.querySelectorAll("[data-cl-until]").forEach(el => { el.textContent = clLeft(+el.getAttribute("data-cl-until"))[0]; }); }catch(e){}
     }, 20000);
   }catch(e){}
+}
+
+/* ---------- SHARING: the join line, the card picture, the standings picture ----------
+   _plans/go-to-market.md, the share stream (2 Nov 2026). Kicktipp grew because organisers bring their
+   group, so every share carries the way in: "Join my league <name>: <site>?join=CODE". The pictures
+   are drawn on a canvas in the house style (cream paper, the grass band, a slanted gold bar, the clubs
+   as their colours in two blocks, never a crest), 1080 x 1350 so WhatsApp shows them whole. The phone's
+   share sheet gets the PNG with the words when it takes files; otherwise the PNG is saved and the
+   words copied. Glory only, never a gambling word (pl-share-test.js). */
+const CL_C = { paper: "#efe4c8", cream: "#F8F1DD", grass: "#123D24", deep: "#0a1f13", card: "#14422A", edge: "#0b2416",
+  gold: "#e9b84c", gold1: "#f3cd6b", gold2: "#f6d57c", goldDeep: "#c99a2e", goldSh: "#7a5a10", goldInk: "#241B08",
+  dim: "#4f6b56", sage: "#8FB79E", red: "#b8261c", up: "#2f8f52", white: "#ffffff" };
+const CL_W = 1080, CL_H = 1350;
+/* the site the links point at: where the app runs, without index.html (the fallback is the published site) */
+function clSite(){ let u = null; try{ u = acctRedirect(); }catch(e){} u = clStr(u) || "https://beebzoo.github.io/ball/"; return u.replace(/index\.html$/, ""); }
+const clSiteShort = () => clSite().replace(/^https?:\/\//, "").replace(/\/$/, "");
+const clJoinURL = code => clSite() + "?join=" + clStr(code);
+/* the league a share speaks for: the one asked for, else the first of mine; from the strip the phone keeps when
+   the leagues aren't loaded yet (clStripSave) */
+function clShareLeague(id){
+  const L = CL.leagues || [];
+  const l = (id && L.find(x => x.id === id)) || null;
+  if(l) return { id: l.id, name: l.name, code: l.code, series: l.series };
+  const t = id && CL.table[id];
+  if(t && t.league) return { id, name: t.league.name, code: t.league.code, series: t.league.series };
+  if(L[0]) return { id: L[0].id, name: L[0].name, code: L[0].code, series: L[0].series };
+  try{ const s = JSON.parse(localStorage.getItem("ball4-pl-strip") || "null"); if(s && s.lg && s.lg.code) return { name: s.lg.name, code: s.lg.code }; }catch(e){}
+  return null;
+}
+/* THE JOIN LINE: on the end of every share */
+function clJoinLine(id){
+  const l = clShareLeague(id);
+  return l ? "Join my league " + clStr(l.name) + ": " + clJoinURL(l.code) : "Play along: " + clSite();
+}
+/* ---- the canvas ---- */
+const clFont = (w, px, italic, lora) => (italic ? "italic " : "") + w + " " + px + "px " + (lora ? "'Lora', Georgia, serif" : "'Barlow Semi Condensed', sans-serif");
+function clCanvas(){
+  try{ const c = document.createElement("canvas"); c.width = CL_W; c.height = CL_H; const x = c.getContext("2d"); return x ? { c, x } : null; }catch(e){ return null; }
+}
+/* a canvas doesn't wait for a @font-face: ask for the three faces the pictures use, a moment at most */
+async function clFontsReady(){
+  try{
+    if(typeof document === "undefined" || !document.fonts) return;
+    const want = ["italic 900 40px 'Barlow Semi Condensed'", "700 30px 'Barlow Semi Condensed'", "italic 400 30px 'Lora'"];
+    const load = document.fonts.load ? Promise.all(want.map(f => document.fonts.load(f))) : document.fonts.ready;
+    await Promise.race([load, new Promise(r => setTimeout(r, 1500))]);
+  }catch(e){}
+}
+const clBlob = c => new Promise(r => { try{ c.toBlob(b => r(b || null), "image/png"); }catch(e){ r(null); } });
+/* text that fits: the size comes down until it does */
+function clFitText(x, text, maxW, w, px, italic, lora, min){
+  let size = px;
+  for(; size > (min || 18); size -= 2){ x.font = clFont(w, size, italic, lora); if(x.measureText(text).width <= maxW) break; }
+  x.font = clFont(w, size, italic, lora);
+  return size;
+}
+/* letter-spaced caps, drawn a letter at a time (letterSpacing isn't everywhere yet) */
+function clSpaced(x, text, cx, y, gap, align){
+  const t = clStr(text).toUpperCase(), ws = [...t].map(ch => x.measureText(ch).width), total = ws.reduce((a, b) => a + b, 0) + gap * (t.length - 1);
+  let at = align === "left" ? cx : align === "right" ? cx - total : cx - total / 2;
+  const keep = x.textAlign; x.textAlign = "left";
+  [...t].forEach((ch, i) => { x.fillText(ch, at, y); at += ws[i] + gap; });
+  x.textAlign = keep;
+}
+function clRound(x, l, t, w, h, r){
+  x.beginPath(); x.moveTo(l + r, t); x.lineTo(l + w - r, t); x.quadraticCurveTo(l + w, t, l + w, t + r); x.lineTo(l + w, t + h - r);
+  x.quadraticCurveTo(l + w, t + h, l + w - r, t + h); x.lineTo(l + r, t + h); x.quadraticCurveTo(l, t + h, l, t + h - r); x.lineTo(l, t + r); x.quadraticCurveTo(l, t, l + r, t); x.closePath();
+}
+/* the paper with its faint 115-degree stripes, and the grass band with a slanted foot: the house's top band */
+function clPaper(x, bandH){
+  x.fillStyle = CL_C.paper; x.fillRect(0, 0, CL_W, CL_H);
+  x.save(); x.globalAlpha = .05; x.fillStyle = CL_C.grass;
+  for(let i = -CL_H; i < CL_W + CL_H; i += 34){ x.beginPath(); x.moveTo(i, 0); x.lineTo(i + 10, 0); x.lineTo(i + 10 - CL_H * .47, CL_H); x.lineTo(i - CL_H * .47, CL_H); x.closePath(); x.fill(); }
+  x.restore();
+  x.save();
+  x.beginPath(); x.moveTo(0, 0); x.lineTo(CL_W, 0); x.lineTo(CL_W, bandH); x.lineTo(0, bandH - 46); x.closePath(); x.clip();
+  const g = x.createLinearGradient(0, 0, 0, bandH); g.addColorStop(0, CL_C.deep); g.addColorStop(1, CL_C.grass);
+  x.fillStyle = g; x.fillRect(0, 0, CL_W, bandH);
+  x.globalAlpha = .07; x.fillStyle = CL_C.white;                                   /* the mowing stripes */
+  for(let i = -bandH; i < CL_W + bandH; i += 180){ x.beginPath(); x.moveTo(i, 0); x.lineTo(i + 90, 0); x.lineTo(i + 90 - bandH * .6, bandH); x.lineTo(i - bandH * .6, bandH); x.closePath(); x.fill(); }
+  x.globalAlpha = .45; const d = x.createLinearGradient(0, 0, 0, bandH * .6); d.addColorStop(0, CL_C.deep); d.addColorStop(1, "rgba(10,31,19,0)");
+  x.fillStyle = d; x.fillRect(0, 0, CL_W, bandH);
+  x.restore();
+}
+/* the slanted gold bar with letter-spaced caps in it */
+function clGoldBar(x, cx, y, text, h){
+  x.font = clFont(700, Math.round(h * .5), false);
+  const w = x.measureText(clStr(text).toUpperCase()).width + Math.round(h * .5) * .12 * text.length + h * 1.3, l = cx - w / 2, k = h * .25;
+  x.fillStyle = CL_C.gold; x.beginPath(); x.moveTo(l + k, y); x.lineTo(l + w, y); x.lineTo(l + w - k, y + h); x.lineTo(l, y + h); x.closePath(); x.fill();
+  x.fillStyle = CL_C.goldInk; x.textBaseline = "middle";
+  clSpaced(x, text, cx, y + h / 2 + 1, Math.round(h * .5) * .12, "center");
+  x.textBaseline = "alphabetic";
+}
+/* the band's head: BALL . CALL IT over the title */
+function clBandHead(x, kicker, title, titleMax){
+  x.textAlign = "center"; x.fillStyle = CL_C.gold1; x.font = clFont(700, 30, false);
+  clSpaced(x, kicker, CL_W / 2, 96, 8, "center");
+  x.fillStyle = CL_C.cream; x.shadowColor = "rgba(0,0,0,.45)"; x.shadowBlur = 0; x.shadowOffsetY = 6;
+  clFitText(x, title, CL_W - 120, 900, titleMax || 112, true, false, 48);
+  x.fillText(title, CL_W / 2, 214);
+  x.shadowColor = "transparent"; x.shadowOffsetY = 0;
+}
+/* a club as its colours: two blocks, the first kit colour and the second (cream on sage for a club BALL has no colours for) */
+function clColourBlock(x, t, l, top, w, h){
+  const T = clTeam(t), o = T.own || null, c1 = clStr(o && o.c1) || CL_C.sage, c2 = clStr(o && o.c2) || CL_C.cream;
+  x.save(); clRound(x, l, top, w, h, 7); x.clip();
+  x.fillStyle = c1; x.fillRect(l, top, w, h);
+  x.fillStyle = c2; x.fillRect(l + w * .62, top, w * .38, h);
+  x.restore();
+  x.strokeStyle = "rgba(11,36,22,.35)"; x.lineWidth = 2; clRound(x, l, top, w, h, 7); x.stroke();
+}
+/* the foot: the gold slab with the way in */
+function clJoinSlab(x, top, league){
+  const l = clShareLeague(league && league.id), h = 150, pad = 60;
+  x.fillStyle = CL_C.goldSh; clRound(x, pad, top + 8, CL_W - pad * 2, h, 18); x.fill();
+  const g = x.createLinearGradient(0, top, 0, top + h); g.addColorStop(0, CL_C.gold2); g.addColorStop(1, CL_C.goldDeep);
+  x.fillStyle = g; clRound(x, pad, top, CL_W - pad * 2, h, 18); x.fill();
+  x.fillStyle = CL_C.goldInk; x.textAlign = "center";
+  if(l){
+    x.font = clFont(700, 28, false); clSpaced(x, "Join my league · " + l.name, CL_W / 2, top + 52, 3, "center");
+    clFitText(x, clSiteShort() + "?join=" + l.code, CL_W - pad * 2 - 60, 900, 54, true, false, 30);
+    x.fillText(clSiteShort() + "?join=" + l.code, CL_W / 2, top + 112);
+  } else {
+    x.font = clFont(700, 28, false); clSpaced(x, "Play along", CL_W / 2, top + 52, 4, "center");
+    clFitText(x, clSiteShort(), CL_W - pad * 2 - 60, 900, 54, true, false, 30);
+    x.fillText(clSiteShort(), CL_W / 2, top + 112);
+  }
+  return top + h;
+}
+/* THE CARD PICTURE: the round's matches, the kick-offs, the way in */
+function clCardCanvas(cardId, leagueId){
+  const k = CL.card[cardId], cv = clCanvas();
+  if(!k || !cv) return null;
+  const { c, x } = cv, F = clF(cardId), lg = clShareLeague(leagueId), bandH = 330;
+  clPaper(x, bandH);
+  clBandHead(x, "BALL · Call It", clStr(k.card.label), 118);
+  clGoldBar(x, CL_W / 2, 248, clStr(k.card.series_name), 46);
+  /* the matches: a row each, the kick-off on the left; up to 18 (the Champions League's league stage) */
+  const rows = F.slice(0, 18), top0 = bandH + 40, footTop = CL_H - 60 - 150 - 30, avail = footTop - top0 - 70;
+  const rh = Math.min(84, Math.floor(avail / Math.max(1, rows.length))), fsMax = Math.max(22, Math.min(40, Math.round(rh * .46)));
+  /* the grid: the kick-off | the home side, right-aligned to its colours | v | the away side's colours, its name */
+  const bw = Math.round(rh * .5), bh = Math.round(rh * .62), hx = 470, ax = CL_W - 470, nameW = hx - bw - 14 - 196;
+  /* one size for every name on the card, the one the longest name fits at */
+  const names = rows.flatMap(f => [clTeam(f.home).name, clTeam(f.away).name]);
+  const fs = names.reduce((m, nm) => Math.min(m, clFitText(x, nm, nameW, 900, fsMax, true, false, 18)), fsMax);
+  x.textBaseline = "middle";
+  rows.forEach((f, i) => {
+    const y = top0 + i * rh + rh / 2, H = clTeam(f.home), A = clTeam(f.away);
+    if(i % 2 === 0){ x.fillStyle = "rgba(18,61,36,.05)"; x.fillRect(50, y - rh / 2, CL_W - 100, rh); }
+    x.textAlign = "left"; x.fillStyle = CL_C.dim; x.font = clFont(700, Math.round(fsMax * .6), false);
+    const done = !!f.ft && (f.status === "finished" || f.status === "awarded");
+    x.fillText((done ? "FT" : clDay(f.ko)).toUpperCase(), 64, y);
+    clColourBlock(x, f.home, hx - bw, y - bh / 2, bw, bh);
+    clColourBlock(x, f.away, ax, y - bh / 2, bw, bh);
+    x.fillStyle = CL_C.edge; x.font = clFont(900, fs, true, false);
+    x.textAlign = "right"; x.fillText(H.name, hx - bw - 14, y);
+    x.textAlign = "left"; x.fillText(A.name, ax + bw + 14, y);
+    x.textAlign = "center";
+    const mid = done ? f.ft[0] + " – " + f.ft[1] : "v";
+    x.fillStyle = done ? CL_C.edge : CL_C.dim; x.font = clFont(done ? 900 : 600, done ? fs : Math.round(fsMax * .8), done, false);
+    x.fillText(mid, CL_W / 2, y);
+    if(f.top){
+      const th = Math.max(16, Math.round(rh * .2));
+      x.fillStyle = CL_C.gold; clRound(x, CL_W / 2 - 54, y + rh * .22, 108, th, 4); x.fill();
+      x.fillStyle = CL_C.goldInk; x.font = clFont(700, Math.max(11, Math.round(rh * .14)), false); clSpaced(x, "Top match", CL_W / 2, y + rh * .22 + th / 2 + 1, 1.5, "center");
+    }
+  });
+  if(F.length > rows.length){ x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(600, 24, false); x.fillText("and " + (F.length - rows.length) + " more", CL_W / 2, top0 + rows.length * rh + 20); }
+  x.textBaseline = "alphabetic";
+  x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(400, 30, true, true);
+  x.fillText("Call the scores. Beat your mates. All season.", CL_W / 2, Math.min(footTop - 24, top0 + rows.length * rh + 54));
+  clJoinSlab(x, footTop + 10, lg);
+  return c;
+}
+/* the label of the card a league's table was last scored on: the card itself when it is here, else from its number */
+function clSeqLabel(series, seq){
+  if(seq == null) return "";
+  const c = (CL.cards || []).find(k => k.series === series && k.seq === seq);
+  if(c) return clStr(c.label);
+  const k = Object.values(CL.card || {}).find(d => d && d.card && d.card.series === series && d.card.seq === seq);
+  if(k) return clStr(k.card.label);
+  return series === "week" ? "round " + seq : "Matchday " + seq;
+}
+/* a mover's triangle, drawn (never a glyph in a picture) */
+function clTri(x, cx, cy, s, up, col){
+  x.fillStyle = col; x.beginPath();
+  if(up){ x.moveTo(cx, cy - s); x.lineTo(cx + s, cy + s * .8); x.lineTo(cx - s, cy + s * .8); }
+  else { x.moveTo(cx, cy + s); x.lineTo(cx + s, cy - s * .8); x.lineTo(cx - s, cy - s * .8); }
+  x.closePath(); x.fill();
+}
+/* THE STANDINGS PICTURE: the league after the card just scored, the top ten (and you), the movers, the way in */
+function clTableCanvas(leagueId){
+  const t = CL.table[leagueId], cv = clCanvas();
+  if(!t || !cv) return null;
+  const { c, x } = cv, L = t.league, rows = (t.rows || []).slice(), lg = clShareLeague(leagueId), bandH = 330;
+  const mine = (CL.leagues || []).find(l => l.id === leagueId), ser = CL_SERIES.find(s => s.id === L.series);
+  const seriesName = clStr((mine && mine.series_name) || (ser && ser.name) || L.series);
+  const after = clSeqLabel(L.series, t.last_seq);
+  clPaper(x, bandH);
+  clBandHead(x, "BALL · Call It", clStr(L.name), 104);
+  clGoldBar(x, CL_W / 2, 248, seriesName + (after ? " · after " + after : ""), 46);
+  const me = rows.find(r => r.me), top = rows.slice(0, 10), extra = me && !top.includes(me) ? [me] : [];
+  const top0 = bandH + 44, footTop = CL_H - 60 - 150 - 30, n = top.length + extra.length + (extra.length ? .5 : 0);
+  const rh = Math.min(74, Math.floor((footTop - top0 - 60) / Math.max(1, n)));
+  x.textBaseline = "middle";
+  const draw = (r, i, y) => {
+    if(r.me){ x.fillStyle = "rgba(233,184,76,.28)"; clRound(x, 50, y - rh / 2 + 2, CL_W - 100, rh - 4, 12); x.fill(); }
+    else if(i % 2 === 0){ x.fillStyle = "rgba(18,61,36,.05)"; x.fillRect(50, y - rh / 2, CL_W - 100, rh); }
+    x.fillStyle = CL_C.edge; x.textAlign = "right"; x.font = clFont(900, Math.round(rh * .5), true); x.fillText(String(r.pos), 128, y);
+    if(r.prev != null && r.prev !== r.pos) clTri(x, 164, y, 11, r.prev > r.pos, r.prev > r.pos ? CL_C.up : CL_C.red);
+    else { x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(700, 20, false); x.fillText(r.prev == null ? "·" : "=", 164, y); }
+    const nm = clStr(r.display_name) + (r.me ? "  (you)" : "");
+    x.fillStyle = CL_C.edge; x.textAlign = "left"; clFitText(x, nm, CL_W - 200 - 330, 900, Math.round(rh * .5), true, false, 22);
+    x.fillText(nm, 200, y);
+    x.textAlign = "right"; x.fillStyle = CL_C.dim; x.font = clFont(700, Math.round(rh * .34), false); x.fillText(r.last == null ? "" : "+" + r.last, CL_W - 190, y);
+    x.fillStyle = CL_C.edge; x.font = clFont(900, Math.round(rh * .56), true); x.fillText(String(r.pts), CL_W - 64, y);
+  };
+  x.fillStyle = CL_C.dim; x.textAlign = "right"; x.font = clFont(700, 20, false);
+  clSpaced(x, "Last", CL_W - 190, top0 - 14, 2, "right"); clSpaced(x, "Pts", CL_W - 64, top0 - 14, 2, "right");
+  top.forEach((r, i) => draw(r, i, top0 + 10 + i * rh + rh / 2));
+  if(extra.length){
+    const gy = top0 + 10 + top.length * rh + rh * .25;
+    x.fillStyle = CL_C.dim; [-24, 0, 24].forEach(d => { x.beginPath(); x.arc(CL_W / 2 + d, gy, 3.5, 0, Math.PI * 2); x.fill(); });
+    draw(me, top.length, top0 + 10 + (top.length + .5) * rh + rh / 2);
+  }
+  x.textBaseline = "alphabetic";
+  const line = rows.length < 2 ? "Just one so far. The table fills up as your mates join." :
+    me && me.pos === 1 ? "Top of the table. Someone come and take it." : me && me.prev != null && me.prev > me.pos ? "Up " + (me.prev - me.pos) + " this round." : rows.length + " players. Every match moves it.";
+  x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(400, 30, true, true);
+  x.fillText(line, CL_W / 2, Math.min(footTop - 24, top0 + 10 + (top.length + (extra.length ? 1.5 : 0)) * rh + 56));
+  clJoinSlab(x, footTop + 10, lg);
+  return c;
+}
+async function clCardImage(cardId, leagueId){ await clFontsReady(); const c = clCardCanvas(cardId, leagueId); return c ? clBlob(c) : null; }
+async function clTableImage(leagueId){ await clFontsReady(); const c = clTableCanvas(leagueId); return c ? clBlob(c) : null; }
+/* ---- the words that go with a picture ---- */
+function clCardText(cardId, leagueId){
+  const k = CL.card[cardId], F = k ? clF(cardId) : [], first = F.filter(clOpen).map(f => f.ko).sort((a, b) => a - b)[0];
+  return clStr(k && k.card.label) + " · " + clStr(k && k.card.series_name) + ": call the scores on BALL." + (first ? " First kick-off " + clDay(first) + "." : "") + "\n" + clJoinLine(leagueId);
+}
+function clTableText(leagueId){
+  const t = CL.table[leagueId], rows = t ? (t.rows || []) : [], me = rows.find(r => r.me), after = t ? clSeqLabel(t.league.series, t.last_seq) : "";
+  const top = rows.slice(0, 3).map(r => r.pos + ". " + clStr(r.display_name) + " " + r.pts).join(", ");
+  return clStr(t && t.league.name) + (after ? " after " + after : "") + (top ? ": " + top : "") + (me && me.pos > 3 ? ". Me: " + ordinal(me.pos) + " on " + me.pts : "") + ".\n" + clJoinLine(leagueId);
+}
+function clRevealText(league, card, fid){
+  const k = CL.card[card], b = CL.board[league + ":" + card], fx = k && (k.fixtures || []).find(x => +x.id === +fid), bf = b && (b.fixtures || []).find(x => +x.id === +fid);
+  const lgName = clStr(((CL.leagues || []).find(l => l.id === league) || {}).name), ft = bf && bf.ft;
+  if(!fx) return "The calls are in on BALL.\n" + clJoinLine(league);
+  const H = clTeam(fx.home).name, A = clTeam(fx.away).name, ms = (b && b.members) || [], has = ms.filter(m => m.calls && m.calls[fid]);
+  const res = c => c[0] > c[1] ? "h" : c[0] < c[1] ? "a" : "d";
+  const right = ft ? has.filter(m => res(m.calls[fid]) === res(ft)).length : 0, exact = ft ? has.filter(m => m.calls[fid][0] === ft[0] && m.calls[fid][1] === ft[1]).length : 0;
+  const mine = ms.find(m => m.me), my = mine && mine.calls && mine.calls[fid];
+  return "The calls are in · " + H + " v " + A + (ft ? " " + ft[0] + "–" + ft[1] : "") + (lgName ? " · " + lgName : "") + "." +
+    (ft && has.length ? " " + right + " of " + has.length + " called the result" + (exact ? ", " + exact + " the exact score" : "") + "." : "") +
+    (my ? " Mine: " + my[0] + "–" + my[1] + "." : "") + "\n" + clJoinLine(league);
+}
+/* ---- sharing a picture: the sheet when it takes files, else the PNG is saved and the words copied ---- */
+function clSharePNG(blob, name, text){
+  try{
+    if(blob && typeof File === "function" && navigator.canShare){
+      const file = new File([blob], name, { type: "image/png" });
+      if(navigator.canShare({ files: [file] })) return navigator.share({ files: [file], text }).catch(() => {});
+    }
+  }catch(e){}
+  if(blob) clDownload(blob, name);
+  return clShareText(text, blob ? "Picture saved and the words copied. Paste them in your group." : null);
+}
+function clDownload(blob, name){
+  try{
+    const u = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = u; a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(() => { try{ a.remove(); URL.revokeObjectURL(u); }catch(e){} }, 2000);
+  }catch(e){}
+}
+const clTlm = what => { try{ if(typeof tlmEvent === "function") tlmEvent("share", { what }); }catch(e){} };
+const clFile = s => clStr(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "ball";
+async function clCardShare(cardId, leagueId){
+  audio(); clTlm("pl-card");
+  const k = CL.card[cardId];
+  if(!k){ toast("The round is still loading. Try again in a moment.", true); return; }
+  const text = clCardText(cardId, leagueId), blob = await clCardImage(cardId, leagueId);
+  return clSharePNG(blob, "ball-call-it-" + clFile(k.card.label) + ".png", text);
+}
+async function clTableShare(leagueId){
+  audio(); clTlm("pl-table");
+  const t = CL.table[leagueId];
+  if(!t){ clLoadTable(leagueId); toast("The table is still loading. Try again in a moment.", true); return; }
+  const text = clTableText(leagueId), blob = await clTableImage(leagueId);
+  return clSharePNG(blob, "ball-" + clFile(t.league.name) + "-table.png", text);
+}
+function clRevealShare(league, card, fid){ audio(); clTlm("pl-reveal"); return clShareText(clRevealText(league, card, fid)); }
+/* the organiser's copy of the invite link */
+function clCopyLink(leagueId){
+  audio();
+  const l = clShareLeague(leagueId);
+  if(!l) return;
+  const u = clJoinURL(l.code);
+  try{ navigator.clipboard.writeText(u).then(() => toast("Invite link copied: " + u), () => toast(u)); }catch(e){ toast(u); }
+}
+/* am I this league's organiser (its creator, or whoever took over) */
+function clOwner(leagueId){
+  const t = CL.table[leagueId], l = (CL.leagues || []).find(x => x.id === leagueId);
+  let me = null; try{ me = acct().id; }catch(e){}
+  return !!((t && t.league && me && t.league.owner === me) || (l && l.role === "owner"));
+}
+/* the card a league is calling now: the one of its series with the next kick-off */
+function clLeagueCard(leagueId){
+  const l = (CL.leagues || []).find(x => x.id === leagueId), t = CL.table[leagueId], series = (l && l.series) || (t && t.league.series);
+  const cs = (CL.cards || []).filter(c => c.series === series).sort((a, b) => (a.next_lock || Infinity) - (b.next_lock || Infinity));
+  return cs[0] || null;
+}
+/* a card scored to the end: nothing open, something finished */
+function clCardDone(cardId){
+  const F = clF(cardId);
+  return F.length > 0 && !F.some(clOpen) && F.some(f => f.status === "finished" || f.status === "awarded");
 }

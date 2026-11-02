@@ -1079,6 +1079,14 @@
    "url": "https://zzz.dog",
    "file": "assets/vendor/zdog.dist.min.js",
    "use": "the shot scene on phones without WebGL"
+  },
+  {
+   "name": "canvas-confetti",
+   "version": "1.9.3",
+   "licence": "ISC",
+   "url": "https://github.com/catdad/canvas-confetti",
+   "file": "assets/vendor/confetti.browser.js",
+   "use": "the confetti of a match won or a level up (house style v2, phase 3), in the house colours; loaded on the first such moment"
   }
  ]
 }

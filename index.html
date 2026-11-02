@@ -491,6 +491,9 @@
     --res-off-dark: rgba(255,255,255,.12); --res-off-dark-ink: #cfdcd2;   /* off, on a dark card */
     /* red is for live and errors, nothing else */
     --live: #c8322b; --live-ink: #ffffff;
+    /* the accessibility pass (_plans/a11y.md): gold for small text on the paper, 5.0:1 on #efe4c8 (the pill's shadow
+       colour; each theme sets its own under the themes), and the one focus ring */
+    --th-acc-text: #7a5a10; --focus: #e9b84c;
     /* the type scale (the faces stay --ui, --serif and the theme's --th-hf) */
     --fs-grade: 76px; --fs-title: 30px; --fs-section: 20px; --fs-hero: 40px; --fs-hero-xl: 110px;
     --fs-body: 15px; --fs-meta: 12.5px; --fs-kicker: 11px; --ls-kicker: 2.2px; --fs-human: 15px;
@@ -519,7 +522,7 @@
   /* THE THEMES: one token set per board of the canvas "BALL 4 Themes"
      (https://claude.ai/artifact/JTqra1kaLBGQdsmCfeA7vA), values copied from
      each board, plus the few rules a token can't carry. */
-  body[data-theme="sunday"],.thpv[data-theme="sunday"]{--th-band:linear-gradient(180deg,#6d7c3d,#5c6b33 40%,#665a3a 72%,#574a2f);--th-band-ink:#fffdf6;--th-page:#f3f1ea;--th-page-art:linear-gradient(90deg,transparent 34px,rgba(200,60,60,.35) 34px 35px,transparent 35px),repeating-linear-gradient(180deg,transparent 0 31px,rgba(70,110,170,.22) 31px 32px);--th-ink:#1e2a22;--th-dim:#535c4e;--th-card:radial-gradient(rgba(0,0,0,.16) 1px,transparent 1.6px) 0 0/6px 6px,linear-gradient(180deg,#477520,#3a601a);--th-card-ink:#ffffff;--th-card-dim:#eef6e2;--th-edge:#ffffff;--th-lift:0 4px 0 rgba(0,0,0,.2);--th-hero:radial-gradient(rgba(0,0,0,.16) 1px,transparent 1.6px) 0 0/6px 6px,linear-gradient(180deg,#477520,#3a601a);--th-row:#fffdf6;--th-row-ink:#1e2a22;--th-row-dim:#535c4e;--th-pill:linear-gradient(180deg,#ff8f33,#e8600a);--th-acc-hi:#ff8f33;--th-acc1:#ff8f33;--th-acc:#ff8f33;--th-acc2:#e8600a;--th-acc-ink:#1e1406;--th-acc-sh:#9a3c00;--th-ctx-ink:#1e1406;--th-logo:#fffdf6;--th-logo-shadow:.035em .035em 0 #e8600a,.07em .07em 0 rgba(0,0,0,.35);--th-tab:#2b3a1f;--th-tab-ink:#d9e4c8;--th-tab-on:#ffa04f;--th-tab-edge:#ff8a2a;--th-round:0.556;--th-pill-r:999px;--th-hf:'Barlow Semi Condensed'}
+  body[data-theme="sunday"],.thpv[data-theme="sunday"]{--th-band:linear-gradient(180deg,#6d7c3d,#5c6b33 40%,#665a3a 72%,#574a2f);--th-band-ink:#fffdf6;--th-page:#f3f1ea;--th-page-art:linear-gradient(90deg,transparent 34px,rgba(200,60,60,.35) 34px 35px,transparent 35px),repeating-linear-gradient(180deg,transparent 0 31px,rgba(70,110,170,.22) 31px 32px);--th-ink:#1e2a22;--th-dim:#535c4e;--th-card:radial-gradient(rgba(0,0,0,.16) 1px,transparent 1.6px) 0 0/6px 6px,linear-gradient(180deg,#477520,#3a601a);--th-card-ink:#ffffff;--th-card-dim:#eef6e2;--th-edge:#ffffff;--th-lift:0 4px 0 rgba(0,0,0,.2);--th-hero:radial-gradient(rgba(0,0,0,.16) 1px,transparent 1.6px) 0 0/6px 6px,linear-gradient(180deg,#477520,#3a601a);--th-row:#fffdf6;--th-row-ink:#1e2a22;--th-row-dim:#535c4e;--th-pill:linear-gradient(180deg,#ff8f33,#e8600a);--th-acc-hi:#ff8f33;--th-acc1:#ffe08a;--th-acc:#ff8f33;--th-acc2:#e8600a;--th-acc-ink:#1e1406;--th-acc-sh:#9a3c00;--th-ctx-ink:#1e1406;--th-logo:#fffdf6;--th-logo-shadow:.035em .035em 0 #e8600a,.07em .07em 0 rgba(0,0,0,.35);--th-tab:#2b3a1f;--th-tab-ink:#d9e4c8;--th-tab-on:#ffa04f;--th-tab-edge:#ff8a2a;--th-round:0.556;--th-pill-r:999px;--th-hf:'Barlow Semi Condensed'}
   body[data-theme="floodlights"],.thpv[data-theme="floodlights"]{--th-band:#0e2236 url(assets/grass-night@3x.jpg) center top / 780px auto repeat;--th-band-ink:#f4fbff;--th-page:#0d1824;--th-page-art:radial-gradient(120% 55% at 50% 0%,rgba(190,225,255,.12),transparent 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 26px,transparent 26px 52px);--th-ink:#eaf3fb;--th-dim:#9fb6ca;--th-card:linear-gradient(180deg,#16304a,#0c1b2b);--th-card-ink:#f2f8ff;--th-card-dim:#b4cadc;--th-edge:#dff0ff;--th-lift:0 0 18px rgba(170,215,255,.28),0 8px 20px rgba(0,0,0,.5);--th-hero:linear-gradient(180deg,#16304a,#0c1b2b);--th-row:#12263a;--th-row-ink:#eaf3fb;--th-row-dim:#a6bdd0;--th-pill:linear-gradient(180deg,#f4fbff,#9cc8ef);--th-acc-hi:#f4fbff;--th-acc1:#f4fbff;--th-acc:#f4fbff;--th-acc2:#9cc8ef;--th-acc-ink:#0b1622;--th-acc-sh:#3b6a96;--th-ctx-ink:#0b1622;--th-logo:#f4fbff;--th-logo-shadow:.035em .035em 0 #9cc8ef,.07em .07em 0 rgba(0,0,0,.35);--th-tab:#081320;--th-tab-ink:#a6bdd0;--th-tab-on:#ffffff;--th-tab-edge:#9cc8ef;--th-round:1;--th-pill-r:999px;--th-hf:'Barlow Semi Condensed'}
   body[data-theme="retro"],.thpv[data-theme="retro"]{--th-band:radial-gradient(rgba(241,230,204,.22) 1.3px,transparent 1.8px) 0 0/7px 7px,linear-gradient(160deg,#d0342c 0 52%,#1d2b5a 52%);--th-band-ink:#f1e6cc;--th-page:#f1e6cc;--th-page-art:radial-gradient(rgba(29,43,90,.12) 1px,transparent 1.5px) 0 0/6px 6px;--th-ink:#1d2b5a;--th-dim:#4c5170;--th-card:#1d2b5a;--th-card-ink:#f1e6cc;--th-card-dim:#d2cde3;--th-edge:#f1e6cc;--th-lift:5px 5px 0 #d0342c;--th-hero:#1d2b5a;--th-row:#f8f0dc;--th-row-ink:#1d2b5a;--th-row-dim:#4c5170;--th-pill:linear-gradient(180deg,#e8463a,#c42f25);--th-acc-hi:#e8463a;--th-acc1:#e8463a;--th-acc:#e8463a;--th-acc2:#c42f25;--th-acc-ink:#fff7e6;--th-acc-sh:#1d2b5a;--th-ctx-ink:#fff7e6;--th-logo:#f1e6cc;--th-logo-shadow:.035em .035em 0 #c42f25,.07em .07em 0 rgba(0,0,0,.35);--th-tab:#1d2b5a;--th-tab-ink:#d2cde3;--th-tab-on:#f1e6cc;--th-tab-edge:#e8463a;--th-round:0.222;--th-pill-r:6px;--th-hf:'Barlow Semi Condensed'}
   body[data-theme="tactics"],.thpv[data-theme="tactics"]{--th-band:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.5px) 0 0/5px 5px,linear-gradient(180deg,#26372f,#1f2e27);--th-band-ink:#f2f1e8;--th-page:#2a3a33;--th-page-art:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px) 0 0/5px 5px,linear-gradient(180deg,rgba(255,255,255,.05),transparent 40%);--th-ink:#f2f1e8;--th-dim:#c3ccc1;--th-card:#33463e;--th-card-ink:#f2f1e8;--th-card-dim:#c9d1c7;--th-edge:rgba(242,241,232,.85);--th-lift:0 4px 0 rgba(0,0,0,.25);--th-hero:#33463e;--th-row:#2f4139;--th-row-ink:#f2f1e8;--th-row-dim:#c3ccc1;--th-pill:linear-gradient(180deg,#f6e98a,#e2cd52);--th-acc-hi:#f6e98a;--th-acc1:#f6e98a;--th-acc:#f6e98a;--th-acc2:#e2cd52;--th-acc-ink:#1f2a24;--th-acc-sh:#8f7f22;--th-ctx-ink:#1f2a24;--th-logo:#f2f1e8;--th-logo-shadow:.035em .035em 0 #e2cd52,.07em .07em 0 rgba(0,0,0,.35);--th-tab:#1b2621;--th-tab-ink:#c3ccc1;--th-tab-on:#f6e98a;--th-tab-edge:#8a6a3e;--th-round:0.667;--th-pill-r:999px;--th-hf:'Barlow Semi Condensed'}
@@ -1607,7 +1610,7 @@
     .pkrv{display:none}
   }
   button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;touch-action:manipulation}
-  button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 
   /* ---------- score bug: the fascia along the front of the stand ----------
      It used to be broadcast green with a white tab for whose turn it was,
@@ -8018,20 +8021,24 @@
      new phone, where the old home had it; small at the top left of the day's and the done home, in the same place
      on both, without the tag line, which is too small to read there. */
   .b6:is(.home-first,.home-daily,.home-done) .mdp-slot{position:absolute;top:0;left:0;right:0}
-  .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:flex-start;padding:18px 0 0 40px!important;font-size:44px}
+  /* the day and done homes: the logo centred in the band, as on the first open (Martijn, 2 Nov 2026: "maybe centred") */
+  .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:center;padding:14px 0 0!important;font-size:44px}
   .b6:is(.home-daily,.home-done) .mdp .tagbar{display:none}
-  .b6.home-daily .b6band{height:136px;clip-path:polygon(0 0,100% 0,100% 80%,0 100%)}
+  .b6.home-daily .b6band{height:150px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
   /* the day home: the logo bigger and the date bigger, the streak card smaller (Martijn, 2 Nov 2026) */
-  .b6.home-daily .mdp-slot{font-size:58px;padding:14px 0 0 28px!important}
-  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:48px;padding-left:16px!important} .t3band .t3date{font-size:18px} }
+  .b6.home-daily .mdp-slot{font-size:54px}
+  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:46px} .t3band .t3date{font-size:12px;letter-spacing:.2em} }
   .b6.home-first .b6band{height:430px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%)}
   .b6.home-done .b6band{height:292px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
   .b6:is(.home-first,.home-daily,.home-done) .b6body{gap:var(--sp-3)}
   :is(.t3card,.t3band,.t3next,.t3three) .kick{font:700 var(--fs-kicker)/1.2 var(--ui);letter-spacing:var(--ls-kicker);text-transform:uppercase}
   .t3band{position:relative;display:flex;align-items:center;justify-content:flex-end;height:70px;padding-top:env(safe-area-inset-top,0px)}
   .t3band .kick{color:var(--th-band-ink);opacity:.9}
-  .b6.home-daily .t3band{height:96px;padding-right:4px}
-  .t3band .t3date{font:italic 900 22px/1 var(--th-hf),sans-serif;letter-spacing:.04em;color:var(--th-band-ink);opacity:1;text-shadow:2px 2px 0 var(--th-acc2)}
+  .b6.home-daily .t3band{height:108px;justify-content:center;align-items:flex-end;padding-bottom:4px}
+  /* the date under the logo: a caption between two short gold rules */
+  .t3band .t3date{display:flex;align-items:center;gap:12px;font:800 14px/1 var(--ui);letter-spacing:.24em;text-transform:uppercase;color:var(--th-band-ink);opacity:1;
+    text-shadow:0 1px 2px rgba(0,0,0,.45)}
+  .t3band .t3date::before,.t3band .t3date::after{content:"";width:28px;height:2px;border-radius:1px;background:var(--th-acc2)}
   .t3band.first{display:block;height:420px}   /* the band is 430 tall and slants: what follows starts under it */
   .t3hl{position:absolute;left:0;top:216px;font:italic 900 54px/.9 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-band-ink);text-shadow:3px 3px 0 var(--th-acc2);text-wrap:balance}
   .t3band.done{display:block;height:248px;text-align:center;padding-top:calc(72px + env(safe-area-inset-top,0px))}
@@ -8236,6 +8243,54 @@
     ::view-transition-old(root),::view-transition-new(root){animation-duration:1ms}
     .confetti,canvas.feelconf{display:none}
   }
+  /* ---------- ACCESSIBILITY PASS (_plans/a11y.md; _plans/look-and-feel.md §10) ----------
+     What the audit (_tools/a11y-audit.js) found, fixed in one place at the end of the sheet, so each rule wins
+     by order with the same selector. Four things. The text roles under 4.5:1 on the paper, moved to tokens that
+     pass: the deep gold #a8740a of the small labels read 3.2:1, --th-acc-text is the pill's shadow gold at 5.0:1
+     (a dark theme lifts it to its light accent); the grey-green #6b7a63 read 3.6:1, --th-dim reads 4.65:1; the
+     faint stops, stations and locks the same. A 44 px finger zone on every control that was under it: an
+     invisible ::after centred on the control, so nothing moves (the ones already positioned keep their
+     position). One focus ring for the keyboard and none for a tap. And the one line a screen reader hears.
+     _tests/a11y-test.js keeps all of it. */
+  body[data-theme]{--th-acc-text:var(--th-acc-sh)}
+  body[data-theme="cupfinal"],body[data-theme="club"]{--th-acc-text:var(--th-ink)}
+  body[data-theme="floodlights"],body[data-theme="tactics"],body[data-theme="terraces"],body[data-theme="rain"],body[data-theme="hof"],body[data-theme="bit16"]{--th-acc-text:var(--th-acc-hi)}
+  /* the small gold labels, and VS between two sides */
+  .fycmsg.warn,.lsdaynav b,.b6side small.me,.cpboard .no,.cpboard.hid small,.merow i,.lkhdr .lklink,.b6game .cpdrop,.lsday.cr .meta,.lsfl span em,.gtpnote b,.ttcomm b,.tthint b,.b4vs i.me,.b4daily .dsstyle,.pgshieldline,.b4ft .pgcard.title span,.cpnext i{color:var(--th-acc-text)}
+  .b6vsx,.ttteams .vs,.cupvsx,.b6callit span{color:var(--th-acc-text)}
+  #overlay .sheet p{color:var(--th-card-ink)}
+  .lsintro .meta{color:var(--th-acc1)}
+  /* the grey labels and the faint ones: a hidden stop, a station, a locked title or theme */
+  .b6who .off,.b6picksum.dim,.b6side small,.b6soon small,.b6opt.soon .b6tx small,.b6lock,.cpboard.hid b,.cpstn.hid,.pgsp,.tht.lock .thsq{color:var(--th-dim)}
+  .b4daily .dsline.good{color:var(--th-ink)}
+  /* secondary text that sits in a pill's or a card's drop shadow (the paper is darker there): the ink at 82% */
+  .t3meta,.b4daily .dsnext,.b4daily .dsqtext small,.t3note,.penfr small,.lkhdr small,.gwacts .b6qs{color:var(--th-ink);opacity:.82}
+  .ddtab{color:var(--th-acc-ink)}
+  .drplate{color:var(--th-acc-ink)}
+  /* on the dark: Leave in the band on a dark wash, not a light one; table headers, GUEST and the XP tag in the card's ink */
+  .b6quit{background:rgba(5,20,10,.45)}
+  .b4table th,.cuptab th{color:var(--th-card-ink);opacity:1}
+  .meat{color:var(--th-card-ink)}
+  .pghead .notsaved{color:var(--th-card-dim);background:rgba(0,0,0,.25)}
+  /* the ink and grey literals a dark theme cannot read, as tokens (the same colours in Classic) */
+  .lsyest button,.fyclink{color:var(--th-ink)}
+  .acinfo,.penfr,.lkscarf span,.acnote,.b6tip p,.b4q small,.ttrules,.fycfield>span,.fycnote,.acmail span,.acfine,.acsync,.lbrules small,.b4btn.quiet,.pgintro,.pgladdertxt,.fycor,.b6instx{color:var(--th-dim)}
+  .lbrules>b,.thtx small.eq{color:var(--th-acc-text)}
+  /* on a tinted chip or box (the ink at 8-10% over the paper) the grey is short of AA: the ink itself, or at 82% */
+  .b6who .off,.tht.lock .thsq{color:var(--th-ink)}
+  .b6tip p,.penfr,.b6instx,.fycnote{color:var(--th-ink);opacity:.82}
+  .pgintro{color:var(--th-dim)!important}   /* its own rule is !important */
+  .penopts button[aria-pressed="true"]{color:var(--th-acc-ink)}   /* the pressed option is cream whatever the theme */
+  /* the 44 px finger zone */
+  .b6instgo,.b6instx,.t3quick,.lgseg button,.b6seg button,.cpquiet,.qrep button,.fycquiet,.cupyears button,.pgsp,.fyclink,.ttkits button,.lsyest button,.lsdaynav button,.ddstrip,.yrslot,.lblink,.bigbtn.ghost,.b4btn.quiet{position:relative}
+  .b6backbtn::after,.b6quit::after,.b6instgo::after,.b6instx::after,.t3quick::after,.lgseg button::after,.b6seg button::after,.h2view::after,.p3dreset::after,.p3dedge::after,.cpquiet::after,.qrep button::after,.h2markman::after,.fycquiet::after,.cupyears button::after,.pgsp::after,.fyclink::after,.pensw button::after,.ttkits button::after,.lsyest button::after,.lsdaynav button::after,.ddstrip::after,.yrslot::after,.lblink::after,.bigbtn.ghost::after,.b4btn.quiet::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+  .metitle::after{height:44px}
+  .ttname{min-height:44px}
+  /* one focus ring: the gold, 2 px, 2 px off, for the keyboard; nothing for a tap */
+  button:focus-visible,[role=button]:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible,.uspeek:focus-visible,.h2gmc:focus-visible,.drlocker:focus-visible,.b6hero:focus-visible,.ddcardbtn:focus-visible,.ddshowpick button:focus-visible,.lbin input:focus-visible,.lsfield:focus-visible,.gtpfield:focus-visible,.mm-row input:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  :focus:not(:focus-visible){outline:none}
+  /* the one line a screen reader hears that nobody sees */
+  .srsay{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -8246,7 +8301,8 @@
 <div id="scorebug" hidden></div>
 <div id="stage"></div>
 <div id="overlay"></div>
-<div id="toast" class="toast"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="a11ysay" class="srsay" aria-live="polite"></div>
 <div id="mpbar" hidden></div>
 
 <!-- THE BROWSER'S HISTORY, KEPT BEFORE THE APP SCRIPT HIDES IT: that script declares a
@@ -11230,7 +11286,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 2 Nov 2026 · a bigger logo, a smaller streak";
+const BUILD = "BALL 4 · 2 Nov 2026 · the logo centred, the accessibility pass";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -12413,7 +12469,7 @@ function mpAnswerHTML(){
       ${sp?`<div class="ladder">Ground +${sp.name} · city +${sp.city} · country +${sp.country}</div>`:""}
       ${isBadgeBall()?`<div class="ladder">Tight +${BADGE_BALL[0].pts} · wider +${BADGE_BALL[1].pts} · whole crest +${BADGE_BALL[2].pts}</div>`:""}
     </div>
-    ${S.timed?`<div class="clock" id="clock">
+    ${S.timed?`<div class="clock" id="clock" role="timer">
       <div class="digits">${stealing?"5.0":"15.0"}</div>
       <div class="bar"><i style="width:100%"></i></div>
     </div>`:``}
@@ -13029,6 +13085,10 @@ function toast(msg, bad){
   const t=$("#toast"); t.textContent=msg; t.classList.toggle("bad",!!bad); t.classList.add("show");
   clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"), 2200);
 }
+/* THE ONE LINE A SCREEN READER HEARS (accessibility pass, _plans/a11y.md): the score, when it changes. The
+   scoreboards are redrawn on every render, so a live region on them would say nothing or everything; this
+   hidden region persists in the shell and is told a thing once. Polite, never assertive. */
+function a11ySay(text){ try{ const el = document.getElementById("a11ysay"); if(!el || el.textContent === text) return; el.textContent = text; }catch(e){} }
 const COLS=["#e9b84c","#f6d57c","#F8F1DD","#2c7a48","#ffffff"];
 /* the house burst in paper: what celebrate() throws until canvas-confetti is here */
 function confettiDOM(n){
@@ -14933,6 +14993,8 @@ function b4Table(cols, rows, o){
 function b4Score(o){
   const side = (s, away) => '<div class="sb-t' + (away ? " away" : "") + '" style="--tc:' + (s.color || "#123D24") + '">' +
     (s.flag ? '<img class="sb-flag" src="' + s.flag + '" alt="">' : "") + '<b>' + esc(s.short || s.name) + '</b></div>';
+  a11ySay(o.away ? (o.home.short || o.home.name) + " " + o.score[0] + ", " + (o.away.short || o.away.name) + " " + o.score[1] + (o.label ? ", " + o.label : "")
+    : String(o.score) + (o.label ? ", " + o.label : ""));
   if(!o.away) return '<div class="b4sb solo"><div class="sb">' + side(o.home, false) + '<div class="sb-mid"><b>' + o.score + '</b></div></div>' +
     (o.label ? '<div class="b4sblabel">' + esc(o.label) + '</div>' : "") + '</div>';
   return '<div class="b4sb"><div class="sb">' + side(o.home, false) + '<div class="sb-mid"><b>' + o.score[0] + '</b><s></s><b>' + o.score[1] + '</b></div>' + side(o.away, true) + '</div>' +
@@ -16882,10 +16944,12 @@ const DS_CORNERS = ["tl", "tr", "bl", "br"];
 function dsBoardHTML(sh){
   const D = dsDay(sh.date), R = dsRows(sh);
   const cell = m => '<i class="' + (m === "–" ? "e" : m === "❌" ? "x" : m === "\u{1F3AF}" ? "p" : "g") + '"></i>';
+  /* the row of dots is colour; for a screen reader it is the kicks in words (accessibility pass) */
+  const say = m => m === "–" ? "" : m === "❌" ? "miss" : m === "\u{1F3AF}" ? "Panenka" : "goal", says = a => a.map(say).filter(Boolean).join(", ") || "no kicks yet";
   const sd = R.sdMe.length || R.sdOp.length;
   return '<div class="dsboard">' +
-    '<div class="dsrow"><span>You</span><div>' + R.me5.concat(R.sdMe).map(cell).join("") + '</div><b>' + R.my + '</b></div>' +
-    '<div class="dsrow"><span><img src="assets/natflags/' + D.opp.flag + '.png" alt="">' + esc(D.opp.code) + '</span><div>' +
+    '<div class="dsrow"><span>You</span><div role="img" aria-label="' + says(R.me5.concat(R.sdMe)) + '">' + R.me5.concat(R.sdMe).map(cell).join("") + '</div><b>' + R.my + '</b></div>' +
+    '<div class="dsrow"><span><img src="assets/natflags/' + D.opp.flag + '.png" alt="">' + esc(D.opp.code) + '</span><div role="img" aria-label="' + says(R.op5.concat(R.sdOp)) + '">' +
       R.op5.concat(R.sdOp).map(cell).join("") + '</div><b>' + R.their + '</b></div>' +
     (sd ? '<div class="dssd">Sudden death</div>' : "") + '</div>';
 }
@@ -23862,6 +23926,7 @@ function h2ScoreHTML(){
       '<b>' + esc(h2Abbr(i)) + '</b>' +
     '</div>';
   };
+  a11ySay(h2Abbr(0) + " " + S.players[0].score + ", " + h2Abbr(1) + " " + S.players[1].score);
   return '<div class="sb">' +
       side(0, false) +
       '<div class="sb-mid"><b>' + S.players[0].score + '</b><s></s><b>' + S.players[1].score + '</b></div>' +
@@ -28896,7 +28961,7 @@ function themeShelfHTML(){
       : x.unlocked ? '<small>' + (x.id === "club" ? scarves + " scarf" + (scarves === 1 ? "" : "s") + " · tap to pick" : "Unlocked · tap to wear") + '</small>'
       : secret ? '<small>? ? ?</small>'
       : '<small>' + esc(x.progress.label) + '</small><span class="thpg"><i style="width:' + Math.round(100 * x.progress.have / Math.max(1, x.progress.need)) + '%"></i></span>';
-    return '<button class="tht' + (on ? " on" : "") + (x.unlocked ? "" : " lock") + (x.isNew ? " new" : "") + '" onclick="themeTap(\'' + x.id + '\')">' +
+    return '<button class="tht' + (on ? " on" : "") + (x.unlocked ? "" : " lock") + (x.isNew ? " new" : "") + '" onclick="themeTap(\'' + x.id + '\')"' + (secret ? ' aria-label="A secret theme, still locked"' : "") + '>' +
       (secret ? '<span class="thsq">?</span>' : themeSwatch(x.id, 46)) + '<span class="thtx"><b>' + (secret ? "? ? ?" : esc(th.name)) + (x.isNew ? ' <em>NEW</em>' : "") + '</b>' + sub + '</span></button>';
   };
   return '<div class="lkhdr" id="lkthemes">Themes <small>' + list.filter(x => x.unlocked).length + ' of ' + list.length + '</small></div><div class="thgrid">' + list.map(tile).join("") + '</div>';
@@ -29218,7 +29283,7 @@ function renderMain(){
       ${S.players.map((p,i)=> S.wsub&&S.wsub[i]
         ? `<div class="lockedrow">${ico("lock")}${esc(p.name)} locked their answer in from their phone</div>`
         : `<input class="nm-in" id="wa${i}" placeholder="${esc(p.name)}'s answer" maxlength="60" autocomplete="off" value="${esc(S.wans[i]||"")}">`).join("")}
-      ${S.timed?`<div class="clock" id="clock">
+      ${S.timed?`<div class="clock" id="clock" role="timer">
         <div class="digits">15.0</div>
         <div class="bar"><i style="width:100%"></i></div>
       </div>`:``}
@@ -29277,7 +29342,7 @@ function renderMain(){
         ${sp?`<div class="ladder">Ground +${sp.name} · city +${sp.city} · country +${sp.country}</div>`:""}
         ${isBadgeBall()?`<div class="ladder">Tight +${BADGE_BALL[0].pts} · wider +${BADGE_BALL[1].pts} · whole crest +${BADGE_BALL[2].pts}</div>`:""}
       </div>
-      ${S.timed?`<div class="clock" id="clock">
+      ${S.timed?`<div class="clock" id="clock" role="timer">
         <div class="digits">${stealing?"5.0":"15.0"}</div>
         <div class="bar"><i style="width:100%"></i></div>
       </div>`:``}
@@ -29756,7 +29821,7 @@ function renderMain(){
       </div>`;
     st.innerHTML = `
       <div class="kick">${esc(L.n)} ${esc(L.season)} · ${esc(S.players[S.turn].name)}${done?"" :" · type them"}</div>
-      ${done?"":`<div class="clock" id="clock"><div class="digits">${RUSH_SECS.toFixed(1)}</div><div class="bar"><i style="width:100%"></i></div></div>`}
+      ${done?"":`<div class="clock" id="clock" role="timer"><div class="digits">${RUSH_SECS.toFixed(1)}</div><div class="bar"><i style="width:100%"></i></div></div>`}
       <div class="potpill">${got.length} / ${L.clubs.length}${done?"":" named"}</div>
       ${done?"":`<input class="nm-in" id="rushin" placeholder="Type a club…" autocomplete="off"
                         autocapitalize="off" autocorrect="off" spellcheck="false" oninput="rushType(this)">`}
@@ -29866,7 +29931,7 @@ function renderMain(){
       <div class="xichips">
         ${S.players.map((p,ix)=>`<button class="bigbtn ok" onclick="xiAward(${ix})">${esc(p.name)} +1</button>`).join("")}
         <button class="bigbtn ghost" onclick="xiAward(-1)">Nobody</button>
-        <button class="bigbtn ghost" onclick="xiTap(${S.xi.pick})">✕</button>
+        <button class="bigbtn ghost" onclick="xiTap(${S.xi.pick})" aria-label="Cancel">✕</button>
       </div>`
       :`
       <div class="hint" style="text-align:center">The whole table shouts. ${reader()} taps a shirt when someone names its player, then hands out the point.</div>
@@ -36579,12 +36644,12 @@ const B6_ART = {
   pitch: '<svg class="b6pitchlines" viewBox="0 0 352 162" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="#F8F1DD" stroke-width="2"><line x1="176" y1="0" x2="176" y2="162"/><circle cx="176" cy="81" r="34"/><rect x="300" y="36" width="60" height="90"/></g></svg>',
 };
 const B6_TAB = {
-  play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7l3.6 2.6-1.4 4.2H9.8L8.4 9.6z" fill="currentColor" stroke="none"/></svg>',
-  album: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v18M11 8h6M11 12h6"/></svg>',
-  cup: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 21h8"/></svg>',
-  me: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
-  league: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20V13M22 20H2"/></svg>',
-  locker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v18M9 11v2M15 11v2"/></svg>',
+  play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7l3.6 2.6-1.4 4.2H9.8L8.4 9.6z" fill="currentColor" stroke="none"/></svg>',
+  album: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v18M11 8h6M11 12h6"/></svg>',
+  cup: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 21h8"/></svg>',
+  me: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
+  league: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20V13M22 20H2"/></svg>',
+  locker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v18M9 11v2M15 11v2"/></svg>',
 };
 const b6Bars = n => '<div class="b6bars">' + [10, 18, 26].map((h, i) => '<i style="height:' + h + 'px" class="' + (i < n ? "f" : "") + '"></i>').join("") + '</div>';
 /* the Matchday record against the computer, kept on this phone */
@@ -38276,9 +38341,14 @@ function toMenu(){
 function sheet(html){
   const o=$("#overlay");
   o.classList.remove("closing");
-  o.innerHTML=`<div class="sheet">${html}</div>`;
+  /* A SHEET IS A DIALOG (accessibility pass, _plans/a11y.md): it remembers what had the focus, takes it (the
+     first button, so no keyboard pops up for a field; the sheet itself when there is none) and gives it back
+     in closeSheet. Tab stays inside it (sheetTrapTab), Escape closes it (the keydown handler). */
+  try{ const a = document.activeElement; if(!o.__opener && a && a !== document.body && !o.contains(a)) o.__opener = a; }catch(e){}
+  o.innerHTML=`<div class="sheet" role="dialog" aria-modal="true" tabindex="-1">${html}</div>`;
   o.classList.add("show");
   o.onclick=e=>{ if(e.target===o) closeSheet(); };
+  try{ const s = o.firstElementChild, f = s.querySelector('button:not([disabled]),[href]'); (f || s).focus({ preventScroll: true }); }catch(e){}
   b4HistSync(); b6UpdateBar();
 }
 let sheetFadeT = null;
@@ -38286,11 +38356,22 @@ function closeSheet(){
   const o = $("#overlay"), was = o.classList.contains("show");
   o.classList.remove("show");
   if(was){ o.classList.add("closing"); clearTimeout(sheetFadeT); sheetFadeT = setTimeout(() => { if(!o.classList.contains("show")) o.classList.remove("closing"); }, 160); }
+  const back = o.__opener; o.__opener = null;
+  if(was && back && back.focus){ try{ if(document.contains(back)) back.focus({ preventScroll: true }); }catch(e){} }
   b4HistSync(); b6UpdateBar();
+}
+/* Tab inside an open sheet goes round the sheet's own controls and nowhere else */
+function sheetTrapTab(e){
+  const s = $("#overlay .sheet"); if(!s) return;
+  const f = [...s.querySelectorAll('button:not([disabled]),[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el => el.offsetParent !== null);
+  if(!f.length){ e.preventDefault(); s.focus(); return; }
+  const first = f[0], last = f[f.length - 1], a = document.activeElement;
+  if(e.shiftKey ? (a === first || !s.contains(a)) : (a === last || !s.contains(a))){ e.preventDefault(); (e.shiftKey ? last : first).focus(); }
 }
 
 /* ============================== KEYBOARD (desktop) ============================== */
 document.addEventListener("keydown", e=>{
+  if(e.key==="Tab" && $("#overlay").classList.contains("show")){ sheetTrapTab(e); return; }
   if(e.target.tagName==="INPUT"){ if(e.key==="Enter" && (!S || S.phase==="setup")) startGame(); return; }
   if($("#overlay").classList.contains("show")){ if(e.key==="Escape") closeSheet(); return; }
   if(!S){ if(e.key==="Enter") startGame(); return; }

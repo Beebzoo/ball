@@ -769,7 +769,7 @@ function clTablePage(v){
   const L = t.league, rows = t.rows || [], tied = {};
   rows.forEach(r => { tied[r.pos] = (tied[r.pos] || 0) + 1; });
   const crown = n => n ? '<span class="cl-crown" title="Round wins">' + CL_CROWN + (n > 1 ? '<small>' + n + '</small>' : "") + '</span>' : "";
-  const mv = r => r.prev == null ? '<i class="eq">·</i>' : r.prev > r.pos ? '<i class="up">▲' + (r.prev - r.pos) + '</i>' : r.prev < r.pos ? '<i class="dn">▼' + (r.pos - r.prev) + '</i>' : '<i class="eq">=</i>';
+  const mv = r => r.prev == null ? '<i class="eq">·</i>' : r.prev > r.pos ? '<i class="up" role="img" aria-label="up ' + (r.prev - r.pos) + '">▲' + (r.prev - r.pos) + '</i>' : r.prev < r.pos ? '<i class="dn" role="img" aria-label="down ' + (r.pos - r.prev) + '">▼' + (r.pos - r.prev) + '</i>' : '<i class="eq">=</i>';
   const body = '<div class="b4card cream cl-table">' + '<div class="cl-trow hd"><span>#</span><span></span><span>Club</span><span>Last</span><span>Pts</span></div>' +
     rows.map(r => '<div class="cl-trow' + (r.me ? " me" : "") + '"><span class="pos">' + (tied[r.pos] > 1 ? '<span class="tie">=</span>' : "") + r.pos + mv(r) + '</span>' + clCrest(r, 28) +
       '<span class="nm"><b><span class="t">' + clE(r.display_name) + '</span>' + (CL.sup[L.id] && CL.sup[L.id][r.user_id] ? supMark() : "") + crown(r.crowns) + '</b><small>' + (r.me ? "you" : r.from_seq > L.from_seq && r.base ? "joined later, started on " + r.base : r.exact ? r.exact + " exact" : "") + '</small></span>' +
@@ -1491,7 +1491,7 @@ function clTableCanvas(leagueId){
     if(r.me){ x.fillStyle = "rgba(233,184,76,.28)"; clRound(x, 50, y - rh / 2 + 2, CL_W - 100, rh - 4, 12); x.fill(); }
     else if(i % 2 === 0){ x.fillStyle = "rgba(18,61,36,.05)"; x.fillRect(50, y - rh / 2, CL_W - 100, rh); }
     x.fillStyle = CL_C.edge; x.textAlign = "right"; x.font = clFont(900, Math.round(rh * .5), true); x.fillText(String(r.pos), 128, y);
-    if(r.prev != null && r.prev !== r.pos) clTri(x, 164, y, 11, r.prev > r.pos, r.prev > r.pos ? CL_C.up : CL_C.red);
+    if(r.prev != null && r.prev !== r.pos) clTri(x, 164, y, 11, r.prev > r.pos, r.prev > r.pos ? CL_C.up : CL_C.dim);   // down in the dim ink: red is never for losing ground
     else { x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(700, 20, false); x.fillText(r.prev == null ? "·" : "=", 164, y); }
     const nm = clStr(r.display_name) + (r.me ? "  (you)" : "");
     x.fillStyle = CL_C.edge; x.textAlign = "left"; clFitText(x, nm, CL_W - 200 - 330, 900, Math.round(rh * .5), true, false, 22);

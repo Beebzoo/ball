@@ -570,3 +570,25 @@ button.mch-dayl{cursor:pointer}
 .mch-editsheet .b4btn{margin-top:16px}
 /* the club page: the rest of the results and fixtures behind a tap */
 .cl-more{display:block;width:100%;min-height:44px;margin:4px 0 0;border:0;background:none;cursor:pointer;color:var(--th-ink);font:800 12px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase}
+/* ---------- the accessibility pass (_plans/a11y.md): what the audit found in Call It ---------- */
+.cl-jump button{color:var(--th-ink)}
+.cl-jump button.lk{opacity:.8}
+.cl-srow.lk{opacity:.85}
+.cl-srow .sc.none{color:rgba(248,241,221,.5)}
+.cl-digit.unset b{color:rgba(248,241,221,.4)}
+.cl-who>span.wait{opacity:.85}
+.cl-trow .pos i.eq{color:var(--th-dim)}
+.cl-trow .pos i.up{color:var(--res-right)}
+.cl-trow .pos i.dn{color:var(--th-ink)}   /* down is the ink, never the live red (HANDOVER §1: red is not for losing) */
+/* on a dark theme's rows the arrows read in the row's ink (the triangle and its label carry the meaning) */
+body[data-theme="floodlights"] .cl-trow .pos i,body[data-theme="tactics"] .cl-trow .pos i,body[data-theme="terraces"] .cl-trow .pos i,body[data-theme="rain"] .cl-trow .pos i,body[data-theme="hof"] .cl-trow .pos i,body[data-theme="bit16"] .cl-trow .pos i{color:var(--th-row-ink)}
+.cl-trow.me small,.cl-trow.me .last,.cl-trow.me .pos i{color:var(--th-row-ink)}
+.cl-lrow .chev{color:var(--th-acc-text)}
+/* a live score's box is the broadcast's near-black whatever the theme, so the live red reads on it */
+.cl-mm .sc:has(b.live){background:#0a1f13}
+.cl-form i.l{background:var(--live);color:#fff}
+.cl-crow .r.w{background:var(--res-right)}
+.cl-crow .r.d{background:var(--th-dim)}
+/* the 44 px finger zone on the small controls: an invisible ::after, nothing moves */
+.cl-jump button,.cl-wheel button,.cl-chips button,.cl-mdnav button,.cl-mm .h,.cl-mm .a,.cl-mm .sc.mcgo{position:relative}
+.cl-jump button::after,.cl-wheel button::after,.cl-chips button::after,.cl-mdnav button::after,.cl-mm .h::after,.cl-mm .a::after,.cl-mm .sc.mcgo::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}

@@ -8024,17 +8024,20 @@
   /* the day and done homes: the logo centred in the band, as on the first open (Martijn, 2 Nov 2026: "maybe centred") */
   .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:center;padding:14px 0 0!important;font-size:44px}
   .b6:is(.home-daily,.home-done) .mdp .tagbar{display:none}
-  .b6.home-daily .b6band{height:150px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
+  .b6.home-daily .b6band{height:158px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
   /* the day home: the logo bigger and the date bigger, the streak card smaller (Martijn, 2 Nov 2026) */
-  .b6.home-daily .mdp-slot{font-size:54px}
-  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:46px} .t3band .t3date{font-size:12px;letter-spacing:.2em} }
+  .b6.home-daily .mdp-slot{font-size:62px}
+  /* optical centring: the ball and the word are the box, the speed trail hangs about 1.3em to the left of it, so the
+     box nudged a fifth of an em right is what looks centred (Martijn, 2 Nov 2026: "is it fully centred?") */
+  .b6:is(.home-daily,.home-done) .mdp .logo{transform:translateX(.2em)}
+  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:52px} .t3band .t3date{font-size:12px;letter-spacing:.2em} }
   .b6.home-first .b6band{height:430px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%)}
   .b6.home-done .b6band{height:292px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
   .b6:is(.home-first,.home-daily,.home-done) .b6body{gap:var(--sp-3)}
   :is(.t3card,.t3band,.t3next,.t3three) .kick{font:700 var(--fs-kicker)/1.2 var(--ui);letter-spacing:var(--ls-kicker);text-transform:uppercase}
   .t3band{position:relative;display:flex;align-items:center;justify-content:flex-end;height:70px;padding-top:env(safe-area-inset-top,0px)}
   .t3band .kick{color:var(--th-band-ink);opacity:.9}
-  .b6.home-daily .t3band{height:108px;justify-content:center;align-items:flex-end;padding-bottom:4px}
+  .b6.home-daily .t3band{height:114px;justify-content:center;align-items:flex-end;padding-bottom:4px}
   /* the date under the logo: a caption between two short gold rules */
   .t3band .t3date{display:flex;align-items:center;gap:12px;font:800 14px/1 var(--ui);letter-spacing:.24em;text-transform:uppercase;color:var(--th-band-ink);opacity:1;
     text-shadow:0 1px 2px rgba(0,0,0,.45)}
@@ -11286,7 +11289,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 2 Nov 2026 · the logo centred, the accessibility pass";
+const BUILD = "BALL 4 · 2 Nov 2026 · the logo bigger, optically centred";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five

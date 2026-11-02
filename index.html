@@ -8082,9 +8082,10 @@
   .t3plm{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
   .t3plm b{font:700 15px/1.2 var(--ui)}
   .t3chev{font:700 18px/1 var(--ui)}
-  .t3card.t3mc{padding:12px 0 0;overflow:hidden;background:var(--th-card);color:var(--th-card-ink);border-radius:18px}
+  .t3card.t3mc{padding:16px 0 0;overflow:hidden;background:var(--th-card);color:var(--th-card-ink);border-radius:18px}
   .t3mc .kick{color:var(--th-card-dim)}
-  .t3mc .t3mck{padding:0 14px 4px}
+  .t3mc .t3mch{padding:6px 16px 10px}
+  .t3mc .t3mch .t3lora{margin-top:4px;color:var(--th-card-dim)}
   .t3mc .t3kit i+i{background:var(--th-card-ink)}
   .t3mcrow,.t3mcl,.t3mcfoot{width:100%;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
   .t3mcrow{display:flex;align-items:center;gap:10px;min-height:52px;padding:6px 14px 8px}
@@ -8197,7 +8198,9 @@
   @keyframes vtOut{from{opacity:1}to{opacity:0}}
   ::view-transition-old(root){animation:vtOut calc(var(--dur-screen) * var(--dur-exit-k)) var(--ease-out) both}
   ::view-transition-new(root){animation:vtIn var(--dur-screen) var(--ease-out) both}
-  #b6tabs{view-transition-name:tabbar}
+  /* a transition name makes #b6tabs a stacking context of its own: it must carry the bar's level, or the fixed bar
+     inside it (z-index 20) paints under the page (the More games tiles over the tab bar, 2 Nov 2026) */
+  #b6tabs{view-transition-name:tabbar;position:relative;z-index:20}
   #overlay{view-transition-name:overlay}
   #toast{view-transition-name:toast}
   ::view-transition-old(tabbar),::view-transition-new(tabbar),::view-transition-old(overlay),::view-transition-new(overlay),
@@ -11217,7 +11220,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 2 Nov 2026 · the Match Centre";
+const BUILD = "BALL 4 · 2 Nov 2026 · the Match Centre, its title";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -36917,7 +36920,8 @@ function b6McCard(){
   const call = pl ? '<button class="t3mcrow" onclick="openLeague(\'callit\')"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
     '<span class="t3plm"><span class="kick">' + esc(P ? P.kick : "Call It") + '</span><b>' + esc(P ? P.line : "Call this weekend\'s matches") + '</b></span>' +
     '<span class="t3chev" aria-hidden="true">›</span></button>' : "";
-  return '<div class="t3card t3mc"><div class="kick t3mck">Match Centre</div>' + call + M.map(b6McLine).join("") +
+  return '<div class="t3card t3mc"><div class="t3mch"><div class="t3h">Match Centre</div><div class="t3lora">Your leagues, your mates’ calls, every table.</div></div>' +
+    call + M.map(b6McLine).join("") +
     '<button class="t3mcfoot" onclick="openLeague()">Match Centre ›</button></div>';
 }
 /* Matchday, the cream card with the dark Play, and the quick way in under it */

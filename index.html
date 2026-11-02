@@ -8020,13 +8020,18 @@
   .b6:is(.home-first,.home-daily,.home-done) .mdp-slot{position:absolute;top:0;left:0;right:0}
   .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:flex-start;padding:18px 0 0 40px!important;font-size:44px}
   .b6:is(.home-daily,.home-done) .mdp .tagbar{display:none}
-  .b6.home-daily .b6band{height:112px;clip-path:polygon(0 0,100% 0,100% 78%,0 100%)}
+  .b6.home-daily .b6band{height:136px;clip-path:polygon(0 0,100% 0,100% 80%,0 100%)}
+  /* the day home: the logo bigger and the date bigger, the streak card smaller (Martijn, 2 Nov 2026) */
+  .b6.home-daily .mdp-slot{font-size:58px;padding:14px 0 0 28px!important}
+  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:48px;padding-left:16px!important} .t3band .t3date{font-size:18px} }
   .b6.home-first .b6band{height:430px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%)}
   .b6.home-done .b6band{height:292px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
   .b6:is(.home-first,.home-daily,.home-done) .b6body{gap:var(--sp-3)}
   :is(.t3card,.t3band,.t3next,.t3three) .kick{font:700 var(--fs-kicker)/1.2 var(--ui);letter-spacing:var(--ls-kicker);text-transform:uppercase}
   .t3band{position:relative;display:flex;align-items:center;justify-content:flex-end;height:70px;padding-top:env(safe-area-inset-top,0px)}
   .t3band .kick{color:var(--th-band-ink);opacity:.9}
+  .b6.home-daily .t3band{height:96px;padding-right:4px}
+  .t3band .t3date{font:italic 900 22px/1 var(--th-hf),sans-serif;letter-spacing:.04em;color:var(--th-band-ink);opacity:1;text-shadow:2px 2px 0 var(--th-acc2)}
   .t3band.first{display:block;height:420px}   /* the band is 430 tall and slants: what follows starts under it */
   .t3hl{position:absolute;left:0;top:216px;font:italic 900 54px/.9 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-band-ink);text-shadow:3px 3px 0 var(--th-acc2);text-wrap:balance}
   .t3band.done{display:block;height:248px;text-align:center;padding-top:calc(72px + env(safe-area-inset-top,0px))}
@@ -8043,7 +8048,12 @@
   .t3card{box-sizing:border-box;background:var(--th-card-2);color:var(--th-row-ink);border:2px var(--th-edge-style) var(--th-edge);
     border-radius:calc(var(--r-card-2) * var(--th-round));box-shadow:var(--depth-lift)}
   .t3card .kick{color:var(--th-row-dim)}
-  .t3streak{padding:12px 14px 10px}
+  .t3streak{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"n scarf" "k right";column-gap:12px;row-gap:3px;align-items:center;padding:8px 12px 8px}
+  .t3streak .t3sh{display:contents}
+  .t3streak .t3big{grid-area:n;font-size:28px}
+  .t3streak .t3sh>.kick{grid-area:k;white-space:nowrap}
+  .t3streak .t3right{grid-area:right;margin-left:0}
+  .t3streak .t3scarf{grid-area:scarf;margin-top:0}
   .t3sh{display:flex;align-items:baseline;gap:8px}
   .t3big{font:italic 900 34px/.9 var(--th-hf),sans-serif;font-variant-numeric:tabular-nums}
   .t3right{margin-left:auto;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-row-dim);text-align:right}
@@ -11220,7 +11230,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 2 Nov 2026 · the Match Centre, its title";
+const BUILD = "BALL 4 · 2 Nov 2026 · a bigger logo, a smaller streak";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five

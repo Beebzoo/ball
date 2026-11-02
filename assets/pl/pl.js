@@ -44,7 +44,9 @@ const CL_SERIES = [
 
 /* ---------- small things ---------- */
 const clV = () => (typeof LEAGUE_VIEW !== "undefined" && LEAGUE_VIEW && LEAGUE_VIEW.cl) || { s: "home" };
-const clOn = () => typeof LEAGUE_VIEW !== "undefined" && !!LEAGUE_VIEW && LEAGUE_VIEW.seg === "pl";
+/* on one of the Match Centre's own segments (Matches, Tables, Call It: pl.js draws them; Quiz week is index.html's) */
+const CL_SEGS = ["matches", "tables", "callit"];
+const clOn = () => typeof LEAGUE_VIEW !== "undefined" && !!LEAGUE_VIEW && CL_SEGS.includes(LEAGUE_VIEW.seg);
 const clNow = () => Date.now() + CL.skew;
 const clStr = v => String(v == null ? "" : v);
 const clE = v => esc(clStr(v));
@@ -302,7 +304,7 @@ function clRender(st){
   const v = clV();
   const page = { card: clCardPage, calls: clCallsPage, new: clNewPage, invite: clInvitePage, join: clJoinPage,
     table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage, match: clMatchPage }[v.s];
-  st.innerHTML = page ? page(v) : clHome();
+  st.innerHTML = page ? page(v) : mcHub();
   clTickOn();
 }
 
@@ -347,23 +349,26 @@ async function clGuestStart(next){
   if(next === "join") return clGo("join");
   render();
 }
+/* THE MATCH CENTRE'S HEAD (MC v3, the hub stream): the band, "Match Centre", the four segments, and on Matches and
+   Tables the pinned competitions as chips (mchChipsHTML, at the end of this file) */
 function clHub(body){
-  return '<div class="b6 step lgpage clhub"><div class="b6band"></div><div class="b6body">' +
-    '<div class="lghead"><h1 class="lgh1">League</h1></div><span class="lgsub">Call the scores. Beat your mates. All season.</span>' +
-    lgSegHTML() + body + '</div></div>';
+  const seg = typeof LEAGUE_VIEW !== "undefined" && LEAGUE_VIEW ? LEAGUE_VIEW.seg : "callit";
+  return '<div class="b6 step lgpage clhub mchub mcseg-' + clE(seg) + '"><div class="b6band"></div><div class="b6body">' +
+    '<div class="lghead"><h1 class="lgh1">Match Centre</h1></div><span class="lgsub">Your leagues, your mates\' calls, every table.</span>' +
+    lgSegHTML() + (seg === "matches" || seg === "tables" ? mchChipsHTML() : "") + body + '</div></div>';
 }
 function clHome(){
   const why = clBlocked();
   if(why === "connecting") return clHub('<div class="lgskel"></div>');
   if(why === "offline") return clHub('<div class="lgempty"><b>Predictions need the internet</b><span>The rounds and the tables live on the server, so they are not available right now.</span></div>');
   if(why === "signedout") return clHub(fycTrial() ? fycCardHTML("league") : acctSaveHTML(false));
-  if(why === "guest") return clHub(clGuestHTML() + clMcEntryHTML());
+  if(why === "guest") return clHub(clGuestHTML());
   if(!CL.cards){
     if(!CL.loading && !CL.err) clLoad();
     return clHub(CL.err ? '<div class="lgempty"><b>' + clE(CL.err) + '</b><span>Check the connection and try again.</span><button class="b4btn dark" onclick="clLoad(true)">Try again</button></div>' : '<div class="lgskel"></div>');
   }
   if(Date.now() - CL.at > 60000 && !CL.loading) clLoad();
-  return clHub(clRevealBanner() + clNextCard() + clOtherCards() + clLeaguesHTML() + clMcEntryHTML());
+  return clHub(clRevealBanner() + clNextCard() + clOtherCards() + clLeaguesHTML());
 }
 /* the big card: the round with the next kick-off */
 function clNextCard(){
@@ -744,8 +749,8 @@ async function clJoinPending(code){
     const d = await clRpc("pl_league_preview", { p_code: code });
     if(d.ok){
       try{ acctLocalSet({ join: null }); }catch(e){}
-      if(!LEAGUE_VIEW) openLeague();
-      LEAGUE_VIEW.seg = "pl";
+      if(!LEAGUE_VIEW) openLeague("callit");
+      LEAGUE_VIEW.seg = "callit";
       LEAGUE_VIEW.cl = { s: "join", code, preview: d, from: null };
       render();
       return true;
@@ -753,7 +758,7 @@ async function clJoinPending(code){
   }catch(e){ return false; }
   /* a quiz league's code: join it, or (a guest) show the Quiz week, which says it joins once the club is founded */
   if(!leagueBlocked()) leagueJoin(code);
-  else if(LEAGUE_VIEW && LEAGUE_VIEW.seg === "pl"){ LEAGUE_VIEW.seg = "quiz"; LEAGUE_VIEW.cl = null; render(); }
+  else if(LEAGUE_VIEW && clOn()){ LEAGUE_VIEW.seg = "quiz"; LEAGUE_VIEW.cl = null; render(); }
   return false;
 }
 
@@ -882,10 +887,30 @@ function clBanter(ms, fid, Hn, An, n){
    1 for a draw; level on points, then goal difference, then goals scored. A match under way says LIVE and
    its minute, never its running score (the plan: not a live-score app; for English football the live data
    is somebody else's); the score is shown at full time. */
-/* the competitions the sync follows (013_more_competitions.sql), in the order the front lists them */
-const CL_COMPS = [{ id: "fb.DED", name: "Eredivisie" }, { id: "fb.PL", name: "Premier League" }, { id: "fb.CL", name: "Champions League" },
-  { id: "fb.PD", name: "LaLiga" }, { id: "fb.SA", name: "Serie A" }, { id: "fb.BL1", name: "Bundesliga" }, { id: "fb.FL1", name: "Ligue 1" },
-  { id: "fb.NL2", name: "Eerste Divisie" }, { id: "fb.BE1", name: "Belgian Pro League" }];
+/* the competitions the sync follows (013_more_competitions.sql, and 017's nine more: _plans/match-centre-v3.md §3), in
+   the order Tables' "All competitions" lists them. short: the plan's code; nick: the chip's name (the medal says the
+   rest); group: where the Edit sheet puts it; cc: its country, for the pins a new phone starts with (mchPinsDefault);
+   cup: a European cup, whose table is its league stage. A competition the server doesn't have yet (017 not run) has no
+   fixtures, and the hub says "The fixtures arrive with the next sync.", never an error. */
+const CL_COMPS = [
+  { id: "fb.DED", name: "Eredivisie", short: "ERE", nick: "Eredivisie", group: "Netherlands", cc: "nl" },
+  { id: "fb.PL", name: "Premier League", short: "EPL", nick: "Premier League", group: "Big five", cc: "gb" },
+  { id: "fb.CL", name: "Champions League", short: "UCL", nick: "Champions", group: "Europe", cc: "eu", cup: true },
+  { id: "fb.PD", name: "LaLiga", short: "LIG", nick: "LaLiga", group: "Big five", cc: "es" },
+  { id: "fb.SA", name: "Serie A", short: "SEA", nick: "Serie A", group: "Big five", cc: "it" },
+  { id: "fb.BL1", name: "Bundesliga", short: "BUN", nick: "Bundesliga", group: "Big five", cc: "de" },
+  { id: "fb.FL1", name: "Ligue 1", short: "LI1", nick: "Ligue 1", group: "Big five", cc: "fr" },
+  { id: "fb.NL2", name: "Eerste Divisie", short: "EED", nick: "Eerste Divisie", group: "Netherlands", cc: "nl" },
+  { id: "fb.BE1", name: "Belgian Pro League", short: "BPL", nick: "Pro League", group: "More", cc: "be" },
+  { id: "fb.ELC", name: "Championship", short: "CHA", nick: "Championship", group: "More", cc: "gb" },
+  { id: "fb.PPL", name: "Primeira Liga", short: "PPL", nick: "Primeira", group: "More", cc: "pt" },
+  { id: "fb.SPL", name: "Scottish Premiership", short: "SPL", nick: "Scotland", group: "More", cc: "sct" },
+  { id: "fb.TSL", name: "Süper Lig", short: "TSL", nick: "Süper Lig", group: "More", cc: "tr" },
+  { id: "fb.EL", name: "Europa League", short: "UEL", nick: "Europa", group: "Europe", cc: "eu", cup: true },
+  { id: "fb.ECL", name: "Conference League", short: "UCO", nick: "Conference", group: "Europe", cc: "eu", cup: true },
+  { id: "fb.SSL", name: "Swiss Super League", short: "SSL", nick: "Swiss", group: "More", cc: "ch" },
+  { id: "fb.AUT", name: "Austrian Bundesliga", short: "AUT", nick: "Austria", group: "More", cc: "at" },
+  { id: "fb.DEN", name: "Danish Superliga", short: "DEN", nick: "Denmark", group: "More", cc: "dk" } ];
 const CL_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const CL_DAYNAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const clPlayed = x => (x.st === "finished" || x.st === "awarded") && !!x.ft;
@@ -968,13 +993,17 @@ const CL_TABLE_SVG = '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidde
 /* BALL's own medal for each competition (compBadge in index.html, _brand/competitions), by its quiz key (Martijn, 31 Oct:
    "put the logos we made for the leagues here and on top of the page") */
 const CL_BADGE = { "fb.DED": "ere", "fb.PL": "premier", "fb.CL": "ucl", "fb.PD": "laliga", "fb.SA": "seriea", "fb.BL1": "bundesliga",
-  "fb.FL1": "ligue1", "fb.NL2": "eerste", "fb.BE1": "belgian" };
+  "fb.FL1": "ligue1", "fb.NL2": "eerste", "fb.BE1": "belgian",
+  /* 017's nine: their medals are already in assets/badges (the Europa and Conference League go by their cup keys) */
+  "fb.ELC": "champ", "fb.PPL": "primeira", "fb.SPL": "scotland", "fb.TSL": "superlig", "fb.EL": "uel", "fb.ECL": "uecl",
+  "fb.SSL": "swiss", "fb.AUT": "austria", "fb.DEN": "denmark" };
 const clBadge = (id, px) => typeof compBadge === "function" && CL_BADGE[id] ? compBadge(CL_BADGE[id], px) : "";
+/* Tables' "All competitions" (MC v3: it moved here from the Call It front), denser: three to a row on a wider phone */
 function clMcEntryHTML(){
-  return b4Sec("Tables and matches") + '<div class="cl-comps">' + CL_COMPS.map(C => {
-    const m = CL.mc[C.id], top = m && m.table[0] && m.table[0].p ? m.table[0] : null, b = clBadge(C.id, 44);
+  return b4Sec("All competitions") + '<div class="cl-comps mch-all">' + CL_COMPS.map(C => {
+    const m = CL.mc[C.id], top = m && m.table[0] && m.table[0].p ? m.table[0] : null, b = clBadge(C.id, 40);
     return '<button class="cl-comp" onclick="clGo(\'comp\',{comp:\'' + C.id + '\'})"><span class="cl-mcico' + (b ? " badge" : "") + '">' + (b || CL_TABLE_SVG) + '</span>' +
-      '<span class="m"><b>' + clE(C.name) + '</b><small>' + (top ? clE(clTeam(top).name) + " top · " + clPts(top.pts) : "Table and matches") + '</small></span></button>';
+      '<span class="m"><b>' + clE(C.name) + '</b><small>' + (top ? clE(clTeam(top).name) + " · " + clPts(top.pts) : mcPinned(C.id) ? "Pinned" : "Table and matches") + '</small></span></button>';
   }).join("") + '</div>';
 }
 function clMcTab(t){ audio(); const v = clV(); v.tab = t; render(); }
@@ -991,14 +1020,20 @@ function clClubGo(comp, key){ clGo("club", { comp, team: key, from: clV() }); }
 function clMatchGo(comp, fid){ clGo("match", { comp, fid, from: clV() }); }
 /* THE MATCH PAGE comes with its own files (assets/pl/mc.js, mc-stats.js and mc.css) the first time a match is
    opened, not at app start (_plans/match-centre.md §3.5); till then the page is a skeleton */
-let MC_LOAD = 0;
+/* MC v3: the charts (assets/pl/mc-charts.js and .css, _plans/match-centre-v3.md §2) come with it, after mc-stats.js
+   (they use MCStats.tableAt). A chart file that isn't there is harmless: mc.js loads all the same, and every page
+   asks typeof mcCharts first */
+let MC_LOAD = 0, MC_CSS = 0;
 function mcNeed(){
   if(MC_LOAD) return;
   MC_LOAD = 1;
   try{
-    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/pl/mc.css"; document.head.appendChild(css);
-    const add = (src, next) => { const s = document.createElement("script"); s.src = src; s.onload = next; s.onerror = () => { MC_LOAD = 0; }; document.head.appendChild(s); };
-    add("assets/pl/mc-stats.js", () => add("assets/pl/mc.js", () => clRedraw()));
+    if(!MC_CSS){
+      MC_CSS = 1;
+      ["assets/pl/mc.css", "assets/pl/mc-charts.css"].forEach(href => { const l = document.createElement("link"); l.rel = "stylesheet"; l.href = href; document.head.appendChild(l); });
+    }
+    const add = (src, next, soft) => { const s = document.createElement("script"); s.src = src; s.onload = next; s.onerror = soft ? next : () => { MC_LOAD = 0; }; document.head.appendChild(s); };
+    add("assets/pl/mc-stats.js", () => add("assets/pl/mc-charts.js", () => add("assets/pl/mc.js", () => clRedraw()), true));
   }catch(e){ MC_LOAD = 0; }
 }
 function clMatchPage(v){
@@ -1008,45 +1043,209 @@ function clMatchPage(v){
 }
 /* the page class for a title: a long name gets the smaller title (pl.css) */
 const clTitleCls = t => "clpage" + (clStr(t).length > 16 ? " cl-long" : "");
-function clCompPage(v){
-  const C = CL_COMPS.find(c => c.id === v.comp) || CL_COMPS[0], m = clMcNeed(C.id), tab = v.tab || "table";
-  /* the competition's medal on top, the full one with its ring, then the switch */
-  const medal = clBadge(C.id, 104);
-  const seg = (medal ? '<div class="cl-compmedal">' + medal + '</div>' : "") +
-    '<div class="lgseg lgseg2 cl-mcseg" role="group" aria-label="' + clE(C.name) + '">' + [["table", "Table"], ["matches", "Matches"]].map(t =>
-    '<button aria-pressed="' + (tab === t[0]) + '" onclick="clMcTab(\'' + t[0] + '\')">' + t[1] + '</button>').join("") + '</div>';
-  if(!m) return b4Page({ title: C.name, ctx: CL.mcErr || "Loading…", back: "clBack()", cls: clTitleCls(C.name), body: seg + (CL.mcErr ? "" : '<div class="lgskel"></div>') });
-  const rk = v.rk != null ? v.rk : clMcNowRound(m.rows);
-  return b4Page({ title: C.name, ctx: (tab === "matches" ? clRkLabel(rk) : C.id === "fb.CL" ? "The league stage" : "The table") + " · " + clStr(m.season), back: "clBack()", cls: clTitleCls(C.name),
-    body: seg + (tab === "matches" ? clMcMatchesHTML(C, m, rk) : clMcTableHTML(C, m)) });
+/* ---------- MC v3: THE COMPETITION PAGE AND THE CLUB PAGE (_plans/match-centre-v3.md §1.1 items 6–7, the pages stream) ----------
+   Sofascore's density in BALL's materials: the table with its zones, the matches with a Results · Fixtures filter, the
+   leaders and the stats, and a club page with a Follow button, its season in figures and its players. The leaders,
+   the stats and the club page's middle are in assets/pl/mc.js, which comes with the match page's files (mcNeed) the
+   first time one of these pages opens. Two other streams' work is used here and guarded everywhere, so these pages
+   work, plainer, without it: the hub's pins and followed club (mcPins, mcPinned, mcPinToggle, mcFollow, mcFollowSet,
+   mcFollowClear) and the charts (window.mcCharts, assets/pl/mc-charts.js; each returns an SVG string or ""). */
+
+/* THE ZONES (plan §3): where a place in the table leads, one entry per competition. A range is [from, to] or [one];
+   n is the table's size. In a league a zone in the bottom half moves with a table of another size (a data hole, a
+   league that changed size), so the relegation places stay the last ones; a cup's league stage has fixed bands.
+   Lines, not promises: the foot of the table says so. */
+const CL_ZONE_LAB = { cl: "Champions League", clq: "Champions League qualifying", eu: "Europe", ecl: "Conference League", up: "Promotion",
+  l16: "Last 16", po: "Play-off", ko: "Knockout play-off", down: "Relegation", out: "Out" };
+const CL_ZONE_ORDER = ["cl", "l16", "up", "clq", "eu", "ecl", "po", "ko", "down", "out"];
+const CL_ZONES = {
+  "fb.DED": { n: 18, cl: [1], clq: [2], eu: [3, 4], po: [16], down: [17, 18] },
+  "fb.PL": { n: 20, cl: [1, 5], eu: [6], down: [18, 20] },
+  "fb.CL": { n: 36, cup: true, l16: [1, 8], ko: [9, 24], out: [25, 36] },
+  "fb.PD": { n: 20, cl: [1, 5], eu: [6], down: [18, 20] },
+  "fb.SA": { n: 20, cl: [1, 4], eu: [5, 6], down: [18, 20] },
+  "fb.BL1": { n: 18, cl: [1, 4], eu: [5, 6], po: [16], down: [17, 18] },
+  "fb.FL1": { n: 18, cl: [1, 4], eu: [5, 6], po: [16], down: [17, 18] },
+  "fb.NL2": { n: 20, up: [1, 2], po: [3, 8] },
+  /* the plan's "1–6 play-off round, 16 down" was a sixteen-club league; the feed has eighteen in 2026-27: the last goes */
+  "fb.BE1": { n: 18, po: [1, 6], down: [18], lab: { po: "Title play-offs" } },
+  "fb.ELC": { n: 24, up: [1, 2], po: [3, 6], down: [22, 24] },
+  "fb.PPL": { n: 18, cl: [1, 2], clq: [3], eu: [4, 5], po: [16], down: [17, 18] },
+  "fb.SPL": { n: 12, cl: [1], clq: [2], eu: [3, 4], po: [11], down: [12] },
+  "fb.TSL": { n: 18, cl: [1, 2], eu: [3, 4], down: [16, 18] },
+  "fb.EL": { n: 36, cup: true, l16: [1, 8], ko: [9, 24], out: [25, 36] },
+  "fb.ECL": { n: 36, cup: true, l16: [1, 8], ko: [9, 24], out: [25, 36] },
+  "fb.SSL": { n: 12, cl: [1], eu: [2, 3], po: [11], down: [12] },
+  "fb.AUT": { n: 12, cl: [1], eu: [2, 3], down: [12] },
+  "fb.DEN": { n: 12, cl: [1], eu: [2, 3], down: [11, 12] } };
+const clCupStage = id => !!(CL_ZONES[id] && CL_ZONES[id].cup);
+/* the zone of a place in a competition's table: {k, label}, or null. size: the table's own length, when known */
+function clZoneOf(comp, pos, size){
+  const Z = CL_ZONES[comp];
+  if(!Z || !(pos > 0)) return null;
+  const sh = !Z.cup && size > 0 && Z.n ? size - Z.n : 0;
+  for(const k of CL_ZONE_ORDER){
+    const r = Z[k];
+    if(!r) continue;
+    const d = r[0] > Z.n / 2 ? sh : 0;
+    if(pos >= r[0] + d && pos <= (r.length > 1 ? r[1] : r[0]) + d) return { k, label: (Z.lab && Z.lab[k]) || CL_ZONE_LAB[k] };
+  }
+  return null;
 }
+
+/* the charts stream's module, when it is here (it hangs itself on window); a chart that throws is no chart */
+const clCharts = () => { try{ return (typeof window !== "undefined" && window.mcCharts) || (typeof mcCharts !== "undefined" ? mcCharts : null) || null; }catch(e){ return null; } };
+function clChart(fn, ...a){
+  const c = clCharts();
+  if(!c || typeof c[fn] !== "function") return "";
+  try{ return clStr(c[fn](...a)); }catch(e){ return ""; }
+}
+const clWide = () => { try{ return window.innerWidth >= 400; }catch(e){ return false; } };
+/* the followed club (the hub's mcFollow(): {comp, key, name}), wherever it plays: PSV followed from the Eredivisie are
+   gold in the Champions League's table too */
+function clFollowed(){ try{ const f = typeof mcFollow === "function" ? mcFollow() : null; return f && f.key ? clStr(f.key) : ""; }catch(e){ return ""; } }
+const clFollowing = key => !!key && clFollowed() === clStr(key);
+function clFollowKey(m){
+  const k = clFollowed();
+  return k && m && (m.table.some(t => t.key === k) || m.rows.some(x => x.h.key === k || x.a.key === k)) ? k : null;
+}
+/* a goal difference with its sign, the minus a real one */
+const clGD = n => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n);
+/* the last five as small dots, newest on the right: a win filled green, a draw light, a defeat a ring (never red) */
+const clDots = f => '<span class="cl-dots" role="img" aria-label="Form: ' + f.join(" ") + '">' + f.map(r => '<i class="' + r.toLowerCase() + '"></i>').join("") + '</span>';
+/* the small tabs under a page's tabs (All · Results · Fixtures, Goals · Assists · Cards) */
+const clSubTabs = (items, cur, fn, label) => '<div class="cl-sub" role="group" aria-label="' + clE(label) + '">' + items.map(t =>
+  '<button aria-pressed="' + (cur === t[0]) + '" onclick="' + fn + '(\'' + t[0] + '\')">' + t[1] + '</button>').join("") + '</div>';
+
+/* PIN a competition to the Match Centre (the hub keeps the pins). The icon set has no pin yet: this one is drawn the
+   set's way (24 grid, 2 px, round caps, currentColor) until it has one */
+const CL_PIN_SVG = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+  '<path d="M8.5 3h7"/><path d="M10 3v6l-3.5 4h11L14 9V3"/><line x1="12" y1="13" x2="12" y2="21"/></svg>';
+const clPinIco = () => typeof IPATHS !== "undefined" && IPATHS.pin ? ico("pin") : CL_PIN_SVG;
+const clPinned = id => { try{ return typeof mcPinned === "function" && !!mcPinned(id); }catch(e){ return false; } };
+function clPinHTML(id){
+  if(typeof mcPinToggle !== "function") return "";
+  const on = clPinned(id);
+  return '<button class="cl-pin' + (on ? " on" : "") + '" aria-pressed="' + on + '" onclick="clPinToggle(\'' + id + '\')">' + clPinIco() + '<span>' + (on ? "Pinned" : "Pin") + '</span></button>';
+}
+function clPinToggle(id){ audio(); try{ mcPinToggle(id); }catch(e){} render(); }
+/* FOLLOW a club (the hub keeps it): its matches lead the Match Centre, its rows are gold */
+function clFollowHTML(comp, key){
+  if(typeof mcFollowSet !== "function") return "";
+  const on = clFollowing(key);
+  return '<button class="cl-follow' + (on ? " on" : "") + '" aria-pressed="' + on + '" onclick="clFollowToggle(\'' + comp + '\',\'' + clE(key) + '\')">' +
+    ico(on ? "check" : "star") + '<span>' + (on ? "Following" : "Follow") + '</span></button>';
+}
+function clFollowToggle(comp, key){
+  audio();
+  if(clFollowing(key)){ try{ if(typeof mcFollowClear === "function") mcFollowClear(); }catch(e){} return render(); }
+  const m = CL.mc[comp], T = m && m.table.find(t => t.key === key), g = m && m.rows.find(x => x.h.key === key || x.a.key === key);
+  const name = clTeam(T || (g ? (g.h.key === key ? g.h : g.a) : { key })).name;
+  try{ mcFollowSet(comp, key, name); }catch(e){}
+  toast("Following " + name + ". Their matches come first.");
+  render();
+}
+
+/* THE PAGE: the medal and the pin, then Table · Matches · Leaders · Stats */
+const CL_COMP_TABS = [["table", "Table"], ["matches", "Matches"], ["leaders", "Leaders"], ["stats", "Stats"]];
+function clCompPage(v){
+  const C = CL_COMPS.find(c => c.id === v.comp) || CL_COMPS[0], m = clMcNeed(C.id), tab = CL_COMP_TABS.some(t => t[0] === v.tab) ? v.tab : "table";
+  mcNeed();
+  /* the competition's medal on top, the full one with its ring, the pin beside it, then the switch */
+  const medal = clBadge(C.id, 104), pin = clPinHTML(C.id);
+  const seg = (medal || pin ? '<div class="cl-compmedal' + (pin ? " pin" : "") + '">' + medal + pin + '</div>' : "") +
+    '<div class="lgseg lgseg2 cl-mcseg cl-tabs" role="group" aria-label="' + clE(C.name) + '">' + CL_COMP_TABS.map(t =>
+    '<button aria-pressed="' + (tab === t[0]) + '" onclick="clMcTab(\'' + t[0] + '\')">' + t[1] + '</button>').join("") + '</div>';
+  if(!m) return b4Page({ title: C.name, ctx: CL.mcErr || "Loading…", back: "clBack()", cls: clTitleCls(C.name) + " cl-v3", body: seg + (CL.mcErr ? "" : '<div class="lgskel"></div>') });
+  const rk = clMcCur(m, v), skel = '<div class="lgskel"></div>';
+  const ctx = tab === "matches" ? clRkLabel(rk) : tab === "leaders" ? "Leaders" : tab === "stats" ? "Stats" : clCupStage(C.id) ? "The league stage" : "The table";
+  const body = tab === "matches" ? clMcMatchesHTML(C, m, rk)
+    : tab === "leaders" ? (typeof mcLeadersHTML === "function" ? mcLeadersHTML(C, m, v) : skel)
+    : tab === "stats" ? (typeof mcStatsTabHTML === "function" ? mcStatsTabHTML(C, m, v) : skel) : clMcTableHTML(C, m);
+  return b4Page({ title: C.name, ctx: ctx + " · " + clStr(m.season), back: "clBack()", cls: clTitleCls(C.name) + " cl-v3", body: seg + body });
+}
+/* THE TABLE: 44 px rows, the zone as a 3 px bar on the left (gold at the top, green for Europe, sage for a play-off,
+   the ink at 40% for the drop; never red), P W D L, GD with its sign, the points in 900 italic, the last five as dots,
+   and beside them, on a screen of 400 px or more, each club's season as a sparkline (the charts stream's). The
+   followed club's row is gold. Under it the zones' key and what they are worth. A zone goes by the row, not the shared
+   place: before a ball is kicked every club is 1st, and only one row is */
 function clMcTableHTML(C, m){
   const T = m.table;
   if(!T.length) return '<div class="lgempty"><b>No matches yet</b><span>The table fills in as soon as the season\'s fixtures are in.</span></div>';
-  return '<div class="b4card cream cl-mctable"><div class="cl-mrow hd"><span>#</span><span></span><span>Club</span><span>P</span><span>GD</span><span>Pts</span></div>' +
-    T.map(t => { const gd = t.gf - t.ga;
-      return '<button class="cl-mrow" onclick="clClubGo(\'' + C.id + '\',\'' + clE(t.key) + '\')"><span class="pos">' + t.pos + '</span>' + clPatch({ key: t.key, name: t.name }, 22) +
-        '<span class="nm"><b>' + clE(clTeam(t).name) + '</b>' + (t.form.length ? clMcForm(t.form) : "") + '</span><span>' + t.p + '</span><span>' + (gd > 0 ? "+" : "") + gd + '</span><span class="pts">' + t.pts + '</span></button>';
-    }).join("") + '</div><p class="cl-sum">3 points for a win, 1 for a draw. Level on points: goal difference, then goals scored. Tap a club for its matches.</p>';
+  const fk = clFollowKey(m), cup = clCupStage(C.id), spark = clWide() && clCharts() ? k => clChart("sparkline", m, k) : () => "";
+  const seen = {};
+  let last = null;
+  const rows = T.map((t, i) => {
+    const z = clZoneOf(C.id, i + 1, T.length), zk = z ? z.k : "", name = clTeam(t).name, sp = spark(t.key), brk = last !== null && zk !== last;
+    if(z) seen[zk] = z.label;
+    last = zk;
+    return '<button class="cl-zrow' + (zk ? " z-" + zk : "") + (brk ? " zb" : "") + (t.key === fk ? " fol" : "") + '" onclick="clClubGo(\'' + C.id + '\',\'' + clE(t.key) + '\')" aria-label="' +
+      clE(name) + ', ' + ordinal(t.pos) + ', ' + clPts(t.pts) + (z ? ", " + clE(z.label) : "") + (t.key === fk ? ", the club you follow" : "") + '">' +
+      '<span class="pos">' + t.pos + '</span>' + clPatch({ key: t.key, name: t.name }, 22) +
+      '<span class="nm"><b>' + clE(name) + '</b>' + (t.form.length || sp ? '<span class="sub">' + (t.form.length ? clDots(t.form) : "") + (sp ? '<span class="cl-spark">' + sp + '</span>' : "") + '</span>' : "") + '</span>' +
+      '<span>' + t.p + '</span><span>' + t.w + '</span><span>' + t.d + '</span><span>' + t.l + '</span><span class="gd">' + clGD(t.gf - t.ga) + '</span><span class="pts">' + t.pts + '</span></button>';
+  }).join("");
+  const key = CL_ZONE_ORDER.filter(k => seen[k]).map(k => '<span><i class="z-' + k + '"></i>' + clE(seen[k]) + '</span>').join("");
+  return '<div class="b4card cream cl-ztable"><div class="cl-zrow hd" aria-hidden="true"><span>#</span><span></span><span>Club</span><span>P</span><span>W</span><span>D</span><span>L</span><span>GD</span><span>Pts</span></div>' +
+    rows + '</div>' + (key ? '<div class="cl-zkey">' + key + '</div>' : "") +
+    '<p class="cl-sum">' + (cup ? "The top eight go straight to the last 16; 9th to 24th play off for the other eight places." : "Zones are a guide: cup winners and coefficients can change who goes where.") +
+    ' 3 points for a win, 1 for a draw; level on points, goal difference, then goals scored. Tap a club for its page.</p>';
+}
+/* THE MATCHES: the rounds as before (‹ Matchday 12 ›), and a filter: All, Results (the rounds with a result, the
+   latest first on show) or Fixtures (the rounds with a match to play, the one on now first) */
+const clMcKeep = (x, mf) => mf === "res" ? clPlayed(x) : mf === "fix" ? !clPlayed(x) && x.st !== "cancelled" : true;
+function clMcRoundsFor(rows, mf){
+  const rs = clMcRounds(rows);
+  return mf === "res" || mf === "fix" ? rs.filter(k => rows.some(x => clRk(x) === k && clMcKeep(x, mf))) : rs;
+}
+function clMcCur(m, v){
+  const mf = v.mf || "all";
+  if(mf === "all") return v.rk != null ? v.rk : clMcNowRound(m.rows);
+  const rs = clMcRoundsFor(m.rows, mf);
+  if(v.rk != null && rs.includes(v.rk)) return v.rk;
+  if(mf === "res") return rs.length ? rs[rs.length - 1] : null;
+  const now = clMcNowRound(m.rows), soon = clNow() - 4 * 3600e3;
+  return rs.includes(now) ? now : rs.find(k => m.rows.some(x => clRk(x) === k && clMcKeep(x, "fix") && x.ko > soon)) || (rs.length ? rs[rs.length - 1] : null);
+}
+function clMcMf(f){ audio(); const v = clV(); v.mf = /^(res|fix)$/.test(f) ? f : "all"; v.rk = null; render(); }
+function clMcGo(d){
+  const v = clV(), m = CL.mc[v.comp];
+  if(!m) return;
+  if(!v.mf || v.mf === "all") return clMcMd(d);
+  audio();
+  const rs = clMcRoundsFor(m.rows, v.mf), i = rs.indexOf(clMcCur(m, v));
+  if(i < 0) return;
+  v.rk = rs[Math.max(0, Math.min(rs.length - 1, i + d))];
+  render();
 }
 function clMcMatchesHTML(C, m, rk){
-  const rs = clMcRounds(m.rows), i = rs.indexOf(rk), games = m.rows.filter(x => clRk(x) === rk);
-  const nav = '<div class="cl-mdnav"><button onclick="clMcMd(-1)" aria-label="Round before"' + (i <= 0 ? " disabled" : "") + '>‹</button><b>' + clE(clRkLabel(rk)) + '</b>' +
-    '<button onclick="clMcMd(1)" aria-label="Round after"' + (i < 0 || i >= rs.length - 1 ? " disabled" : "") + '>›</button></div>';
+  const mf = clV().mf || "all", fk = clFollowKey(m), rs = clMcRoundsFor(m.rows, mf), i = rs.indexOf(rk);
+  const games = rk == null ? [] : m.rows.filter(x => clRk(x) === rk && clMcKeep(x, mf));
+  const nav = '<div class="cl-mdnav"><button onclick="clMcGo(-1)" aria-label="Round before"' + (i <= 0 ? " disabled" : "") + '>‹</button><b>' + clE(clRkLabel(rk)) + '</b>' +
+    '<button onclick="clMcGo(1)" aria-label="Round after"' + (i < 0 || i >= rs.length - 1 ? " disabled" : "") + '>›</button></div>';
+  const none = mf === "res" ? ["No results yet", "The scores come in at full time."] : mf === "fix" ? ["No matches left to play", "The season's fixtures are all played."]
+    : ["No matches here yet", "The fixtures come in as soon as they are set."];
   let day = "";
-  return nav + games.map(x => {
+  return clSubTabs([["all", "All"], ["res", "Results"], ["fix", "Fixtures"]], mf, "clMcMf", "Which matches") + nav + games.map(x => {
     const d = clMcDate(x.ko), head = d !== day ? (day = d, b4Sec(d)) : "";
-    return head + clMcMatchHTML(C, x);
-  }).join("") + (games.length ? "" : '<div class="lgempty"><b>No matches here yet</b><span>The fixtures come in as soon as they are set.</span></div>');
+    return head + clMcMatchHTML(C, x, fk);
+  }).join("") + (games.length ? "" : '<div class="lgempty"><b>' + none[0] + '</b><span>' + none[1] + '</span></div>');
 }
-function clMcMatchHTML(C, x){
-  return '<div class="cl-mm' + (clPlayed(x) ? " done" : "") + '"><button class="h" onclick="clClubGo(\'' + C.id + '\',\'' + clE(x.h.key) + '\')"><span>' + clE(clTeam(x.h).name) + '</span>' + clPatch(x.h, 24) + '</button>' +
+/* a match: the names to their clubs, the score (or the time) to the match page; the followed club's match gold-edged */
+function clMcMatchHTML(C, x, fk){
+  return '<div class="cl-mm' + (clPlayed(x) ? " done" : "") + (fk && (x.h.key === fk || x.a.key === fk) ? " fol" : "") + '"><button class="h" onclick="clClubGo(\'' + C.id + '\',\'' + clE(x.h.key) + '\')"><span>' + clE(clTeam(x.h).name) + '</span>' + clPatch(x.h, 22) + '</button>' +
     '<button class="sc mcgo" onclick="clMatchGo(\'' + C.id + '\',\'' + clE(x.id) + '\')" aria-label="The match: ' + clE(clTeam(x.h).name) + ' v ' + clE(clTeam(x.a).name) + '">' + clMcScore(x) + '</button>' +
-    '<button class="a" onclick="clClubGo(\'' + C.id + '\',\'' + clE(x.a.key) + '\')">' + clPatch(x.a, 24) + '<span>' + clE(clTeam(x.a).name) + '</span></button></div>';
+    '<button class="a" onclick="clClubGo(\'' + C.id + '\',\'' + clE(x.a.key) + '\')">' + clPatch(x.a, 22) + '<span>' + clE(clTeam(x.a).name) + '</span></button></div>';
 }
+/* THE CLUB PAGE: the dark head with Follow and the strip (position, points, goal difference, form), then from mc.js
+   its position this season, this season against the league, its scorers and its absentees, then the next match with
+   its story line, the results and the rest */
+/* the club page shows five results and five fixtures; the rest come with a tap */
+function clClubAll(k){ audio(); const v = clV(); if(v) v[k] = true; render(); }
 function clClubPage(v){
   const C = CL_COMPS.find(c => c.id === v.comp) || CL_COMPS[0], m = clMcNeed(C.id);
-  if(!m) return b4Page({ title: "Club", ctx: CL.mcErr || "Loading…", back: "clBack()", cls: "clpage", body: CL.mcErr ? "" : '<div class="lgskel"></div>' });
+  mcNeed();
+  if(!m) return b4Page({ title: "Club", ctx: CL.mcErr || "Loading…", back: "clBack()", cls: "clpage cl-v3", body: CL.mcErr ? "" : '<div class="lgskel"></div>' });
   /* a club out in the qualifiers is in no table: its name comes from its matches */
   const T = m.table.find(t => t.key === v.team), games = m.rows.filter(x => x.h.key === v.team || x.a.key === v.team);
   const name = clTeam(T || (games[0] ? (games[0].h.key === v.team ? games[0].h : games[0].a) : { key: v.team })).name;
@@ -1058,12 +1257,18 @@ function clClubPage(v){
       '<span class="o clublink" onclick="event.stopPropagation();clClubGo(\'' + C.id + '\',\'' + clE(opp.key) + '\')">' + clPatch(opp, 22) + '<span>' + (home ? "v " : "at ") + clE(clTeam(opp).name) + '</span></span>' +
       (done ? '<span class="r ' + res(x) + '">' + (home ? x.ft[0] + "–" + x.ft[1] : x.ft[1] + "–" + x.ft[0]) + '</span>' : '<span class="r up">' + clMcScore(x) + '</span>') + '</button>';
   };
-  const head = '<div class="b4card dark cl-clubhead">' + clPatch({ key: v.team, name }, 60) + '<div><span class="cl-kick">' + clE(C.name) + '</span><h2>' + clE(name) + '</h2>' +
-    (T ? '<p class="cl-when">' + clMcPos(T) + ' · ' + T.w + ' won, ' + T.d + ' drawn, ' + T.l + ' lost</p>' + (T.form.length ? clMcForm(T.form) : "") : "") + '</div></div>';
-  return b4Page({ title: name, ctx: C.name + (T ? " · " + ordinal(T.pos) : ""), back: "clBack()", cls: clTitleCls(name),
-    body: head + (next.length ? b4Sec("Next") + next.slice(0, 5).map(x => row(x, false)).join("") : "") +
-      (played.length ? b4Sec("Results") + played.map(x => row(x, true)).join("") : "") +
-      (next.length > 5 ? b4Sec("Later") + next.slice(5).map(x => row(x, false)).join("") : "") +
+  const strip = T && T.p ? '<div class="cl-strip">' + [["Position", ordinal(T.pos)], ["Points", T.pts], ["Goal diff.", clGD(T.gf - T.ga)]].map(c =>
+    '<span><small>' + c[0] + '</small><b>' + c[1] + '</b></span>').join("") + '<span><small>Form</small>' + (T.form.length ? clDots(T.form) : "<b>–</b>") + '</span></div>' : "";
+  const head = '<div class="b4card dark cl-clubhead"><div class="cl-chtop">' + clPatch({ key: v.team, name }, 60) + '<div class="cl-chname"><span class="cl-kick">' + clE(C.name) + '</span><h2>' + clE(name) + '</h2>' +
+    (T && T.p ? '<p class="cl-when">' + T.p + ' played · ' + T.w + ' won, ' + T.d + ' drawn, ' + T.l + ' lost</p>' : "") + '</div>' + clFollowHTML(C.id, v.team) + '</div>' + strip + '</div>';
+  const more = typeof mcClubMoreHTML === "function" ? mcClubMoreHTML(C, m, v.team, name, next) : '<div class="lgskel cl-skel-s"></div>';
+  const story = next.length && typeof mcClubStoryHTML === "function" ? mcClubStoryHTML(C, m, next[0]) : "";
+  return b4Page({ title: name, ctx: C.name + (T ? " · " + ordinal(T.pos) : ""), back: "clBack()", cls: clTitleCls(name) + " cl-v3",
+    body: head + more + (next.length ? b4Sec("Next") + row(next[0], false) + story + next.slice(1, 5).map(x => row(x, false)).join("") : "") +
+      (played.length ? b4Sec("Results") + (v.allRes ? played : played.slice(0, 5)).map(x => row(x, true)).join("") +
+        (!v.allRes && played.length > 5 ? '<button class="cl-more" onclick="clClubAll(\'allRes\')">All ' + played.length + ' results ›</button>' : "") : "") +
+      (next.length > 5 ? b4Sec("Later") + (v.allFix ? next.slice(5) : next.slice(5, 10)).map(x => row(x, false)).join("") +
+        (!v.allFix && next.length > 10 ? '<button class="cl-more" onclick="clClubAll(\'allFix\')">All ' + (next.length - 5) + ' fixtures ›</button>' : "") : "") +
       '<p class="cl-sum">Tap a match for its preview or result, or a club for its page.</p>' });
 }
 
@@ -1393,4 +1598,327 @@ function clLeagueCard(leagueId){
 function clCardDone(cardId){
   const F = clF(cardId);
   return F.length > 0 && !F.some(clOpen) && F.some(f => f.status === "finished" || f.status === "awarded");
+}
+
+/* ---------- MC v3: THE HUB (_plans/match-centre-v3.md §1.1 items 1-5, the hub stream, 2 Nov 2026) ----------
+   Martijn: "much more like a Sofascore type of league tracking app ... and an option to pin leagues you are more
+   interested in". The tab is the Match Centre: Matches · Tables · Call It · Quiz week (lgSegHTML in index.html).
+   - Matches and Tables show the PINNED competitions (chips under the switch: one tap shows only that one, a second
+     tap all of them again), read with the match centre's own loader (clMcLoad: one public read of pl_fixtures per
+     competition, kept five minutes), at most once per competition each time the tab is opened (mchNeed).
+   - Pins and the followed club live on the phone: ball4-mc-pins (ids, in the player's order; a new phone starts with
+     its own league when BALL carries it, the Premier League and the Champions League) and ball4-mc-club
+     ({comp, key, name}; null once unfollowed). The followed club's match leads Matches with a gold edge, and its row
+     joins its competition's top five on Tables.
+   - The home's Match Centre card (b6McCard in index.html) reads ball4-mc-strip, which this file keeps (mchStripSave),
+     so the home never loads Call It.
+   THE CONTRACT for the pages stream (called behind typeof guards): mcPins(), mcPinned(id), mcPinToggle(id),
+   mcFollow(), mcFollowSet(comp, key, name), mcFollowClear(). */
+const MC_PINS = "ball4-mc-pins", MC_CLUB = "ball4-mc-club", MC_STRIP = "ball4-mc-strip";
+/* the plan's decision 3 is Martijn's (§5): until he says otherwise, the followed club starts as Found your club's
+   favourite, when it is in a table the hub has loaded and nothing else there fits */
+const MC_FOLLOW_FROM_FAV = true;
+/* the Edit sheet's groups: [CL_COMPS' group, its heading] */
+const MCH_GROUPS = [["Netherlands", "Netherlands"], ["Big five", "Europe's big five"], ["Europe", "Europe"], ["More", "More"]];
+/* a new phone's first pin is its own league, when BALL carries it. The country the way index.html's firstSides finds
+   it (LANG_CC): every language the phone prefers, its region first ("nl-BE" is Belgium), else the language's own
+   country ("nl" is the Netherlands); English alone says nothing about where */
+const MCH_LANG_CC = { nl: "nl", de: "de", fr: "fr", es: "es", it: "it", pt: "pt", da: "dk", tr: "tr" };
+const MCH_LOCAL = { nl: "fb.DED", be: "fb.BE1", gb: "fb.PL", es: "fb.PD", it: "fb.SA", de: "fb.BL1", fr: "fb.FL1", pt: "fb.PPL",
+  tr: "fb.TSL", ch: "fb.SSL", at: "fb.AUT", dk: "fb.DEN" };
+const mchComp = id => CL_COMPS.find(c => c.id === id) || null;
+const mchGet = k => { try{ return localStorage.getItem(k); }catch(e){ return null; } };
+const mchPut = (k, v) => { try{ localStorage.setItem(k, v); }catch(e){} };
+const mchFeel = () => { try{ if(typeof haptic === "function") haptic("select"); }catch(e){} };
+/* this visit's own state: the chip that filters (f), the day on Matches (d, 0 is today) and the competitions read
+   since the tab opened (read). openLeague makes a new LEAGUE_VIEW, so each visit starts on today, all pins */
+function mchV(){
+  if(typeof LEAGUE_VIEW === "undefined" || !LEAGUE_VIEW) return null;
+  return LEAGUE_VIEW.hub || (LEAGUE_VIEW.hub = { f: null, d: 0, read: {} });
+}
+/* after a pin or a follow: the page again, and the Edit sheet when it is open (in place, so it doesn't pop in again) */
+function mchRedraw(){
+  try{
+    const o = typeof $ === "function" ? $("#overlay") : null;
+    if(o && o.classList && o.classList.contains("show") && /mch-editsheet/.test(o.innerHTML || "")){
+      const sh = o.querySelector ? o.querySelector(".sheet") : null;
+      if(sh) sh.innerHTML = mchEditHTML(); else sheet(mchEditHTML());
+    }
+  }catch(e){}
+  clRedraw();
+}
+
+/* ---- the pins ---- */
+function mchPinsDefault(){
+  let langs = [];
+  try{ langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(String); }catch(e){}
+  let local = null;
+  for(const l of langs){
+    const [lang, reg] = l.toLowerCase().split("-");
+    local = MCH_LOCAL[reg] || MCH_LOCAL[MCH_LANG_CC[lang]] || null;
+    if(local) break;
+  }
+  return [local, "fb.PL", "fb.CL"].filter((x, i, a) => x && a.indexOf(x) === i);
+}
+function mcPins(){
+  const raw = mchGet(MC_PINS);
+  if(raw != null){
+    try{ const a = JSON.parse(raw); if(Array.isArray(a)) return a.filter((id, i) => !!mchComp(id) && a.indexOf(id) === i); }catch(e){}
+  }
+  return mchPinsDefault();
+}
+function mcPinned(id){ return mcPins().includes(id); }
+/* pin or unpin; a new pin goes on the end. True when it is pinned now */
+function mcPinToggle(id){
+  if(!mchComp(id)) return false;
+  mchFeel();
+  const a = mcPins(), i = a.indexOf(id);
+  if(i >= 0) a.splice(i, 1); else a.push(id);
+  mchPut(MC_PINS, JSON.stringify(a));
+  const H = mchV();
+  if(H && H.f === id && i >= 0) H.f = null;
+  mchRedraw();
+  return i < 0;
+}
+function mchPinUp(id){
+  const a = mcPins(), i = a.indexOf(id);
+  if(i <= 0) return;
+  mchFeel();
+  a.splice(i - 1, 0, a.splice(i, 1)[0]);
+  mchPut(MC_PINS, JSON.stringify(a));
+  mchRedraw();
+}
+
+/* ---- the followed club ---- */
+function mcFollow(){
+  const raw = mchGet(MC_CLUB);
+  if(raw != null){
+    try{ const o = JSON.parse(raw); return o && o.comp && o.key ? { comp: clStr(o.comp), key: clStr(o.key), name: clStr(o.name) } : null; }catch(e){ return null; }
+  }
+  return MC_FOLLOW_FROM_FAV ? mchFollowFav() : null;
+}
+function mcFollowSet(comp, key, name){
+  if(!comp || !key) return;
+  mchFeel();
+  mchPut(MC_CLUB, JSON.stringify({ comp: clStr(comp), key: clStr(key), name: clStr(name || clTeam({ key, name }).name) }));
+  mchStripSave(true); mchRedraw();
+}
+function mcFollowClear(){ mchPut(MC_CLUB, "null"); mchStripSave(true); mchRedraw(); }
+/* Found your club's favourite (fav.club, a clubs-identity slug) in a league table the hub has loaded: by BALL's own
+   identity (teams.json's s) or by name. A reserve side (Jong Ajax) never stands in for its club, and two clubs that
+   both fit mean none */
+const mchNorm = s => clStr(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+  .replace(/\b(fc|afc|cf|sc|ac|as|sv|bv|ssc|rc|cd|fk|sk)\b/g, " ").replace(/[^a-z0-9]+/g, "");
+const MCH_RESERVE = /^jong |\b(ii|b|u2[13]|reserves)$/i;
+function mchFollowFav(){
+  let slug = null;
+  try{ const f = acctLocal().fav; slug = f && f.club; }catch(e){}
+  if(!slug){ try{ const m = mine(); slug = m && m.fav && m.fav.club; }catch(e){} }
+  if(!slug) return null;
+  let own = null; try{ own = clubOf(slug); }catch(e){}
+  const want = mchNorm(own && own.name ? own.name : clStr(slug).replace(/-/g, " ")), hits = {};
+  CL_COMPS.filter(C => !C.cup).forEach(C => {
+    const m = CL.mc[C.id];
+    ((m && m.table) || []).forEach(t => {
+      const T = clTeam(t), byName = !!want && (mchNorm(T.name) === want || mchNorm(t.name) === want);
+      const bySlug = T.slug === slug && !MCH_RESERVE.test(T.name) && !MCH_RESERVE.test(clStr(t.name));
+      if(byName || bySlug) (hits[t.key] = hits[t.key] || []).push({ comp: C.id, key: clStr(t.key), name: T.name });
+    });
+  });
+  const keys = Object.keys(hits);
+  return keys.length === 1 && hits[keys[0]].length === 1 ? Object.assign({ fav: true }, hits[keys[0]][0]) : null;
+}
+
+/* ---- the fixtures: the match centre's loader, once per competition per visit ---- */
+function mchNeed(id){
+  const H = mchV(), m = CL.mc[id], busy = CL.mcBusy || (CL.mcBusy = {}), err = CL.mcHubErr || (CL.mcHubErr = {});
+  if(m && Date.now() - m.at < 5 * 60e3) return m;
+  if(!H || H.read[id] || busy[id]) return m || null;
+  if(!sbClient()){
+    /* the server's script comes deferred: look again in a moment, a few times, then say so */
+    CL.mcSbN = (CL.mcSbN || 0) + 1;
+    if(CL.mcSbN > 12){ err[id] = 1; return m || null; }
+    if(!CL.mcSbT) CL.mcSbT = setTimeout(() => { CL.mcSbT = 0; clRedraw(); }, 900);
+    return m || null;
+  }
+  H.read[id] = 1; busy[id] = 1; err[id] = 0; CL.asked["mc:" + id] = Date.now();
+  clMcLoad(id).then(() => { busy[id] = 0; mchLanded(); }, () => { busy[id] = 0; err[id] = 1; mchLanded(); });
+  return m || null;
+}
+function mchLanded(){ mchStripSave(true); clRedraw(); }
+function mchRetry(){ audio(); const H = mchV(); if(H) H.read = {}; CL.mcHubErr = {}; CL.mcSbN = 0; render(); }
+
+/* ---- what the home's Match Centre card says (ball4-mc-strip) ----
+   {at, next: [{comp, id, h: {key, name, s, code, c1, c2}, a, ko, ft, st}], club}: the followed club's next two and
+   its last, the next four of the pinned competitions and their three latest results. The home picks two lines when
+   it draws (b6McLines), so a strip written on Friday still reads right on Saturday */
+function mchStripSave(force){
+  try{
+    if(!force && Date.now() - (CL.mcStripAt || 0) < 60000) return;
+    const F = mcFollow(), ids = mcPins().slice(), now = clNow(), all = [];
+    if(F && !ids.includes(F.comp)) ids.push(F.comp);
+    ids.forEach(id => { const m = CL.mc[id]; if(m) m.rows.forEach(x => all.push([id, x])); });
+    if(!all.length) return;
+    CL.mcStripAt = Date.now();
+    const side = t => { const T = clTeam(t), o = T.own || {}; return { key: T.key, name: T.name, s: T.slug || null, code: T.code, c1: o.c1 || null, c2: o.c2 || null }; };
+    const pack = e => ({ comp: e[0], id: e[1].id, h: side(e[1].h), a: side(e[1].a), ko: e[1].ko, ft: clPlayed(e[1]) ? e[1].ft : null, st: e[1].st });
+    const ahead = all.filter(e => !clPlayed(e[1]) && !/^(postponed|cancelled|suspended)$/.test(e[1].st) && e[1].ko > now - 2 * 3600e3).sort((p, q) => p[1].ko - q[1].ko);
+    const done = all.filter(e => clPlayed(e[1])).sort((p, q) => q[1].ko - p[1].ko);
+    const its = e => mchIsMine(F, e[0], e[1]), pick = [], add = e => { if(e && !pick.includes(e)) pick.push(e); };
+    ahead.filter(its).slice(0, 2).forEach(add); add(done.find(its));
+    ahead.slice(0, 4).forEach(add); done.slice(0, 3).forEach(add);
+    localStorage.setItem(MC_STRIP, JSON.stringify({ at: Date.now(), next: pick.map(pack), club: F ? { comp: F.comp, key: F.key, name: F.name } : null }));
+  }catch(e){}
+}
+
+/* ---- the hub: Matches and Tables here, Call It is clHome ---- */
+function mcHub(){
+  const seg = typeof LEAGUE_VIEW !== "undefined" && LEAGUE_VIEW ? LEAGUE_VIEW.seg : "callit";
+  if(seg !== "matches" && seg !== "tables") return clHome();
+  /* Call It's rounds, quietly, so the home's line and the next visit's segment know them (no screen waits on it) */
+  try{ if(!clBlocked() && !CL.cards && !CL.loading && !CL.err) clLoad(); }catch(e){}
+  return clHub(seg === "tables" ? mchTables() : mchMatches());
+}
+const mchShown = () => { const H = mchV(), p = mcPins(); return H && H.f && p.includes(H.f) ? [H.f] : p; };
+const mchIsMine = (F, id, x) => !!F && F.comp === id && !!x && (x.h.key === F.key || x.a.key === F.key);
+function mchNoPins(){
+  return '<div class="lgempty mch-none"><b>Nothing pinned yet</b><span>Pin the competitions you follow and their matches and tables come here, in your order.</span>' +
+    '<button class="b4btn dark" onclick="mchEdit()">Pin competitions</button></div>';
+}
+const mchOffline = () => '<div class="lgempty mch-none"><b>Not available right now</b><span>The matches and the tables live on the server. Check the connection and try again.</span>' +
+  '<button class="b4btn dark" onclick="mchRetry()">Try again</button></div>';
+/* under the list: a pinned competition the server has no fixtures for yet (017 not run), or one that didn't load */
+function mchNotes(none, failed){
+  return none.map(id => '<p class="mch-note">' + clBadge(id, 22) + '<span><b>' + clE(mchComp(id).name) + '</b> The fixtures arrive with the next sync.</span></p>').join("") +
+    (failed.length ? '<p class="mch-note"><span><b>' + failed.map(id => clE(mchComp(id).name)).join(", ") + '</b> Not available right now.</span>' +
+      '<button class="mch-retry" onclick="mchRetry()">Try again</button></p>' : "");
+}
+
+/* ---- Matches: a day at a time, a section per competition in pin order ---- */
+const MCH_DAY = 864e5;
+function mchDay0(off){ const d = new Date(clNow()); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + (off | 0)); return d.getTime(); }
+function mchDayOf(ms){ const d = new Date(ms); d.setHours(0, 0, 0, 0); return Math.round((d.getTime() - mchDay0(0)) / MCH_DAY); }
+const mchDate = off => { const d = new Date(mchDay0(off)); return CL_DAYS[d.getDay()] + " " + d.getDate() + " " + CL_MONTHS[d.getMonth()]; };
+const mchDayLabel = off => off === 0 ? "Today" : off === 1 ? "Tomorrow" : off === -1 ? "Yesterday" : mchDate(off);
+function mchDayGo(d, rel){ audio(); mchFeel(); const H = mchV(); if(!H) return; H.d = Math.max(-60, Math.min(180, rel ? H.d + d : d)); render(); }
+function mchDaysHTML(H){
+  const lab = mchDayLabel(H.d);
+  return '<div class="mch-days" role="group" aria-label="Day">' +
+    '<button class="mch-dstep" onclick="mchDayGo(-1,1)" aria-label="Day before">‹</button>' +
+    (H.d ? '<button class="mch-dayl" onclick="mchDayGo(0)" aria-label="' + clE(lab) + ', back to today"><b>' + clE(lab) + '</b><small>' + (Math.abs(H.d) > 1 ? "Back to today" : clE(mchDate(H.d))) + '</small></button>'
+      : '<span class="mch-dayl"><b>Today</b><small>' + clE(mchDate(0)) + '</small></span>') +
+    '<button class="mch-dstep" onclick="mchDayGo(1,1)" aria-label="Day after">›</button></div>';
+}
+/* the middle of a row: the kick-off, or the score at full time, its state underneath (FT, HT, Live, Off). A match
+   under way says Live and its minute, never its running score (the match centre's rule since 30 Oct) */
+function mchCell(x){
+  if(clPlayed(x)) return '<b>' + x.ft[0] + '–' + x.ft[1] + '</b><small>' + (x.st === "awarded" ? "Awd" : "FT") + '</small>';
+  if(x.st === "live") return '<b class="live">Live</b><small>' + (x.min ? x.min + "'" : "") + '</small>';
+  if(x.st === "paused") return '<b class="live">Live</b><small>HT</small>';
+  if(x.st === "postponed") return '<b>Off</b><small>Postponed</small>';
+  if(x.st === "cancelled" || x.st === "suspended") return '<b>–</b><small>' + (x.st === "cancelled" ? "Cancelled" : "Suspended") + '</small>';
+  return '<b>' + clTime(x.ko) + '</b>';
+}
+function mchRowHTML(id, x, F){
+  const H = clTeam(x.h), A = clTeam(x.a), mine = mchIsMine(F, id, x), done = clPlayed(x);
+  const w = done ? (x.ft[0] > x.ft[1] ? " wh" : x.ft[0] < x.ft[1] ? " wa" : "") : "";
+  const say = H.name + " v " + A.name + (done ? ", full time " + x.ft[0] + "–" + x.ft[1] : x.st === "live" || x.st === "paused" ? ", live"
+    : x.st === "postponed" ? ", postponed" : ", " + clTime(x.ko)) + (mine ? ", your club" : "");
+  return '<button class="mch-row' + (mine ? " mine" : "") + (done ? " done" : "") + w + '" onclick="clMatchGo(\'' + id + '\',\'' + clE(x.id) + '\')" aria-label="' + clE(say) + '">' +
+    '<span class="h"><span class="n">' + clE(H.name) + '</span>' + clPatch(x.h, 24) + '</span>' +
+    '<span class="c">' + mchCell(x) + '</span>' +
+    '<span class="a">' + clPatch(x.a, 24) + '<span class="n">' + clE(A.name) + '</span></span></button>';
+}
+function mchSecHTML(id, games, F){
+  const C = mchComp(id);
+  return '<section class="mch-sec"><button class="mch-kick" onclick="clGo(\'comp\',{comp:\'' + id + '\'})">' + clBadge(id, 24) + '<b>' + clE(C.name) + '</b>' +
+    '<span class="mch-n">' + games.length + (games.length === 1 ? " match" : " matches") + '</span><span class="chev" aria-hidden="true">›</span></button>' +
+    '<div class="mch-list">' + games.map(x => mchRowHTML(id, x, F)).join("") + '</div></section>';
+}
+function mchEmptyDay(H, have){
+  const from = mchDay0(H.d + 1);
+  const next = have.reduce((b, e) => { const x = e[1].rows.find(r => r.ko >= from && r.st !== "cancelled"); return x && (b == null || x.ko < b) ? x.ko : b; }, null);
+  const when = H.d === 0 ? "today" : H.d === 1 ? "tomorrow" : H.d === -1 ? "yesterday" : "on " + mchDate(H.d);
+  return '<div class="lgempty mch-none mch-off"><b>A day off</b><span>No matches in your pinned leagues ' + when + '.</span>' +
+    (next != null ? '<button class="b4btn dark" onclick="mchDayGo(' + mchDayOf(next) + ')">Next match day ›</button>' : "") + '</div>';
+}
+function mchMatches(){
+  const H = mchV(), ids = mchShown(), F = mcFollow(), err = CL.mcHubErr || {};
+  if(!ids.length) return mchNoPins();
+  const got = ids.map(id => [id, mchNeed(id)]), have = got.filter(e => e[1]);
+  const nav = mchDaysHTML(H);
+  if(!have.length) return nav + (got.every(e => err[e[0]]) ? mchOffline() : '<div class="lgskel mch-skel"></div>');
+  if(have.length === got.length) mchStripSave();
+  const from = mchDay0(H.d), to = mchDay0(H.d + 1);
+  let secs = have.map(e => ({ id: e[0], games: e[1].rows.filter(x => x.ko >= from && x.ko < to)
+    .sort((p, q) => (mchIsMine(F, e[0], q) - mchIsMine(F, e[0], p)) || p.ko - q.ko || p.id - q.id) }));
+  /* the followed club's competition leads the day when it plays */
+  const its = secs.find(s => s.games.some(x => mchIsMine(F, s.id, x)));
+  if(its) secs = [its].concat(secs.filter(s => s !== its));
+  const shown = secs.filter(s => s.games.length), waiting = got.some(e => !e[1] && !err[e[0]]);
+  const none = have.filter(e => !e[1].rows.length).map(e => e[0]), failed = got.filter(e => !e[1] && err[e[0]]).map(e => e[0]);
+  return nav + (shown.length ? shown.map(s => mchSecHTML(s.id, s.games, F)).join("") : waiting ? "" : mchEmptyDay(H, have)) +
+    (waiting ? '<div class="lgskel mch-skel sm"></div>' : "") + mchNotes(none, failed);
+}
+
+/* ---- Tables: a compact card per pinned competition, then all of them ---- */
+/* the last five as dots: won, drawn, and lost as an open ring (red is for live, never for losing) */
+const mchForm = f => '<span class="mch-form" role="img" aria-label="Form: ' + f.join(" ") + '">' + f.map(r => '<i class="' + r.toLowerCase() + '"></i>').join("") + '</span>';
+function mchTRow(id, m, t, F, spark){
+  const gd = t.gf - t.ga, mine = !!F && F.comp === id && F.key === t.key;
+  let sp = "";
+  if(spark){ try{ sp = clStr(mcCharts.sparkline(m, t.key)); }catch(e){ sp = ""; } }
+  return '<button class="mch-trow' + (mine ? " mine" : "") + '" onclick="clClubGo(\'' + id + '\',\'' + clE(t.key) + '\')">' +
+    '<span class="pos">' + t.pos + '</span>' + clPatch({ key: t.key, name: t.name }, 22) +
+    '<span class="nm"><b>' + clE(clTeam(t).name) + '</b>' + (t.form.length ? mchForm(t.form) : "") + '</span>' +
+    (spark ? '<span class="sp" aria-hidden="true">' + sp + '</span>' : "") +
+    '<span>' + t.p + '</span><span>' + (gd > 0 ? "+" : "") + gd + '</span><span class="pts">' + t.pts + '</span></button>';
+}
+function mchTableCard(id, m, F){
+  const C = mchComp(id), err = (CL.mcHubErr || {})[id];
+  const spark = !!m && typeof mcCharts !== "undefined" && !!mcCharts && typeof mcCharts.sparkline === "function";
+  const sub = m && m.rows.length ? (C.cup ? "League stage" : clRkLabel(clMcNowRound(m.rows))) : "";
+  const head = '<div class="mch-thead">' + clBadge(id, 28) + '<span class="mch-tn"><b>' + clE(C.name) + '</b>' + (sub ? '<small>' + clE(sub) + '</small>' : "") + '</span>' +
+    '<button class="mch-full" onclick="clGo(\'comp\',{comp:\'' + id + '\'})">Full table ›</button></div>';
+  let body;
+  if(!m) body = err ? '<p class="mch-tempty">Not available right now. <button class="mch-retry" onclick="mchRetry()">Try again</button></p>' : '<div class="lgskel mch-skel sm"></div>';
+  else if(!m.table.length) body = '<p class="mch-tempty">' + (m.rows.length ? "The table starts with the league stage." : "The fixtures arrive with the next sync.") + '</p>';
+  else {
+    const T = m.table, top = T.slice(0, 5), me = F && F.comp === id ? T.find(t => t.key === F.key) : null;
+    body = '<div class="mch-trow hd" aria-hidden="true"><span>#</span><span></span><span>Club</span>' + (spark ? '<span></span>' : "") + '<span>P</span><span>GD</span><span>Pts</span></div>' +
+      top.map(t => mchTRow(id, m, t, F, spark)).join("") +
+      (me && !top.includes(me) ? '<div class="mch-gap" aria-hidden="true">···</div>' + mchTRow(id, m, me, F, spark) : "");
+  }
+  return '<section class="mch-tcard' + (spark ? " spark" : "") + '">' + head + body + '</section>';
+}
+function mchTables(){
+  const ids = mchShown(), F = mcFollow();
+  if(typeof mcCharts === "undefined") mcNeed();         // the sparklines come with the match page's files (mc-charts.js)
+  return (ids.length ? ids.map(id => mchTableCard(id, mchNeed(id), F)).join("") : mchNoPins()) + clMcEntryHTML();
+}
+
+/* ---- the chips and the Edit sheet ---- */
+function mchChipsHTML(){
+  const H = mchV(), pins = mcPins();
+  return '<div class="mch-chips" role="group" aria-label="Pinned competitions">' + pins.map(id => {
+    const C = mchComp(id), on = !!H && H.f === id;
+    return '<button class="mch-chip' + (on ? " on" : "") + '" aria-pressed="' + on + '" onclick="mchChip(\'' + id + '\')" title="' + clE(C.name) + '">' +
+      clBadge(id, 28) + '<span>' + clE(C.nick || C.name) + '</span></button>';
+  }).join("") + '<button class="mch-chip mch-editchip" onclick="mchEdit()" aria-label="Edit the pinned competitions">' + (typeof ico === "function" ? ico("pencil") : "") + '<span>Edit</span></button></div>';
+}
+function mchChip(id){ audio(); mchFeel(); const H = mchV(); if(!H) return; H.f = H.f === id ? null : id; render(); }
+function mchEdit(){ audio(); sheet(mchEditHTML()); }
+function mchEditDone(){ audio(); closeSheet(); }
+function mchEditHTML(){
+  const pins = mcPins(), tick = typeof ico === "function" ? ico("check") : "";
+  const row = (C, order) => {
+    const on = pins.includes(C.id), i = pins.indexOf(C.id);
+    return '<div class="mch-erow' + (on ? " on" : "") + '"><button class="mch-pin" onclick="mcPinToggle(\'' + C.id + '\')" aria-pressed="' + on + '">' + clBadge(C.id, 28) +
+      '<b>' + clE(C.name) + '</b><span class="mch-tick" aria-hidden="true">' + (on ? tick : "") + '</span></button>' +
+      (order ? '<button class="mch-up" onclick="mchPinUp(\'' + C.id + '\')" aria-label="Move ' + clE(C.name) + ' up"' + (i === 0 ? " disabled" : "") + '>▲</button>' : "") + '</div>';
+  };
+  return '<div class="mch-editsheet"><h2>Your competitions</h2><p>Pin the ones you follow. They lead Matches and Tables, in this order.</p>' +
+    (pins.length ? b4Sec("Pinned, in order") + pins.map(id => row(mchComp(id), true)).join("") : "") +
+    MCH_GROUPS.map(g => b4Sec(g[1]) + CL_COMPS.filter(C => C.group === g[0]).map(C => row(C, false)).join("")).join("") +
+    '<button class="b4btn gold" onclick="mchEditDone()">Done</button></div>';
 }

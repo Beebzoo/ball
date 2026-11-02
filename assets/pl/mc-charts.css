@@ -1,0 +1,57 @@
+/* MC v3: charts (assets/pl/mc-charts.js; _plans/match-centre-v3.md §1.2 and §2). Its own file, loaded with mc.css,
+   so the hub and pages streams keep pl.css to themselves.
+   The ink of every chart is currentColor: it reads on the cream card, the paper and a dark card as the text around
+   it does. These are the colours that aren't the ink, chosen per mode with the dataviz skill's validator (the
+   followed club against the rest, a win against a draw against a defeat, at least 15 apart for full colour vision
+   and 8 under simulated colour blindness, on the cream card #F8F1DD, the paper #efe4c8 and the dark surfaces).
+   Never red: a defeat is the ink at 40%. */
+.mcc{display:block;width:100%;height:auto;max-width:560px;overflow:visible;font-family:var(--ui);font-variant-numeric:tabular-nums;-webkit-tap-highlight-color:transparent;
+  --mcc-gold:#c99a2e;        /* the followed club: the deep gold, the gold that reads on cream */
+  --mcc-rest:#8FB79E;        /* the rest: sage (drawn at 60%) */
+  --mcc-win:#2c7a48;         /* a win, goals scored: --res-right */
+  --mcc-win-ink:#fff;
+  --mcc-surface:var(--mcc-bg,var(--th-card-2,#F8F1DD));   /* the ring round a dot; a page on the paper sets --mcc-bg */
+}
+.mcc.mcc-spark{display:inline-block;width:80px;height:20px;max-width:none;vertical-align:middle}
+/* the dark ones: on a dark card (o.dark) and in the dark themes, where the cream card is the theme's dark row */
+.mcc.mcc-dark,
+:where(body[data-theme="floodlights"],body[data-theme="tactics"],body[data-theme="terraces"],body[data-theme="rain"],body[data-theme="hof"],body[data-theme="bit16"]) .mcc{
+  --mcc-gold:#e9b84c; --mcc-win:#8FB79E; --mcc-win-ink:#0b2416;
+}
+.mcc.mcc-dark{--mcc-surface:var(--mcc-bg,#123D24)}
+
+/* a tap shows the small label of a column, a bar or a dot; a mouse shows it on hover */
+.mcc-t{cursor:pointer}
+.mcc-t[data-on] .mcc-on{visibility:visible}
+@media (hover:hover){ .mcc-t:hover .mcc-on{visibility:visible} }
+
+/* the first time a chart is drawn: the lines draw in, the bars grow from their baseline, the ends follow */
+.mcc-in .mcc-ln{stroke-dasharray:1 1;stroke-dashoffset:1;animation:mccDraw 600ms var(--ease-out,cubic-bezier(.23,1,.32,1)) forwards}
+.mcc-in .mcc-bar{transform-box:fill-box;transform-origin:0 50%;animation:mccGrow 600ms var(--ease-out,cubic-bezier(.23,1,.32,1)) both}
+.mcc-in .mcc-bar.l{transform-origin:100% 50%}
+.mcc-in .mcc-dot,.mcc-in .mcc-lab{animation:mccFade 240ms var(--ease-out,ease-out) 480ms both}
+@keyframes mccDraw{to{stroke-dashoffset:0}}
+@keyframes mccGrow{from{transform:scaleX(0)}}
+@keyframes mccFade{from{opacity:0}}
+@media (prefers-reduced-motion: reduce){
+  .mcc-in .mcc-ln{animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+  .mcc-in .mcc-bar,.mcc-in .mcc-dot,.mcc-in .mcc-lab{animation:none}
+}
+
+/* the biggest wins: rows like the match centre's (44 px and up), the score in 900 italic */
+.mcc-wins{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--sp-1,4px)}
+.mcc-wins li{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:var(--sp-2,8px);min-height:44px;box-sizing:border-box;padding:var(--sp-2,8px) var(--sp-3,12px);
+  border-radius:calc(var(--r-row,10px) * var(--th-round,1));background:var(--th-row,#F8F1DD);color:var(--th-row-ink,#123D24)}
+.mcc-wd{font:700 var(--fs-kicker,11px)/1.25 var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--th-row-dim,#4f6b56)}
+.mcc-wm{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;min-width:0;font:600 var(--fs-body,15px)/1.2 var(--ui)}
+.mcc-wm .w{font-weight:800}
+.mcc-wm b{font:italic 900 var(--fs-body,15px)/1 var(--th-hf,'Barlow Semi Condensed'),sans-serif;font-variant-numeric:tabular-nums}
+
+/* the tap label (only ever seen with this file loaded, so its look is here, not in every chart's markup) */
+.mcc-tb{fill:var(--mcc-surface);stroke:currentColor;stroke-opacity:.22}
+.mcc-th{font-size:11px;font-weight:700;letter-spacing:.6px;fill:currentColor;fill-opacity:.78;text-anchor:start}
+.mcc-tx{font-size:12px;font-weight:600;fill:currentColor;fill-opacity:1;text-anchor:start}
+.mcc-tx .v{font-weight:800}
+.mcc-tk{fill:none;stroke-width:2;stroke-linecap:round}
+.mcc-td{stroke:var(--mcc-surface);stroke-width:2}
+.mcc-tl{stroke:currentColor;stroke-opacity:.35;stroke-width:1;shape-rendering:crispEdges}

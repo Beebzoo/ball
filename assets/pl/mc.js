@@ -87,9 +87,9 @@ function mcMatchPage(v){
   return b4Page({ title: done ? "Full time" : live ? "Kicked off" : "Preview", ctx: C.name + " · " + clRkLabel(clRk(x)), back: "clBack()", cls: "clpage mcpage", body });
 }
 
-/* THE STORY LINE (§3.3): one true sentence, in Lora, under the names. Before kick-off only. The Champions League is
-   the one competition here that is not a league, so its lines say its name ("…in the Champions League this season") */
-const MC_CUPS = { "fb.CL": "Champions League" };
+/* THE STORY LINE (§3.3): one true sentence, in Lora, under the names. Before kick-off only. The three European cups
+   are the competitions here that are not leagues, so their lines say the name ("…in the Champions League this season") */
+const MC_CUPS = { "fb.CL": "Champions League", "fb.EL": "Europa League", "fb.ECL": "Conference League" };
 function mcStoryHTML(m, x, H, A, meet, C){
   const pos = {};
   (m.table || []).forEach(t => { if(t.p) pos[t.key] = t.pos; });
@@ -262,4 +262,208 @@ function mcBraveHTML(m, x, H, A){
   const res = x.ft[0] > x.ft[1] ? "h" : x.ft[0] < x.ft[1] ? "a" : "d";
   const who = pick === "h" ? H.name : pick === "a" ? A.name : "a draw";
   return '<p class="mc-brave">You called ' + clE(who) + ' at ' + pct + '%' + (res === pick ? ", and you were right." : ". Brave.") + '</p>';
+}
+
+/* ---------- MC v3: THE PAGES STREAM (_plans/match-centre-v3.md §1.1 items 6–7) ----------
+   The competition page's Leaders and Stats tabs, the player sheet, and the middle of the club page: its position this
+   season, this season against the league, its scorers, its absentees, and the story line of its next match. pl.js
+   draws the rest of both pages and asks for these once this file is here. The charts are the charts stream's
+   (clChart in pl.js: "" when they are not here), so each part also stands on its own numbers. */
+
+/* how long ago, plainly: "2h ago" */
+function mcAgo(ms){
+  if(!(ms > 0)) return "";
+  const n = Math.max(0, Math.round((Date.now() - ms) / 60000));
+  return n < 2 ? "just now" : n < 60 ? n + " min ago" : n < 1440 ? Math.round(n / 60) + "h ago" : n < 2880 ? "yesterday" : Math.round(n / 1440) + " days ago";
+}
+const mcUp = s => clStr(s).charAt(0).toLowerCase() + clStr(s).slice(1);
+
+/* THE LEADERS (match-centre.md §1.3; 014's pl_leaders rows {r, n, t, tn, mp, min, g, a, y, rc}, public to read): a
+   competition's three lists, read when its Leaders tab or one of its club pages first wants them, kept half an hour
+   (they change once a night), asked at most once a minute; a failed read is tried again after a minute */
+const MC_LEAD = { goals: { tab: "Goals", f: "g", one: "goal", many: "goals", top: "Top scorer" },
+  assists: { tab: "Assists", f: "a", one: "assist", many: "assists", top: "Top for assists" },
+  cards: { tab: "Cards", f: "y", one: "yellow card", many: "yellow cards", top: "Most booked" } };
+/* number one's shirt (the icon set's, filled): his club's kit colour, the figure on its back in the ink that reads on it */
+const MC_SHIRT = "M15.5 3a3.5 3.5 0 0 1-7 0L3 6.5l2.5 4 2-1.2V21h9V9.3l2 1.2 2.5-4z";
+/* a list by its figure, the feed's order between equals */
+const mcLeadSort = (rows, kind) => { const f = MC_LEAD[kind].f;
+  return rows.filter(p => p && p.n).map((p, i) => [p, i]).sort((a, b) => (b[0][f] | 0) - (a[0][f] | 0) || a[1] - b[1]).map(x => x[0]); };
+/* a shared place for a shared figure */
+const mcLeadRank = (list, p, f) => 1 + list.filter(o => (o[f] | 0) > (p[f] | 0)).length;
+/* the season's lists by kind: {goals: {rows, at}, ...}; undefined while the first read is on its way */
+function mcLeadNeed(comp, season){
+  const C = CL.lead || (CL.lead = {}), c = C[comp];
+  if((!c || Date.now() - c.at > 30 * 60e3) && clOnce("lead:" + comp, 60000)){
+    const set = (all, ok) => { C[comp] = { at: ok ? Date.now() : Date.now() - 29 * 60e3, all }; };
+    try{
+      const sb = sbClient();
+      if(sb && sb.from) Promise.resolve(sb.from("pl_leaders").select("season,kind,rows,fetched_at").eq("competition_id", comp))
+        .then(r => { if(r && !r.error && Array.isArray(r.data)) set(r.data, true); else set([], false); clRedraw(); }, () => { set([], false); clRedraw(); });
+      else set([], false);
+    }catch(e){ set([], false); }
+  }
+  const d = C[comp];
+  if(!d) return undefined;
+  const ok = d.all.filter(x => x && MC_LEAD[x.kind] && Array.isArray(x.rows));
+  const ss = [...new Set(ok.map(x => clStr(x.season)))].sort(), s = season != null && ss.includes(clStr(season)) ? clStr(season) : ss[ss.length - 1];
+  const out = {};
+  ok.filter(x => clStr(x.season) === s).forEach(x => { out[x.kind] = { rows: mcLeadSort(x.rows, x.kind), at: Date.parse(x.fetched_at) || 0 }; });
+  return out;
+}
+function mcLead(k){ audio(); const v = clV(); v.lk = k; render(); }
+/* THE LEADERS TAB: Goals · Assists · Cards (Cards only when the feed has them, decision 3). Number one on a dark card
+   with his figure on a shirt in his club's kit colour (no photo); then 2 to 10 as rows; a tap opens his season */
+function mcLeadersHTML(C, m, v){
+  const L = mcLeadNeed(C.id, m.season);
+  if(L === undefined) return '<div class="lgskel"></div>';
+  const kinds = Object.keys(MC_LEAD).filter(k => L[k] && L[k].rows.length);
+  if(!kinds.length) return '<div class="lgempty"><b>No leaders yet</b><span>Leaders arrive with the next sync.</span></div>';
+  const kind = kinds.includes(v.lk) ? v.lk : kinds[0], K = MC_LEAD[kind], list = L[kind].rows.slice(0, 10), fk = clFollowKey(m);
+  const one = list[0], T1 = clTeam({ key: one.t, name: one.tn }), n1 = one[K.f] | 0;
+  const kit = T1.own ? clKit(T1) : (typeof CL_C !== "undefined" ? CL_C.gold1 : "#f3cd6b"), ink = clInk(kit);
+  const joint = list.filter(p => (p[K.f] | 0) === n1).length > 1;
+  const go = i => 'mcPlayer(\'' + C.id + '\',\'' + kind + '\',' + i + ')';
+  const card = '<button class="b4card dark mc-lead1" onclick="' + go(0) + '">' +
+    '<span class="mc-fg"><svg class="mc-shirt" viewBox="0 0 24 24" width="96" height="96" aria-hidden="true"><path d="' + MC_SHIRT + '" fill="' + clE(kit) + '"/>' +
+      '<text x="12" y="17.2" text-anchor="middle" fill="' + ink + '">' + n1 + '</text></svg>' +
+      '<small>' + (n1 === 1 ? K.one : K.many) + '</small></span>' +
+    '<span class="who"><span class="cl-kick">' + (joint ? "Joint " + mcUp(K.top) : K.top) + '</span><b class="nm">' + clE(one.n) + '</b>' +
+      '<span class="club">' + clPatch({ key: one.t, name: one.tn }, 22) + '<span>' + clE(T1.name) + '</span></span>' +
+      '<small class="meta">' + (one.mp | 0) + ' matches · ' + (one.min | 0) + ' min' + (kind === "cards" && one.rc ? ' · ' + one.rc + ' red' : "") + '</small></span></button>';
+  const rows = list.slice(1).map((p, j) => {
+    const T = clTeam({ key: p.t, name: p.tn });
+    return '<button class="mc-lrow' + (fk && p.t === fk ? " fol" : "") + '" onclick="' + go(j + 1) + '"><span class="rk">' + mcLeadRank(list, p, K.f) + '</span>' + clPatch({ key: p.t, name: p.tn }, 22) +
+      '<span class="nm"><b>' + clE(p.n) + '</b><small>' + clE(T.name) + (kind === "cards" && p.rc ? " · " + p.rc + " red" : "") + '</small></span><span class="mp">' + (p.mp | 0) + '</span><span class="mc-fg">' + (p[K.f] | 0) + '</span></button>';
+  }).join("");
+  return clSubTabs(kinds.map(k => [k, MC_LEAD[k].tab]), kind, "mcLead", "Which list") + card +
+    (rows ? '<div class="b4card cream mc-leadlist"><div class="mc-lrow hd" aria-hidden="true"><span>#</span><span></span><span>Player</span><span>MP</span><span>' + K.tab + '</span></div>' + rows + '</div>' : "") +
+    '<p class="mc-fine">' + (L[kind].at ? "Updated " + mcAgo(L[kind].at) + ". " : "") + 'Tap a player for his season.</p>';
+}
+/* THE PLAYER SHEET: his season line and his club; no player pages */
+function mcPlayer(comp, kind, i){
+  audio();
+  const L = mcLeadNeed(comp, (CL.mc[comp] || {}).season), p = L && L[kind] && L[kind].rows[i];
+  if(!p) return;
+  const C = CL_COMPS.find(c => c.id === comp) || { name: "" }, T = clTeam({ key: p.t, name: p.tn }), v = clV();
+  const cell = (n, lab) => '<span><b>' + (n | 0) + '</b><small>' + lab + '</small></span>';
+  const per = p.g > 0 && p.min > 0 ? "A goal every " + Math.round(p.min / p.g) + " minutes." : p.a > 0 && p.min > 0 ? "An assist every " + Math.round(p.min / p.a) + " minutes." : "";
+  const here = v.s === "club" && v.team === p.t;
+  sheet('<div class="mc-psheet"><span class="cl-kick">' + clE(C.name) + ' · this season</span><h2>' + clE(p.n) + '</h2>' +
+    '<p class="mc-psclub">' + clPatch({ key: p.t, name: p.tn }, 28) + '<span>' + clE(T.name) + '</span></p>' +
+    '<div class="mc-psgrid">' + cell(p.g, "Goals") + cell(p.a, "Assists") + cell(p.mp, "Matches") + cell(p.min, "Minutes") + cell(p.y, "Yellow cards") + cell(p.rc, "Red cards") + '</div>' +
+    (per ? '<p class="mc-psline">' + per + '</p>' : "") +
+    (here ? "" : b4Btn(clE(T.name) + " ›", "closeSheet();clClubGo('" + comp + "','" + clE(p.t) + "')", "dark")) +
+    '<button class="acnot" onclick="closeSheet()">Close</button></div>');
+}
+
+/* THE STATS TAB: each chart under its heading with one line on what to look at. A cup's league stage gets the race and
+   the biggest wins only. Without the charts module the numbers this file can work out itself stand in: the biggest
+   wins as a list, home and away as a plain table */
+function mcStatsTabHTML(C, m, v){
+  const cup = clCupStage(C.id), fk = clFollowKey(m);
+  const sec = (title, cap, html) => html ? b4Sec(title) + '<p class="mc-cap">' + cap + '</p>' + html : "";
+  const chart = (fn, ...a) => { const s = clChart(fn, ...a); return s ? '<div class="mc-chart mcs-' + fn + '">' + s + '</div>' : ""; };
+  const body = sec("The race", cup ? "Who's going through: points after each matchday." : "Who's pulling away: points after each matchday.", chart("race", m, { follow: fk, n: 6 })) +
+    (cup ? "" : sec("Goals for and against", "Scored and conceded, the best goal difference first.", chart("goals", m, { follow: fk }))) +
+    (cup ? "" : sec("Home and away", "Who makes their ground count, and who travels well.", chart("homeAway", m, fk || undefined) || mcHomeAwayHTML(C, m, fk))) +
+    (cup ? "" : sec("Form", "The last five of every club, newest on the right.", chart("form", m, { follow: fk }))) +
+    sec("Biggest wins", "The widest margins of the season so far.", chart("bigWins", m, 5) || mcBigWinsHTML(C, m, 5));
+  return body || '<div class="lgempty"><b>No stats yet</b><span>The numbers start with the season\'s first results.</span></div>';
+}
+/* home and away as a plain table: won-drawn-lost and points, the table's order */
+function mcHomeAwayHTML(C, m, fk){
+  const M = mcStats(), T = m.table.filter(t => t.p);
+  if(!M || !T.length) return "";
+  const rec = s => s.w + "-" + s.d + "-" + s.l;
+  return '<div class="b4card cream mc-ha"><div class="mc-harow hd" aria-hidden="true"><span>#</span><span></span><span>Club</span><span>Home</span><span>Pts</span><span>Away</span><span>Pts</span></div>' +
+    T.map(t => {
+      const s = M.line(m.rows, t.key), nm = clTeam(t).name;
+      return '<button class="mc-harow' + (t.key === fk ? " fol" : "") + '" onclick="clClubGo(\'' + C.id + '\',\'' + clE(t.key) + '\')" aria-label="' + clE(nm) + ': at home ' +
+        s.home.w + ' won, ' + s.home.d + ' drawn, ' + s.home.l + ' lost, ' + clPts(s.home.pts) + '; away ' + s.away.w + ' won, ' + s.away.d + ' drawn, ' + s.away.l + ' lost, ' + clPts(s.away.pts) + '">' +
+        '<span class="pos">' + t.pos + '</span>' + clPatch(t, 22) + '<span class="nm">' + clE(nm) + '</span><span class="rec">' + rec(s.home) + '</span><span class="pts">' + s.home.pts + '</span>' +
+        '<span class="rec">' + rec(s.away) + '</span><span class="pts">' + s.away.pts + '</span></button>';
+    }).join("") + '</div>';
+}
+/* the biggest wins: the widest margins, then the most goals, then the latest; each opens its match */
+function mcBigWinsHTML(C, m, n){
+  const won = m.rows.filter(x => clPlayed(x) && x.ft[0] !== x.ft[1]).map(x => ({ x, g: Math.abs(x.ft[0] - x.ft[1]), t: x.ft[0] + x.ft[1] }))
+    .sort((p, q) => q.g - p.g || q.t - p.t || q.x.ko - p.x.ko).slice(0, n || 5);
+  if(!won.length) return "";
+  return '<div class="mc-wins">' + won.map(({ x, g }) => {
+    const hw = x.ft[0] > x.ft[1];
+    return '<button class="mc-win" onclick="clMatchGo(\'' + C.id + '\',\'' + clE(x.id) + '\')"><span class="d">' + clE(mcShortDate(x.ko)) + '<small>' + clE(clRkLabel(clRk(x))) + '</small></span>' +
+      '<span class="t"><span class="' + (hw ? "w" : "") + '">' + clE(clTeam(x.h).name) + '</span><i>' + x.ft[0] + '–' + x.ft[1] + '</i><span class="' + (hw ? "" : "w") + '">' + clE(clTeam(x.a).name) + '</span></span>' +
+      '<span class="mg">+' + g + '</span></button>';
+  }).join("") + '</div>';
+}
+
+/* THE CLUB PAGE'S MIDDLE: its position this season (the charts stream's line, with this competition's zones), this
+   season against the league, its scorers and its absentees for the next match */
+function mcClubMoreHTML(C, m, key, name, next){
+  const pos = clChart("position", m, key, { zones: CL_ZONES[C.id] || null });
+  return (pos ? b4Sec("Position this season") + '<p class="mc-cap">Where they stood after each matchday, and the zones they moved through.</p><div class="mc-chart mcs-position">' + pos + '</div>' : "") +
+    mcClubSeasonHTML(C, m, key, name) + mcClubLeadHTML(C, m, key, name) + mcClubAbsHTML(C, key, next && next[0]);
+}
+/* THIS SEASON, the club against the league's average, as the match page's mirror: the club's bar gold where it beats the
+   average, each figure with its rank in the league */
+const MC_VS = [["Goals scored per match", "gf", 2], ["Goals conceded per match", "ga", 2, true], ["Clean sheets", "cs", 0], ["Failed to score", "fts", 0, true],
+  ["Points per match at home", "ppmHome", 2], ["Points per match away", "ppmAway", 2]];
+function mcVsAvg(label, cv, av, o, i){
+  const hi = Math.max(cv || 0, av || 0), wd = x => x == null || !(hi > 0) ? 0 : Math.max(4, x / hi * 100);
+  const on = cv != null && av != null && Math.abs(cv - av) > 1e-9 && (cv - av) * (o.low ? -1 : 1) > 0 ? " on" : "";
+  const f = (x, dp) => x == null ? "–" : x.toFixed(dp);
+  return '<div class="mc-st" style="--i:' + i + '"><small>' + clE(label) + '</small>' +
+    '<span class="v h' + on + '">' + f(cv, o.dp) + (o.rank ? '<em>' + ordinal(o.rank) + '</em>' : "") + '</span>' +
+    '<span class="bar h' + on + '"><i style="width:' + wd(cv).toFixed(1) + '%"></i></span>' +
+    '<span class="bar a avg"><i style="width:' + wd(av).toFixed(1) + '%"></i></span>' +
+    '<span class="v a avg">' + f(av, Math.max(1, o.dp)) + '<em>avg</em></span></div>';
+}
+function mcClubSeasonHTML(C, m, key, name){
+  const M = mcStats();
+  if(!M) return "";
+  const figs = m.figs || (m.figs = M.figures(m.rows)), f = figs[key];
+  if(!f || !f.line.all.gp) return "";
+  const all = Object.values(figs), cup = clCupStage(C.id);
+  const avg = k => { const v = all.map(t => t.v[k]).filter(x => x != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
+  return b4Sec("This season") + '<div class="mc-key"><span>' + clPatch({ key, name }, 20) + clE(clTeam({ key, name }).code) + '</span><span>' + (cup ? "Average" : "League average") + '</span></div>' +
+    '<div class="mc-mirror mc-vsavg">' + MC_VS.map(([lab, k, dp, low], i) => mcVsAvg(lab, f.v[k], avg(k), { dp, low, rank: f.rank[k] }, i)).join("") + '</div>' +
+    '<p class="mc-fine">Small figures: the rank among ' + all.length + ' clubs. From ' + f.line.all.gp + ' ' + (cup ? "league stage" : "league") + ' match' + (f.line.all.gp === 1 ? "" : "es") + '.</p>';
+}
+/* ITS SCORERS: its players in the league's goals and assists lists, the most goals first; a tap opens the sheet */
+function mcLeadersGo(comp){ clGo("comp", { comp, tab: "leaders", from: clV() }); }
+function mcClubLeadHTML(C, m, key, name){
+  const L = mcLeadNeed(C.id, m.season), title = b4Sec("Top scorers and assists");
+  if(L === undefined) return title + '<div class="lgskel cl-skel-s"></div>';
+  if(!L.goals && !L.assists) return "";
+  const mine = {};
+  ["goals", "assists"].forEach(kind => (L[kind] ? L[kind].rows : []).forEach((p, i) => {
+    if((p.t === key || (!p.t && p.tn === name)) && !mine[p.n]) mine[p.n] = { p, kind, i };
+  }));
+  const list = Object.values(mine).sort((x, y) => (y.p.g | 0) - (x.p.g | 0) || (y.p.a | 0) - (x.p.a | 0) || (x.p.min | 0) - (y.p.min | 0)).slice(0, 5);
+  const more = '<button class="b4btn quiet mc-more" onclick="mcLeadersGo(\'' + C.id + '\')">Full list ›</button>';
+  if(!list.length) return title + '<p class="mc-none">None of their players is in the league\'s top twenty yet.</p>' + more;
+  return title + '<div class="b4card cream mc-leadlist mc-clublead"><div class="mc-lrow hd" aria-hidden="true"><span>Player</span><span>MP</span><span>G</span><span>A</span></div>' +
+    list.map(({ p, kind, i }) => '<button class="mc-lrow" onclick="mcPlayer(\'' + C.id + '\',\'' + kind + '\',' + i + ')" aria-label="' + clE(p.n) + ': ' + (p.g | 0) + ' goals, ' + (p.a | 0) + ' assists in ' + (p.mp | 0) + ' matches">' +
+      '<span class="nm"><b>' + clE(p.n) + '</b><small>' + (p.min | 0) + ' min</small></span><span class="mp">' + (p.mp | 0) + '</span><span class="mc-fg">' + (p.g | 0) + '</span><span class="mc-fg a">' + (p.a | 0) + '</span></button>').join("") +
+    '</div>' + more;
+}
+/* ITS ABSENTEES for the next match (014's pl_absences, public to read; the feed lists some twice): Out and Doubtful,
+   the reason in plain words. Nothing stored for that match yet: no section */
+function mcClubAbsHTML(C, key, x){
+  if(!x) return "";
+  const r = mcRow("abs:" + x.id, "pl_absences", "fixture_id", x.id, "rows,fetched_at");
+  if(!r || !Array.isArray(r.rows)) return "";
+  const seen = {}, mine = r.rows.filter(a => a && a.t === key && a.n && !seen[a.n + "|" + a.k] && (seen[a.n + "|" + a.k] = 1));
+  const home = x.h.key === key, opp = home ? x.a : x.h, at = Date.parse(r.fetched_at) || 0;
+  const head = b4Sec("Absentees") + '<p class="mc-cap">' + (home ? "v " : "at ") + clE(clTeam(opp).name) + ', ' + clE(mcShortDate(x.ko)) + (at ? " · updated " + mcAgo(at) : "") + '</p>';
+  if(!mine.length) return head + '<p class="mc-none">No reported absentees</p>';
+  const col = (k, title) => { const l = mine.filter(a => a.k === k);
+    return l.length ? '<div class="mc-abscol ' + k + '"><b>' + title + '</b>' + l.map(a => '<span><i>' + clE(a.n) + '</i><small>' + clE(a.why || (k === "out" ? "Out" : "Doubtful")) + '</small></span>').join("") + '</div>' : ""; };
+  return head + '<div class="b4card cream mc-abs">' + col("out", "Out") + col("doubtful", "Doubtful") + '</div>';
+}
+/* THE STORY LINE of the club's next match (§3.3), under it on the club page; before kick-off only */
+function mcClubStoryHTML(C, m, x){
+  if(!x || !mcStats() || /^(live|paused|postponed|cancelled|suspended)$/.test(clStr(x.st))) return "";
+  return mcStoryHTML(m, x, clTeam(x.h), clTeam(x.a), mcH2hRows(x), C);
 }

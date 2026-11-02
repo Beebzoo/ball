@@ -242,7 +242,7 @@
 .cl-mrow>span.pts{font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif}
 .cl-form{display:inline-flex;gap:2px}
 .cl-form i{width:13px;height:13px;border-radius:3px;font:800 8.5px/13px 'Barlow Semi Condensed',sans-serif;font-style:normal;text-align:center;color:#0b2416}
-.cl-form i.w{background:#5fbf7f}.cl-form i.d{background:#c9c3a8}.cl-form i.l{background:#d0574d;color:#fff}
+.cl-form i.w{background:#5fbf7f}.cl-form i.d{background:#c9c3a8}.cl-form i.l{background:transparent;box-shadow:inset 0 0 0 1.5px rgba(18,61,36,.55);color:#0b2416}   /* a defeat is a ring, never red (HANDOVER §1) */
 .cl-side small{font:600 12px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-card-dim)}
 .cl-mdnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0}
 .cl-mdnav b{font:italic 900 20px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-ink)}
@@ -290,3 +290,283 @@
 /* the match page (assets/pl/mc.js) opens from a match row's score and a club page's row; the opponent in a club page row opens its club */
 .cl-mm .sc.mcgo{border:0;justify-content:center;cursor:pointer}
 .cl-crow .o.clublink{cursor:pointer}
+
+/* MC v3: pages */
+/* ---------- the competition page and the club page (_plans/match-centre-v3.md §1.1 items 6–7, §1.2) ----------
+   Sofascore's density in BALL's materials: rows of 44–48 px, names 15 px 800, meta 12 px caps, tabular figures,
+   points and scores in 900 italic. Cream cards with the white edge, dark green heads, gold only for the followed club
+   and number one, the zones never red. House tokens only (the rgba fallbacks are --th-ink and --th-card-ink). */
+.cl-v3 .cl-compmedal{position:relative}
+.cl-v3 .cl-compmedal.pin{min-height:48px}
+.cl-v3 .cl-tabs button{min-height:44px;font-size:15px}
+/* Pin: a small pill beside the medal; pinned, the dark pill */
+.cl-pin{position:absolute;right:0;top:0;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px 0 11px;border-radius:999px;cursor:pointer;
+  border:2px solid rgba(18,61,36,.28);border-color:color-mix(in srgb,var(--th-ink) 28%,transparent);background:transparent;color:var(--th-ink);
+  font:800 13px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase}
+.cl-pin .ic{width:18px;height:18px;margin:0}
+.cl-pin.on{border-color:var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--depth-lift-dark)}
+.cl-pin.on .ic{color:var(--th-acc1)}
+/* the small tabs under the tabs */
+.cl-sub{display:flex;gap:2px;margin:0 0 8px;border-bottom:1px solid rgba(18,61,36,.16);border-bottom-color:color-mix(in srgb,var(--th-ink) 16%,transparent)}
+.cl-sub button{min-height:44px;padding:0 12px;margin-bottom:-1px;border:0;border-bottom:3px solid transparent;background:none;cursor:pointer;color:var(--th-dim);
+  font:800 12px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase}
+.cl-sub button[aria-pressed="true"]{color:var(--th-ink);border-bottom-color:var(--th-ink)}
+
+/* the zones: one colour per kind, on the row's bar and in the key */
+.z-cl,.z-l16,.z-up{--z:var(--th-acc2)}
+.z-clq{--z:var(--th-acc)}
+.z-eu,.z-ecl{--z:var(--res-right)}
+.z-po,.z-ko{--z:var(--sage)}
+.z-down,.z-out{--z:rgba(18,61,36,.4);--z:color-mix(in srgb,var(--th-ink) 40%,transparent)}
+/* the table */
+.cl-ztable{padding:2px 0;overflow:hidden}
+.cl-zrow{position:relative;display:grid;grid-template-columns:22px 22px minmax(0,1fr) 20px 18px 18px 18px 28px 28px;align-items:center;column-gap:6px;width:100%;min-height:44px;
+  padding:0 10px 0 12px;border:0;border-top:1px solid rgba(18,61,36,.08);background:none;color:var(--th-row-ink);cursor:pointer;text-align:left;font-variant-numeric:tabular-nums}
+.cl-zrow:first-child{border-top:0}
+.cl-zrow.zb{border-top-color:rgba(18,61,36,.3);border-top-color:color-mix(in srgb,var(--th-ink) 30%,transparent)}
+.cl-zrow::before{content:"";position:absolute;left:3px;top:7px;bottom:7px;width:3px;border-radius:2px;background:var(--z,transparent)}
+.cl-zrow.hd{min-height:30px;cursor:default;font:800 10px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--th-row-dim)}
+.cl-zrow>span:nth-child(n+4){text-align:right;font:700 14px/1 var(--ui)}
+.cl-zrow.hd>span:nth-child(n+4){font:800 10px/1 var(--ui)}
+.cl-zrow .pos{text-align:center;font:italic 900 16px/1 var(--th-hf),sans-serif}
+.cl-zrow .nm{display:flex;flex-direction:column;gap:4px;min-width:0}
+.cl-zrow .nm b{font:800 15px/1.1 var(--ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cl-zrow .sub{display:flex;align-items:center;gap:8px;min-width:0}
+.cl-zrow>span.pts{font:italic 900 17px/1 var(--th-hf),sans-serif}
+.cl-zrow.fol{background:rgba(233,184,76,.16);box-shadow:inset 0 0 0 2px var(--th-acc)}
+.cl-zrow.fol>span.pts{color:var(--th-acc-sh)}
+.cl-zrow:not(.hd):active{background:rgba(18,61,36,.06)}
+.cl-spark{display:inline-flex;width:56px;height:14px;flex:none}
+.cl-spark svg{display:block;width:100%;height:100%}
+@media (max-width:399px){ .cl-spark{display:none} }
+.cl-zkey{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 4px 0;font:700 12px/1.2 var(--ui);color:var(--th-dim)}
+.cl-zkey span{display:inline-flex;align-items:center;gap:6px}
+.cl-zkey i{width:3px;height:14px;border-radius:2px;background:var(--z)}
+/* form, as dots: a win green, a draw light, a defeat a ring */
+.cl-dots{display:inline-flex;gap:3px;flex:none}
+.cl-dots i{width:7px;height:7px;border-radius:50%;box-sizing:border-box}
+.cl-dots i.w{background:var(--res-right)}
+.cl-dots i.d{background:var(--res-off-mark)}
+.cl-dots i.l{border:1.5px solid rgba(18,61,36,.55);border-color:color-mix(in srgb,var(--th-ink) 55%,transparent)}
+.b4card.dark .cl-dots i.w{background:var(--sage)}
+.b4card.dark .cl-dots i.d{background:rgba(248,241,221,.3)}
+.b4card.dark .cl-dots i.l{border-color:rgba(248,241,221,.65)}
+
+/* the matches: denser rows, the followed club's gold-edged */
+.cl-v3 .cl-mm{grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);min-height:44px;margin:3px 0;padding:3px 8px;border-radius:12px;box-shadow:var(--depth-lift)}
+.cl-v3 .cl-mm button{align-self:stretch;min-height:38px;font:800 15px/1.1 var(--ui)}
+.cl-v3 .cl-mm .sc{padding:4px 0}
+.cl-v3 .cl-mm .sc b{font-size:16px}
+.cl-v3 .cl-mm.fol{border-color:var(--th-acc);box-shadow:0 0 0 1px var(--th-acc),var(--depth-lift)}
+.cl-v3 .cl-mdnav{margin:0 0 2px}
+
+/* the leaders: number one on a dark card, his figure on the back of a shirt in his club's colour */
+.mc-lead1{display:grid;grid-template-columns:108px minmax(0,1fr);align-items:center;gap:12px;width:100%;margin:2px 0 10px;padding:14px 14px 14px 8px;
+  text-align:left;cursor:pointer;border-color:var(--th-acc)}
+.mc-lead1 .mc-fg{display:flex;flex-direction:column;align-items:center}
+.mc-shirt{display:block;width:96px;height:96px}
+.mc-shirt path{stroke:var(--th-card-ink);stroke-width:.7px;stroke-linejoin:round}
+.mc-shirt text{font:italic 900 8.6px/1 var(--th-hf),'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums}
+.mc-lead1 .mc-fg small{margin-top:2px;font:800 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--th-card-dim)}
+.mc-lead1 .who{display:flex;flex-direction:column;gap:7px;min-width:0}
+.mc-lead1 .cl-kick{color:var(--th-acc1)}
+.mc-lead1 .nm{font:italic 900 26px/1 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-card-ink);overflow-wrap:anywhere}
+.mc-lead1 .club{display:flex;align-items:center;gap:7px;min-width:0;font:700 14px/1.1 var(--ui);color:var(--th-card-ink)}
+.mc-lead1 .club>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-lead1 .meta{font:600 12.5px/1.2 var(--ui);color:var(--th-card-dim)}
+.mc-leadlist{padding:2px 0}
+.mc-lrow{display:grid;grid-template-columns:24px 22px minmax(0,1fr) 30px 40px;align-items:center;column-gap:8px;width:100%;min-height:48px;padding:0 12px;
+  border:0;border-top:1px solid rgba(18,61,36,.08);background:none;color:var(--th-row-ink);cursor:pointer;text-align:left;font-variant-numeric:tabular-nums}
+.mc-lrow:first-child{border-top:0}
+.mc-lrow.hd{min-height:30px;cursor:default;font:800 10px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--th-row-dim)}
+.mc-lrow.hd>span:nth-last-child(-n+2){text-align:right}
+.mc-lrow .rk{text-align:center;font:italic 900 16px/1 var(--th-hf),sans-serif}
+.mc-lrow .nm{display:flex;flex-direction:column;gap:2px;min-width:0}
+.mc-lrow .nm b{font:800 15px/1.1 var(--ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-lrow .nm small{font:600 12px/1.1 var(--ui);color:var(--th-row-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-lrow .mp{text-align:right;font:700 14px/1 var(--ui);color:var(--th-row-dim)}
+.mc-lrow .mc-fg{text-align:right;font:italic 900 20px/1 var(--th-hf),sans-serif}
+.mc-lrow.fol{background:rgba(233,184,76,.16);box-shadow:inset 0 0 0 2px var(--th-acc)}
+.mc-lrow:not(.hd):active{background:rgba(18,61,36,.06)}
+/* a club's own scorers: no rank or patch, goals and assists */
+.mc-clublead .mc-lrow{grid-template-columns:minmax(0,1fr) 30px 34px 34px}
+.mc-clublead .mc-lrow.hd>span:nth-last-child(-n+3){text-align:right}
+.mc-clublead .mc-lrow .mc-fg.a{color:var(--th-row-dim)}
+.mc-more{margin-top:2px}
+/* the player sheet (the sheet is a dark card) */
+.mc-psheet{display:flex;flex-direction:column;gap:10px}
+#overlay .mc-psheet h2{margin:0;font:italic 900 30px/1 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-card-ink)}
+#overlay .mc-psheet .mc-psclub{display:flex;align-items:center;gap:8px;margin:0;font:700 15px/1.2 var(--ui);color:var(--th-card-ink)}
+.mc-psgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mc-psgrid span{display:flex;flex-direction:column;gap:5px;padding:10px;border-radius:10px;background:rgba(248,241,221,.08)}
+.mc-psgrid b{font:italic 900 26px/1 var(--th-hf),sans-serif;font-variant-numeric:tabular-nums;color:var(--th-card-ink)}
+.mc-psgrid small{font:800 10px/1.1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--th-card-dim)}
+#overlay .mc-psheet .mc-psline{margin:0;font:italic 400 15px/1.4 var(--serif);color:var(--th-card-ink)}
+.mc-psheet .b4btn{margin-top:4px}
+
+/* the stats: each part under its heading, with one line in Lora on what to look at */
+.mc-cap{margin:2px 2px 8px;font:italic 400 14px/1.35 var(--serif);color:var(--th-dim)}
+.mc-chart{padding:12px;border-radius:16px;border:2px solid var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:var(--depth-lift);overflow:hidden}
+.mc-chart svg{display:block;max-width:100%;height:auto}
+.mc-ha{padding:2px 0}
+.mc-harow{display:grid;grid-template-columns:22px 22px minmax(0,1fr) 44px 26px 44px 26px;align-items:center;column-gap:6px;width:100%;min-height:44px;padding:0 10px;
+  border:0;border-top:1px solid rgba(18,61,36,.08);background:none;color:var(--th-row-ink);cursor:pointer;text-align:left;font-variant-numeric:tabular-nums}
+.mc-harow:first-child{border-top:0}
+.mc-harow.hd{min-height:30px;cursor:default;font:800 10px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--th-row-dim)}
+.mc-harow>span:nth-child(n+4){text-align:right}
+.mc-harow .pos{text-align:center;font:italic 900 15px/1 var(--th-hf),sans-serif}
+.mc-harow .nm{font:800 14px/1.1 var(--ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-harow .rec{font:600 13px/1 var(--ui);color:var(--th-row-dim)}
+.mc-harow .pts{font:italic 900 16px/1 var(--th-hf),sans-serif}
+.mc-harow.fol{background:rgba(233,184,76,.16);box-shadow:inset 0 0 0 2px var(--th-acc)}
+.mc-wins{display:flex;flex-direction:column;gap:4px}
+.mc-win{display:grid;grid-template-columns:76px minmax(0,1fr) 34px;align-items:center;gap:8px;width:100%;min-height:48px;padding:6px 12px;border-radius:12px;cursor:pointer;
+  text-align:left;border:2px solid var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:var(--depth-lift)}
+.mc-win .d{display:flex;flex-direction:column;gap:2px;font:700 12px/1.1 var(--ui)}
+.mc-win .d small{font-weight:500;color:var(--th-row-dim)}
+.mc-win .t{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 6px;min-width:0;font:600 14px/1.2 var(--ui)}
+.mc-win .t .w{font-weight:800}
+.mc-win .t i{font:italic 900 17px/1 var(--th-hf),sans-serif;font-variant-numeric:tabular-nums}
+.mc-win .mg{text-align:right;font:italic 900 18px/1 var(--th-hf),sans-serif;color:var(--res-right)}
+
+/* the club page: the dark head with Follow and the strip */
+.cl-v3 .cl-clubhead{display:block;padding:14px 14px 12px}
+.cl-chtop{display:flex;align-items:center;gap:12px}
+.cl-chname{flex:1;min-width:0}
+.cl-v3 .cl-clubhead h2{font-size:26px;overflow-wrap:anywhere}
+.cl-follow{flex:none;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px 0 11px;border-radius:999px;cursor:pointer;
+  border:2px solid rgba(248,241,221,.55);background:transparent;color:var(--th-card-ink);font:800 13px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase}
+.cl-follow .ic{width:16px;height:16px;margin:0}
+.cl-follow.on{border-color:var(--th-acc);background:var(--th-pill);color:var(--th-acc-ink)}
+.cl-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(248,241,221,.14)}
+.cl-strip>span{display:flex;flex-direction:column;gap:6px;min-width:0}
+.cl-strip small{font:800 10px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--th-card-dim);white-space:nowrap}
+.cl-strip b{font:italic 900 24px/1 var(--th-hf),sans-serif;color:var(--th-card-ink);font-variant-numeric:tabular-nums}
+.cl-strip .cl-dots{margin-top:7px;gap:4px}
+.cl-strip .cl-dots i{width:10px;height:10px}
+.cl-skel-s{height:120px;margin:8px 0}
+.cl-v3 .mc-story{margin:4px 6px 10px;text-align:left;font-size:14.5px}
+.cl-v3 .cl-crow{min-height:48px;margin:3px 0;padding:6px 10px}
+/* a result as a chip: won green, drawn light, lost a ring (never red) */
+.cl-v3 .cl-crow .r.w{background:var(--res-right);color:var(--res-right-ink)}
+.cl-v3 .cl-crow .r.d{background:var(--res-off);color:var(--res-off-ink)}
+.cl-v3 .cl-crow .r.l{background:transparent;color:var(--th-row-ink);box-shadow:inset 0 0 0 2px rgba(18,61,36,.4)}
+.mc-abs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:12px 14px}
+.mc-abscol{display:flex;flex-direction:column;gap:8px;min-width:0}
+.mc-abscol>b{font:800 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--th-row-dim)}
+.mc-abscol span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.mc-abscol i{font:800 14px/1.15 var(--ui);font-style:normal}
+.mc-abscol small{font:italic 400 12.5px/1.25 var(--serif);color:var(--th-row-dim)}
+@media (prefers-reduced-motion: reduce){ .cl-zrow,.mc-lrow{transition:none} }
+/* MC v3: hub (_plans/match-centre-v3.md §1.2: Sofascore's density, BALL's materials). The tab's Matches and Tables,
+   the pinned chips and their Edit sheet. Rows 44-52 px, names 15 px 800, meta 11-12 px caps, tabular numbers, scores
+   900 italic; red only for Live; the followed club gold. Tokens first, so the themes reach it */
+.mchub .b6body{padding-bottom:28px}
+.mch-chips{display:flex;flex-wrap:wrap;gap:6px;margin:-2px 0 14px}
+.mch-chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px 0 6px;border-radius:999px;cursor:pointer;
+  border:2px var(--th-edge-style,solid) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 3px 0 rgba(16,48,30,.12);
+  font:800 13.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.02em;white-space:nowrap}
+.mch-chip .cbadge{width:28px;height:28px;flex:none}
+.mch-chip.on{background:var(--th-card);color:var(--th-card-ink);border-color:var(--th-acc);box-shadow:0 0 0 1px var(--th-acc),0 3px 0 rgba(16,48,30,.12)}
+.mch-chip.mch-editchip{padding:0 14px;background:transparent;box-shadow:none;border-style:dashed;
+  border-color:rgba(16,48,30,.35);border-color:color-mix(in srgb,var(--th-ink) 35%,transparent);color:var(--th-ink)}
+.mch-chip .ic{width:16px;height:16px;margin:0}
+
+/* Matches: the day, then a section per competition */
+.mch-days{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:8px;margin:0 0 6px}
+.mch-dstep{width:44px;height:44px;border-radius:12px;cursor:pointer;border:2px var(--th-edge-style,solid) var(--th-edge);background:var(--th-card);
+  color:var(--th-card-ink);font:900 22px/1 'Barlow Semi Condensed',sans-serif}
+.mch-dayl{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:44px;padding:0;border:0;background:none;color:var(--th-ink)}
+button.mch-dayl{cursor:pointer}
+.mch-dayl b{font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+.mch-dayl small{font:700 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-dim)}
+.mch-sec{margin:0 0 10px}
+.mch-kick{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:0 2px;border:0;background:none;cursor:pointer;color:var(--th-ink);text-align:left}
+.mch-kick .cbadge{width:24px;height:24px;flex:none}
+.mch-kick b{flex:1;min-width:0;font:800 12px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mch-kick .mch-n{font:600 12px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-dim);font-variant-numeric:tabular-nums}
+.mch-kick .chev{font:700 20px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc2)}
+.mch-list{border-radius:16px;overflow:hidden;background:var(--th-row);color:var(--th-row-ink);border:2px var(--th-edge-style,solid) var(--th-edge);box-shadow:0 3px 0 rgba(16,48,30,.12)}
+.mch-row{display:grid;grid-template-columns:minmax(0,1fr) 60px minmax(0,1fr);align-items:center;gap:6px;width:100%;min-height:48px;padding:5px 10px;
+  border:0;border-top:1px solid rgba(16,48,30,.1);background:none;color:inherit;cursor:pointer;text-align:left}
+.mch-row:first-child{border-top:0}
+.mch-row .h,.mch-row .a{display:flex;align-items:center;gap:7px;min-width:0}
+.mch-row .h{justify-content:flex-end}
+.mch-row .n{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:800 15px/1.15 'Barlow Semi Condensed',sans-serif}
+.mch-row .h .n{text-align:right}
+.mch-row .c{display:flex;flex-direction:column;align-items:center;gap:3px;font-variant-numeric:tabular-nums}
+.mch-row .c b{font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.01em}
+.mch-row .c small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-row-dim)}
+.mch-row .c b.live{padding:3px 6px;border-radius:6px;background:var(--live,#c8322b);color:var(--live-ink,#fff);
+  font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+/* full time: the side that lost steps back, the way the scores read */
+.mch-row.wh .a .n,.mch-row.wa .h .n{color:var(--th-row-dim);font-weight:600}
+.mch-row.mine{background:rgba(233,184,76,.18);box-shadow:inset 3px 0 0 var(--th-acc)}
+.mch-note{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;margin:8px 2px 0;font:500 13.5px/1.35 'Barlow Semi Condensed',sans-serif;color:var(--th-dim)}
+.mch-note .cbadge{width:22px;height:22px;flex:none}
+.mch-note b{color:var(--th-ink);margin-right:4px}
+.mch-retry{min-height:44px;padding:0 8px;border:0;background:none;cursor:pointer;color:var(--th-ink);
+  font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
+.mch-skel{height:220px}
+.mch-skel.sm{height:92px;margin:8px 0}
+.mch-none .b4btn{margin:4px 0 0}
+
+/* Tables: a compact card per pinned competition */
+.mch-tcard{margin:0 0 12px;border-radius:16px;overflow:hidden;background:var(--th-row);color:var(--th-row-ink);
+  border:2px var(--th-edge-style,solid) var(--th-edge);box-shadow:0 3px 0 rgba(16,48,30,.12)}
+.mch-tcard .mch-skel.sm{margin:8px 12px 12px}
+.mch-thead{display:flex;align-items:center;gap:9px;padding:6px 4px 6px 12px;border-bottom:1px solid rgba(16,48,30,.1)}
+.mch-thead .cbadge{width:28px;height:28px;flex:none}
+.mch-tn{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.mch-tn b{font:italic 900 18px/1.05 'Barlow Semi Condensed',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mch-tn small{font:700 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-row-dim)}
+.mch-full{flex:none;min-height:44px;padding:0 10px;border:0;background:none;cursor:pointer;color:var(--th-ink);white-space:nowrap;
+  font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.mch-trow{display:grid;grid-template-columns:20px 22px minmax(0,1fr) 22px 30px 30px;align-items:center;gap:7px;width:100%;min-height:44px;padding:4px 12px;
+  border:0;border-top:1px solid rgba(16,48,30,.08);background:none;color:inherit;cursor:pointer;text-align:left}
+.mch-tcard.spark .mch-trow{grid-template-columns:20px 22px minmax(0,1fr) 56px 22px 30px 30px}
+.mch-trow.hd{min-height:0;padding:7px 12px 5px;border-top:0;cursor:default;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-row-dim)}
+.mch-trow>span:nth-last-child(-n+3){text-align:right;font:700 14px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums}
+.mch-trow.hd>span:nth-last-child(-n+3){font:800 10px/1 'Barlow Semi Condensed',sans-serif}
+.mch-trow .pos{font:italic 900 16px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums}
+.mch-trow .nm{display:flex;flex-direction:column;gap:4px;min-width:0}
+.mch-trow .nm b{font:800 15px/1.1 'Barlow Semi Condensed',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mch-trow>span.pts{font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif}
+.mch-trow.mine{background:rgba(233,184,76,.2);box-shadow:inset 3px 0 0 var(--th-acc)}
+.mch-trow.mine>span.pts{color:var(--th-acc-sh)}
+.mch-trow .sp{display:flex;align-items:center}
+.mch-trow .sp svg{display:block;width:56px;height:auto;max-height:20px}
+.mch-gap{padding:0 12px;text-align:center;font:800 14px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.3em;color:var(--th-row-dim)}
+.mch-tempty{margin:0;padding:14px 12px;font:italic 400 14px/1.4 'Lora',Georgia,serif;color:var(--th-row-dim)}
+/* the last five as dots: won, drawn, and lost as an open ring (not red: red is for live) */
+.mch-form{display:inline-flex;gap:3px}
+.mch-form i{width:8px;height:8px;border-radius:50%;box-sizing:border-box}
+.mch-form i.w{background:var(--res-right,#2c7a48)}
+.mch-form i.d{background:var(--res-off-mark,#c9bd9c)}
+.mch-form i.l{border:1.5px solid var(--th-row-dim)}
+/* All competitions: the medal grid, denser, three to a row on a wider phone */
+.cl-comps.mch-all{gap:6px}
+.cl-comps.mch-all .cl-comp{min-height:56px;padding:7px 8px;gap:7px;border-radius:12px}
+.cl-comps.mch-all .cl-comp .cl-mcico.badge,.cl-comps.mch-all .cl-comp .cl-mcico.badge .cbadge{width:36px;height:36px}
+.cl-comps.mch-all .cl-comp b{font-size:14px}
+.cl-comps.mch-all .cl-comp small{font-size:11.5px}
+@media (min-width:400px){ .cl-comps.mch-all{grid-template-columns:repeat(3,minmax(0,1fr))} }
+
+/* the Edit sheet (a dark sheet): pinned first, with an up arrow to move one; then every competition in its group */
+.mch-editsheet{display:flex;flex-direction:column}
+.mch-editsheet h2{margin:0}
+.mch-editsheet>p{margin:6px 0 2px}
+.mch-editsheet .b6hdr{margin:16px 0 2px;font-size:12px}
+.mch-erow{display:flex;align-items:center;gap:6px;border-top:1px solid rgba(255,255,255,.1)}
+.mch-pin{flex:1;display:flex;align-items:center;gap:10px;min-width:0;min-height:48px;padding:4px 2px;border:0;background:none;cursor:pointer;color:var(--th-card-ink);text-align:left}
+.mch-pin .cbadge{width:28px;height:28px;flex:none}
+.mch-pin b{flex:1;min-width:0;font:800 15px/1.15 'Barlow Semi Condensed',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mch-tick{display:flex;align-items:center;justify-content:center;flex:none;width:26px;height:26px;border-radius:50%;box-sizing:border-box;border:2px solid rgba(255,255,255,.35)}
+.mch-erow.on .mch-tick{border-color:var(--th-acc);background:var(--th-acc);color:var(--th-acc-ink)}
+.mch-tick .ic{width:15px;height:15px;margin:0}
+.mch-up{flex:none;width:44px;height:44px;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);
+  color:var(--th-card-ink);font:900 13px/1 'Barlow Semi Condensed',sans-serif}
+.mch-up[disabled]{opacity:.3;cursor:default}
+.mch-editsheet .b4btn{margin-top:16px}
+/* the club page: the rest of the results and fixtures behind a tap */
+.cl-more{display:block;width:100%;min-height:44px;margin:4px 0 0;border:0;background:none;cursor:pointer;color:var(--th-ink);font:800 12px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase}

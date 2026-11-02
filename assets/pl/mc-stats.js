@@ -199,7 +199,42 @@
     return best;
   }
 
-  const MC = { played, league, games, form, line, figures, secondLeg, chance, round100, shrink, MIN_GAMES, h2hSummary, story, TEMPLATES };
+  /* ---------- the table as it stood (match-centre-v3.md §2) ----------
+     The charts draw a season matchday by matchday, so they need the table after each one. tableAt(rows, upTo) is the
+     table after matchday upTo: every club with a matchday fixture (as clMcTable in pl.js counts them), the played
+     matches of matchdays 1 to upTo, the same sort (points, goal difference, goals scored, then the name) and level
+     sides sharing a place. A league's matchday and a league stage's (the Champions League's 1 to 8) are both md.
+     upTo left out (or not a number) is the whole season: the table on the page. A match moved from matchday 3 to a
+     midweek later still counts as matchday 3's, so a club's line never jumps for a fixture it hasn't played yet. */
+  const valid = x => !!x && typeof x === "object" && !!x.h && !!x.a && x.h.key != null && x.a.key != null;
+  const sane = rows => Array.isArray(rows) ? rows.filter(valid) : [];
+  function tableAt(rows, upTo){
+    const t = {}, L = league(sane(rows)), lim = typeof upTo === "number" && isFinite(upTo) ? upTo : Infinity;
+    const team = s => t[s.key] || (t[s.key] = { key: s.key, name: s.name, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0, form: [] });
+    L.forEach(x => { team(x.h); team(x.a); });
+    L.filter(x => played(x) && x.md <= lim).sort((p, q) => (p.ko || 0) - (q.ko || 0) || (p.id > q.id ? 1 : p.id < q.id ? -1 : 0)).forEach(x => {
+      const H = team(x.h), A = team(x.a), g1 = +x.ft[0], g2 = +x.ft[1];
+      H.p++; A.p++; H.gf += g1; H.ga += g2; A.gf += g2; A.ga += g1;
+      const res = g1 > g2 ? ["W", "L"] : g1 < g2 ? ["L", "W"] : ["D", "D"];
+      [[H, res[0]], [A, res[1]]].forEach(([T, r]) => { T.form.push(r); if(r === "W"){ T.w++; T.pts += 3; } else if(r === "D"){ T.d++; T.pts++; } else T.l++; });
+    });
+    const list = Object.values(t).sort((p, q) => q.pts - p.pts || (q.gf - q.ga) - (p.gf - p.ga) || q.gf - p.gf || String(p.name || "").localeCompare(String(q.name || "")));
+    list.forEach((T, i) => { const b = list[i - 1]; T.pos = b && b.pts === T.pts && b.gf - b.ga === T.gf - T.ga && b.gf === T.gf ? b.pos : i + 1; T.form = T.form.slice(-5); });
+    return list;
+  }
+  /* the matchdays with at least one played match, in order: the x axis of every chart */
+  function byMatchday(rows){
+    return [...new Set(league(sane(rows)).filter(x => played(x) && typeof x.md === "number" && isFinite(x.md)).map(x => x.md))].sort((p, q) => p - q);
+  }
+  /* a club's place and points after each of those matchdays: [{md, pos, pts}] (a club not in the table: []) */
+  function positions(rows, key){
+    const out = [];
+    for(const md of byMatchday(rows)){ const T = tableAt(rows, md).find(x => x.key === key); if(T) out.push({ md, pos: T.pos, pts: T.pts }); }
+    return out;
+  }
+
+  const MC = { played, league, games, form, line, figures, secondLeg, chance, round100, shrink, MIN_GAMES, h2hSummary, story, TEMPLATES,
+    tableAt, byMatchday, positions };
   root.MCStats = MC;
   if(typeof module === "object" && module && module.exports) module.exports = MC;
 })(typeof window !== "undefined" ? window : this);

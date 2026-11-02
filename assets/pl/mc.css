@@ -84,3 +84,8 @@
 .mc-called{margin:var(--sp-2) 2px 0;font:italic 900 var(--fs-body)/1.3 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-acc-sh)}
 .mc-brave{margin:0 var(--sp-2) var(--sp-3);text-align:center;font:italic 400 var(--fs-human)/1.4 var(--serif);color:var(--th-ink)}
 @media (prefers-reduced-motion: reduce){ .mc-ev{animation:none} }
+
+/* MC v3: pages */
+/* the club page's "This season": the club against the league's average, the match page's mirror (mc.js, mcVsAvg); the average is never lit */
+.mc-st .v.avg{color:var(--th-card-dim)}
+.mc-st .v.avg em{text-transform:uppercase;letter-spacing:.08em}

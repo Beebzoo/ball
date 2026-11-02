@@ -5984,6 +5984,7 @@
   .b6tab{display:flex;flex-direction:column;align-items:center;gap:5px;border:0;background:none;cursor:pointer;padding:2px 8px;
     font:600 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#6b7a63}
   .b6tab.on{color:var(--th-ink)}
+  .b6tab{white-space:nowrap}                 /* "Match Centre" on one line, like the others (MC v3) */
   .b6tab span{position:relative}
   .b6tab svg{width:24px;height:24px;display:block}
   .b6dot{position:absolute;top:-3px;right:-6px;width:9px;height:9px;border-radius:50%;background:#E8705A;border:2px solid #efe4c8}
@@ -6245,6 +6246,8 @@
   /* Predictions | Quiz week (Call It, behind PL_ON): the bigger switch above everything else */
   .lgseg.lgseg2{background:#0b2416;box-shadow:0 4px 0 rgba(0,0,0,.2)}
   .lgseg.lgseg2 button{min-height:40px;font-size:15px}
+  /* the Match Centre's four: Matches · Tables · Call It · Quiz week (MC v3) */
+  .lgseg.lgseg4 button{min-height:44px;padding:0 2px;font-size:14.5px;white-space:nowrap}
   .lgtable{border-radius:16px;overflow:hidden;background:var(--th-card);border:2px var(--th-edge-style) var(--th-edge);box-shadow:0 5px 0 rgba(0,0,0,.12),0 12px 24px rgba(18,61,36,.22);color:var(--th-card-ink)}
   .lgrow{display:grid;grid-template-columns:22px 24px minmax(0,1fr) 22px 34px 34px 58px;gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.06);
     font:600 14px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums}
@@ -8072,14 +8075,36 @@
   .t3go{padding:7px 16px;border-radius:var(--th-pill-r);background:var(--th-pill);color:var(--th-acc-ink);box-shadow:0 3px 0 var(--th-acc-sh);
     font:italic 900 15px/1 var(--th-hf),sans-serif;text-transform:uppercase}
   .t3foot{padding:8px 0 10px;border-top:1px solid rgba(255,255,255,.12);font:500 var(--fs-meta)/1 var(--ui);color:var(--th-card-dim)}
-  /* Call It, one line; Matchday, cream with the dark Play */
-  .t3pl{display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;font:inherit;text-align:left;cursor:pointer}
+  /* the Match Centre card (MC v3, b6McCard): dark, under today's three. Call It's line, up to two matches, the way in */
   .t3kit{display:flex;gap:2px}
   .t3kit i{width:4px;height:26px;border-radius:2px;background:var(--th-acc)}
   .t3kit i+i{background:var(--th-ink)}
   .t3plm{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
   .t3plm b{font:700 15px/1.2 var(--ui)}
   .t3chev{font:700 18px/1 var(--ui)}
+  .t3card.t3mc{padding:12px 0 0;overflow:hidden;background:var(--th-card);color:var(--th-card-ink);border-radius:18px}
+  .t3mc .kick{color:var(--th-card-dim)}
+  .t3mc .t3mck{padding:0 14px 4px}
+  .t3mc .t3kit i+i{background:var(--th-card-ink)}
+  .t3mcrow,.t3mcl,.t3mcfoot{width:100%;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .t3mcrow{display:flex;align-items:center;gap:10px;min-height:52px;padding:6px 14px 8px}
+  .t3mcl{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;min-height:48px;padding:6px 14px;border-top:1px solid rgba(255,255,255,.12)}
+  .t3mcl.mine{background:rgba(233,184,76,.1);box-shadow:inset 3px 0 0 var(--th-acc)}
+  .t3mct{display:flex;align-items:center;gap:6px;min-width:0;font:700 15px/1.2 var(--ui)}
+  .t3mct .n{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .t3mct .v{flex:none;font:600 12px/1 var(--ui);color:var(--th-card-dim)}
+  .t3mcp{flex:none;width:18px;height:auto}
+  .t3mcd{display:inline-flex;flex:none;gap:2px}
+  .t3mcd i{width:4px;height:16px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+  .t3mcs{text-align:right;font-variant-numeric:tabular-nums}
+  .t3mcs b{display:block;font:italic 900 17px/1 var(--th-hf),sans-serif}
+  .t3mcs small{display:block;margin-top:3px;font:700 10px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--th-card-dim)}
+  .t3mcs b.live{display:inline-block;padding:4px 6px;border-radius:6px;background:var(--live);color:var(--live-ink);font:800 11px/1 var(--ui);font-style:normal;letter-spacing:.1em;text-transform:uppercase}
+  .t3mcfoot{display:flex;align-items:center;justify-content:flex-end;min-height:44px;padding:0 14px;border-top:1px solid rgba(255,255,255,.12);
+    font:800 12px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--th-acc1)}
+  /* a new phone's home: the Match Centre as one quiet line under the quick match */
+  .t3mcfirst{display:block;width:100%;min-height:44px;margin-top:-2px;border:0;background:none;cursor:pointer;color:var(--th-ink);
+    font:700 14px/1.2 var(--ui);text-decoration:underline;text-decoration-color:var(--th-acc2);text-underline-offset:4px}
   .t3md{display:flex;align-items:center;gap:12px;padding:12px 14px}
   .t3mdm{flex:1;min-width:0}
   .t3mdh{font:italic 900 24px/1 var(--th-hf),sans-serif;text-transform:uppercase}
@@ -8093,7 +8118,6 @@
   .t3mini b{display:block;font:700 13px/1.15 var(--ui)}
   .t3mini small{display:block;margin-top:4px;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-row-dim)}
   .t3mini small.new{color:var(--th-acc-sh);font-weight:800}
-  .t3plnew .t3plm small{display:block;margin-top:2px;font:500 var(--fs-meta)/1.25 var(--ui);color:var(--th-row-dim)}
   /* a first open: one gold way in */
   .t3meta{display:flex;justify-content:space-between;margin-top:-6px;padding:0 8px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
   .t3safe{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:6px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
@@ -11193,7 +11217,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 2 Nov 2026 · go to market";
+const BUILD = "BALL 4 · 2 Nov 2026 · the Match Centre";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -27416,12 +27440,19 @@ function plNeed(then){
   }catch(e){ done(false); }
   return false;
 }
-const plFull = () => PL_ON && !!LEAGUE_VIEW && LEAGUE_VIEW.seg === "pl" && !!LEAGUE_VIEW.cl && !!LEAGUE_VIEW.cl.s && LEAGUE_VIEW.cl.s !== "home";
-const lgSegHTML = () => !PL_ON ? "" : '<div class="lgseg lgseg2" role="group" aria-label="League">' + [["pl", "Predictions"], ["quiz", "Quiz week"]].map(t =>
+/* THE MATCH CENTRE (was League; _plans/match-centre-v3.md, MC v3): Matches · Tables · Call It (pl.js draws the three)
+   · Quiz week (the quiz league, below). Without PL_ON the tab is the quiz league it was, called League */
+const LG_SEGS = [["matches", "Matches"], ["tables", "Tables"], ["callit", "Call It"], ["quiz", "Quiz week"]];
+const lgPlSeg = s => s === "matches" || s === "tables" || s === "callit";
+const lgTitle = () => PL_ON ? "Match Centre" : "League";
+const plFull = () => PL_ON && !!LEAGUE_VIEW && lgPlSeg(LEAGUE_VIEW.seg) && !!LEAGUE_VIEW.cl && !!LEAGUE_VIEW.cl.s && LEAGUE_VIEW.cl.s !== "home";
+const lgSegHTML = () => !PL_ON ? "" : '<div class="lgseg lgseg2 lgseg4" role="group" aria-label="Match Centre">' + LG_SEGS.map(t =>
   '<button aria-pressed="' + ((LEAGUE_VIEW && LEAGUE_VIEW.seg) === t[0]) + '" onclick="lgSeg(\'' + t[0] + '\')">' + t[1] + '</button>').join("") + '</div>';
 function lgSeg(s){
   audio();
   if(!LEAGUE_VIEW) return;
+  if(s === "pl") s = "callit";            // the old Predictions segment
+  try{ haptic("select"); }catch(e){}
   LEAGUE_VIEW.seg = s; LEAGUE_VIEW.cl = null;
   try{ localStorage.setItem("ball4-lg-seg", s); }catch(e){}
   render();
@@ -27502,12 +27533,12 @@ function supShelfHTML(){
     sub: on ? "Thank you. Your mark, your archive, your twelve." : "Keeps BALL free for everyone. A few things back, never an edge." });
 }
 const supMark = () => '<span class="supmark" title="BALL Supporter" aria-label="BALL Supporter">S</span>';
-/* the Predictions segment: the screens once they are here, the League's top and a skeleton until then */
+/* Matches, Tables and Call It: the screens once they are here, the Match Centre's top and a skeleton until then */
 function plRender(st){
   if(plNeed() && typeof clRender === "function") return clRender(st);
   b6Paper(true);
-  st.innerHTML = '<div class="b6 step lgpage"><div class="b6band"></div><div class="b6body"><div class="lghead"><h1 class="lgh1">League</h1></div>' +
-    '<span class="lgsub">Call the scores. Beat your mates. All season.</span>' + lgSegHTML() +
+  st.innerHTML = '<div class="b6 step lgpage"><div class="b6band"></div><div class="b6body"><div class="lghead"><h1 class="lgh1">Match Centre</h1></div>' +
+    '<span class="lgsub">Your leagues, your mates\' calls, every table.</span>' + lgSegHTML() +
     (PL_LOAD === -1 ? '<div class="lgempty"><b>Not available right now</b><span>Predictions couldn\'t load. Check the connection and open the tab again.</span></div>' : '<div class="lgskel"></div>') +
     '</div></div>';
 }
@@ -27516,10 +27547,24 @@ function plJoinPending(code){
   plNeed(() => { try{ clJoinPending(code); }catch(e){} });
 }
 
-let LEAGUE_VIEW = null;      // null | {tab: "week"|"alltime"|"h2h", sub: null|"friends", seg: "pl"|"quiz", cl: Call It's own screen}
+let LEAGUE_VIEW = null;      // null | {tab: "week"|"alltime"|"h2h", sub: null|"friends", seg: "matches"|"tables"|"callit"|"quiz", cl: Call It's own screen, hub: pl.js's}
 let LG = { list: null, cur: null, data: {}, err: null, loading: false, news: {} };
-const lgSegNow = () => { if(!PL_ON) return "quiz"; try{ return localStorage.getItem("ball4-lg-seg") === "quiz" ? "quiz" : "pl"; }catch(e){ return "pl"; } };
-function openLeague(){ audio(); if(PL_LOAD === -1) PL_LOAD = 0; LEAGUE_VIEW = { tab: "week", sub: null, seg: lgSegNow(), cl: null }; ME_VIEW = null; LOCKER_VIEW = null; ALBUM_VIEW = null; CUP_VIEW = null; b4Step = null; render(); if(LEAGUE_VIEW.seg === "quiz") leagueLoad(); feelScrollBack("league"); }
+/* where the tab opens: Quiz week once picked; Call It when you came by an invite, or are in a league with a round
+   open (ball4-pl-strip, kept by pl.js); else the segment you last picked, else Matches. The old "pl" is Call It */
+function lgSegNow(){
+  if(!PL_ON) return "quiz";
+  let v = null;
+  try{ v = localStorage.getItem("ball4-lg-seg"); }catch(e){}
+  if(v === "pl") v = "callit";
+  if(v === "quiz") return "quiz";
+  try{ if(acctLocal().join) return "callit"; }catch(e){}
+  try{
+    const s = JSON.parse(localStorage.getItem("ball4-pl-strip") || "null");
+    if(s && Date.now() - s.at < 3 * 864e5 && (s.open | 0) > 0 && (!s.lock || s.lock > Date.now())) return "callit";
+  }catch(e){}
+  return lgPlSeg(v) ? v : "matches";
+}
+function openLeague(seg){ audio(); if(PL_LOAD === -1) PL_LOAD = 0; LEAGUE_VIEW = { tab: "week", sub: null, seg: PL_ON && (lgPlSeg(seg) || seg === "quiz") ? seg : lgSegNow(), cl: null }; ME_VIEW = null; LOCKER_VIEW = null; ALBUM_VIEW = null; CUP_VIEW = null; b4Step = null; render(); if(LEAGUE_VIEW.seg === "quiz") leagueLoad(); feelScrollBack("league"); }
 /* why the League can't be shown right now, or "" when it can */
 function leagueBlocked(){
   const a = acct();
@@ -27590,11 +27635,13 @@ function leagueBack(){ audio(); if(LEAGUE_VIEW && LEAGUE_VIEW.sub) LEAGUE_VIEW.s
 const pennantMini = (d, size) => { try{ return pennantSVG(d || pennantDefault(""), size || 24, { mini: true }); }catch(e){ return ""; } };
 function renderLeague(st){
   b6Paper(true);
-  if(PL_ON && LEAGUE_VIEW.seg === "pl") return plRender(st);
+  if(LEAGUE_VIEW.seg === "pl") LEAGUE_VIEW.seg = "callit";      // the old Predictions segment, from anywhere still saying so
+  if(PL_ON && lgPlSeg(LEAGUE_VIEW.seg)) return plRender(st);
   if(LEAGUE_VIEW.sub === "friends") return renderFriends(st);
   const why = leagueBlocked(), wk = leagueWeek();
+  /* the head says Match Centre while the quiz week is one of its segments (PL_ON), League when it is the whole tab */
   const top = (title, sub, right) => '<div class="b6 step lgpage"><div class="b6band"></div><div class="b6body">' +
-    '<div class="lghead"><h1 class="lgh1">' + title + '</h1>' + (right || "") + '</div>' + (sub ? '<span class="lgsub">' + sub + '</span>' : "") + lgSegHTML();
+    '<div class="lghead"><h1 class="lgh1">' + (title === "League" ? lgTitle() : title) + '</h1>' + (right || "") + '</div>' + (sub ? '<span class="lgsub">' + sub + '</span>' : "") + lgSegHTML();
   const end = '</div></div>';
   if(why){
     const msg = {
@@ -36709,7 +36756,7 @@ function goShortcut(){
   try{ const u = new URL(location.href); go = u.searchParams.get("go"); if(go){ u.searchParams.delete("go"); history.replaceState(history.state, "", u.pathname + (u.search || "") + u.hash); } }catch(e){ return; }
   if(!go || go === "three") return;
   try{
-    if(go === "callit" && typeof PL_ON !== "undefined" && PL_ON){ try{ localStorage.setItem("ball4-lg-seg", "pl"); }catch(e){} openLeague(); }
+    if(go === "callit" && typeof PL_ON !== "undefined" && PL_ON) openLeague("callit");
     else if(go === "quick") quickMatch();
   }catch(e){}
 }
@@ -36822,12 +36869,57 @@ function b6PlStrip(){
     return { kick: "Call It · " + (s.label || "this round"), line: left && at ? left + (left === 1 ? " call" : " calls") + " left · locks " + at : left ? left + " calls left" : (s.open | 0) ? "All called" + (at ? " · first lock " + at : "") : "Round in play", left };
   }catch(e){ return null; }
 }
-const b6PlStripHTML = P => P ? '<button class="t3card t3pl" onclick="openLeague()"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
-  '<span class="t3plm"><span class="kick">' + esc(P.kick) + '</span><b>' + esc(P.line) + '</b></span><span class="t3chev" aria-hidden="true">›</span></button>' :
-  /* NOT IN A LEAGUE YET: Call It on the home all the same (Martijn, 31 Oct), the way in to this weekend's card */
-  (typeof PL_ON !== "undefined" && PL_ON ? '<button class="t3card t3pl t3plnew" onclick="openLeague()"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
-    '<span class="t3plm"><span class="kick">Call It</span><b>Call this weekend\'s matches</b><small>The Card of the week, on your own or with friends</small></span>' +
-    '<span class="t3chev" aria-hidden="true">›</span></button>' : "");
+/* THE MATCH CENTRE CARD (_plans/match-centre-v3.md §1.1 item 8; it replaced the Call It strip, 2 Nov): the dark card
+   under Today's three. Its first line is Call It's (b6PlStrip's words; not in a league yet, the way in to this
+   weekend's card), then up to two matches from what the Match Centre last loaded (ball4-mc-strip, kept by pl.js's
+   mchStripSave, so the home never loads it): the followed club's next match, else the next two of the pinned
+   competitions within 48 hours, else the latest results. A strip over three days old says nothing. ?pl=0: no Call It
+   line, and no card at all when there are no matches either */
+function b6McLines(){
+  try{
+    const s = JSON.parse(localStorage.getItem("ball4-mc-strip") || "null");
+    if(!s || !s.at || Date.now() - s.at > 3 * 864e5 || !Array.isArray(s.next)) return [];
+    const now = Date.now(), c = s.club, N = s.next.filter(x => x && x.h && x.a && x.ko);
+    const played = x => !!x.ft && (x.st === "finished" || x.st === "awarded");
+    const its = x => !!c && x.comp === c.comp && (x.h.key === c.key || x.a.key === c.key);
+    const ahead = N.filter(x => !played(x) && !/^(postponed|cancelled|suspended)$/.test(x.st || "") && x.ko > now - 2 * 3600e3).sort((a, b) => a.ko - b.ko);
+    const out = [], add = x => { if(x && out.length < 2 && !out.includes(x)) out.push(x); };
+    add(ahead.find(its));
+    ahead.filter(x => x.ko < now + 48 * 3600e3).forEach(add);
+    if(!out.length) N.filter(played).sort((a, b) => b.ko - a.ko).forEach(add);
+    return out.map(x => Object.assign({ mine: its(x), done: played(x) }, x));
+  }catch(e){ return []; }
+}
+/* a club on the card: BALL's own patch when the crests are here, else its two kit colours, else just the name */
+function b6McPatch(t){
+  try{
+    const hex = v => /^#[0-9a-f]{3,8}$/i.test(String(v || "")) ? v : null, c1 = hex(t.c1), c2 = hex(t.c2) || c1;
+    const fb = c1 ? { name: String(t.name || ""), code: String(t.code || t.name || "").slice(0, 3).toUpperCase(), c1, c2, p: "plain" } : null;
+    const u = typeof crestURL === "function" ? crestURL(t.s || "pl|" + t.key, "patch", 54, fb) : null;
+    if(u) return '<img class="t3mcp" src="' + u + '" alt="" width="18">';
+    if(c1) return '<span class="t3mcd" aria-hidden="true"><i style="background:' + c1 + '"></i><i style="background:' + c2 + '"></i></span>';
+  }catch(e){}
+  return "";
+}
+function b6McLine(x){
+  const d = new Date(x.ko), hm = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+  const day = (() => { const a = new Date(); a.setHours(0, 0, 0, 0); const k = Math.round((new Date(d).setHours(0, 0, 0, 0) - a) / 864e5); return k === 0 ? "Today" : k === 1 ? "Tomorrow" : T3_DAYS[d.getDay()]; })();
+  const live = !x.done && (x.st === "live" || x.st === "paused");
+  const right = x.done ? '<b>' + x.ft[0] + '–' + x.ft[1] + '</b><small>FT</small>' : live ? '<b class="live">Live</b>' : '<b>' + hm + '</b><small>' + day + '</small>';
+  const H = String(x.h.name || ""), A = String(x.a.name || "");
+  return '<button class="t3mcl' + (x.mine ? " mine" : "") + '" onclick="openLeague(\'matches\')" aria-label="' + esc(H + " v " + A + ", " + (x.done ? "full time " + x.ft[0] + "–" + x.ft[1] : live ? "live" : day + " " + hm)) + '">' +
+    '<span class="t3mct">' + b6McPatch(x.h) + '<span class="n">' + esc(H) + '</span><span class="v">v</span>' + b6McPatch(x.a) + '<span class="n">' + esc(A) + '</span></span>' +
+    '<span class="t3mcs">' + right + '</span></button>';
+}
+function b6McCard(){
+  const pl = typeof PL_ON !== "undefined" && PL_ON, P = pl ? b6PlStrip() : null, M = b6McLines();
+  if(!pl && !M.length) return "";
+  const call = pl ? '<button class="t3mcrow" onclick="openLeague(\'callit\')"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
+    '<span class="t3plm"><span class="kick">' + esc(P ? P.kick : "Call It") + '</span><b>' + esc(P ? P.line : "Call this weekend\'s matches") + '</b></span>' +
+    '<span class="t3chev" aria-hidden="true">›</span></button>' : "";
+  return '<div class="t3card t3mc"><div class="kick t3mck">Match Centre</div>' + call + M.map(b6McLine).join("") +
+    '<button class="t3mcfoot" onclick="openLeague()">Match Centre ›</button></div>';
+}
 /* Matchday, the cream card with the dark Play, and the quick way in under it */
 const b6MatchdayCard = () => '<div class="t3card t3md"><div class="t3mdm"><div class="t3mdh">Matchday</div><div class="t3lora">Every pass is a question.</div>' +
   '<button class="t3quick" onclick="quickMatch()">Quick match ›</button></div><button class="b4btn dark t3play" onclick="b6Play()">Play</button></div>';
@@ -36920,28 +37012,29 @@ function b6FrontFirst(saved){
     '<button class="b6cta" onclick="dailyStart()">Start today’s three</button>' +
     '<div class="t3meta"><span>About 60 seconds</span><span>Day 1 of your streak</span></div>' +
     '<button class="b4btn dark" onclick="quickMatch()">Or a quick match</button>' +
+    /* the Match Centre, one quiet line (MC v3): the board's one way in stays the gold one */
+    (typeof PL_ON !== "undefined" && PL_ON ? '<button class="t3mcfirst" onclick="openLeague()">Match Centre · the tables and your mates’ calls ›</button>' : "") +
     '<div class="t3safe">' + ico("shield") + 'No account needed. Saved on this phone.</div>';
 }
 function b6FrontDaily(saved){
-  const T = threeToday(), S3 = threeStreak(), P = b6PlStrip();
+  const T = threeToday(), S3 = threeStreak();
   const installHidden = (() => { try{ return localStorage.getItem("ball4-install-hide") === "1"; }catch(e){ return false; } })();
   b6CountdownTick();
   return '<div class="t3band"><div class="kick t3date">' + t3Date(new Date()) + '</div></div>' +
-    threeStreakCard(S3) + (saved ? b6ContinueHTML(saved) : "") + threeCard(T) + b6PlStripHTML(P) + b6MatchdayCard() + b6Shelf() +
+    threeStreakCard(S3) + (saved ? b6ContinueHTML(saved) : "") + threeCard(T) + b6McCard() + b6MatchdayCard() + b6Shelf() +
     (isStandalone() || installHidden ? "" : '<div class="b6inst"><button class="b6instgo" onclick="installApp()">Add BALL to your home screen</button><button class="b6instx" onclick="b6InstallHide()" aria-label="Hide this">×</button></div>');
 }
 function b6FrontDone(saved){
-  const T = threeToday(), S3 = threeStreak(), G = threeGrade(T), P = b6PlStrip();
+  const T = threeToday(), S3 = threeStreak(), G = threeGrade(T);
   threeClockTick();
+  /* the Match Centre card after the share grid (MC v3); it carries Call It, so the pills are Matchday and a quick match */
   return '<div class="t3band done"><div class="kick">Today’s three · done</div><div class="t3grade" style="--n:' + G.word.length + '">' + esc(G.word) + '</div>' +
       '<div class="t3lora">' + esc(G.line) + ' The scarf grows a row.</div></div>' +
     '<div class="t3card t3share"><div class="t3sharehd"><span class="t3h2">BALL · ' + t3Date(new Date()) + '</span><span class="kick">Streak ' + S3.n + '</span></div>' +
       threeGridHTML(T) + '<button class="b6cta" onclick="threeShare()">Share the grid</button><div class="t3note">No spoilers in the grid.</div></div>' +
-    threeStreakCard(S3, { hi: true }) + (saved ? b6ContinueHTML(saved) : "") +
+    b6McCard() + threeStreakCard(S3, { hi: true }) + (saved ? b6ContinueHTML(saved) : "") +
     '<div class="t3next"><div class="kick">Next three in</div><div class="t3cd" id="t3cd">' + threeClock() + '</div></div>' +
-    '<div class="t3pills"><button class="b4btn dark" onclick="b6Play()">Matchday</button>' +
-      (P || (typeof PL_ON !== "undefined" && PL_ON) ? '<button class="b4btn dark" onclick="openLeague()">Call It' + (P && P.left ? " · " + P.left + " left" : "") + '</button>'
-        : '<button class="b4btn dark" onclick="quickMatch()">Quick match</button>') + '</div>' +
+    '<div class="t3pills"><button class="b4btn dark" onclick="b6Play()">Matchday</button><button class="b4btn dark" onclick="quickMatch()">Quick match</button></div>' +
     b6Shelf();
 }
 /* THE QUICK MATCH (plan §4.2): Easy against the computer as your country, no toss, tackles or bench, straight
@@ -37091,7 +37184,7 @@ function b6TabBar(active){
   const dot = (mine().album || {}).packs > 0;
   const tab = (k, label, go) => '<button class="b6tab' + (k === active ? " on" : "") + '" onclick="' + go + '"' + (k === active ? ' aria-current="page"' : "") + '><span>' + B6_TAB[k] +
     (k === "album" && dot ? '<i class="b6dot"></i>' : "") + '</span>' + label + '</button>';
-  return '<nav class="b6tabbar" data-on="' + active + '">' + tab("play", "Play", "goHome()") + tab("league", "League", "openLeague()") +
+  return '<nav class="b6tabbar" data-on="' + active + '">' + tab("play", "Play", "goHome()") + tab("league", lgTitle(), "openLeague()") +
     tab("locker", "Locker", "openLocker()") + (ALBUM_ON ? tab("album", "Album", "openAlbum()") : "") + tab("me", "Me", "openMe()") + '<i class="b6tabglow"></i></nav>';
 }
 /* the tab bar lives on the body so nothing transformed can carry it off; null hides it */

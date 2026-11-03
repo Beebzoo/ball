@@ -8065,12 +8065,12 @@
   /* the day and done homes: the logo on the left, its speed trail running in from the edge; on the right the
      player's own club crest, or Sign in (Martijn, 3 Nov 2026: "maybe it's better to have it on the left, and on the
      right the logo of the player that signed in or a sign in button") */
-  .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:flex-start;padding:16px 0 0 20px!important;font-size:44px}
+  .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:flex-start;padding:calc(16px + env(safe-area-inset-top,0px)) 0 0 20px!important;font-size:44px}
   .b6:is(.home-daily,.home-done) .mdp .tagbar{display:none}
   .b6.home-daily .b6band{height:158px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
   /* the day home: the logo bigger and the date bigger, the streak card smaller (Martijn, 2 Nov 2026) */
   .b6.home-daily .mdp-slot{font-size:56px}
-  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:46px;padding-left:14px!important} .t3band .t3date{font-size:12px;letter-spacing:.2em} .t3acct.crest svg{width:40px;height:auto} }
+  @media (max-width:359px){ .b6.home-daily .t3acct{--acct-y:37px} .b6.home-daily .mdp-slot{font-size:46px;padding-left:14px!important} .t3band .t3date{font-size:12px;letter-spacing:.2em} .t3acct.crest svg{width:40px;height:auto} }
   .b6.home-first .b6band{height:430px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%)}
   .b6.home-done .b6band{height:292px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
   .b6:is(.home-first,.home-daily,.home-done) .b6body{gap:var(--sp-3)}
@@ -8085,7 +8085,10 @@
   /* a page's title is the way home where the tab bar shows (titleHomeOk) */
   body:has(#b6tabs:not([hidden])) :is(.lgh1,.b6stitle){cursor:pointer}
   /* the right of the band: your club's crest (to Me), or Sign in */
-  .t3acct{position:absolute;right:2px;top:calc(env(safe-area-inset-top,0px) + 14px);z-index:2;cursor:pointer;font:inherit}
+  /* its middle on the logo's middle line: the logo sits 16 px down and its middle is 0.45 of its size below that
+     (56 px on the day home: 41 px; 44 px on the done home: 36 px; 46 px on a narrow phone: 37 px) */
+  .t3acct{position:absolute;right:2px;top:calc(env(safe-area-inset-top,0px) + var(--acct-y,41px));transform:translateY(-50%);z-index:2;cursor:pointer;font:inherit}
+  .b6.home-done .t3acct{--acct-y:36px}
   .t3acct.crest{display:block;padding:4px;border:0;border-radius:50%;background:none;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
   .t3acct.crest svg{display:block;width:48px;height:auto}
   .t3acct.signin{min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--th-acc2);background:rgba(10,31,19,.55);
@@ -11362,7 +11365,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · sign in or join";
+const BUILD = "BALL 4 · 3 Nov 2026 · the logo and Sign in on one line";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five

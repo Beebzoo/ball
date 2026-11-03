@@ -11362,7 +11362,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the Match Centre card, one big match";
+const BUILD = "BALL 4 · 3 Nov 2026 · sign in or join";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -25441,7 +25441,7 @@ function fycGo(step){
 function fycBack(){ const s = fycState(); if(s.step <= 1 || (s.step === 2 && acct().linked)) return fycAskLeave(); fycGo(s.step - 1); }
 function fycAskLeave(){
   const signin = fycState().mode === "signin";
-  sheet('<h2>Leave for now?</h2><p>' + (signin ? "Sign in whenever you like: your club waits for you." : "Your choices are kept. Found your club whenever you like.") + '</p>' +
+  sheet('<h2>Leave for now?</h2><p>' + (signin ? "Sign in or join whenever you like." : "Your choices are kept. Found your club whenever you like.") + '</p>' +
     '<button class="bigbtn bad" onclick="closeSheet();fycLeave()">Leave</button><button class="bigbtn ghost" onclick="closeSheet()">Keep going</button>');
 }
 function fycLeave(){
@@ -25776,7 +25776,7 @@ function fycStep1HTML(s){
       '<p class="fycnote small">The email has a link too: tap it on this phone if the code won\'t go' + (s.otpType === "email_change" ? ", and your guest account stays yours either way." : ".") + '</p>';
   }
   const signin = s.mode === "signin";
-  return b4Q(signin ? "Welcome back." : "First, a way back in.", signin ? "Sign in the way you did before and your club comes to this phone." : "So your club stays yours, on this phone and the next one. No passwords, ever.") +
+  return b4Q(signin ? "Sign in or join." : "First, a way back in.", signin ? "Already have a club? It comes to this phone. New here? The same code starts yours." : "So your club stays yours, on this phone and the next one. No passwords, ever.") +
     (ACCT_APPLE ? b4Btn("Continue with Apple", "fycSignIn('apple')", "dark") : "") + b4Btn("Continue with Google", "fycSignIn('google')", "dark") +
     '<div class="fycor"><span>OR BY EMAIL</span></div>' +
     '<label class="fycfield"><span>Email</span><input id="acctmail" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="you@example.com" value="' + esc(s.email || "") + '" onkeydown="if(event.key===\'Enter\')fycCodeSend()" aria-describedby="fycmailmsg"></label>' +
@@ -25815,7 +25815,7 @@ function fycRender(st){
   if(step > 2 && step < 8) step = s.step = 2;   /* a flow from the seven-step days carries on at "Your club" */
   if(step >= 8) return fycReveal(st, s, fycDesign());
   const signin = s.mode === "signin" && step === 1;
-  const head = { title: signin ? "Sign in" : "Found your club", ctx: signin ? "Your club on this phone" : "Step " + step + " of 2 · " + FYC_TITLES[step], back: "fycBack()", leave: "fycAskLeave()", cls: "fycpage" };
+  const head = { title: signin ? "Sign in" : "Found your club", ctx: signin ? "Or found your club" : "Step " + step + " of 2 · " + FYC_TITLES[step], back: "fycBack()", leave: "fycAskLeave()", cls: "fycpage" };
   const dots = signin ? "" : '<div class="fycdots" aria-hidden="true">' + [1, 2].map(i => '<i class="' + (i < step ? "done" : i === step ? "on" : "") + '"></i>').join("") + '</div>';
   st.innerHTML = b4Page(Object.assign(head, { body: dots + (step === 1 ? fycStep1HTML(s) : fycStep2HTML(s)) }));
   if(step === 1 && fycCodeOpen(s)) setTimeout(() => { fycResendTick(); const el = fycEl("fyccode"); if(el && !el.value) try{ el.focus({ preventScroll: true }); }catch(e){} }, 30);

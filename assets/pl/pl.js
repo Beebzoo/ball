@@ -2095,7 +2095,12 @@ function mchStripSave(force){
     }
     const H = hero ? Object.assign(pack(hero), { why, cn: mchComp(hero[0]).name, b: CL_BADGE[hero[0]] || null, club: why === "club" && F ? F.name : null,
       call: callOf(hero[1].id), callable: onCard(hero[1].id), min: hero[1].min || null }) : null;
-    localStorage.setItem(MC_STRIP, JSON.stringify({ at: Date.now(), next: pick.map(pack), hero: H, club: F ? { comp: F.comp, key: F.key, name: F.name } : null }));
+    /* and the rest of that competition's matches the same day, for the card's rail you swipe (Martijn, 3 Nov 2026:
+       "you could scroll to see the other Champions League games of the day on the main page already") */
+    const sameDay = (a, b) => new Date(a).toDateString() === new Date(b).toDateString();
+    const day = hero ? all.filter(e => e !== hero && e[0] === hero[0] && sameDay(e[1].ko, hero[1].ko) && !/^(postponed|cancelled|suspended)$/.test(e[1].st))
+      .sort((p, q) => p[1].ko - q[1].ko).slice(0, 9).map(e => Object.assign(pack(e), { cn: H.cn, b: H.b, min: e[1].min || null })) : [];
+    localStorage.setItem(MC_STRIP, JSON.stringify({ at: Date.now(), next: pick.map(pack), hero: H, day, club: F ? { comp: F.comp, key: F.key, name: F.name } : null }));
   }catch(e){}
 }
 

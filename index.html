@@ -8191,6 +8191,59 @@
   .t3mcrk b{font:700 15px/1.2 var(--ui)}
   .t3mcbar{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.14);overflow:hidden}
   .t3mcbar i{display:block;height:100%;border-radius:3px;background:var(--th-acc2)}
+  /* THE DAY HOME, the hybrid (3 Nov 2026): the status line and its streak badge, the three numbered cards, the ticket, the collection */
+  .t3status{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:46px;padding:0 2px}   /* under the band's slanted foot */
+  .t3stxt{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .t3stxt .kick{color:var(--th-dim)}
+  .t3sh2{margin:0;font:italic 900 34px/1 var(--th-hf),sans-serif;color:var(--th-ink)}
+  .t3status .t3lora{color:var(--th-dim)}
+  .t3badge{flex:none;width:66px;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;
+    background:var(--th-card);box-shadow:inset 0 0 0 3px var(--th-acc),0 8px 14px -8px rgba(18,61,36,.7)}
+  .t3badge b{font:italic 900 28px/.9 var(--th-hf),sans-serif;color:var(--th-acc-hi)}
+  .t3badge small{font:700 9px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--th-card-dim)}
+  .t3cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .t3c{position:relative;display:flex;flex-direction:column;align-items:stretch;min-height:190px;padding:10px;border-radius:14px;border:2px solid var(--th-edge);
+    box-shadow:0 10px 18px -12px rgba(18,61,36,.7);font:inherit;text-align:left;cursor:pointer}
+  .t3c.next{background:var(--th-card);color:var(--th-card-ink)}
+  .t3c.done{background:linear-gradient(135deg,var(--th-acc-hi),var(--th-acc2));color:var(--th-acc-ink)}
+  .t3c.todo{background:var(--th-row);color:var(--th-row-ink)}
+  .t3cn{font:italic 900 16px/1 var(--th-hf),sans-serif;color:var(--th-acc)}
+  .t3c.done .t3cn{color:var(--th-acc-ink);opacity:.7}
+  .t3c.todo .t3cn{color:var(--th-dim)}
+  .t3cic{flex:1;width:44px;height:44px;align-self:center;margin:6px 0}
+  .t3c b{font:700 14px/1.15 var(--ui);margin-bottom:8px}
+  .t3c small{font:600 12px/1.2 var(--ui);color:var(--th-dim)}
+  .t3cgo{display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:999px;background:linear-gradient(180deg,var(--th-acc-hi),var(--th-acc2));
+    box-shadow:0 4px 0 var(--th-acc-sh);color:var(--th-acc-ink);font:italic 800 16px/1 var(--th-hf),sans-serif;text-transform:uppercase}
+  .t3stamp{align-self:flex-start;padding:4px 7px;border:1.5px solid currentColor;border-radius:6px;transform:rotate(-4deg);font:800 11px/1.1 var(--ui);letter-spacing:.1em;text-transform:uppercase}
+  .t3under{margin:2px 0 0;text-align:center;font:600 12.5px/1.3 var(--ui);color:var(--th-dim)}
+  /* the ticket: the rail of matches, the tear line, the stub */
+  .t3mc .t3mch{display:flex;align-items:center;justify-content:space-between}
+  .t3mcall{min-height:44px;padding:0 2px;border:0;background:none;color:var(--th-card-dim);font:700 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+  .t3mcrail{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 16px;scroll-padding:0 16px;overscroll-behavior-x:contain}
+  .t3mcrail::-webkit-scrollbar{display:none}
+  .t3mcrail .t3mchero{flex:0 0 calc(100% - 26px);padding:8px 0 14px;scroll-snap-align:start}
+  .t3mcdots{display:flex;justify-content:center;gap:6px;padding:0 0 14px}
+  .t3mcdots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22);transition:background .2s,width .2s}
+  .t3mcdots i.on{width:16px;border-radius:3px;background:var(--th-acc)}
+  .t3perf{position:relative;height:0;margin:0 14px;border-top:2px dashed rgba(248,241,221,.28)}
+  .t3perf::before,.t3perf::after{content:"";position:absolute;top:-11px;width:20px;height:20px;border-radius:50%;background:var(--th-page,#efe4c8)}
+  .t3perf::before{left:-27px}.t3perf::after{right:-27px}
+  .t3mc .t3mcround{border-top:0;background:none;padding:14px 16px 16px}
+  .t3mcrk b{font:italic 900 24px/1 var(--th-hf),sans-serif}
+  .t3mcrk small{font:600 13px/1.2 var(--ui);color:var(--th-card-dim)}
+  .t3mccta{flex:none;display:flex;align-items:center;min-height:44px;padding:0 16px;border:2px solid var(--th-acc);border-radius:999px;
+    font:italic 800 17px/1 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-card-ink)}
+  /* the collection */
+  .t3colh span{margin-left:auto;font:600 12px/1 var(--ui);letter-spacing:0;text-transform:none;color:var(--th-dim)}
+  .t3mini{display:flex;flex-direction:column;gap:7px;width:100%;padding:0;border:0;background:none;color:var(--th-ink);font:inherit;text-align:center;cursor:pointer}
+  .t3tile{position:relative;display:flex;flex-direction:column;height:96px;padding:7px 8px;border-radius:12px;border:2px solid var(--th-edge);box-shadow:0 8px 14px -10px rgba(18,61,36,.6);text-align:left}
+  .t3tile.t3l0{background:var(--th-card);color:var(--th-card-ink)}.t3tile.t3l1{background:var(--th-row);color:var(--th-row-ink)}
+  .t3tile.t3l2{background:var(--th-ink);color:var(--th-card-ink)}.t3tile.t3l3{background:#0b2416;color:var(--th-card-dim)}
+  .t3no{font:italic 800 11px/1 var(--th-hf),sans-serif;opacity:.85}
+  .t3tile .t3cic{width:30px;height:30px;margin:4px 0 0}
+  .t3new{position:absolute;right:-4px;top:-6px;padding:3px 6px;border-radius:999px;background:var(--th-acc);color:var(--th-acc-ink);font:800 9px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase}
+  .t3mini b{font:700 12.5px/1.2 var(--ui)}
   .t3mcd{display:inline-flex;flex:none;gap:2px}
   .t3mcd i{width:4px;height:16px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
   .t3mcs{text-align:right;font-variant-numeric:tabular-nums}
@@ -8210,11 +8263,8 @@
   .b4btn.dark.t3play{flex:none;width:auto;min-height:44px;margin:0;padding:0 20px}
   /* more games: a shelf of cream minis, sideways */
   /* More games, every one in sight: two to a row (it scrolled sideways with its scrollbar hidden, which a mouse can't) */
-  .t3shelf{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px}
-  .t3mini{min-width:0;min-height:64px;padding:11px 12px;font:inherit;text-align:left;cursor:pointer}
-  .t3mini b{display:block;font:700 13px/1.15 var(--ui)}
-  .t3mini small{display:block;margin-top:4px;font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-row-dim)}
-  .t3mini small.new{color:var(--th-acc-sh);font-weight:800}
+  .t3shelf{display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));column-gap:10px;row-gap:14px}
+  /* the collection's tiles: .t3mini and .t3tile with the day home's hybrid rules above */
   /* a first open: one gold way in */
   .t3meta{display:flex;justify-content:space-between;margin-top:-6px;padding:0 8px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
   .t3safe{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:6px;font:500 13px/1.2 var(--ui);color:var(--th-dim)}
@@ -11365,7 +11415,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the logo and Sign in on one line";
+const BUILD = "BALL 4 · 3 Nov 2026 · the new home: three cards, a ticket, the collection";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -37383,7 +37433,7 @@ function threeScarfSVG(n, o){
 }
 function threeStreakCard(S3, o){
   o = o || {};
-  const right = !S3.n ? "Finish today’s three to start your scarf" : S3.next ? (S3.toGo === 1 ? (S3.today ? "Gold stripe tomorrow" : "Gold stripe today") : S3.toGo + " more to the gold stripe") : "Tassels on";
+  const right = threeStreakWords(S3);
   return '<div class="t3card t3streak"><div class="t3sh"><span class="t3big">' + S3.n + '</span><span class="kick">day streak</span><span class="t3right">' + esc(right) + '</span></div>' +
     threeScarfSVG(S3.n, { today: S3.today, hi: o.hi }) + '</div>';
 }
@@ -37391,6 +37441,43 @@ const threeRing = n => '<svg class="t3ring" width="52" height="52" viewBox="0 0 
   (n ? '<circle cx="26" cy="26" r="21" fill="none" stroke-width="6" stroke-linecap="round" class="t3ra" stroke-dasharray="' + (n * 44) + ' 132" transform="rotate(-90 26 26)"/>' : "") +
   '<text x="26" y="31" text-anchor="middle" class="t3rt">' + n + '/3</text></svg>';
 /* TODAY'S THREE, the dark card: the ring, a row each, the next one with the gold Play */
+/* THE DAY HOME, the hybrid (Martijn, 3 Nov 2026: "yes let's make it the way you have it now, but with our logos and
+   designs"): a line that says where today stands, the streak as a badge, today's three as three numbered cards (the
+   next one with the gold Play, a done one gold with its result stamped on it), and the collection of the other games */
+const threeStreakWords = S3 => !S3.n ? "Finish today’s three to start your scarf" : S3.next ? (S3.toGo === 1 ? (S3.today ? "Gold stripe tomorrow" : "Gold stripe today") : S3.toGo + " more to the gold stripe") : "Tassels on";
+function b6StatusHTML(T, S3){
+  const head = ["Three to play today.", "Two to go today.", "One to go today."][T.done] || "All three done.";
+  const line = ["Three short ones, about a minute each.", "One done. Keep the scarf growing.", "Two down. One more for today’s row."][T.done] || "";
+  return '<div class="t3status"><div class="t3stxt"><span class="kick">Today’s three · ' + T.done + ' of 3</span><h2 class="t3sh2">' + head + '</h2>' +
+    '<div class="t3lora">' + line + '</div></div>' +
+    '<div class="t3badge" role="img" aria-label="Day streak ' + S3.n + '"><b>' + S3.n + '</b><small>' + (S3.n === 1 ? "Day" : "Days") + '</small></div></div>';
+}
+const T3_ICON = {
+  daily: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0M12 7.5l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/>',
+  gtp: '<path d="M8 8a4 4 0 1 0 8 0a4 4 0 1 0-8 0M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
+  list: '<path d="M9 7h11M9 12h11M9 17h11M4 7h1M4 12h1M4 17h1"/>',
+  done: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0M8 12.5l3 3 5-6"/>' };
+const t3Svg = (d, cls) => '<svg class="' + (cls || "t3cic") + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
+function b6ThreeCards(T, S3){
+  const next = T.rows.find(r => !r.done);
+  return '<div class="t3cards">' + T.rows.map((r, i) => {
+    const st = r.done ? "done" : r === next ? "next" : "todo";
+    const foot = r.done ? '<span class="t3stamp">' + esc(r.note) + '</span>' : r === next ? '<span class="t3cgo">Play</span>' : '<small>' + esc(r.k === "list" ? "Top 10 · 2 min" : r.note) + '</small>';
+    return '<button class="t3c ' + st + '" onclick="' + r.go + '" aria-label="' + esc(r.name + ": " + (r.done ? r.note : r === next ? "play now" : r.note)) + '">' +
+      '<span class="t3cn">0' + (i + 1) + '</span>' + t3Svg(T3_ICON[r.done ? "done" : r.k] || "") + '<b>' + esc(r.k === "list" ? "Today’s list" : r.name) + '</b>' + foot + '</button>';
+  }).join("") + '</div>' +
+  '<p class="t3under">New three in <span id="b6cd">' + b6Countdown() + '</span> · ' + esc(threeStreakWords(S3)) + '</p>';
+}
+/* the other games as a numbered collection: four to a row, each with its own drawn mark */
+const T3_GAME_IC = {
+  "Higher or Lower": '<path d="M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4"/>',
+  "Career Path": '<path d="M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M16 6a2 2 0 1 0 4 0a2 2 0 1 0-4 0M8 18h5a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h5"/>',
+  "The Cup": '<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5.5a2.5 2.5 0 0 0 2.6 3.4M16 6h2.5a2.5 2.5 0 0 1-2.6 3.4M12 13v4M9 20h6M10 17h4v3h-4z"/>',
+  "Tiki-Taka-Toe": '<path d="M9 4v16M15 4v16M4 9h16M4 15h16"/>',
+  "Who is he?": '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.5v.6M12 17v.01"/>',
+  "Deadline Day": '<path d="M4 13a8 8 0 1 0 16 0a8 8 0 1 0-16 0M12 9v4l2.5 2.5M9 2.5h6"/>',
+  "Letter Box": '<path d="M3 8h5v8H3zM9.5 8h5v8h-5zM16 8h5v8h-5z"/>',
+  "Timeline": '<path d="M3 12h1M8 12h2M14 12h2M20 12h1M4 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0M10 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0M16 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/>' };
 function threeCard(T){
   const next = T.rows.find(r => !r.done);
   const line = ["Three short ones, about a minute each.", "One done. Keep the scarf growing.", "Two down. One more for today’s row."][T.done] || "";
@@ -37485,34 +37572,64 @@ function b6McOpen(comp, id){
   const go = () => { if(typeof clMatchGo === "function"){ try{ clMatchGo(comp, id); }catch(e){} return; } if(++n < 50) setTimeout(go, 100); };
   go();
 }
+/* the other matches of the featured one's competition that day (pl.js keeps them with the pick: the strip's day) */
+function b6McDay(h){
+  try{
+    const s = JSON.parse(localStorage.getItem("ball4-mc-strip") || "null");
+    if(!h || !s || !s.hero || String(s.hero.id) !== String(h.id) || !Array.isArray(s.day)) return [];
+    return s.day.filter(x => x && x.h && x.a && x.ko).map(x => Object.assign({ done: !!x.ft && (x.st === "finished" || x.st === "awarded") }, x));
+  }catch(e){ return []; }
+}
+/* one match on the card's rail: why it's there (with its medal), both sides big, the time, the score or Live */
+function b6McSlide(h, kick){
+  const H = String(h.h.name || ""), A = String(h.a.name || ""), w = b6McWhen(h.ko), live = !h.done && (h.st === "live" || h.st === "paused");
+  const medal = h.b && typeof compBadge === "function" ? compBadge(h.b, 22) : "";
+  const mid = h.done ? '<b>' + h.ft[0] + '–' + h.ft[1] + '</b><small>Full time</small>'
+    : live ? '<b class="live">Live</b><small>' + (h.min ? h.min + "’" : "On now") + '</small>'
+    : '<b>' + w.hm + '</b><small>' + esc(w.soon || w.day) + '</small>';
+  return '<button class="t3mchero" onclick="b6McOpen(\'' + esc(h.comp) + '\',\'' + esc(String(h.id)) + '\')" aria-label="' +
+      esc(H + " v " + A + ", " + (h.done ? "full time " + h.ft[0] + "–" + h.ft[1] : live ? "live" : w.day + " " + w.hm) + (h.cn ? ", " + h.cn : "")) + '">' +
+    '<span class="t3mck">' + medal + '<span>' + esc(kick) + '</span></span>' +
+    '<span class="t3mcvs"><span class="sd">' + b6McPatch(h.h, 52) + '<b>' + esc(H) + '</b></span><span class="md">' + mid + '</span>' +
+    '<span class="sd">' + b6McPatch(h.a, 52) + '<b>' + esc(A) + '</b></span></span></button>';
+}
+/* the rail's dots follow the swipe */
+function b6McDots(el){
+  try{
+    const k = el.children, step = k.length > 1 ? k[1].offsetLeft - k[0].offsetLeft : 1, i = Math.round(el.scrollLeft / Math.max(1, step));
+    const d = el.nextElementSibling;
+    if(d) Array.prototype.forEach.call(d.children, (x, j) => x.classList.toggle("on", j === i));
+  }catch(e){}
+}
+/* THE MATCH CENTRE CARD as a ticket (Martijn, 3 Nov 2026, the home's hybrid: "yes let's make it the way you have it now"):
+   the match it leads with, then that competition's other matches of the day on a rail you swipe ("you could scroll to see
+   the other Champions League games of the day on the main page already"), a tear line, and Call It's round as the stub */
 function b6McCard(){
   const pl = typeof PL_ON !== "undefined" && PL_ON, P = pl ? b6PlStrip() : null, h = b6McHero();
   if(!pl && !h) return "";
-  let hero = "", call = "";
+  let rail = "";
   if(h){
-    const H = String(h.h.name || ""), A = String(h.a.name || ""), w = b6McWhen(h.ko), live = !h.done && (h.st === "live" || h.st === "paused");
     const why = h.why === "club" ? (h.club ? h.club + (h.done ? " · full time" : "’s next") : "Your club") : h.why === "top" ? "Top match of the week" :
       h.why === "table" ? "Top of the table" : h.why === "next" ? "Up next" : "The big one";
-    const medal = h.b && typeof compBadge === "function" ? compBadge(h.b, 22) : "";
-    const mid = h.done ? '<b>' + h.ft[0] + '–' + h.ft[1] + '</b><small>Full time</small>'
-      : live ? '<b class="live">Live</b><small>' + (h.min ? h.min + "’" : "On now") + '</small>'
-      : '<b>' + w.hm + '</b><small>' + esc(w.soon || w.day) + '</small>';
-    hero = '<button class="t3mchero" onclick="b6McOpen(\'' + esc(h.comp) + '\',\'' + esc(String(h.id)) + '\')" aria-label="' +
-        esc(H + " v " + A + ", " + (h.done ? "full time " + h.ft[0] + "–" + h.ft[1] : live ? "live" : w.day + " " + w.hm) + (h.cn ? ", " + h.cn : "")) + '">' +
-      '<span class="t3mck">' + medal + '<span>' + esc(why) + (h.cn ? ' · ' + esc(h.cn) : "") + '</span></span>' +
-      '<span class="t3mcvs"><span class="sd">' + b6McPatch(h.h, 52) + '<b>' + esc(H) + '</b></span><span class="md">' + mid + '</span>' +
-      '<span class="sd">' + b6McPatch(h.a, 52) + '<b>' + esc(A) + '</b></span></span></button>';
-    if(pl && h.call) call = '<button class="t3mccall mine" onclick="openLeague(\'callit\')"><span>Your call</span><b>' + (h.call[0] | 0) + '–' + (h.call[1] | 0) + '</b>' +
-      (h.done || live ? "" : '<em>Change ›</em>') + '</button>';
-    else if(pl && h.callable && !h.done && !live) call = '<button class="t3mccall go" onclick="openLeague(\'callit\')">Call it</button>';
+    const slides = [b6McSlide(h, why + (h.cn ? " · " + h.cn : ""))].concat(b6McDay(h).map(x => b6McSlide(x, b6McWhen(x.ko).day + (x.cn ? " · " + x.cn : ""))));
+    rail = slides.length > 1
+      ? '<div class="t3mcrail" role="group" aria-label="' + slides.length + ' matches, swipe for the rest" onscroll="b6McDots(this)">' + slides.join("") + '</div>' +
+        '<div class="t3mcdots" aria-hidden="true">' + slides.map((_, i) => '<i' + (i ? "" : ' class="on"') + '></i>').join("") + '</div>'
+      : slides[0];
   }
   const R = (() => { try{ const r = JSON.parse(localStorage.getItem("ball4-pl-strip") || "null"); return r && r.matches && Date.now() - r.at < 3 * 864e5 ? r : null; }catch(e){ return null; } })();
-  const round = pl ? '<button class="t3mcround" onclick="openLeague(\'callit\')"><span class="t3mcrk"><span class="kick">' + esc(P ? P.kick : "Call It") + '</span>' +
-      '<b>' + esc(P ? P.line : "Call this weekend's matches") + '</b>' +
-      (R ? '<span class="t3mcbar" role="img" aria-label="' + (R.called | 0) + ' of ' + (R.matches | 0) + ' called"><i style="width:' + Math.round(100 * Math.min(1, (R.called | 0) / R.matches)) + '%"></i></span>' : "") +
-    '</span><span class="t3chev" aria-hidden="true">›</span></button>' : "";
-  return '<div class="t3card t3mc"><div class="t3mch"><div class="t3h">Match Centre</div></div>' + hero + call + round +
-    '<button class="t3mcfoot" onclick="openLeague()">Every match and table ›</button></div>';
+  let stub = "";
+  if(pl){
+    const parts = P ? String(P.line).split(" · ") : [], big = P ? parts[0] : "Call this weekend's matches";
+    const rest = P ? parts.slice(1).join(" · ") : "";
+    const sub = P ? (rest ? rest.charAt(0).toUpperCase() + rest.slice(1) : "") + (R ? (rest ? " · " : "") + (R.called | 0) + " of " + (R.matches | 0) + " called" : "") : "On your own or with friends";
+    stub = '<div class="t3perf" aria-hidden="true"></div>' +
+      '<button class="t3mcround" onclick="openLeague(\'callit\')"><span class="t3mcrk"><span class="kick">' + esc(P ? P.kick : "Call It") + '</span>' +
+        '<b>' + esc(big) + '</b>' + (sub ? '<small>' + esc(sub) + '</small>' : "") +
+        (R ? '<span class="t3mcbar" role="img" aria-label="' + (R.called | 0) + ' of ' + (R.matches | 0) + ' called"><i style="width:' + Math.round(100 * Math.min(1, (R.called | 0) / R.matches)) + '%"></i></span>' : "") +
+      '</span><span class="t3mccta" aria-hidden="true">' + (P ? "Call" : "Start") + ' ›</span></button>';
+  }
+  return '<div class="t3card t3mc"><div class="t3mch"><div class="t3h">Match Centre</div><button class="t3mcall" onclick="openLeague()">All ›</button></div>' + rail + stub + '</div>';
 }
 /* Matchday, the cream card with the dark Play, and the quick way in under it */
 const b6MatchdayCard = () => '<div class="t3card t3md"><div class="t3mdm"><div class="t3mdh">Matchday</div><div class="t3lora">Every pass is a question.</div>' +
@@ -37533,7 +37650,9 @@ function b6Shelf(){
     ["Deadline Day", sub("dd", ddPrefs().played, "Played", "Who signed, where and when?"), "b6MarkSeen('dd');openDD()"],
     ["Letter Box", (() => { const p = lbPrefs(); return b6IsNew("lb") ? "New" : p.best ? "Best " + p.best : p.played ? "Played " + p.played : "One letter, five boxes"; })(), "b6MarkSeen('lb');openLB()"],
     ["Timeline", sub("yr", yrPrefs().played, "Played", "Put football in order"), "b6MarkSeen('yr');openYR()"] ];
-  return '<div class="b6hdr">More games</div><div class="t3shelf">' + items.map(i => '<button class="t3card t3mini" onclick="' + i[2] + '"><b>' + esc(i[0]) + '</b><small' + (i[1] === "New" ? ' class="new"' : "") + '>' + esc(i[1]) + '</small></button>').join("") + '</div>';
+  return '<div class="b6hdr t3colh">The collection<span>' + items.length + ' games</span></div><div class="t3shelf">' + items.map((i, n) => '<button class="t3mini" onclick="' + i[2] + '" aria-label="' + esc(i[0] + ": " + i[1]) + '">' +
+    '<span class="t3tile t3l' + ((n + Math.floor(n / 4)) % 4) + '"><span class="t3no">No.' + (n + 1) + '</span>' + t3Svg(T3_GAME_IC[i[0]] || "") + (i[1] === "New" ? '<span class="t3new">New</span>' : "") + '</span>' +
+    '<b>' + esc(i[0]) + '</b></button>').join("") + '</div>';
 }
 function b6MoreSheet(k){
   audio();
@@ -37617,7 +37736,7 @@ function b6FrontDaily(saved){
   const installHidden = (() => { try{ return localStorage.getItem("ball4-install-hide") === "1"; }catch(e){ return false; } })();
   b6CountdownTick();
   return '<div class="t3band"><div class="kick t3date">' + t3Date(new Date()) + '</div>' + b6AcctHTML() + '</div>' +
-    threeStreakCard(S3) + (saved ? b6ContinueHTML(saved) : "") + threeCard(T) + b6McCard() + b6MatchdayCard() + b6Shelf() +
+    b6StatusHTML(T, S3) + (saved ? b6ContinueHTML(saved) : "") + b6ThreeCards(T, S3) + b6McCard() + b6MatchdayCard() + b6Shelf() +
     (isStandalone() || installHidden ? "" : '<div class="b6inst"><button class="b6instgo" onclick="installApp()">Add BALL to your home screen</button><button class="b6instx" onclick="b6InstallHide()" aria-label="Hide this">×</button></div>');
 }
 /* the band's right-hand corner: your club's crest (it opens Me), or Sign in for a phone without a club */

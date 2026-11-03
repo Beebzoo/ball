@@ -8152,7 +8152,7 @@
   .t3chev{font:700 18px/1 var(--ui)}
   .t3card.t3mc{padding:16px 0 0;overflow:hidden;background:var(--th-card);color:var(--th-card-ink);border-radius:18px}
   .t3mc .kick{color:var(--th-card-dim)}
-  .t3mc .t3mch{padding:6px 16px 10px}
+  .t3mc .t3mch{padding:6px 16px 4px}
   .t3mc .t3mch .t3lora{margin-top:4px;color:var(--th-card-dim)}
   .t3mc .t3kit i+i{background:var(--th-card-ink)}
   .t3mcrow,.t3mcl,.t3mcfoot{width:100%;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
@@ -8163,6 +8163,31 @@
   .t3mct .n{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .t3mct .v{flex:none;font:600 12px/1 var(--ui);color:var(--th-card-dim)}
   .t3mcp{flex:none;width:18px;height:auto}
+  /* the focused card (3 Nov 2026): one match, big; your call; the round as one line with its bar */
+  .t3mchero{display:block;width:100%;padding:8px 16px 16px;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .t3mck{display:flex;align-items:center;gap:8px;font:800 11px/1.2 var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--th-acc2)}
+  .t3mck .cbadge{flex:none;width:22px;height:22px}
+  .t3mcvs{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;margin-top:14px}
+  .t3mcvs .sd{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;text-align:center}
+  .t3mcvs .sd .t3mcp{width:52px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.4))}
+  .t3mcvs .sd .t3mcd i{width:10px;height:40px;border-radius:3px}
+  .t3mcvs .sd b{max-width:100%;font:italic 900 18px/1.05 var(--th-hf),sans-serif;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .t3mcvs .md{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:84px}
+  .t3mcvs .md b{font:italic 900 32px/1 var(--th-hf),sans-serif;font-variant-numeric:tabular-nums;text-shadow:2px 2px 0 rgba(0,0,0,.35)}
+  .t3mcvs .md small{font:800 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--th-card-dim)}
+  .t3mcvs .md b.live{padding:6px 10px;border-radius:8px;background:var(--live);color:var(--live-ink);font:800 14px/1 var(--ui);font-style:normal;letter-spacing:.12em;text-transform:uppercase;text-shadow:none}
+  .t3mccall{display:flex;align-items:center;justify-content:center;gap:10px;min-height:44px;margin:-4px auto 16px;padding:0 22px;border-radius:999px;cursor:pointer;font:inherit}
+  .t3mccall.go{border:2px solid var(--th-acc2);background:rgba(0,0,0,.2);color:var(--th-card-ink);font:italic 900 16px/1 var(--th-hf),sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .t3mccall.mine{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--th-card-ink)}
+  .t3mccall.mine span{font:800 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--th-card-dim)}
+  .t3mccall.mine b{font:italic 900 20px/1 var(--th-hf),sans-serif;font-variant-numeric:tabular-nums}
+  .t3mccall.mine em{font:700 12px/1 var(--ui);font-style:normal;color:var(--th-acc2)}
+  .t3mcround{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:10px 16px;border:0;border-top:1px solid rgba(255,255,255,.12);
+    background:rgba(0,0,0,.12);color:inherit;font:inherit;text-align:left;cursor:pointer}
+  .t3mcrk{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+  .t3mcrk b{font:700 15px/1.2 var(--ui)}
+  .t3mcbar{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.14);overflow:hidden}
+  .t3mcbar i{display:block;height:100%;border-radius:3px;background:var(--th-acc2)}
   .t3mcd{display:inline-flex;flex:none;gap:2px}
   .t3mcd i{width:4px;height:16px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
   .t3mcs{text-align:right;font-variant-numeric:tabular-nums}
@@ -11337,7 +11362,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the title at the top goes home";
+const BUILD = "BALL 4 · 3 Nov 2026 · the Match Centre card, one big match";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -37405,12 +37430,13 @@ function b6McLines(){
   }catch(e){ return []; }
 }
 /* a club on the card: BALL's own patch when the crests are here, else its two kit colours, else just the name */
-function b6McPatch(t){
+function b6McPatch(t, px){
+  px = px || 18;
   try{
     const hex = v => /^#[0-9a-f]{3,8}$/i.test(String(v || "")) ? v : null, c1 = hex(t.c1), c2 = hex(t.c2) || c1;
     const fb = c1 ? { name: String(t.name || ""), code: String(t.code || t.name || "").slice(0, 3).toUpperCase(), c1, c2, p: "plain" } : null;
-    const u = typeof crestURL === "function" ? crestURL(t.s || "pl|" + t.key, "patch", 54, fb) : null;
-    if(u) return '<img class="t3mcp" src="' + u + '" alt="" width="18">';
+    const u = typeof crestURL === "function" ? crestURL(t.s || "pl|" + t.key, "patch", px * 3, fb) : null;
+    if(u) return '<img class="t3mcp" src="' + u + '" alt="" width="' + px + '">';
     if(c1) return '<span class="t3mcd" aria-hidden="true"><i style="background:' + c1 + '"></i><i style="background:' + c2 + '"></i></span>';
   }catch(e){}
   return "";
@@ -37425,15 +37451,65 @@ function b6McLine(x){
     '<span class="t3mct">' + b6McPatch(x.h) + '<span class="n">' + esc(H) + '</span><span class="v">v</span>' + b6McPatch(x.a) + '<span class="n">' + esc(A) + '</span></span>' +
     '<span class="t3mcs">' + right + '</span></button>';
 }
+/* THE MATCH CENTRE CARD, focused (Martijn, 3 Nov 2026: "more enticing, higher level, and more focused"): one match
+   worth stopping for, big (pl.js picks it, mchStripSave's hero: your club's, the week's top match, or the biggest in
+   your pinned competitions), your call on it, and Call It's round as one line with its bar */
+function b6McHero(){
+  try{
+    const s = JSON.parse(localStorage.getItem("ball4-mc-strip") || "null"), now = Date.now();
+    if(s && s.at && now - s.at < 3 * 864e5 && s.hero && s.hero.h && s.hero.a && s.hero.ko){
+      const h = s.hero, played = !!h.ft && (h.st === "finished" || h.st === "awarded");
+      if(played ? now - h.ko < 30 * 3600e3 : h.ko > now - 3 * 3600e3) return Object.assign({ done: played }, h);
+    }
+    const x = b6McLines()[0];   /* no pick yet, or an old one: the next match the strip knows */
+    return x ? Object.assign({ why: x.mine ? "club" : "next" }, x) : null;
+  }catch(e){ return null; }
+}
+function b6McWhen(ko){
+  const d = new Date(ko), ms = ko - Date.now(), hm = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+  const a = new Date(); a.setHours(0, 0, 0, 0);
+  const k = Math.round((new Date(d).setHours(0, 0, 0, 0) - a) / 864e5);
+  const day = k === 0 ? "Today" : k === 1 ? "Tomorrow" : T3_DAYS[d.getDay()];
+  const soon = ms > 0 && ms < 3600e3 ? "in " + Math.max(1, Math.round(ms / 60000)) + " min"
+    : ms > 0 && ms < 12 * 3600e3 ? "in " + Math.floor(ms / 3600e3) + "h " + Math.floor(ms % 3600e3 / 60000) + "m" : "";
+  return { hm, day, soon };
+}
+/* from the home to the match's own page: the Match Centre first, then the match once its file is here */
+function b6McOpen(comp, id){
+  try{ audio(); }catch(e){}
+  openLeague("matches");
+  let n = 0;
+  const go = () => { if(typeof clMatchGo === "function"){ try{ clMatchGo(comp, id); }catch(e){} return; } if(++n < 50) setTimeout(go, 100); };
+  go();
+}
 function b6McCard(){
-  const pl = typeof PL_ON !== "undefined" && PL_ON, P = pl ? b6PlStrip() : null, M = b6McLines();
-  if(!pl && !M.length) return "";
-  const call = pl ? '<button class="t3mcrow" onclick="openLeague(\'callit\')"><span class="t3kit" aria-hidden="true"><i></i><i></i></span>' +
-    '<span class="t3plm"><span class="kick">' + esc(P ? P.kick : "Call It") + '</span><b>' + esc(P ? P.line : "Call this weekend\'s matches") + '</b></span>' +
-    '<span class="t3chev" aria-hidden="true">›</span></button>' : "";
-  return '<div class="t3card t3mc"><div class="t3mch"><div class="t3h">Match Centre</div><div class="t3lora">Your leagues, your mates’ calls, every table.</div></div>' +
-    call + M.map(b6McLine).join("") +
-    '<button class="t3mcfoot" onclick="openLeague()">Match Centre ›</button></div>';
+  const pl = typeof PL_ON !== "undefined" && PL_ON, P = pl ? b6PlStrip() : null, h = b6McHero();
+  if(!pl && !h) return "";
+  let hero = "", call = "";
+  if(h){
+    const H = String(h.h.name || ""), A = String(h.a.name || ""), w = b6McWhen(h.ko), live = !h.done && (h.st === "live" || h.st === "paused");
+    const why = h.why === "club" ? (h.club ? h.club + (h.done ? " · full time" : "’s next") : "Your club") : h.why === "top" ? "Top match of the week" :
+      h.why === "table" ? "Top of the table" : h.why === "next" ? "Up next" : "The big one";
+    const medal = h.b && typeof compBadge === "function" ? compBadge(h.b, 22) : "";
+    const mid = h.done ? '<b>' + h.ft[0] + '–' + h.ft[1] + '</b><small>Full time</small>'
+      : live ? '<b class="live">Live</b><small>' + (h.min ? h.min + "’" : "On now") + '</small>'
+      : '<b>' + w.hm + '</b><small>' + esc(w.soon || w.day) + '</small>';
+    hero = '<button class="t3mchero" onclick="b6McOpen(\'' + esc(h.comp) + '\',\'' + esc(String(h.id)) + '\')" aria-label="' +
+        esc(H + " v " + A + ", " + (h.done ? "full time " + h.ft[0] + "–" + h.ft[1] : live ? "live" : w.day + " " + w.hm) + (h.cn ? ", " + h.cn : "")) + '">' +
+      '<span class="t3mck">' + medal + '<span>' + esc(why) + (h.cn ? ' · ' + esc(h.cn) : "") + '</span></span>' +
+      '<span class="t3mcvs"><span class="sd">' + b6McPatch(h.h, 52) + '<b>' + esc(H) + '</b></span><span class="md">' + mid + '</span>' +
+      '<span class="sd">' + b6McPatch(h.a, 52) + '<b>' + esc(A) + '</b></span></span></button>';
+    if(pl && h.call) call = '<button class="t3mccall mine" onclick="openLeague(\'callit\')"><span>Your call</span><b>' + (h.call[0] | 0) + '–' + (h.call[1] | 0) + '</b>' +
+      (h.done || live ? "" : '<em>Change ›</em>') + '</button>';
+    else if(pl && h.callable && !h.done && !live) call = '<button class="t3mccall go" onclick="openLeague(\'callit\')">Call it</button>';
+  }
+  const R = (() => { try{ const r = JSON.parse(localStorage.getItem("ball4-pl-strip") || "null"); return r && r.matches && Date.now() - r.at < 3 * 864e5 ? r : null; }catch(e){ return null; } })();
+  const round = pl ? '<button class="t3mcround" onclick="openLeague(\'callit\')"><span class="t3mcrk"><span class="kick">' + esc(P ? P.kick : "Call It") + '</span>' +
+      '<b>' + esc(P ? P.line : "Call this weekend's matches") + '</b>' +
+      (R ? '<span class="t3mcbar" role="img" aria-label="' + (R.called | 0) + ' of ' + (R.matches | 0) + ' called"><i style="width:' + Math.round(100 * Math.min(1, (R.called | 0) / R.matches)) + '%"></i></span>' : "") +
+    '</span><span class="t3chev" aria-hidden="true">›</span></button>' : "";
+  return '<div class="t3card t3mc"><div class="t3mch"><div class="t3h">Match Centre</div></div>' + hero + call + round +
+    '<button class="t3mcfoot" onclick="openLeague()">Every match and table ›</button></div>';
 }
 /* Matchday, the cream card with the dark Play, and the quick way in under it */
 const b6MatchdayCard = () => '<div class="t3card t3md"><div class="t3mdm"><div class="t3mdh">Matchday</div><div class="t3lora">Every pass is a question.</div>' +

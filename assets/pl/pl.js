@@ -2071,7 +2071,31 @@ function mchStripSave(force){
     const its = e => mchIsMine(F, e[0], e[1]), pick = [], add = e => { if(e && !pick.includes(e)) pick.push(e); };
     ahead.filter(its).slice(0, 2).forEach(add); add(done.find(its));
     ahead.slice(0, 4).forEach(add); done.slice(0, 3).forEach(add);
-    localStorage.setItem(MC_STRIP, JSON.stringify({ at: Date.now(), next: pick.map(pack), club: F ? { comp: F.comp, key: F.key, name: F.name } : null }));
+    /* THE ONE MATCH the home's card leads with (Martijn, 3 Nov 2026: "more enticing, higher level, and more focused"):
+       the followed club's (its result for a day after full time, else its next within a week), else the Card of the
+       week's top match, else the biggest still to play in the pinned competitions within three days, by the
+       competition's weight and how high both sides stand. With it: why it was picked, its medal, the player's call */
+    const W = { "fb.CL": 30, "fb.PL": 22, "fb.PD": 21, "fb.SA": 20, "fb.BL1": 20, "fb.FL1": 18, "fb.EL": 18, "fb.DED": 17, "fb.ECL": 12 };
+    const tbl = id => (CL.mc[id] && CL.mc[id].table) || [], pos = (id, key) => { const t = tbl(id).find(r => r.key === key); return t ? t.pos : null; };
+    const weight = e => { const n = tbl(e[0]).length || 20, ph = pos(e[0], e[1].h.key), pa = pos(e[0], e[1].a.key);
+      return (W[e[0]] || 8) + (ph && pa ? 20 * (2 * n - ph - pa) / (2 * n) : 6); };
+    const cards = Object.values(CL.card || {}).filter(d => d && d.card && Array.isArray(d.fixtures));
+    const callOf = fid => { for(const d of cards){ const c = d.mine && d.mine.calls && d.mine.calls[String(fid)]; if(c) return c; } return null; };
+    const onCard = fid => cards.some(d => d.card.status !== "done" && d.fixtures.some(f => String(f.id) === String(fid) && f.open));
+    let hero = null, why = "big";
+    const last = done.find(e => its(e) && now - e[1].ko < 30 * 3600e3), next = ahead.find(e => its(e) && e[1].ko < now + 7 * 864e5);
+    if(last || next){ hero = last || next; why = "club"; }
+    if(!hero) for(const d of cards){
+      const f = d.card.series === "week" ? d.fixtures.find(x => x.top && x.open) : null, e = f ? all.find(a => String(a[1].id) === String(f.id)) : null;
+      if(e){ hero = e; why = "top"; break; }
+    }
+    if(!hero){
+      const soon = ahead.filter(e => e[1].ko < now + 3 * 864e5).sort((p, q) => weight(q) - weight(p));
+      if(soon[0]){ hero = soon[0]; const ph = pos(hero[0], hero[1].h.key), pa = pos(hero[0], hero[1].a.key); why = ph && pa && ph <= 3 && pa <= 3 ? "table" : "big"; }
+    }
+    const H = hero ? Object.assign(pack(hero), { why, cn: mchComp(hero[0]).name, b: CL_BADGE[hero[0]] || null, club: why === "club" && F ? F.name : null,
+      call: callOf(hero[1].id), callable: onCard(hero[1].id), min: hero[1].min || null }) : null;
+    localStorage.setItem(MC_STRIP, JSON.stringify({ at: Date.now(), next: pick.map(pack), hero: H, club: F ? { comp: F.comp, key: F.key, name: F.name } : null }));
   }catch(e){}
 }
 

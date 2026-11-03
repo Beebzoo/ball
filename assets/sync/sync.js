@@ -122,6 +122,7 @@ const SYNC_NEVER = {
   "ball4-sync-on": "switch for this phone", "ball4-sync": "this record",
   "ball4-sup": "Supporter status, read from the server", "ball4-pl-strip": "a cache of the server's Call It",
   "ball4-mc-strip": "a cache of the Match Centre card",
+  "ball4-mc-fold": "which tables are folded on this phone",
   "ball4-outcomes": "the answer log (up to 8,000 rows, far past 64 KB): kept for the re-tier tool and Export",
   "ball4-outcomes-": "not a key: the name of the downloaded log",
   "ball4-lb-fix": "Letter Box appeals kept for a later data fix",

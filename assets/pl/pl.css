@@ -664,3 +664,11 @@ body[data-theme="floodlights"] .cl-trow .pos i,body[data-theme="tactics"] .cl-tr
 .cl-slip.days .cl-srow .t{padding-top:2px}
 .cl-pips.many{gap:2px}
 .cl-moreline{font-weight:700}
+/* the Tables segment's card heads: green, and a tap folds the table away (Martijn, 3 Nov 2026) */
+.mch-thead{padding:0 4px 0 0;gap:0;background:var(--th-card);color:var(--th-card-ink);border-bottom:0}
+.mch-tfold{flex:1;min-width:0;display:flex;align-items:center;gap:9px;min-height:54px;padding:6px 6px 6px 12px;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.mch-thead .mch-tn small{color:var(--th-card-dim)}
+.mch-thead .mch-full{color:var(--th-acc)}
+.mch-chev{flex:none;display:flex;color:var(--th-card-dim);transition:transform .2s}
+.mch-tcard.folded .mch-chev{transform:rotate(-90deg)}
+@media (prefers-reduced-motion: reduce){ .mch-chev{transition:none} }

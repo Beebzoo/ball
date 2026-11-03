@@ -2211,7 +2211,11 @@ function mchTableCard(id, m, F){
   const C = mchComp(id), err = (CL.mcHubErr || {})[id];
   const spark = !!m && typeof mcCharts !== "undefined" && !!mcCharts && typeof mcCharts.sparkline === "function";
   const sub = m && m.rows.length ? (C.cup ? "League stage" : clRkLabel(clMcNowRound(m.rows))) : "";
-  const head = '<div class="mch-thead">' + clBadge(id, 28) + '<span class="mch-tn"><b>' + clE(C.name) + '</b>' + (sub ? '<small>' + clE(sub) + '</small>' : "") + '</span>' +
+  /* the head is green, and a tap folds the table away or opens it again (Martijn, 3 Nov 2026), kept on the phone */
+  const fold = mchFolded(id);
+  const head = '<div class="mch-thead"><button class="mch-tfold" onclick="mchFold(\'' + id + '\')" aria-expanded="' + !fold + '">' + clBadge(id, 28) +
+      '<span class="mch-tn"><b>' + clE(C.name) + '</b>' + (sub ? '<small>' + clE(sub) + '</small>' : "") + '</span>' +
+      '<span class="mch-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>' +
     '<button class="mch-full" onclick="clGo(\'comp\',{comp:\'' + id + '\'})">Full table ›</button></div>';
   let body;
   if(!m) body = err ? '<p class="mch-tempty">Not available right now. <button class="mch-retry" onclick="mchRetry()">Try again</button></p>' : '<div class="lgskel mch-skel sm"></div>';
@@ -2222,7 +2226,15 @@ function mchTableCard(id, m, F){
       top.map(t => mchTRow(id, m, t, F, spark)).join("") +
       (me && !top.includes(me) ? '<div class="mch-gap" aria-hidden="true">···</div>' + mchTRow(id, m, me, F, spark) : "");
   }
-  return '<section class="mch-tcard' + (spark ? " spark" : "") + '">' + head + body + '</section>';
+  return '<section class="mch-tcard' + (spark ? " spark" : "") + (fold ? " folded" : "") + '">' + head + (fold ? "" : body) + '</section>';
+}
+/* which tables are folded, on this phone (ball4-mc-fold: an array of competition ids) */
+const MC_FOLD = "ball4-mc-fold";
+function mchFolded(id){ try{ return (JSON.parse(localStorage.getItem(MC_FOLD) || "[]") || []).includes(id); }catch(e){ return false; } }
+function mchFold(id){
+  audio();
+  try{ let a = JSON.parse(localStorage.getItem(MC_FOLD) || "[]"); if(!Array.isArray(a)) a = []; a = a.includes(id) ? a.filter(x => x !== id) : a.concat(id); localStorage.setItem(MC_FOLD, JSON.stringify(a)); }catch(e){}
+  render();
 }
 function mchTables(){
   const ids = mchShown(), F = mcFollow();

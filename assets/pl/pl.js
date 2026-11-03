@@ -1596,7 +1596,7 @@ const CL_C = { paper: "#efe4c8", cream: "#F8F1DD", grass: "#123D24", deep: "#0a1
   dim: "#4f6b56", sage: "#8FB79E", red: "#b8261c", up: "#2f8f52", white: "#ffffff" };
 const CL_W = 1080, CL_H = 1350;
 /* the site the links point at: where the app runs, without index.html (the fallback is the published site) */
-function clSite(){ let u = null; try{ u = acctRedirect(); }catch(e){} u = clStr(u) || "https://beebzoo.github.io/ball/"; return u.replace(/index\.html$/, ""); }
+function clSite(){ let u = null; try{ u = acctRedirect(); }catch(e){} u = clStr(u) || "https://ballquiz.app/"; return u.replace(/index\.html$/, ""); }
 const clSiteShort = () => clSite().replace(/^https?:\/\//, "").replace(/\/$/, "");
 const clJoinURL = code => clSite() + "?join=" + clStr(code);
 /* the league a share speaks for: the one asked for, else the first of mine; from the strip the phone keeps when

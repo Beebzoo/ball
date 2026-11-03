@@ -11441,7 +11441,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · tables that fold";
+const BUILD = "BALL 4 · 3 Nov 2026 · ballquiz.app";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -16402,7 +16402,7 @@ function dailyShareLadder(){
   const card = d.reached >= 6 ? dailyManCard(d.man) : null;
   return "The Daily Ball \u00b7 " + day + "\n" + sq + "  " + got +
          (card ? "\n" + card.m.n + " is mine." : "") +
-         "\nbeebzoo.github.io/football-quiz-4";
+         "\nballquiz.app";
 }
 /* ---------- THE SHARE IMAGE ----------
    A square pitch, the ladder up it, and the ball where it stopped. Every
@@ -17044,7 +17044,7 @@ function dailyShare(){
     D.opp.code + "  " + R.op5.join("") + "  " + R.theirReg + "\n" +
     (sd ? "SD   " + R.sdMe.join("") + " v " + R.sdOp.join("") + "  " : "") + res + "\n" +
     (sh.result === "won" ? "Style ⭐ " + sh.style + "\n" : "") +
-    "beebzoo.github.io/football-quiz-4";
+    "ballquiz.app";
 }
 /* THE SHARE IMAGE: the same card on the night-pitch background */
 function dailyCanvas(){
@@ -17091,7 +17091,7 @@ function dailyCanvas(){
   g.fillText(sh.result === "won" ? "WON IT" : "LOST IT", W / 2, 800);
   g.fillStyle = "#8FB79E"; g.font = "500 40px " + ui;
   g.fillText((R.sdMe.length ? "in sudden death" : "on penalties") + (sh.result === "won" ? " · style " + sh.style : ""), W / 2, 860);
-  g.fillText("beebzoo.github.io/football-quiz-4", W / 2, 1010);
+  g.fillText("ballquiz.app", W / 2, 1010);
   return c;
 }
 /* ---------- the screens ---------- */
@@ -33543,7 +33543,7 @@ function gtpShareText(k, rows, won){
   const day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][when.getDay()] + " " + when.getDate() + " " +
     ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][when.getMonth()];
   return "BALL Guess the player · " + day + "\n" + gtpScarf(rows).map(r => r.map(b => sq[b]).join("")).join("\n") + "\n" +
-    (won ? "Solved in " + rows.length + "/" + GTP_MAX : "X/" + GTP_MAX) + "\nbeebzoo.github.io/ball";
+    (won ? "Solved in " + rows.length + "/" + GTP_MAX : "X/" + GTP_MAX) + "\nballquiz.app";
 }
 /* the state on this phone: today's guesses and the streak */
 function gtpState(){
@@ -33754,7 +33754,7 @@ function gtpCanvas(){
   x.fillStyle = "#123D24"; x.font = "italic 900 78px 'Barlow Semi Condensed', sans-serif";
   x.fillText(s.won ? "SOLVED IN " + s.guesses.length + "/" + GTP_MAX : "NOT TODAY · X/" + GTP_MAX, 540, 880);
   x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56";
-  x.fillText("beebzoo.github.io/ball", 540, 960);
+  x.fillText("ballquiz.app", 540, 960);
   return c;
 }
 function gtpShare(){
@@ -34033,7 +34033,7 @@ function listsShareText(g){
   return (g.kind === "top10"
       ? "BALL · Top 10 · " + t + " · " + r.found + "/" + r.total + " · " + r.balls + " ball" + (r.balls === 1 ? "" : "s") + " left"
       : "BALL · " + t + " · " + r.found + "/" + r.total + (g.timed && r.found === r.total ? " in " + mm(g.entry.clock + (g.comboAt > 0 ? 10 : 0) - r.left) : "") + (r.deep ? " · +" + r.deep + " deep cut" + (r.deep === 1 ? "" : "s") : "")) +
-    "\n" + strip + "\nbeebzoo.github.io/ball";
+    "\n" + strip + "\nballquiz.app";
 }
 
 /* ---------- the screens ---------- */
@@ -34900,7 +34900,7 @@ function gwShareText(){
   const head = gwTwo() ? (M.best > 1 && M.over ? gwName(w) + " beat " + gwName(1 - w) + " " + score : gwName(w) + " got him in " + qs)
     : M.best > 1 && M.over ? (w === 0 ? "Won the match " + score + " against the computer" : "Lost the match " + score + " to the computer")
     : w === 0 ? "Got him in " + qs : "The computer got mine first";
-  return "BALL · Who is he? " + head + " · " + lv + "\nbeebzoo.github.io/ball";
+  return "BALL · Who is he? " + head + " · " + lv + "\nballquiz.app";
 }
 function gwCanvas(){
   if(!GW || GW.phase !== "over" || typeof document === "undefined") return null;
@@ -36339,7 +36339,7 @@ function lbShareText(){
   const t = lbTotals(), lv = LB_LEVELS[LB.level].label;
   const head = "BALL · Letter Box · " + lbLettersStr() + " · " + (lbTwo() ? LB.names.map((n, i) => n + " " + t[i]).join(", ") : t[0] + " points · " + lv);
   const lines = lbTwo() ? [] : LB.rounds.map(rd => rd.L + ": " + rd.sc[0].cells.map(c => c.pts).join(" · ") + (rd.sc[0].fh ? " · full house +3" : "") + " = " + rd.sc[0].total);
-  return [head].concat(lines).concat(["beebzoo.github.io/ball"]).join("\n");
+  return [head].concat(lines).concat(["ballquiz.app"]).join("\n");
 }
 /* THE SHARE PICTURE: the letters, your five squares each in their rarity colour, the score */
 function lbCanvas(){
@@ -36361,7 +36361,7 @@ function lbCanvas(){
   });
   x.textAlign = "center"; x.fillStyle = "#123D24"; x.font = "italic 900 84px 'Barlow Semi Condensed', sans-serif";
   x.fillText(lbTwo() ? LB.names[0] + " " + t[0] : t[0] + " POINTS" + (t[0] > t[1] ? " · WON" : ""), 540, 890);
-  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56"; x.fillText("ballquiz.app", 540, 960);
   return c;
 }
 function lbShare(){
@@ -36759,7 +36759,7 @@ function yrEnd(){
 function yrShareText(){
   const G = YR, me = 0, row = G.rows[me], lv = YR_LEVELS[G.level].label, w = yrWinner(G);
   const head = "BALL · Timeline · " + lv + " · " + (G.vs === "solo" ? row.length + " in a row" : G.vs === "party" ? G.names.map((n, i) => n + " " + G.rows[i].length).join(", ") : (w === 0 ? "won " : "lost ") + G.rows.map(r => r.length).join("-"));
-  return [head, row.map(yrY).join(" · "), "beebzoo.github.io/ball"].join("\n");
+  return [head, row.map(yrY).join(" · "), "ballquiz.app"].join("\n");
 }
 /* THE SHARE PICTURE: your row as gold year tiles on the paper */
 function yrCanvas(){
@@ -36782,7 +36782,7 @@ function yrCanvas(){
   });
   x.textAlign = "center"; x.fillStyle = "#123D24"; x.font = "italic 900 84px 'Barlow Semi Condensed', sans-serif";
   x.fillText(G.vs === "solo" ? row.length + " IN A ROW" : row.length + " CARDS" + (yrWinner(G) === 0 ? " · WON" : ""), 540, 890);
-  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56"; x.fillText("beebzoo.github.io/ball", 540, 960);
+  x.font = "700 32px 'Barlow Semi Condensed', sans-serif"; x.fillStyle = "#4f6b56"; x.fillText("ballquiz.app", 540, 960);
   return c;
 }
 function yrShare(){
@@ -37736,14 +37736,14 @@ function threeJoinLine(){
     if(typeof PL_ON === "undefined" || !PL_ON) return "";
     const s = JSON.parse(localStorage.getItem("ball4-pl-strip") || "null"), l = s && s.lg;
     if(!l || !l.code || Date.now() - s.at > 30 * 864e5) return "";
-    return "\nJoin my league " + String(l.name || "") + ": " + (acctRedirect() || "https://beebzoo.github.io/ball/").replace(/index\.html$/, "") + "?join=" + l.code;
+    return "\nJoin my league " + String(l.name || "") + ": " + (acctRedirect() || "https://ballquiz.app/").replace(/index\.html$/, "") + "?join=" + l.code;
   }catch(e){ return ""; }
 }
 function threeShareText(T, S3){
   const [ds, gp, li] = T.rows;
   const kicks = ds.R ? ds.R.me5.map(m => m === "\u{1F3AF}" ? "🟨" : m === "❌" ? "⬛" : m === "–" ? "⬜" : "🟩").join("") : "";
   const gs = gp.g ? gp.g.guesses.map((x, i) => gp.g.won && i === gp.g.guesses.length - 1 ? "🟩" : "⬛").join("") : "";
-  return "BALL · " + t3Date(new Date()) + (S3 && S3.n ? " · streak " + S3.n : "") + "\nDaily Ball " + kicks + "\nGuess the player " + gs + "\nTop 10 " + li.found + "/10\nbeebzoo.github.io/ball" + threeJoinLine();
+  return "BALL · " + t3Date(new Date()) + (S3 && S3.n ? " · streak " + S3.n : "") + "\nDaily Ball " + kicks + "\nGuess the player " + gs + "\nTop 10 " + li.found + "/10\nballquiz.app" + threeJoinLine();
 }
 function threeShare(){
   audio();

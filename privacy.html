@@ -101,14 +101,15 @@
     <small><i>Basis:</i> none needed, nothing leaves the phone. <i>Kept:</i> until you clear the app's data.</small></div>
 
   <h2>Signing in</h2>
-  <p>You sign in with a link we email you (sent by our sign-in provider, Supabase), or with Google. If you sign in with Google, we receive your email address and nothing else from your Google account; the sign-in itself is handled by Google under <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>. There are no passwords in BALL.</p>
+  <p>You sign in with a code (or a link) we email you, sent for our sign-in provider Supabase by our email service Resend, or with Google. If you sign in with Google, we receive your email address and nothing else from your Google account; the sign-in itself is handled by Google under <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>. There are no passwords in BALL.</p>
 
   <h2>Who sees what</h2>
-  <p>League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as "Player NNNN" and your club stays private. Reports are anonymous to the person reported. Nobody sees your email address but us and our sign-in provider.</p>
+  <p>League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as "Player NNNN" and your club stays private. Reports are anonymous to the person reported. Nobody sees your email address but us, our sign-in provider and the service that sends its emails.</p>
 
   <h2>Where it lives, and who helps us</h2>
   <ul>
     <li><b>Supabase</b> (database and sign-in), in Ireland (AWS eu-west-1, in the EU). The small programs that delete an account and that send the reminders (Edge Functions) also run on Supabase. Supabase processes your data on our behalf and under our instructions.</li>
+    <li><b>Resend</b> sends the sign-in emails from ballquiz.app, from its servers in Ireland (eu-west-1, in the EU). It receives your email address and the email it sends you, and nothing else; it processes them on our behalf and under our instructions.</li>
     <li><b>GitHub Pages</b> hosts the app's pages. Like any web host, GitHub's servers keep ordinary access logs (your IP address, the time, the page asked for) under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>; we never see them.</li>
     <li><b>Google</b>, only if you choose to sign in with Google (see above).</li>
     <li><b>API-Football</b> sends us fixtures and results for Call It and the match centre. Nothing about you goes there.</li>

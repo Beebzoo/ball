@@ -8062,26 +8062,32 @@
      on both, without the tag line, which is too small to read there. */
   .b6:is(.home-first,.home-daily,.home-done) .mdp-slot{position:absolute;top:0;left:0;right:0}
   /* the day and done homes: the logo centred in the band, as on the first open (Martijn, 2 Nov 2026: "maybe centred") */
-  .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:center;padding:14px 0 0!important;font-size:44px}
+  /* the day and done homes: the logo on the left, its speed trail running in from the edge; on the right the
+     player's own club crest, or Sign in (Martijn, 3 Nov 2026: "maybe it's better to have it on the left, and on the
+     right the logo of the player that signed in or a sign in button") */
+  .b6:is(.home-daily,.home-done) .mdp-slot{height:auto;justify-content:flex-start;padding:16px 0 0 20px!important;font-size:44px}
   .b6:is(.home-daily,.home-done) .mdp .tagbar{display:none}
   .b6.home-daily .b6band{height:158px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
   /* the day home: the logo bigger and the date bigger, the streak card smaller (Martijn, 2 Nov 2026) */
-  .b6.home-daily .mdp-slot{font-size:62px}
-  /* optical centring: the ball and the word are the box, the speed trail hangs about 1.3em to the left of it, so the
-     box nudged a fifth of an em right is what looks centred (Martijn, 2 Nov 2026: "is it fully centred?") */
-  .b6:is(.home-daily,.home-done) .mdp .logo{transform:translateX(.2em)}
-  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:52px} .t3band .t3date{font-size:12px;letter-spacing:.2em} }
+  .b6.home-daily .mdp-slot{font-size:56px}
+  @media (max-width:359px){ .b6.home-daily .mdp-slot{font-size:46px;padding-left:14px!important} .t3band .t3date{font-size:12px;letter-spacing:.2em} .t3acct.crest svg{width:40px;height:auto} }
   .b6.home-first .b6band{height:430px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%)}
   .b6.home-done .b6band{height:292px;clip-path:polygon(0 0,100% 0,100% 86%,0 100%)}
   .b6:is(.home-first,.home-daily,.home-done) .b6body{gap:var(--sp-3)}
   :is(.t3card,.t3band,.t3next,.t3three) .kick{font:700 var(--fs-kicker)/1.2 var(--ui);letter-spacing:var(--ls-kicker);text-transform:uppercase}
   .t3band{position:relative;display:flex;align-items:center;justify-content:flex-end;height:70px;padding-top:env(safe-area-inset-top,0px)}
   .t3band .kick{color:var(--th-band-ink);opacity:.9}
-  .b6.home-daily .t3band{height:114px;justify-content:center;align-items:flex-end;padding-bottom:4px}
+  .b6.home-daily .t3band{height:110px;justify-content:flex-start;align-items:flex-end;padding:0 0 4px 6px}
   /* the date under the logo: a caption between two short gold rules */
   .t3band .t3date{display:flex;align-items:center;gap:12px;font:800 14px/1 var(--ui);letter-spacing:.24em;text-transform:uppercase;color:var(--th-band-ink);opacity:1;
     text-shadow:0 1px 2px rgba(0,0,0,.45)}
-  .t3band .t3date::before,.t3band .t3date::after{content:"";width:28px;height:2px;border-radius:1px;background:var(--th-acc2)}
+  .t3band .t3date::after{content:"";width:28px;height:2px;border-radius:1px;background:var(--th-acc2)}
+  /* the right of the band: your club's crest (to Me), or Sign in */
+  .t3acct{position:absolute;right:2px;top:calc(env(safe-area-inset-top,0px) + 14px);z-index:2;cursor:pointer;font:inherit}
+  .t3acct.crest{display:block;padding:4px;border:0;border-radius:50%;background:none;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
+  .t3acct.crest svg{display:block;width:48px;height:auto}
+  .t3acct.signin{min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--th-acc2);background:rgba(10,31,19,.55);
+    color:var(--th-band-ink);font:800 13px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase}
   .t3band.first{display:block;height:420px}   /* the band is 430 tall and slants: what follows starts under it */
   .t3hl{position:absolute;left:0;top:216px;font:italic 900 54px/.9 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-band-ink);text-shadow:3px 3px 0 var(--th-acc2);text-wrap:balance}
   .t3band.done{display:block;height:248px;text-align:center;padding-top:calc(72px + env(safe-area-inset-top,0px))}
@@ -11329,7 +11335,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · your own league, sign up in two, one save everywhere";
+const BUILD = "BALL 4 · 3 Nov 2026 · the logo left, your club on the right";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -37529,16 +37535,25 @@ function b6FrontDaily(saved){
   const T = threeToday(), S3 = threeStreak();
   const installHidden = (() => { try{ return localStorage.getItem("ball4-install-hide") === "1"; }catch(e){ return false; } })();
   b6CountdownTick();
-  return '<div class="t3band"><div class="kick t3date">' + t3Date(new Date()) + '</div></div>' +
+  return '<div class="t3band"><div class="kick t3date">' + t3Date(new Date()) + '</div>' + b6AcctHTML() + '</div>' +
     threeStreakCard(S3) + (saved ? b6ContinueHTML(saved) : "") + threeCard(T) + b6McCard() + b6MatchdayCard() + b6Shelf() +
     (isStandalone() || installHidden ? "" : '<div class="b6inst"><button class="b6instgo" onclick="installApp()">Add BALL to your home screen</button><button class="b6instx" onclick="b6InstallHide()" aria-label="Hide this">×</button></div>');
+}
+/* the band's right-hand corner: your club's crest (it opens Me), or Sign in for a phone without a club */
+function b6AcctHTML(){
+  try{
+    if(typeof fycClubOn === "function" && fycClubOn()){ const d = clubMine();
+      return '<button class="t3acct crest" onclick="openMe()" aria-label="Your club, ' + esc(d.name || "") + '">' + clubCrestSVG(d, 48, { year: false }) + '</button>'; }
+    if(typeof FYC_ON !== "undefined" && FYC_ON && typeof fycSignInStart === "function") return '<button class="t3acct signin" onclick="fycSignInStart()">Sign in</button>';
+  }catch(e){}
+  return "";
 }
 function b6FrontDone(saved){
   const T = threeToday(), S3 = threeStreak(), G = threeGrade(T);
   threeClockTick();
   /* the Match Centre card after the share grid (MC v3); it carries Call It, so the pills are Matchday and a quick match */
   return '<div class="t3band done"><div class="kick">Today’s three · done</div><div class="t3grade" style="--n:' + G.word.length + '">' + esc(G.word) + '</div>' +
-      '<div class="t3lora">' + esc(G.line) + ' The scarf grows a row.</div></div>' +
+      '<div class="t3lora">' + esc(G.line) + ' The scarf grows a row.</div>' + b6AcctHTML() + '</div>' +
     '<div class="t3card t3share"><div class="t3sharehd"><span class="t3h2">BALL · ' + t3Date(new Date()) + '</span><span class="kick">Streak ' + S3.n + '</span></div>' +
       threeGridHTML(T) + '<button class="b6cta" onclick="threeShare()">Share the grid</button><div class="t3note">No spoilers in the grid.</div></div>' +
     b6McCard() + threeStreakCard(S3, { hi: true }) + (saved ? b6ContinueHTML(saved) : "") +

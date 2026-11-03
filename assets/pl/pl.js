@@ -9,9 +9,11 @@
 
    THE SERVER IS 009_call_it.sql's PLAYER API AND NOTHING ELSE: pl_my_cards,
    pl_card, pl_save_calls, pl_my_leagues, pl_league_table, pl_card_board,
-   pl_create_league, pl_league_preview, pl_join, pl_leave. Every write answers
-   {ok, code}. The server's clock and kick-off decide what is still open; this
-   file only greys a match out early, it never decides.
+   pl_create_league, pl_league_preview, pl_join, pl_leave; and 018's for a
+   league that chooses its own matches: pl_create_league with a filter,
+   pl_custom_preview, pl_league_filter. Every write answers {ok, code}. The
+   server's clock and kick-off decide what is still open; this file only greys
+   a match out early, it never decides.
 
    A CALL IS KEPT ON THE PHONE FIRST (ball4-pl-pend) and sent a moment later,
    so closing the app never loses one; until the server has it the screen says
@@ -59,7 +61,7 @@ const clCode = c => clStr(c).slice(0, 3) + " " + clStr(c).slice(3);
 /* a load a screen asks for while it draws: once in a while, never in a loop when the server is away */
 function clOnce(key, ms){ const t = CL.asked[key] || 0; if(Date.now() - t < (ms || 30000)) return false; CL.asked[key] = Date.now(); return true; }
 /* draw again when an answer arrives in the background, but never under someone typing a name or a code */
-function clRedraw(){ if(clOn() && !/^(new|join)$/.test(clV().s)) render(); }
+function clRedraw(){ if(clOn() && !/^(new|join|matches)$/.test(clV().s)) render(); }
 /* a club's colour for a bar or a stripe: its first kit colour, or the second when the first is white */
 function clKit(T){
   const o = T.own || {}, c1 = clStr(o.c1 || "#2a4a36").toLowerCase();
@@ -149,7 +151,10 @@ function clPut(id, fid, h, a){
 }
 let clFlushT = null, clFlushing = false;
 function clFlushSoon(ms){ clearTimeout(clFlushT); clFlushT = setTimeout(() => { clFlush(); }, ms == null ? 600 : ms); }
-/* send what is waiting. A change made while a save is on its way stays for the next one. */
+/* send what is waiting. A change made while a save is on its way stays for the next one. The server takes 30 calls a
+   save (pl_save_calls), and a league's own card holds up to 40 (018), so a long queue goes in parts of 30, the
+   armband with the first; a part that doesn't get through keeps itself and the rest for the next try. */
+const CL_SAVE_MAX = 30;
 async function clFlush(){
   if(clFlushing){ clFlushSoon(800); return false; }
   const sb = sbClient(); if(!sb) return false;
@@ -160,31 +165,36 @@ async function clFlush(){
     for(const id of Object.keys(sent)){
       const c = sent[id], calls = Object.keys(c.c || {}).map(f => ({ f: +f, h: c.c[f][0], a: c.c[f][1] }));
       if(!calls.length && !c.a){ clPendDrop(id, c); continue; }
-      let d;
-      try{
-        const r = await sb.rpc("pl_save_calls", { p_card: +id, p_calls: calls, p_armband: c.a || null });
-        if(r.error){ all = false; continue; }
-        d = r.data || {};
-      }catch(e){ all = false; continue; }
-      if(d.server_now) CL.skew = d.server_now - Date.now();
-      if(!d.ok){
-        all = false;
-        if(d.code === "found_club") clFoundClub();            // kept: they go once the club is founded
-        else if(d.code === "not_found" || d.code === "bad") clPendDrop(id, c);
-        continue;                                              // slow_down, not_signed_in: kept for later
-      }
-      const k = CL.card[id], late = (d.locked || []).map(Number);
-      if(k){
-        k.mine = k.mine || {}; k.mine.calls = k.mine.calls || {};
-        calls.forEach(x => { if(!late.includes(x.f)) k.mine.calls[x.f] = [x.h, x.a]; });
-        if(c.a){
-          if(d.armband === "on") k.mine.armband = c.a.f;
-          else if(d.armband === "off") k.mine.armband = null;
+      for(let at = 0; at < Math.max(1, calls.length); at += CL_SAVE_MAX){
+        const part = calls.slice(at, at + CL_SAVE_MAX), arm = at === 0 ? c.a || null : null;
+        const partC = { c: {}, a: arm };
+        part.forEach(x => { partC.c[x.f] = [x.h, x.a]; });
+        let d;
+        try{
+          const r = await sb.rpc("pl_save_calls", { p_card: +id, p_calls: part, p_armband: arm });
+          if(r.error){ all = false; break; }
+          d = r.data || {};
+        }catch(e){ all = false; break; }
+        if(d.server_now) CL.skew = d.server_now - Date.now();
+        if(!d.ok){
+          all = false;
+          if(d.code === "found_club") clFoundClub();            // kept: they go once the club is founded
+          else if(d.code === "not_found" || d.code === "bad") clPendDrop(id, c);
+          break;                                                 // slow_down, not_signed_in: kept for later
         }
+        const k = CL.card[id], late = (d.locked || []).map(Number);
+        if(k){
+          k.mine = k.mine || {}; k.mine.calls = k.mine.calls || {};
+          part.forEach(x => { if(!late.includes(x.f)) k.mine.calls[x.f] = [x.h, x.a]; });
+          if(arm){
+            if(d.armband === "on") k.mine.armband = arm.f;
+            else if(d.armband === "off") k.mine.armband = null;
+          }
+        }
+        if(late.length) clLate(id, late);
+        if(arm && d.armband && d.armband !== "on" && d.armband !== "off") clArmSaid(d.armband);
+        clPendDrop(id, partC);
       }
-      if(late.length) clLate(id, late);
-      if(c.a && d.armband && d.armband !== "on" && d.armband !== "off") clArmSaid(d.armband);
-      clPendDrop(id, c);
     }
   }finally{ clFlushing = false; }
   clRedraw();
@@ -303,7 +313,7 @@ function clRender(st){
   clTeamsLoad();
   const v = clV();
   const page = { card: clCardPage, calls: clCallsPage, new: clNewPage, invite: clInvitePage, join: clJoinPage,
-    table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage, match: clMatchPage }[v.s];
+    table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage, match: clMatchPage, matches: clMatchesPage }[v.s];
   st.innerHTML = page ? page(v) : mcHub();
   clTickOn();
 }
@@ -382,11 +392,11 @@ function clNextCard(){
   const left = first ? clLeft(first) : null, all = called >= n && n > 0;
   const armF = mine.arm != null && k ? F.find(f => String(f.id) === String(mine.arm)) : null;
   /* a pip per match, gold once called; the armband's match is ringed, called or not */
-  const pips = '<div class="cl-pips" aria-hidden="true">' + (k ? F : Array.from({ length: n }, (x, j) => ({ id: "x" + j }))).map((f, j) =>
+  const pips = '<div class="cl-pips' + (n > 20 ? " many" : "") + '" aria-hidden="true">' + (k ? F : Array.from({ length: n }, (x, j) => ({ id: "x" + j }))).map((f, j) =>
     '<span class="' + [(k ? mine.calls[f.id] : j < called) ? "on" : "", armF && f.id === armF.id ? "pa" : ""].filter(Boolean).join(" ") + '"></span>').join("") + '</div>';
   const board = clBoardFor(t);
   return '<div class="b4card dark cl-next">' +
-    '<div class="cl-top"><div><span class="cl-kick">' + clE(t.label) + ' · ' + clE(t.series_name) + '</span>' +
+    '<div class="cl-top"><div><span class="cl-kick">' + clE(t.label) + ' · ' + clE(clSeriesName(t.series, t.series_name)) + '</span>' +
     '<h2>' + (open ? (all ? "All called" : "Call it") : "Locked") + '</h2>' +
     '<p class="cl-when">' + (first ? (all ? "See you at " : "First kick-off ") + clDay(first) : "Every match has kicked off") + '</p></div>' +
     (left && open ? '<div class="cl-cd"><small>' + left[1] + '</small><b data-cl-until="' + first + '">' + left[0] + '</b></div>' : "") + '</div>' +
@@ -415,7 +425,7 @@ function clOtherCards(){
   return rest.map(c => {
     const toCall = c.open > 0 ? Math.max(0, Math.min(c.open, c.matches - c.called)) : 0;
     return '<button class="cl-lrow" onclick="clOpenCard(' + c.card + ')"><span class="cl-pos cl-dark"><b>' + c.called + '</b><small>OF ' + c.matches + '</small></span>' +
-      '<span class="m"><b>' + clE(c.series_name) + '</b><small>' + clE(c.label) + (c.next_lock ? ' · locks ' + clDay(c.next_lock) : ' · locked') + '</small></span>' +
+      '<span class="m"><b>' + clE(clSeriesName(c.series, c.series_name)) + '</b><small>' + clE(c.label) + (c.next_lock ? ' · locks ' + clDay(c.next_lock) : ' · locked') + '</small></span>' +
       '<span class="st">' + (toCall ? '<span class="cl-tag red">' + toCall + ' to call</span>' : '<span class="cl-tag ghost">' + (c.open ? "Done" : "Locked") + '</span>') + '</span><span class="chev">›</span></button>';
   }).join("");
 }
@@ -449,15 +459,18 @@ function clCardPage(v){
     return b4Page({ title: "Call it", ctx: CL.err || "Loading the round…", back: "clBack()", cls: "clpage", body: CL.err ? "" : '<div class="lgskel"></div>' });
   }
   const F = clF(id), n = F.length, mine = clMine(id);
-  if(!n) return b4Page({ title: k.card.label, ctx: k.card.series_name, back: "clBack()", cls: "clpage",
+  if(!n) return b4Page({ title: k.card.label, ctx: clSeriesName(k.card.series, k.card.series_name), back: "clBack()", cls: "clpage",
     body: '<div class="lgempty"><b>No matches on this round yet</b><span>They are added as soon as the fixtures are set.</span></div>' });
   let i = CL.i[id];
   if(i == null || i >= n) i = CL.i[id] = clFirstOpen(F, mine);
   const f = F[i], called = F.filter(x => mine.calls[x.id]).length;
-  const jump = '<div class="cl-jump" role="group" aria-label="Matches">' + F.map((x, j) =>
+  /* a big card (a league's own: up to 40) puts the day in front of each day's first number */
+  const byDay = n > 12, dayOf = x => new Date(x.ko).toDateString();
+  const jump = '<div class="cl-jump' + (byDay ? " days" : "") + '" role="group" aria-label="Matches">' + F.map((x, j) =>
+    (byDay && (j === 0 || dayOf(F[j - 1]) !== dayOf(x)) ? '<span class="cl-jday" aria-hidden="true">' + CL_DAYS[new Date(x.ko).getDay()] + '</span>' : "") +
     '<button class="' + [mine.calls[x.id] ? "done" : "", j === i ? "cur" : "", String(mine.arm) === String(x.id) ? "ab" : "", clOpen(x) ? "" : "lk"].filter(Boolean).join(" ") +
     '" onclick="clAt(' + j + ')" aria-label="Match ' + (j + 1) + (mine.calls[x.id] ? ", called" : "") + '">' + (j + 1) + '</button>').join("") + '</div>';
-  return b4Page({ title: k.card.label, ctx: clStr(k.card.series_name) + " · " + called + " of " + n + " called", back: "clBack()", cls: "clpage",
+  return b4Page({ title: k.card.label, ctx: clSeriesName(k.card.series, k.card.series_name) + " · " + called + " of " + n + " called", back: "clBack()", cls: "clpage",
     body: jump + clMatchHTML(k, f, i, n, mine) + (clOpen(f) ? clQuickHTML(f, mine, k) : clDoneHTML(k, f, mine)) });
 }
 function clRead(H, A, c){
@@ -511,6 +524,9 @@ function clDoneHTML(k, f, mine){
 function clWaitNote(mine){
   return mine.wait ? '<p class="cl-wait">Saved on this phone, not sent yet. It goes as soon as BALL reaches the server.</p>' : "";
 }
+/* a league's own card holds the week's earliest 40 (018); the rest are said, not hidden */
+const clMoreNote = k => k && k.card && k.card.more > 0
+  ? '<p class="cl-sum cl-moreline">And ' + (k.card.more | 0) + ' more this week: a card holds the first ' + CL_CARD_MAX + '.</p>' : "";
 function clAt(j){ audio(); const id = clV().card; CL.i[id] = j; render(); }
 function clStep(d){ audio(); const id = clV().card, n = clF(id).length; CL.i[id] = Math.max(0, Math.min(n - 1, (CL.i[id] || 0) + d)); render(); }
 function clCur(){ const id = clV().card, F = clF(id), f = F[CL.i[id] || 0]; return { id, F, f }; }
@@ -563,10 +579,13 @@ function clCallsPage(v){
     return b4Page({ title: "Your calls", ctx: CL.err || "Loading…", back: "clBack()", cls: "clpage", body: CL.err ? "" : '<div class="lgskel"></div>' });
   }
   const F = clF(id), mine = clMine(id), called = F.filter(f => mine.calls[f.id]).length, open = F.filter(clOpen).length;
+  /* a big card (a league's own: up to 40) under a heading a day, so forty rows read as a week */
+  const byDay = F.length > 12, dayOf = f => new Date(f.ko).toDateString();
   const rows = F.map((f, j) => {
     const c = mine.calls[f.id], arm = String(mine.arm) === String(f.id), H = clTeam(f.home), A = clTeam(f.away);
-    return '<button class="cl-srow' + (arm ? " armd" : "") + (clOpen(f) ? "" : " lk") + '" onclick="clEdit(' + j + ')">' +
-      '<span class="t">' + CL_DAYS[new Date(f.ko).getDay()] + '<br>' + clTime(f.ko) + '</span>' +
+    const day = byDay && (j === 0 || dayOf(F[j - 1]) !== dayOf(f)) ? '<div class="cl-sday">' + clE(clMcDate(f.ko)) + '</div>' : "";
+    return day + '<button class="cl-srow' + (arm ? " armd" : "") + (clOpen(f) ? "" : " lk") + '" onclick="clEdit(' + j + ')">' +
+      '<span class="t">' + (byDay ? "" : CL_DAYS[new Date(f.ko).getDay()] + '<br>') + clTime(f.ko) + '</span>' +
       '<span class="h">' + clPatch(f.home, 22) + '<span>' + clE(H.name) + '</span></span>' +
       '<span class="sc' + (c ? "" : " none") + '">' + (c ? c[0] + "–" + c[1] : "–") + '</span>' +
       '<span class="a"><span>' + clE(A.name) + '</span>' + clPatch(f.away, 22) + '</span>' +
@@ -578,8 +597,8 @@ function clCallsPage(v){
       '<span class="' + (m.called ? "" : "wait") + '">' + clCrest(m, 22) + clE(m.me ? "You" : m.display_name) + (m.called ? "" : " · 0 of " + F.length) + '</span>').join("") + '</div>' +
       (b.members.some(m => !m.called && !m.me) ? '<button class="b4btn quiet" onclick="clNudge(\'' + lg.id + '\',' + id + ')">Nudge the ones who haven\'t</button>' : "") : "";
   return b4Page({ title: "Your calls", ctx: clStr(k.card.label) + " · " + called + " of " + F.length + " called", back: "clBack()", cls: "clpage",
-    body: '<div class="cl-stampwrap" id="clstampwrap"><div class="b4card dark cl-slip">' + rows + '</div></div>' +
-      '<p class="cl-sum">Tap a match to change it. Each match locks at its own kick-off.</p>' + clWaitNote(mine) +
+    body: '<div class="cl-stampwrap" id="clstampwrap"><div class="b4card dark cl-slip' + (byDay ? " days" : "") + '">' + rows + '</div></div>' +
+      '<p class="cl-sum">Tap a match to change it. Each match locks at its own kick-off.</p>' + clMoreNote(k) + clWaitNote(mine) +
       (open ? b4Btn("Lock in " + clE(k.card.label), "clLockIn()") : "") + who });
 }
 /* from your calls to one match; ‹ comes back to your calls */
@@ -624,11 +643,7 @@ function clNeedName(){
   if(!a.ageOk){ toast("Leagues are for players aged 16 and over.", true); return false; }
   return true;
 }
-function clNew(){ if(!clNeedName()) return; clGo("new", { series: clSeriesDefault() }); }
-function clSeriesDefault(){
-  const own = (CL.cards || []).find(c => c.series === "week");
-  return own ? "week" : "DED";
-}
+function clNew(){ if(!clNeedName()) return; clGo("new", { pick: "week", comps: [], teams: [] }); }
 /* the name box starts with your own league's name; your club's, when you have one, is among the chips */
 function clNameSug(){
   const a = acct(), u = a.username ? a.username.replace(/_/g, " ") : "";
@@ -637,44 +652,328 @@ function clNameSug(){
   return [u ? u.charAt(0).toUpperCase() + u.slice(1) + "'s League" : "The Prediction League"]
     .concat(club ? [(club + " & Friends").slice(0, 30)] : [], ["Thursday Night Legends", "The Office", "Sunday League Lot"]);
 }
+/* WHAT WILL YOU CALL? (Martijn, 2 Nov 2026: "When you create a league you can choose which matches you predict, if you
+   want to predict the matches of only certain teams or full leagues"; _plans/leagues-signup-sync.md §1). Three ways:
+   - the Card of the week (the default): BALL's ten a week, the 'week' series, as before;
+   - whole competitions: the eighteen as medal chips, grouped like the hub's Edit sheet. One alone is that
+     competition's preset (the old call, which a server without 018 takes too); two or more make the league's own
+     series (018_custom_leagues.sql: a card a week, Monday to Sunday, up to 40 matches);
+   - your clubs: 1 to 12, found in teams.json, every match they play in any competition BALL carries, cups included.
+   Competitions and clubs combine: a club outside the ticked competitions adds its own matches. Under the choice, the
+   one line the league will be known by ("Every Eredivisie match, plus Ajax in every competition") and about how many
+   matches a week: pl_custom_preview, asked 400 ms after the last change; with the server away, counted from the
+   fixtures the match centre has loaded; else nothing. The same picker changes a league's matches (its organiser,
+   pl_league_filter, from next week's card on: clMatchesPage). The state is the view's: pick, comps, teams, q, also. */
+const CL_MAX_CLUBS = 12, CL_CARD_MAX = 40;
+const CL_FIND_SVG = '<svg class="cl-findic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="20.5" y2="20.5"/></svg>';
+const CL_CODES = { bad_name: "A name of 2 to 30 letters, please.", under_16: "Leagues are for players aged 16 and over.",
+  no_username: "Pick a username first.", too_many: "You're in 20 leagues already.", slow_down: "That's a lot of new leagues. Try again tomorrow.",
+  not_found: "That football isn't on right now.", empty_filter: "Tick a competition or find a club first.",
+  too_many_clubs: "Twelve clubs is the most a league follows.", too_many_comps: "That's more competitions than BALL carries.",
+  unknown_comp: "One of those competitions isn't on right now.", unknown_club: "One of those clubs has no matches on BALL right now.",
+  bad_filter: "Couldn't read those matches. Try again.", not_owner: "Only the league's organiser can change its matches.",
+  started: "This league is under way on its football. Start a new league to call other matches." };
+const clIco = n => typeof ico === "function" ? ico(n) : "";
+/* the server's answer when it hasn't the function yet (018 not run): PostgREST's "no such function" */
+const clNoFn = e => !!e && (e.code === "PGRST202" || /could not find the function/i.test(clStr(e.message)));
+/* the picker's state from what a page was opened with (an old { series } still reads: "week", or a preset's id) */
+function clPickFrom(v){
+  if(!v.pick){
+    const s = clStr(v.series || "week");
+    v.pick = s === "week" ? "week" : "comps";
+    if(s !== "week" && !v.comps) v.comps = mchComp("fb." + s) ? ["fb." + s] : [];
+  }
+  v.comps = (v.comps || []).filter(id => !!mchComp(id));
+  v.teams = (v.teams || []).slice(0, CL_MAX_CLUBS);
+  return v;
+}
+/* what the picker means: null for the Card of the week, else {comps (in the hub's order), teams (in the order picked)} */
+function clFilterOf(v){
+  if(v.pick === "week") return null;
+  return { comps: CL_COMPS.map(C => C.id).filter(id => (v.comps || []).includes(id)), teams: (v.teams || []).slice() };
+}
+const clFKey = f => f ? f.comps.join(",") + "|" + f.teams.join(",") : "week";
+/* what goes to the server: the Card of the week and one competition alone go by the series' name (the two-argument call
+   every server takes); anything else is a filter */
+function clPlanOf(v){
+  const f = clFilterOf(v);
+  if(!f) return { series: "week" };
+  if(!f.comps.length && !f.teams.length) return { empty: true };
+  if(f.comps.length === 1 && !f.teams.length) return { series: f.comps[0].slice(3), filter: f };
+  return { filter: f };
+}
+
+/* WHAT A LEAGUE CALLS, in one line: "The Card of the week", "Every Eredivisie and Premier League match", "Ajax, Feyenoord
+   and PSV · every competition", "Every Eredivisie match, plus Ajax in every competition". o is a league as pl_my_leagues,
+   pl_league_table and pl_league_preview answer it ({series, series_name, kind, filter}), or {filter} from the picker. A
+   server without 018 says no filter: a preset is then read from its series' name, the Card of the week from 'week' */
+const clAnd = a => a.length < 2 ? clStr(a[0] || "") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
+const clTeamName = (key, names) => clTeam({ key, name: (names && names[key]) || key }).name;
+function clFollowText(o){
+  o = o || {};
+  const s = clStr(o.series), f = o.filter || (s && s !== "week" && mchComp("fb." + s) ? { comps: ["fb." + s], teams: [] } : null);
+  if(!f) return !s || s === "week" ? "The Card of the week" : clStr(o.series_name);
+  const comps = (f.comps || []).filter(id => !!mchComp(id)), tn = (f.teams || []).map(k => clTeamName(k, f.names));
+  const every = comps.length > 3 ? "Every match in " + comps.length + " competitions" : "Every " + clAnd(comps.map(id => mchComp(id).name)) + " match";
+  const clubs = tn.length > 3 ? tn.slice(0, 3).join(", ") + " and " + (tn.length - 3) + " more" : clAnd(tn);
+  if(!tn.length) return comps.length ? every : clStr(o.series_name);
+  if(!comps.length) return clubs + " · every competition";
+  return every + ", plus " + clubs + " in every competition";
+}
+/* a league's own answers, together: the table's (the freshest), else my leagues' */
+function clLeagueFollow(id){
+  const t = CL.table[id], L = (t && t.league) || {}, l = (CL.leagues || []).find(x => x.id === id) || {};
+  return { series: L.series || l.series, series_name: L.series_name || l.series_name, kind: L.kind || l.kind, filter: L.filter || l.filter || null };
+}
+/* a league's own card goes by its league's name ("Ajax Away Days"); its series' own name is the filter, long */
+function clSeriesName(series, name){
+  if(/^c-/.test(clStr(series))){ const l = (CL.leagues || []).find(x => x.series === series); if(l && l.name) return clStr(l.name); }
+  return clStr(name);
+}
+const clKindOf = o => o.kind || (o.series === "week" ? "editorial" : /^c-/.test(clStr(o.series)) ? "custom" : "preset");
+/* the line under a league's name: what it calls */
+function clCallsLineHTML(o, change){
+  return '<div class="cl-leaguecalls"><span class="cl-kick">Calls</span><b>' + clE(clFollowText(o)) + '</b>' +
+    (change ? '<button class="cl-change" onclick="' + change + '">Change the matches</button>' : "") + '</div>';
+}
+
+/* ---- the three ways, and the panels under them ---- */
+function clPickerHTML(v, o){
+  o = o || {};
+  const opt = (id, ic, title, sub) => '<button class="cl-opt' + (v.pick === id ? " on" : "") + '" aria-pressed="' + (v.pick === id) + '" onclick="clPick(\'' + id + '\')">' +
+    '<span class="cl-optic" aria-hidden="true">' + ic + '</span><span class="m"><b>' + title + '</b><small>' + sub + '</small></span>' +
+    '<span class="cl-optck" aria-hidden="true">' + (v.pick === id ? clIco("check") : "") + '</span></button>';
+  const fan = typeof compFan === "function" ? compFan(["ere", "premier", "ucl"]) : "";
+  let html = '<div class="cl-opts">';
+  if(!o.noWeek) html += opt("week", clIco("star"), "The Card of the week", "Ten big matches each week, Eredivisie and Premier League");
+  html += opt("comps", fan || clIco("trophy"), "Whole competitions", "Every match of the ones you tick: a league, a cup, or a few");
+  if(v.pick === "comps") html += clCompsHTML(v) + (v.teams.length || v.also ? clClubsHTML(v) : '<button class="cl-also" onclick="clAlso()">+ Add clubs as well</button>');
+  html += opt("clubs", clIco("shield"), "Your clubs", "Up to twelve clubs, every match they play, cups included");
+  if(v.pick === "clubs") html += clClubsHTML(v) + (v.comps.length || v.also ? clCompsHTML(v) : '<button class="cl-also" onclick="clAlso()">+ Add whole competitions as well</button>');
+  return html + '</div>';
+}
+function clCompsHTML(v){
+  return '<div class="cl-pane cl-cpane"><span class="cl-panelab">Tick the competitions</span>' + MCH_GROUPS.map(g =>
+    '<div class="cl-cgroup"><small>' + clE(g[1]) + '</small><div class="cl-cchips">' + CL_COMPS.filter(C => C.group === g[0]).map(C => {
+      const on = v.comps.includes(C.id);
+      return '<button class="cl-cchip' + (on ? " on" : "") + '" aria-pressed="' + on + '" onclick="clComp(\'' + C.id + '\')" title="' + clE(C.name) + '">' +
+        clBadge(C.id, 28) + '<span>' + clE(C.nick || C.name) + '</span>' + (on ? '<i aria-hidden="true">' + clIco("check") + '</i>' : "") + '</button>';
+    }).join("") + '</div></div>').join("") + '</div>';
+}
+function clClubsHTML(v){
+  const full = v.teams.length >= CL_MAX_CLUBS;
+  const chips = v.teams.length ? '<div class="cl-tchips">' + v.teams.map(k => {
+    const T = clTeam({ key: k, name: (v.names || {})[k] || k });
+    return '<button class="cl-tchip" onclick="clTeamDrop(\'' + clE(k) + '\')" aria-label="Take ' + clE(T.name) + ' off">' + clPatch({ key: k, name: T.name }, 20) +
+      '<span>' + clE(T.name) + '</span>' + clIco("close") + '</button>';
+  }).join("") + '</div>' : "";
+  return '<div class="cl-pane cl-tpane"><span class="cl-panelab">' + (v.teams.length ? v.teams.length + " of " + CL_MAX_CLUBS + " clubs" : "Find your clubs") + '</span>' + chips +
+    (full ? '<p class="cl-sum">Twelve clubs is the most a league follows. Take one off to add another.</p>'
+      : '<div class="cl-search">' + CL_FIND_SVG + '<input id="clteamq" class="cl-input" maxlength="30" autocomplete="off" spellcheck="false" placeholder="Ajax, Celtic, Napoli…" aria-label="Find a club" value="' +
+        clE(v.q || "") + '" oninput="clTeamFind(this.value)"></div><div id="clteamres" class="cl-tres" aria-live="polite">' + clTeamResultsHTML(v) + '</div>') + '</div>';
+}
+/* the search: every club in teams.json, by its short name or its full one, the start of a name first, then by how big
+   its competition is (the hub's order), at most eight */
+function clTeamHits(q, have){
+  const T = CL.teams || {}, n = mchNorm(q), rank = id => { const i = CL_COMPS.findIndex(C => C.id === id); return i < 0 ? 99 : i; };
+  if(n.length < 2) return [];
+  const hits = [];
+  Object.keys(T).forEach(k => {
+    if(have.includes(k)) return;
+    const e = T[k]; let own = null;
+    try{ own = e.s ? clubOf(e.s) : e.c; }catch(x){ own = e.c || null; }
+    const names = [e.n, own && own.name].filter(Boolean).map(mchNorm);
+    const at = names.some(x => x.startsWith(n)) ? 0 : names.some(x => x.includes(n)) ? 1 : -1;
+    if(at >= 0) hits.push({ k, at, r: rank(e.l), n: clStr(e.n) });
+  });
+  return hits.sort((a, b) => a.at - b.at || a.r - b.r || a.n.localeCompare(b.n)).slice(0, 8).map(h => h.k);
+}
+function clTeamResultsHTML(v){
+  if(!clStr(v.q).trim()) return "";
+  if(!CL.teams){ clTeamsLoad(); return '<p class="cl-sum">Getting the clubs…</p>'; }
+  const hits = clTeamHits(v.q, v.teams);
+  if(!hits.length) return mchNorm(v.q).length < 2 ? "" : '<p class="cl-sum">No club by that name in the competitions BALL carries.</p>';
+  return hits.map(k => {
+    const e = CL.teams[k], C = e.l ? mchComp(e.l) : null, T = clTeam({ key: k, name: e.n });
+    return '<button class="cl-tpick" onclick="clTeamAdd(\'' + k + '\')" aria-label="Add ' + clE(T.name) + '">' + clPatch({ key: k, name: e.n }, 26) +
+      '<span class="m"><b>' + clE(T.name) + '</b><small>' + clE(C ? C.name : "") + '</small></span><span class="cl-tadd" aria-hidden="true">+</span></button>';
+  }).join("");
+}
+/* the one line under the choice, and how many matches a week */
+function clPlanHTML(v){
+  const f = clFilterOf(v), empty = !!f && !f.comps.length && !f.teams.length;
+  return '<div class="b4card dark cl-plan"><span class="cl-kick">Your league calls</span><b id="clfollow">' +
+    clE(empty ? "Nothing yet: tick a competition or find a club" : clFollowText(f ? { filter: f } : { series: "week" })) + '</b>' +
+    '<small id="clprev" class="cl-prev">' + clE(empty ? "" : clPreviewLine(v)) + '</small></div>';
+}
+function clPreviewLine(v){
+  const f = clFilterOf(v);
+  if(!f) return "Ten matches a week, picked by BALL";
+  if(!f.comps.length && !f.teams.length) return "";
+  const P = (CL.prev || {})[clFKey(f)], weeks = P ? P.weeks : clPreviewLocal(f);
+  return weeks ? clPreviewSay(weeks) : "";
+}
+/* [{n} × 3]: this week (what is left of it) and the next two. The two whole weeks say "about"; this week only when
+   they have nothing. A card holds 40 */
+function clPreviewSay(weeks){
+  const n = weeks.map(w => Math.max(0, (w && w.n) | 0));
+  if(!n.some(Boolean)) return "No matches in the next three weeks yet: they come on as soon as they are set";
+  if(n.some(x => x > CL_CARD_MAX)) return "About " + CL_CARD_MAX + " matches a week: the most a card holds, the earliest first";
+  let avg = Math.round(n.slice(1).reduce((a, b) => a + b, 0) / Math.max(1, n.length - 1));
+  if(!avg) avg = n[0];
+  return "About " + avg + (avg === 1 ? " match" : " matches") + " a week";
+}
+/* with the server away: the match centre's fixtures, when every competition the filter needs is here (a club's own
+   competition stands for its matches, teams.json's l), weeks from this Monday on the phone's clock; else nothing */
+function clPreviewLocal(f){
+  const T = CL.teams || {}, need = f.comps.concat(f.teams.map(k => (T[k] && T[k].l) || null));
+  if(!need.length || need.some(id => !id || !CL.mc[id])) return null;
+  const d = new Date(clNow()); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - (d.getDay() + 6) % 7);
+  const mon = d.getTime(), now = clNow(), seen = {}, out = [{ n: 0 }, { n: 0 }, { n: 0 }];
+  Object.keys(CL.mc).forEach(id => ((CL.mc[id] && CL.mc[id].rows) || []).forEach(x => {
+    if(seen[x.id] || clPlayed(x) || !/^(scheduled|tbd)$/.test(x.st) || x.ko <= now) return;
+    if(!(f.comps.includes(id) || f.teams.includes(x.h.key) || f.teams.includes(x.a.key))) return;
+    const w = Math.floor((x.ko - mon) / (7 * 864e5));
+    if(w >= 0 && w < 3){ out[w].n++; seen[x.id] = 1; }
+  }));
+  return out;
+}
+let clPrevT = null;
+function clPreviewSoon(){ clearTimeout(clPrevT); clPrevT = setTimeout(clPreviewAsk, 400); }
+async function clPreviewAsk(){
+  const v = clV();
+  if(!/^(new|matches)$/.test(v.s)) return;
+  const f = clFilterOf(v);
+  if(!f || (!f.comps.length && !f.teams.length)) return;
+  const key = clFKey(f), P = CL.prev || (CL.prev = {});
+  if(!(P[key] && Date.now() - P[key].at < 10 * 60e3)){
+    try{ const d = await clRpc("pl_custom_preview", { p_filter: f }); if(d.ok) P[key] = { at: Date.now(), weeks: d.weeks || [] }; }catch(e){}
+  }
+  const now = clV(), el = document.getElementById("clprev");
+  if(el && now === v && clFKey(clFilterOf(now)) === key) el.innerHTML = clE(clPreviewLine(now));
+}
+/* ---- what a tap does: the name typed so far is kept, the page drawn again, the line asked for again ---- */
+function clPickKeep(){ const v = clV(), el = document.getElementById("clname"); if(el) v.name = el.value; return v; }
+function clPick(id){ audio(); const v = clPickKeep(); v.pick = id; v.also = false; render(); clPreviewSoon(); }
+function clComp(id){
+  audio(); try{ buzz(8); }catch(e){}
+  const v = clPickKeep(), i = v.comps.indexOf(id);
+  if(i >= 0) v.comps.splice(i, 1); else v.comps.push(id);
+  render(); clPreviewSoon();
+}
+function clAlso(){ audio(); const v = clPickKeep(); v.also = true; render(); }
+function clTeamFind(q){ const v = clV(); v.q = clStr(q); const el = document.getElementById("clteamres"); if(el) el.innerHTML = clTeamResultsHTML(v); }
+function clTeamAdd(k){
+  audio();
+  const v = clPickKeep();
+  if(v.teams.length >= CL_MAX_CLUBS) return toast("Twelve clubs is the most a league follows.", true);
+  if(!v.teams.includes(k)) v.teams.push(k);
+  v.q = "";
+  render(); clPreviewSoon();
+  /* back in the search, for the next club */
+  if(v.teams.length < CL_MAX_CLUBS) setTimeout(() => { try{ const el = document.getElementById("clteamq"); if(el && el.focus) el.focus(); }catch(e){} }, 0);
+}
+function clTeamDrop(k){ audio(); const v = clPickKeep(); v.teams = v.teams.filter(x => x !== k); render(); clPreviewSoon(); }
+/* the old way in, by a series' name ("week" or a preset's id), as the picker had it before */
+function clSeries(id){
+  audio();
+  const v = clPickKeep();
+  if(id === "week") v.pick = "week";
+  else { v.pick = "comps"; v.comps = mchComp("fb." + id) ? ["fb." + id] : []; v.teams = []; }
+  render();
+}
+
 function clNewPage(v){
-  const sug = clNameSug(), weekOn = (CL.cards || []).some(c => c.series === "week");
-  const series = CL_SERIES.filter(s => s.id !== "week" || weekOn);
-  return b4Page({ title: "New league", ctx: "Predictions", back: "clBack()", cls: "clpage", body:
+  clPickFrom(v);
+  const sug = clNameSug();
+  if(v.pick !== "week") clPreviewSoon();
+  return b4Page({ title: "New league", ctx: "Call It", back: "clBack()", cls: "clpage", body:
     b4Q("Name your league") +
     '<input id="clname" class="cl-input" maxlength="30" autocomplete="off" value="' + clE(v.name != null ? v.name : sug[0]) + '" aria-label="League name">' +
     '<div class="cl-chips">' + sug.slice(1).map(s => '<button onclick="clNameUse(this)">' + clE(s) + '</button>').join("") + '</div>' +
-    b4Q("Which football?") +
-    '<div class="cl-series">' + series.map(s => '<button class="' + (v.series === s.id ? "on" : "") + '" aria-pressed="' + (v.series === s.id) + '" onclick="clSeries(\'' + s.id + '\')"><b>' + clE(s.name) + '</b><small>' + clE(s.sub) + '</small></button>').join("") + '</div>' +
+    b4Q("What will you call?") + clPickerHTML(v) + clPlanHTML(v) +
     '<p class="cl-rules"><b>The rules:</b> the right result 2 points, the right goal difference 1 more, the exact score 2 more (5 in all). ' +
     'The right winner that fewer than 1 in 5 of BALL called: 1 more. Your armband doubles one match a round.</p>' +
     (clSup() ? '<p class="cl-sum">' + (clSupporter() ? "Your leagues take up to 200 players: you're a Supporter." : "Up to 50 players. A BALL Supporter's league takes 200.") + '</p>' : "") +
-    b4Btn("Create the league", "clCreate()") });
+    b4Btn("Start the league", "clCreate()") });
 }
 function clNameUse(b){ audio(); const el = document.getElementById("clname"); if(el && b) el.value = b.textContent; }
-function clSeries(id){ audio(); const v = clV(), el = document.getElementById("clname"); v.series = id; if(el) v.name = el.value; render(); }
 async function clCreate(){
   audio();
   if(!clNeedName()) return;
-  const v = clV(), el = document.getElementById("clname"), name = clStr(el ? el.value : v.name).trim();
+  const v = clPickKeep(), name = clStr(v.name).trim(), plan = clPlanOf(clPickFrom(v));
   if(name.length < 2) return toast("Give the league a name.", true);
+  if(plan.empty) return toast(CL_CODES.empty_filter, true);
+  if(CL.creating) return;
+  CL.creating = true;
   try{
-    const d = await clRpc("pl_create_league", { p_name: name, p_series: v.series || "DED" });
-    if(!d.ok) return toast(({ bad_name: "A name of 2 to 30 letters, please.", under_16: "Leagues are for players aged 16 and over.",
-      no_username: "Pick a username first.", too_many: "You're in 20 leagues already.", slow_down: "That's a lot of new leagues. Try again tomorrow.",
-      not_found: "That football isn't on right now." })[d.code] || "Couldn't create it right now.", true);
+    const d = await clRpc("pl_create_league", plan.series ? { p_name: name, p_series: plan.series } : { p_name: name, p_filter: plan.filter });
+    if(!d.ok) return toast(CL_CODES[d.code] || "Couldn't create it right now.", true);
     CL.leagues = null; CL.cards = null;
-    LEAGUE_VIEW.cl = { s: "invite", league: d.id, code: d.code, name: d.name, fresh: true, from: null };
+    LEAGUE_VIEW.cl = { s: "invite", league: d.id, code: d.code, name: d.name, fresh: true, from: null,
+      follow: { series: d.series || plan.series, series_name: d.series_name, kind: d.kind, filter: d.filter || plan.filter || null } };
     render(); clLoad(true);
-  }catch(e){ toast("Couldn't create it right now.", true); }
+  }catch(e){
+    toast(clNoFn(e) ? "Choosing your own matches isn't on the server yet: pick the Card of the week or one competition." : "Couldn't create it right now.", true);
+  }finally{ CL.creating = false; }
+}
+
+/* ---------- the organiser changes the matches (pl_league_filter) ----------
+   A league of its own matches changes from next week's card on (the week under way keeps its card, and a match
+   someone has called stays on it); a league on the Card of the week or a preset can move until its first card is
+   under way. So the organiser sees "Change the matches" on the table while there is something to change. */
+function clCanChange(id){
+  const t = CL.table[id];
+  return !!t && clOwner(id) && (clKindOf(clLeagueFollow(id)) === "custom" || t.last_seq == null);
+}
+function clMatchesGo(id){
+  audio();
+  const t = CL.table[id];
+  if(!t) return;
+  const o = clLeagueFollow(id), kind = clKindOf(o), f = o.filter, v = { league: id, kind, started: t.last_seq != null, from: clV(), comps: [], teams: [] };
+  if(kind === "custom" && f){ v.comps = (f.comps || []).slice(); v.teams = (f.teams || []).slice(); v.names = f.names || {}; v.pick = v.comps.length || !v.teams.length ? "comps" : "clubs"; }
+  else if(o.series === "week" || !o.series) v.pick = "week";
+  else { v.pick = "comps"; v.comps = mchComp("fb." + o.series) ? ["fb." + o.series] : []; }
+  v.was = clFKey(clFilterOf(v));
+  LEAGUE_VIEW.cl = Object.assign({ s: "matches" }, v); CL.err = null;
+  render();
+  try{ window.scrollTo(0, 0); }catch(e){}
+}
+function clMatchesPage(v){
+  clPickFrom(v);
+  const t = CL.table[v.league], custom = v.kind === "custom";
+  if(v.pick !== "week") clPreviewSoon();
+  return b4Page({ title: "The matches", ctx: t ? t.league.name : "Your league", back: "clBack()", cls: "clpage", body:
+    b4Q("What will your league call?") + clPickerHTML(v, { noWeek: custom && v.started }) + clPlanHTML(v) +
+    '<p class="cl-sum cl-fromnote"><b>' + (custom ? "From next week's card on." : "From the next card on.") + '</b> ' +
+    (custom ? "This week's card keeps its matches, and a match someone has called stays on its card." : "Nobody has played a card yet, so the league starts on its new matches.") + '</p>' +
+    b4Btn("Save the matches", "clMatchesSave()") });
+}
+async function clMatchesSave(){
+  audio();
+  const v = clV(), plan = clPlanOf(v), f = clFilterOf(v);
+  if(plan.empty) return toast(CL_CODES.empty_filter, true);
+  if(clFKey(f) === v.was) return clBack();
+  try{
+    const d = await clRpc("pl_league_filter", { p_league: v.league, p_filter: f || { series: "week" } });
+    if(!d.ok) return toast(d.code === "slow_down" ? "That's a lot of changes for now. Try again in a while." : CL_CODES[d.code] || "Couldn't save it right now.", true);
+    delete CL.table[v.league]; CL.leagues = null; CL.cards = null;
+    toast(d.kind === "custom" && d.from ? "Saved. " + d.from + " calls the new matches." : "Saved. The league calls its new matches.");
+    LEAGUE_VIEW.cl = Object.assign({}, v.from || { s: "table", league: v.league }); CL.err = null;
+    /* the table again at once (its own once-in-a-while guard would wait ten seconds) */
+    CL.asked["table:" + v.league] = Date.now();
+    render(); clLoadTable(v.league); clLoad(true);
+  }catch(e){ toast(clNoFn(e) ? "Changing the matches isn't on the server yet." : "Couldn't save it right now.", true); }
 }
 
 /* ---------- invite ---------- */
 function clInvitePage(v){
   const L = (CL.leagues || []).find(l => l.id === v.league) || {}, t = CL.table[v.league];
   const seats = t ? t.rows.length : L.members || 1, max = (t && t.league.max_members) || 50;
+  const follow = v.follow || (L.series || t ? clLeagueFollow(v.league) : null);
   return b4Page({ title: "Invite", ctx: v.name || L.name || "Your league", back: v.fresh ? "clHomeGo()" : "clBack()", cls: "clpage", body:
     (v.fresh ? '<p class="cl-lead">' + clE(v.name) + ' is ready. Now the fun part: get your mates in.</p>' : "") +
+    (follow ? clCallsLineHTML(follow) : "") +
     '<div class="lgcode cl-code"><span><small>League code</small><b>' + clE(clCode(v.code)) + '</b></span><button class="cl-copy" onclick="clCopy()">Copy</button></div>' +
     b4Btn("Share the invite", "clInvite()") +
     (clLeagueCard(v.league) ? b4Btn("Share the card", "clCardShare(" + clLeagueCard(v.league).card + ",'" + clE(v.league) + "')", "dark") : "") +
@@ -705,6 +1004,7 @@ function clJoinPage(v){
     '<span><small>' + (p.card ? "Next up" : "Rounds") + '</small><b>' + (p.card ? clE(p.card.label) : "Every one") + '</b></span></div>';
   return b4Page({ title: "You're invited", ctx: p.series_name, back: "clBack()", cls: "clpage", body:
     '<div class="b4card dark cl-invited"><span class="cl-kick">Prediction league · ' + clE(p.series_name) + '</span><h2>' + clE(p.name) + '</h2>' +
+    '<p class="cl-callsline"><small>Calls</small> ' + clE(clFollowText(p)) + '</p>' +
     '<p class="cl-when">' + p.members + ' player' + (p.members === 1 ? "" : "s") + (p.card ? ' · ' + clE(p.card.label) + (p.card.next_lock ? ' locks ' + clDay(p.card.next_lock) : "") : "") + '</p>' +
     facts + (top ? '<div class="cl-who dark">' + top + '</div>' : "") + '</div>' +
     (p.full ? '<div class="lgempty"><b>This league is full</b><span>Ask whoever sent the code to make room, or start your own.' + (clSup() ? " A BALL Supporter's league takes 200: tell whoever runs it." : "") + '</span></div>' + b4Btn("Start your own", "clNew()", "dark")
@@ -775,9 +1075,9 @@ function clTablePage(v){
       '<span class="nm"><b><span class="t">' + clE(r.display_name) + '</span>' + (CL.sup[L.id] && CL.sup[L.id][r.user_id] ? supMark() : "") + crown(r.crowns) + '</b><small>' + (r.me ? "you" : r.from_seq > L.from_seq && r.base ? "joined later, started on " + r.base : r.exact ? r.exact + " exact" : "") + '</small></span>' +
       '<span class="last">' + (r.last == null ? "–" : "+" + r.last) + '</span><span class="pts">' + r.pts + '</span></div>').join("") + '</div>';
   const solo = rows.length < 2 ? '<div class="lgempty"><b>Just you so far</b><span>Share the code and the table fills up. Everyone calls the same rounds.</span></div>' : "";
-  const series = ((CL.leagues || []).find(l => l.id === L.id) || {}).series_name;
   return b4Page({ title: "The table", ctx: L.name, back: "clBack()", cls: "clpage",
-    body: '<p class="cl-sum cl-tsub">' + (series ? clE(series) + ' · ' : "") + rows.length + ' player' + (rows.length === 1 ? "" : "s") + ' · code ' + clE(clCode(L.code)) + '</p>' + solo + body + '<p class="cl-sum">Points: the right result 2, the goal difference 1 more, the exact score 2 more. Level on points: more exact scores, then more right results.</p>' +
+    body: clCallsLineHTML(clLeagueFollow(L.id), clCanChange(L.id) ? "clMatchesGo('" + L.id + "')" : null) +
+      '<p class="cl-sum cl-tsub">' + rows.length + ' player' + (rows.length === 1 ? "" : "s") + ' · code ' + clE(clCode(L.code)) + '</p>' + solo + body + '<p class="cl-sum">Points: the right result 2, the goal difference 1 more, the exact score 2 more. Level on points: more exact scores, then more right results.</p>' +
       clTableTools(L) +
       '<button class="b4btn quiet" onclick="clLeaveAsk(\'' + L.id + '\')">Leave this league</button>' });
 }
@@ -1418,9 +1718,12 @@ function clCardCanvas(cardId, leagueId){
   const { c, x } = cv, F = clF(cardId), lg = clShareLeague(leagueId), bandH = 330;
   clPaper(x, bandH);
   clBandHead(x, "BALL · Call It", clStr(k.card.label), 118);
-  clGoldBar(x, CL_W / 2, 248, clStr(k.card.series_name), 46);
-  /* the matches: a row each, the kick-off on the left; up to 18 (the Champions League's league stage) */
-  const rows = F.slice(0, 18), top0 = bandH + 40, footTop = CL_H - 60 - 150 - 30, avail = footTop - top0 - 70;
+  clGoldBar(x, CL_W / 2, 248, clSeriesName(k.card.series, k.card.series_name), 46);
+  /* the matches: a row each, the kick-off on the left; up to 18 (the Champions League's league stage). A league's own card
+     holds up to 40 (and its week may have had more than 40: k.card.more): the picture says "and N more" under the rows,
+     on a line of its own that the rows leave room for */
+  const rows = F.slice(0, 18), extra = F.length - rows.length + Math.max(0, (k.card && k.card.more) | 0);
+  const top0 = bandH + 40, footTop = CL_H - 60 - 150 - 30, avail = footTop - top0 - 70 - (extra ? 30 : 0);
   const rh = Math.min(84, Math.floor(avail / Math.max(1, rows.length))), fsMax = Math.max(22, Math.min(40, Math.round(rh * .46)));
   /* the grid: the kick-off | the home side, right-aligned to its colours | v | the away side's colours, its name */
   const bw = Math.round(rh * .5), bh = Math.round(rh * .62), hx = 470, ax = CL_W - 470, nameW = hx - bw - 14 - 196;
@@ -1449,10 +1752,10 @@ function clCardCanvas(cardId, leagueId){
       x.fillStyle = CL_C.goldInk; x.font = clFont(700, Math.max(11, Math.round(rh * .14)), false); clSpaced(x, "Top match", CL_W / 2, y + rh * .22 + th / 2 + 1, 1.5, "center");
     }
   });
-  if(F.length > rows.length){ x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(600, 24, false); x.fillText("and " + (F.length - rows.length) + " more", CL_W / 2, top0 + rows.length * rh + 20); }
+  if(extra){ x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(700, 26, false); x.fillText("and " + extra + " more", CL_W / 2, top0 + rows.length * rh + 26); }
   x.textBaseline = "alphabetic";
   x.fillStyle = CL_C.dim; x.textAlign = "center"; x.font = clFont(400, 30, true, true);
-  x.fillText("Call the scores. Beat your mates. All season.", CL_W / 2, Math.min(footTop - 24, top0 + rows.length * rh + 54));
+  x.fillText("Call the scores. Beat your mates. All season.", CL_W / 2, Math.min(footTop - 24, top0 + rows.length * rh + (extra ? 80 : 54)));
   clJoinSlab(x, footTop + 10, lg);
   return c;
 }
@@ -1463,7 +1766,8 @@ function clSeqLabel(series, seq){
   if(c) return clStr(c.label);
   const k = Object.values(CL.card || {}).find(d => d && d.card && d.card.series === series && d.card.seq === seq);
   if(k) return clStr(k.card.label);
-  return series === "week" ? "round " + seq : "Matchday " + seq;
+  /* a league's own cards are numbered by their year and week (018: 202645 is Week 45) */
+  return series === "week" ? "round " + seq : /^c-/.test(clStr(series)) ? "Week " + (seq % 100) : "Matchday " + seq;
 }
 /* a mover's triangle, drawn (never a glyph in a picture) */
 function clTri(x, cx, cy, s, up, col){
@@ -1520,7 +1824,7 @@ async function clTableImage(leagueId){ await clFontsReady(); const c = clTableCa
 /* ---- the words that go with a picture ---- */
 function clCardText(cardId, leagueId){
   const k = CL.card[cardId], F = k ? clF(cardId) : [], first = F.filter(clOpen).map(f => f.ko).sort((a, b) => a - b)[0];
-  return clStr(k && k.card.label) + " · " + clStr(k && k.card.series_name) + ": call the scores on BALL." + (first ? " First kick-off " + clDay(first) + "." : "") + "\n" + clJoinLine(leagueId);
+  return clStr(k && k.card.label) + " · " + (k ? clSeriesName(k.card.series, k.card.series_name) : "") + ": call the scores on BALL." + (first ? " First kick-off " + clDay(first) + "." : "") + "\n" + clJoinLine(leagueId);
 }
 function clTableText(leagueId){
   const t = CL.table[leagueId], rows = t ? (t.rows || []) : [], me = rows.find(r => r.me), after = t ? clSeqLabel(t.league.series, t.last_seq) : "";

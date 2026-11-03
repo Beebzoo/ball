@@ -648,6 +648,46 @@
   .fychouse span{font:500 14px/1.35 'Barlow Semi Condensed',sans-serif}
   .fycwait{display:flex;flex-direction:column;align-items:center;gap:14px;padding:24px 0 10px;text-align:center;color:#123D24;font:italic 400 15px/1.4 'Lora',Georgia,serif}
   .fycpage .b4btn:disabled{opacity:.45;cursor:default;box-shadow:none}
+  /* the two-step sign-up (2 Nov 2026): the code on the same screen, a username that is yours already, the one
+     tick, the house rules in a line; the quiet "Already have a club? Sign in"; Make it yours on Me */
+  .fycfield input.fyccode{text-align:center;letter-spacing:.45em;font-size:28px;font-variant-numeric:tabular-nums}
+  .fycresend{display:flex;align-items:center;justify-content:center;min-height:44px;margin-top:6px;font:600 14px/1.2 'Barlow Semi Condensed',sans-serif;color:var(--th-dim)}
+  .fycresend .fyclink,.fycother,.fyc16more{min-height:44px;font:700 14px/1.2 'Barlow Semi Condensed',sans-serif}
+  .fycother{display:block;margin:0 auto}
+  .fyc16more{display:block;margin:0 0 0 2px}
+  .fycfixed{display:flex;align-items:baseline;gap:10px;min-height:50px;box-sizing:border-box;padding:14px 14px 0;border-radius:12px;border:2px solid var(--th-edge);background:rgba(18,61,36,.06);color:#123D24;font:700 18px/1 'Barlow Semi Condensed',sans-serif}
+  .fycfixed small{font:italic 400 13px/1 'Lora',Georgia,serif;color:var(--th-dim)}
+  .fycover{margin:14px 0 0;min-height:44px;box-sizing:border-box;padding:12px 14px;border-radius:14px;border:2px solid var(--th-edge);background:#fffaf0}
+  .fycover b{font:italic 900 19px/1.05 'Barlow Semi Condensed',sans-serif}
+  .fycover input{appearance:none;-webkit-appearance:none;display:grid;place-content:center;width:28px;height:28px;margin:0;border:2px solid #123D24;border-radius:8px;background:#fffaf0;cursor:pointer}
+  .fycover input:checked{background:#123D24}
+  .fycover input:checked::after{content:"";width:7px;height:14px;border:solid #f3cd6b;border-width:0 3px 3px 0;transform:translateY(-2px) rotate(45deg)}
+  .fycaddr{font:700 16px/1.2 'Barlow Semi Condensed',sans-serif;font-style:normal;color:var(--th-ink);word-break:break-all}
+  .fycsug:empty{display:none}
+  .fychouse1{margin:12px 0 0;color:#123D24;font:500 14px/1.45 'Barlow Semi Condensed',sans-serif}
+  .fychouse1 b{font-weight:800}
+  .fyc16sheet{margin:6px 0 12px}
+  .fycback{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+  .fycback h2{margin:6px 0 0}
+  .fycsignin{display:block;width:100%;min-height:44px;border:0;background:none;cursor:pointer;color:var(--th-ink);font:600 14px/1.2 var(--ui)}
+  .fycsignin u{font-weight:800;text-decoration-color:var(--th-acc2);text-underline-offset:4px}
+  .fycsignin.mesignin{margin:-8px 0 6px}
+  .mkcard{margin:14px 0 4px;padding:12px 14px 4px;border-radius:16px;background:var(--th-card-2);border:2px solid #fff;box-shadow:var(--th-lift);color:var(--th-ink)}
+  .mkhd{display:flex;align-items:center;justify-content:space-between}
+  .mkk{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-acc-text)}
+  .mkx{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-10px -10px -8px 0;border:0;background:none;color:var(--th-dim);cursor:pointer}
+  .mkx .ic{width:18px;height:18px}
+  .mklora{margin:2px 0 6px;font:italic 400 15px/1.4 'Lora',Georgia,serif}
+  .mkrow{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:8px 0;border:0;border-top:1px solid #e6dcc2;background:none;color:var(--th-ink);text-align:left;cursor:pointer}
+  .mkrow>span{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
+  .mkrow b{font:italic 900 18px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+  .mkrow small{display:flex;align-items:center;gap:6px;font:600 13px/1.2 'Barlow Semi Condensed',sans-serif;color:var(--th-dim)}
+  .mkrow>i{font:700 22px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-dim)}
+  .mkrow>.ic{width:20px;height:20px;color:var(--res-right)}
+  .mksw{display:inline-flex;gap:2px}
+  .mksw i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.2)}
+  .mclinks{display:flex;gap:8px;margin:6px 0 0}
+  .mclinks button{flex:1;min-height:44px;border:0;background:none;color:var(--th-ink);cursor:pointer;font:800 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
   .fycreveal{position:fixed;inset:0;z-index:50;overflow-y:auto;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;padding:0 20px 40px;text-align:center;
     background:radial-gradient(70% 38% at 50% 30%,rgba(255,236,170,.32),rgba(255,236,170,0) 70%),linear-gradient(180deg,rgba(6,26,14,.55) 0%,rgba(6,26,14,.25) 40%,rgba(6,26,14,.78) 100%),var(--grass) 0 0/780px auto repeat #1d5232}
   .fyck{margin:28px 0 10px;padding:6px 14px;border-radius:999px;background:#e9b84c;color:#241B08;font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase}
@@ -11289,7 +11329,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 2 Nov 2026 · the logo bigger, optically centred";
+const BUILD = "BALL 4 · 3 Nov 2026 · your own league, sign up in two, one save everywhere";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -25187,6 +25227,8 @@ function fycGuest(){
 function fycGuestSave(g){ try{ localStorage.setItem(GUEST_KEY, JSON.stringify(g)); }catch(e){} }
 /* a game finished as a guest: count it, and ask (on the way out, never mid-game) */
 function fycGameDone(kind, info){
+  /* a club's first finished match: Make it yours, once, on the way home */
+  if(kind === "match" && fycClubOn() && fycMkyOpen() && !fycMky().asked) fycMkySet({ due: true });
   if(!fycTrial()) return;
   const g = fycGuest(); g.games++; g.pending = Object.assign({ kind, at: Date.now() }, info || {}); fycGuestSave(g);
 }
@@ -25200,6 +25242,7 @@ function fycShouldAsk(){
 }
 function fycMaybeAsk(){
   try{
+    if(fycClubOn()) return fycMkyMaybe();
     if(!fycShouldAsk() || (S && S.phase && S.phase !== "setup" && S.phase !== "results")) return false;
     const g = fycGuest(), a = acctLocal().fycAsked || { n: 0, last: null };
     acctLocalSet({ fycAsked: { n: a.n + 1, last: String(dayKey()) } });
@@ -25264,21 +25307,28 @@ function fycCardHTML(where){
 }
 /* stub until step 4's flow: the sign-up */
 function openFyc(){ audio(); if(typeof fycOpen === "function") return fycOpen(); toast("Found your club is coming soon."); }
-/* ---------- FOUND YOUR CLUB: the sign-up (step 4) ----------
-   _plans/found-your-club-build.md; boards S1 to S8. A full-screen view with
-   seven steps and a reveal. Its state lives in ball4-fyc ({step, draft}) so
-   it survives the email-link round trip and a reload: the anonymous user is
-   made at the start (so linking keeps one account), the link brings you back
-   and acctAfterLink resumes at step 2. The server decides every name
-   (check_name, set_username, set_club); the client only checks quickly for
-   feedback while you type. */
+/* ---------- FOUND YOUR CLUB: the sign-up ----------
+   _plans/found-your-club-build.md (boards S1 to S8), made two steps on 2 Nov 2026 (_plans/leagues-signup-sync.md
+   §2): 1 sign in (Google, Apple behind ACCT_APPLE, or a 6-digit code by email typed on the same screen), 2 your
+   club on one screen (username, club name, the 16+ tick, the house rules in a line), then the reveal. Colours and
+   the club you support moved to Make it yours, after founding. A full-screen view; its state lives in ball4-fyc
+   ({step, draft, mode, email, sentAt, otpType}) so it survives the email round trip and a reload: the anonymous
+   user is made at the start (so linking keeps one account), and the code or the link brings you to step 2, or,
+   when the account has a club already, home with it (fycAdopt). The server decides every name (check_name,
+   set_username, set_club); the client only checks quickly for feedback while you type. */
 const FYC_KEY = "ball4-fyc";
 let FYC_VIEW = false;
 let fycNameTimer = null;
 function fycState(){ let s = null; try{ s = JSON.parse(localStorage.getItem(FYC_KEY) || "null"); }catch(e){} s = s && typeof s === "object" ? s : {}; s.draft = s.draft || {}; return s; }
 function fycSave(s){ try{ localStorage.setItem(FYC_KEY, JSON.stringify(s)); }catch(e){} }
 function fycSet(k, v){ const s = fycState(); s.draft[k] = v; fycSave(s); }
-const FYC_TITLES = ["", "Sign in", "The name", "Your username", "Pick two or three", "One quick check", "Optional", "House rules"];
+const FYC_TITLES = ["", "Sign in", "Your club"];
+/* the sign-in code: 6 digits (Supabase: Auth → Providers → Email → Email OTP Length; supabase/README.md "Sign-in
+   by code"), typed on the screen that asked for it; a new one can be asked for after 30 seconds */
+const FYC_CODE_LEN = 6, FYC_RESEND_S = 30;
+let FYC_EDIT = null;        // Make it yours: null | { k: "colours" | "fav", d: draft, chain, from }
+let fycCodeBusy = false, fycResendTimer = null;
+const FYC_NAME_HINT = "Name your club: 3 to 24 characters, your own words. Real clubs keep their own names.";
 /* a small list for instant feedback; the server's list always decides */
 const CLUB_QUICK_BLOCK = { club: ["ajax", "psv", "feyenoord", "twente", "barcelona", "barca", "realmadrid", "juventus", "milan", "inter", "bayern", "liverpool", "arsenal", "chelsea",
     "manchesterunited", "manchestercity", "tottenham", "celtic", "rangers", "benfica", "porto", "sporting", "psg", "dortmund", "atletico", "napoli", "roma", "lazio", "galatasaray", "fenerbahce"],
@@ -25328,97 +25378,294 @@ function fycDesign(){
 }
 
 /* ---------- opening, leaving, moving ---------- */
-async function fycOpen(){
+/* mode "signin" is "Already have a club? Sign in" (the first-open home, Me, Settings): the same step 1, but no
+   anonymous user first, so a returning player signs straight in to the account they have */
+async function fycOpen(mode){
   audio();
-  const s = fycState();
-  if(!s.step) s.step = acct().linked ? 2 : 1;
-  if(s.step === 3 && acct().username) s.step = 4;
-  s.from = s.from || "home"; fycSave(s);
-  FYC_VIEW = true; render(); try{ window.scrollTo(0, 0); }catch(e){}
-  /* the anonymous user now, so the link that follows keeps one account */
+  let s = fycState();
+  if(s.done) s = { draft: {} };
+  s.mode = mode === "signin" ? "signin" : "found";
+  if(!s.step || (s.step > 2 && s.step < 8)) s.step = acct().linked ? 2 : 1;   /* the old seven steps fold into two */
+  s.from = s.from || (ME_VIEW === "settings" ? "settings" : ME_VIEW ? "me" : "home"); fycSave(s);
+  FYC_EDIT = null; FYC_VIEW = true; render(); try{ window.scrollTo(0, 0); }catch(e){}
+  if(s.mode === "signin") return;
+  /* founding: the anonymous user now, so the Google or email link that follows keeps one account */
   try{ const c = sbClient(); if(c && c.auth && !acct().signedIn){ const r = await c.auth.signInAnonymously(); if(r && r.data) ACCT.session = r.data.session; const p = await c.rpc("ensure_profile"); if(p.data && p.data.ok){ ACCT.server = true; acctTake(p.data.profile); } } }catch(e){}
+}
+/* "Already have a club? Sign in", from wherever they are */
+function fycSignInStart(){
+  try{ closeSheet(); }catch(e){}
+  const from = ME_VIEW === "settings" ? "settings" : ME_VIEW ? "me" : "home", s = fycState();
+  if(s.done || !s.step || s.step > 2) fycSave({ draft: {}, from });
+  else { s.from = from; fycSave(s); }
+  return fycOpen("signin");
 }
 function fycGo(step){
   audio();
   const s = fycState();
-  if(step === 3 && acct().username) step = s.step > 3 ? 2 : 4;   // an existing username skips step 3
-  s.step = Math.max(1, Math.min(8, step)); fycSave(s); render(); try{ window.scrollTo(0, 0); }catch(e){}
+  s.step = step >= 8 ? 8 : Math.max(1, Math.min(2, step | 0)); fycSave(s); render(); try{ window.scrollTo(0, 0); }catch(e){}
 }
 function fycBack(){ const s = fycState(); if(s.step <= 1 || (s.step === 2 && acct().linked)) return fycAskLeave(); fycGo(s.step - 1); }
 function fycAskLeave(){
-  sheet('<h2>Leave for now?</h2><p>Your choices are kept. Found your club whenever you like.</p>' +
+  const signin = fycState().mode === "signin";
+  sheet('<h2>Leave for now?</h2><p>' + (signin ? "Sign in whenever you like: your club waits for you." : "Your choices are kept. Found your club whenever you like.") + '</p>' +
     '<button class="bigbtn bad" onclick="closeSheet();fycLeave()">Leave</button><button class="bigbtn ghost" onclick="closeSheet()">Keep going</button>');
 }
-function fycLeave(){ FYC_VIEW = false; goHome(); }
-/* the sign-in buttons: remember where we are, then the existing link code */
+function fycLeave(){
+  FYC_VIEW = false; fycStopResend();
+  const s = fycState();
+  if(s.sentAt){ s.codeLeft = true; fycSave(s); }      // a code on its way: the next start doesn't pull them back in
+  if(s.from === "settings") return openSettings();
+  if(s.from === "me") return openMe();
+  goHome();
+}
+/* Google and Apple: remember where we are, then the existing link code (an anonymous user is linked in place) */
 function fycSignIn(provider){ const s = fycState(); s.step = 1; s.awaiting = provider; fycSave(s); acctLink(provider); }
-function fycEmail(){ const s = fycState(); s.step = 1; s.awaiting = "email"; fycSave(s); acctEmail(); }
 
-/* ---------- the checks while typing ---------- */
-function fycNameInput(v){
-  const s = fycState(); s.draft.name = String(v || "").slice(0, 24); s.draft.nameOk = false; fycSave(s);
-  const msg = document.getElementById("fycnamemsg"), cnt = document.getElementById("fycnamecnt"), pv = document.getElementById("fycpv");
+/* ---------- the email code (step 1) ----------
+   "Send me a code" emails a 6-digit code and, in the same email, the old link. A guest with an anonymous account
+   (made when founding opens, or by Call It's fast lane) is linked in place with updateUser({email}): Supabase
+   sends its "Change email address" mail, and the code is checked with verifyOtp type "email_change", which makes
+   that same user permanent, so its id and everything on it stay. An email that already has an account, and a
+   phone with no account at all, get signInWithOtp ("Magic link", or "Confirm signup" for a new address), checked
+   with type "email". The link in either email still works as it always did (acctAfterLink). */
+const fycCodeOpen = s => !!(s && s.email && s.sentAt && Date.now() - s.sentAt < 3600e3);
+/* a code on its way and the app was closed to read the email: open on the code again (for 15 minutes) */
+function fycCodeWaiting(){
+  const s = fycState();
+  return FYC_ON && fycTrial() && !s.done && (s.step | 0) === 1 && fycCodeOpen(s) && !s.codeLeft && Date.now() - s.sentAt < 15 * 60e3 && (!S || S.phase === "setup");
+}
+const fycEl = id => { try{ return typeof document !== "undefined" && document.getElementById ? document.getElementById(id) : null; }catch(e){ return null; } };
+function fycCodeSay(t, bad){
+  const s = fycState(); s.codeMsg = t || ""; s.codeBad = !!bad; fycSave(s);
+  const m = fycEl("fyccodemsg"); if(m){ m.textContent = t || ""; m.className = "fycmsg" + (bad ? " bad" : ""); }
+}
+function fycMailSay(t){
+  const s = fycState(); s.mailMsg = t || ""; fycSave(s);
+  const m = fycEl("fycmailmsg"); if(m){ m.textContent = t || ""; m.className = "fycmsg" + (t ? " bad" : ""); }
+}
+async function fycCodeSend(again){
+  audio();
+  const s = fycState(), el = fycEl("acctmail");
+  const email = String(again ? (s.email || "") : (el ? el.value : (s.email || ""))).trim().toLowerCase();
+  const say = t => again ? fycCodeSay(t, true) : fycMailSay(t);
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ say("That doesn't look like an email address."); return false; }
+  const c = sbClient();
+  if(!c || !c.auth || !acctCanSignIn()){ say("Signing in needs a connection. Try again when you're online."); return false; }
+  if(fycCodeBusy) return false;
+  fycCodeBusy = true;
+  const b = fycEl("fycsend"); if(b){ b.disabled = true; b.textContent = "Sending…"; }
+  acctLocalSet({ signedOut: false, nudged: true });
+  const otp = () => c.auth.signInWithOtp({ email, options: { emailRedirectTo: acctRedirect(), shouldCreateUser: true } });
+  let r = null, type = "email";
+  try{
+    if(acct().anon && acct().signedIn){
+      type = "email_change";
+      r = await c.auth.updateUser({ email }, { emailRedirectTo: acctRedirect() });
+      /* an email that already has a BALL account signs in to that one */
+      if(r && r.error && /already|exists|registered/i.test(String(r.error.message || r.error.code || ""))){ type = "email"; r = await otp(); }
+    } else r = await otp();
+  }catch(e){ r = { error: e }; }
+  fycCodeBusy = false;
+  if(b){ b.disabled = false; b.textContent = "Send me a code"; }
+  if(r && r.error){
+    const m = String(r.error.message || r.error.code || r.error), wait = +((m.match(/(\d+)\s*sec/i) || [])[1] || 0);
+    if(/email rate limit|over_email_send_rate/i.test(m)){ say("BALL has sent a lot of emails this hour. Try again later, or continue with Google."); return false; }
+    /* asked again too soon: the last code still works, and the timer says when a new one can go */
+    if(wait || r.error.status === 429 || /rate limit|too many|security purposes/i.test(m)){
+      const st = fycState(), n = wait || FYC_RESEND_S;
+      if(st.email !== email || !st.otpType) st.otpType = type;
+      Object.assign(st, { email, step: 1, sentAt: Date.now() - (FYC_RESEND_S - n) * 1000, mailMsg: "", codeMsg: "We sent one a moment ago: use that code. A new one can go in " + n + " seconds.", codeBad: false });
+      delete st.codeLeft; fycSave(st); render(); return false;
+    }
+    say("That didn't work: " + m.slice(0, 80)); return false;
+  }
+  /* email confirmations switched off on the project: the guest is linked already, nothing to type */
+  const u = r && r.data && r.data.user;
+  if(type === "email_change" && u && String(u.email || "").toLowerCase() === email && !u.new_email){ await fycVerified(null); return true; }
+  const st = fycState();
+  Object.assign(st, { email, otpType: type, sentAt: Date.now(), awaiting: "code", step: 1, mailMsg: "", codeMsg: "", codeBad: false });
+  delete st.codeLeft; fycSave(st);
+  if(again) toast("A new code is on its way.");
+  render();
+  return true;
+}
+/* typed or pasted: digits only, and in at the sixth */
+function fycCodeInput(el){
+  const v = String((el && el.value) || "").replace(/\D/g, "").slice(0, FYC_CODE_LEN);
+  if(el && el.value !== v) el.value = v;
+  if(fycState().codeMsg) fycCodeSay("", false);
+  if(v.length === FYC_CODE_LEN) fycCodeVerify(v);
+}
+async function fycCodeVerify(token){
+  const s = fycState();
+  if(token == null){ const el = fycEl("fyccode"); token = el ? el.value : ""; }
+  token = String(token || "").replace(/\D/g, "");
+  if(token.length !== FYC_CODE_LEN){ fycCodeSay("Six digits, from the newest email.", true); return false; }
+  const c = sbClient();
+  if(!c || !c.auth || !acctCanSignIn()){ fycCodeSay("You're offline. Type it again once you're back online.", true); return false; }
+  if(fycCodeBusy) return false;
+  fycCodeBusy = true; fycCodeSay("Checking…", false);
+  const type = s.otpType === "email_change" ? "email_change" : "email";
+  let r = null;
+  try{ r = await c.auth.verifyOtp({ email: s.email, token, type }); }catch(e){ r = { error: e }; }
+  fycCodeBusy = false;
+  if(!r || r.error){
+    const why = String((r && r.error && (r.error.code || r.error.message)) || "");
+    /* a code that can't make this phone's guest account permanent: the link in the same email can */
+    fycCodeSay(type === "email_change" && why && !/expire|invalid|token|otp|match/i.test(why)
+      ? "That code couldn't link your guest account here. Tap the link in the same email instead: it does the same and keeps everything."
+      : "That code doesn't match, or it has run out. Check the newest email, or send a new one.", true);
+    const el = fycEl("fyccode"); if(el){ el.value = ""; try{ el.focus(); }catch(e){} }
+    return false;
+  }
+  await fycVerified(r.data && r.data.session);
+  return true;
+}
+/* signed in by code: the session in, the profile from the server, then the road a link coming back takes
+   (fycAfterLink: a club already → welcome back and home; none → step 2) */
+async function fycVerified(session){
+  const c = sbClient();
+  if(session) ACCT.session = session;
+  /* a guest made permanent by the code: should its token still say anonymous, a fresh one won't */
+  try{ const u = ACCT.session && ACCT.session.user; if((!u || u.is_anonymous) && c && c.auth && c.auth.refreshSession){ const x = await c.auth.refreshSession(); if(x && x.data && x.data.session) ACCT.session = x.data.session; } }catch(e){}
+  fycStopResend();
+  const s = fycState(); delete s.sentAt; delete s.codeMsg; delete s.codeLeft; s.awaiting = "code"; fycSave(s);
+  acctLocalSet({ signedOut: false, nudged: true });
+  try{ await acctRefresh(); }catch(e){}
+  /* no answer from the server (ensure_profile): on to step 2 all the same; founding waits for it */
+  const st = fycState();
+  if(FYC_VIEW && !FYC_EDIT && !st.done && (st.step | 0) < 2 && acct().linked && !acctLocal().founded){ delete st.awaiting; st.step = 2; fycSave(st); render(); }
+}
+function fycCodeOther(){
+  audio(); fycStopResend();
+  const s = fycState(); delete s.sentAt; delete s.codeMsg; delete s.codeLeft; s.mailMsg = ""; fycSave(s); render();
+  setTimeout(() => { const el = fycEl("acctmail"); if(el) try{ el.focus(); el.select(); }catch(e){} }, 30);
+}
+const fycResendLeft = s => Math.max(0, FYC_RESEND_S - Math.floor((Date.now() - ((s && s.sentAt) || 0)) / 1000));
+const fycResendHTML = left => left > 0 ? '<span>Didn\'t get it? Send again in ' + Math.floor(left / 60) + ':' + String(left % 60).padStart(2, "0") + '</span>'
+  : '<button class="fyclink" onclick="fycCodeSend(true)">Didn\'t get it? Send again</button>';
+function fycResendTick(){
+  fycStopResend();
+  const s = fycState(), el = fycEl("fycresend");
+  if(!el || !fycCodeOpen(s)) return;
+  const left = fycResendLeft(s);
+  el.innerHTML = fycResendHTML(left);
+  if(left > 0) fycResendTimer = setTimeout(fycResendTick, 1000);
+}
+function fycStopResend(){ clearTimeout(fycResendTimer); fycResendTimer = null; }
+
+/* ---------- the checks while typing (step 2) ---------- */
+/* the username a new club starts with: the account's, else the first word of the Google name, else the email's
+   local part, cleaned to the rules (3 to 16 of a-z, 0-9 and _) */
+function fycUserGuess(){
+  const a = acct(), u = ACCT.session && ACCT.session.user, md = (u && u.user_metadata) || {};
+  if(a.username) return a.username;
+  const raw = String(md.full_name || md.name || "").trim().split(/\s+/)[0] || String(a.email || "").split("@")[0];
+  const n = String(raw || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9_]/g, "").slice(0, 16);
+  if(!n) return "";
+  return acctNameOk(n) ? (acctNameSuggest(n)[0] || "") : n;
+}
+/* "<Username> FC" when that passes the quick name check, else nothing (the field shows the hint) */
+function fycClubFor(u){
+  const w = String(u || "").replace(/_+/g, " ").replace(/\s+/g, " ").trim();
+  if(!w) return "";
+  const t = (w.charAt(0).toUpperCase() + w.slice(1)).slice(0, 21) + " FC";
+  return clubNameQuick(t) ? "" : t;
+}
+/* Found my club can be pressed once the server (or, offline, the phone) has said yes to both names */
+function fycReady(){
+  const d = fycState().draft, a = acct();
+  return d.nameOk === true && !clubNameQuick(d.name) && (!!a.username || (d.userOk === true && !acctNameOk(d.username)));
+}
+function fycReadyUpdate(){ const b = fycEl("fycfound"); if(b) b.disabled = !fycReady(); }
+function fycNameInput(v, typed){
+  const s = fycState(); s.draft.name = String(v || "").slice(0, 24); s.draft.nameOk = false; if(typed) s.draft.namePre = false; delete s.problem; fycSave(s);
+  const msg = fycEl("fycnamemsg"), cnt = fycEl("fycnamecnt"), pv = fycEl("fycpv");
   if(cnt) cnt.textContent = s.draft.name.length + " / 24";
   if(pv) pv.innerHTML = clubCrestSVG(fycDesign(), 64, { year: false });
-  const say = (t, ok) => { if(msg){ msg.textContent = t; msg.className = "fycmsg" + (ok ? " ok" : t ? " bad" : ""); } const b = document.getElementById("fycnext"); if(b) b.disabled = !ok; };
+  const say = (t, ok, quiet) => { if(msg){ msg.textContent = t; msg.className = "fycmsg" + (ok ? " ok" : t && !quiet ? " bad" : ""); } fycReadyUpdate(); };
+  if(!s.draft.name.trim()) return say(FYC_NAME_HINT, false, true);
   const q = clubNameQuick(s.draft.name);
   if(q) return say(CLUB_NAME_SAY[q], false);
-  say("Checking…", false);
+  say("Checking…", false, true);
   clearTimeout(fycNameTimer);
+  const name = s.draft.name;
   fycNameTimer = setTimeout(async () => {
     let problem = "";
-    try{ const c = sbClient(); if(c && ACCT.server){ const r = await c.rpc("check_name", { v: s.draft.name, kind: "club" }); if(!r.error && r.data) problem = r.data.ok ? "" : (r.data.problem || "blocked"); } }catch(e){}
-    const st = fycState(); st.draft.nameOk = !problem; fycSave(st);
-    say(problem ? CLUB_NAME_SAY[problem] || CLUB_NAME_SAY.blocked : "Good name. Two clubs may share a name; your @username is what makes you unique.", !problem);
+    try{ const c = sbClient(); if(c && ACCT.server){ const r = await c.rpc("check_name", { v: name, kind: "club" }); if(!r.error && r.data) problem = r.data.ok ? "" : (r.data.problem || "blocked"); } }catch(e){}
+    const st = fycState(); if(st.draft.name !== name) return;
+    /* the name we suggested didn't pass the server: an empty field and the hint, not a red line they never wrote */
+    if(problem && st.draft.namePre){ st.draft.name = ""; st.draft.nameOk = false; fycSave(st); const el = fycEl("fycname"); if(el) el.value = ""; if(cnt) cnt.textContent = "0 / 24"; return say(FYC_NAME_HINT, false, true); }
+    st.draft.nameOk = !problem; fycSave(st);
+    say(problem ? CLUB_NAME_SAY[problem] || CLUB_NAME_SAY.blocked : "Good name.", !problem);
   }, 400);
 }
-function fycPickName(v){ const el = document.getElementById("fycname"); if(el){ el.value = v; fycNameInput(v); } }
-function fycShuffle(){ const s = fycState(); s.draft.seed = (s.draft.seed | 0) + 1; fycSave(s); render(); }
+/* "Need an idea?": the next of the suggestions (from the username and the city) */
+function fycIdea(){
+  audio();
+  const s = fycState(); s.draft.seed = (s.draft.seed | 0) + 1; fycSave(s);
+  const v = fycSuggest(s.draft.seed)[0] || "", el = fycEl("fycname");
+  if(el) el.value = v;
+  fycNameInput(v, true);
+  if(!el) render();
+}
+/* the username: typed, or the one we guessed; the club name follows it while it is still the one we suggested */
 function fycUserInput(v){
-  const name = String(v || "").trim().toLowerCase(), msg = document.getElementById("fycusermsg");
-  fycSet("username", name);
-  const say = (t, ok) => { if(msg){ msg.textContent = t; msg.className = "fycmsg" + (ok ? " ok" : t ? " bad" : ""); } const b = document.getElementById("fycnext"); if(b) b.disabled = !ok; };
+  const name = String(v || "").trim().toLowerCase(), s = fycState();
+  s.draft.username = name; s.draft.userOk = false; delete s.problemUser; fycSave(s);
+  if(s.draft.namePre){ const nm = fycClubFor(name), el = fycEl("fycname"); if(el) el.value = nm; fycNameInput(nm, false); }
+  fycUserCheck(name);
+}
+function fycUserCheck(name){
+  const msg = fycEl("fycusermsg"), box = fycEl("fycusersug");
+  const say = (t, ok, quiet) => { if(msg){ msg.textContent = t; msg.className = "fycmsg" + (ok ? " ok" : t && !quiet ? " bad" : ""); }
+    const st = fycState(); if(st.draft.username === name){ st.draft.userOk = !!ok; fycSave(st); } fycReadyUpdate(); };
+  if(box) box.innerHTML = "";
   const bad = acctNameOk(name);
   if(bad) return say({ short: "At least 3 characters", long: "At most 16 characters", chars: "Only a–z, 0–9 and _" }[bad], false);
-  say("Checking…", false);
+  say("Checking…", false, true);
   clearTimeout(acctNameTimer);
   acctNameTimer = setTimeout(async () => {
     try{
-      const r = await sbClient().rpc("set_username", { name, dry_run: true }), d = r.data || {};
+      const c = sbClient(); if(!c || !c.rpc) throw new Error("offline");
+      const r = await c.rpc("set_username", { name, dry_run: true }), d = r.data || {};
+      if(fycState().draft.username !== name) return;
       if(r.error) return say("@" + name + " looks fine. We'll check it when you're online.", true);
       if(d.ok) return say("@" + name + " is yours if you want it.", true);
-      const sug = acctNameSuggest(name), box = document.getElementById("fycusersug");
+      const sug = acctNameSuggest(name);
       if(box) box.innerHTML = '<span class="fyccap">@' + esc(name) + ' is taken. These are free:</span>' + sug.map(x => '<button onclick="fycPickUser(\'' + x + '\')">@' + esc(x) + '</button>').join("");
       say(({ taken: "Taken, try another", blocked: "That name isn't allowed.", format: "Only a–z, 0–9 and _" })[d.code] || "Not allowed", false);
-    }catch(e){ say("@" + name + " looks fine. We'll check it when you're online.", true); }
+    }catch(e){ if(fycState().draft.username === name) say("@" + name + " looks fine. We'll check it when you're online.", true); }
   }, 400);
 }
-function fycPickUser(v){ const el = document.getElementById("fycuser"); if(el){ el.value = v; fycUserInput(v); } }
-async function fycUserNext(){
-  const name = fycState().draft.username;
-  try{ const r = await sbClient().rpc("set_username", { name, dry_run: false }), d = r.data || {};
-    if(!r.error && d.ok && ACCT.profile) ACCT.profile.username = d.username || name;
-    if(!r.error && d && d.ok === false) return toast(({ taken: "That one's taken.", blocked: "That name isn't allowed." })[d.code] || "Couldn't save that name.", true);
-  }catch(e){}
-  fycGo(4);
+function fycPickUser(v){ const el = fycEl("fycuser"); if(el) el.value = v; fycUserInput(v); }
+/* 16 or older: one tick, never ticked for you. Unticked is the under-16 rules (leagueBlocked "under16") */
+const fyc16Line = on => on ? "Leagues, friends and your name in tables: all on." : "Unticked, the under-16 rules: every game and your club, but no leagues, friends or public name.";
+function fycOver16(on){ fycSet("age", !!on); const l = fycEl("fyc16line"); if(l) l.textContent = fyc16Line(!!on); }
+function fyc16Sheet(){
+  audio();
+  sheet('<h2>What changes under 16</h2><p class="pgsheetp">We don\'t ask your birthday. Leave the tick off if you\'re under 16, and BALL plays by these rules.</p>' +
+    '<div class="fyc16 fyc16sheet"><div><b>Still on</b><span>Every game</span><span>Your club, crest, scarf</span><span>XP, levels, trophies</span><span>The Daily and streaks</span></div>' +
+    '<div><b>Off for now</b><span>Friends\' leagues</span><span>Adding friends</span><span>Your name in public</span><span>News emails</span></div></div>' +
+    '<p class="pgsheetp">Others see you as “Player 4821”. Turned 16? Switch it on in Settings.</p>' +
+    '<button class="bigbtn ghost" onclick="closeSheet()">Got it</button>');
 }
-/* colours: tap a slot, then a swatch */
-function fycSlot(i){ fycSet("slot", i); render(); }
-function fycColour(hex){
-  const s = fycState(), cs = (s.draft.colours || fycDesign().colours).slice(), i = s.draft.slot | 0;
-  cs[i] = hex; s.draft.colours = cs; fycSave(s); render();
-}
-function fycAge(ok){ fycSet("age", !!ok); try{ acctAge(!!ok); }catch(e){} fycGo(6); }
+
+/* ---------- Make it yours: the colours and who-you-support screens (the sign-up's old steps 4 and 6) ---------- */
+function fycSlot(i){ if(!FYC_EDIT) return; FYC_EDIT.d.slot = i | 0; render(); }
+function fycColour(hex){ if(!FYC_EDIT) return; const d = FYC_EDIT.d, cs = d.colours.slice(); cs[d.slot | 0] = hex; d.colours = cs; render(); }
 function fycFav(k, v){
-  const s = fycState(); s.draft.fav = Object.assign({}, s.draft.fav || {}, { [k]: v }); fycSave(s);
-  if(k === "useColours" && v && s.draft.fav.club && CLUBID && CLUBID[s.draft.fav.club]){
-    const c = CLUBID[s.draft.fav.club], near = h => CLUB_PALETTE.map(x => x[0]).sort((a, b) => clubDist(a, h) - clubDist(b, h))[0];
-    s.draft.colours = [near(c.c1), near(c.c2 || "#ffffff"), (s.draft.colours || fycDesign().colours)[2]]; fycSave(s);
+  if(!FYC_EDIT) return;
+  const d = FYC_EDIT.d; d.fav = Object.assign({}, d.fav || {}, { [k]: v });
+  if(k === "useColours" && v && d.fav.club && CLUBID && CLUBID[d.fav.club]){
+    const c = CLUBID[d.fav.club], near = h => CLUB_PALETTE.map(x => x[0]).sort((a, b) => clubDist(a, h) - clubDist(b, h))[0];
+    d.colours = [near(c.c1), near(c.c2 || "#ffffff"), d.colours[2]];
   }
   render();
 }
 function fycClubSearch(v){
-  const box = document.getElementById("fycclubs"); if(!box) return;
+  const box = fycEl("fycclubs"); if(!box) return;
   const q = clubNorm(v);
   if(q.length < 2 || !CLUBID){ box.innerHTML = ""; return; }
   const hits = Object.keys(CLUBID).filter(k => clubNorm(CLUBID[k].name).includes(q)).slice(0, 6);
@@ -25426,23 +25673,39 @@ function fycClubSearch(v){
 }
 
 /* ---------- founding ---------- */
+/* "Found my club": the username (the one thing someone else may have taken), the 16+ tick, then the club. Each is
+   the server's to refuse, and a refusal goes back to step 2 with its message; offline, the draft waits and
+   founds itself once the phone is back */
 async function fycFound(){
   audio();
-  const s = fycState(), design = fycDesign();
-  s.step = 8; s.founding = true; fycSave(s); render();
+  const s = fycState(), a = acct(), d = s.draft;
+  const over = d.age != null ? d.age === true : a.ageOk;
+  if(clubNameQuick(d.name) || (!a.username && acctNameOk(d.username || ""))){ s.step = 2; fycSave(s); render(); return; }
+  const design = fycDesign();
+  s.step = 8; s.founding = true; delete s.problem; delete s.problemUser; fycSave(s); render();
   const c = sbClient();
-  let ok = false, problem = null, saved = null;
+  /* a dead connection waits, it doesn't hang: twelve seconds a call, then "Try again" */
+  const T = p => Promise.race([p, new Promise((_, no) => setTimeout(() => no(new Error("timeout")), 12000))]);
+  let ok = false, problem = null, saved = null, userProblem = null;
   try{
     if(!c || !ACCT.server) throw new Error("offline");
-    /* a dead connection waits, it doesn't hang: twelve seconds, then "Try again" */
-    const r = await Promise.race([c.rpc("set_club", { design }), new Promise((_, no) => setTimeout(() => no(new Error("timeout")), 12000))]);
+    if(!a.username){
+      const r = await T(c.rpc("set_username", { name: d.username, dry_run: false }));
+      if(r.error) throw r.error;
+      if(r.data && r.data.ok === false){ userProblem = r.data.code || "taken"; throw new Error("username"); }
+      if(ACCT.profile) ACCT.profile.username = (r.data && r.data.username) || d.username;
+    }
+    const g = await T(c.rpc("set_age_ok", { ok: !!over }));
+    if(g && !g.error){ acctLocalSet({ asked16: true }); if(g.data && g.data.profile) acctTake(g.data.profile); if(ACCT.profile) ACCT.profile.age_ok = !!over; }
+    const r = await T(c.rpc("set_club", { design }));
     if(r.error) throw r.error;
     ok = !!(r.data && r.data.ok); problem = r.data && r.data.problem;
     saved = r.data && r.data.profile && r.data.profile.club;
     if(r.data && r.data.profile) acctTake(r.data.profile);
-  }catch(e){ problem = "offline"; }
+  }catch(e){ if(!userProblem) problem = "offline"; }
   const st = fycState(); st.founding = false;
-  if(!ok && problem && problem !== "offline"){ st.step = 2; st.draft.nameOk = false; st.problem = problem; fycSave(st); render(); return; }
+  if(userProblem){ st.step = 2; st.draft.userOk = false; st.problemUser = userProblem; fycSave(st); render(); return; }
+  if(!ok && problem && problem !== "offline"){ st.step = 2; st.draft.nameOk = false; st.draft.namePre = false; st.problem = problem; fycSave(st); render(); return; }
   if(!ok){ st.pending = true; fycSave(st); render(); return; }
   fycSave(st);
   fycFounded(saved ? clubClean(saved) : design);
@@ -25453,6 +25716,7 @@ function fycFounded(design){
   st.founding = false;
   acctLocalSet({ founded: true, fav: d.fav || null, marketing: !!d.marketing });
   tlmOnce("found_club");
+  fycMkySet({ fresh: Date.now() });      /* Make it yours: its card on Me, its sheet after the first match */
   try{ localStorage.setItem("ball4-club", JSON.stringify(design)); }catch(e){}
   guestReplay();
   const c = sbClient();
@@ -25467,79 +25731,99 @@ function fycRetry(){ const s = fycState(); if(FYC_ON && s.pending && !acctLocal(
 const clubMine = () => { try{ return clubClean(JSON.parse(localStorage.getItem("ball4-club") || "null") || fycDesign()); }catch(e){ return fycDesign(); } };
 
 /* ---------- the screens ---------- */
+/* step 1: Google (Apple behind ACCT_APPLE) or an email; once a code is on its way, the code on the same screen */
+function fycStep1HTML(s){
+  if(fycCodeOpen(s)){
+    return b4Q("Check your email.", "We sent a 6-digit code to <span class=\"fycaddr\">" + esc(s.email) + "</span>. Type it here.") +
+      '<label class="fycfield"><span>The 6-digit code</span><input id="fyccode" class="fyccode" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="' + FYC_CODE_LEN + '" oninput="fycCodeInput(this)" aria-describedby="fyccodemsg"></label>' +
+      '<p id="fyccodemsg" class="fycmsg' + (s.codeMsg && s.codeBad ? " bad" : "") + '" aria-live="polite">' + esc(s.codeMsg || "") + '</p>' +
+      '<button id="fycverify" class="b4btn gold" onclick="fycCodeVerify()">Sign in</button>' +
+      '<div id="fycresend" class="fycresend">' + fycResendHTML(fycResendLeft(s)) + '</div>' +
+      '<button class="fyclink fycother" onclick="fycCodeOther()">Use a different email</button>' +
+      '<p class="fycnote small">The email has a link too: tap it on this phone if the code won\'t go' + (s.otpType === "email_change" ? ", and your guest account stays yours either way." : ".") + '</p>';
+  }
+  const signin = s.mode === "signin";
+  return b4Q(signin ? "Welcome back." : "First, a way back in.", signin ? "Sign in the way you did before and your club comes to this phone." : "So your club stays yours, on this phone and the next one. No passwords, ever.") +
+    (ACCT_APPLE ? b4Btn("Continue with Apple", "fycSignIn('apple')", "dark") : "") + b4Btn("Continue with Google", "fycSignIn('google')", "dark") +
+    '<div class="fycor"><span>OR BY EMAIL</span></div>' +
+    '<label class="fycfield"><span>Email</span><input id="acctmail" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="you@example.com" value="' + esc(s.email || "") + '" onkeydown="if(event.key===\'Enter\')fycCodeSend()" aria-describedby="fycmailmsg"></label>' +
+    '<p id="fycmailmsg" class="fycmsg' + (s.mailMsg ? " bad" : "") + '" aria-live="polite">' + esc(s.mailMsg || "") + '</p>' +
+    '<button id="fycsend" class="b4btn gold" onclick="fycCodeSend()">Send me a code</button>' +
+    '<p class="fycnote">We email you a 6-digit code. Type it here and you\'re in, without leaving the app.</p>' +
+    '<p class="fycnote small">Your email is only for signing in. Nobody else sees it. <button class="fyclink" onclick="fycPage(\'privacy\')">Privacy</button></p>';
+}
+/* step 2: the username, the club name, the tick, the house rules in a line, Found my club */
+function fycStep2HTML(s){
+  const d = s.draft, a = acct(), fixed = !!a.username;
+  if(!fixed && d.username == null){ d.username = fycUserGuess(); d.namePre = true; }
+  if(d.name == null){ d.name = fycClubFor(fixed ? a.username : d.username); d.namePre = true; }
+  fycSave(s);
+  const un = fixed ? a.username : d.username, nm = d.name || "", design = fycDesign();
+  const over = d.age != null ? d.age === true : a.ageOk;
+  const USAY = { taken: "That one's taken. Try another.", blocked: "That name isn't allowed.", format: "Only a–z, 0–9 and _" };
+  return b4Q("Your club.", "Two names and one tick. Colours and crest come after, whenever you like.") +
+    (fixed ? '<div class="fycfield"><span>Username</span><div class="fycfixed">@' + esc(un) + '<small>yours already</small></div></div>'
+      : '<label class="fycfield"><span>Username <em>how friends find you</em></span><input id="fycuser" maxlength="16" autocapitalize="none" autocomplete="username" spellcheck="false" value="' + esc(un) + '" oninput="fycUserInput(this.value)" aria-describedby="fycusermsg"></label>' +
+        '<p id="fycusermsg" class="fycmsg' + (s.problemUser ? " bad" : "") + '" aria-live="polite">' + (s.problemUser ? esc(USAY[s.problemUser] || "Couldn't save that name.") : "") + '</p><div id="fycusersug" class="fycsug"></div>') +
+    '<div class="fycnamerow"><span id="fycpv" class="fycpv">' + clubCrestSVG(design, 64, { year: false }) + '</span>' +
+      '<label class="fycfield grow"><span>Club name <em id="fycnamecnt">' + nm.length + ' / 24</em></span><input id="fycname" maxlength="24" autocomplete="off" value="' + esc(nm) + '" oninput="fycNameInput(this.value, true)" aria-describedby="fycnamemsg"></label></div>' +
+    '<p id="fycnamemsg" class="fycmsg' + (s.problem ? " bad" : "") + '" aria-live="polite">' + (s.problem ? esc(CLUB_NAME_SAY[s.problem] || CLUB_NAME_SAY.blocked) : nm ? "" : esc(FYC_NAME_HINT)) + '</p>' +
+    '<p class="fycnote small">Your own, not a real club\'s; two clubs may share one, your @username is what makes you unique. You can rename it once a month. <button class="fyclink" onclick="fycIdea()">Need an idea?</button></p>' +
+    '<label class="fyccheck fycover"><input id="fyc16" type="checkbox"' + (over ? " checked" : "") + ' onchange="fycOver16(this.checked)"><span><b>I\'m 16 or older</b><small id="fyc16line" aria-live="polite">' + fyc16Line(over) + '</small></span></label>' +
+    '<button class="fyclink fyc16more" onclick="fyc16Sheet()">What changes under 16</button>' +
+    '<p class="fychouse1"><b>House rules:</b> your own club, not a real one; names you\'d shout in a stadium; play it straight. Founding means you agree to them and to the <button class="fyclink" onclick="fycPage(\'terms\')">Terms</button> · <button class="fyclink" onclick="fycPage(\'privacy\')">Privacy</button></p>' +
+    '<button id="fycfound" class="b4btn gold" onclick="fycFound()"' + (fycReady() ? "" : " disabled") + '>Found my club</button>' +
+    '<p class="fycnote small center">BALL is not affiliated with any club, league, UEFA or FIFA</p>';
+}
 function fycRender(st){
-  const s = fycState(), step = s.step || 1, d = s.draft, a = acct(), design = fycDesign();
-  const head = { title: "Found your club", ctx: "Step " + Math.min(step, 7) + " of 7 · " + (FYC_TITLES[step] || ""), back: "fycBack()", leave: "fycAskLeave()", cls: "fycpage" };
-  const dots = '<div class="fycdots" aria-hidden="true">' + [1, 2, 3, 4, 5, 6, 7].map(i => '<i class="' + (i < step ? "done" : i === step ? "on" : "") + '"></i>').join("") + '</div>';
-  let body = "";
-  if(step === 1){
-    body = b4Q("First, a way back in.", "So your club stays yours, on this phone and the next one. No passwords, ever.") +
-      (ACCT_APPLE ? b4Btn("Continue with Apple", "fycSignIn('apple')", "dark") : "") + b4Btn("Continue with Google", "fycSignIn('google')", "dark") +
-      '<div class="fycor"><span>OR BY EMAIL</span></div><label class="fycfield"><span>Email</span><input id="acctmail" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>' +
-      b4Btn("Email me a link", "fycEmail()", "gold") +
-      '<p class="fycnote">We\'ll send one tap-to-open link. Open it on this phone and you\'re straight back here, at step 2.</p>' +
-      '<p class="fycnote small">Your email is only for signing in. Nobody else sees it. <button class="fyclink" onclick="fycPage(\'privacy\')">Privacy</button></p>';
-  } else if(step === 2){
-    const nm = d.name || "";
-    body = b4Q("Name your club.", "It's on your crest, your scarf and every league table.") +
-      '<div class="fycnamerow"><span id="fycpv" class="fycpv' + (d.colours ? "" : " grey") + '">' + clubCrestSVG(design, 64, { year: false }) + '</span>' +
-      '<label class="fycfield grow"><span>Club name <em id="fycnamecnt">' + nm.length + ' / 24</em></span><input id="fycname" maxlength="24" autocomplete="off" value="' + esc(nm) + '" oninput="fycNameInput(this.value)"></label></div>' +
-      '<p id="fycnamemsg" class="fycmsg' + (s.problem ? " bad" : "") + '" aria-live="polite">' + (s.problem ? esc(CLUB_NAME_SAY[s.problem] || CLUB_NAME_SAY.blocked) : "") + '</p>' +
-      '<div class="fycsug"><span class="fyccap">Or try one of these</span>' + fycSuggest(d.seed).map(x => '<button onclick="fycPickName(\'' + esc(x).replace(/'/g, "\\'") + '\')">' + esc(x) + '</button>').join("") +
-      '<button class="fycshuffle" onclick="fycShuffle()">Shuffle</button></div>' +
-      b4Card('<span class="fyccap light">The rules, short</span><ul class="fycrules"><li>3 to 24 characters: letters, numbers, spaces and \' - . &amp;</li><li>Real clubs keep their own names. “Ajax” or “Real Madrid” won\'t go through.</li><li>You can rename your club later, once a month.</li></ul>') +
-      '<button id="fycnext" class="b4btn gold" onclick="fycState().draft.nameOk?fycGo(3):0"' + (d.name && !clubNameQuick(d.name) ? "" : " disabled") + '>Next</button>';
-  } else if(step === 3){
-    const un = d.username || ((a.email || "").split("@")[0] || "").toLowerCase().replace(/[^a-z0-9_]/g, "").slice(0, 16);
-    body = b4Q("Who's the manager?", "Your username is how friends find you. It's unique, and it's the only name nobody else can have.") +
-      '<label class="fycfield"><span>Username</span><input id="fycuser" maxlength="16" autocapitalize="none" spellcheck="false" autocomplete="off" value="' + esc(un) + '" oninput="fycUserInput(this.value)"></label>' +
-      '<p id="fycusermsg" class="fycmsg" aria-live="polite"></p><p class="fycnote small">3–16 characters: a–z, 0–9 and _. Checked as you type.</p><div id="fycusersug" class="fycsug"></div>' +
-      b4Card('<span class="fyccap light">How others see you</span><div class="fycrowpv">' + clubCrestSVG(design, 30, { mini: true }) + '<span><b>' + esc(design.name) + '</b><small>@' + esc(un || "you") + '</small></span><i>12</i></div>') +
-      '<p class="fycnote small">Your email never shows. Only your club name and @username.</p>' +
-      '<button id="fycnext" class="b4btn gold" onclick="fycUserNext()"' + (un && !acctNameOk(un) ? "" : " disabled") + '>Next</button>';
-    if(un) setTimeout(() => fycUserInput(un), 30);
-  } else if(step === 4){
-    const cs = d.colours || design.colours, slot = d.slot | 0, ok = clubColoursOk({ colours: cs });
-    body = '<div class="fycpvbig">' + clubCrestSVG(design, 96) + clubKitSVG(design, 84) + '</div>' +
+  if(FYC_EDIT) return fycEditRender(st);
+  const s = fycState();
+  let step = s.step || 1;
+  if(step > 2 && step < 8) step = s.step = 2;   /* a flow from the seven-step days carries on at "Your club" */
+  if(step >= 8) return fycReveal(st, s, fycDesign());
+  const signin = s.mode === "signin" && step === 1;
+  const head = { title: signin ? "Sign in" : "Found your club", ctx: signin ? "Your club on this phone" : "Step " + step + " of 2 · " + FYC_TITLES[step], back: "fycBack()", leave: "fycAskLeave()", cls: "fycpage" };
+  const dots = signin ? "" : '<div class="fycdots" aria-hidden="true">' + [1, 2].map(i => '<i class="' + (i < step ? "done" : i === step ? "on" : "") + '"></i>').join("") + '</div>';
+  st.innerHTML = b4Page(Object.assign(head, { body: dots + (step === 1 ? fycStep1HTML(s) : fycStep2HTML(s)) }));
+  if(step === 1 && fycCodeOpen(s)) setTimeout(() => { fycResendTick(); const el = fycEl("fyccode"); if(el && !el.value) try{ el.focus({ preventScroll: true }); }catch(e){} }, 30);
+  /* step 2 checks what it was given: the username we guessed, the name we suggested */
+  if(step === 2) setTimeout(() => {
+    const s2 = fycState();
+    if(!acct().username && s2.draft.username && !s2.problemUser) fycUserCheck(s2.draft.username);
+    if(s2.draft.name && !s2.problem) fycNameInput(s2.draft.name, false);
+  }, 20);
+}
+/* Make it yours: the old step 4 (colours) and step 6 (who you support), as an editor of the founded club */
+function fycEditDesign(){ const d = clubMine(); d.colours = ((FYC_EDIT && FYC_EDIT.d.colours) || d.colours).slice(); return clubClean(d); }
+function fycEditRender(st){
+  const E = FYC_EDIT, d = E.d;
+  let body;
+  if(E.k === "colours"){
+    const design = fycEditDesign(), cs = design.colours, slot = d.slot | 0, ok = clubColoursOk({ colours: cs });
+    body = b4Q("Your colours.", "Two or three. They go on your crest, your kit and your scarf.") +
+      '<div class="fycpvbig">' + clubCrestSVG(design, 96) + clubKitSVG(design, 84) + '</div>' +
       '<div class="fycslots">' + ["Main", "Second", "Trim"].map((l, i) => '<button class="' + (i === slot ? "on" : "") + '" onclick="fycSlot(' + i + ')" aria-pressed="' + (i === slot) + '"><i style="background:' + cs[i] + '"></i><span><small>' + l + '</small><b>' + esc((CLUB_PALETTE.find(x => x[0] === cs[i]) || [0, cs[i]])[1]) + '</b></span></button>').join("") + '</div>' +
-      '<p class="fycmsg ' + (ok ? "ok" : "warn") + '">' + (ok ? "Clear from across the pitch" : "Too close: your main and second colour blur together") + '</p>' +
+      '<p class="fycmsg ' + (ok ? "ok" : "warn") + '" aria-live="polite">' + (ok ? "Clear from across the pitch" : "Too close: your main and second colour blur together") + '</p>' +
       '<div class="fycpal">' + CLUB_PALETTE.map(([h, n]) => '<button aria-label="' + n + '" title="' + n + '" style="background:' + h + '" class="' + (cs[slot] === h ? "on" : "") + '" onclick="fycColour(\'' + h + '\')"></button>').join("") + '</div>' +
-      '<p class="fycnote small">Tap a slot, then a colour. Pick a favourite club at step 6 and it can fill these in for you.</p>' + b4Btn("Next", "fycSet('colours', " + JSON.stringify(cs).replace(/"/g, "'") + ");fycGo(5)", "gold");
-  } else if(step === 5){
-    body = b4Q("Are you 16 or older?", "We don't ask your birthday. Just this, once.") +
-      '<button class="fycage" onclick="fycAge(true)"><b>Yes, 16 or older</b><small>Everything\'s on: leagues, friends, your name in tables.</small></button>' +
-      '<button class="fycage" onclick="fycAge(false)"><b>No, under 16</b><small>You still found your club and keep everything you earn.</small></button>' +
-      b4Card('<span class="fyccap light">What under 16 means</span><div class="fyc16"><div><b>Still on</b><span>Every game</span><span>Your club, crest, scarf</span><span>XP, levels, trophies</span><span>The Daily and streaks</span></div>' +
-        '<div><b>Off for now</b><span>Friends\' leagues</span><span>Adding friends</span><span>Your name in public</span><span>News emails</span></div></div>' +
-        '<p class="fycnote small light">Others see you as “Player 4821” until you turn 16, when it switches on by itself.</p>');
-  } else if(step === 6){
+      '<p class="fycnote small">Tap a slot, then a colour. Or take the colours of the club you support, on its own screen.</p>' +
+      b4Btn("Save colours", "fycEditSave()", "gold") + b4Btn(E.chain ? "Not now" : "Cancel", "fycEditClose()", "quiet");
+  } else {
     const f = d.fav || {}, cl = f.club && CLUBID ? CLUBID[f.club] : null;
     body = b4Q("Who do you support?", "Your own club comes first. But everyone has a real one too.") +
-      '<label class="fycfield"><span>Club</span><input placeholder="Search a club" oninput="fycClubSearch(this.value)" value="' + esc(cl ? cl.name : "") + '"></label><div id="fycclubs" class="fycclubs"></div>' +
+      '<label class="fycfield"><span>Club</span><input placeholder="Search a club" autocomplete="off" oninput="fycClubSearch(this.value)" value="' + esc(cl ? cl.name : "") + '"></label><div id="fycclubs" class="fycclubs"></div>' +
       (cl ? '<label class="fyccheck"><input type="checkbox"' + (f.useColours ? " checked" : "") + ' onchange="fycFav(\'useColours\', this.checked)"> Use their colours for my club instead</label>' : "") +
       '<label class="fycfield"><span>National team</span><select onchange="fycFav(\'nation\', this.value)"><option value="">Pick one</option>' + fycNations().map(([c, n]) => '<option value="' + c + '"' + (f.nation === c ? " selected" : "") + '>' + esc(n) + '</option>').join("") + '</select></label>' +
       '<label class="fycfield"><span>You live in</span><select onchange="fycFav(\'country\', this.value)"><option value="">Pick one</option>' + fycNations().map(([c, n]) => '<option value="' + c + '"' + (f.country === c ? " selected" : "") + '>' + esc(n) + '</option>').join("") + '</select></label>' +
-      b4Card('<span class="fyccap light">What this changes</span><ul class="fycrules"><li>Their knitted scarf in your Locker, from day one</li><li>Your country\'s flag next to your name</li><li>Later: more questions from your league</li></ul>') +
-      b4Btn("Next", "fycGo(7)", "gold") + b4Btn("Skip this", "fycSet('fav', null);fycGo(7)", "quiet");
-  } else if(step === 7){
-    body = b4Q("Three house rules.", "") +
-      '<div class="fychouse"><div><b>Your own club, not a real one</b><span>No copying real clubs, players or people. Support whoever you like; just don\'t pretend to be them.</span></div>' +
-      '<div><b>Names you\'d shout in a stadium</b><span>Nothing offensive. If enough players report a name, we\'ll ask you to pick a new one.</span></div>' +
-      '<div><b>Play it straight</b><span>No looking answers up in leagues. Your friends are trusting you.</span></div></div>' +
-      '<label class="fyccheck"><input type="checkbox"' + (d.marketing ? " checked" : "") + ' onchange="fycSet(\'marketing\', this.checked)"><span><b>Tell me about new modes</b><small>An email now and then. Off unless you tick it. Change it any time in Settings.</small></span></label>' +
-      '<p class="fycnote small">By founding your club you agree to the <button class="fyclink" onclick="fycPage(\'terms\')">terms</button>. What we keep: your email, your username, your club\'s design and your game stats. That\'s all. <button class="fyclink" onclick="fycPage(\'privacy\')">Privacy</button></p>' +
-      b4Btn("Found my club", "fycFound()", "gold") + '<p class="fycnote small center">BALL is not affiliated with any club, league, UEFA or FIFA</p>';
-  } else {
-    return fycReveal(st, s, design);
+      b4Card('<span class="fyccap light">What this changes</span><ul class="fycrules"><li>Their knitted scarf in your Locker</li><li>Your country\'s flag next to your name</li><li>Later: more questions from your league</li></ul>') +
+      b4Btn("Save", "fycEditSave()", "gold") + b4Btn("Skip this", "fycEditClose()", "quiet");
   }
-  st.innerHTML = b4Page(Object.assign(head, { body: dots + body }));
-  if(step === 2 && d.name) setTimeout(() => { const el = document.getElementById("fycname"); if(el && !s.problem) fycNameInput(el.value); }, 20);
+  st.innerHTML = b4Page({ title: "Make it yours", ctx: E.k === "colours" ? "Your colours" : "Who you support", back: "fycEditClose()", cls: "fycpage", body });
 }
 /* S8: the reveal (or the waiting room when the server can't be reached) */
 function fycReveal(st, s, design){
   if(s.founding){ st.innerHTML = b4Page({ title: "Found your club", ctx: "Founding…", cls: "fycpage", body: '<div class="fycwait">' + clubCrestSVG(design, 140) + '<p>Founding ' + esc(design.name) + '…</p></div>' }); return; }
   if(s.pending && !s.done){
-    st.innerHTML = b4Page({ title: "Found your club", ctx: "Almost there", back: "fycGo(7)", cls: "fycpage", body: '<div class="fycwait">' + clubCrestSVG(design, 140) +
+    st.innerHTML = b4Page({ title: "Found your club", ctx: "Almost there", back: "fycGo(2)", cls: "fycpage", body: '<div class="fycwait">' + clubCrestSVG(design, 140) +
       '<p>We\'ll found your club as soon as you\'re online. Everything you picked is kept on this phone.</p></div>' + b4Btn("Try again", "fycFound()", "gold") + b4Btn("Keep playing", "fycLeave()", "quiet") });
     return;
   }
@@ -25554,7 +25838,95 @@ function fycReveal(st, s, design){
     b4Btn("Make it yours", "fycDone('edit')", "gold") + b4Btn("Later — let's play", "fycDone('home')", "quiet") + '</div>';
   setTimeout(() => { try{ const cv = document.getElementById("fycscarf"); if(cv && typeof Crests !== "undefined" && Crests.wave) Crests.wave(cv, clubScarfClub(design), { cell: 4 }); }catch(e){} }, 60);
 }
-function fycDone(where){ audio(); const s = fycState(); fycSave({ done: true, at: Date.now() }); FYC_VIEW = false; if(where === "edit" && typeof openClub === "function") return openClub(); goHome(); }
+function fycDone(where){
+  audio(); fycSave({ done: true, at: Date.now() }); FYC_VIEW = false;
+  if(where === "edit") return fycEdit("colours", { chain: true, from: "home" });
+  goHome();
+  /* an invite that waited for the club (a guest who came by a league link) opens now */
+  setTimeout(() => { try{ if(acctLocal().join) acctJoinPending(); }catch(e){} }, 0);
+}
+/* ---------- MAKE IT YOURS (2 Nov 2026: out of the sign-up) ----------
+   Colours and the club you support were steps 4 and 6 of founding. They are the same screens now, opened from
+   the reveal, from a card on Me (until both are done or the card is put away; the Your club panel keeps a way
+   in for good) and once as a gentle sheet after the first match as a club. Until then the club is drawn from its
+   name in the default colours. Colours save through the club design (ball4-club and the outbox's set_club; the
+   name is unchanged, so the 30-day rename rule never bites), the club you support through set_favourites.
+   acctLocal().mky: {fresh, colours, fav, hide, due, asked}; the card is only for clubs founded since (fresh). */
+function fycMky(){ const m = acctLocal().mky; return m && typeof m === "object" ? m : {}; }
+function fycMkySet(o){ acctLocalSet({ mky: Object.assign(fycMky(), o) }); }
+const fycMkyOpen = () => fycClubOn() && !!fycMky().fresh && !fycMky().hide && !(fycMky().colours && fycMky().fav);
+function fycEdit(k, o){
+  audio(); o = o || {};
+  if(fycTrial()) return openFyc();
+  const from = o.from || (ME_VIEW ? "me" : "home"), cur = clubMine();
+  FYC_EDIT = { k: k === "fav" ? "fav" : "colours", d: { colours: cur.colours.slice(), slot: 0, fav: Object.assign({}, acctLocal().fav || {}) }, chain: !!o.chain, from };
+  ME_VIEW = null; CLUB_VIEW = null; LOCKER_VIEW = null;
+  FYC_VIEW = true; render(); try{ window.scrollTo(0, 0); }catch(e){}
+}
+function fycEditSave(){
+  audio();
+  const E = FYC_EDIT; if(!E) return false;
+  const f = E.d.fav || {};
+  if(E.k === "colours" || (E.k === "fav" && f.useColours)){
+    const d = fycEditDesign();
+    try{ localStorage.setItem("ball4-club", JSON.stringify(d)); }catch(e){}
+    outboxPush("club", d, "club"); try{ outboxFlush(); }catch(e){}
+  }
+  if(E.k === "colours"){ fycMkySet({ colours: Date.now() }); toast("Colours saved."); }
+  else {
+    const fav = { club: f.club || null, nation: f.nation || null, country: f.country || null, useColours: !!f.useColours };
+    acctLocalSet({ fav });
+    fycFavSend();
+    /* the club you support: its scarf in your Locker, no XP for it */
+    try{ if(fav.club && CLUBID && CLUBID[fav.club]){ const p = progLoad(); p.scarves = p.scarves || {}; if(!p.scarves[CLUBID[fav.club].name]){ p.scarves[CLUBID[fav.club].name] = Date.now(); progSave(p); } } }catch(e){}
+    if(fav.club || fav.nation || fav.country) fycMkySet({ fav: Date.now() });
+    toast("Saved.");
+  }
+  /* from the reveal or the sheet: colours, then who you support, then Me with the club in its new colours */
+  if(E.chain && E.k === "colours"){ FYC_EDIT = { k: "fav", d: E.d, chain: true, from: E.from }; render(); try{ window.scrollTo(0, 0); }catch(e){} return true; }
+  fycEditClose(true);
+  return true;
+}
+function fycEditClose(done){ audio(); const E = FYC_EDIT; FYC_EDIT = null; FYC_VIEW = false; if(E && (E.from === "me" || (done && E.chain))) return openMe(); goHome(); }
+/* the club you support, to the server; kept as pending while offline, sent again on the next start */
+function fycFavSend(){
+  const f = acctLocal().fav || {}, c = sbClient();
+  acctLocalSet({ favPending: true });
+  if(!c || !c.rpc || !ACCT.server) return false;
+  try{ c.rpc("set_favourites", { club: f.club || null, nation: f.nation || null, country: f.country || null }).then(r => { if(r && !r.error) acctLocalSet({ favPending: false }); }, () => {}); }catch(e){}
+  return true;
+}
+/* the card on Me */
+function fycMkyCardHTML(){
+  if(!fycMkyOpen()) return "";
+  const m = fycMky(), d = clubMine();
+  const row = (done, go, title, sub) => '<button class="mkrow' + (done ? " done" : "") + '" onclick="' + go + '"><span><b>' + title + '</b><small>' + sub + '</small></span>' + (done ? ico("check") : '<i aria-hidden="true">›</i>') + '</button>';
+  return '<div class="mkcard"><div class="mkhd"><span class="mkk">Make it yours</span><button class="mkx" onclick="fycMkyHide()" aria-label="Put this card away">' + ico("close") + '</button></div>' +
+    '<p class="mklora">' + esc(d.name) + ' is drawn from its name for now. Give it your colours, and say who you support.</p>' +
+    row(!!m.colours, "fycEdit('colours')", "Your colours", '<span class="mksw">' + d.colours.slice(0, 3).map(c => '<i style="background:' + c + '"></i>').join("") + '</span>Two or three, from thirty') +
+    row(!!m.fav, "fycEdit('fav')", "Who you support", "Their scarf goes in your Locker") +
+    row(false, "openClub('crest')", "Crest, kit and scarf", "Shape, pattern, emblem, motto") + '</div>';
+}
+function fycMkyHide(){ audio(); fycMkySet({ hide: Date.now() }); toast("Colours and who you support stay under Your club."); render(); }
+/* once, after the first match as a club: a gentle sheet on the way home */
+function fycMkyMaybe(){
+  const m = fycMky();
+  if(!m.due || m.asked || !fycMkyOpen() || FYC_VIEW || (S && S.phase && S.phase !== "setup" && S.phase !== "results")) return false;
+  fycMkySet({ due: false, asked: Date.now() });
+  const d = clubMine();
+  sheet('<div class="fycback">' + clubCrestSVG(d, 72) + '<h2>Make it yours</h2><p class="pgsheetp">Your first match as ' + esc(d.name) + '. Now give the club your colours and say who you support: a minute, no more.</p>' +
+    '<button class="bigbtn" onclick="closeSheet();fycEdit(\'colours\', { chain: true, from: \'home\' })">Pick my colours</button><button class="bigbtn ghost" onclick="closeSheet()">Later</button></div>');
+  return true;
+}
+/* a returning player on a new phone: home, with the club, and one line to say so */
+function fycWelcomeBack(d){
+  const p = progLoad(), L = levelOf(p.xp || 0), u = acct().username;
+  sheet('<div class="fycback">' + clubCrestSVG(d, 96) + '<h2>Welcome back, ' + esc(d.name) + '</h2>' +
+    '<p class="pgsheetp">' + (u ? "@" + esc(u) + " · " : "") + 'Level ' + L.level + '. Your club is on this phone now.</p>' +
+    '<button class="bigbtn" onclick="closeSheet()">Let\'s play</button></div>');
+}
+/* "Already have a club? Sign in": one quiet line for a guest (the first-open home, Me) */
+const fycSignInLineHTML = cls => FYC_ON && fycTrial() ? '<button class="fycsignin' + (cls ? " " + cls : "") + '" onclick="fycSignInStart()">Already have a club? <u>Sign in</u></button>' : "";
 /* nations for the pickers: the flags BALL has, by name */
 function fycNations(){
   if(fycNations._c) return fycNations._c;
@@ -25572,7 +25944,7 @@ function fycPage(which){ if(typeof legalPage === "function") return legalPage(wh
    on this phone starts from its own club on the server. */
 const FYC_STASH_KEYS = ["ball4-prog", "ball4-club", "ball4-best", "ball4-mine", "ball4-theme", "ball4-lists", "ball4-outbox", "ball4-fyc",
   "ball4-guest", "ball4-guest-prog", "ball4-guest-best"];
-const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported"];
+const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported", "mky", "favPending"];
 function fycStash(uid){
   if(!uid) return false;
   const o = { at: Date.now(), keys: {}, acct: {} }, loc = acctLocal();
@@ -25600,28 +25972,43 @@ function fycUnstash(uid){
 function fycAdopt(a){
   const club = ACCT.profile && ACCT.profile.club;
   if(!club) return false;
+  const pr = ACCT.profile, s = fycState(), viaFlow = FYC_VIEW || !!s.awaiting || (!!s.step && !s.done);
+  const d = clubClean(club);
   if(!fycUnstash(a.id)){
     acctLocalSet({ founded: true });
-    try{ localStorage.setItem("ball4-club", JSON.stringify(clubClean(club))); }catch(e){}
+    try{ localStorage.setItem("ball4-club", JSON.stringify(d)); }catch(e){}
     guestReplay();
-    try{ acctTake(ACCT.profile); }catch(e){}
+    try{ acctTake(pr); }catch(e){}
+    /* a new phone: the club you support comes down too, and Make it yours only if it never was */
+    if(!acctLocal().fav && (pr.fav_club || pr.fav_nation || pr.country)) acctLocalSet({ fav: { club: pr.fav_club || null, nation: pr.fav_nation || null, country: pr.country || null } });
+    const plain = JSON.stringify(d.colours) === JSON.stringify(clubDefault("", null).colours);
+    if(plain && !pr.fav_club) fycMkySet({ fresh: Date.now() });
   }
+  /* the server has the 16+ answer: this phone doesn't ask it again */
+  if(pr && typeof pr.age_ok === "boolean") acctLocalSet({ asked16: true });
   fycSave({ done: true, at: Date.now() });
-  if(FYC_VIEW){ FYC_VIEW = false; }
-  try{ toast("Welcome back, " + clubClean(club).name + "."); }catch(e){}
+  FYC_VIEW = false; FYC_EDIT = null; fycStopResend();
+  /* through "Sign in" (a code, or Google coming back): home, with the club, and a welcome */
+  if(viaFlow){ try{ goHome(); }catch(e){} setTimeout(() => { try{ fycWelcomeBack(d); }catch(e){} }, 150); return true; }
+  try{ toast("Welcome back, " + d.name + "."); }catch(e){}
   try{ render(); }catch(e){}
   return true;
 }
-/* the link came back (or this account was linked before clubs existed) */
+/* the link came back, a code was typed (or this account was linked before clubs existed) */
 function fycAfterLink(){
   const a = acct();
-  if(!FYC_ON || !a.server || !a.linked || acctLocal().founded) return false;
+  /* a code on its way and the app was closed to read the email: back on the code */
+  if(!a.linked && !FYC_VIEW && fycCodeWaiting()){ FYC_EDIT = null; FYC_VIEW = true; try{ render(); }catch(e){} return true; }
+  if(!FYC_ON || !a.server || !a.linked) return false;
+  /* the club you support, told to the server once it can hear it */
+  try{ if(acctLocal().favPending && acctLocal().founded) fycFavSend(); }catch(e){}
+  if(acctLocal().founded) return false;
   if(fycAdopt(a)) return true;
   const s = fycState();
   if(s.awaiting || (s.step && !s.done)){
-    if((s.step | 0) < 2) s.step = 2;
-    delete s.awaiting; fycSave(s);
-    FYC_VIEW = true; render();
+    if((s.step | 0) < 2 || (s.step > 2 && s.step < 8)) s.step = 2;
+    delete s.awaiting; delete s.sentAt; fycSave(s);
+    FYC_EDIT = null; FYC_VIEW = true; render();
     return true;
   }
   fycMigrate();
@@ -25632,7 +26019,7 @@ function fycAfterLink(){
 function fycMigrate(){
   const a = acct(), m = mine(), fav = (m && m.fav && m.fav.club) || null;
   const design = clubClean(clubDefault(a.username || "", fav));
-  fycSave({ step: 8, draft: { username: a.username || "", name: design.name, colours: design.colours }, migrated: true });
+  fycSave({ step: 8, draft: { username: a.username || "", name: design.name, colours: design.colours }, migrated: true }); fycMkySet({ fresh: Date.now() });
   try{ const c = sbClient(); if(c) c.rpc("set_club", { design }).then(() => {}, () => {}); }catch(e){}
   acctLocalSet({ founded: true });
   try{ localStorage.setItem("ball4-club", JSON.stringify(design)); }catch(e){}
@@ -25920,7 +26307,8 @@ function meClubPanelHTML(){
   const tile = (tab, art, label) => '<button class="mctile" onclick="openClub(\'' + tab + '\')"><span>' + art + '</span><small>' + label + '</small></button>';
   return '<div class="b6hdr mcpanelh">Your club <button onclick="openClub(\'next\')">What\'s next ›</button></div>' +
     '<div class="mctiles">' + tile("crest", clubCrestSVG(d, 54, { year: false }), "Crest") + tile("kit", clubKitSVG(d, 60), "Kit") +
-      tile("scarf", u ? '<img src="' + u + '" alt="">' : "", "Scarf") + '</div>' + b4Btn("Edit your club", "openClub('crest')", "dark");
+      tile("scarf", u ? '<img src="' + u + '" alt="">' : "", "Scarf") + '</div>' +
+    '<div class="mclinks"><button onclick="fycEdit(\'colours\')">Colours ›</button><button onclick="fycEdit(\'fav\')">Who you support ›</button></div>' + b4Btn("Edit your club", "openClub('crest')", "dark");
 }
 /* the League's View club sheet: crest, kit front and back, scarf, motto, level */
 let LG_ROWS = [];
@@ -26047,7 +26435,7 @@ function legalRender(st){
       H("Play it straight") + P("No looking answers up during league or online matches. Your friends are trusting you. We may remove results that clearly weren't played straight.") +
       H("Played for glory") + P("There are no prizes and no money anywhere in BALL or Call It: nothing to pay in, nothing to be won but a place in the table.") +
       H("The small print") + P("BALL is a free football quiz made by one fan. It is not affiliated with any club, league, UEFA or FIFA. Club and player names in questions are used to describe facts. Dutch law applies. We may change these terms; if we do, we'll say so in the app.")
-    : H("What we keep") + P("Your email address (for signing in only; nobody else sees it), your username, your club's design, the club and national team you support and the country you live in (if you picked them), your game stats (matches, rating, XP, titles, leagues, answers to questions), and the reports you sent.") +
+    : H("What we keep") + P("Your email address (for signing in only; nobody else sees it), your username, your club's design, the club and national team you support and the country you live in (if you picked them), your game stats (matches, rating, XP, titles, leagues, answers to questions), and the reports you sent. Your game progress and settings, so they follow you to every phone you sign in on.") +
       H("Why") + P("To keep your club and your progress across phones, to run leagues with your friends, to rate how hard each question is, and to keep names in leagues clean.") +
       H("Who sees what") + P("League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as “Player NNNN” and your club stays private. Reports are anonymous.") +
       H("Emails") + P("Only the sign-in link, unless you ticked “Tell me about new modes”. You can switch that off any time in Settings.") +
@@ -26552,7 +26940,7 @@ function renderMe(st){
       '<div class="pgbar"><i style="width:' + Math.max(L.into ? 2 : 0, L.into / L.need * 100).toFixed(1) + '%"></i></div>' +
       '<small>' + nf(L.need - L.into) + ' XP to level ' + (L.level + 1) + (rk.next ? ' · ' + esc(rk.next.name) + ' at ' + rk.next.at : '') + '</small></div>' +
     rating) +
-    '<div class="metwo">' + streakCard + league + '</div>' + (club ? meClubPanelHTML() : trial ? fycCardHTML("me") : "") +
+    '<div class="metwo">' + streakCard + league + '</div>' + (club ? fycMkyCardHTML() + meClubPanelHTML() : trial ? fycCardHTML("me") + fycSignInLineHTML("mesignin") : "") +
     (sc.length ? '<div class="b6hdr">Scarves</div><div class="merack"><i class="merail"></i><div>' + sc.map(t => scarfMiniSVG(t, 34)).join("") + '</div></div>' : "") +
     (record.length ? '<div class="b6hdr">Your record</div><div class="pgstats">' + record.map(r => '<div>' + r[0] + '</div>').join("") + '</div>' : "") +
     (a.server && !a.linked && !FYC_ON ? acctSaveHTML(false) : "") +
@@ -26835,6 +27223,7 @@ async function acctBoot(){
     if(c.auth.onAuthStateChange) c.auth.onAuthStateChange((ev, s2) => {
       ACCT.session = s2;
       if(ev === "SIGNED_IN" || ev === "USER_UPDATED") setTimeout(acctRefresh, 0);
+      if(ev === "SIGNED_IN") syncNeed("signin");   // one save on every phone: a new phone pulls the club's save (assets/sync/sync.js)
     });
   }catch(e){ ACCT.err = String((e && e.message) || e); ACCT.server = false; }
   ACCT.ready = true;
@@ -26843,6 +27232,7 @@ async function acctBoot(){
   /* Call It's fast lane: a guest who came by an invite link has no account yet (the trial makes none), so the
      invite waits on the League tab, where one tap starts a guest account and opens the league */
   else if(PL_ON && acctLocal().join && !acctLocal().signedOut && fycTrial() && !LEAGUE_VIEW && (!S || S.phase === "setup")){ try{ openLeague(); }catch(e){} }
+  if(ACCT.server) syncNeed("boot");   // one save on every phone (assets/sync/sync.js; a guest without a club: nothing)
   try{ supBoot(); }catch(e){}
   try{ p2Boot(); }catch(e){}
   if(ME_VIEW || LEAGUE_VIEW || LOCKER_VIEW) try{ render(); }catch(e){}
@@ -27263,6 +27653,11 @@ function acctNudge(){
 function acctSaveHTML(inSheet){
   const a = acct();
   if(!a.server && !acctCanSignIn()) return '<div class="acsave"><b>Save your career</b><span class="acnote">Saving to the cloud isn\'t available right now. Everything you play stays on this phone, and it syncs as soon as it can.</span></div>';
+  /* Found your club: one way back in, its step 1 (Google, Apple, or a 6-digit code by email) */
+  if(FYC_ON) return '<div class="acsave"><b>Already have a club?</b><span class="acnote">Sign in with the same Google account or email and your club comes to this phone: level, scarves and all.</span>' +
+    '<button class="acbtn mail" onclick="fycSignInStart()">Sign in</button>' +
+    (fycTrial() ? '<span class="acfine">New here? <button class="fyclink" onclick="closeSheet();openFyc()">Found your club</button> and keep what you play.</span>' : "") +
+    (inSheet ? '<button class="acnot" onclick="closeSheet()">Not now</button>' : "") + '</div>';
   return '<div class="acsave"><b>' + (FYC_ON ? "Sign in to your club" : "Save your career") + '</b>' +
     '<span class="acnote">' + (FYC_ON ? "Already founded a club? Sign in with the same account and it comes back. New here? Found your club from the Me tab." : "Sign in to keep your level, rating and locker safe, and to join leagues with friends. You can keep playing without it.") + '</span>' +
     (ACCT_APPLE ? '<button class="acbtn apple" onclick="acctLink(\'apple\')"><svg viewBox="0 0 16 19" aria-hidden="true"><path d="M13.2 10.1c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C3.7 4.9 2.2 5.8 1.4 7.2-.2 10-.0 14.2 1.5 16.4c.7 1.1 1.6 2.3 2.8 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7c1.2 0 2-1.1 2.7-2.2.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.3-.9-2.3-3.8zM10.9 3.3c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z" fill="#fff"/></svg>Continue with Apple</button>' : "") +
@@ -27345,10 +27740,12 @@ function renderSettings(st){
       ? '<div class="accard"><span><small>Signed in as</small><b>' + esc(a.username || a.email || "you") + '</b>' + (a.email && a.username ? '<em>' + esc(a.email) + '</em>' : "") + '</span>' +
         '<button class="acsmall" onclick="acctSignOut()">Sign out</button></div>' +
         (!a.username ? '<button class="b6dark pgsmall" onclick="acctUsernameSheet()">Pick a username</button>' : "") +
-        (a.username && !a.asked16 ? '<button class="b6dark pgsmall" onclick="acctAgeSheet()">Friends &amp; leagues: confirm your age</button>' : "")
+        (a.username && !a.asked16 ? '<button class="b6dark pgsmall" onclick="acctAgeSheet()">Friends &amp; leagues: confirm your age</button>' : "") +
+        (FYC_ON && a.username && a.asked16 && !a.ageOk && a.server ? '<button class="b6dark pgsmall" onclick="acctAgeSheet()">Turned 16? Switch on leagues and friends</button>' : "")
       : acctSaveHTML(false)) +
     (p2On() ? '<div class="accard"><span><small>Player 2 on this phone</small><b>' + esc(p2Name()) + '</b></span><button class="acsmall" onclick="p2SignOut()">Sign out</button></div>' : "") +
-    '<div class="acsync">' + (a.server ? (q ? q + " thing" + (q === 1 ? "" : "s") + " waiting to sync" : (p.synced ? "✓ Synced" : "Connected")) : "Offline: everything is kept on this phone") + '</div>' +
+    ((typeof syncStatusHTML === "function" && syncStatusHTML()) ||   // one save on every phone: "Saved to your club · just now"
+      '<div class="acsync">' + (a.server ? (q ? q + " thing" + (q === 1 ? "" : "s") + " waiting to sync" : (p.synced ? "✓ Synced" : "Connected")) : "Offline: everything is kept on this phone") + '</div>') +
     (fycClubOn() ? '<div class="b6hdr">Your club</div><button class="b6dark pgsmall" onclick="settingsRename()">Rename your club</button>' +
       '<label class="fyccheck acnews"><input type="checkbox"' + (acctLocal().marketing ? " checked" : "") + ' onchange="fycMarketing(this.checked)"><span><b>Tell me about new modes</b><small>An email now and then. Off unless you tick it.</small></span></label>' : "") +
     pushSettingsRow() +
@@ -27362,7 +27759,7 @@ function renderSettings(st){
           '<div class="acrow"><button class="acsmall" onclick="ACCT_DEL=false;render()">Keep it</button><button class="acsmall red" onclick="acctDelete()">Delete for good</button></div></div>'
         : '<button class="acdelbtn" onclick="ACCT_DEL=true;render()">Delete my account</button>')
       : "") +
-    '<details class="acinfo"><summary>Privacy</summary><p>BALL stores a user id, your username, your email address (kept by our sign-in provider, Supabase Auth), your pennant design and your game stats: matches, rating, XP, titles, leagues and answers to questions. No real name, no birth date, no location, no contacts and no photos.</p>' +
+    '<details class="acinfo"><summary>Privacy</summary><p>BALL stores a user id, your username, your email address (kept by our sign-in provider, Supabase Auth), your pennant design and your game stats: matches, rating, XP, titles, leagues and answers to questions. Your game progress and settings, so they follow you to every phone you sign in on. No real name, no birth date, no location, no contacts and no photos.</p>' +
       '<p>We use it to keep your career across phones, to run leagues with your friends and to rate how hard each question is. Only league mates see your username, pennant, level, rating and title.</p>' +
       '<p>If the app breaks it sends us a crash report (the error, the build, a coarse browser label like "Chrome 141 · Android") and a few anonymous usage counts, under a random id for this install that is never linked to your account; they are deleted after 180 days. Reminders, if you turn them on, keep your browser\'s push address with us until you switch them off.</p>' +
       '<p>Export it any time from this page, or delete your account here: that removes everything on the server.</p></details>' +
@@ -27496,6 +27893,34 @@ function pushSettingsRow(){
   return "";
 }
 try{ if(PUSH_ON && /"on":true/.test(localStorage.getItem("ball4-push") || "")) setTimeout(() => pushHook("boot"), 4000); }catch(e){}
+/* ONE SAVE ON EVERY PHONE (_plans/leagues-signup-sync.md §3; every key and its rule: _plans/sync.md): assets/sync/sync.js
+   comes when a club signs in (acctBoot with the server up, a sign-in) and at start on a phone that synced before, so a
+   change made offline is noticed. Never for a guest without a club (decision 4). SYNC_DEFAULT on; ?sync=0 / ?sync=1
+   switch it for one phone. The test harness has no location and keeps it off unless a test switches it on. */
+const SYNC_DEFAULT = true;
+let SYNC_ON = (() => { try{
+  const q = (typeof location !== "undefined" && location.search) || "";
+  if(/[?&]sync=1\b/.test(q)) localStorage.setItem("ball4-sync-on", "1");
+  if(/[?&]sync=0\b/.test(q)) localStorage.setItem("ball4-sync-on", "0");
+  const v = localStorage.getItem("ball4-sync-on");
+  return v === "1" ? true : v === "0" ? false : SYNC_DEFAULT && typeof location !== "undefined" && /^https?:$/.test(location.protocol || "");
+}catch(e){ return false; } })();
+let SYNC_LOAD = 0, SYNC_WHY = [];      // 0 not asked, 1 on its way, 2 here, -1 failed
+function syncNeed(why){
+  if(!SYNC_ON) return false;
+  if(SYNC_LOAD === 2 || typeof syncCheck === "function"){ SYNC_LOAD = 2; try{ syncCheck(why); }catch(e){} return true; }
+  SYNC_WHY.push(why);
+  if(SYNC_LOAD === 1) return false;
+  SYNC_LOAD = 1;
+  try{
+    const s = document.createElement("script"); s.src = "assets/sync/sync.js";
+    s.onload = () => { SYNC_LOAD = typeof syncCheck === "function" ? 2 : -1; const w = SYNC_WHY; SYNC_WHY = []; if(SYNC_LOAD === 2) w.forEach(x => { try{ syncCheck(x); }catch(e){} }); };
+    s.onerror = () => { SYNC_LOAD = -1; };
+    document.head.appendChild(s);
+  }catch(e){ SYNC_LOAD = -1; }
+  return false;
+}
+try{ if(SYNC_ON && localStorage.getItem("ball4-sync")) setTimeout(() => syncNeed("start"), 0); }catch(e){}
 const PL_DEFAULT = true;
 let PL_ON = (() => { try{
   const q = (typeof location !== "undefined" && location.search) || "";
@@ -30231,7 +30656,7 @@ function setPlay(v){
   render();
 }
 function setMc(v){ snapshotNames(); setupMc=v; render(); }
-function goHome(){ snapshotNames(); FYC_VIEW=false; CLUB_VIEW=null; LEGAL_VIEW=null; if(TT_VIEW) stopTimer(); TT_VIEW=null; GTP_VIEW=false; if(LISTS_VIEW){ try{ if(LISTS_TIMER){ clearInterval(LISTS_TIMER); LISTS_TIMER=null; } listsKeep(); }catch(e){} LSG=null; } LISTS_VIEW=null; b4Step=null; b4Open=null; ME_VIEW=null; LEAGUE_VIEW=null; LOCKER_VIEW=null; setupMode=null; modesOpen=false; extraOpen=false; render(); feelScrollBack("home");  if(FYC_ON) setTimeout(fycMaybeAsk, 350); }
+function goHome(){ snapshotNames(); FYC_VIEW=false; FYC_EDIT=null; CLUB_VIEW=null; LEGAL_VIEW=null; if(TT_VIEW) stopTimer(); TT_VIEW=null; GTP_VIEW=false; if(LISTS_VIEW){ try{ if(LISTS_TIMER){ clearInterval(LISTS_TIMER); LISTS_TIMER=null; } listsKeep(); }catch(e){} LSG=null; } LISTS_VIEW=null; b4Step=null; b4Open=null; ME_VIEW=null; LEAGUE_VIEW=null; LOCKER_VIEW=null; setupMode=null; modesOpen=false; extraOpen=false; render(); feelScrollBack("home");  if(FYC_ON) setTimeout(fycMaybeAsk, 350); }
 function toggleModes(){
   snapshotNames();
   modesOpen=!modesOpen;
@@ -37096,6 +37521,8 @@ function b6FrontFirst(saved){
     '<button class="b4btn dark" onclick="quickMatch()">Or a quick match</button>' +
     /* the Match Centre, one quiet line (MC v3): the board's one way in stays the gold one */
     (typeof PL_ON !== "undefined" && PL_ON ? '<button class="t3mcfirst" onclick="openLeague()">Match Centre · the tables and your mates’ calls ›</button>' : "") +
+    /* a returning player on a new phone: one quiet line to their club (Found your club) */
+    fycSignInLineHTML("t3signin") +
     '<div class="t3safe">' + ico("shield") + 'No account needed. Saved on this phone.</div>';
 }
 function b6FrontDaily(saved){

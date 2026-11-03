@@ -688,17 +688,39 @@
   .mksw i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.2)}
   .mclinks{display:flex;gap:8px;margin:6px 0 0}
   .mclinks button{flex:1;min-height:44px;border:0;background:none;color:var(--th-ink);cursor:pointer;font:800 13px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
-  .fycreveal{position:fixed;inset:0;z-index:50;overflow-y:auto;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;padding:0 20px 40px;text-align:center;
-    background:radial-gradient(70% 38% at 50% 30%,rgba(255,236,170,.32),rgba(255,236,170,0) 70%),linear-gradient(180deg,rgba(6,26,14,.55) 0%,rgba(6,26,14,.25) 40%,rgba(6,26,14,.78) 100%),var(--grass) 0 0/780px auto repeat #1d5232}
-  .fyck{margin:28px 0 10px;padding:6px 14px;border-radius:999px;background:#e9b84c;color:#241B08;font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase}
-  .fycreveal svg{filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
-  .fycreveal h1{margin:14px 0 4px;color:#f3ecda;font:italic 900 40px/.95 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;text-shadow:1px 1px 0 #e9b84c}
+  /* the reveal: a night under the floodlights (no grass tile, so no seams), everything centred on the screen */
+  .fycreveal{position:fixed;inset:0;z-index:50;overflow-y:auto;box-sizing:border-box;text-align:center;color:#f3ecda;
+    background:radial-gradient(70% 34% at 50% 30%,rgba(255,226,140,.28),rgba(255,226,140,0) 72%),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 46px,rgba(0,0,0,.06) 46px 92px),
+      linear-gradient(180deg,#1d5232 0%,#123D24 45%,#0a1f13 100%)}
+  .fycreveal::before,.fycreveal::after{content:"";position:fixed;top:-12vh;width:46vw;max-width:340px;height:92vh;pointer-events:none;
+    background:linear-gradient(180deg,rgba(255,250,225,.20),rgba(255,250,225,0) 78%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%)}
+  .fycreveal::before{left:-6vw;transform:rotate(-22deg);transform-origin:50% 0}
+  .fycreveal::after{right:-6vw;transform:rotate(22deg);transform-origin:50% 0}
+  .fycrv{position:relative;z-index:1;min-height:100%;max-width:480px;margin:0 auto;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:max(28px,env(safe-area-inset-top,0px)) 20px max(32px,env(safe-area-inset-bottom,0px))}
+  .fyck{padding:7px 16px;border-radius:999px;background:#e9b84c;color:#241B08;font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;
+    box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .fycrest{position:relative;isolation:isolate;margin:22px 0 4px;animation:fycPop .7s cubic-bezier(.2,1.3,.4,1) both}
+  .fycrest::before{content:"";position:absolute;inset:-40px;border-radius:50%;z-index:-1;background:radial-gradient(circle,rgba(246,213,124,.5),rgba(246,213,124,0) 66%)}
+  .fycrest svg{display:block;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))}
+  .fycname{margin:16px 0 6px;max-width:100%;white-space:nowrap;color:#f8f1dd;text-transform:uppercase;text-shadow:3px 3px 0 #b9862a;
+    font:italic 900 min(52px, calc((min(100vw, 480px) - 48px) / (var(--n, 10) * .58)))/.95 'Barlow Semi Condensed',sans-serif;animation:fycUp .5s .2s both}
   .fycwho{margin:0 0 8px;color:#f3ecda;opacity:.85;font:700 14px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em}
-  .fycscarf{width:100%;max-width:340px;margin:12px 0 4px}.fycscarf canvas{width:100%;height:auto;display:block}
+  .fycscarf{width:100%;max-width:360px;margin:14px 0 4px;animation:fycUp .5s .35s both}.fycscarf canvas{width:100%;height:auto;display:block}
+  .fycstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%;max-width:360px;margin:14px 0 6px;animation:fycUp .5s .45s both}
+  .fycstats span{padding:12px 6px 11px;border-radius:14px;background:rgba(6,20,12,.55);border:1.5px solid rgba(233,184,76,.4)}
+  .fycstats b{display:block;font:italic 900 26px/1 'Barlow Semi Condensed',sans-serif;color:#f6d57c;font-variant-numeric:tabular-nums}
+  .fycstats small{display:block;margin-top:6px;font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FB79E}
+  .fycscarfnote{margin:6px 0 0;font:600 13px/1.3 'Barlow Semi Condensed',sans-serif;color:#cfe0d2}
+  @keyframes fycPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+  @keyframes fycUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){ .fycrest,.fycname,.fycscarf,.fycstats{animation:none} }
   .fycchips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px 0 8px}
   .fycreveal .b4btn.quiet{color:#f3ecda}
   .fycchips span{padding:6px 12px;border-radius:999px;background:rgba(10,31,19,.72);color:#f4ebd3;font:800 11.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase}
-  .fycreveal .b4btn{max-width:420px}
+  .fycreveal .b4btn{width:100%;max-width:360px;margin-top:12px}
+  .fycreveal .b4btn.quiet{margin-top:2px}
   /* the club editor (boards E1 to E5) */
   .clbtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;margin:0 0 10px;border-radius:999px;background:var(--th-card);border:2px solid var(--th-edge)}
   .clbtabs button{min-height:40px;border:0;border-radius:999px;background:none;color:var(--th-card-ink);font:italic 900 16px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
@@ -11415,7 +11437,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the new home: three cards, a ticket, the collection";
+const BUILD = "BALL 4 · 3 Nov 2026 · the club reveal, a clean sign-out";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -25825,6 +25847,7 @@ function fycStep1HTML(s){
       '<p id="fyccodemsg" class="fycmsg' + (s.codeMsg && s.codeBad ? " bad" : "") + '" aria-live="polite">' + esc(s.codeMsg || "") + '</p>' +
       '<button id="fycverify" class="b4btn gold" onclick="fycCodeVerify()">Sign in</button>' +
       '<div id="fycresend" class="fycresend">' + fycResendHTML(fycResendLeft(s)) + '</div>' +
+      '<p class="fycnote small fycspam">Not in your inbox after a minute? Look in your spam or junk folder too.</p>' +
       '<button class="fyclink fycother" onclick="fycCodeOther()">Use a different email</button>' +
       '<p class="fycnote small">The email has a link too: tap it on this phone if the code won\'t go' + (s.otpType === "email_change" ? ", and your guest account stays yours either way." : ".") + '</p>';
   }
@@ -25915,14 +25938,20 @@ function fycReveal(st, s, design){
   }
   const p = progLoad(), L = levelOf(p.xp), sc = Object.keys(p.scarves || {}), u = acct().username || s.draft.username || "";
   const est = new Date(design.est + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
-  const w = String(design.name).split(" "), l1 = w.length > 1 ? w.slice(0, -1).join(" ") : w[0], l2 = w.length > 1 ? w[w.length - 1] : "";
-  st.innerHTML = '<div class="fycreveal"><span class="fyck">Club founded</span>' + clubCrestSVG(design, 150) +
-    '<h1>' + esc(l1) + (l2 ? '<br>' + esc(l2) : "") + '</h1><p class="fycwho">@' + esc(u) + ' · Est. ' + esc(est) + '</p>' + clubMottoRibbonSVG(design.crest.motto, 200) +
+  /* THE REVEAL (Martijn, 3 Nov 2026: "can we make this page when they found their club look much better"): a night under the
+     floodlights, the crest on a gold glow, the name on one line however long, the scarf, three numbers, then the way on */
+  const streak = (() => { try{ return typeof threeStreak === "function" ? threeStreak().n : ((mine().streak || {}).played | 0); }catch(e){ return 0; } })();
+  st.innerHTML = '<div class="fycreveal"><div class="fycrv"><span class="fyck">Club founded</span>' +
+    '<div class="fycrest">' + clubCrestSVG(design, 176) + '</div>' +
+    '<h1 class="fycname" style="--n:' + Math.max(4, String(design.name).length) + '">' + esc(design.name) + '</h1>' +
+    '<p class="fycwho">@' + esc(u) + ' · Est. ' + esc(est) + '</p>' + clubMottoRibbonSVG(design.crest.motto, 220) +
     '<div class="fycscarf"><canvas id="fycscarf"></canvas></div>' +
-    '<div class="fycchips"><span>' + nf(p.xp) + ' XP · Level ' + L.level + '</span>' + (sc.length ? '<span>' + esc(sc[sc.length - 1]).toUpperCase() + ' SCARF</span>' : "") +
-      ((mine().streak || {}).played ? '<span>Streak · day ' + mine().streak.played + '</span>' : "") + '</div>' +
-    b4Btn("Make it yours", "fycDone('edit')", "gold") + b4Btn("Later — let's play", "fycDone('home')", "quiet") + '</div>';
+    '<div class="fycstats"><span><b>' + L.level + '</b><small>Level</small></span><span><b>' + nf(p.xp) + '</b><small>XP</small></span>' +
+      '<span><b>' + streak + '</b><small>' + (streak === 1 ? "Day streak" : "Day streak") + '</small></span></div>' +
+    (sc.length ? '<p class="fycscarfnote">Your ' + esc(String(sc[sc.length - 1])) + ' scarf is in the Locker.</p>' : "") +
+    b4Btn("Make it yours", "fycDone('edit')", "gold") + b4Btn("Later — let's play", "fycDone('home')", "quiet") + '</div></div>';
   setTimeout(() => { try{ const cv = document.getElementById("fycscarf"); if(cv && typeof Crests !== "undefined" && Crests.wave) Crests.wave(cv, clubScarfClub(design), { cell: 4 }); }catch(e){} }, 60);
+  setTimeout(() => { try{ if(typeof celebrate === "function") celebrate(3, { type: "found" }); }catch(e){} }, 450);
 }
 function fycDone(where){
   audio(); fycSave({ done: true, at: Date.now() }); FYC_VIEW = false;
@@ -26029,7 +26058,16 @@ function fycPage(which){ if(typeof legalPage === "function") return legalPage(wh
    come back when the same account signs in again. Another account signing in
    on this phone starts from its own club on the server. */
 const FYC_STASH_KEYS = ["ball4-prog", "ball4-club", "ball4-best", "ball4-mine", "ball4-theme", "ball4-lists", "ball4-outbox", "ball4-fyc",
-  "ball4-guest", "ball4-guest-prog", "ball4-guest-best"];
+  "ball4-guest", "ball4-guest-prog", "ball4-guest-best",
+  /* and every other key that is a player's own (the cloud save's list, assets/sync/sync.js SYNC_KEYS; signout-test.js keeps
+     the two together): today's Guess the player, the scarf, every game's progress and settings stayed on the phone for the
+     next account (Martijn, 3 Nov 2026: "I signed out ... and made a new one, but it still says I already completed it") */
+  "ball4-record", "ball4-three", "ball4-gtp", "ball4-seen", "ball4-seen-games", "ball4-quiz-history-v1", "ball4-pl-seen", "ball4-feel",
+  "ball4-tt", "ball4-gw", "ball4-dd", "ball4-lb", "ball4-yr", "ball4-cele", "ball4-hilo", "ball4-simple", "ball4-party", "ball4-names",
+  "ball4-us", "ball4-mc-pins", "ball4-mc-club", "ball4-answer", "ball4-mute", "ball4-tackle", "ball4-h2h-flat", "ball4-ai",
+  "ball4-ai-level", "ball4-ai-tempo", "ball4-mp-name", "ball4-crew", "ball4-first-match", "ball4-lg-seg",
+  /* the home's Match Centre card, from the account's pins and club */
+  "ball4-mc-strip", "ball4-pl-strip"];
 const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported", "mky", "favPending"];
 function fycStash(uid){
   if(!uid) return false;
@@ -26040,6 +26078,7 @@ function fycStash(uid){
   for(const k of FYC_STASH_KEYS) localStorage.removeItem(k);
   const clear = {}; for(const k of FYC_STASH_ACCT) clear[k] = null; acctLocalSet(clear);
   PROG = null; PROG_AT = null; MINE = null;
+  try{ FEEL = {}; }catch(e){}
   return true;
 }
 function fycUnstash(uid){
@@ -26051,6 +26090,7 @@ function fycUnstash(uid){
   acctLocalSet(o.acct || {});
   localStorage.removeItem("ball4-stash:" + uid);
   PROG = null; PROG_AT = null; MINE = null;
+  try{ FEEL = JSON.parse(localStorage.getItem(FEEL_KEY)) || {}; }catch(e){ try{ FEEL = {}; }catch(x){} }
   return true;
 }
 /* an account that already has a club on the server: this phone takes it,

@@ -11437,7 +11437,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the club reveal, a clean sign-out (2)";
+const BUILD = "BALL 4 · 3 Nov 2026 · the main page from the first open";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -37438,12 +37438,15 @@ function threeStreak(){
   return { n, best: t.best | 0, today: t.last === today, next, toGo: next ? next - n : 0 };
 }
 /* which home: a new phone has played nothing at all */
+/* the welcome page for a new phone (board I) is off (Martijn, 3 Nov 2026: "I think we don't need this and can just have the
+   main page as the first page"): a new phone, and a phone just signed out, open on the day's home; true brings it back */
+let HOME_FIRST_SCREEN = false;
 function b6HomeState(){
   const T = threeToday();
   if(T.all) return "done";
   let any = T.done > 0;
   try{ const p = progLoad(), t = threeLoad(); any = any || p.xp > 0 || p.matches > 0 || !!(t && t.best > 0) || ((mine().streak || {}).played | 0) > 0 || gtpState().played > 0 || ((listsState().streak || {}).played | 0) > 0; }catch(e){}
-  return any ? "daily" : "first";
+  return any || !HOME_FIRST_SCREEN ? "daily" : "first";
 }
 /* the scarf knits in your club's colours, BALL's green and cream until you have one */
 function threeScarfCols(){ try{ if(!fycTrial()){ const c = clubMine().colours; if(c && c[0] && c[1]) return [c[0], c[1]]; } }catch(e){} return ["#1f5a36", "#f3ead2"]; }

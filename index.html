@@ -8082,6 +8082,8 @@
   .t3band .t3date{display:flex;align-items:center;gap:12px;font:800 14px/1 var(--ui);letter-spacing:.24em;text-transform:uppercase;color:var(--th-band-ink);opacity:1;
     text-shadow:0 1px 2px rgba(0,0,0,.45)}
   .t3band .t3date::after{content:"";width:28px;height:2px;border-radius:1px;background:var(--th-acc2)}
+  /* a page's title is the way home where the tab bar shows (titleHomeOk) */
+  body:has(#b6tabs:not([hidden])) :is(.lgh1,.b6stitle){cursor:pointer}
   /* the right of the band: your club's crest (to Me), or Sign in */
   .t3acct{position:absolute;right:2px;top:calc(env(safe-area-inset-top,0px) + 14px);z-index:2;cursor:pointer;font:inherit}
   .t3acct.crest{display:block;padding:4px;border:0;border-radius:50%;background:none;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}
@@ -11335,7 +11337,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the logo left, your club on the right";
+const BUILD = "BALL 4 · 3 Nov 2026 · the title at the top goes home";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -37711,6 +37713,22 @@ function b6TabBar(active){
   return '<nav class="b6tabbar" data-on="' + active + '">' + tab("play", "Play", "goHome()") + tab("league", lgTitle(), "openLeague()") +
     tab("locker", "Locker", "openLocker()") + (ALBUM_ON ? tab("album", "Album", "openAlbum()") : "") + tab("me", "Me", "openMe()") + '<i class="b6tabglow"></i></nav>';
 }
+/* THE TITLE AT THE TOP GOES HOME (Martijn, 3 Nov 2026: "if you click on whatever title is at the top it just brings you
+   back to the main page"): a page's big title (Match Centre, Locker, Me, a competition, a club, Settings) or a match
+   setup step's is the Play tab. Only where the tab bar shows, or on a setup step, so never in a match or a game; never
+   in Found your club, which has its own Leave */
+function titleHomeOk(){
+  try{ if(typeof FYC_VIEW !== "undefined" && FYC_VIEW) return false;
+    const tb = document.getElementById("b6tabs");
+    return !!((tb && !tb.hidden) || (typeof b4Step !== "undefined" && b4Step)); }catch(e){ return false; }
+}
+if(typeof document !== "undefined" && document.addEventListener) document.addEventListener("click", e => {
+  try{
+    const t = e.target && e.target.closest ? e.target.closest(".lgh1, .b6stitle") : null;
+    if(!t || !titleHomeOk()) return;
+    e.preventDefault(); goHome();
+  }catch(x){}
+});
 /* the tab bar lives on the body so nothing transformed can carry it off; null hides it */
 function b6Tabs(active){
   try{

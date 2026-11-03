@@ -701,7 +701,7 @@
     padding:max(28px,env(safe-area-inset-top,0px)) 20px max(32px,env(safe-area-inset-bottom,0px))}
   .fyck{padding:7px 16px;border-radius:999px;background:#e9b84c;color:#241B08;font:800 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;
     box-shadow:0 6px 16px rgba(0,0,0,.3)}
-  .fycrest{position:relative;isolation:isolate;margin:22px 0 4px;animation:fycPop .7s cubic-bezier(.2,1.3,.4,1) both}
+  .fycrest{position:relative;isolation:isolate;margin:22px 0 4px;animation:fycPop .7s var(--ease-pop) both}
   .fycrest::before{content:"";position:absolute;inset:-40px;border-radius:50%;z-index:-1;background:radial-gradient(circle,rgba(246,213,124,.5),rgba(246,213,124,0) 66%)}
   .fycrest svg{display:block;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))}
   .fycname{margin:16px 0 6px;max-width:100%;white-space:nowrap;color:#f8f1dd;text-transform:uppercase;text-shadow:3px 3px 0 #b9862a;
@@ -11437,7 +11437,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the club reveal, a clean sign-out";
+const BUILD = "BALL 4 · 3 Nov 2026 · the club reveal, a clean sign-out (2)";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five

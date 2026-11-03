@@ -8239,6 +8239,10 @@
     box-shadow:0 4px 0 var(--th-acc-sh);color:var(--th-acc-ink);font:italic 800 16px/1 var(--th-hf),sans-serif;text-transform:uppercase}
   .t3stamp{align-self:flex-start;padding:4px 7px;border:1.5px solid currentColor;border-radius:6px;transform:rotate(-4deg);font:800 11px/1.1 var(--ui);letter-spacing:.1em;text-transform:uppercase}
   .t3under{margin:2px 0 0;text-align:center;font:600 12.5px/1.3 var(--ui);color:var(--th-dim)}
+  .t3scarfrow{padding:10px 12px 8px}
+  .t3scarfhd{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .t3scarfhd .kick{color:var(--th-dim)}
+  .t3scarfrow .t3under{margin-top:4px;text-align:right}
   /* the ticket: the rail of matches, the tear line, the stub */
   .t3mc .t3mch{display:flex;align-items:center;justify-content:space-between}
   .t3mcall{min-height:44px;padding:0 2px;border:0;background:none;color:var(--th-card-dim);font:700 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
@@ -11437,7 +11441,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · the main page from the first open";
+const BUILD = "BALL 4 · 3 Nov 2026 · your scarf on the main page";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -37509,7 +37513,10 @@ function b6ThreeCards(T, S3){
     return '<button class="t3c ' + st + '" onclick="' + r.go + '" aria-label="' + esc(r.name + ": " + (r.done ? r.note : r === next ? "play now" : r.note)) + '">' +
       '<span class="t3cn">0' + (i + 1) + '</span>' + t3Svg(T3_ICON[r.done ? "done" : r.k] || "") + '<b>' + esc(r.k === "list" ? "Today’s list" : r.name) + '</b>' + foot + '</button>';
   }).join("") + '</div>' +
-  '<p class="t3under">New three in <span id="b6cd">' + b6Countdown() + '</span> · ' + esc(threeStreakWords(S3)) + '</p>';
+  /* the scarf under the cards, so a streak is seen growing (Martijn, 3 Nov 2026: "something like this on the main page for
+     people to see their scarves getting filled"): a row a day, gold at 7, 30, 100 and 365, today's dashed until it's knitted */
+  '<div class="t3card t3scarfrow"><div class="t3scarfhd"><span class="kick">Your scarf</span><span class="t3right">' + esc(threeStreakWords(S3)) + '</span></div>' +
+    threeScarfSVG(S3.n, { today: S3.today }) + '<p class="t3under">New three in <span id="b6cd">' + b6Countdown() + '</span></p></div>';
 }
 /* the other games as a numbered collection: four to a row, each with its own drawn mark */
 const T3_GAME_IC = {

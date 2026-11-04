@@ -61,6 +61,8 @@ const SYNC_KEYS = {
   "ball4-best": { rule: SYNC_MAX },
   "ball4-record": { rule: SYNC_MAX },
   "ball4-three": { rule: syncS({ n: "streak" }) },
+  /* today's answer to the Daily's club question: the newer day's, the counts from either phone */
+  "ball4-daily-club": { rule: syncD({ one: "day", carry: { n: SYNC_MAX, right: SYNC_MAX } }) },
   "ball4-gtp": { rule: syncF({ played: SYNC_MAX, wins: SYNC_MAX, "*": SYNC_LATEST }, [
       { keys: ["day", "guesses", "done", "won", "xp"], rule: syncD({ one: "day", same: syncP("gtp") }) },
       { keys: ["streak", "last"], rule: syncS({ n: "streak" }) }]) },
@@ -70,6 +72,8 @@ const SYNC_KEYS = {
   "ball4-seen-games": { rule: syncU() },
   "ball4-quiz-history-v1": { rule: syncU({ id: "id", sort: "ts", cap: 300 }), fit: "list" },
   "ball4-pl-seen": { rule: syncU({ cap: 400 }) },
+  /* the Matchday Quiz, a result per round by card id: the first finished one stands, the newest rounds are kept */
+  "ball4-pl-quiz": { rule: syncU({ each: syncP("quiz"), cap: 300 }) },
   "ball4-theme": { rule: syncF({ seen: syncU(), unlocked: syncU(), "*": SYNC_LATEST }) },
   "ball4-feel": { rule: syncF({ low: SYNC_LOCAL, n: SYNC_MAX, asked: SYNC_OR, "*": SYNC_LATEST }) },
   "ball4-tt": { rule: SYNC_GAME() },
@@ -78,6 +82,10 @@ const SYNC_KEYS = {
   "ball4-dd": { rule: SYNC_GAME({ seen: syncK(SYNC_LATEST) }) },
   "ball4-lb": { rule: SYNC_GAME() },
   "ball4-yr": { rule: SYNC_GAME() },
+  /* Club Expert: a pass is never lost. Days and the ids of passed tests are unions, a day both phones passed keeps the better
+     score, and the medal the earlier date. seen (questions of failed tests, tried last) is only a preference: this phone's */
+  "ball4-expert": { rule: syncF({ v: SYNC_MAX, seen: SYNC_LOCAL, "*": SYNC_LATEST,
+      clubs: syncK(syncF({ days: syncU({ each: SYNC_MAX }), used: syncU({ sort: true }), medal: SYNC_MIN, "*": SYNC_LATEST })) }) },
   "ball4-cele": { rule: SYNC_LATEST },
   "ball4-hilo": { rule: SYNC_LATEST },
   "ball4-simple": { rule: SYNC_LATEST },
@@ -159,6 +167,7 @@ const SYNC_BETTER = {
   entry: (a, b) => (!!a.done - !!b.done) || syncLen(a.found) - syncLen(b.found),
   ladder: (a, b) => (!!a.done - !!b.done) || (+a.reached || 0) - (+b.reached || 0) || (+a.rung || 0) - (+b.rung || 0) || syncLen(a.got) - syncLen(b.got),
   shootout: (a, b) => (!!a.done - !!b.done) || syncLen(a.kicks) - syncLen(b.kicks),
+  quiz: (a, b) => (!!a.d - !!b.d) || (a.d ? (+b.d || 0) - (+a.d || 0) : String(a.s || "").length - String(b.s || "").length),   // finished beats under way, the first finish stands
   gtp: (a, b) => (!!a.done - !!b.done) || (a.done
     ? (!!a.won - !!b.won) || (a.won ? syncLen(b.guesses) - syncLen(a.guesses) : 0)       // found in fewer is better
     : syncLen(a.guesses) - syncLen(b.guesses)),                                         // a day under way: the further one

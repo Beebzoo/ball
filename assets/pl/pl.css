@@ -672,3 +672,53 @@ body[data-theme="floodlights"] .cl-trow .pos i,body[data-theme="tactics"] .cl-tr
 .mch-chev{flex:none;display:flex;color:var(--th-card-dim);transition:transform .2s}
 .mch-tcard.folded .mch-chev{transform:rotate(-90deg)}
 @media (prefers-reduced-motion: reduce){ .mch-chev{transition:none} }
+
+/* ---------- the Matchday Quiz (assets/pl/pl-quiz.js) ---------- */
+/* the warm-up under a round: a cream row like your leagues', and once played your score in the dark square */
+.cl-qz{display:flex;align-items:center;gap:12px;width:100%;margin:12px 0 2px;padding:10px 12px 10px 10px;text-align:left;cursor:pointer;font:inherit;
+  background:var(--th-row);color:var(--th-row-ink);border:2px var(--th-edge-style) var(--th-edge);border-radius:16px;box-shadow:var(--th-lift)}
+.cl-qzi,.cl-qzn{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;width:54px;height:54px;border-radius:12px;background:var(--th-card);color:var(--th-acc1)}
+.cl-qzi .ic{width:28px;height:28px}
+.cl-qzn b{font:italic 900 26px/1 'Barlow Semi Condensed',sans-serif}
+.cl-qzn small{margin-top:3px;font:800 9px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;color:var(--th-card-dim)}
+.cl-qz .m{flex:1;min-width:0}
+.cl-qz .m .cl-kick{color:var(--th-row-dim);font-size:10.5px}
+.cl-qz .m b{display:block;margin-top:3px;font:italic 900 18px/1.08 'Barlow Semi Condensed',sans-serif}
+.cl-qz .m small:not(.cl-kick){display:block;margin-top:3px;font:500 13px/1.25 'Barlow Semi Condensed',sans-serif;color:var(--th-row-dim)}
+.cl-qz .chev{flex:none;font:700 24px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc2)}
+.cl-qz.done .cl-qzp{margin-top:6px;max-width:150px}
+.clpage .cl-qz{margin-top:14px}
+/* a pip a question: gold right, plain wrong, ringed on the one you're on */
+.cl-qzp{display:flex;gap:4px;flex:1;min-width:0}
+.cl-qzp i{flex:1;height:7px;border-radius:4px;background:var(--res-off-dark)}
+.cl-qzp i.on{background:linear-gradient(90deg,var(--th-acc-hi),var(--th-acc2))}
+.cl-qzp i.off{background:var(--res-off-dark-ink);opacity:.45}
+.cl-qzp i.cur{box-shadow:0 0 0 1.5px var(--th-card-ink)}
+.cl-qz .cl-qzp i{background:color-mix(in srgb,var(--th-row-ink) 14%,transparent)}
+.cl-qz .cl-qzp i.on{background:linear-gradient(90deg,var(--th-acc),var(--th-acc2))}
+.cl-qz .cl-qzp i.off{background:color-mix(in srgb,var(--th-row-ink) 38%,transparent);opacity:1}
+/* the question: on the board like Matchday's, its answers Matchday's own */
+.cl-qzq{padding:14px 14px 16px}
+.cl-qzq.in{animation:clQzIn .3s var(--ease-pop) both}
+@keyframes clQzIn{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+.cl-qzh{display:flex;align-items:center;gap:12px}
+.cl-qzh small{flex:none;font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-card-dim)}
+.cl-qzfrom{display:flex;align-items:center;gap:8px;margin-top:14px;font:800 12px/1.2 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--th-card-dim)}
+.cl-qzfrom .cl-patch{flex:none}
+.cl-qzfrom span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cl-qzfrom small{flex:none;margin-left:auto;font:inherit;color:var(--th-acc1)}
+.cl-qzt{margin:8px 0 0;font:700 21px/1.28 'Barlow Semi Condensed',sans-serif;color:var(--th-card-ink);text-wrap:balance}
+.cl-qzq .h2mc{margin-top:14px}
+.cl-qzsay{margin:12px 2px 0;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:var(--th-card-dim)}
+.cl-qzsay b{font:800 15px/1.2 'Barlow Semi Condensed',sans-serif;color:var(--th-acc1)}
+.cl-qzpage .b4btn{margin-top:12px}
+.cl-qzpage .qrep{margin-top:4px}
+/* the result */
+.cl-qzres{padding:18px 16px 18px;text-align:center}
+.cl-qzbig{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:10px;color:var(--th-acc1)}
+.cl-qzbig b{font:italic 900 84px/.95 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums}
+.cl-qzbig span{font:italic 900 28px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-card-ink)}
+.cl-qzres .cl-when{margin-top:8px}
+.cl-qzres .cl-qzp{margin:16px auto 2px;max-width:240px}
+@media (prefers-reduced-motion: reduce){ .cl-qzq.in{animation:none} }
+@media (max-width:374px){ .cl-qzpage .b6stitle{font-size:27px} }

@@ -7647,6 +7647,29 @@
   .b4daily .dstreak div{background:var(--th-row);border:2px var(--th-edge-style) var(--th-edge);color:var(--th-ink)}
   .b4daily .dstreak i{color:var(--th-dim)}
   .b4daily .dsstyle{color:#a8740a}
+  /* the Daily's club question: a small card under Share, gold edged, opening in its place */
+  .dccard{display:block;width:100%;box-sizing:border-box;margin:10px 0 2px;padding:11px 14px;border-radius:calc(14px * var(--th-round));border:2px solid var(--th-acc);background:var(--th-row);color:var(--th-row-ink);font-family:var(--ui);text-align:left}
+  button.dcoffer{display:flex;align-items:center;gap:11px;min-height:58px;cursor:pointer}
+  .dctx{flex:1;min-width:0}
+  .dccard small{display:block;font:700 12px/1.2 var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--th-dim)}
+  .dccard b{display:block;margin-top:2px;font:800 18px/1.15 var(--ui);color:var(--th-row-ink)}
+  .dcpatch{flex:0 0 auto;width:28px;height:28px;object-fit:contain}
+  .dcgo{flex:0 0 auto;padding:8px 14px;border-radius:999px;background:var(--th-acc);color:var(--th-acc-ink);font:800 13px/1 var(--ui);letter-spacing:.06em;text-transform:uppercase}
+  .dchead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .dcq{font:700 17px/1.3 var(--ui);color:var(--th-row-ink);text-wrap:pretty}
+  .dcopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+  .dcopt{display:block;width:100%;box-sizing:border-box;min-height:44px;padding:11px 13px;border-radius:calc(11px * var(--th-round));border:2px solid var(--th-edge);background:transparent;color:var(--th-row-ink);font:700 15px/1.2 var(--ui);text-align:left}
+  button.dcopt{cursor:pointer}
+  .dcopt.right{border-color:#fff;background:var(--res-right);color:var(--res-right-ink)}
+  .dcopt.picked{border-style:dashed;background:var(--res-off);color:var(--res-off-ink)}
+  .dcopt.off{color:var(--th-dim)}
+  .dcdone .dcopt{min-height:0;padding:8px 13px}
+  .dcsay{margin-top:9px;font:800 16px/1.2 var(--ui);color:var(--th-row-ink)}
+  .dccard small.dcfoot{margin-top:4px;font-weight:600;letter-spacing:.02em;text-transform:none}
+  .dccard:not(.dcoffer){animation:dcin .3s var(--ease-pop)}
+  @keyframes dcin{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){ .dccard:not(.dcoffer){animation:none} }
+  .dcinvite{display:block;width:100%;min-height:44px;margin:6px 0 0;padding:8px 4px;border:0;background:none;color:var(--th-dim);font:600 14px/1.25 var(--ui);text-align:center;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
   /* The Cup */
   .b4cup .cupgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .cupnat{position:relative;display:flex;align-items:center;gap:10px;min-height:52px;padding:0 12px;border-radius:14px;cursor:pointer;text-align:left;
@@ -8273,6 +8296,8 @@
   .t3mcrk small{font:600 13px/1.2 var(--ui);color:var(--th-card-dim)}
   .t3mccta{flex:none;display:flex;align-items:center;min-height:44px;padding:0 16px;border:2px solid var(--th-acc);border-radius:999px;
     font:italic 800 17px/1 var(--th-hf),sans-serif;text-transform:uppercase;color:var(--th-card-ink)}
+  .t3mcqz{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:44px;margin-top:-6px;padding:0 16px 10px;border:0;background:none;color:var(--th-card-dim);font:600 13px/1.2 var(--ui);text-align:left;cursor:pointer}
+  .t3mcqz b{flex:none;font:800 12px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--th-acc1)}
   /* the collection */
   .t3colh span{margin-left:auto;font:600 12px/1 var(--ui);letter-spacing:0;text-transform:none;color:var(--th-dim)}
   .t3mini{display:flex;flex-direction:column;gap:7px;width:100%;padding:0;border:0;background:none;color:var(--th-ink);font:inherit;text-align:center;cursor:pointer}
@@ -8359,6 +8384,13 @@
   .b6era small{font:500 var(--fs-meta)/1.2 var(--ui);color:var(--th-card-dim)}
   .b6era.sel{border-color:var(--goldhi);box-shadow:0 0 0 3px rgba(233,184,76,.4)}
   .b6qflag{width:52px;height:auto;border-radius:var(--r-chip, 4px)}
+  .b6womic .ic{display:block;width:44px;height:44px;color:var(--th-acc2)}
+  /* Simple Ball's clubs and eras: a tile per league, one open at a time, under its row */
+  .smfold span{flex:1;min-width:0}
+  .smfold small{display:block;margin-top:2px;font:600 var(--fs-meta)/1.1 var(--ui);opacity:.75}
+  .smfold::after{content:"";flex:none;width:7px;height:7px;margin:-3px 3px 0 0;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .22s var(--ease-pop)}
+  .smfold[aria-expanded="true"]::after{margin-top:3px;transform:rotate(225deg)}
+  .smpanel{grid-column:1/-1;display:flex;flex-direction:column;gap:6px;padding-bottom:6px}
   /* ---------- HOUSE STYLE V2, PHASE 3: THE FEEL SYSTEM (_plans/look-and-feel.md §5) ----------
      The one right/wrong feedback (fb.*), the celebration ladder (celebrate), the screen change (View
      Transitions), the sound ask and the low-end mode. Every duration and curve is a §2 token; under reduced
@@ -11364,7 +11396,197 @@ const ERE_ERAS = [["ere-1956-1979", "1956–1979", ["ere-1956-1969", "ere-1970s"
 for(const [slug, team] of ERE_CLUBS) QUIZZES["club-" + slug] = { label: team, ic: "crest", ac: QUIZZES.ere.ac, deck: "club-" + slug, lazy: true,
   pool: "ere-clubs", flags: null, ext: ".png", view: "club", team, blurb: "Questions about " + team + " and nothing else." };
 for(const [id, years, decks] of ERE_ERAS) QUIZZES[id] = { label: "Eredivisie " + years.replace("The ", ""), ic: "clock", ac: QUIZZES.ere.ac, deck: decks,
-  lazy: true, pool: "ere-clubs", flags: null, ext: ".png", view: "era", years, blurb: "The Eredivisie of " + years.replace("The", "the") + "." };
+  lazy: true, pool: "ere-clubs", flags: null, ext: ".png", view: "era", league: "ere", years, blurb: "The Eredivisie of " + years.replace("The", "the") + "." };
+/* THE WHOLE BANK'S CLUBS AND ERAS (4 Nov 2026, _plans/games-round.md): every club view and league era of the question bank,
+   each a quiz of its own like the Eredivisie's above, played with its league's sides. BANK_CLUBS rows are [slug, name in
+   the pool, country, questions, Hard-plus with options, Easy and Normal]; BANK_ERAS rows [id, league quiz, questions, label].
+   A club under 60 questions can't carry a quiz yet (the promoted ones, Frosinone has none), so it isn't one. */
+/* BANK_CLUBS:START (generated by _tools/build-club-index.js, don't edit) */
+const BANK_CLUBS = [
+["ajax","Ajax","nl",767,293,300],
+["psv","PSV Eindhoven","nl",442,191,164],
+["feyenoord","Feyenoord","nl",378,127,156],
+["az-alkmaar","AZ","nl",165,96,69],
+["twente","Twente","nl",173,109,64],
+["fc-utrecht","Utrecht","nl",143,87,56],
+["go-ahead-eagles","Go Ahead Eagles","nl",125,83,42],
+["sparta-rotterdam","Sparta Rotterdam","nl",137,88,49],
+["sc-heerenveen","Heerenveen","nl",137,84,53],
+["excelsior","Excelsior","nl",134,84,50],
+["pec-zwolle","PEC Zwolle","nl",131,80,50],
+["fc-groningen","Groningen","nl",137,88,49],
+["fortuna-sittard","Fortuna Sittard","nl",127,82,45],
+["telstar","Telstar","nl",130,82,48],
+["nec-nijmegen","NEC","nl",143,91,51],
+["ado-den-haag","ADO Den Haag","nl",135,85,50],
+["sc-cambuur","Cambuur","nl",129,83,46],
+["willem-ii","Willem II","nl",126,76,50],
+["anderlecht","Anderlecht","be",254,156,92],
+["club-brugge","Club Brugge","be",222,138,82],
+["union-saint-gilloise","Union SG","be",109,76,32],
+["genk","Genk","be",127,85,41],
+["gent","Gent","be",114,82,30],
+["antwerp","Antwerp","be",117,84,32],
+["standard-liege","Standard Liège","be",132,92,39],
+["mechelen","Mechelen","be",111,76,30],
+["cercle-brugge","Cercle Brugge","be",101,73,28],
+["westerlo","Westerlo","be",107,77,30],
+["oh-leuven","OH Leuven","be",91,68,23],
+["charleroi","Charleroi","be",97,70,26],
+["sint-truidense","Sint-Truiden","be",104,76,28],
+["zulte-waregem","Zulte Waregem","be",86,58,25],
+["la-louviere","La Louvière","be",65,48,17],
+["beveren","Beveren","be",93,71,21],
+["kortrijk","Kortrijk","be",98,72,25],
+["lommel","Lommel","be",78,60,18],
+["bayern-munchen","Bayern Munich","de",615,224,308],
+["borussia-dortmund","Borussia Dortmund","de",295,133,134],
+["bayer-leverkusen","Bayer Leverkusen","de",148,96,51],
+["rb-leipzig","RB Leipzig","de",125,86,39],
+["eintracht-frankfurt","Eintracht Frankfurt","de",127,84,43],
+["vfb-stuttgart","VfB Stuttgart","de",153,112,40],
+["freiburg","SC Freiburg","de",106,77,29],
+["borussia-monchengladbach","Gladbach","de",118,85,33],
+["union-berlin","Union Berlin","de",108,78,30],
+["werder-bremen","Werder Bremen","de",117,83,34],
+["mainz-05","Mainz 05","de",115,84,31],
+["hoffenheim","TSG Hoffenheim","de",117,85,32],
+["augsburg","FC Augsburg","de",101,75,26],
+["koln","Köln","de",117,84,33],
+["hamburger-sv","Hamburger SV","de",125,95,30],
+["schalke-04","Schalke 04","de",121,85,36],
+["sv-elversberg","SV Elversberg","de",100,74,26],
+["paderborn","SC Paderborn","de",82,62,20],
+["arsenal","Arsenal","en",454,171,231],
+["aston-villa","Aston Villa","en",141,82,59],
+["bournemouth","Bournemouth","en",22,13,9],
+["brentford","Brentford","en",19,8,11],
+["brighton","Brighton & Hove Albion","en",85,59,26],
+["chelsea","Chelsea","en",491,164,282],
+["crystal-palace","Crystal Palace","en",80,57,23],
+["everton","Everton","en",113,66,47],
+["fulham","Fulham","en",78,56,22],
+["leeds-united","Leeds United","en",100,65,34],
+["liverpool","Liverpool","en",552,174,324],
+["manchester-city","Manchester City","en",312,90,177],
+["manchester-united","Manchester United","en",601,178,342],
+["newcastle","Newcastle United","en",145,65,66],
+["nottingham-forest","Nottingham Forest","en",79,59,20],
+["sunderland","Sunderland","en",77,57,20],
+["tottenham","Tottenham Hotspur","en",276,97,143],
+["coventry-city","Coventry City","en",13,11,2],
+["ipswich","Ipswich Town","en",72,53,19],
+["hull-city","Hull City","en",69,51,18],
+["deportivo-alaves","Alavés","es",22,18,4],
+["athletic-club","Athletic Bilbao","es",83,59,24],
+["atletico-madrid","Atlético Madrid","es",267,109,113],
+["barcelona","Barcelona","es",842,267,439],
+["celta","Celta Vigo","es",70,55,15],
+["elche","Elche","es",20,15,5],
+["espanyol","Espanyol","es",79,60,19],
+["getafe","Getafe","es",19,14,5],
+["levante","Levante","es",14,9,4],
+["osasuna","Osasuna","es",18,12,6],
+["rayo-vallecano","Rayo Vallecano","es",66,46,19],
+["real-betis","Real Betis","es",80,56,23],
+["real-madrid","Real Madrid","es",870,261,451],
+["real-sociedad","Real Sociedad","es",78,56,22],
+["sevilla","Sevilla","es",163,72,65],
+["valencia","Valencia","es",80,61,18],
+["villarreal","Villarreal","es",91,58,33],
+["racing-santander","Racing Santander","es",19,14,5],
+["deportivo-la-coruna","Deportivo A Coruña","es",72,54,18],
+["malaga","Málaga","es",62,48,14],
+["atalanta","Atalanta","it",83,59,24],
+["bologna","Bologna","it",64,46,18],
+["cagliari","Cagliari","it",18,12,6],
+["como-1907","Como","it",9,6,3],
+["fiorentina","Fiorentina","it",94,60,34],
+["genoa","Genoa","it",14,9,5],
+["inter","Inter Milan","it",200,94,105],
+["juventus","Juventus","it",455,156,220],
+["lazio","Lazio","it",110,72,38],
+["lecce","Lecce","it",5,4,1],
+["milan","AC Milan","it",309,122,154],
+["napoli","Napoli","it",171,84,87],
+["parma","Parma","it",87,60,27],
+["roma","Roma","it",197,97,75],
+["sassuolo","Sassuolo","it",14,9,5],
+["torino","Torino","it",77,59,17],
+["udinese","Udinese","it",63,44,19],
+["venezia","Venezia","it",7,5,2],
+["frosinone","Frosinone","it",0,0,0],
+["monza","Monza","it",2,2,0],
+["benfica","Benfica","pt",397,138,145],
+["fc-porto","FC Porto","pt",213,70,70],
+["sporting-cp","Sporting CP","pt",220,74,69],
+["sc-braga","Braga","pt",77,58,19],
+["vitoria-de-guimaraes","Vitória S.C.","pt",66,50,16],
+["celtic","Celtic","sc",481,112,240],
+["rangers","Rangers","sc",381,115,172],
+["aberdeen","Aberdeen","sc",88,55,32],
+["hearts","Hearts","sc",94,60,34],
+["hibernian","Hibernian","sc",81,60,20]];
+const BANK_ERAS = [
+["ere-1956-1969","ere",211,"Eredivisie 1956-1969"],
+["ere-1970s","ere",237,"Eredivisie in the 70s"],
+["ere-1980s","ere",232,"Eredivisie in the 80s"],
+["ere-1990s","ere",279,"Eredivisie in the 90s"],
+["ere-2000s","ere",415,"Eredivisie in the 2000s"],
+["ere-2010s","ere",724,"Eredivisie in the 2010s"],
+["ere-2020s","ere",396,"Eredivisie in the 2020s"],
+["premier-1990s","premier",195,"Premier League in the 90s"],
+["premier-2000s","premier",276,"Premier League in the 2000s"],
+["premier-2010s","premier",298,"Premier League in the 2010s"],
+["premier-2020s","premier",153,"Premier League in the 2020s"],
+["laliga-1990s","laliga",117,"La Liga in the 90s"],
+["laliga-2000s","laliga",278,"La Liga in the 2000s"],
+["laliga-2010s","laliga",329,"La Liga in the 2010s"],
+["laliga-2020s","laliga",225,"La Liga in the 2020s"],
+["bundesliga-1960s","bundesliga",91,"Bundesliga in the 60s"],
+["bundesliga-1970s","bundesliga",116,"Bundesliga in the 70s"],
+["bundesliga-1980s","bundesliga",103,"Bundesliga in the 80s"],
+["bundesliga-1990s","bundesliga",167,"Bundesliga in the 90s"],
+["bundesliga-2000s","bundesliga",311,"Bundesliga in the 2000s"],
+["bundesliga-2010s","bundesliga",552,"Bundesliga in the 2010s"],
+["bundesliga-2020s","bundesliga",382,"Bundesliga in the 2020s"],
+["seriea-1980s","seriea",80,"Serie A in the 80s"],
+["seriea-1990s","seriea",146,"Serie A in the 90s"],
+["seriea-2000s","seriea",176,"Serie A in the 2000s"],
+["seriea-2010s","seriea",261,"Serie A in the 2010s"],
+["seriea-2020s","seriea",198,"Serie A in the 2020s"],
+["ligue1-1990s","ligue1",103,"Ligue 1 in the 90s"],
+["ligue1-2000s","ligue1",138,"Ligue 1 in the 2000s"],
+["ligue1-2010s","ligue1",279,"Ligue 1 in the 2010s"],
+["ligue1-2020s","ligue1",217,"Ligue 1 in the 2020s"]];
+/* BANK_CLUBS:END */
+const CLUB_LEAGUE = { nl: "ere", en: "premier", es: "laliga", de: "bundesliga", it: "seriea", be: "belgian", pt: "primeira", sc: "scotland" };
+const CLUB_QUIZ_MIN = 60;
+const EXPERT_BAR = { hp: 60, en: 20 };   // Club Expert's bar (_plans/club-expert.md): enough for three tests and the failed ones between
+const bankClub = slug => BANK_CLUBS.find(c => c[0] === slug) || null;
+const bankClubsOf = cc => BANK_CLUBS.filter(c => c[2] === cc && c[3] >= CLUB_QUIZ_MIN);
+const clubExpertReady = c => !!c && c[4] >= EXPERT_BAR.hp && c[5] >= EXPERT_BAR.en;
+for(const [slug, team, cc, n] of BANK_CLUBS){
+  const id = "club-" + slug, league = CLUB_LEAGUE[cc], L = QUIZZES[league];
+  if(QUIZZES[id]){ QUIZZES[id].league = league; continue; }   // the Eredivisie's, above
+  if(n < CLUB_QUIZ_MIN) continue;
+  QUIZZES[id] = { label: team, ic: "crest", ac: L.ac, deck: id, lazy: true, pool: L.pool, flags: null, ext: ".png", view: "club", league, team,
+    blurb: "Questions about " + team + " and nothing else." };
+}
+for(const [id, league, , label] of BANK_ERAS){
+  if(league === "ere") continue;                                   // the Eredivisie keeps Martijn's four blocks
+  const L = QUIZZES[league], years = (id.match(/\d{4}s$/) || [""])[0];
+  QUIZZES[id] = { label, ic: "clock", ac: L.ac, deck: id, lazy: true, pool: L.pool, flags: null, ext: ".png", view: "era", league, years,
+    blurb: L.label + " in the " + years + "." };
+}
+/* WOMEN'S FOOTBALL (4 Nov 2026, _plans/games-round.md): the bank's four decks of kind "women". There is no women's side pool, so nobody
+   plays as a women's team: they are a choice of questions, on whichever pitch you picked (b4Kick lends QUIZZES.women that pool), and a
+   group in Simple Ball. QUIZZES.women is all four put together; the other three are Simple Ball's and never go on a pitch. */
+const WOMEN_DECKS = [["wsl", "Women's Super League", "england"], ["vrouwen", "Vrouwen Eredivisie", "nl"], ["nat-w-nl", "Netherlands women", "nl"]];
+QUIZZES.women = { label: "Women's football", ic: "star", ac: "#e9b84c", deck: ["women", ...WOMEN_DECKS.map(d => d[0])], lazy: true, pool: QUIZZES.classic.pool,
+  flags: null, ext: ".png", women: true, blurb: "The women's game: the World Cups, the Euros, the Champions League and the big leagues." };
+for(const [id, label, flag] of WOMEN_DECKS) QUIZZES[id] = { label, ic: "flag", ac: "#e9b84c", deck: id, lazy: true, flags: null, ext: ".png", women: true, flag,
+  blurb: "Questions about " + label + " and nothing else." };
 /* THE NATIONAL TEAMS (31 Oct 2026): the question bank's 37 national-team decks (assets/q/nat-<code>.json), each played
    as that country's all-time eleven against another's (POOLS.nations). By confederation, the way the step shows them */
 const NATS = [["Europe", [["es", "Spain"], ["fr", "France"], ["gb-eng", "England", "england"], ["pt", "Portugal"], ["nl", "Netherlands"], ["de", "Germany"],
@@ -11376,8 +11598,18 @@ const NATS = [["Europe", [["es", "Spain"], ["fr", "France"], ["gb-eng", "England
   ["Asia & Oceania", [["jp", "Japan"], ["ir", "Iran"], ["au", "Australia"], ["id", "Indonesia"], ["vn", "Vietnam"]]]];
 for(const [, list] of NATS) for(const [code, name, flag] of list) QUIZZES["nat-" + code] = { label: name, ic: "flag", ac: "#e9b84c", deck: "nat-" + code,
   lazy: true, pool: "nations", flags: null, ext: ".png", nation: true, team: name, flag: flag || code, blurb: "Questions about " + name + "'s national team." };
-/* the club a club quiz offers first: yours, when it is one of the eighteen */
-function ereClubFirst(){ try{ const m = clubMine(), q = m && m.slug ? "club-" + m.slug : null; if(q && QUIZZES[q]) return q; }catch(e){} return "club-ajax"; }
+/* WHAT A LEAGUE OFFERS, as quiz ids: the Eredivisie's eighteen and Martijn's four blocks, the bank's for the others. The club you support goes
+   first when it is one of them: a favourite is a clubs-identity slug, which the league's pool carries too, so the few the bank spells
+   differently (Athletic, Vitória, Excelsior) still find it */
+function leagueClubs(league){
+  const cc = Object.keys(CLUB_LEAGUE).find(k => CLUB_LEAGUE[k] === league);
+  const ids = league === "ere" ? ERE_CLUBS.map(c => "club-" + c[0]) : cc ? bankClubsOf(cc).map(c => "club-" + c[0]) : [];
+  let fav = null; try{ fav = (acctLocal().fav || {}).club || null; }catch(e){}
+  const T = TEAMS[(QUIZZES[league] || {}).pool] || {};
+  const mine = fav ? ids.find(q => q === "club-" + fav || (T[QUIZZES[q].team] || {}).slug === fav) : null;
+  return mine ? [mine].concat(ids.filter(q => q !== mine)) : ids;
+}
+const leagueEras = league => league === "ere" ? ERE_ERAS.map(e => e[0]) : BANK_ERAS.filter(e => e[1] === league).map(e => e[0]);
 /* What the team picker calls the thing you are choosing. Let's Ball is played
    as a nation from 2006; a league is played as one of its clubs, this season.
    Both go through the same screen, so the screen has to ask the right question
@@ -11454,7 +11686,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 3 Nov 2026 · found on Google";
+const BUILD = "BALL 4 · 4 Nov 2026 · your club";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -14233,6 +14465,9 @@ const H2_PEN_TAKER   = "easy";       // a penalty is meant to go in
 /* the ladder as a list, so a tier can be made cheaper without a lookup table */
 const H2_ORDER = ["easy", "normal", "hard", "extreme", "ball"];
 const h2Cheaper = (t, n) => H2_ORDER[Math.max(0, H2_ORDER.indexOf(t) - (n === undefined ? 1 : n))] || t;
+/* the other levels, nearest first, the easier of two equally near */
+const h2Near = t => { const at = H2_ORDER.indexOf(t), gap = o => Math.abs(H2_ORDER.indexOf(o) - at);
+  return H2_ORDER.filter(o => o !== t).sort((a, b) => gap(a) - gap(b) || H2_ORDER.indexOf(a) - H2_ORDER.indexOf(b)); };
 
 /* ---------- SUBSTITUTIONS ----------
    Three a match, and they are second chances rather than tactics. The moment
@@ -15387,10 +15622,10 @@ function h2Draw(t, i, w){
      to get careers, so it is closed now rather than left as a trap. */
   const mine = h2Decks(i, w).filter(id => id !== S.mode);
   const spec = h2Spec(i);
-  const take = (id) => {
-    const bank = h2Bank(id, t);
+  const take = (id, lv = t) => {
+    const bank = h2Bank(id, lv);
     if(!bank) return false;
-    const used = h2Used(id, t);
+    const used = h2Used(id, lv);
     const avail = bank.map((_, n) => n).filter(n => !used.includes(n) && liveQ(bank, n));
     if(!avail.length) return false;
     /* HIS SPECIALISM FIRST, and only if the deck has enough of it left. A
@@ -15398,8 +15633,8 @@ function h2Draw(t, i, w){
        same four questions all night or refuse a ball that was legally played. */
     const his = spec ? avail.filter(n => bank[n] && bank[n].cat === spec) : [];
     const pool = his.length ? his : avail;
-    S.tier = t; S.qd = id;
-    S.qi = qrPick(bank, pool, t); S.qAt = Date.now();
+    S.tier = lv; S.qd = id;
+    S.qi = qrPick(bank, pool, lv); S.qAt = Date.now();
     S.qspec = his.length ? spec : null;
     used.push(S.qi);
     /* a question exists that did not a moment ago, so the card it turns into is
@@ -15412,6 +15647,12 @@ function h2Draw(t, i, w){
      answers instead. The card is told which leagues went dry, because it names
      the league out loud on every other ball and silence would read as a bug. */
   if(!take(null)){
+    /* A CLUB, AN ERA OR THE WOMEN'S GAME IS THE WHOLE POINT OF THE MATCH, and a thin one holds a handful of questions at some levels (Fulham two
+       Easy with options, Ligue 1's 90s one BALL). So the nearest level of its own deck answers before anything else does: S.tier is the drawn
+       level and the card keeps showing the price of the pass, as it does for a relief. _tests/matchday-clubs-test.js holds every one of them
+       to a whole match this way, at every level, without leaving its own deck. */
+    const Q = QUIZZES[S.mode] || {};
+    if((Q.view || Q.women) && h2Near(t).some(o => take(null, o))){ S.qfall = null; return true; }
     /* THE QUIZ'S OWN DECK IS DRY at this level: a club, a country or a new league has a hundred-odd questions, and a
        match can ask more than its multiple choice holds. The whole of football tops it up (the card says so) rather
        than the pass being refused; never when the match is on the whole of football already */
@@ -17129,6 +17370,98 @@ function dsGoalHTML(inner, cls){
 /* A GOLD STAR, drawn: the house rule is no emoji on screen (the share text
    keeps its emoji, that is what a share grid is made of) */
 const dsStar = (n, px) => Array.from({ length: n }, () => '<svg class="dsstar" viewBox="0 0 20 20" width="' + (px || 12) + '" height="' + (px || 12) + '" aria-hidden="true"><path d="M10 1.5l2.6 5.5 6 .8-4.4 4.1 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 7.8l6-.8z" fill="#f3cd6b" stroke="#7a5a10" stroke-width="1.2" stroke-linejoin="round"/></svg>').join("");
+/* ---------- THE DAILY'S CLUB QUESTION ----------
+   _plans/games-round.md, round 1. After the day's shootout, one multiple-choice question about the club you support (the
+   favourite from Found your club): a small treat on the result screen, in place, no clock. It is no part of the Daily:
+   the deal, the score, the streak and the share grid never hear of it. The same question for everyone with that club
+   that day, and none twice until the club's deck has gone round: each club's questions stand in one fixed shuffle (by
+   their ids, seeded by the club) and the day's number walks it, so nothing has to be remembered. From the club's own file
+   rather than DECKS: qrRetier moves rows between tiers once the ratings have landed, and two phones must not differ on
+   which rows are in. Easy to Hard, a thin deck Extreme too, so the smallest still lasts over six weeks.
+   ball4-daily-club: { day, slug, team, tier, q, o, k, pick, ok, n, right }, today's answer and how many so far. */
+const DC_KEY = "ball4-daily-club", DC_THIN = 60;
+const DC_DECK = {};                  // id -> the club's questions in their order; null while the file is on its way
+let DC_OPEN = false, DC_SHOWN = null;
+function dcLoad(){ let r = null; try{ r = JSON.parse(localStorage.getItem(DC_KEY) || "null"); }catch(e){} return r && typeof r === "object" ? r : {}; }
+function dcSave(r){ try{ localStorage.setItem(DC_KEY, JSON.stringify(r)); }catch(e){} }
+/* the club you support, when it has a quiz */
+function dcClub(){
+  let slug = null; try{ slug = (acctLocal().fav || {}).club || null; }catch(e){}
+  const id = "club-" + slug, row = slug ? bankClub(slug) : null;
+  return row && QUIZZES[id] ? { slug, id, team: QUIZZES[id].team || row[1] } : null;
+}
+function dcOrder(id, b){
+  const mc = bankDecks(b).mc, rows = [], add = t => { for(const q of mc[t]) if(q.id && q.o.length === 4) rows.push(Object.assign({ t }, q)); };
+  ["easy", "normal", "hard"].forEach(add);
+  if(rows.length < DC_THIN) add("extreme");
+  rows.sort((x, y) => x.id < y.id ? -1 : x.id > y.id ? 1 : 0);
+  let h = 0; for(const ch of id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  const rnd = seeded(h);
+  for(let i = rows.length - 1; i > 0; i--){ const j = Math.floor(rnd() * (i + 1)); const t = rows[i]; rows[i] = rows[j]; rows[j] = t; }
+  return rows;
+}
+/* offline there is simply no card today */
+function dcGet(id){
+  if(id in DC_DECK) return;
+  DC_DECK[id] = null;
+  fetch("assets/q/" + id + ".json").then(r => r.ok ? r.json() : null).then(b => {
+    if(!b){ delete DC_DECK[id]; return; }
+    DC_DECK[id] = dcOrder(id, b);
+    dcPaint();
+  }).catch(() => { delete DC_DECK[id]; });
+}
+function dcToday(id, day){
+  const rows = DC_DECK[id], L = rows ? rows.length : 0;
+  return L ? rows[((dsDayIndex(day) % L) + L) % L] : null;
+}
+const dcPatch = slug => { try{ const u = crestURL(slug, "patch", 84); return u ? '<img class="dcpatch" src="' + u + '" alt="" width="28" height="28">' : ""; }catch(e){ return ""; } };
+/* the card on the result: an offer, the question in its place, or today's answer */
+function dcSlotHTML(day){
+  const r = dcLoad(), c = dcClub();
+  if(r.day === day) return dcDoneHTML(r);
+  if(!c){
+    let fav = null; try{ fav = (acctLocal().fav || {}).club; }catch(e){}
+    return fav || !FYC_ON ? "" : '<button class="dcinvite" onclick="dcPickClub()">Support a club? Pick them for a bonus question here every day</button>';
+  }
+  dcGet(c.id);
+  const Q = dcToday(c.id, day);
+  if(!Q) return "";
+  if(!DC_OPEN) return '<button class="dccard dcoffer" onclick="dcOpen()">' + dcPatch(c.slug) + '<span class="dctx"><small>Bonus · no clock</small><b>One for ' + esc(c.team) + ' fans</b></span><span class="dcgo">Play</span></button>';
+  DC_SHOWN = { day, c, Q };
+  return '<div class="dccard"><div class="dchead">' + dcPatch(c.slug) + '<small>Bonus · ' + esc(c.team) + ' · ' + esc(TIERS[Q.t].label) + '</small></div><div class="dcq">' + esc(Q.q) + '</div>' +
+    '<div class="dcopts">' + Q.o.map((o, i) => '<button class="dcopt" onclick="dcPick(' + i + ')">' + esc(String(o)) + '</button>').join("") + '</div></div>';
+}
+function dcDoneHTML(r){
+  const so = (r.n | 0) > 1 ? r.right + " of " + r.n + " right so far · " : "";
+  return '<div class="dccard dcdone"><div class="dchead">' + dcPatch(r.slug) + '<small>Bonus · ' + esc(r.team || "") + '</small></div><div class="dcq">' + esc(r.q) + '</div>' +
+    '<div class="dcopts">' + (r.o || []).map((o, i) => '<div class="dcopt' + (i === r.k ? " right" : i === r.pick ? " picked" : " off") + '">' + esc(String(o)) + '</div>').join("") + '</div>' +
+    '<div class="dcsay" role="status">' + (r.ok ? "Right. +" + (XP.answer[r.tier] || XP.answer.normal) + " XP" : "It was " + esc(String((r.o || [])[r.k]))) + '</div>' +
+    '<small class="dcfoot">' + so + 'Another one tomorrow</small></div>';
+}
+function dcPaint(){
+  try{
+    const sh = dsToday(), el = document.getElementById("dcslot");
+    if(el && sh && S && S.phase === "ds_done"){ el.innerHTML = dcSlotHTML(sh.date); qrepAttach(); fbFlush(); }
+  }catch(e){}
+}
+function dcOpen(){
+  audio(); DC_OPEN = true; dcPaint();
+  try{ document.getElementById("dcslot").scrollIntoView({ behavior: "smooth", block: "nearest" }); document.querySelector("#dcslot .dcopt").focus({ preventScroll: true }); }catch(e){}
+}
+function dcPick(i){
+  const N = DC_SHOWN, r = dcLoad();
+  if(!N || r.day === N.day) return;
+  audio();
+  const Q = N.Q, ok = i === Q.k;
+  dcSave({ day: N.day, slug: N.c.slug, team: N.c.team, tier: Q.t, q: Q.q, o: Q.o, k: Q.k, pick: i, ok, n: (r.n | 0) + 1, right: (r.right | 0) + (ok ? 1 : 0) });
+  DC_OPEN = false; DC_SHOWN = null;
+  /* a little XP, like the other games; progAnswer leaves the saving to the match, and the Daily's is over */
+  try{ progAnswer({ ok, tier: Q.t, topic: TOPIC_OF[N.c.id] || "general" }); progSave(); }catch(e){}
+  try{ ok ? fb.correct("#dcslot .dcopt.right") : fb.wrong("#dcslot .dcopt.picked", "#dcslot .dcopt.right"); }catch(e){}
+  dcPaint();
+}
+/* a guest founds a club and picks there; a club without one goes straight to who you support */
+function dcPickClub(){ audio(); if(fycTrial()) return openFyc(); toMenu(); fycEdit("fav", { from: "home" }); }
 function dsRender(st){
   const sh = dsToday();
   if(!sh){ st.innerHTML = '<div class="h2big">The daily is not ready.</div><button class="bigbtn ghost" onclick="toMenu()">Back</button>'; return; }
@@ -17203,6 +17536,7 @@ function dsRender(st){
       '<div><b>' + (st2.won || 0) + '</b><i>shootout' + (st2.won === 1 ? "" : "s") + ' won in a row</i></div>' +
     '</div>' +
     '<button class="bigbtn" onclick="' + (dailyCanShare() ? 'shareDailyImage()' : 'copyDaily()') + '">' + ico('share') + 'Share the result</button>' +
+    '<div id="dcslot">' + dcSlotHTML(sh.date) + '</div>' +
     '<div class="dsnext">Next one in ' + b6Countdown() + '</div>' +
     (nextUp ? '<button class="bigbtn ghost" onclick="toMenu();setTimeout(function(){' + nextUp.go.replace(/"/g, "&quot;") + '},0)">Next: ' + esc(nextUp.name) + ' ›</button>'
       : '<button class="bigbtn ghost" onclick="toMenu()">Today’s three: done ›</button>') +
@@ -25245,7 +25579,7 @@ const TOPICS = {
   belgian: "Pro League", worldcup: "World Cup", euro: "Euro", finals: "Famous Finals", general: "Football",
   career: "Career Path", caps: "Higher or Lower" };
 const TOPIC_OF = { ere: "ere", eerste: "ere", "ere-clubs": "ere", "eerste-clubs": "ere", eredivisie: "ere",
-  ...Object.fromEntries(Object.keys(QUIZZES).filter(k => QUIZZES[k].view).map(k => [k, "ere"])),
+  ...Object.fromEntries(Object.keys(QUIZZES).filter(k => QUIZZES[k].view && (QUIZZES[k].league || "ere") in TOPICS).map(k => [k, QUIZZES[k].league || "ere"])),
   premier: "premier", champ: "premier", "premier-clubs": "premier", "champ-clubs": "premier", championship: "premier",
   laliga: "laliga", segunda: "laliga", "laliga-clubs": "laliga", "segunda-clubs": "laliga",
   bundesliga: "bundesliga", bundesliga2: "bundesliga", "bundesliga-clubs": "bundesliga", "bundesliga2-clubs": "bundesliga",
@@ -25262,6 +25596,7 @@ const topicKey = id => {
 /* the deck a pitch question came from, then the competition, then the mode */
 function topicOf(s){
   if(!s) return "general";
+  if((QUIZZES[s.mode] || {}).women) return "general";   // on a Premier League pitch, but not a Premier League question
   return topicKey(s.qd) || topicKey(s.qdeck) || topicKey(s.pool) || topicKey(s.mode) || "general";
 }
 const TITLE_TIERS = ["", "Supporter", "Season-ticket holder", "Expert", "Oracle"];
@@ -25425,7 +25760,7 @@ function guestReplay(){
 function fycCardHTML(where){
   const d = clubDefault(acct().username || "");
   const say = where === "league" ? "Leagues are for clubs. Found yours and play your friends every week."
-    : where === "locker" ? "Your scarves, pennant and trophies are kept once you found your club."
+    : where === "locker" ? "Your scarves, pennant, trophies and medals are kept once you found your club."
     : "Keep your level, your streak and your scarves, and get a crest of your own.";
   return '<div class="fyccard">' + clubCrestSVG(d, 56, { year: false }) + '<div><b>Found your club</b><span>' + say + '</span>' +
     '<button class="b4btn gold" onclick="openFyc()">Found your club</button></div></div>';
@@ -26079,10 +26414,12 @@ const FYC_STASH_KEYS = ["ball4-prog", "ball4-club", "ball4-best", "ball4-mine", 
   /* and every other key that is a player's own (the cloud save's list, assets/sync/sync.js SYNC_KEYS; signout-test.js keeps
      the two together): today's Guess the player, the scarf, every game's progress and settings stayed on the phone for the
      next account (Martijn, 3 Nov 2026: "I signed out ... and made a new one, but it still says I already completed it") */
-  "ball4-record", "ball4-three", "ball4-gtp", "ball4-seen", "ball4-seen-games", "ball4-quiz-history-v1", "ball4-pl-seen", "ball4-feel",
+  "ball4-record", "ball4-three", "ball4-daily-club", "ball4-gtp", "ball4-seen", "ball4-seen-games", "ball4-quiz-history-v1", "ball4-pl-seen", "ball4-pl-quiz", "ball4-feel",
   "ball4-tt", "ball4-gw", "ball4-dd", "ball4-lb", "ball4-yr", "ball4-cele", "ball4-hilo", "ball4-simple", "ball4-party", "ball4-names",
   "ball4-us", "ball4-mc-pins", "ball4-mc-club", "ball4-answer", "ball4-mute", "ball4-tackle", "ball4-h2h-flat", "ball4-ai",
   "ball4-ai-level", "ball4-ai-tempo", "ball4-mp-name", "ball4-crew", "ball4-first-match", "ball4-lg-seg",
+  /* Club Expert's passes and medals */
+  "ball4-expert",
   /* the home's Match Centre card, from the account's pins and club */
   "ball4-mc-strip", "ball4-pl-strip"];
 const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported", "mky", "favPending"];
@@ -27085,6 +27422,7 @@ function renderMe(st){
     rating) +
     '<div class="metwo">' + streakCard + league + '</div>' + (club ? fycMkyCardHTML() + meClubPanelHTML() : trial ? fycCardHTML("me") + fycSignInLineHTML("mesignin") : "") +
     (sc.length ? '<div class="b6hdr">Scarves</div><div class="merack"><i class="merail"></i><div>' + sc.map(t => scarfMiniSVG(t, 34)).join("") + '</div></div>' : "") +
+    expertMeHTML() +
     (record.length ? '<div class="b6hdr">Your record</div><div class="pgstats">' + record.map(r => '<div>' + r[0] + '</div>').join("") + '</div>' : "") +
     (a.server && !a.linked && !FYC_ON ? acctSaveHTML(false) : "") +
     '<div class="memenu">' + (club ? "" : row(IC.pen, "Your pennant", "openPennant()")) + row(IC.star, "Titles", "openTitles()") + row(IC.cog, "Settings", "openSettings()") + row(IC.help, "How to play", "b4HowTo()") + '</div>' +
@@ -27178,7 +27516,7 @@ function b6ScreenKey(){
   /* the games with a page of their own open and close like any other screen */
   let own = "";
   try{ own = [TT_VIEW ? "tt" : "", GW_VIEW ? "gw" : "", DD_VIEW ? "dd" : "", LB_VIEW ? "lb" : "", YR_VIEW ? "yr" : "", GTP_VIEW ? "gtp" : "", LISTS_VIEW ? "lists" : "",
-    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : ""].join(""); }catch(e){}
+    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : "", EXP_VIEW ? "expert" : ""].join(""); }catch(e){}
   return [ME_VIEW || "", LEAGUE_VIEW ? "league" + (LEAGUE_VIEW.sub || "") : "", LOCKER_VIEW ? "locker" + (typeof LOCKER_VIEW === "string" ? LOCKER_VIEW : "") : "", ALBUM_VIEW ? "album" : "", CUP_VIEW ? "cup" : "", DREAM_VIEW ? "dream" : "", b4Step || "", own, grp].join("|");
 }
 /* which tab's own front screen this is, or null for anything deeper */
@@ -27449,6 +27787,7 @@ const TLM_EVENTS = {
   daily_done: "Daily Ball finished (result)",
   gtp_done: "Guess the player finished (won, guesses)",
   lists_done: "a daily list finished",
+  expert_done: "a Club Expert test finished (right, pass, medal)",
   share: "a result shared (what)",
   found_club: "a guest founded a club",
   report_sent: "a question reported",
@@ -27583,11 +27922,17 @@ let QREP_NOW = null, QREP_REASON = null;
 const qrepDone = k => tlmLoad(QREP_DONE_KEY).includes(k);
 function qrepNow(){
   try{
-    if(!S || typeof document === "undefined" || !document.querySelector) return null;
+    if(typeof document === "undefined" || !document.querySelector) return null;
+    if(EXP_VIEW === "test" && typeof expQrep === "function") return expQrep();
+    if(!S) return null;
     if(S.phase === "ds_res" && S.dq){
       const Qd = dsQ(S.dq), anchor = document.querySelector("#stage .dsline.big");
       if(!Qd || !Qd.q || !anchor) return null;
       return { q: Qd.q, a: Qd.o ? Qd.o[Qd.k] : Qd.a, deck: "daily", tier: S.dq.tier || "", anchor };
+    }
+    if(S.phase === "ds_done"){
+      const r = dcLoad(), anchor = document.querySelector("#stage .dcdone");
+      return anchor && r.q ? { q: r.q, a: (r.o || [])[r.k], deck: "club-" + r.slug, tier: r.tier || "", anchor } : null;
     }
     const card = document.querySelector("#stage .qcard");
     if(!card || !(card.querySelector(".atext:not(.said)") || card.querySelector(".h2opt.right"))) return null;
@@ -28106,6 +28451,61 @@ function lgSeg(s){
   try{ localStorage.setItem("ball4-lg-seg", s); }catch(e){}
   render();
   if(s === "quiz") leagueLoad();
+}
+
+/* ---------- CLUB EXPERT: the door ----------
+   _plans/club-expert.md §1. The game is assets/expert/expert.js + expert.css, loaded on the first open; only what the home,
+   the Locker and Me need before that lives here. ball4-expert is read fresh every time and never kept in memory: a
+   sign-out (fycStash) and the cloud save both change it underneath us. EXP_VIEW: null | pick | club | test | done */
+const EXP_KEY = "ball4-expert";
+let EXP_VIEW = null, EXP_FROM = "home", EXP_LOAD = 0, EXP_WAIT = [];
+function expertStore(){ try{ const s = JSON.parse(localStorage.getItem(EXP_KEY) || "null"); if(s && s.clubs) return s; }catch(e){} return { v: 1, clubs: {}, seen: {} }; }
+function expertSave(s){ try{ localStorage.setItem(EXP_KEY, JSON.stringify(s)); }catch(e){} }
+/* three days passed is the medal, whichever phones they were passed on */
+const expertMedals = () => { const c = expertStore().clubs; return Object.keys(c).filter(k => Object.keys(c[k].days || {}).length >= 3).length; };
+function expNeed(then){
+  if(EXP_LOAD === 2 || typeof expRender === "function"){ EXP_LOAD = 2; if(then) then(); return true; }
+  if(then) EXP_WAIT.push(then);
+  if(EXP_LOAD === 1) return false;
+  EXP_LOAD = 1;
+  let left = 2;
+  const done = ok => { if(!ok){ EXP_LOAD = -1; left = 0; EXP_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; EXP_LOAD = 2; const w = EXP_WAIT; EXP_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/expert/expert.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/expert/expert.js"; sc.onload = () => done(typeof expRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+function expertSeen(){ try{ const s = b6Seen(); if(!s.includes("expert")){ s.push("expert"); localStorage.setItem(B6_SEEN_KEY, JSON.stringify(s)); } }catch(e){} }
+function openExpert(from){
+  expertSeen();
+  b4Explain("expert", () => {
+    if(EXP_LOAD === -1) EXP_LOAD = 0;
+    EXP_FROM = from || "home"; EXP_VIEW = "pick"; ME_VIEW = null; LOCKER_VIEW = null; closeSheet(); render();
+    expNeed(() => { if(EXP_VIEW){ render(); try{ window.scrollTo(0, 0); }catch(e){} } });
+  });
+}
+function expertDraw(st){
+  if(typeof expRender === "function") return expRender(st);
+  st.innerHTML = b4Page({ title: "Club Expert", ctx: "One moment", back: "EXP_VIEW=null;render()", cls: "cxpage" });
+}
+const expertShelfSub = () => { const n = expertMedals(); return b6IsNew("expert") ? "New" : n ? "Medals " + n : "Know your club"; };
+/* the medals' shelf in the Locker: the real thing waiting for its first piece, like the rest of the Locker */
+function expertShelfHTML(){
+  const n = expertMedals(), head = '<div class="lkhdr">Expert medals <button class="lklink" onclick="openExpert(\'locker\')">Club Expert ›</button></div>';
+  if(n && typeof expShelfHTML === "function") return head + expShelfHTML();
+  if(n) expNeed(() => { if(LOCKER_VIEW) render(); });
+  const ring = '<svg viewBox="0 0 50 50" width="50" height="50" aria-hidden="true"><circle cx="25" cy="25" r="22" fill="none" stroke="rgba(248,241,221,.28)" stroke-width="2" stroke-dasharray="4 3"/></svg>';
+  return head + '<div class="lkshelf empty">' + [0, 1, 2].map(() => '<div class="lktro ghost">' + ring + '</div>').join("") +
+    (n ? "" : '<p class="lkwait dark">Pass a club’s Expert test on three different days.</p>') + '<i class="lkplank"></i></div>';
+}
+/* and on Me, your club's page, once there is one to show */
+function expertMeHTML(){
+  if(!expertMedals()) return "";
+  if(typeof expMeHTML === "function") return expMeHTML();
+  expNeed(() => { if(ME_VIEW) render(); });
+  return "";
 }
 
 /* ---------- BALL SUPPORTER: the door ----------
@@ -28889,7 +29289,7 @@ function renderLocker(st){
       (tr.length ? tr.map(t => '<div class="lktro">' + trophySVG(t.shape, t.metal, 50) + '<b>' + esc(t.name) + '</b><span>' + esc(String(t.metal).toUpperCase()) + (t.count > 1 ? ' ×' + t.count : "") + '</span></div>').join("")
         : ["star", "shield", "plate"].map(s => '<div class="lktro ghost">' + trophySVG(s, "rgba(248,241,221,.14)", 50) + '</div>').join("") +
           '<p class="lkwait dark">Win The Cup, a league week or keep a streak going.</p>') + '<i class="lkplank"></i></div>' +
-    themeShelfHTML() + celeShelfHTML() + supShelfHTML() +
+    expertShelfHTML() + themeShelfHTML() + celeShelfHTML() + supShelfHTML() +
     '</div></div>';
 }
 function lockerScarf(team){
@@ -29638,6 +30038,7 @@ function themeInScope(){
   if(DD_VIEW && DD_VIEW !== "setup" && DD) return false;
   if(LB_VIEW && LB_VIEW !== "setup" && LB) return false;
   if(YR_VIEW && YR_VIEW !== "setup" && YR) return false;
+  if(EXP_VIEW === "test") return false;
   if(!S || S.phase === "setup") return true;
   return S.phase === "h_teams" || S.phase === "h_toss";
 }
@@ -29679,7 +30080,7 @@ function feelScreenKey(){
     if(LEGAL_VIEW) return "legal"; if(FYC_RENAME || FYC_VIEW) return "fyc"; if(CLUB_VIEW && !CLUB_VIEW.quiet) return "club";
     const setup = !S || S.phase === "setup";
     if(ME_VIEW && setup) return "me:" + ME_VIEW; if(LEAGUE_VIEW && setup) return "league"; if(LOCKER_VIEW && setup) return "locker:" + LOCKER_VIEW;
-    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
+    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(EXP_VIEW) return "expert:" + EXP_VIEW; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
     if(YR_VIEW) return "yr"; if(GTP_VIEW) return "gtp"; if(LISTS_VIEW) return "lists"; if(DREAM_VIEW) return "dream";
     if(setup) return showBoard ? "board" : b4Step ? "step:" + b4Step : "home";
     return "game:" + S.play + ":" + S.mode + (S.phase === "results" ? ":results" : "");
@@ -29772,6 +30173,7 @@ function renderMain(){
   if(LOCKER_VIEW && (!S || S.phase === "setup")){ b6Tabs("locker"); return renderLocker(st); }
   if(ALBUM_VIEW) return renderAlbum(st);
   if(CUP_VIEW) return renderCup(b4Stage(st, () => { const c = cupRun(); return { title: "The Cup", ctx: "World Cup " + (c ? c.year : cupYear()) + (c && c.alive ? (c.round === "group" ? " · Group " + c.group : " · " + CUP_ROUND_SHORT[c.round]) : ""), back: "closeCup()", cls: "b4cup" }; }));
+  if(EXP_VIEW) return expertDraw(st);
   if(TT_VIEW) return ttRender(st);
   if(GW_VIEW) return gwRender(st);
   if(DD_VIEW) return ddRender(st);
@@ -34530,9 +34932,13 @@ function b4Friend(){ audio(); b4Mate = !b4Mate; render(); }
    A tournament's own deck is a cut of the bank (assets/worldcup, assets/euro);
    a league's is its own. The famous finals have none, so they go straight in. */
 let b4Pend = null, b4QOwn = true;
-/* the Eredivisie's two more: "club" or "era" (with the one picked), or null for its own deck or all football */
-let b4QView = null, b4QClub = null, b4QEra = "ere-2000-2019";
-const b6QView = () => b4QView === "club" ? (b4QClub || ereClubFirst()) : b4QView === "era" ? b4QEra : null;
+/* the choices beside a competition's own deck: "club" or "era" (with the one picked), "women", or null for its own deck or all football.
+   A pick is only good in its own league: the Eredivisie's Ajax doesn't follow you to La Liga */
+let b4QView = null, b4QClub = null, b4QEra = null;
+const b6QClub = () => { const L = b4Pend && b4Pend.quiz, Q = QUIZZES[b4QClub]; return Q && Q.league === L ? b4QClub : leagueClubs(L)[0]; };
+/* the second last of a league's blocks, the fullest of them: the 2000s and 2010s in the Eredivisie, the 2010s elsewhere */
+const b6QEra = () => { const L = b4Pend && b4Pend.quiz, Q = QUIZZES[b4QEra], e = leagueEras(L); return Q && Q.league === L ? b4QEra : e[Math.max(0, e.length - 2)]; };
+const b6QView = () => b4QView === "club" ? b6QClub() : b4QView === "era" ? b6QEra() : b4QView === "women" ? "women" : null;
 const b6TourDeck = pool => { const g = (POOLS[pool] || {}).group; return g === "World Cups" ? "worldcup" : g === "Euros" ? "euro" : null; };
 /* ---------- SIMPLE BALL (Martijn, 21 Oct 2026) ----------
    Matchday's other way to play: just question and answer, the BALL 3 board.
@@ -34541,11 +34947,29 @@ const b6TourDeck = pool => { const g = (POOLS[pool] || {}).group; return g === "
    played: the whole bank, the leagues, the European cups, the second tiers. */
 const SIMPLE_KEY = "ball4-simple";
 const SIMPLE_GROUPS = [["Everything", ["classic"]], ["Leagues", ["ere", "premier", "laliga", "bundesliga", "seriea", "belgian"]],
+  ["Clubs and eras", null], ["Women's football", ["women", ...WOMEN_DECKS.map(d => d[0])]],
   ["European nights", ["ucl", "uel", "uecl"]], ["Second tiers", ["eerste", "champ", "segunda", "bundesliga2", "serieb", "challenger"]],
   ["More leagues", ["ligue1", "primeira", "superlig", "scotland", "mls", "brasileirao", "argentina", "ligamx", "ekstraklasa", "greece", "denmark", "austria", "swiss", "czech", "j1", "aleague", "nigeria", "ghana", "kenya", "southafrica", "jamaica", "trinidad", "indonesia", "vietnam"]],
-  ["Eredivisie clubs", ERE_CLUBS.map(c => "club-" + c[0])], ["Eredivisie eras", ERE_ERAS.map(e => e[0])],
   ["Countries", NATS.flatMap(([, list]) => list.map(n => "nat-" + n[0]))],
   ["Special", ["spec"]]];
+/* THE CLUBS AND ERAS OF EVERY LEAGUE. A hundred-odd clubs and thirty eras would be a scroll of their own, so a tile per league and one open
+   at a time, under its row. Until you fold one yourself it is the league of the quiz you have picked, so that quiz is on the screen. */
+const SIMPLE_FOLDS = [...new Set([...Object.values(CLUB_LEAGUE), ...BANK_ERAS.map(e => e[1])])];
+let simpleOpen;
+const simpleOpenNow = pick => simpleOpen === undefined ? (QUIZZES[pick] || {}).league || null : simpleOpen;
+function simpleFold(L){ audio(); simpleOpen = simpleOpenNow(simplePrefs().quiz) === L ? null : L; render(); }
+function simpleFoldsHTML(pick, tile){
+  const Q = QUIZZES[pick] || {}, open = simpleOpenNow(pick), at = Math.min(SIMPLE_FOLDS.indexOf(open) | 1, SIMPLE_FOLDS.length - 1);
+  if(open) needPool(QUIZZES[open].pool);   // the crests of a league further down the queue
+  const part = (L, what, qs) => qs.length ? '<div class="b6hdr">' + esc(QUIZZES[L].label) + ' ' + what + '</div><div class="smqs">' + qs.map(tile).join("") + '</div>' : "";
+  return '<div class="smqs">' + SIMPLE_FOLDS.map((L, i) => {
+    const clubs = leagueClubs(L), eras = leagueEras(L), mine = Q.league === L;
+    const says = mine ? (Q.view === "era" ? Q.years : Q.label) : [clubs.length && clubs.length + " clubs", eras.length && eras.length + " eras"].filter(Boolean).join(" · ");
+    return '<button class="smq smfold' + (mine ? " on" : "") + '" aria-expanded="' + (L === open) + '" onclick="simpleFold(\'' + L + '\')">' + simpleIcon(L) +
+      '<span>' + esc(QUIZZES[L].label) + '<small>' + esc(says) + '</small></span></button>' +
+      (i === at ? '<div class="smpanel">' + part(open, "clubs", leagueClubs(open)) + part(open, "eras", leagueEras(open)) + '</div>' : "");
+  }).join("") + '</div>';
+}
 function simplePrefs(){
   let p = null; try{ p = JSON.parse(localStorage.getItem(SIMPLE_KEY) || "null"); }catch(e){}
   p = p && typeof p === "object" ? p : {};
@@ -34557,9 +34981,9 @@ function simpleName(i, v){ const p = simplePrefs(); p.names[i] = String(v || "")
 /* the league's flag (Martijn, 21 Oct 2026); the cups their badge, everything the ball */
 function simpleIcon(q){
   const Q = QUIZZES[q] || {};
-  if(Q.nation) return '<img class="smf" src="assets/natflags/' + Q.flag + '.png" alt="">';
+  if(Q.flag) return '<img class="smf" src="assets/natflags/' + Q.flag + '.png" alt="">';
   if(Q.view === "club") return '<span class="smb">' + b6SideImg(Q.team, 26, Q.pool) + '</span>';
-  if(Q.view === "era") return compBadge("ere", 26);
+  if(Q.view === "era") return compBadge(Q.league || "ere", 26);
   return compBadge(q, 26) || '<span class="smb ball">' + ballSVG("") + '</span>';
 }
 function simpleStepHTML(){
@@ -34567,10 +34991,10 @@ function simpleStepHTML(){
   needQuiz(p.quiz);
   const tile = q => { const Q = QUIZZES[q]; if(!Q) return ""; const ready = !!DECKS[mc ? q + "-mc" : q] || (q === "classic" && (mc ? DECKS["classic-mc"] : typeof BANK !== "undefined"));
     return '<button class="smq' + (p.quiz === q ? " on" : "") + '" style="--qa:' + (Q.ac || "#e9b84c") + '" aria-pressed="' + (p.quiz === q) + '" onclick="simpleSet(\'quiz\',\'' + q + '\')"' + (ready || Q.lazy ? "" : " disabled") + '>' +
-      simpleIcon(q) + '<span>' + esc(q === "classic" ? "All football" : Q.view === "era" ? Q.years : Q.label) + '</span></button>'; };
+      simpleIcon(q) + '<span>' + esc(q === "classic" ? "All football" : q === "women" ? "All women's football" : Q.view === "era" ? Q.years : Q.label) + '</span></button>'; };
   return b6StepHead(0, 0, "Simple Ball") +
     '<div class="b6q">Questions, nothing else</div><div class="b6qs">Take turns: pick a level, answer, score its points. First to the target wins.</div>' +
-    SIMPLE_GROUPS.map(([g, qs]) => '<div class="b6hdr">' + g + '</div><div class="smqs">' + qs.map(tile).join("") + '</div>').join("") +
+    SIMPLE_GROUPS.map(([g, qs]) => '<div class="b6hdr">' + g + '</div>' + (qs ? '<div class="smqs">' + qs.map(tile).join("") + '</div>' : simpleFoldsHTML(p.quiz, tile))).join("") +
     '<div class="b6hdr">Who\'s playing</div><div class="b6seg b6ans smn" role="group" aria-label="How many players">' +
       [1, 2, 3, 4, 5, 6].map(n => '<button aria-pressed="' + (p.n === n) + '" onclick="simpleSet(\'n\',' + n + ')">' + n + '</button>').join("") + '</div>' +
     '<div class="partynames">' + Array.from({ length: p.n }, (_, i) => '<input id="n' + i + '" class="partyname" maxlength="16" placeholder="Player ' + (i + 1) + '" aria-label="Player ' + (i + 1) + '" value="' +
@@ -35176,8 +35600,9 @@ function ddNew(names, row, o){
   if(me >= 0) G.seen = ddKnow(G, me, false);
   return G;
 }
-const ddShort = n => { const w = String(n).split(" "); if(w.length < 2) return n; const k = w.length - 2;
-  return /^(van|de|di|da|dos|del|der|le|el|al|ter|von|ben)$/i.test(w[k]) ? w.slice(k).join(" ") : w[w.length - 1]; };
+const ddShort = n => { if(/^\S+ [A-Z][a-z]+-[a-z]+$/.test(n)) return n.split(" ")[0];      // Son Heung-min (the same as build-deadline.js)
+  const w = String(n).replace(/ (Júnior|Junior)$/, "").split(" "); if(w.length < 2) return w[0]; const k = w.length - 2;
+  return /^(van|de|di|da|dos|del|der|le|el|al|ter|ten|von|ben)$/i.test(w[k]) ? w.slice(k).join(" ") : w[w.length - 1]; };
 const ddClubRow = r => ({ slug: r[0], name: r[1], cc: r[2], code: r[3] || String(r[1]).replace(/^(FC|AC|AS|SC|SV|CF|CD|RC|SS|US|VfB|VfL|1\.) /, "").slice(0, 3).toUpperCase(), c1: r[4] || "", c2: r[5] || "", p: r[6] || "plain" });
 /* a card's name as the cards and the notebook say it */
 const ddName = (G, c) => { const k = ddKind(c), i = c % 6; return k === 0 ? G.P[i].short : k === 1 ? G.C[i].name : String(G.Y[i]); };
@@ -37031,7 +37456,7 @@ function b6OwnDeckId(){ if(!b4Pend) return null; return b4Pend.quiz === "classic
 function b4StartPitch(pool, quiz){
   needPool(pool);   // ahead of the boot queue if it has not come down yet
   if(!POOLS[pool] || !TEAMS[pool]) return toast("Still loading those squads, give it a second", true);
-  b4Pend = { pool, quiz };
+  b4Pend = { pool, quiz }; b4QView = null;
   if(!b6OwnDeckId()) return b4Kick(false);
   b4Pick("qs");
 }
@@ -37122,24 +37547,28 @@ function firstMatchOver(){
   if(S && S.first && /^h_/.test(S.phase || "")) return;
   h2TackleOn = FIRST_TACKLE; FIRST_TACKLE = null;
 }
-/* THE EREDIVISIE'S CLUBS AND ERAS in Which questions?: a crest each, or Martijn's four blocks of years */
+/* A LEAGUE'S CLUBS AND ERAS in Which questions?: a crest each, or its blocks of years. Nothing for a league that has neither */
+const b6The = name => (/^(La |Serie |Ligue |\d)/.test(name) ? "" : "the ") + name;
 function b6QViewsHTML(){
-  const club = b4QClub || ereClubFirst(), C = QUIZZES[club], E = QUIZZES[b4QEra];
+  const L = b4Pend.quiz, pool = b4Pend.pool, clubs = leagueClubs(L), eras = leagueEras(L), name = (QUIZZES[L] || {}).label;
+  const club = b6QClub(), era = b6QEra(), C = QUIZZES[club], E = QUIZZES[era];
   const n = q => { const d = DECKS[q]; return d ? ["easy", "normal", "hard", "extreme", "ball"].reduce((a, t) => a + (d[t] || []).length, 0) : 0; };
-  if(b4QView === "era") for(const e of ERE_ERAS) needQuiz(e[0]);   // all four, so each block can say how many
+  if(b4QView === "era") for(const q of eras) needQuiz(q);   // all of them, so each block can say how many
   const go = (v, q) => "b4QOwn=true;b4QView='" + v + "';" + (v === "club" ? "b4QClub" : "b4QEra") + "='" + q + "';needQuiz('" + q + "');render()";
-  return b6Opt(b4QView === "club", b6SideImg(C.team, 40, "ere-clubs"), "One club", '<small>A quiz about one club, and you play as them.</small>', go("club", club)) +
-    (b4QView === "club" ? '<div class="b6teams b6qclubs">' + ERE_CLUBS.map(([slug, team]) => { const q = "club-" + slug;
-      return '<button class="b6team' + (q === club ? " sel" : "") + '" onclick="' + go("club", q) + '">' + b6SideImg(team, 30, "ere-clubs") + '<span>' + esc(team) + '</span></button>'; }).join("") +
+  return (clubs.length ? b6Opt(b4QView === "club", b6SideImg(C.team, 40, pool), "One club", '<small>A quiz about one club, and you play as them.</small>', go("club", club)) : "") +
+    (clubs.length && b4QView === "club" ? '<div class="b6teams b6qclubs">' + clubs.map(q => { const team = QUIZZES[q].team;
+      return '<button class="b6team' + (q === club ? " sel" : "") + '" onclick="' + go("club", q) + '">' + b6SideImg(team, 30, pool) + '<span>' + esc(team) + '</span></button>'; }).join("") +
       '</div><div class="b6qn">' + (n(club) ? nf(n(club)) + " questions about " + esc(C.team) : "Loading the questions…") + '</div>' : "") +
-    b6Opt(b4QView === "era", '<span class="b6eraic">' + esc(E.years.replace("The ", "")).replace("–", "<br>") + '</span>', "An era", '<small>The Eredivisie of one stretch of years.</small>', go("era", b4QEra)) +
-    (b4QView === "era" ? '<div class="b6eras">' + ERE_ERAS.map(([q, years]) => '<button class="b6era' + (q === b4QEra ? " sel" : "") + '" onclick="' + go("era", q) + '">' +
-      '<b>' + esc(years) + '</b><small>' + (n(q) ? nf(n(q)) + " questions" : "Loading…") + '</small></button>').join("") + '</div>' : "");
+    (eras.length ? b6Opt(b4QView === "era", '<span class="b6eraic">' + esc(E.years.replace("The ", "")).replace("–", "<br>") + '</span>', "An era",
+      '<small>' + esc(b6The(name).replace(/^t/, "T")) + ' of one ' + (L === "ere" ? "stretch of years" : "decade") + '.</small>', go("era", era)) : "") +
+    (eras.length && b4QView === "era" ? '<div class="b6eras">' + eras.map(q => '<button class="b6era' + (q === era ? " sel" : "") + '" onclick="' + go("era", q) + '">' +
+      '<b>' + esc(QUIZZES[q].years) + '</b><small>' + (n(q) ? nf(n(q)) + " questions" : "Loading…") + '</small></button>').join("") + '</div>' : "");
 }
 function b4Kick(own, view){
   const pool = b4Pend.pool, quiz = view || b4Pend.quiz, deck = view || b6OwnDeckId();
   if(view) needQuiz(view);
   if(own && deck && !DECKS[deck + "-mc"]) return toast("Those questions are still loading, give it a second", true);
+  if(view === "women") QUIZZES.women.pool = pool;   // no sides of its own: it plays on the pitch you picked
   b4Explain('pitch', () => {
     b4Go(quiz, 'pitch', {level: setupAiLevel, mate: b4Mate, src: quiz === "classic" ? "own" : (own ? "own" : "classic")});
     if(S && isPitch(S.play)){
@@ -37340,9 +37769,10 @@ function b6Steps(){
       '<div class="b6q">Which questions?</div><div class="b6qs">' + esc(b4StageLabel(b4Pend.pool)) + '</div><div class="b6opts">' +
       b6Opt(b4QOwn && !b4QView, (QUIZZES[b4Pend.quiz] || {}).nation ? '<img class="b6qflag" src="assets/natflags/' + QUIZZES[b4Pend.quiz].flag + '.png" alt="">' :
         compBadge(b4Pend.quiz === "classic" ? b4Pend.pool : b4Pend.quiz, 52) || B6_ART[b4Pend.quiz === "classic" ? "globe" : "leagues"],
-        esc(name) + " questions", '<small>Only about ' + ((QUIZZES[b4Pend.quiz] || {}).nation ? "" : "the ") + esc(name) + '.</small>', "b4QOwn=true;b4QView=null;render()") +
-      (b4Pend.quiz === "ere" ? b6QViewsHTML() : "") +
+        esc(name) + " questions", '<small>Only about ' + esc((QUIZZES[b4Pend.quiz] || {}).nation ? name : b6The(name)) + '.</small>', "b4QOwn=true;b4QView=null;render()") +
+      b6QViewsHTML() +
       b6Opt(!b4QOwn, '<span class="b6ballic">' + ballSVG("") + '</span>', "All football", '<small>Questions from the whole game.</small>', "b4QOwn=false;b4QView=null;render()") +
+      b6Opt(b4QView === "women", '<span class="b6womic">' + ico("star") + '</span>', "Women's football", '<small>Questions from the women\'s game. You play as any side.</small>', "b4QOwn=true;b4QView='women';needQuiz('women');render()") +
       '</div><button class="b6cta" onclick="b4Kick(b4QOwn, b6QView())">Kick off \u25B6</button>';
   }
   if(b4Step === "nation"){
@@ -37378,7 +37808,7 @@ function b6Steps(){
    and the word meant nothing. Now a game is NEW only when it arrived after you
    started playing, for its first 30 days, and only until you open it. A game
    you have not tried yet just says PLAY. */
-const B6_ADDED = { tt: "2026-10-21", gw: "2026-10-22", dd: "2026-10-22", lb: "2026-10-22", yr: "2026-10-24" };
+const B6_ADDED = { tt: "2026-10-21", gw: "2026-10-22", dd: "2026-10-22", lb: "2026-10-22", yr: "2026-10-24", expert: "2026-11-04" };
 const B6_SEEN_KEY = "ball4-seen-games";
 function b6Seen(){ try{ const s = JSON.parse(localStorage.getItem(B6_SEEN_KEY) || "[]"); return Array.isArray(s) ? s : []; }catch(e){ return []; } }
 function b6MarkSeen(k){ tlmEvent("game_open", { g: k }); const s = b6Seen(); if(s.includes(k)) return; s.push(k); try{ localStorage.setItem(B6_SEEN_KEY, JSON.stringify(s)); }catch(e){} }
@@ -37533,6 +37963,7 @@ function b6ThreeCards(T, S3){
 }
 /* the other games as a numbered collection: four to a row, each with its own drawn mark */
 const T3_GAME_IC = {
+  "Club Expert": '<path d="M8.5 3h7l-1.8 5.6h-3.4zM12 8.5a6 6 0 1 0 0 12a6 6 0 1 0 0-12M12 11.6l1 2 2.2.3-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5 2.2-.3z"/>',
   "Higher or Lower": '<path d="M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4"/>',
   "Career Path": '<path d="M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M16 6a2 2 0 1 0 4 0a2 2 0 1 0-4 0M8 18h5a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h5"/>',
   "The Cup": '<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5.5a2.5 2.5 0 0 0 2.6 3.4M16 6h2.5a2.5 2.5 0 0 1-2.6 3.4M12 13v4M9 20h6M10 17h4v3h-4z"/>',
@@ -37635,6 +38066,14 @@ function b6McOpen(comp, id){
   const go = () => { if(typeof clMatchGo === "function"){ try{ clMatchGo(comp, id); }catch(e){} return; } if(++n < 50) setTimeout(go, 100); };
   go();
 }
+/* from the home to the Matchday Quiz: Call It first, then the quiz once its file is here (pl.js asks for it as the round is drawn) */
+function b6McQuiz(id){
+  try{ audio(); }catch(e){}
+  openLeague("callit");
+  let n = 0;
+  const go = () => { if(typeof clQzOpen === "function"){ try{ clQzOpen(id); }catch(e){} return; } if(++n < 50) setTimeout(go, 100); };
+  go();
+}
 /* the other matches of the featured one's competition that day (pl.js keeps them with the pick: the strip's day) */
 function b6McDay(h){
   try{
@@ -37691,6 +38130,10 @@ function b6McCard(){
         '<b>' + esc(big) + '</b>' + (sub ? '<small>' + esc(sub) + '</small>' : "") +
         (R ? '<span class="t3mcbar" role="img" aria-label="' + (R.called | 0) + ' of ' + (R.matches | 0) + ' called"><i style="width:' + Math.round(100 * Math.min(1, (R.called | 0) / R.matches)) + '%"></i></span>' : "") +
       '</span><span class="t3mccta" aria-hidden="true">' + (P ? "Call" : "Start") + ' ›</span></button>';
+    /* the Matchday Quiz, one small line (pl-quiz.js leaves it on the strip, clQzStrip): an invitation while the round is open, your score once played */
+    const Q = R && R.qz;
+    if(Q && (Q.n != null || ((R.open | 0) > 0 && (!R.lock || R.lock > Date.now()))))
+      stub += '<button class="t3mcqz" onclick="b6McQuiz(' + (Q.id | 0) + ')"><span>' + esc(Q.n != null ? "Matchday Quiz" : String(Q.say || "")) + '</span><b>' + (Q.n != null ? (Q.n | 0) + " of 6" : "Warm up ›") + '</b></button>';
   }
   return '<div class="t3card t3mc"><div class="t3mch"><div class="t3h">Match Centre</div><button class="t3mcall" onclick="openLeague()">All ›</button></div>' + rail + stub + '</div>';
 }
@@ -37705,6 +38148,7 @@ function b6Shelf(){
   /* not played yet: what the game is, in the Play menu's words */
   const sub = (k, v, word, line) => b6IsNew(k) ? "New" : v != null && v !== "" && v > 0 ? word + " " + v : line;
   const items = [
+    ["Club Expert", expertShelfSub(), "openExpert()"],
     ["Higher or Lower", hilo != null && hilo >= 0 ? "Best " + hilo : "Caps and goals", "b6MoreSheet('hilo')"],
     ["Career Path", best.career != null ? "Best " + best.career : "Name him from his clubs", "b6MoreSheet('career')"],
     ["The Cup", cups ? "Won " + cups : "A whole World Cup", "openCup()"],
@@ -38044,6 +38488,7 @@ const B4_HOW = {
   lists: ["The Lists", "Two kinds of list. Top 10: the numbers are on the board and you name the men behind them; a name outside the ten costs one of three balls. Name them all: a whole list against the clock, and a wrong name costs nothing. Know someone real who just misses the list? That's a deep cut, a bonus point. Two new lists every day, thousands more on the shelf."],
   gtp: ["Guess the player", "One mystery footballer a day, the same for everyone, and six guesses. Type any player: each guess shows four tiles against the secret one. Nation, position, year of birth and clubs: green is a match, gold is close (born within two years, or a club in common), and the arrow points to his year. Your guesses knit a scarf you can share."],
   career: ["Career Path", "A player's clubs come out one at a time, in order. Pick his name from four. Right on the first club is +15, every extra club costs 3, and a wrong name is −2. Ten players a game."],
+  expert: ["Club Expert", "Pick a club and take its Expert test: ten multiple-choice questions, Hard, Extreme and Ball, twenty seconds each. Eight right is a pass. Pass on three different days and the club's medal is yours. A question from a passed test never comes back."],
 };
 const SEEN_KEY = "ball4-seen";
 function b4Seen(){ try{ return JSON.parse(localStorage.getItem(SEEN_KEY)) || {}; }catch(e){ return {}; } }
@@ -38135,6 +38580,19 @@ function resumeGame(waited){
     const w = classicShort(s) ? classicNeed() : null;
     if(w){ if(!resumeGame.w){ resumeGame.w = true; w.then(() => { resumeGame.w = false; resumeGame(true); }); } return; }
   }
+  /* A CLUB, AN ERA, A COUNTRY OR THE WOMEN'S GAME IS A LAZY DECK, and some sides are a lazy pool: neither is here after a restart, and a parked
+     match points into both by place. They come down now and the match waits, four seconds at most; with no signal it stays parked and says so */
+  try{
+    const s = JSON.parse(localStorage.getItem(SAVE_KEY)), id = s && s.mode, r = QUIZZES[id], pool = s && s.pool;
+    if((r && r.lazy && !DECKS[s.mc ? id + "-mc" : id]) || (isPitch(s.play) && POOLS[pool] && POOLS[pool].lazy && !TEAMS[pool])){
+      needQuiz(id); needPool(pool);
+      resumeGame.n = (resumeGame.n || 0) + 1;
+      if(resumeGame.n <= 40) return void setTimeout(() => resumeGame(true), 100);
+      resumeGame.n = 0; if(r) r._asked = false; if(POOLS[pool]) POOLS[pool]._asked = false;
+      return toast("Those questions need a signal the first time", true);
+    }
+  }catch(e){}
+  resumeGame.n = 0;
   try{ S=JSON.parse(localStorage.getItem(SAVE_KEY)); }catch(e){ return; }
   if(S.timed===undefined) S.timed=true; // saves from before the timer toggle existed
   if(S.mode===undefined) S.mode="classic"; // saves from before written mode existed
@@ -38371,9 +38829,13 @@ function noSteal(){
   if(isGuest()) return mpAct("noSteal",[]);
   S.phase="deadq"; render();
 }
+/* A DECK CAN BE ASKED EMPTY. Six players to 200 points get through every question of a small club, and an empty board has no way forward: the
+   match ends there, as the score stands */
+const boardDry = () => !H2_ORDER.some(t => remaining(t) > 0);
 function nextTurn(){
   if(isGuest()) return mpAct("nextTurn",[]);
   if(S.rr) return rrNext();
+  if(S.simple && boardDry()){ toast("That's every question in this deck. Full time."); return endGame(); }
   stopTimer();
   S.turn=(S.turn+1)%S.players.length;
   if(S.turn===0) S.round++;
@@ -39019,8 +39481,9 @@ function rematch(){
   const usedQ=S.usedQ;
   const rr=S.rr;
   const party=S.party, simple=S.simple;
-  S=freshState(names, S.timed, S.mode, S.target, S.play, S.mc); S.used=used; S.usedC=usedC; S.ref=ref;
+  S=freshState(names, S.timed, S.mode, S.target, S.play, S.mc); const unused=S.used; S.used=used; S.usedC=usedC; S.ref=ref;
   if(simple) S.simple=true;
+  if(simple && boardDry()) S.used=unused;   // the deck was asked empty: a rematch starts it again
   S.usedM=usedM||[]; S.usedX=usedX||[]; S.usedT=usedT||[]; S.usedQ=usedQ||{};
   if(party) S.party={names:party.names, pts:party.names.map(()=>0)};
   if(rr){                              // a Rainbow Road rematch is another Rainbow Road

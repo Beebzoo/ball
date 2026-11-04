@@ -21,8 +21,9 @@
    off is dropped, and the player is told.
 
    THE SCREENS are LEAGUE_VIEW.cl.s: home (the Predictions segment), card (call
-   the matches), calls (your calls and lock in), new, invite, join, table and
-   reveal (the calls are in). Copy rule (06-ux.md): no gambling words, ever. */
+   the matches), calls (your calls and lock in), new, invite, join, table,
+   reveal (the calls are in) and quiz (the Matchday Quiz, assets/pl/pl-quiz.js).
+   Copy rule (06-ux.md): no gambling words, ever. */
 
 var CL = { cards: null, card: {}, leagues: null, table: {}, board: {}, teams: null, skew: 0, err: null,
   loading: false, at: 0, i: {}, idWait: 0, asked: {}, mc: {}, mcErr: null, sup: {} };
@@ -240,7 +241,7 @@ function clStripSave(){
        carry it without loading Call It (threeJoinLine in index.html) */
     const lg = (CL.leagues || []).find(l => l.series === c.series) || CL.leagues[0];
     localStorage.setItem("ball4-pl-strip", JSON.stringify({ at: Date.now(), label: c.label, matches: c.matches | 0, called: c.called | 0, open: c.open | 0, lock: c.next_lock || null,
-      lg: lg && lg.code ? { code: lg.code, name: lg.name } : null }));
+      lg: lg && lg.code ? { code: lg.code, name: lg.name } : null, qz: typeof clQzStrip === "function" ? clQzStrip(c) : null }));
   }catch(e){}
 }
 async function clLoad(force){
@@ -313,7 +314,7 @@ function clRender(st){
   clTeamsLoad();
   const v = clV();
   const page = { card: clCardPage, calls: clCallsPage, new: clNewPage, invite: clInvitePage, join: clJoinPage,
-    table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage, match: clMatchPage, matches: clMatchesPage }[v.s];
+    table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage, match: clMatchPage, matches: clMatchesPage, quiz: x => clQzPage(x) }[v.s];
   st.innerHTML = page ? page(v) : mcHub();
   clTickOn();
 }
@@ -378,7 +379,20 @@ function clHome(){
     return clHub(CL.err ? '<div class="lgempty"><b>' + clE(CL.err) + '</b><span>Check the connection and try again.</span><button class="b4btn dark" onclick="clLoad(true)">Try again</button></div>' : '<div class="lgskel"></div>');
   }
   if(Date.now() - CL.at > 60000 && !CL.loading) clLoad();
-  return clHub(clRevealBanner() + clNextCard() + clOtherCards() + clLeaguesHTML());
+  const t = clTop();
+  return clHub(clRevealBanner() + clNextCard() + (t ? clQzHTML(t.card) : "") + clOtherCards() + clLeaguesHTML());
+}
+/* THE MATCHDAY QUIZ (assets/pl/pl-quiz.js): the warm-up under a round. It comes after the screens, the first time a
+   round is drawn; a phone without that file simply has no quiz */
+let CL_QZ = 0;
+function clQzHTML(id){
+  if(typeof clQzCard === "function") return clQzCard(id);
+  if(!CL_QZ){
+    CL_QZ = 1;
+    try{ const s = document.createElement("script"); s.src = "assets/pl/pl-quiz.js"; s.onload = () => { clStripSave(); clRedraw(); }; s.onerror = () => { CL_QZ = 0; }; document.head.appendChild(s); }
+    catch(e){ CL_QZ = 0; }
+  }
+  return "";
 }
 /* the big card: the round with the next kick-off */
 function clNextCard(){
@@ -599,7 +613,7 @@ function clCallsPage(v){
   return b4Page({ title: "Your calls", ctx: clStr(k.card.label) + " · " + called + " of " + F.length + " called", back: "clBack()", cls: "clpage",
     body: '<div class="cl-stampwrap" id="clstampwrap"><div class="b4card dark cl-slip' + (byDay ? " days" : "") + '">' + rows + '</div></div>' +
       '<p class="cl-sum">Tap a match to change it. Each match locks at its own kick-off.</p>' + clMoreNote(k) + clWaitNote(mine) +
-      (open ? b4Btn("Lock in " + clE(k.card.label), "clLockIn()") : "") + who });
+      (open ? b4Btn("Lock in " + clE(k.card.label), "clLockIn()") : "") + clQzHTML(id) + who });
 }
 /* from your calls to one match; ‹ comes back to your calls */
 function clEdit(j){ audio(); const v = clV(); CL.i[v.card] = j; LEAGUE_VIEW.cl = { s: "card", card: v.card, from: v }; render(); }

@@ -22,17 +22,12 @@ const EXP_N = 10, EXP_PASS = 8, EXP_DAYS = 3, EXP_SECS = 20, EXP_SEEN_MAX = 120;
 const EXP_QUOTA = [["hard", 5], ["extreme", 3], ["ball", 2]];          // the spread where the club allows it, climbing
 const EXP_TIER = { hard: "Hard", extreme: "Extreme", ball: "Ball" };
 const EXP_LANDS = [["nl", "Netherlands"], ["be", "Belgium"], ["de", "Germany"], ["en", "England"], ["es", "Spain"], ["it", "Italy"], ["pt", "Portugal"], ["sc", "Scotland"]];
-/* clubs-identity.json doesn't know these seven (promoted or small, or under another slug in the pools): their colours are
-   facts like everyone else's, and BALL's patch draws them. b6SideImg would fall back on the pool's kit colour, which is
-   black for Excelsior and missing for OH Leuven */
+/* the bank spells these three differently from clubs-identity.json (excelsior-rotterdam, oud-heverlee-leuven,
+   raal-la-louviere). b6SideImg would fall back on the pool's kit colour, which is black for Excelsior and missing for OH Leuven */
 const EXP_LOOKS = {
   excelsior: { code: "EXC", c1: "#e30613", c2: "#151515", p: "stripes" },
-  westerlo: { code: "WES", c1: "#f7d117", c2: "#1f4fa3", p: "plain" },
   "oh-leuven": { code: "OHL", c1: "#ffffff", c2: "#118a3a", p: "plain" },
-  "la-louviere": { code: "LAL", c1: "#118a3a", c2: "#ffffff", p: "plain" },
-  kortrijk: { code: "KOR", c1: "#e30613", c2: "#ffffff", p: "plain" },
-  lommel: { code: "LOM", c1: "#118a3a", c2: "#ffffff", p: "plain" },
-  "deportivo-alaves": { code: "ALA", c1: "#0057b8", c2: "#ffffff", p: "stripes" } };
+  "la-louviere": { code: "LAL", c1: "#118a3a", c2: "#ffffff", p: "plain" } };
 
 let EX = null, EXD = null, EXP_SLUG = null, EXP_CD = null, EXP_UID = 0;
 

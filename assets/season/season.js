@@ -5,7 +5,7 @@
    wrong one gives the other side a chance. Everybody else plays too, and the table is a true table of the lot. Bottom two go down,
    top two of the division below come up, and the next season carries on with the same club. Loaded by index.html (ssnNeed) on the
    first open; the door, the store's load and save and the shelf's line are there, next to Transfer Trail's. A plain script with
-   plain globals, like trail.js. No XP and no Daily link: the table is the reward.
+   plain globals, like trail.js. Every question earns XP as elsewhere; no Daily link.
 
    THE SHAPE
      - assets/season/leagues.json: the real 2025/26 tables, read against the app's pools. A side's record there sets its power
@@ -201,7 +201,7 @@ function ssnRecord(run){
   return { id: run.id + ":" + run.y, run: run.id, y: run.y, club: run.club, land: run.land, div: run.div, pos: i + 1, of: t.length, p: me.p, w: me.w, d: me.d, l: me.l, gf: me.gf, ga: me.ga, pts: me.pts,
     lvl: run.lvl, mv: M.up.includes(run.club) ? "up" : M.down.includes(run.club) ? "down" : "", t: Date.now() };
 }
-/* a finished season goes in the book once, whichever way the phone got here. A league title goes on the Locker's shelf, no XP */
+/* a finished season goes in the book once, whichever way the phone got here. A league title goes on the Locker's shelf */
 function ssnFile(s){
   const run = s.run, id = run.id + ":" + run.y;
   s.done = s.done || [];
@@ -443,6 +443,8 @@ function ssnReveal(i){
   SN.shown = true; SN.pick = i; SN.pat = run.live.p;
   if(ok) SN.gf++;
   SN.ga += them;
+  /* the rows carry no tier here, so the XP follows the level chosen for the run */
+  try{ progAnswer({ ok, tier: run.lvl === "hard" || run.lvl === "easy" ? run.lvl : "normal", topic: topicKey(ssnDiv(run.div).quiz) || "general" }); }catch(e){}
   SN.pop = ok ? (them ? "both" : "you") : them ? "them" : null;
   SN.say = ssnSayThird(ok, i < 0, them, m.opp, ssnEvents(ctx, m, run.live.p, third + 1).filter(e => e.third === third));
   try{ if(ok) fb.correct(null); else if(i >= 0) fb.wrong(null); else fb.run = 0; }catch(e){}
@@ -469,6 +471,7 @@ function ssnLeave(){ audio(); stopTimer(); closeSheet(); SN = null; SSN_VIEW = "
 /* ---------- full time ---------- */
 function ssnWhistle(){
   clearTimeout(SSN_TIMER); stopTimer();
+  try{ progSave(progLoad()); }catch(e){}
   const s = seasonStore(), run = s.run, ctx = ssnCtx(run), k = run.res.length, m = ctx.mine[k], pat = run.live.p;
   const before = k ? ssnRank(ssnTable(ctx, run.res), run.club) : 0;
   run.res += String(pat); run.live = null;

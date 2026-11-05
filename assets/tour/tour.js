@@ -2,7 +2,7 @@
 
    A passport that fills up, and a reason to learn football outside your own country. Every country the bank knows well enough is a stop.
    Ten multiple-choice questions, twenty seconds each, seven right wins the stamp. A miss costs nothing. Stamp a whole region and its page
-   gets a gold visa; stamp them all and you're a Citizen of the World. No XP: this one is for the passport. Loaded by index.html (tourNeed) on
+   gets a gold visa; stamp them all and you're a Citizen of the World. Every question earns XP; the prize is the passport. Loaded by index.html (tourNeed) on
    the first open; the door, the store's load and save and the shelf's line are there, next to Time Machine's. A plain script with plain
    globals, like timemachine.js.
 
@@ -423,6 +423,7 @@ function tourReveal(i){
   TOUR.shown = true; TOUR.pick = i;
   TOUR.picks.push(ok);
   if(ok) TOUR.right++;
+  try{ progAnswer({ ok, tier: Q.tier, topic: topicKey(Q.deck) || "general" }); }catch(e){}
   try{ if(ok) fb.correct(null); else if(i >= 0) fb.wrong(null); else fb.run = 0; }catch(e){}
   /* the green option is the answer, so what's said under it is the bank's fact: the reason to be here */
   TOUR.say = ok ? "Right." : (i < 0 ? "Out of time. " : "") + String(Q.sub || "");
@@ -460,6 +461,7 @@ function tourStart(cc){
 function tourFinish(){
   if(!TOUR) return;
   clearTimeout(TOUR_TIMER); TOUR_TIMER = null; stopTimer();
+  try{ progSave(progLoad()); }catch(e){}
   const s = tourStore(), cc = TOUR.cc, right = TOUR.right, rec = tourRecord(s, TOUR_STOPS, cc, right, Date.now());
   tourSave(s);
   try{ tlmEvent("tour_done", { cc, right, pass: rec.pass ? 1 : 0, stamp: rec.first ? 1 : 0 }); }catch(e){}

@@ -2,7 +2,7 @@
 
    Pick a route through football history. Five multiple-choice questions a decade, fifteen seconds each, three lives for the whole
    trip: a wrong answer or a timeout costs one. Lose the third and you're stranded in a year of that decade; get through the 2020s and
-   you're home. Between decades the year rolls on like an odometer. No XP: this one is for how far you got. Loaded by index.html
+   you're home. Between decades the year rolls on like an odometer. Every question earns XP; the best is how far you got. Loaded by index.html
    (tmNeed) on the first open; the door, the store's load and save and the shelf's line are there, next to Transfer Trail's. A plain
    script with plain globals, like trail.js.
 
@@ -322,6 +322,7 @@ function tmReveal(i){
   (TM.picks[TM.s] = TM.picks[TM.s] || []).push(ok);
   if(ok) TM.right++;
   else { TM.lives--; TM.wrong++; TM.blow = true; }
+  try{ progAnswer({ ok, tier: Q.tier, topic: topicKey(Q.deck) || "general" }); }catch(e){}
   try{ if(ok) fb.correct(null); else if(i >= 0) fb.wrong(null); else fb.run = 0; }catch(e){}
   const left = TM.lives === 2 ? "Two lives left." : TM.lives === 1 ? "One life left." : "That was your last life.";
   TM.say = ok ? "Right." : (i < 0 ? "Out of time. " : "") + left;   // the green option is the answer: an answer can be a whole sentence
@@ -366,6 +367,7 @@ function tmStart(id){
 function tmFinish(how){
   if(!TM) return;
   clearTimeout(TM_TIMER); TM_TIMER = null; stopTimer();
+  try{ progSave(progLoad()); }catch(e){}
   const R = tmRoute(TM.route), home = how === "home", answered = TM.right + TM.wrong;
   if(how === "left" && !answered){ TM = null; TM_VIEW = "pick"; render(); return; }
   const stop = R.stops[TM.s], year = home ? tmNow() : tmYear(stop, Math.min(TM.i, TM_PER_STOP - 1));

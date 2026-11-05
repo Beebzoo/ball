@@ -1,0 +1,143 @@
+/* BALL 4 · TIME MACHINE (timemachine.js): cream paper, the grass band, gold, and one dark instrument panel. Tokens, not hex. */
+.tmpage .b6body{gap:10px}
+
+/* ---------- the odometer: four wheels, each a strip of 0 to 9 and 0 again, moved by tmRoll ---------- */
+.tmodo{display:inline-flex;gap:.07em;padding:.1em .12em;border-radius:.16em;background:rgba(0,0,0,.42);box-shadow:inset 0 2px 5px rgba(0,0,0,.65),0 0 0 1px var(--th-acc2);font:700 76px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-card-ink);flex:none}
+.tmodo.mini{font-size:27px;padding:.12em .13em;border-radius:.2em}
+.tmw{position:relative;display:block;width:.64em;height:1.1em;overflow:hidden;border-radius:.07em;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.13) 50%,rgba(255,255,255,.03))}
+.tmw.last{background:var(--th-pill);color:var(--th-acc-ink)}
+.tmw::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6),transparent 26%,transparent 74%,rgba(0,0,0,.6));pointer-events:none}
+.tmw.last::after{background:linear-gradient(180deg,rgba(0,0,0,.42),transparent 26%,transparent 74%,rgba(0,0,0,.42))}
+.tms{display:block;will-change:transform}
+.tms i{display:block;height:1.1em;line-height:1.1em;font-style:normal;text-align:center}
+
+/* ---------- the valves: a life is a lit tube ---------- */
+.tmvs{display:inline-flex;align-items:flex-end;gap:5px;flex:none}
+.tmv{display:block;width:17px;height:29px;overflow:visible}
+.tmv path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tmv .g{stroke:var(--th-card-dim);stroke-width:1.4;fill:rgba(255,255,255,.05)}
+.tmv .f{stroke:var(--th-card-dim);stroke-width:1.5;opacity:.5}
+.tmv .b{fill:var(--th-card-dim);stroke:none}
+.tmv .p{stroke:var(--th-card-dim);stroke-width:1.5}
+.tmv.on .g{stroke:var(--th-acc);fill:rgba(246,213,124,.2)}
+.tmv.on .f{stroke:var(--th-acc-hi);stroke-width:1.9;opacity:1}
+.tmv.on .b{fill:var(--th-acc2)}
+.tmv.on .p{stroke:var(--th-acc2)}
+.tmv.on{filter:drop-shadow(0 0 3px var(--th-acc))}
+.tmv.blow{animation:tmBlow .62s linear both}
+@keyframes tmBlow{0%,18%,42%{opacity:1;filter:drop-shadow(0 0 9px var(--th-acc-hi))}9%,30%,54%{opacity:.3}100%{opacity:1}}
+
+/* the decades of a route */
+.tmpath{display:flex;gap:3px;flex-wrap:nowrap}
+.tmroute .tmpath{width:100%;max-width:178px}
+.tmroute .tmpath i{flex:1 1 0;min-width:0}
+.tmpath i{display:block;min-width:24px;padding:2px 0;border-radius:3px;background:rgba(18,61,36,.1);text-align:center;font:800 11px/1.15 'Barlow Semi Condensed',sans-serif;font-style:normal;font-variant-numeric:tabular-nums;color:var(--th-dim)}
+.tmpath i.past{background:var(--th-pill);color:var(--th-acc-ink)}
+.tmpath i.now{box-shadow:inset 0 0 0 1.5px var(--th-acc2);color:var(--th-ink)}
+.tmpath i.fell{background:var(--res-off);color:var(--res-off-ink);text-decoration:line-through}
+.tmdeck .tmpath i,.tmroute .tmpath i{background:rgba(248,241,221,.1);color:var(--th-card-dim)}
+.tmdeck .tmpath i.past,.tmroute .tmpath i.past{background:var(--th-pill);color:var(--th-acc-ink)}
+.tmdeck .tmpath i.now{box-shadow:inset 0 0 0 1.5px var(--th-acc-hi);color:var(--th-acc-hi)}
+.tmdeck .tmpath i.fell,.tmroute .tmpath i.fell{background:var(--res-off);color:var(--res-off-ink);text-decoration:line-through}
+
+/* ---------- the route page ---------- */
+.tmlead{margin:0;padding:12px 10px 2px;text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:var(--th-ink);text-wrap:pretty}
+.tmlevels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;border-radius:12px;background:rgba(18,61,36,.1)}
+.tmlevels button{min-height:38px;border:0;border-radius:9px;background:transparent;color:var(--th-ink);font:800 14px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
+.tmlevels button.on{background:var(--th-card);color:var(--th-card-ink);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.tmroute{display:flex;align-items:center;gap:11px;width:100%;min-height:82px;padding:10px 13px;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift);text-align:left;cursor:pointer;font:inherit;transition:transform var(--dur-press) var(--ease-out)}
+.tmroute:active{transform:translateY(1px) scale(.985)}
+.tmroute:disabled{cursor:default;opacity:.72}
+.tmroute .a{flex:none;display:grid;place-items:center;width:46px;height:46px}
+.tmroute .a img{display:block;width:44px;height:44px}
+.tmglobe{width:40px;height:40px;fill:none;stroke:var(--th-acc-hi);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tmroute .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.tmroute .m b{font:italic 900 25px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.tmroute .m small{font:italic 400 13px/1.15 'Lora',Georgia,serif;color:var(--th-card-dim)}
+.tmroute.head .m b{font-size:29px}
+.tmroute .r{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:56px}
+.tmroute .r b{font:italic 900 29px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-hi)}
+.tmroute .r b.h{font-size:25px;text-transform:uppercase}
+.tmroute .r b.n{color:var(--th-card-dim)}
+.tmroute .r small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--th-card-dim)}
+
+/* ---------- between decades: one screen, the panel, the line, the button under the thumb ---------- */
+body.b6paper #stage:has(.tm-roll),body.b6paper #stage:has(.tm-run){padding-bottom:0}
+.tm-roll .b6body{min-height:100dvh;box-sizing:border-box;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+.tmdeck .tmv{width:23px;height:39px}
+.tmdeck{display:flex;flex-direction:column;align-items:center;gap:13px;margin-top:10px;padding:20px 12px 16px;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.tmline{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:6px 8px;text-align:center;animation:tmLine .42s var(--ease-pop) 1.05s both}
+.tm-roll.first .tmline{animation-delay:1.4s}
+.tmline b{font:italic 900 30px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-ink)}
+.tmline p{margin:0;font:italic 400 16.5px/1.42 'Lora',Georgia,serif;color:var(--th-ink);text-wrap:pretty}
+@keyframes tmLine{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- a question: one screen, no scroll ---------- */
+.tm-run .b6body{gap:7px;min-height:100dvh;box-sizing:border-box;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+.tm-run.b6.b6m .b6band{height:104px!important}
+.tm-run .b6body>.b6stephead.m{height:92px;padding-top:calc(20px + env(safe-area-inset-top,0px))}
+.tm-run .b6stephead .b6backbtn{top:calc(16px + env(safe-area-inset-top,0px))}
+.tm-run .b6quit{top:calc(16px + env(safe-area-inset-top,0px))}
+.tm-run .b6stitle{font-size:27px}
+.tm-run .b6stitle.long{font-size:22px}
+.tm-run .b6ctx{margin-top:5px}
+.tmdash{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 11px;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.tmfive{display:inline-flex;gap:5px}
+.tmfive i{display:block;width:11px;height:11px;border-radius:50%;background:rgba(248,241,221,.14)}
+.tmfive i.cur{box-shadow:0 0 0 2px var(--th-acc-hi);background:transparent}
+.tmfive i.hit{background:var(--th-acc-hi)}
+.tmfive i.miss{background:transparent;box-shadow:inset 0 0 0 2px var(--res-off-dark-ink);opacity:.6}
+.tmclock{flex-direction:row;align-items:center;gap:10px}
+.tmclock .bar{flex:1;height:9px;background:rgba(18,61,36,.14);border-radius:0;transform:skewX(-14deg)}
+.tmclock .bar i{background:var(--th-pill);border-radius:0;transition:none}
+.tmclock .digits{min-width:46px;text-align:right;font:italic 900 23px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-ink)}
+.tmclock.hot .digits{color:var(--th-acc-text)}
+.tmclock.hot .bar i{background:var(--th-acc2)}
+.tmclock.tmstop{opacity:.55}
+.tmq{flex:1;display:flex;flex-direction:column;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);padding:13px 12px 10px;gap:9px;box-shadow:var(--th-lift)}
+.tmq::before,.tmq::after{display:none}
+.tmq .qtext{flex:1;display:flex;align-items:center;font:700 clamp(19px,2.9dvh,25px)/1.22 'Barlow Semi Condensed',sans-serif;text-wrap:pretty}
+.tmopts{display:flex;flex-direction:column;gap:7px}
+.tmopts .h2opt{min-height:47px;padding:8px 11px;font:700 16.5px/1.14 'Barlow Semi Condensed',sans-serif}
+.tmsay{min-height:18px;text-align:center;font:italic 400 13.5px/1.28 'Lora',Georgia,serif;color:var(--th-card-ink)}
+.tm-run .qrep{margin:-3px 0 0}
+.tm-run .qrep button,.tm-run .qrep span{color:var(--th-dim)}
+/* after a wrong answer the clock has nothing to say, and the button stays in reach whatever the question's length */
+.tm-run .tmstop{display:none}
+.tm-run>.b6body>.b4btn{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:2;flex:none}
+
+/* ---------- the end card ---------- */
+.tm-done .b4q{text-align:center}
+.tmodo.gave{animation:tmShudder .5s linear both}
+.tmodo.gave .tmw.last,.tmdeck.out.rested .tmw.last{background:var(--res-off-dark);color:var(--th-card-ink)}
+@keyframes tmShudder{0%,100%{transform:none}15%{transform:translateX(-5px)}30%{transform:translateX(4px)}45%{transform:translateX(-3px)}60%{transform:translateX(2px)}80%{transform:translateX(-1px)}}
+.tmscore{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift);overflow:hidden}
+.tmscore span{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 2px 10px;font:700 11.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;color:var(--th-card-dim)}
+.tmscore span+span{border-left:1px solid rgba(248,241,221,.14)}
+.tmscore b{font:italic 900 36px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-card-ink)}
+.tmscore .g b{color:var(--th-acc-hi)}
+.tm-done .b4btn.quiet{color:var(--th-ink)}
+
+/* ---------- short phones: the question keeps the screen, the band gives way ---------- */
+@media (max-height:720px){
+  .tm-run.b6.b6m .b6band{height:66px!important}
+  .tm-run .b6body>.b6stephead.m{height:54px;padding-top:calc(10px + env(safe-area-inset-top,0px))}
+  .tm-run .b6stephead .b6backbtn,.tm-run .b6quit{top:calc(6px + env(safe-area-inset-top,0px))}
+  .tm-run .b6stitle,.tm-run .b6stitle.long{font-size:20px}
+  .tm-run .b6ctx{display:none}
+  .tm-run .b6body{gap:5px}
+  .tmdash{padding:4px 10px}
+  .tmodo.mini{font-size:21px}
+  .tm-run .tmv{width:13px;height:22px}
+  .tmq{padding:9px 10px 7px;gap:6px}
+  .tmq .qtext{font-size:17.5px}
+  .tmopts{gap:5px}
+  .tmopts .h2opt{min-height:38px;padding:5px 9px;font-size:15px}
+  .tmodo.big{font-size:60px}
+  .tmdeck{padding:12px 10px;gap:9px;margin-top:0}
+  .tmline b{font-size:25px}
+  .tmline p{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tmline,.tmv.blow,.tmodo.gave{animation:none}
+}

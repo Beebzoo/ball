@@ -11701,7 +11701,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 5 Nov 2026 · more clubs";
+const BUILD = "BALL 4 · 5 Nov 2026 · new modes";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -26459,8 +26459,11 @@ const FYC_STASH_KEYS = ["ball4-prog", "ball4-club", "ball4-best", "ball4-mine", 
   "ball4-tt", "ball4-gw", "ball4-dd", "ball4-lb", "ball4-yr", "ball4-cele", "ball4-hilo", "ball4-simple", "ball4-party", "ball4-names",
   "ball4-us", "ball4-mc-pins", "ball4-mc-club", "ball4-answer", "ball4-mute", "ball4-tackle", "ball4-h2h-flat", "ball4-ai",
   "ball4-ai-level", "ball4-ai-tempo", "ball4-mp-name", "ball4-crew", "ball4-first-match", "ball4-lg-seg",
-  /* Club Expert's passes and medals, Transfer Trail's best runs */
+  /* Club Expert's passes and medals, Transfer Trail's best runs, Season mode's run and finished seasons */
+  "ball4-expert", "ball4-trail", "ball4-season","ball4-derby",
   "ball4-expert", "ball4-trail",
+  /* Pub Night: the team names and the night in progress are this account's, not the next one's */
+  "ball4-pub", "ball4-tm",
   /* the home's Match Centre card, from the account's pins and club */
   "ball4-mc-strip", "ball4-pl-strip"];
 const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported", "mky", "favPending"];
@@ -27557,7 +27560,7 @@ function b6ScreenKey(){
   /* the games with a page of their own open and close like any other screen */
   let own = "";
   try{ own = [TT_VIEW ? "tt" : "", GW_VIEW ? "gw" : "", DD_VIEW ? "dd" : "", LB_VIEW ? "lb" : "", YR_VIEW ? "yr" : "", GTP_VIEW ? "gtp" : "", LISTS_VIEW ? "lists" : "",
-    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : "", EXP_VIEW ? "expert" : "", TRL_VIEW ? "trail" : ""].join(""); }catch(e){}
+    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : "", EXP_VIEW ? "expert" : "", TRL_VIEW ? "trail" : "", SSN_VIEW ? "season" : "", DBY_VIEW ? "derby" : "", PUB_VIEW ? "pub" : "", TM_VIEW ? "tm" : ""].join(""); }catch(e){}
   return [ME_VIEW || "", LEAGUE_VIEW ? "league" + (LEAGUE_VIEW.sub || "") : "", LOCKER_VIEW ? "locker" + (typeof LOCKER_VIEW === "string" ? LOCKER_VIEW : "") : "", ALBUM_VIEW ? "album" : "", CUP_VIEW ? "cup" : "", DREAM_VIEW ? "dream" : "", b4Step || "", own, grp].join("|");
 }
 /* which tab's own front screen this is, or null for anything deeper */
@@ -27830,6 +27833,7 @@ const TLM_EVENTS = {
   lists_done: "a daily list finished",
   expert_done: "a Club Expert test finished (right, pass, medal)",
   trail_done: "a Transfer Trail run finished (level, right, careers)",
+  season_done: "a season of Season mode finished (div, pos, pts, lvl)",
   share: "a result shared (what)",
   found_club: "a guest founded a club",
   report_sent: "a question reported",
@@ -27966,6 +27970,8 @@ function qrepNow(){
   try{
     if(typeof document === "undefined" || !document.querySelector) return null;
     if(EXP_VIEW === "test" && typeof expQrep === "function") return expQrep();
+    if(DBY_VIEW === "duel" && typeof dbyQrep === "function") return dbyQrep();
+    if(TM_VIEW === "run" && typeof tmQrep === "function") return tmQrep();
     if(!S) return null;
     if(S.phase === "ds_res" && S.dq){
       const Qd = dsQ(S.dq), anchor = document.querySelector("#stage .dsline.big");
@@ -28528,6 +28534,40 @@ function trailDraw(st){
   st.innerHTML = b4Page({ title: "Transfer Trail", ctx: "One moment", back: "TRL_VIEW=null;render()", cls: "trlpage" });
 }
 const trailShelfSub = () => { const b = Object.values(trailStore().best), n = b.length ? Math.max(...b) : 0; return b6IsNew("trail") ? "New" : n ? "Best " + n : "One wrong step ends it"; };
+
+/* ---------- SEASON MODE: the door ----------
+   _plans/games-round.md round 3. The game is assets/season/season.js + season.css, loaded on the first open; ball4-season is read
+   fresh every time, like Club Expert's. SSN_VIEW: null | pick | club | level | hub | play | full | end | book */
+const SSN_KEY = "ball4-season";
+let SSN_VIEW = null, SSN_LOAD = 0, SSN_WAIT = [];
+function seasonStore(){ try{ const s = JSON.parse(localStorage.getItem(SSN_KEY) || "null"); if(s && Array.isArray(s.done)) return s; }catch(e){} return { v: 1, run: null, done: [] }; }
+function seasonSave(s){ try{ localStorage.setItem(SSN_KEY, JSON.stringify(s)); }catch(e){} }
+function ssnNeed(then){
+  if(SSN_LOAD === 2 || typeof ssnRender === "function"){ SSN_LOAD = 2; if(then) then(); return true; }
+  if(then) SSN_WAIT.push(then);
+  if(SSN_LOAD === 1) return false;
+  SSN_LOAD = 1;
+  let left = 2;
+  const done = ok => { if(!ok){ SSN_LOAD = -1; left = 0; SSN_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; SSN_LOAD = 2; const w = SSN_WAIT; SSN_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/season/season.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/season/season.js"; sc.onload = () => done(typeof ssnRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+function openSeason(){
+  b4Explain("season", () => {
+    if(SSN_LOAD === -1) SSN_LOAD = 0;
+    SSN_VIEW = "hub"; ME_VIEW = null; LOCKER_VIEW = null; closeSheet(); render();
+    ssnNeed(() => { if(SSN_VIEW){ render(); try{ window.scrollTo(0, 0); }catch(e){} } });
+  });
+}
+function seasonDraw(st){
+  if(typeof ssnRender === "function") return ssnRender(st);
+  st.innerHTML = b4Page({ title: "Season", ctx: "One moment", back: "SSN_VIEW=null;render()", cls: "snpage" });
+}
+const seasonShelfSub = () => { const s = seasonStore(), n = s.done.filter(d => d.pos === 1).length; return b6IsNew("season") ? "New" : s.run ? s.run.club + ", " + s.run.res.length + " played" : n ? "Titles " + n : "A whole season, in bites"; };
 
 /* ---------- CLUB EXPERT: the door ----------
    _plans/club-expert.md §1. The game is assets/expert/expert.js + expert.css, loaded on the first open; only what the home,
@@ -29302,17 +29342,17 @@ function progScarf(team, quiet, xp){
   return true;
 }
 /* a trophy, keeping the best metal and counting wins; shape from the kind */
-function progTrophy(kind, ref, name, metal){
+function progTrophy(kind, ref, name, metal, noXp){
   const p = progLoad();
   p.trophies = p.trophies || {};
   const key = kind + ":" + ref, t = p.trophies[key];
-  const shape = kind === "league" ? "plate" : kind === "streak" ? "medal" : kind === "division" ? "shield" : /euro/i.test(ref) ? "shield" : "star";
+  const shape = kind === "league" || kind === "season" ? "plate" : kind === "streak" ? "medal" : kind === "division" ? "shield" : /euro/i.test(ref) ? "shield" : "star";
   if(t){
     t.count = (t.count || 1) + 1; t.last = Date.now();
     if((METAL_RANK[metal] || 0) > (METAL_RANK[t.metal] || 0)) t.metal = metal;
   } else {
     p.trophies[key] = { kind, ref, name, metal, shape, count: 1, first: Date.now(), last: Date.now() };
-    p.xp += XP.trophy;
+    if(!noXp) p.xp += XP.trophy;
   }
   progSave(p);
   return p.trophies[key];
@@ -30116,7 +30156,9 @@ function themeInScope(){
   if(DD_VIEW && DD_VIEW !== "setup" && DD) return false;
   if(LB_VIEW && LB_VIEW !== "setup" && LB) return false;
   if(YR_VIEW && YR_VIEW !== "setup" && YR) return false;
-  if(EXP_VIEW === "test" || TRL_VIEW === "run") return false;
+  if(EXP_VIEW === "test" || TRL_VIEW === "run" || SSN_VIEW === "play" || PUB_VIEW === "play") return false;
+  if(DBY_VIEW === "duel" || DBY_VIEW === "done") return false;
+  if(TM_VIEW === "run" || TM_VIEW === "roll") return false;
   if(!S || S.phase === "setup") return true;
   return S.phase === "h_teams" || S.phase === "h_toss";
 }
@@ -30158,7 +30200,7 @@ function feelScreenKey(){
     if(LEGAL_VIEW) return "legal"; if(FYC_RENAME || FYC_VIEW) return "fyc"; if(CLUB_VIEW && !CLUB_VIEW.quiet) return "club";
     const setup = !S || S.phase === "setup";
     if(ME_VIEW && setup) return "me:" + ME_VIEW; if(LEAGUE_VIEW && setup) return "league"; if(LOCKER_VIEW && setup) return "locker:" + LOCKER_VIEW;
-    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(EXP_VIEW) return "expert:" + EXP_VIEW; if(TRL_VIEW) return "trail:" + TRL_VIEW; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
+    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(EXP_VIEW) return "expert:" + EXP_VIEW; if(TRL_VIEW) return "trail:" + TRL_VIEW; if(SSN_VIEW) return "season:" + SSN_VIEW; if(DBY_VIEW) return "derby:" + DBY_VIEW; if(PUB_VIEW) return "pub:" + PUB_VIEW; if(TM_VIEW) return "tm:" + TM_VIEW; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
     if(YR_VIEW) return "yr"; if(GTP_VIEW) return "gtp"; if(LISTS_VIEW) return "lists"; if(DREAM_VIEW) return "dream";
     if(setup) return showBoard ? "board" : b4Step ? "step:" + b4Step : "home";
     return "game:" + S.play + ":" + S.mode + (S.phase === "results" ? ":results" : "");
@@ -30253,6 +30295,10 @@ function renderMain(){
   if(CUP_VIEW) return renderCup(b4Stage(st, () => { const c = cupRun(); return { title: "The Cup", ctx: "World Cup " + (c ? c.year : cupYear()) + (c && c.alive ? (c.round === "group" ? " · Group " + c.group : " · " + CUP_ROUND_SHORT[c.round]) : ""), back: "closeCup()", cls: "b4cup" }; }));
   if(EXP_VIEW) return expertDraw(st);
   if(TRL_VIEW) return trailDraw(st);
+  if(SSN_VIEW) return seasonDraw(st);
+  if(DBY_VIEW) return derbyDraw(st);
+  if(PUB_VIEW) return pubDraw(st);
+  if(TM_VIEW) return timeMachineDraw(st);
   if(TT_VIEW) return ttRender(st);
   if(GW_VIEW) return gwRender(st);
   if(DD_VIEW) return ddRender(st);
@@ -34963,6 +35009,41 @@ function setAnswerPref(v){ try{ localStorage.setItem(ANSWER_KEY, v === "say" ? "
    Career Path is everyone for themselves. Never rated: the computer can't
    hear who was right. Two to six names (it was four), twelve for a BALL
    Supporter (_plans/supporter.md): the 7+ button is the gate. */
+/* ---------- PUB NIGHT: the door ----------
+   _plans/games-round.md round 3. The game is assets/pub/pub.js + pub.css, loaded on the first open; ball4-pub is read fresh every time,
+   and a night is saved on every step, so opening Pub Night after a reload or a call offers to carry on.
+   PUB_VIEW: null | setup | resume | break | play | final */
+const PUB_KEY = "ball4-pub";
+let PUB_VIEW = null, PUB_LOAD = 0, PUB_WAIT = [];
+function pubStore(){ try{ const s = JSON.parse(localStorage.getItem(PUB_KEY) || "null"); if(s && Array.isArray(s.used)) return s; }catch(e){} return { v: 1, night: null, used: [], last: [], names: [], cfg: null }; }
+function pubSave(s){ try{ localStorage.setItem(PUB_KEY, JSON.stringify(s)); }catch(e){} }
+function pubNeed(then){
+  if(PUB_LOAD === 2 || typeof pbRender === "function"){ PUB_LOAD = 2; if(then) then(); return true; }
+  if(then) PUB_WAIT.push(then);
+  if(PUB_LOAD === 1) return false;
+  PUB_LOAD = 1;
+  let left = 2;
+  const done = ok => { if(!ok){ PUB_LOAD = -1; left = 0; PUB_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; PUB_LOAD = 2; const w = PUB_WAIT; PUB_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/pub/pub.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/pub/pub.js"; sc.onload = () => done(typeof pbRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+function openPub(){
+  b4Explain("pub", () => {
+    if(PUB_LOAD === -1) PUB_LOAD = 0;
+    PUB_VIEW = "setup"; ME_VIEW = null; LOCKER_VIEW = null; closeSheet();
+    if(!pubNeed(() => { if(PUB_VIEW) pbEnter(); })) render();
+  });
+}
+function pubDraw(st){
+  if(typeof pbRender === "function") return pbRender(st);
+  st.innerHTML = b4Page({ title: "Pub Night", ctx: "One moment", back: "PUB_VIEW=null;render()", cls: "pbpage" });
+}
+const pubShelfSub = () => { const n = pubStore().night; return b6IsNew("pub") ? "New" : n && n.view !== "final" ? "Carry on with your night" : "You read, they shout"; };
+
 const PARTY_KEY = "ball4-party", PARTY_FREE = 6, PARTY_MAX = 12;
 const partyMax = () => isSupporter() ? PARTY_MAX : PARTY_FREE;
 function partyRaw(){ let p = null; try{ p = JSON.parse(localStorage.getItem(PARTY_KEY) || "null"); }catch(e){} return p && typeof p === "object" ? p : {}; }
@@ -38147,8 +38228,49 @@ function b6ThreeCards(T, S3){
   '<div class="t3card t3scarfrow"><div class="t3scarfhd"><span class="kick">Your scarf</span><span class="t3right">' + esc(threeStreakWords(S3)) + '</span></div>' +
     threeScarfSVG(S3.n, { today: S3.today }) + '<p class="t3under">New three in <span id="b6cd">' + b6Countdown() + '</span></p></div>';
 }
+/* ---------- TIME MACHINE: the door ----------
+   _plans/games-round.md round 3. The game is assets/timemachine/timemachine.js + timemachine.css, loaded on the first open; ball4-tm is
+   read fresh every time, like Club Expert's, because a sign-out and the cloud save both change it underneath us. The keys of best, far,
+   home and runs are "route-level". TM_VIEW: null | pick | roll | run | done */
+const TM_KEY = "ball4-tm";
+let TM_VIEW = null, TM_LOAD = 0, TM_WAIT = [];
+function tmStore(){ try{ const s = JSON.parse(localStorage.getItem(TM_KEY) || "null"); if(s && s.best) return s; }catch(e){} return { v: 1, level: "normal", best: {}, far: {}, home: {}, runs: {}, seen: [] }; }
+function tmSave(s){ try{ localStorage.setItem(TM_KEY, JSON.stringify(s)); }catch(e){} }
+function tmNeed(then){
+  if(TM_LOAD === 2 || typeof tmRender === "function"){ TM_LOAD = 2; if(then) then(); return true; }
+  if(then) TM_WAIT.push(then);
+  if(TM_LOAD === 1) return false;
+  TM_LOAD = 1;
+  let left = 2;
+  const done = ok => { if(!ok){ TM_LOAD = -1; left = 0; TM_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; TM_LOAD = 2; const w = TM_WAIT; TM_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/timemachine/timemachine.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/timemachine/timemachine.js"; sc.onload = () => done(typeof tmRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+function openTimeMachine(){
+  b4Explain("tm", () => {
+    if(TM_LOAD === -1) TM_LOAD = 0;
+    TM_VIEW = "pick"; ME_VIEW = null; LOCKER_VIEW = null; closeSheet(); render();
+    tmNeed(() => { if(TM_VIEW){ render(); try{ window.scrollTo(0, 0); }catch(e){} } });
+  });
+}
+function timeMachineDraw(st){
+  if(typeof tmRender === "function") return tmRender(st);
+  st.innerHTML = b4Page({ title: "Time Machine", ctx: "One moment", back: "TM_VIEW=null;render()", cls: "tmpage" });
+}
+/* the home's line: home beats a year, and the furthest year on any route is the one to beat */
+const timeMachineShelfSub = () => { const s = tmStore(), far = Object.values(s.far || {}); return b6IsNew("timemachine") ? "New" : Object.keys(s.home || {}).length ? "You made it home" : far.length ? "Reached " + Math.max(...far) : "Survive every decade"; };
+
 /* the other games as a numbered collection: four to a row, each with its own drawn mark */
 const T3_GAME_IC = {
+  "Season": '<path d="M4 6.5h8M4 12h8M4 17.5h8M17.5 19V6M14 9.5 17.5 6 21 9.5"/>',
+  "Derby Duel": '<path d="M3 6l5-2 5 2v5.5c0 3.1-2.2 5.3-5 6.5-2.8-1.2-5-3.4-5-6.5zM15.5 8.2l.5-.2 5 2v5.5c0 3.1-2.2 5.3-5 6.5-1.7-.7-3.2-1.8-4.1-3.2"/>',
+  "Club Lists": '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+  "Time Machine": '<path d="M3.5 4.5v5h5M3.87 9.5A8.5 8.5 0 1 1 3.5 12M12 7.5V12l3 2"/>',
+  "Pub Night": '<path d="M7 8h10l-1.1 12.2a2 2 0 0 1-2 1.8h-3.8a2 2 0 0 1-2-1.8L7 8zM7.6 14h8.8M6.4 8a2.7 2.7 0 0 1 1.9-4.6 3.8 3.8 0 0 1 7.2-.2 2.7 2.7 0 0 1 2.1 4.8"/>',
   "Transfer Trail": '<circle cx="6" cy="18.5" r="2.6"/><circle cx="18" cy="5.5" r="2.6"/><path stroke-dasharray="2.2 2.6" d="M9.5 18.5h5.2a3.2 3.2 0 0 0 0-6.5H9.3a3.2 3.2 0 0 1 0-6.5h5.2"/>',
   "Club Expert": '<path d="M8.5 3h7l-1.8 5.6h-3.4zM12 8.5a6 6 0 1 0 0 12a6 6 0 1 0 0-12M12 11.6l1 2 2.2.3-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5 2.2-.3z"/>',
   "Higher or Lower": '<path d="M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4"/>',
@@ -38334,9 +38456,16 @@ function b6Shelf(){
   const cups = (() => { try{ return Object.values(progLoad().trophies || {}).filter(t => t.kind === "cup").reduce((a, t) => a + (t.count || 1), 0); }catch(e){ return 0; } })();
   /* not played yet: what the game is, in the Play menu's words */
   const sub = (k, v, word, line) => b6IsNew(k) ? "New" : v != null && v !== "" && v > 0 ? word + " " + v : line;
-  const items = [
+  /* round 3: what you play as a fan of one club comes first, under that club's name when there is one */
+  const yours = [
     ["Club Expert", expertShelfSub(), "openExpert()"],
+    ["Season", seasonShelfSub(), "b6MarkSeen('season');openSeason()"],
+    ["Derby Duel", derbyShelfSub(), "b6MarkSeen('derby');openDerby()"],
+    ["Club Lists", "A shelf per club", "b6ClubLists()"] ];
+  const items = [
     ["Transfer Trail", trailShelfSub(), "b6MarkSeen('trail');openTrail()"],
+    ["Time Machine", timeMachineShelfSub(), "b6MarkSeen('timemachine');openTimeMachine()"],
+    ["Pub Night", pubShelfSub(), "b6MarkSeen('pub');openPub()"],
     ["Higher or Lower", hilo != null && hilo >= 0 ? "Best " + hilo : "Caps, goals, league games", "b6MoreSheet('hilo')"],
     ["Career Path", best.career != null ? "Best " + best.career : "Name him from his clubs", "b6MoreSheet('career')"],
     ["The Cup", cups ? "Won " + cups : "A whole World Cup", "openCup()"],
@@ -38345,10 +38474,55 @@ function b6Shelf(){
     ["Deadline Day", sub("dd", ddPrefs().played, "Played", "Who signed, where and when?"), "b6MarkSeen('dd');openDD()"],
     ["Letter Box", (() => { const p = lbPrefs(); return b6IsNew("lb") ? "New" : p.best ? "Best " + p.best : p.played ? "Played " + p.played : "One letter, five boxes"; })(), "b6MarkSeen('lb');openLB()"],
     ["Timeline", sub("yr", yrPrefs().played, "Played", "Put football in order"), "b6MarkSeen('yr');openYR()"] ];
-  return '<div class="b6hdr t3colh">The collection<span>' + items.length + ' games</span></div><div class="t3shelf">' + items.map((i, n) => '<button class="t3mini" onclick="' + i[2] + '" aria-label="' + esc(i[0] + ": " + i[1]) + '">' +
+  const tile = (i, n) => '<button class="t3mini" onclick="' + i[2] + '" aria-label="' + esc(i[0] + ": " + i[1]) + '">' +
     '<span class="t3tile t3l' + ((n + Math.floor(n / 4)) % 4) + '"><span class="t3no">No.' + (n + 1) + '</span>' + t3Svg(T3_GAME_IC[i[0]] || "") + (i[1] === "New" ? '<span class="t3new">New</span>' : "") + '</span>' +
-    '<b>' + esc(i[0]) + '</b></button>').join("") + '</div>';
+    '<b>' + esc(i[0]) + '</b></button>';
+  let fav = null; try{ fav = clubOf((acctLocal().fav || {}).club); }catch(e){}
+  return '<div class="b6hdr t3colh">Your club<span>' + esc(fav ? fav.name : yours.length + " games") + '</span></div><div class="t3shelf">' + yours.map(tile).join("") + '</div>' +
+    '<div class="b6hdr t3colh">The collection<span>' + items.length + ' games</span></div><div class="t3shelf">' + items.map((i, n) => tile(i, n + yours.length)).join("") + '</div>';
 }
+/* your club's shelf of lists, or the picker when it has none or you have no club */
+function b6ClubLists(){
+  audio();
+  listsCatalog().then(() => { const f = listsFav(), I = listsClubIndex(); return f && I[f] ? listsOpenClub(f) : listsOpenClubs(); })
+    .catch(() => toast("The lists didn't load. Check the connection and try again.", true));
+}
+/* ---------- DERBY DUEL: the door ----------
+   _plans/games-round.md round 3. The game is assets/derby/derby.js + derby.css, loaded on the first open; ball4-derby is read fresh every
+   time, like Club Expert's. DBY_VIEW: null | setup | pick | duel | done (duel is the cover, the question and its answer). B6_ADDED is
+   added to here, not in its line, so the round's four streams don't all land on that one line. */
+const DBY_KEY = "ball4-derby";
+let DBY_VIEW = null, DBY_LOAD = 0, DBY_WAIT = [];
+B6_ADDED.derby = B6_ADDED.season = B6_ADDED.pub = B6_ADDED.timemachine = "2026-11-05";
+function derbyStore(){ try{ const s = JSON.parse(localStorage.getItem(DBY_KEY) || "null"); if(s && s.pairs) return s; }catch(e){} return { v: 1, pairs: {}, seen: {} }; }
+function derbySave(s){ try{ localStorage.setItem(DBY_KEY, JSON.stringify(s)); }catch(e){} }
+function dbyNeed(then){
+  if(DBY_LOAD === 2 || typeof dbyRender === "function"){ DBY_LOAD = 2; if(then) then(); return true; }
+  if(then) DBY_WAIT.push(then);
+  if(DBY_LOAD === 1) return false;
+  DBY_LOAD = 1;
+  let left = 2;
+  const done = ok => { if(!ok){ DBY_LOAD = -1; left = 0; DBY_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; DBY_LOAD = 2; const w = DBY_WAIT; DBY_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/derby/derby.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/derby/derby.js"; sc.onload = () => done(typeof dbyRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+function openDerby(){
+  b4Explain("derby", () => {
+    if(DBY_LOAD === -1) DBY_LOAD = 0;
+    DBY_VIEW = "setup"; ME_VIEW = null; LOCKER_VIEW = null; closeSheet(); render();
+    dbyNeed(() => { if(DBY_VIEW){ render(); try{ window.scrollTo(0, 0); }catch(e){} } });
+  });
+}
+function derbyDraw(st){
+  if(typeof dbyRender === "function") return dbyRender(st);
+  st.innerHTML = b4Page({ title: "Derby Duel", ctx: "One moment", back: "DBY_VIEW=null;render()", cls: "dbypage" });
+}
+const derbyShelfSub = () => { if(b6IsNew("derby")) return "New"; let n = 0; try{ for(const p of Object.values(derbyStore().pairs)) n += (p.wa | 0) + (p.wb | 0) + (p.d | 0); }catch(e){} return n ? "Played " + n : "Two friends, one phone"; };
+
 function b6MoreSheet(k){
   audio();
   const best = bestOf();
@@ -38680,8 +38854,11 @@ const B4_HOW = {
   lists: ["The Lists", "Two kinds of list. Top 10: the numbers are on the board and you name the men behind them; a name outside the ten costs one of three balls. Name them all: a whole list against the clock, and a wrong name costs nothing. Know someone real who just misses the list? That's a deep cut, a bonus point. Two new lists every day, thousands more on the shelf."],
   gtp: ["Guess the player", "One mystery footballer a day, the same for everyone, and six guesses. Type any player: each guess shows four tiles against the secret one. Nation, position, year of birth and clubs: green is a match, gold is close (born within two years, or a club in common), and the arrow points to his year. Your guesses knit a scarf you can share."],
   career: ["Career Path", "A player's clubs come out one at a time, in order. Pick his name from four. Right on the first club is +15, every extra club costs 3, and a wrong name is −2. Ten players a game."],
+  derby: ["Derby Duel", "Two friends, one phone, two clubs. Five questions each, twelve seconds a go, and every question is about the other one's club, climbing from easy to hard. The phone goes across between turns so nobody sees what's next. Level after ten is sudden death, one question each, up to three pairs. The record between you two is kept."],
   trail: ["Transfer Trail", "A player is named and you start at his first club. Where did he go next? Four clubs, one right. Keep following him move by move, and when his career ends the next man comes. One wrong step ends the run, and your score is the moves you got right. Loans are on the trail, but you're never asked about them."],
+  pub: ["Pub Night", "You're the quizmaster and the phone is your card. Read each question out, give the room as long as it needs, then show the answer and read the fact that comes with it. Everyone else plays with a pen and a beer mat, or just shouts. Pick the rounds and how hard, and keep score here or on paper."],  tm: ["Time Machine", "Pick a route through football history and survive every decade, all the way to today. Five multiple-choice questions a decade, fifteen seconds each, and three lives for the whole trip. A wrong answer or a timeout costs a life. Lose all three and you're stranded in that year. Get through the last decade and you're home."],
   expert: ["Club Expert", "Pick a club and take its Expert test: ten multiple-choice questions, Hard, Extreme and Ball, twenty seconds each. Eight right is a pass. Pass on three different days and the club's medal is yours. A question from a passed test never comes back."],
+  season: ["Season", "Pick a club and play a whole league season, a matchday at a time. A matchday is three questions, fifteen seconds each: a right answer is a goal, a wrong one gives the other side a chance, and three right can't lose. Everybody else plays too, so the table is a real one. Bottom two go down, top two of the division below come up, and the next season carries on from there."],
 };
 const SEEN_KEY = "ball4-seen";
 function b4Seen(){ try{ return JSON.parse(localStorage.getItem(SEEN_KEY)) || {}; }catch(e){ return {}; } }

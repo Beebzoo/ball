@@ -88,6 +88,14 @@ const SYNC_KEYS = {
       clubs: syncK(syncF({ days: syncU({ each: SYNC_MAX }), used: syncU({ sort: true }), medal: SYNC_MIN, "*": SYNC_LATEST })) }) },
   /* Transfer Trail: a best is never lost and runs only count up; seen (who you've met lately) is long and only a preference: this phone's */
   "ball4-trail": { rule: syncF({ v: SYNC_MAX, best: syncK(SYNC_MAX), runs: syncK(SYNC_MAX), seen: SYNC_LOCAL, "*": SYNC_LATEST }) },
+  /* Season mode: a finished season is never lost, done is a union by its id. Of two runs, the newer run, then the one further on */
+  "ball4-season": { rule: syncF({ v: SYNC_MAX, done: syncU({ id: "id", sort: "t" }), run: syncP("season"), "*": SYNC_LATEST }) },
+  /* Derby Duel: "Sanne leads 3–1" follows you, a pair at a time, and a win is never lost; seen (what a pair has met) is long and only a preference: this phone's */
+  "ball4-derby": { rule: syncF({ v: SYNC_MAX, seen: SYNC_LOCAL, "*": SYNC_LATEST,
+      pairs: syncK(syncF({ wa: SYNC_MAX, wb: SYNC_MAX, d: SYNC_MAX, t: SYNC_MAX, "*": SYNC_LATEST })) }) },
+  /* Time Machine: per route and level, the most right, the furthest year and the trips home and in all are never lost. seen (the questions of
+     the last twenty trips or so, tried last) is long and only a preference: this phone's */
+  "ball4-tm": { rule: syncF({ v: SYNC_MAX, best: syncK(SYNC_MAX), far: syncK(SYNC_MAX), home: syncK(SYNC_MAX), runs: syncK(SYNC_MAX), seen: SYNC_LOCAL, "*": SYNC_LATEST }) },
   "ball4-cele": { rule: SYNC_LATEST },
   "ball4-hilo": { rule: SYNC_LATEST },
   "ball4-simple": { rule: SYNC_LATEST },
@@ -132,6 +140,7 @@ const SYNC_NEVER = {
   "ball4-sync-on": "switch for this phone", "ball4-sync": "this record",
   "ball4-sup": "Supporter status, read from the server", "ball4-pl-strip": "a cache of the server's Call It",
   "ball4-mc-strip": "a cache of the Match Centre card",
+  "ball4-pub": "Pub Night: the phone is the quizmaster's card, so a night in progress belongs to the phone it is running on, and a second phone mustn't merge into it; the list of used questions is long and only a preference",
   "ball4-mc-fold": "which tables are folded on this phone",
   "ball4-outcomes": "the answer log (up to 8,000 rows, far past 64 KB): kept for the re-tier tool and Export",
   "ball4-outcomes-": "not a key: the name of the downloaded log",
@@ -171,6 +180,7 @@ const SYNC_BETTER = {
   ladder: (a, b) => (!!a.done - !!b.done) || (+a.reached || 0) - (+b.reached || 0) || (+a.rung || 0) - (+b.rung || 0) || syncLen(a.got) - syncLen(b.got),
   shootout: (a, b) => (!!a.done - !!b.done) || syncLen(a.kicks) - syncLen(b.kicks),
   quiz: (a, b) => (!!a.d - !!b.d) || (a.d ? (+b.d || 0) - (+a.d || 0) : String(a.s || "").length - String(b.s || "").length),   // finished beats under way, the first finish stands
+  season: (a, b) => (+a.id || 0) - (+b.id || 0) || (+a.y || 0) - (+b.y || 0) || String(a.res || "").length - String(b.res || "").length || (a.live ? +a.live.k + 1 : 0) - (b.live ? +b.live.k + 1 : 0),
   gtp: (a, b) => (!!a.done - !!b.done) || (a.done
     ? (!!a.won - !!b.won) || (a.won ? syncLen(b.guesses) - syncLen(a.guesses) : 0)       // found in fewer is better
     : syncLen(a.guesses) - syncLen(b.guesses)),                                         // a day under way: the further one

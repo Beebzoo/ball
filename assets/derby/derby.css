@@ -1,0 +1,151 @@
+/* BALL 4 · DERBY DUEL (derby.js): cream paper, the grass band, gold. Tokens, not hex; the clubs come as BALL's generated patches. */
+.dbypage .b6body{gap:10px}
+.dbypatch{display:block;flex:none;height:auto}
+.dbypage .b4btn:disabled{opacity:.45;cursor:default;box-shadow:none}
+.dbylead{margin:0;padding:12px 10px 2px;text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:var(--th-ink);text-wrap:pretty}
+
+/* ---------- the set-up: two sides, face to face ---------- */
+.dbyface{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:6px}
+.dbyside{display:flex;flex-direction:column;gap:7px;min-width:0}
+.dbyclub{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:172px;padding:14px 8px 11px;box-sizing:border-box;border-radius:16px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);
+  box-shadow:var(--th-lift);cursor:pointer;font:inherit;transition:transform var(--dur-press) var(--ease-out)}
+.dbyclub:active{transform:translateY(1px) scale(.985)}
+.dbyclub b{font:italic 900 19px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;text-align:center;overflow-wrap:anywhere}
+.dbyclub small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--th-acc)}
+.dbyclub.none{background:transparent;border-style:dashed;color:var(--th-ink);box-shadow:none}
+.dbyempty{display:grid;place-items:center;width:58px;height:68px;font:italic 900 34px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-dim);border:2px dashed var(--th-dim);border-radius:10px 10px 26px 26px;box-sizing:border-box}
+.dbyvs{position:absolute;left:50%;top:86px;z-index:1;transform:translate(-50%,-50%) skewX(-14deg);padding:5px 11px 6px;background:var(--th-pill);color:var(--th-acc-ink);font:italic 900 19px/1 'Barlow Semi Condensed',sans-serif;box-shadow:0 2px 0 rgba(18,61,36,.25)}
+.dbyname{width:100%;box-sizing:border-box;min-height:44px;padding:9px 10px;border-radius:10px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);text-align:center;font:700 16px/1.1 'Barlow Semi Condensed',sans-serif}
+.dbyname::placeholder{color:var(--th-row-dim);opacity:1}
+.dbyriv{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.dbyriv small{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-dim);text-align:center}
+.dbychips{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}
+.dbychip{display:inline-flex;align-items:center;gap:7px;min-height:44px;max-width:100%;padding:6px 12px 6px 9px;box-sizing:border-box;border-radius:12px;border:2px solid var(--th-acc);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 3px 0 rgba(18,61,36,.12);cursor:pointer;font:inherit;transition:transform var(--dur-press) var(--ease-out);
+  animation:dbyPop .34s var(--ease-pop) both}
+.dbychip:active{transform:translateY(1px) scale(.985)}
+.dbychip b{font:italic 900 16px/1.05 'Barlow Semi Condensed',sans-serif}
+.dbytitle{text-align:center;font:italic 900 22px/1.05 'Barlow Semi Condensed',sans-serif;color:var(--th-acc-text);animation:dbyPop .34s var(--ease-pop) both}
+.dbyrec{min-height:18px;text-align:center;font:800 13px/1.3 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--th-dim)}
+.dbyrec:empty{display:none}
+.dbyrec.big{margin:2px 0 4px;font-size:15px;color:var(--th-acc-text)}
+@keyframes dbyPop{from{transform:scale(.86);opacity:0}to{transform:none;opacity:1}}
+
+/* ---------- the picker ---------- */
+.dbyh{margin-top:12px;font-size:13px}
+.dbyh .cbadge{flex:none;margin:-4px 0}
+.dbyh span{margin-left:auto;font:700 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em;color:var(--th-dim)}
+.dbygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.dbytile{display:flex;align-items:center;gap:9px;min-height:56px;padding:7px 9px 7px 10px;box-sizing:border-box;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 3px 0 rgba(18,61,36,.12);text-align:left;cursor:pointer;font:inherit;transition:transform var(--dur-press) var(--ease-out)}
+.dbytile:active{transform:translateY(1px) scale(.985)}
+.dbytile.on{border-color:var(--th-acc)}
+.dbytile b{min-width:0;font:italic 900 15.5px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:anywhere}
+
+/* ---------- the score between the turns ---------- */
+.dbystrip{display:flex;align-items:center;gap:8px;margin-top:9px;min-width:0}
+.dbypl{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:5px;opacity:.72}
+.dbypl.on{opacity:1}
+.dbypl:last-child{align-items:flex-end}
+.dbypl b{max-width:100%;font:800 15px/1.1 'Barlow Semi Condensed',sans-serif;color:var(--th-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dbysc{flex:none;display:flex;align-items:center;gap:7px;padding:5px 11px 6px;background:var(--th-card);color:var(--th-card-ink);border-radius:9px}
+.dbysc b{font:italic 900 25px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums}
+.dbysc s{width:8px;height:2px;background:currentColor;opacity:.4;text-decoration:none}
+.dbypips{display:inline-flex;gap:3px}
+.dbypips i{flex:none;width:13px;height:9px;box-sizing:border-box;transform:skewX(-14deg);border:1.5px solid var(--th-row-dim);opacity:.6}
+.dbypips i.cur{border:2px solid var(--th-ink);opacity:1}
+.dbypips i.hit{background:var(--th-pill);border-color:var(--th-acc2);opacity:1}
+.dbypips i.miss{border-style:dashed;background:rgba(18,61,36,.14);opacity:.85}
+
+/* ---------- the cover ---------- */
+.dbycover{flex:1;display:flex;flex-direction:column;align-items:stretch;margin-top:8px}
+.dbycover .b4q{align-items:center;text-align:center}
+.dbycover .b4q small{max-width:32ch;text-wrap:balance}
+.dbyart{display:flex;flex-direction:column;align-items:center;gap:7px;margin:auto 0;padding:12px 0 18px}
+.dbyart .dbypatch{filter:drop-shadow(0 8px 12px rgba(18,61,36,.28));animation:dbyPop .34s var(--ease-pop) both}
+.dbyart b{font:italic 900 24px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-ink);text-align:center}
+.dbytier{flex:none;font-style:normal;transform:skewX(-14deg);padding:4px 10px 3px;background:rgba(18,61,36,.1);color:var(--th-dim);font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.dbytier.hard,.dbytier.extreme{background:var(--th-acc2);color:var(--th-acc-ink)}
+.dbytier.ball{background:var(--th-pill);color:var(--th-acc-ink)}
+
+/* ---------- a question: one screen at phone size, the options under the thumb, room kept for the button so nothing moves when it lands ---------- */
+body.b6paper #stage:has(.dby-q),body.b6paper #stage:has(.dby-cover){padding-bottom:0}
+.dby-q .b6body,.dby-cover .b6body{min-height:100dvh;box-sizing:border-box;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.dby-q .b6body{gap:7px}
+.dby-q.b6.b6m .b6band,.dby-cover.b6.b6m .b6band{height:112px!important}
+.dby-q .b6body>.b6stephead.m,.dby-cover .b6body>.b6stephead.m{height:100px;padding-top:calc(24px + env(safe-area-inset-top,0px))}
+.dby-q .b6stephead .b6backbtn,.dby-cover .b6stephead .b6backbtn{top:calc(20px + env(safe-area-inset-top,0px))}
+.dby-q .b6quit,.dby-cover .b6quit{top:calc(20px + env(safe-area-inset-top,0px))}
+.dby-q .b6stitle,.dby-cover .b6stitle{font-size:26px}
+.dby-q .b6stitle.long{max-width:230px;margin-inline:auto;font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dby-q .b6ctx,.dby-cover .b6ctx{margin-top:6px}
+.dbyclock{flex-direction:row;align-items:center;gap:10px}
+.dbyclock .bar{flex:1;height:9px;background:rgba(18,61,36,.14);border-radius:0;transform:skewX(-14deg)}
+.dbyclock .bar i{background:var(--th-pill);border-radius:0;transition:none}
+.dbyclock .digits{min-width:46px;text-align:right;font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-ink)}
+.dbyclock.hot .digits{color:var(--th-acc-text)}
+.dbyclock.hot .bar i{background:var(--th-acc2)}
+.dbyclock.dbystop{opacity:.55}
+.dbyq{flex:1 1 auto;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);padding:11px 12px 12px;gap:9px;box-shadow:var(--th-lift)}
+.dbyq::before,.dbyq::after{display:none}
+.dbyon{display:flex;align-items:center;gap:8px;min-width:0}
+.dbyon span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.dbyon small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--th-card-dim)}
+.dbyon b{font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-card-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dbyq .dbytier{background:rgba(255,255,255,.1);color:var(--th-card-dim)}
+.dbyq .dbytier.hard,.dbyq .dbytier.extreme{background:var(--th-acc2);color:var(--th-acc-ink)}
+.dbyq .dbytier.ball{background:var(--th-pill);color:var(--th-acc-ink)}
+.dbyq .qtext{margin-block:auto;font:700 20px/1.22 'Barlow Semi Condensed',sans-serif}
+.dbyopts{display:flex;flex-direction:column;gap:7px}
+.dbyopts .h2opt{min-height:48px;padding:8px 12px;font:700 16.5px/1.15 'Barlow Semi Condensed',sans-serif}
+/* a thumb still landing from the tap before does nothing: the phone has only just changed hands */
+.qin .dbyopts,.dbynext .b4btn,.dbycover .b4btn{animation:dbyArm .3s steps(1,end) both}
+@keyframes dbyArm{from{pointer-events:none}to{pointer-events:auto}}
+.dbysay{min-height:1.3em;font:italic 400 14px/1.3 'Lora',Georgia,serif;color:var(--th-acc-hi)}
+.dbynext{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:2;margin-top:2px}
+.dbynext .b4btn{margin-top:0}
+.dbynext.off{position:static;height:90px}
+.dby-q .qrep{margin:0}
+.dby-q .qrep button,.dby-q .qrep span{color:var(--th-dim)}
+
+/* ---------- the end ---------- */
+.dby-done .sb-t b{min-width:0;overflow:hidden;text-overflow:ellipsis;font-size:1rem;letter-spacing:.02em}
+.dby-done .sb-flag{width:27px;height:32px;object-fit:contain;border-radius:0;box-shadow:none;background:none}
+.dby-done .b4q{align-items:center;text-align:center;margin-bottom:6px}
+.dby-done .b4q small{text-wrap:pretty}
+.dbyrows{display:flex;flex-direction:column;gap:6px}
+.dbyrow{display:flex;align-items:center;gap:9px;min-width:0;padding:7px 11px;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink)}
+.dbyrow b{flex:1;min-width:0;font:italic 900 17px/1.05 'Barlow Semi Condensed',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dbyrow .dbypips i{width:15px;height:11px}
+
+@media (max-height:700px){
+  .dby-q .b6body{gap:5px}
+  .dbystrip{margin-top:5px}
+  .dbyq{gap:6px;padding:9px 11px 9px}
+  .dbyq .qtext{font-size:18px}
+  .dbyopts{gap:5px}
+  .dbyopts .h2opt{min-height:42px;padding:6px 11px;font-size:15.5px}
+  .dbyart{padding:6px 0 10px}
+  .dbynext.off{height:76px}
+}
+@media (max-height:600px){
+  .dby-q.b6.b6m .b6band,.dby-cover.b6.b6m .b6band{height:80px!important}
+  .dby-q .b6body>.b6stephead.m,.dby-cover .b6body>.b6stephead.m{height:70px;padding-top:calc(12px + env(safe-area-inset-top,0px))}
+  .dby-q .b6stephead .b6backbtn,.dby-cover .b6stephead .b6backbtn,.dby-q .b6quit,.dby-cover .b6quit{top:calc(10px + env(safe-area-inset-top,0px))}
+  .dby-q .b6stitle,.dby-cover .b6stitle{font-size:20px}
+  .dby-q .b6ctx,.dby-cover .b6ctx{margin-top:3px}
+  .dby-q .b6ctx span,.dby-cover .b6ctx span{padding-block:3px}
+  .dbysc b{font-size:20px}
+  .dbysc{padding:3px 9px 4px}
+  .dbyclock .digits{font-size:19px}
+  .dbyon small{display:none}
+  .dbyon .dbypatch{width:22px}
+  .dbyq .qtext{font-size:16.5px}
+  .dbyopts{gap:4px}
+  .dbyopts .h2opt{min-height:37px;padding:4px 10px;font-size:15px}
+  .dbysay{font-size:13px}
+  .dbynext .b4btn{height:50px;min-height:50px}
+  .dbynext.off{height:66px}
+  .dbyart .dbypatch{width:70px}
+}
+@media (prefers-reduced-motion:reduce){
+  .dbychip,.dbytitle,.dbyart .dbypatch{animation:none}
+}

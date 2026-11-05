@@ -1,6 +1,6 @@
 /* BALL quiz service worker: network-first so updates land instantly,
    cache fallback so the pub's dead wifi can't stop the game. */
-const CACHE = "ball-quiz-4-v77";
+const CACHE = "ball-quiz-4-v78";
 const NATFLAGS = "ad,ae,af,ag,al,am,ao,ar,at,au,az,ba,be,bf,bg,bi,bj,bm,bn,bo,br,by,ca,cd,cf,cg,ch,ci,cl,cm,cn,co,cr,cu,cv,cy,cz,de,dk,do,dz,ec,ee,eg,es,et,fi,fr,ga,gb,gd,ge,gh,gm,gn,gq,gr,gt,gw,gy,hn,hr,ht,hu,id,ie,il,in,iq,ir,is,it,jm,jo,jp,ke,kn,kr,kw,kz,lb,lc,li,lk,lr,lt,lu,lv,ly,ma,md,me,mg,mk,ml,mr,mt,mu,mw,mx,my,mz,na,ne,ng,nl,no,nz,pa,pe,ph,pk,pl,pt,py,qa,ro,rs,ru,rw,sa,sc,sd,se,si,sk,sl,sm,sn,so,sr,st,sv,sy,sz,td,tg,th,tl,tm,tn,tr,tt,tz,ua,ug,us,uy,uz,ve,vn,ws,xk,za,zm,zw".split(",");
 /* These two lists are generated, by _tools/build-stickers.py and by the
    Eredivisie build-ere.js, and they are declared HERE, above EXTRA_ASSETS,
@@ -49,6 +49,14 @@ const EXTRA_ASSETS = ["assets/vendor/ball3d.js", "assets/grass-match.jpg", "asse
   "assets/clubapps/clubapps.js", "assets/clubapps/clubapps.css", "assets/clubapps/index.json", "assets/caps/wide.json",
   /* Transfer Trail (loaded on its first open; its pack is in GRID_FILES) */
   "assets/trail/trail.js", "assets/trail/trail.css",
+  /* Season mode (loaded on its first open; its questions and squads are the six league decks' and pools') */
+  "assets/season/season.js", "assets/season/season.css", "assets/season/leagues.json",
+  /* Derby Duel (loaded on its first open; the club decks come down when a club is picked) */
+  "assets/derby/derby.js", "assets/derby/derby.css",
+  /* Pub Night (loaded on its first open; its pack is assets/pub/rounds.json) */
+  "assets/pub/pub.js", "assets/pub/pub.css",
+  /* Time Machine (loaded on its first open; a route's era decks come down with its first trip and are kept as they are read) */
+  "assets/timemachine/timemachine.js", "assets/timemachine/timemachine.css",
   /* The interface font, precached rather than fetched: a pub with no signal
      would otherwise fall back mid-match and reflow the whole menu. Both
      subsets, because latin alone drops the accented names. */
@@ -77,7 +85,9 @@ const GRID_FILES = ["assets/grids/names.json", "assets/grids/search.json", "asse
   /* Timeline: the deck, about 20 KB gzipped (_tools/build-timeline.js) */
   "assets/years/cards.json",
   /* Transfer Trail: the clubs and the three levels, about 155 KB gzipped (_tools/build-trail.js) */
-  "assets/trail/clubs.json", "assets/trail/easy.json", "assets/trail/normal.json", "assets/trail/hard.json"];
+  "assets/trail/clubs.json", "assets/trail/easy.json", "assets/trail/normal.json", "assets/trail/hard.json",
+  /* Pub Night: the themes and every readable row, about 320 KB gzipped (_tools/build-pub.js). A pub is where the signal goes */
+  "assets/pub/rounds.json"];
 const ASSETS = [
   ...GRID_FILES,
   "./",

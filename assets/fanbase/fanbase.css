@@ -1,0 +1,66 @@
+/* BALL 4 · FANBASE BATTLE (fanbase.js): cream paper, the grass band, gold. Tokens, not hex. */
+.fanpage .b6body{gap:10px}
+.fanpage .fanseg{margin:6px 0 0}
+.fanpage .cxpatch{flex:none}
+
+/* ---------- your club ---------- */
+.fanme{display:flex;flex-direction:column;gap:9px;padding:13px 14px 14px;border-radius:16px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.fanmeh{display:flex;align-items:center;gap:11px;min-width:0}
+.fanmen{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.fanmen small{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--th-acc)}
+.fanmen b{font:italic 900 27px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.fanmep{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.fanmep b{font:italic 900 34px/.95 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-hi)}
+.fanmep small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-card-dim)}
+.fanline{margin:0;font:italic 400 15px/1.35 'Lora',Georgia,serif;text-wrap:pretty}
+.fansay{margin:0;font:italic 400 14px/1.35 'Lora',Georgia,serif;color:var(--th-card-dim);text-wrap:pretty}
+.fanme .b4btn{margin:0}
+.fanme .b4btn.quiet{min-height:34px;color:var(--th-card-dim)}
+
+.fanguest{display:flex;flex-direction:column;gap:2px;padding:0 6px}
+.fanguest p{margin:0;text-align:center;font:italic 400 14px/1.35 'Lora',Georgia,serif;color:var(--th-dim);text-wrap:pretty}
+.fanguest .b4btn{margin:0}
+
+/* ---------- the two tables and the leagues ---------- */
+.fanreset,.fancopy{margin:0;text-align:center;font:600 13px/1.3 'Barlow Semi Condensed',sans-serif;letter-spacing:.02em;color:var(--th-dim)}
+.fancopy{padding:6px 8px;border-radius:10px;border:1.5px dashed var(--th-row-dim);text-wrap:pretty}
+.fanlands{display:flex;gap:6px;margin:0 -16px;padding:2px 16px 4px;overflow-x:auto;scrollbar-width:none}
+.fanlands::-webkit-scrollbar{display:none}
+.fanlands button{flex:none;display:flex;align-items:center;gap:5px;min-height:36px;padding:0 11px;border-radius:var(--th-pill-r);border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);font:800 13.5px/1 'Barlow Semi Condensed',sans-serif;cursor:pointer}
+.fanlands button[aria-pressed="true"]{background:var(--th-pill);color:var(--th-acc-ink);border-color:var(--th-acc2)}
+.fanlands .cbadge{flex:none;display:block;margin:-3px 0}
+
+/* the table is a dark card, and it can't clip: your row has to be able to stand out of it */
+.fantable{list-style:none;margin:2px 0 0;padding:0;border-radius:16px;background:var(--th-card);color:var(--th-card-ink);border:2px var(--th-edge-style) var(--th-edge);box-shadow:var(--th-lift)}
+.fanhd>:first-child{text-align:center}
+.fanhd{display:grid;grid-template-columns:30px 1fr auto;column-gap:8px;padding:9px 12px 7px 8px;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-card-dim);border-bottom:1px solid rgba(255,255,255,.1)}
+.fanli{border-bottom:1px solid rgba(255,255,255,.06)}
+.fanli:last-child{border-bottom:0}
+.fanrow{display:flex;align-items:center;gap:8px;width:100%;min-height:50px;padding:6px 12px 6px 8px;box-sizing:border-box;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.fanrow:active{background:rgba(255,255,255,.05)}
+.fanpos{flex:none;width:30px;text-align:center;font:italic 900 19px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-card-dim)}
+.fannm{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.fannm b{font:italic 900 17px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:anywhere}
+.fannm small{font:600 12.5px/1.1 'Barlow Semi Condensed',sans-serif;color:var(--th-card-dim)}
+.fann{flex:none;min-width:38px;text-align:right;font:italic 900 25px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-hi)}
+/* your club: gold-edged, and sticky both ways, so it stays on screen while the table scrolls past it */
+.fanli.me{position:sticky;top:6px;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:2;margin:0 -3px;border-radius:13px;border:2px solid var(--th-acc);border-bottom:2px solid var(--th-acc);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 6px 16px rgba(18,61,36,.32)}
+.fanli.me .fanpos,.fanli.me .fannm small{color:var(--th-row-dim)}
+.fanli.me .fann{color:var(--th-row-ink)}
+
+/* ---------- empty, small and offline ---------- */
+.fanempty{margin:2px 0 0;padding:14px 16px;text-align:center;border-radius:14px;border:2px dashed var(--th-row-dim);font:italic 400 14.5px/1.35 'Lora',Georgia,serif;color:var(--th-ink);text-wrap:pretty}
+.fanempty b{display:block;margin-bottom:3px;font:italic 900 21px/1.1 'Barlow Semi Condensed',sans-serif;color:var(--th-ink)}
+.fanh{margin-top:10px;font-size:13px}
+.fanh span{order:1;font:700 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em;color:var(--th-dim)}
+.fanwall{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:4px 2px}
+.fanwall button{display:grid;place-items:center;min-height:50px;padding:0;border:0;background:none;cursor:pointer;transition:transform .12s var(--ease-pop)}
+.fanwall button:active{transform:scale(.9)}
+.fanwall .cxpatch{opacity:.92}
+.fanhow{display:flex;flex-direction:column;gap:7px;margin-top:10px;padding:0 4px}
+.fanhow p{margin:0;font:400 13.5px/1.4 'Lora',Georgia,serif;color:var(--th-dim);text-wrap:pretty}
+.fanhow b{font:800 14px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-ink)}
+.fanbare{display:flex;flex-direction:column;align-items:center;gap:6px;margin:6px 0 2px;padding:20px 16px;text-align:center;border-radius:16px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.fanbare b{font:italic 900 29px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+.fanbare p{margin:0;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:var(--th-card-dim);text-wrap:pretty}
+@media (prefers-reduced-motion:reduce){.fanwall button{transition:none}}

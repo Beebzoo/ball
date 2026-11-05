@@ -96,6 +96,11 @@ const SYNC_KEYS = {
   /* Time Machine: per route and level, the most right, the furthest year and the trips home and in all are never lost. seen (the questions of
      the last twenty trips or so, tried last) is long and only a preference: this phone's */
   "ball4-tm": { rule: syncF({ v: SYNC_MAX, best: syncK(SYNC_MAX), far: syncK(SYNC_MAX), home: syncK(SYNC_MAX), runs: syncK(SYNC_MAX), seen: SYNC_LOCAL, "*": SYNC_LATEST }) },
+  /* World Tour: a won stamp is never lost. stamps and visas are unions by country and region; a stamp both phones won keeps the earlier date and
+     the better score, a visa and the title the earlier date. seen (the questions met lately, tried last) is only a preference: this phone's */
+  "ball4-tour": { rule: syncF({ v: SYNC_MAX, seen: SYNC_LOCAL, "*": SYNC_LATEST,
+      stamps: syncU({ each: syncF({ t: SYNC_MIN, n: SYNC_MAX, "*": SYNC_LATEST }) }), visas: syncU({ each: SYNC_MIN }), title: SYNC_MIN,
+      best: syncK(SYNC_MAX), runs: syncK(SYNC_MAX), total: SYNC_MAX }) },
   "ball4-cele": { rule: SYNC_LATEST },
   "ball4-hilo": { rule: SYNC_LATEST },
   "ball4-simple": { rule: SYNC_LATEST },
@@ -140,6 +145,7 @@ const SYNC_NEVER = {
   "ball4-sync-on": "switch for this phone", "ball4-sync": "this record",
   "ball4-sup": "Supporter status, read from the server", "ball4-pl-strip": "a cache of the server's Call It",
   "ball4-mc-strip": "a cache of the Match Centre card",
+  "ball4-fanbase": "a cache of the server's Fanbase Battle table: public totals, nothing of the player's",
   "ball4-pub": "Pub Night: the phone is the quizmaster's card, so a night in progress belongs to the phone it is running on, and a second phone mustn't merge into it; the list of used questions is long and only a preference",
   "ball4-mc-fold": "which tables are folded on this phone",
   "ball4-outcomes": "the answer log (up to 8,000 rows, far past 64 KB): kept for the re-tier tool and Export",

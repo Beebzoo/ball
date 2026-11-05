@@ -11701,7 +11701,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 5 Nov 2026 · 107 clubs";
+const BUILD = "BALL 4 · 5 Nov 2026 · world tour";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -26464,6 +26464,8 @@ const FYC_STASH_KEYS = ["ball4-prog", "ball4-club", "ball4-best", "ball4-mine", 
   "ball4-expert", "ball4-trail",
   /* Pub Night: the team names and the night in progress are this account's, not the next one's */
   "ball4-pub", "ball4-tm",
+  /* World Tour's stamps and visas */
+  "ball4-tour",
   /* the home's Match Centre card, from the account's pins and club */
   "ball4-mc-strip", "ball4-pl-strip"];
 const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported", "mky", "favPending"];
@@ -26961,7 +26963,7 @@ function legalRender(st){
       H("The small print") + P("BALL is a free football quiz made by one fan. It is not affiliated with any club, league, UEFA or FIFA. Club and player names in questions are used to describe facts. Dutch law applies. We may change these terms; if we do, we'll say so in the app.")
     : H("What we keep") + P("Your email address (for signing in only; nobody else sees it), your username, your club's design, the club and national team you support and the country you live in (if you picked them), your game stats (matches, rating, XP, titles, leagues, answers to questions), and the reports you sent. Your game progress and settings, so they follow you to every phone you sign in on.") +
       H("Why") + P("To keep your club and your progress across phones, to run leagues with your friends, to rate how hard each question is, and to keep names in leagues clean.") +
-      H("Who sees what") + P("League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as “Player NNNN” and your club stays private. Reports are anonymous.") +
+      H("Who sees what") + P("League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as “Player NNNN” and your club stays private. Reports are anonymous. Fanbase Battle's public table shows totals per club only: passes, medals and fans, never a name.") +
       H("Emails") + P("Only the sign-in link, unless you ticked “Tell me about new modes”. You can switch that off any time in Settings.") +
       H("Your data, your call") + P("Export everything from Settings → Export my data. Delete your account in Settings: that removes your profile, club, matches, leagues and reports from the server.") +
       H("Crash reports and usage events") + P("If the app breaks it sends us the error, the build and a coarse browser label; a few events are counted (first open, a match done). Each carries a random id for this install, never your account, and is deleted after 180 days.") +
@@ -27560,7 +27562,7 @@ function b6ScreenKey(){
   /* the games with a page of their own open and close like any other screen */
   let own = "";
   try{ own = [TT_VIEW ? "tt" : "", GW_VIEW ? "gw" : "", DD_VIEW ? "dd" : "", LB_VIEW ? "lb" : "", YR_VIEW ? "yr" : "", GTP_VIEW ? "gtp" : "", LISTS_VIEW ? "lists" : "",
-    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : "", EXP_VIEW ? "expert" : "", TRL_VIEW ? "trail" : "", SSN_VIEW ? "season" : "", DBY_VIEW ? "derby" : "", PUB_VIEW ? "pub" : "", TM_VIEW ? "tm" : ""].join(""); }catch(e){}
+    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : "", EXP_VIEW ? "expert" : "", TRL_VIEW ? "trail" : "", SSN_VIEW ? "season" : "", DBY_VIEW ? "derby" : "", PUB_VIEW ? "pub" : "", TM_VIEW ? "tm" : "", FAN_VIEW ? "fanbase" : "", TOUR_VIEW ? "tour" : ""].join(""); }catch(e){}
   return [ME_VIEW || "", LEAGUE_VIEW ? "league" + (LEAGUE_VIEW.sub || "") : "", LOCKER_VIEW ? "locker" + (typeof LOCKER_VIEW === "string" ? LOCKER_VIEW : "") : "", ALBUM_VIEW ? "album" : "", CUP_VIEW ? "cup" : "", DREAM_VIEW ? "dream" : "", b4Step || "", own, grp].join("|");
 }
 /* which tab's own front screen this is, or null for anything deeper */
@@ -27972,6 +27974,7 @@ function qrepNow(){
     if(EXP_VIEW === "test" && typeof expQrep === "function") return expQrep();
     if(DBY_VIEW === "duel" && typeof dbyQrep === "function") return dbyQrep();
     if(TM_VIEW === "run" && typeof tmQrep === "function") return tmQrep();
+    if(TOUR_VIEW === "run" && typeof tourQrep === "function") return tourQrep();
     if(!S) return null;
     if(S.phase === "ds_res" && S.dq){
       const Qd = dsQ(S.dq), anchor = document.querySelector("#stage .dsline.big");
@@ -28568,6 +28571,55 @@ function seasonDraw(st){
   st.innerHTML = b4Page({ title: "Season", ctx: "One moment", back: "SSN_VIEW=null;render()", cls: "snpage" });
 }
 const seasonShelfSub = () => { const s = seasonStore(), n = s.done.filter(d => d.pos === 1).length; return b6IsNew("season") ? "New" : s.run ? s.run.club + ", " + s.run.res.length + " played" : n ? "Titles " + n : "A whole season, in bites"; };
+
+/* ---------- FANBASE BATTLE: the door ----------
+   _plans/games-round.md round 4. The page is assets/fanbase/fanbase.js + fanbase.css, loaded on the first open after expert.js, whose
+   patches and rules it uses. The numbers are the server's (fanbase_table, 020_fanbase.sql), and until 020 has run the page says the
+   table opens soon. FAN_KEY is the last good copy, {t, sig, d}: public totals, nothing of the player's. FAN_VIEW: null | table. FAN_FROM: the
+   club whose Expert result sent us here. Its line in B6_ADDED sits at Derby Duel's, since that const comes later in this script. */
+const FAN_KEY = "ball4-fanbase";
+let FAN_VIEW = null, FAN_FROM = null, FAN_LOAD = 0, FAN_WAIT = [];
+function fanbaseCache(){ try{ const c = JSON.parse(localStorage.getItem(FAN_KEY) || "null"); if(c && c.d && Array.isArray(c.d.clubs)) return c; }catch(e){} return null; }
+/* this week's Monday, UTC, as the server writes it */
+function fanbaseWeek(t){ const d = new Date(t || Date.now()); return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - (d.getUTCDay() + 6) % 7)).toISOString().slice(0, 10); }
+function fanNeed(then){
+  const mine = typeof fanRender === "function";
+  if(mine && typeof expRender === "function"){ FAN_LOAD = 2; if(then) then(); return true; }
+  if(then) FAN_WAIT.push(then);
+  if(FAN_LOAD === 1) return false;
+  FAN_LOAD = 1;
+  let left = mine ? 1 : 3;
+  const done = ok => { if(!ok){ FAN_LOAD = -1; left = 0; FAN_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; FAN_LOAD = 2; const w = FAN_WAIT; FAN_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    expNeed(() => done(true));
+    if(mine) return false;
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/fanbase/fanbase.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/fanbase/fanbase.js"; sc.onload = () => done(typeof fanRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+function openFanbase(from){
+  b6MarkSeen("fanbase");
+  b4Explain("fanbase", () => {
+    if(FAN_LOAD === -1 || EXP_LOAD === -1){ FAN_LOAD = 0; if(EXP_LOAD === -1) EXP_LOAD = 0; }
+    FAN_FROM = from || null; FAN_VIEW = "table"; EXP_VIEW = null; ME_VIEW = null; LOCKER_VIEW = null; closeSheet(); render();
+    fanNeed(() => { if(FAN_VIEW){ fanOpened(); render(); try{ window.scrollTo(0, 0); }catch(e){} } });
+  });
+}
+function fanbaseDraw(st){
+  if(typeof fanRender === "function" && typeof expRender === "function") return fanRender(st);
+  st.innerHTML = b4Page({ title: "Fanbase Battle", ctx: "One moment", back: "FAN_VIEW=null;render()", cls: "fanpage" });
+}
+/* the home's line: where your club stood this week the last time the table was read. Never the network, and nothing can break it */
+const fanbaseShelfSub = () => {
+  if(b6IsNew("fanbase")) return "New";
+  try{
+    const C = fanbaseCache(), f = (acctLocal().fav || {}).club, me = C && f && C.d.week === fanbaseWeek() && C.d.clubs.find(c => c.slug === f);
+    if(me && +me.week > 0) return ordinal(1 + C.d.clubs.filter(c => +c.week > +me.week && bankClub(c.slug)).length) + " this week";
+  }catch(e){}
+  return "Club against club";
+};
 
 /* ---------- CLUB EXPERT: the door ----------
    _plans/club-expert.md §1. The game is assets/expert/expert.js + expert.css, loaded on the first open; only what the home,
@@ -30159,6 +30211,7 @@ function themeInScope(){
   if(EXP_VIEW === "test" || TRL_VIEW === "run" || SSN_VIEW === "play" || PUB_VIEW === "play") return false;
   if(DBY_VIEW === "duel" || DBY_VIEW === "done") return false;
   if(TM_VIEW === "run" || TM_VIEW === "roll") return false;
+  if(TOUR_VIEW === "run") return false;
   if(!S || S.phase === "setup") return true;
   return S.phase === "h_teams" || S.phase === "h_toss";
 }
@@ -30200,7 +30253,7 @@ function feelScreenKey(){
     if(LEGAL_VIEW) return "legal"; if(FYC_RENAME || FYC_VIEW) return "fyc"; if(CLUB_VIEW && !CLUB_VIEW.quiet) return "club";
     const setup = !S || S.phase === "setup";
     if(ME_VIEW && setup) return "me:" + ME_VIEW; if(LEAGUE_VIEW && setup) return "league"; if(LOCKER_VIEW && setup) return "locker:" + LOCKER_VIEW;
-    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(EXP_VIEW) return "expert:" + EXP_VIEW; if(TRL_VIEW) return "trail:" + TRL_VIEW; if(SSN_VIEW) return "season:" + SSN_VIEW; if(DBY_VIEW) return "derby:" + DBY_VIEW; if(PUB_VIEW) return "pub:" + PUB_VIEW; if(TM_VIEW) return "tm:" + TM_VIEW; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
+    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(EXP_VIEW) return "expert:" + EXP_VIEW; if(TRL_VIEW) return "trail:" + TRL_VIEW; if(SSN_VIEW) return "season:" + SSN_VIEW; if(DBY_VIEW) return "derby:" + DBY_VIEW; if(PUB_VIEW) return "pub:" + PUB_VIEW; if(TM_VIEW) return "tm:" + TM_VIEW; if(FAN_VIEW) return "fanbase:" + FAN_VIEW; if(TOUR_VIEW) return "tour:" + TOUR_VIEW; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
     if(YR_VIEW) return "yr"; if(GTP_VIEW) return "gtp"; if(LISTS_VIEW) return "lists"; if(DREAM_VIEW) return "dream";
     if(setup) return showBoard ? "board" : b4Step ? "step:" + b4Step : "home";
     return "game:" + S.play + ":" + S.mode + (S.phase === "results" ? ":results" : "");
@@ -30299,6 +30352,8 @@ function renderMain(){
   if(DBY_VIEW) return derbyDraw(st);
   if(PUB_VIEW) return pubDraw(st);
   if(TM_VIEW) return timeMachineDraw(st);
+  if(FAN_VIEW) return fanbaseDraw(st);
+  if(TOUR_VIEW) return tourDraw(st);
   if(TT_VIEW) return ttRender(st);
   if(GW_VIEW) return gwRender(st);
   if(DD_VIEW) return ddRender(st);
@@ -38268,6 +38323,8 @@ const timeMachineShelfSub = () => { const s = tmStore(), far = Object.values(s.f
 const T3_GAME_IC = {
   "Season": '<path d="M4 6.5h8M4 12h8M4 17.5h8M17.5 19V6M14 9.5 17.5 6 21 9.5"/>',
   "Derby Duel": '<path d="M3 6l5-2 5 2v5.5c0 3.1-2.2 5.3-5 6.5-2.8-1.2-5-3.4-5-6.5zM15.5 8.2l.5-.2 5 2v5.5c0 3.1-2.2 5.3-5 6.5-1.7-.7-3.2-1.8-4.1-3.2"/>',
+  "Fanbase Battle": '<path d="M3 21h18M9 21V11h6v10M3 21v-6h6M15 21v-8h6v8M12 11V3.5l5 2-5 2"/>',
+  "World Tour": '<path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.5 17.5h7M7.5 10a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0M7.5 10h9M12 5.5c-2.4 2.8-2.4 6.2 0 9c2.4-2.8 2.4-6.2 0-9"/>',
   "Club Lists": '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
   "Time Machine": '<path d="M3.5 4.5v5h5M3.87 9.5A8.5 8.5 0 1 1 3.5 12M12 7.5V12l3 2"/>',
   "Pub Night": '<path d="M7 8h10l-1.1 12.2a2 2 0 0 1-2 1.8h-3.8a2 2 0 0 1-2-1.8L7 8zM7.6 14h8.8M6.4 8a2.7 2.7 0 0 1 1.9-4.6 3.8 3.8 0 0 1 7.2-.2 2.7 2.7 0 0 1 2.1 4.8"/>',
@@ -38461,11 +38518,12 @@ function b6Shelf(){
     ["Club Expert", expertShelfSub(), "openExpert()"],
     ["Season", seasonShelfSub(), "b6MarkSeen('season');openSeason()"],
     ["Derby Duel", derbyShelfSub(), "b6MarkSeen('derby');openDerby()"],
-    ["Club Lists", "A shelf per club", "b6ClubLists()"] ];
+    ["Fanbase Battle", fanbaseShelfSub(), "openFanbase()"] ];
   const items = [
     ["Transfer Trail", trailShelfSub(), "b6MarkSeen('trail');openTrail()"],
     ["Time Machine", timeMachineShelfSub(), "b6MarkSeen('timemachine');openTimeMachine()"],
     ["Pub Night", pubShelfSub(), "b6MarkSeen('pub');openPub()"],
+    ["World Tour", tourShelfSub(), "b6MarkSeen('tour');openTour()"],
     ["Higher or Lower", hilo != null && hilo >= 0 ? "Best " + hilo : "Caps, goals, league games", "b6MoreSheet('hilo')"],
     ["Career Path", best.career != null ? "Best " + best.career : "Name him from his clubs", "b6MoreSheet('career')"],
     ["The Cup", cups ? "Won " + cups : "A whole World Cup", "openCup()"],
@@ -38473,7 +38531,8 @@ function b6Shelf(){
     ["Who is he?", sub("gw", gwPrefs().played, "Played", "Yes or no, until one man is left"), "b6MarkSeen('gw');openGW()"],
     ["Deadline Day", sub("dd", ddPrefs().played, "Played", "Who signed, where and when?"), "b6MarkSeen('dd');openDD()"],
     ["Letter Box", (() => { const p = lbPrefs(); return b6IsNew("lb") ? "New" : p.best ? "Best " + p.best : p.played ? "Played " + p.played : "One letter, five boxes"; })(), "b6MarkSeen('lb');openLB()"],
-    ["Timeline", sub("yr", yrPrefs().played, "Played", "Put football in order"), "b6MarkSeen('yr');openYR()"] ];
+    ["Timeline", sub("yr", yrPrefs().played, "Played", "Put football in order"), "b6MarkSeen('yr');openYR()"],
+    ["Club Lists", "A shelf per club", "b6ClubLists()"] ];
   const tile = (i, n) => '<button class="t3mini" onclick="' + i[2] + '" aria-label="' + esc(i[0] + ": " + i[1]) + '">' +
     '<span class="t3tile t3l' + ((n + Math.floor(n / 4)) % 4) + '"><span class="t3no">No.' + (n + 1) + '</span>' + t3Svg(T3_GAME_IC[i[0]] || "") + (i[1] === "New" ? '<span class="t3new">New</span>' : "") + '</span>' +
     '<b>' + esc(i[0]) + '</b></button>';
@@ -38494,6 +38553,7 @@ function b6ClubLists(){
 const DBY_KEY = "ball4-derby";
 let DBY_VIEW = null, DBY_LOAD = 0, DBY_WAIT = [];
 B6_ADDED.derby = B6_ADDED.season = B6_ADDED.pub = B6_ADDED.timemachine = "2026-11-05";
+B6_ADDED.fanbase = "2026-11-05";
 function derbyStore(){ try{ const s = JSON.parse(localStorage.getItem(DBY_KEY) || "null"); if(s && s.pairs) return s; }catch(e){} return { v: 1, pairs: {}, seen: {} }; }
 function derbySave(s){ try{ localStorage.setItem(DBY_KEY, JSON.stringify(s)); }catch(e){} }
 function dbyNeed(then){
@@ -38522,6 +38582,44 @@ function derbyDraw(st){
   st.innerHTML = b4Page({ title: "Derby Duel", ctx: "One moment", back: "DBY_VIEW=null;render()", cls: "dbypage" });
 }
 const derbyShelfSub = () => { if(b6IsNew("derby")) return "New"; let n = 0; try{ for(const p of Object.values(derbyStore().pairs)) n += (p.wa | 0) + (p.wb | 0) + (p.d | 0); }catch(e){} return n ? "Played " + n : "Two friends, one phone"; };
+
+/* ---------- WORLD TOUR: the door ----------
+   _plans/games-round.md round 4. The game is assets/tour/tour.js + tour.css, loaded on the first open; ball4-tour is read fresh every time,
+   like Club Expert's, because a sign-out and the cloud save both change it underneath us. TOUR_VIEW: null | book | run | land | done.
+   total is how many stops there were the last time the passport was open: the stops come off the bank's manifest, which the home has no
+   reason to fetch, so the shelf's line reads it from here. */
+const TOUR_KEY = "ball4-tour";
+let TOUR_VIEW = null, TOUR_LOAD = 0, TOUR_WAIT = [];
+B6_ADDED.tour = "2026-11-05";
+function tourStore(){ try{ const s = JSON.parse(localStorage.getItem(TOUR_KEY) || "null"); if(s && s.stamps) return s; }catch(e){} return { v: 1, stamps: {}, visas: {}, title: null, best: {}, runs: {}, total: 0, seen: [] }; }
+function tourSave(s){ try{ localStorage.setItem(TOUR_KEY, JSON.stringify(s)); }catch(e){} }
+function tourNeed(then){
+  if(TOUR_LOAD === 2 || typeof tourRender === "function"){ TOUR_LOAD = 2; if(then) then(); return true; }
+  if(then) TOUR_WAIT.push(then);
+  if(TOUR_LOAD === 1) return false;
+  TOUR_LOAD = 1;
+  let left = 2;
+  const done = ok => { if(!ok){ TOUR_LOAD = -1; left = 0; TOUR_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; TOUR_LOAD = 2; const w = TOUR_WAIT; TOUR_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/tour/tour.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/tour/tour.js"; sc.onload = () => done(typeof tourRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+  }catch(e){ done(false); }
+  return false;
+}
+function openTour(){
+  b4Explain("tour", () => {
+    if(TOUR_LOAD === -1) TOUR_LOAD = 0;
+    TOUR_VIEW = "book"; ME_VIEW = null; LOCKER_VIEW = null; closeSheet(); render();
+    tourNeed(() => { if(TOUR_VIEW){ render(); try{ window.scrollTo(0, 0); }catch(e){} } });
+  });
+}
+function tourDraw(st){
+  if(typeof tourRender === "function") return tourRender(st);
+  st.innerHTML = b4Page({ title: "World Tour", ctx: "One moment", back: "TOUR_VIEW=null;render()", cls: "tourpage" });
+}
+/* the home's line: New until the passport has been opened once, then the count */
+const tourShelfSub = () => { const s = tourStore(), n = Object.keys(s.stamps).length; return n || s.total ? "Stamps " + n + (s.total ? " of " + Math.max(n, s.total) : "") : "New"; };
 
 function b6MoreSheet(k){
   audio();
@@ -38854,9 +38952,11 @@ const B4_HOW = {
   lists: ["The Lists", "Two kinds of list. Top 10: the numbers are on the board and you name the men behind them; a name outside the ten costs one of three balls. Name them all: a whole list against the clock, and a wrong name costs nothing. Know someone real who just misses the list? That's a deep cut, a bonus point. Two new lists every day, thousands more on the shelf."],
   gtp: ["Guess the player", "One mystery footballer a day, the same for everyone, and six guesses. Type any player: each guess shows four tiles against the secret one. Nation, position, year of birth and clubs: green is a match, gold is close (born within two years, or a club in common), and the arrow points to his year. Your guesses knit a scarf you can share."],
   career: ["Career Path", "A player's clubs come out one at a time, in order. Pick his name from four. Right on the first club is +15, every extra club costs 3, and a wrong name is −2. Ten players a game."],
+  tour: ["World Tour", "Your football passport. Every country is a stop, and each stop is ten multiple-choice questions on its league, twenty seconds each. Seven right wins the stamp. Miss it and nothing's lost: try again, and the questions you've seen come last. Your own country comes first. Stamp a whole region for its gold visa."],
   derby: ["Derby Duel", "Two friends, one phone, two clubs. Five questions each, twelve seconds a go, and every question is about the other one's club, climbing from easy to hard. The phone goes across between turns so nobody sees what's next. Level after ten is sudden death, one question each, up to three pairs. The record between you two is kept."],
   trail: ["Transfer Trail", "A player is named and you start at his first club. Where did he go next? Four clubs, one right. Keep following him move by move, and when his career ends the next man comes. One wrong step ends the run, and your score is the moves you got right. Loans are on the trail, but you're never asked about them."],
   pub: ["Pub Night", "You're the quizmaster and the phone is your card. Read each question out, give the room as long as it needs, then show the answer and read the fact that comes with it. Everyone else plays with a pen and a beer mat, or just shouts. Pick the rounds and how hard, and keep score here or on paper."],  tm: ["Time Machine", "Pick a route through football history and survive every decade, all the way to today. Five multiple-choice questions a decade, fifteen seconds each, and three lives for the whole trip. A wrong answer or a timeout costs a life. Lose all three and you're stranded in that year. Get through the last decade and you're home."],
+  fanbase: ["Fanbase Battle", "Club against club, on one public table. Every Club Expert test passed is a pass for that club, one a day from each fan and three in all. This week's table starts again every Monday, All time never does. Tap any club to take its test and push it up."],
   expert: ["Club Expert", "Pick a club and take its Expert test: ten multiple-choice questions, Hard, Extreme and Ball, twenty seconds each. Eight right is a pass. Pass on three different days and the club's medal is yours. A question from a passed test never comes back."],
   season: ["Season", "Pick a club and play a whole league season, a matchday at a time. A matchday is three questions, fifteen seconds each: a right answer is a goal, a wrong one gives the other side a chance, and three right can't lose. Everybody else plays too, so the table is a real one. Bottom two go down, top two of the division below come up, and the next season carries on from there."],
 };

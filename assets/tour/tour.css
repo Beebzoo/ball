@@ -1,0 +1,196 @@
+/* BALL 4 · WORLD TOUR (tour.js): cream paper, the grass band, gold, and a passport. Tokens, not hex. The passport is an object rather than a screen, so its
+   paper and its inks stay as they are in every theme; everything round it follows the theme. */
+.tourpage{--tour-paper:hsl(45,64%,91%);--tour-paper2:hsl(43,46%,83%);--tour-rule:hsla(152,40%,22%,.09);--tour-ink:hsl(152,47%,17%);--tour-dim:hsl(146,14%,36%);--tour-gutter:hsla(32,34%,22%,.26);--tour-cover:hsl(152,47%,15%);
+  --tour-gold:hsl(41,76%,60%);--tour-gold-ink:hsl(38,74%,27%);--tour-foil:linear-gradient(180deg,hsl(43,86%,72%),hsl(41,63%,48%));--tour-foil-ink:hsl(38,65%,13%)}
+.tourpage .b6body{gap:10px}
+.tourdefs{position:absolute;width:0;height:0;overflow:hidden}
+.tour-book.b6.b6m .b6band,.tour-land.b6.b6m .b6band{height:148px!important}
+.tour-book .b6body>.b6stephead.m,.tour-land .b6body>.b6stephead.m{height:128px;padding-top:calc(24px + env(safe-area-inset-top,0px))}
+.tour-book .b6stephead .b6backbtn,.tour-land .b6stephead .b6backbtn{top:calc(20px + env(safe-area-inset-top,0px))}
+.tour-book .b6ctx,.tour-land .b6ctx{margin-top:8px}
+.tourlead{margin:0;padding:6px 10px 2px;text-align:center;font:italic 400 14.5px/1.4 'Lora',Georgia,serif;color:var(--th-ink);text-wrap:pretty}
+
+/* ---------- the next stop ---------- */
+.tournext{display:flex;align-items:center;gap:12px;width:100%;min-height:76px;padding:9px 13px;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift);cursor:pointer;text-align:left;transition:transform .12s var(--ease-pop)}
+.tournext:active{transform:translateY(1px) scale(.985)}
+.tournext:disabled{cursor:default;opacity:.8}
+.tournext>img{flex:none;width:58px;height:40px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 1.5px var(--th-acc2),0 3px 8px rgba(0,0,0,.4)}
+.tournext .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.tournext small{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-acc-hi)}
+.tournext b{font:italic 900 27px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.tournext i{font:italic 400 13px/1.15 'Lora',Georgia,serif;color:var(--th-card-dim)}
+.tournext .go{flex:none;padding:10px 15px;border-radius:var(--th-pill-r);background:var(--th-pill);color:var(--th-acc-ink);font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;box-shadow:0 3px 0 var(--th-acc-sh)}
+.tournext.won{cursor:default}
+.tournext.won .tourstar{flex:none;width:46px;height:46px;fill:var(--th-acc);stroke:var(--th-acc-hi);stroke-width:.8}
+.tournext.won b{font-size:25px;color:var(--th-acc-hi)}
+
+/* ---------- the book ---------- */
+.tourtabs{position:relative;z-index:1;display:grid;grid-template-columns:34px repeat(auto-fit,minmax(0,1fr));gap:3px;margin:4px 8px -1px}
+.tourtab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;padding:5px 1px 4px;border:0;border-radius:9px 9px 0 0;background:var(--tour-paper2);color:var(--tour-dim);font:800 12.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.01em;white-space:nowrap;cursor:pointer;box-shadow:inset 0 -5px 6px -5px hsla(32,34%,22%,.4)}
+.tourtab small{font:700 11px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;opacity:.85}
+.tourtab.on{background:var(--tour-paper);color:var(--tour-ink);box-shadow:none}
+.tourtab.gold small{color:var(--tour-gold-ink)}
+.tourtab .tourglobe{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tourbook{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;border-radius:5px 11px 11px 5px;background:var(--tour-paper2);box-shadow:0 0 0 3px var(--tour-cover),1px 1px 0 3px var(--tour-paper2),0 8px 18px 2px rgba(18,61,36,.3)}
+.tourbook::-webkit-scrollbar{display:none}
+.tourbook.one{display:block;overflow:visible;margin-top:2px}
+.tourpg{position:relative;flex:0 0 100%;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;min-height:468px;padding:9px 12px 9px 16px;scroll-snap-align:start;scroll-snap-stop:always;color:var(--tour-ink);
+  background:linear-gradient(90deg,var(--tour-gutter),transparent 15px),repeating-radial-gradient(circle at 12% 116%,transparent 0 8px,var(--tour-rule) 8px 8.7px),repeating-radial-gradient(circle at 92% -14%,transparent 0 8px,var(--tour-rule) 8px 8.7px),var(--tour-paper)}
+.tourpg header{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding-bottom:5px;border-bottom:1.5px solid var(--tour-ink)}
+.tourpg .r{font:italic 900 19px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tourpg .r i{font-style:normal;font-weight:700;font-size:13px;opacity:.6}
+.tourpg .c{flex:none;font:800 12.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--tour-dim)}
+.tourpg footer{position:relative;display:flex;align-items:center;gap:8px;margin-top:auto;min-height:44px}
+.tourpg .no{flex:none;font:700 12px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--tour-dim)}
+.tourover{flex:1;text-align:right;font:italic 400 12.5px/1 'Lora',Georgia,serif;color:var(--tour-dim)}
+
+/* ---------- the slots: no boxes, no rows, stamps on a page ---------- */
+.tourslots{flex:1;display:grid;align-items:center;justify-items:center;gap:2px;padding:7px 0 5px}
+.tourslots.tight{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tourslots.wide{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px}
+.tourslots.five{grid-template-columns:repeat(6,minmax(0,1fr))}
+.tourslots.five .tourslot{grid-column:span 3}
+.tourslots.five .tourslot:nth-child(3){grid-column:2/span 4;width:55.5%}
+.tourslot{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .12s var(--ease-pop)}
+.tourslots.wide .tourslot{width:88%}
+.tourslots.five .tourslot{width:74%}
+.tourslot:active{transform:scale(.96)}
+.tourslot:disabled{cursor:default}
+.tourslot .tourst{transform:translate(var(--x),var(--y)) rotate(var(--r))}
+.tourst{display:block;width:100%;height:auto;overflow:visible;fill:none}
+.tourst .o,.tourst .i{fill:none;stroke:currentColor}
+.tourst .o{stroke-width:3}
+.tourst .i{stroke-width:1}
+.tourst text{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;fill:currentColor;stroke:none;text-transform:none}
+.tourst .n{font-weight:900;letter-spacing:.02em}
+.tourst .d{font-weight:800;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.tourst .k{font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+.tourst.inked{mix-blend-mode:multiply}
+.tourst.mt{color:var(--tour-dim)}
+.tourst.mt .o{stroke-width:1.7;stroke-dasharray:.1 5.2;stroke-linecap:round}
+.tourst.mt .n{font-weight:800;letter-spacing:0;fill:var(--tour-ink);opacity:.72}
+.tourslot.next .tourst.mt{color:var(--tour-gold-ink)}
+.tourslot.next .tourst.mt .o{stroke-width:2.5;animation:tourNext 1.8s ease-in-out infinite}
+@keyframes tourNext{50%{opacity:.45}}
+
+/* ---------- the visa ---------- */
+.tourvisa{flex:1;min-width:0;display:flex;align-items:center;gap:8px;min-height:44px;padding:4px 9px;box-sizing:border-box;border-radius:7px;border:1.5px dotted var(--tour-dim);color:var(--tour-dim)}
+.tourvisa .tourstar{flex:none;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
+.tourvisa span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.tourvisa small{font:800 10px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.tourvisa b{font:700 13px/1.05 'Barlow Semi Condensed',sans-serif}
+.tourvisa time{flex:none;font:800 12.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.tourvisa.on,.tourvisa.landing{border:0;background:var(--tour-foil);color:var(--tour-foil-ink);box-shadow:0 2px 0 var(--tour-gold-ink),inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.tourvisa.on .tourstar,.tourvisa.landing .tourstar{fill:var(--tour-foil-ink);stroke:none}
+.tourvisa.on b,.tourvisa.landing b{font:italic 900 16px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+.tourvisa.landing{opacity:0}
+.tourvisa.landing.down{animation:tourVisa .46s var(--ease-pop) both}
+.tourvisa.landing.still{animation:none;opacity:1}
+@keyframes tourVisa{0%{opacity:0;transform:translateY(-22px) scale(1.12)}100%{opacity:1;transform:none}}
+
+/* ---------- the moment ---------- */
+.tour-land{overflow-x:clip}
+.tourslot.landing .tourst.inked{position:absolute;left:0;top:0;opacity:0;transform-origin:50% 50%}
+.tourslot.landing.down .tourst.mt{opacity:0;transition:opacity .04s linear .2s}
+.tourslot.landing.down .tourst.inked{animation:tourDown .3s var(--ease-pop) both}
+.tourslot.landing.still .tourst.inked{animation:none;opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r))}
+.tourslot.landing.still .tourst.mt{transition:none}
+@keyframes tourDown{0%{opacity:0;transform:translate(var(--x),var(--y)) rotate(calc(var(--r) - 10deg)) scale(3)}70%{opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(.92)}100%{opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1)}}
+.tourpg.thud{animation:tourThud .3s var(--ease-pop) both}
+@keyframes tourThud{0%{transform:none}30%{transform:translateY(4px) scale(.992)}65%{transform:translateY(-1px)}100%{transform:none}}
+
+/* ---------- the data page ---------- */
+.tourid .touridrow{flex:1;display:flex;gap:13px;align-items:flex-start;padding:14px 0 8px}
+.tourphoto{flex:none;display:grid;place-items:center;width:112px;height:146px;border-radius:5px;overflow:hidden;background:var(--tour-paper2);box-shadow:inset 0 0 0 1.5px var(--tour-ink)}
+.tourphoto img{width:100%;height:100%;object-fit:cover;opacity:.92}
+.tourphoto .tourglobe{width:68px;height:68px;fill:none;stroke:var(--tour-ink);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.tourid dl{flex:1;min-width:0;margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1px}
+.tourid dt{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--tour-dim)}
+.tourid dd{margin:0 0 11px;font:800 19px/1.05 'Barlow Semi Condensed',sans-serif;color:var(--tour-ink);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.tourvisas{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding:6px 0}
+.tourvisas span{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--tour-dim)}
+.tourvisas .tourstar{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round}
+.tourvisas small{font:700 11px/1 'Barlow Semi Condensed',sans-serif;white-space:nowrap}
+.tourvisas .on{color:var(--tour-gold-ink)}
+.tourvisas .on .tourstar{fill:var(--tour-gold);stroke:var(--tour-gold-ink)}
+.tourmrz{margin-top:auto;padding-top:8px;max-width:100%;overflow:hidden;white-space:nowrap;font:600 12.5px/1.45 ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;letter-spacing:.06em;color:var(--tour-ink);opacity:.72}
+
+/* ---------- a question: one screen, no scroll ---------- */
+body.b6paper #stage:has(.tour-run){padding-bottom:0}
+.tour-run .b6body{gap:7px;min-height:100dvh;box-sizing:border-box;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+.tour-run.b6.b6m .b6band{height:104px!important}
+.tour-run .b6body>.b6stephead.m{height:92px;padding-top:calc(20px + env(safe-area-inset-top,0px))}
+.tour-run .b6stephead .b6backbtn{top:calc(16px + env(safe-area-inset-top,0px))}
+.tour-run .b6quit{top:calc(16px + env(safe-area-inset-top,0px))}
+.tour-run .b6stitle{font-size:27px}
+.tour-run .b6stitle.long{font-size:22px}
+.tour-run .b6ctx{margin-top:5px}
+.tourdash{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 11px;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.tourdash img{flex:none;width:39px;height:27px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.4)}
+.tourdash b{flex:none;min-width:40px;text-align:right;font:italic 900 25px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-hi)}
+.tourdash b small{font-size:15px;color:var(--th-card-dim)}
+.tourten{display:inline-flex;align-items:center;gap:5px}
+.tourten i{position:relative;display:block;width:11px;height:11px;border-radius:50%;background:rgba(248,241,221,.14)}
+.tourten i.cur{box-shadow:0 0 0 2px var(--th-acc-hi);background:transparent}
+.tourten i.hit{background:var(--th-acc-hi)}
+.tourten i.miss{background:transparent;box-shadow:inset 0 0 0 2px var(--res-off-dark-ink);opacity:.6}
+/* the seventh is the stamp */
+.tourten i.gate::after{content:"";position:absolute;left:50%;top:-6px;width:2px;height:23px;margin-left:7px;background:var(--th-acc2)}
+.tourclock{flex-direction:row;align-items:center;gap:10px}
+.tourclock .bar{flex:1;height:9px;background:rgba(18,61,36,.14);border-radius:0;transform:skewX(-14deg)}
+.tourclock .bar i{background:var(--th-pill);border-radius:0;transition:none}
+.tourclock .digits{min-width:46px;text-align:right;font:italic 900 23px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-ink)}
+.tourclock.hot .digits{color:var(--th-acc-text)}
+.tourclock.hot .bar i{background:var(--th-acc2)}
+.tourq{flex:1;display:flex;flex-direction:column;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);padding:13px 12px 10px;gap:9px;box-shadow:var(--th-lift)}
+.tourq::before,.tourq::after{display:none}
+.tourq .qtext{flex:1;display:flex;align-items:center;font:700 clamp(19px,2.9dvh,25px)/1.22 'Barlow Semi Condensed',sans-serif;text-wrap:pretty}
+.touropts{display:flex;flex-direction:column;gap:7px}
+.touropts .h2opt{min-height:47px;padding:8px 11px;font:700 16.5px/1.14 'Barlow Semi Condensed',sans-serif}
+.toursay{min-height:18px;text-align:center;font:italic 400 13.5px/1.28 'Lora',Georgia,serif;color:var(--th-card-ink);text-wrap:pretty}
+.tour-run .qrep{margin:-3px 0 0}
+.tour-run .qrep button,.tour-run .qrep span{color:var(--th-dim)}
+.tour-run>.b6body>.b4btn{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:2;flex:none}
+
+/* ---------- a miss, and a stamp you already have ---------- */
+.tourwait{display:flex;flex-direction:column;align-items:center;gap:12px;margin:8px 0 2px;padding:18px 12px 14px;border-radius:9px;color:var(--tour-ink);box-shadow:0 0 0 3px var(--tour-cover),0 8px 18px 2px rgba(18,61,36,.3);background:repeating-radial-gradient(circle at 50% 120%,transparent 0 8px,var(--tour-rule) 8px 8.7px),var(--tour-paper)}
+.tourwait .tourst{width:150px;transform:rotate(-3deg)}
+.tourwait .tourten i{background:hsla(152,40%,22%,.16)}
+.tourwait .tourten i.hit{background:var(--tour-ink)}
+.tourwait .tourten i.miss{background:transparent;box-shadow:inset 0 0 0 2px var(--tour-dim);opacity:1}
+.tour-done .b4q{text-align:center}
+.tour-done .b4btn.quiet,.tour-land .b4btn.quiet{color:var(--th-ink)}
+
+/* ---------- a slot's sheet ---------- */
+.tourshow{display:flex;justify-content:center;align-items:center;gap:12px;margin:12px 0 14px;padding:14px;border-radius:9px;color:hsl(152,47%,17%);background:hsl(45,64%,91%)}
+.tourshow .tourst{width:190px;transform:rotate(-4deg)}
+.tourshow.head img:first-child{width:72px;height:48px;object-fit:cover;border-radius:4px}
+.tourshow.head .cbadge{width:48px;height:48px}
+
+/* ---------- short phones: the question keeps the screen, the band gives way ---------- */
+@media (max-height:720px){
+  .tour-run.b6.b6m .b6band{height:66px!important}
+  .tour-run .b6body>.b6stephead.m{height:54px;padding-top:calc(10px + env(safe-area-inset-top,0px))}
+  .tour-run .b6stephead .b6backbtn,.tour-run .b6quit{top:calc(6px + env(safe-area-inset-top,0px))}
+  .tour-run .b6stitle,.tour-run .b6stitle.long{font-size:20px}
+  .tour-run .b6ctx{display:none}
+  .tour-run .b6body{gap:5px}
+  .tourdash{padding:4px 10px}
+  .tourq{padding:9px 10px 7px;gap:6px}
+  .tourq .qtext{font-size:17.5px}
+  .touropts{gap:5px}
+  .touropts .h2opt{min-height:38px;padding:5px 9px;font-size:15px}
+  .tourpg{min-height:430px}
+}
+@media (max-width:374px){
+  .tourtab{font-size:10.5px;letter-spacing:0}
+  .tourtabs{grid-template-columns:28px repeat(auto-fit,minmax(0,1fr));gap:2px;margin:4px 4px -1px}
+  .tourpg{padding-left:13px;padding-right:9px}
+  .tourten{gap:3px}
+  .tourid dd{font-size:16px}
+  .tourphoto{width:84px;height:106px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tourslot.next .tourst.mt .o{animation:none}
+  .tourpg.thud{animation:none}
+}

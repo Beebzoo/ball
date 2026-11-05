@@ -380,6 +380,7 @@ function expDoneHTML(){
     body = b4Q("Not this time", D.right + " of " + EXP_N + ", " + (short === 1 ? "one short." : short + " short.") + " No harm done: try again whenever you like.") + ten + expPath(c, D.day) +
       b4Btn("Try again", "expStart('" + D.slug + "')", "gold") + b4Btn("Practise with One club", "expPractise('" + D.slug + "')", "dark") + b4Btn("Back to " + esc(L.name), "expBack()", "quiet");
   }
+  if(D.pass) body += b4Btn("See the Fanbase Battle table ›", "openFanbase('" + D.slug + "')", "quiet");
   return b4Page({ title: "Club Expert", ctx: L.name, back: "expBack()", score, cls: "cxpage cx-done", body });
 }
 /* THE THIRD PASS: the medal is struck, in front of everything, and it stays on the page behind when you close this */
@@ -415,6 +416,7 @@ function expClose(){
   EXP_VIEW = null; EXP_SLUG = null; EXD = null; EX = null;
   if(from === "locker") return openLocker();
   if(from === "me") return openMe();
+  if(from === "fanbase") return openFanbase();
   render();
   try{ feelScrollBack("home"); }catch(e){}
 }
@@ -422,6 +424,7 @@ function expBack(){
   audio();
   try{ document.querySelectorAll(".cxmoment").forEach(e => e.remove()); }catch(e){}
   if(EXP_VIEW === "done"){ EXP_VIEW = "club"; EXD = null; render(); return; }
+  if(EXP_VIEW === "club" && EXP_FROM === "fanbase") return expClose();
   if(EXP_VIEW === "club"){ EXP_VIEW = "pick"; render(); try{ feelScrollBack("expert:pick"); }catch(e){} return; }
   expClose();
 }

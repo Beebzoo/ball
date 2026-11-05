@@ -1,6 +1,6 @@
 /* BALL quiz service worker: network-first so updates land instantly,
    cache fallback so the pub's dead wifi can't stop the game. */
-const CACHE = "ball-quiz-4-v75";
+const CACHE = "ball-quiz-4-v76";
 const NATFLAGS = "ad,ae,af,ag,al,am,ao,ar,at,au,az,ba,be,bf,bg,bi,bj,bm,bn,bo,br,by,ca,cd,cf,cg,ch,ci,cl,cm,cn,co,cr,cu,cv,cy,cz,de,dk,do,dz,ec,ee,eg,es,et,fi,fr,ga,gb,gd,ge,gh,gm,gn,gq,gr,gt,gw,gy,hn,hr,ht,hu,id,ie,il,in,iq,ir,is,it,jm,jo,jp,ke,kn,kr,kw,kz,lb,lc,li,lk,lr,lt,lu,lv,ly,ma,md,me,mg,mk,ml,mr,mt,mu,mw,mx,my,mz,na,ne,ng,nl,no,nz,pa,pe,ph,pk,pl,pt,py,qa,ro,rs,ru,rw,sa,sc,sd,se,si,sk,sl,sm,sn,so,sr,st,sv,sy,sz,td,tg,th,tl,tm,tn,tr,tt,tz,ua,ug,us,uy,uz,ve,vn,ws,xk,za,zm,zw".split(",");
 /* These two lists are generated, by _tools/build-stickers.py and by the
    Eredivisie build-ere.js, and they are declared HERE, above EXTRA_ASSETS,
@@ -45,6 +45,10 @@ const EXTRA_ASSETS = ["assets/vendor/ball3d.js", "assets/grass-match.jpg", "asse
   "assets/ball3d/motion.js",
   /* Club Expert (loaded on its first open; the club decks come down with the test) */
   "assets/expert/expert.js", "assets/expert/expert.css",
+  /* Higher or Lower's clubs and wide caps: the list and the picker. A club's own file is kept the first time it is played */
+  "assets/clubapps/clubapps.js", "assets/clubapps/clubapps.css", "assets/clubapps/index.json", "assets/caps/wide.json",
+  /* Transfer Trail (loaded on its first open; its pack is in GRID_FILES) */
+  "assets/trail/trail.js", "assets/trail/trail.css",
   /* The interface font, precached rather than fetched: a pub with no signal
      would otherwise fall back mid-match and reflow the whole menu. Both
      subsets, because latin alone drops the accented names. */
@@ -71,7 +75,9 @@ const GRID_FILES = ["assets/grids/names.json", "assets/grids/search.json", "asse
   /* Letter Box: the men, the clubs and the boxes, about 600 KB gzipped (_tools/build-letterbox.js) */
   "assets/letterbox/players.json", "assets/letterbox/clubs.json", "assets/letterbox/boxes.json",
   /* Timeline: the deck, about 20 KB gzipped (_tools/build-timeline.js) */
-  "assets/years/cards.json"];
+  "assets/years/cards.json",
+  /* Transfer Trail: the clubs and the three levels, about 155 KB gzipped (_tools/build-trail.js) */
+  "assets/trail/clubs.json", "assets/trail/easy.json", "assets/trail/normal.json", "assets/trail/hard.json"];
 const ASSETS = [
   ...GRID_FILES,
   "./",

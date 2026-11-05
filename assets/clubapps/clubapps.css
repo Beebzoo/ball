@@ -1,0 +1,17 @@
+/* BALL 4 · HIGHER OR LOWER'S CLUB PICKER (clubapps.js): Matchday's shape, Club Expert's tiles. Tokens, not hex. */
+.hcpatch{display:block;flex:none;height:auto}
+.hch{margin-top:14px;font-size:13px}
+.hch .cbadge{flex:none;margin:-4px 0}
+.hch span{margin-left:auto;font:700 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.04em;color:var(--th-dim)}
+.hcgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+.hctile{display:flex;align-items:center;gap:9px;min-height:60px;padding:7px 9px 7px 10px;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);
+  box-shadow:0 3px 0 rgba(18,61,36,.12);text-align:left;cursor:pointer;font:inherit;transition:transform .12s var(--ease-out)}
+.hctile:active{transform:translateY(1px) scale(.985)}
+.hctile b{min-width:0;font:italic 900 15.5px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:anywhere}
+.hctart{flex:none;width:40px;display:grid;place-items:center}
+.hchero{display:flex;align-items:center;gap:13px;width:100%;margin-top:6px;padding:13px 12px 13px 14px;border-radius:16px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);
+  box-shadow:var(--th-lift);text-align:left;cursor:pointer;font:inherit}
+.hchm{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.hchm small{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--th-acc)}
+.hchm b{font:italic 900 28px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.hcgo{flex:none;font:900 26px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc)}

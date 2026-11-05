@@ -86,6 +86,8 @@ const SYNC_KEYS = {
      score, and the medal the earlier date. seen (questions of failed tests, tried last) is only a preference: this phone's */
   "ball4-expert": { rule: syncF({ v: SYNC_MAX, seen: SYNC_LOCAL, "*": SYNC_LATEST,
       clubs: syncK(syncF({ days: syncU({ each: SYNC_MAX }), used: syncU({ sort: true }), medal: SYNC_MIN, "*": SYNC_LATEST })) }) },
+  /* Transfer Trail: a best is never lost and runs only count up; seen (who you've met lately) is long and only a preference: this phone's */
+  "ball4-trail": { rule: syncF({ v: SYNC_MAX, best: syncK(SYNC_MAX), runs: syncK(SYNC_MAX), seen: SYNC_LOCAL, "*": SYNC_LATEST }) },
   "ball4-cele": { rule: SYNC_LATEST },
   "ball4-hilo": { rule: SYNC_LATEST },
   "ball4-simple": { rule: SYNC_LATEST },
@@ -163,7 +165,8 @@ const SYNC_BETTER = {
   week: (a, b) => syncCmp(a.week, b.week) || (+b.left || 0) - (+a.left || 0),     // the freeze: the later week; a spent one stays spent
   day: (a, b) => syncCmp(syncDayNum(a.day) ?? a.day, syncDayNum(b.day) ?? b.day) || (+a.n || 0) - (+b.n || 0),
   year: (a, b) => (+a.year || 0) - (+b.year || 0) || (+a.n || 0) - (+b.n || 0),
-  list: (a, b) => (+a.found || 0) - (+b.found || 0) || (SYNC_MEDAL[a.medal] || 0) - (SYNC_MEDAL[b.medal] || 0),
+  /* the medal first: a list can grow in a rebuild, and more names on a longer list must not take a gold away */
+  list: (a, b) => (SYNC_MEDAL[a.medal] || 0) - (SYNC_MEDAL[b.medal] || 0) || (+a.found || 0) - (+b.found || 0),
   entry: (a, b) => (!!a.done - !!b.done) || syncLen(a.found) - syncLen(b.found),
   ladder: (a, b) => (!!a.done - !!b.done) || (+a.reached || 0) - (+b.reached || 0) || (+a.rung || 0) - (+b.rung || 0) || syncLen(a.got) - syncLen(b.got),
   shootout: (a, b) => (!!a.done - !!b.done) || syncLen(a.kicks) - syncLen(b.kicks),

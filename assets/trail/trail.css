@@ -1,0 +1,107 @@
+/* BALL 4 · TRANSFER TRAIL (trail.js): cream paper, the grass band, gold, on Career Path's route language. Tokens, not hex. */
+.trlpage .b6body{gap:10px}
+.trlflag{display:inline-block;flex:none;width:20px;height:auto;border-radius:2px;box-shadow:0 0 0 1px rgba(18,61,36,.25)}
+
+/* ---------- the picker ---------- */
+.trllead{margin:0;padding:12px 10px 4px;text-align:center;font:italic 400 15px/1.4 'Lora',Georgia,serif;color:var(--th-ink);text-wrap:pretty}
+.trllvl{display:flex;align-items:center;gap:12px;width:100%;min-height:86px;padding:12px 16px;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);
+  box-shadow:var(--th-lift);text-align:left;cursor:pointer;font:inherit;transition:transform var(--dur-press) var(--ease-out)}
+.trllvl:active{transform:translateY(1px) scale(.985)}
+.trllvl .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.trllvl .m b{font:italic 900 32px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+.trllvl .m small{font:italic 400 14px/1.2 'Lora',Georgia,serif;color:var(--th-card-dim)}
+.trllvl .r{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:54px}
+.trllvl .r b{font:italic 900 34px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-hi)}
+.trllvl .r small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-card-dim)}
+
+/* ---------- the run: one screen, no scroll, the options under the thumb ---------- */
+body.b6paper #stage:has(.trl-run){padding-bottom:0}
+.trl-run .b6body{gap:7px;min-height:100dvh;box-sizing:border-box;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+.trl-run.b6.b6m .b6band{height:112px!important}
+.trl-run .b6body>.b6stephead.m{height:100px;padding-top:calc(24px + env(safe-area-inset-top,0px))}
+.trl-run .b6stephead .b6backbtn{top:calc(20px + env(safe-area-inset-top,0px))}
+.trl-run .b6quit{top:calc(20px + env(safe-area-inset-top,0px))}
+.trl-run .b6stitle{font-size:26px}
+.trl-run .b6ctx{margin-top:6px}
+.trlmid{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.trlman{display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
+.trlman b{font:italic 900 clamp(25px,9.4vw,38px)/1.02 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-ink);overflow-wrap:anywhere}
+.trlman small{display:inline-flex;align-items:center;gap:6px;font:700 12px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-dim)}
+
+/* the trail: roundels on a gold line, right-aligned so the oldest slide off to the left */
+.trlstrip{position:relative;display:flex;justify-content:center;overflow:hidden;margin:2px -16px 0;padding:6px 16px}
+.trlstrip.far{justify-content:flex-end;-webkit-mask:linear-gradient(90deg,transparent 0,#000 34px);mask:linear-gradient(90deg,transparent 0,#000 34px)}
+.trlrun{position:relative;flex:none;display:flex;align-items:center;gap:7px;min-height:52px}
+.trlst{position:relative;flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--th-row);box-shadow:0 0 0 2px var(--th-acc),0 2px 4px rgba(18,61,36,.25)}
+.trlst img{display:block;width:24px;height:auto}
+.trlst .shield{width:24px;height:24px}
+/* the line that joins two stops: gold behind you, a dotted one ahead */
+.trlst::before{content:"";position:absolute;right:100%;top:50%;width:9px;height:5px;margin:-2.5px -1px 0 0;background:var(--th-acc)}
+.trlst:first-child::before{display:none}
+.trlst.loan{width:28px;height:28px;background:var(--th-page);box-shadow:none;border:2px dashed var(--th-acc-text);box-sizing:border-box}
+.trlst.loan img{width:17px}
+.trlst.now{width:64px;height:64px;box-shadow:0 0 0 3px var(--th-acc),0 4px 8px rgba(18,61,36,.3)}
+.trlst.now img{width:44px}
+.trlst.fresh{animation:trlPop .42s var(--ease-pop) both}
+.trlst.next{width:42px;height:42px;box-sizing:border-box;background:transparent;box-shadow:none;border:2.5px dashed var(--th-dim);font:900 18px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-dim)}
+.trlst.next::before{height:0;background:none;border-top:3px dotted var(--th-dim);margin-top:-1.5px}
+.trlrun>i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--th-dim);opacity:.4}
+
+.trlhere{display:flex;align-items:center;gap:7px;justify-content:center;min-width:0;font:700 13px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-dim)}
+.trlhere small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.trlhere b{font:italic 900 21px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;color:var(--th-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trlhere em{font-style:normal;font-variant-numeric:tabular-nums;white-space:nowrap}
+.trlnote{align-self:center;max-width:100%;box-sizing:border-box;padding:4px 10px;border-radius:8px;border:1.5px dashed var(--th-acc-text);text-align:center;font:600 13px/1.2 'Barlow Semi Condensed',sans-serif;color:var(--th-ink);animation:trlIn .3s var(--ease-out) both}
+.trlnote span{white-space:nowrap}
+.trlnote b{margin-right:6px;font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-acc-text)}
+.trlq{display:flex;align-items:baseline;justify-content:center;gap:8px;padding-top:4px}
+.trlq b{font:italic 900 23px/1.05 'Barlow Semi Condensed',sans-serif;color:var(--th-ink)}
+.trlq small{font:800 14px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-text)}
+.trlopts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.trlopt{flex-direction:column;justify-content:center;gap:5px;width:auto;min-height:92px;padding:8px 6px;text-align:center;font:700 15.5px/1.08 'Barlow Semi Condensed',sans-serif;transition:transform var(--dur-press) var(--ease-out),opacity var(--dur-pop) var(--ease-out)}
+.trlopt:active{transform:translateY(1px) scale(.98)}
+.trlopt .p{flex:none;display:grid;place-items:center;height:40px}
+.trlopt .p img{display:block;width:34px;height:auto}
+.trlopt .p .shield{width:32px;height:32px}
+.trlopt .n{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.trlopt.right{animation:trlPop .34s var(--ease-pop) both}
+/* .h2opt's off is drawn for a dark card; here it stands on the paper */
+.trlopt.wrong{background:var(--res-off);color:var(--res-off-ink);border:1.5px dashed var(--th-dim)}
+.trlsay{min-height:18px;text-align:center;font:italic 400 14px/1.25 'Lora',Georgia,serif;color:var(--th-ink)}
+
+/* ---------- a whole career and the end card ---------- */
+.trlpage .cproute{background:transparent;box-shadow:none;border-radius:0;margin:0 -6px;width:calc(100% + 12px)}
+.trlscore{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:6px 0 0;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);overflow:hidden;box-shadow:var(--th-lift)}
+.trlscore span{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 2px 10px;font:700 11.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;color:var(--th-card-dim)}
+.trlscore span+span{border-left:1px solid rgba(248,241,221,.14)}
+.trlscore b{font:italic 900 36px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-card-ink)}
+.trlscore .g b{color:var(--th-acc-hi)}
+.trl-done .b4btn.quiet{color:var(--th-ink)}
+
+@keyframes trlPop{from{transform:scale(.72)}to{transform:none}}
+@keyframes trlIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+@media (max-height:700px){
+  .trl-run.b6.b6m .b6band{height:92px!important}
+  .trl-run .b6body>.b6stephead.m{height:82px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+  .trl-run .b6stephead .b6backbtn,.trl-run .b6quit{top:calc(12px + env(safe-area-inset-top,0px))}
+  .trl-run .b6stitle{font-size:22px}
+  .trl-run .b6body{gap:5px}
+  .trlopt{min-height:78px}
+  .trlrun{min-height:46px}
+  .trlstrip{padding-top:3px;padding-bottom:3px}
+  .trlst{width:32px;height:32px}
+  .trlst img{width:20px}
+  .trlst.now{width:44px;height:44px}
+  .trlst.now img{width:30px}
+  .trlst.next{width:34px;height:34px}
+  .trlmid{gap:4px}
+  .trlman b{font-size:clamp(23px,7.6vw,30px)}
+}
+@media (max-width:359px){
+  .trlpage .b6stephead:has(.b6quit) .b6stitle{font-size:20px;text-wrap:nowrap;max-width:none}
+  .trlhere small{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .trlst.fresh,.trlopt.right,.trlnote{animation:none}
+}

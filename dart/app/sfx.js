@@ -111,6 +111,8 @@
   }
   /* a clean release: GOOD a soft ping, PERFECT a bright double ping */
   const clean = lvl => lvl === 2 ? tone([1320, 1980], 0.12, "sine", 0.16, 0.06) : tone([1046], 0.1, "sine", 0.1);
+  /* the ring reaches the window: a soft tick, for the phones that can't buzz (iPhones) */
+  const ready = () => tone([880], 0.05, "sine", 0.07);
   /* the heartbeat of a 180 chase: two low pulses */
   function heart(){
     const a = live(); if(!a) return;
@@ -186,7 +188,7 @@
     } catch(e){}
   }
   D.sfx = {
-    unlock, ctx, sight, thud, whoosh, wire, tink, clean, heart, aww, roar, click, cush, pocket, pot, tip, clap,
+    unlock, ctx, sight, thud, whoosh, wire, tink, clean, ready, heart, aww, roar, click, cush, pocket, pot, tip, clap,
     good: () => tone([660, 990], 0.14),
     bad: () => tone([220, 165], 0.18, "sawtooth"),
     tick: () => tone([1200], 0.03, "square"),

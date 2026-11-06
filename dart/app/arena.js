@@ -78,7 +78,7 @@
       root: rootEl, wired: false, alive: true,
       W: 0, H: 0, geo: null, chunks: [], phones: [], flags: [], flashes: [], confetti: [],
       hype: 0, hypeHold: 0, groan: 0, groanHold: 0, up: 0, walk: false, walkT: 0, led: "idle", ledT: 0, ledFor: 0,
-      raf: 0, lastDraw: 0, frame: 0, gen: 0, timers: new Set(), obs: [], result: false, shiftT: 0
+      raf: 0, lastDraw: 0, frame: 0, gen: 0, timers: new Set(), obs: [], result: false, shiftT: 0, holdEnd: 0
     };
     st.later = (f, ms) => { const t = setTimeout(() => { st.timers.delete(t); if(st.alive) f(); }, ms); st.timers.add(t); return t; };
 
@@ -388,6 +388,8 @@
     /* ---------- the loop: ~30 fps while something happens, ~15 when calm ---------- */
     function loop(t){
       st.raf = requestAnimationFrame(loop);
+      /* a finger on the board: the crowd holds still, so a slow phone keeps every frame for the ring */
+      if(t < st.holdEnd) return;
       const busy = st.hype > 0.01 || st.groan > 0.01 || st.walk || st.flashes.length || st.led !== "idle";
       if(t - st.lastDraw < (busy ? 32 : 64)) return;
       const dt = Math.min(0.1, (t - (st.lastDraw || t)) / 1000);
@@ -555,6 +557,9 @@
         break;
       case "turn":
         if(S.walk && now() - S.walkT > 300) S.endWalk();
+        break;
+      case "hold":      /* it runs out by itself, in case the lift never reaches us */
+        S.holdEnd = d.on ? now() + 8000 : 0;
         break;
       case "dart": {
         const sc = +d.score || 0;

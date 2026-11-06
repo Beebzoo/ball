@@ -56,15 +56,16 @@
      markAt(svg, x, y, i) drops it in (Checkout game); throwAt(...) flies it in (501 Match). */
   const mark = (svgEl, d, i) => { const [x, y] = pos(d); markAt(svgEl, x, y, i); };
   const lean = x => 14 - x / 226 * 16 + (Math.random() * 8 - 4);
-  const DART = '<ellipse rx="4.5" ry="2" cx="2.5" cy="1.5" fill="#000" opacity=".5"/>' +
-    '<line x1="0" y1="0" x2="0" y2="-11" stroke="#d9d4c9" stroke-width="2" stroke-linecap="round"/>' +
+  /* the tip is a needle and its point sits at 0,0, the spot that scored. Nothing round or wide at the
+     tip, shadow included: it has to show which side of a wire the dart is on */
+  const DART = '<path d="M0 0 L4.2 1.2 L3.8 2 Z" fill="#000" opacity=".3"/>' +
+    '<path d="M0 0 L-1.9 -11 L1.9 -11 Z" fill="#000" opacity=".55"/><path class="tip" d="M0 0 L-1.2 -11 L1.2 -11 Z" fill="#d9d4c9"/>' +
     '<line x1="0" y1="-10" x2="0" y2="-30" stroke="#0008" stroke-width="7" stroke-linecap="round"/>' +
     '<line x1="0" y1="-10" x2="0" y2="-30" stroke="#8b9198" stroke-width="5.4" stroke-linecap="round"/>' +
     '<line x1="0" y1="-13" x2="0" y2="-27" stroke="#3a3e43" stroke-width="5.4" stroke-dasharray="1.2 1.3"/>' +
     '<line x1="-1.4" y1="-11" x2="-1.4" y2="-29" stroke="#e6e9ec" stroke-width="1" opacity=".7"/>' +
     '<line x1="0" y1="-30" x2="0" y2="-43" stroke="#1d1d1d" stroke-width="2.6" stroke-linecap="round"/>' +
-    '<path d="M0 -39 L-12 -58 L-2 -55 L0 -62 L2 -55 L12 -58 Z" class="flight"/><path d="M0 -40 L-2.6 -61 L2.6 -61 Z" class="flight f2"/>' +
-    '<circle r="1.8" fill="#fff"/>';
+    '<path d="M0 -39 L-12 -58 L-2 -55 L0 -62 L2 -55 L12 -58 Z" class="flight"/><path d="M0 -40 L-2.6 -61 L2.6 -61 Z" class="flight f2"/>';
   const tf = (x, y, rot, sc) => "translate(" + f(x) + " " + f(y) + ") rotate(" + f(rot) + ") scale(" + f(sc) + ")";
   function dartEl(svgEl, i, cls){
     const g = svgEl.querySelector(".darts"); if(!g) return null;

@@ -81,6 +81,7 @@
 .board .aim.fire .cross line, .board .aim.fire .cross circle:first-child{ stroke: var(--gold); }
 .handtag .nv{ margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: #d22a37; color: #fff; }
 .handtag .fi{ margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: linear-gradient(90deg, #ff8a3a, #f2c14e); color: #1a1008; }
+.handtag .up{ margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: linear-gradient(90deg, #ffe08a, #f2c14e); color: #1a1008; }
 .h4{ color: #9fdcff; }
 .handtag.h4{ background: #4da3ff33; color: #cfeeff; }
 
@@ -111,6 +112,15 @@
 .m-pop .tag.t1{ background: #ffffffd9; color: #1a1410; }
 .m-pop .tag.t0{ background: #00000099; color: #ffb3b9; }
 .m-pop span.dfl{ color: #ffb3b9; font-size: 12px; }
+.m-pop span.unl{ display: block; color: #fff3b0; font-size: 12px; }
+/* the ring as it stood at the release */
+.board .spot{ pointer-events: none; animation: spotout 1.3s ease-in forwards; }
+.board .spot circle{ fill: none; stroke: #ffffffa0; stroke-width: 1.3; stroke-dasharray: 3 2.4; }
+.board .spot.s1 circle{ stroke: var(--gold); stroke-dasharray: none; }
+.board .spot.s2 circle{ stroke: #fff3b0; stroke-dasharray: none; stroke-width: 1.8; filter: drop-shadow(0 0 3px #ffc94a); }
+@keyframes spotout{ 0%, 60%{ opacity: 1; } 100%{ opacity: 0; } }
+/* ?timing=1, timing.js */
+.m-timing{ position: absolute; left: 4px; bottom: 2px; z-index: 21; padding: 2px 6px; border-radius: 4px; background: #000a; color: #cfe6d8; font: 600 10.5px/1.3 var(--f-body); pointer-events: none; }
 .m-pop.robin b{ color: #9be7b0; font-size: 30px; }
 
 /* pick your question (one tap) */

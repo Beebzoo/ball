@@ -3,7 +3,8 @@
    you want to throw; a loupe above the finger shows the spot, sliding fine-tunes it (finger
    at 0.4 speed, mouse 1:1). The hand breathes: a ring around the crosshair swells and
    settles, and tightens to gold at each still point. Let go then = PERFECT / GOOD release;
-   miss it and the tag says EARLY or LATE. Each dart finds its own first still point.
+   miss it and the tag says EARLY or LATE. Each dart finds its own first still point. The ring
+   is the real spread of the dart. A PERFECT shakes off the yips for the rest of the visit.
    Or tap an Aim chip, then hold anywhere and let go. Darts already in the bed block and
    deflect. Against a computer character (hand.js OPP) or a friend on the same phone.
    Hooks (all guarded): D.arena (mount/event/unmount), D.caller (walk-on, every visit,
@@ -170,6 +171,7 @@
         '<div class="sheet" id="sheet" hidden></div><div class="banner" id="ban" hidden></div></div><div class="visit" id="vis"></div>';
       const $ = s => el.querySelector(s), svg = el.querySelector(".m-board .board"), NS = "http://www.w3.org/2000/svg";
       const lp = $("#lp"), lsvg = lp.querySelector(".board"), lpl = $("#lpl"), mb = $("#mb");
+      if(call("timing", "on", [])) mb.insertAdjacentHTML("beforeend", '<div class="m-timing" id="tm">' + esc(D.timing.line()) + "</div>");
       /* Stop asks first (a match can't be resumed): a second tap within three seconds leaves */
       const stopB = $("#stop");
       let sure = 0;
@@ -184,11 +186,10 @@
         g.innerHTML = '<circle class="anchor" r="' + w * 1.6 + '"/><g class="cross"><circle r="' + r + '" stroke-width="' + w + '"/><circle r="' + w + '" class="c0"/>' +
           ["-1.7,-0.5", "0.5,1.7"].map(v => { const [a, b] = v.split(",").map(Number); return '<line x1="' + a * r + '" x2="' + b * r + '" stroke-width="' + w + '"/><line y1="' + a * r + '" y2="' + b * r + '" stroke-width="' + w + '"/>'; }).join("") +
           '<circle class="breath" r="' + r * 2 + '" stroke-width="' + w * 0.9 + '"/></g>';
-        g._r = r;
         return g; };
       const aimG = mkAim(10, 1.6), aimL = mkAim(3.4, 0.45);
       svg.appendChild(aimG); lsvg.appendChild(aimL);
-      const parts = g => ({ g, cross: g.querySelector(".cross"), anchor: g.querySelector(".anchor"), ring: g.querySelector(".breath"), r: g._r });
+      const parts = g => ({ g, cross: g.querySelector(".cross"), anchor: g.querySelector(".anchor"), ring: g.querySelector(".breath") });
       const AG = parts(aimG), AL = parts(aimL);
 
       const avg = p => p.darts ? (p.scored / p.darts * 3) : 0;
@@ -222,12 +223,25 @@
         fin.innerHTML = '<span class="lbl">' + T("On a finish · ", "Op een finish · ") + p.left + "</span><div>" + r.map((d, i) => '<b class="' + (i === 0 ? "now" : "") + '">' + D.co.label(d) + "</b>").join("<i>›</i>") + "</div>";
         if(!p.cpu) D.board.light(svg, r[0], "tgt", 0);
       }
+      const same = (a, b) => a && b && a.m === b.m && a.n === b.n;
+      /* the first dart of a finish that fits the darts left */
+      function finNow(p){ const r = D.co.route(p.left); return r && r.length <= 3 - visit.length ? r[0] : null; }
+      function aimOpts(p){
+        const f = finNow(p), opts = f ? [f] : [];
+        [{ m: 3, n: 20 }, { m: 3, n: 19 }, { m: 2, n: 25 }].forEach(d => { if(!opts.some(o => same(o, d))) opts.push(d); });
+        return opts.slice(0, 4);
+      }
+      /* a chip stays on through the visit, back on its bed after any slide, until a finish asks
+         for another dart, it would bust, or it isn't one of the chips any more */
+      function keepAim(p){
+        if(!locked) return;
+        const f = finNow(p);
+        if(f ? !same(f, locked) : D.co.val(locked) > p.left - 2 || !aimOpts(p).some(d => same(d, locked))) locked = null;
+        else aim = D.board.target(locked).slice();
+      }
       function chips(){
-        const p = pl[turn], k = 3 - visit.length, r = D.co.route(p.left), opts = [];
-        if(r && r.length <= k) opts.push(r[0]);
-        [{ m: 3, n: 20 }, { m: 3, n: 19 }, { m: 2, n: 25 }].forEach(d => { if(!opts.some(o => o.m === d.m && o.n === d.n)) opts.push(d); });
-        const same = (a, b) => a && b && a.m === b.m && a.n === b.n;
-        $("#ac").innerHTML = "<span>" + T("Aim", "Mik op") + "</span>" + opts.slice(0, 4).map((d, i) => '<button data-i="' + i + '" class="' + (i === 0 && r && r.length <= k ? "fin" : "") + (same(locked, d) ? " on" : "") + '">' + D.co.label(d) + "</button>").join("");
+        const p = pl[turn], fin = finNow(p), opts = aimOpts(p);
+        $("#ac").innerHTML = "<span>" + T("Aim", "Mik op") + "</span>" + opts.map((d, i) => '<button data-i="' + i + '" class="' + (i === 0 && fin ? "fin" : "") + (same(locked, d) ? " on" : "") + '">' + D.co.label(d) + "</button>").join("");
         $("#ac").querySelectorAll("button").forEach(b => b.onclick = () => {
           const d = opts[+b.dataset.i];
           locked = same(locked, d) ? null : d;
@@ -239,11 +253,11 @@
         $("#hint").textContent = locked ? T("Aiming at " + D.co.label(locked) + ": hold anywhere, let go when the ring tightens to gold. Tap it again to aim freely.", "Je mikt op " + D.co.label(locked) + ": houd je vinger op het bord, laat los als de ring goud wordt. Tik nog eens om vrij te mikken.")
           : T("Touch where you want to throw, slide to fine-tune. Let go when the ring tightens to gold.", "Raak aan waar je wilt gooien, schuif om bij te stellen. Laat los als de ring goud wordt.");
       }
-      /* the hand tag above the board: the hand, plus nerves or on fire */
-      function tag(){
+      /* the hand tag above the board: the hand, plus nerves or on fire. up: a PERFECT just shook off the yips */
+      function tag(up){
         const p = pl[turn], st = stOf(p), ht = $("#ht");
         if(p.cpu){ ht.className = "handtag"; return; }
-        ht.innerHTML = esc(L(H.HANDS[grade].name)) + (st.nerves ? ' <span class="nv">' + T("Nerves ×", "Zenuwen ×") + st.nerves + "</span>" : "") + (p.mom >= 3 ? ' <span class="fi">' + T("On fire", "Lekker bezig") + "</span>" : "");
+        ht.innerHTML = esc(L(H.HANDS[grade].name)) + (up ? ' <span class="up">' + T("Yips gone", "Bibbers weg") + "</span>" : "") + (st.nerves ? ' <span class="nv">' + T("Nerves ×", "Zenuwen ×") + st.nerves + "</span>" : "") + (p.mom >= 3 ? ' <span class="fi">' + T("On fire", "Lekker bezig") + "</span>" : "");
         ht.className = "handtag show h" + grade;
       }
 
@@ -263,14 +277,14 @@
         }
         const br = H.breath(hs, grade, st), w = H.wobble(aim, s, grade, ph, hs, st), blk = H.blocked(aim, visitPts);
         const at = "translate(" + aim[0].toFixed(2) + " " + aim[1].toFixed(2) + ")", ct = "translate(" + (aim[0] + w[0]).toFixed(2) + " " + (aim[1] + w[1]).toFixed(2) + ")";
-        const h = H.mods(grade, st), ringK = !hs ? 0 : CALM ? 1.6 : (1.05 + 2 * (br.base - h.minE) / (1 - h.minE)) * br.tired;
+        const h = H.mods(grade, st), ring = hs ? H.ring(grade, st, CALM ? { win: 1, base: h.minE, tired: 1 } : br) : 0;
         const cls = "aim" + (hold ? " hold" : "") + (hs ? " breathe" : "") + (br.win === 2 ? " win2" : br.win ? " win1" : "") + (br.tired > 1.04 ? " tired" : "") + (blk ? " blocked" : "") + (st.nerves ? " nerves" : "") + (p.mom >= 3 ? " fire" : "");
         [AG, AL].forEach((A, i) => {
           if(i === 1 && !hold){ A.g.style.display = "none"; return; }
           A.g.style.display = "";
           A.anchor.setAttribute("transform", at); A.cross.setAttribute("transform", ct);
           if(A.g.getAttribute("class") !== cls) A.g.setAttribute("class", cls);
-          if(hs) A.ring.setAttribute("r", (A.r * ringK).toFixed(2));
+          if(hs) A.ring.setAttribute("r", (i ? Math.min(ring, LW / 2 - 2) : ring).toFixed(2));
           /* no motion (reduced-motion setting): the ring fades in towards the still point instead */
           if(hs && CALM) A.ring.style.opacity = (1 - 0.8 * (br.base - h.minE) / (1 - h.minE)).toFixed(2);
         });
@@ -279,7 +293,7 @@
           const d = D.board.hit(aim[0], aim[1]);
           lpl.textContent = (d.n === 0 ? T("Off the board", "Naast het bord") : D.co.label(d)) + (blk ? T(" · blocked", " · bezet") : "");
           lpl.classList.toggle("blk", blk);
-          if(br.win && !lastWin) buzz(6);
+          if(br.win && !lastWin){ buzz(6); call("sfx", "ready", []); }
         }
         lastWin = hold ? br.win : 0;
       }
@@ -306,6 +320,7 @@
         hold.hist.push([now, e.clientX, e.clientY, aim[0], aim[1]]);
         lsvg.querySelector(".darts").innerHTML = svg.querySelector(".darts").innerHTML;
         lp.hidden = false; placeLoupe(e.clientX, e.clientY);
+        arena("event", "hold", { on: true });
       });
       mb.addEventListener("pointermove", e => {
         if(!hold || e.pointerId !== hold.id) return;
@@ -327,11 +342,24 @@
         const rise = base[2] - e.clientY, flick = rise > 30 && Math.abs(e.clientX - base[1]) < rise && now - base[0] < 450;
         if(flick) aim = [base[3], base[4]];
         const at = evT(e), hs = { b: Math.max(0, at - hold.t0) / 1000, rest: hold.rest, first: hold.first };
-        hold = null; lp.hidden = true;
+        hold = null; lp.hidden = true; arena("event", "hold", { on: false });
         if(phase === "throw") human(flick, hs, at);
       };
       mb.addEventListener("pointerup", up);
-      mb.addEventListener("pointercancel", () => { hold = null; lp.hidden = true; });
+      mb.addEventListener("pointercancel", () => { hold = null; lp.hidden = true; arena("event", "hold", { on: false }); });
+
+      /* the ring as it stood at the release stays a moment and the dart lands in it, so a good throw
+         that misses shows as one */
+      let spot = null;
+      function showRing(r){
+        if(spot) spot.remove();
+        const g = spot = document.createElementNS(NS, "g");
+        g.setAttribute("class", "spot s" + r.clean);
+        g.setAttribute("transform", "translate(" + r.at[0].toFixed(2) + " " + r.at[1].toFixed(2) + ")");
+        g.innerHTML = '<circle r="' + r.ring.toFixed(2) + '"/>';
+        svg.appendChild(g);
+        setTimeout(() => g.remove(), 1300);
+      }
 
       /* ---------- the big moments: the 180 chase and the match dart ---------- */
       const chy = $("#chy");
@@ -347,11 +375,11 @@
         if(kind === "match") caller("moment", "matchdart", { name: p.name, cpu: p.cpu, left: p.left });
         D.sfx.heart(); heart = setInterval(() => { if(alive) D.sfx.heart(); }, 750);
       }
-      /* before a dart: is this the third dart after two in the same treble, or a match dart? */
+      /* before a dart: is this the third dart after two T20s (T19 T19 can't be a maximum), or a match dart? */
       function chaseCheck(){
         const p = pl[turn];
         if(chase) return;
-        if(visit.length === 2 && visit.every(d => d.m === 3 && d.n === visit[0].n) && (visit[0].n === 20 || visit[0].n === 19)) startChase("max", visit[0].n);
+        if(visit.length === 2 && visit.every(d => d.m === 3 && d.n === 20)) startChase("max", 20);
         else if(atDouble(p.left) && p.legs + 1 >= need && D.co.route(p.left).length === 1) startChase("match");
       }
       /* the slow-motion zoom on the bed, only after the release */
@@ -372,7 +400,8 @@
         e.innerHTML = (d.robin ? "<b>Robin Hood!</b><span>" + T("in the back of the dart", "in de achterkant van de pijl") + "</span>"
           : d.bo ? "<b>" + (off ? T("Off a dart!", "Op een pijl!") : T("Bounce-out!", "Eruit gestuiterd!")) + "</b>"
           : "<b>" + D.co.label(d) + "</b>" + (d.m > 1 || d.n === 25 ? "<span>" + v + "</span>" : "") + (off ? '<span class="dfl">' + T("off a dart", "via een pijl") + "</span>" : "")) +
-          (x.off == null ? "" : '<i class="tag t' + x.clean + '">' + (x.clean === 2 ? "PERFECT" : x.clean ? "GOOD" : x.off < 0 ? T("EARLY", "TE VROEG") : T("LATE", "TE LAAT")) + "</i>");
+          (x.off == null ? "" : '<i class="tag t' + x.clean + '">' + (x.clean === 2 ? "PERFECT" : x.clean ? "GOOD" : x.off < 0 ? T("EARLY", "TE VROEG") : T("LATE", "TE LAAT")) + "</i>") +
+          (x.clean === 2 && x.want && !d.robin && !d.bo && !same(d, x.want) ? '<span class="unl">' + T("Unlucky", "Pech") + "</span>" : "");
         mb.appendChild(e);
         setTimeout(() => e.remove(), 1100);
       }
@@ -432,6 +461,7 @@
         const p = pl[turn], after = free;
         free = null; phase = "flying"; locked = null;
         const r = H.release(aim, (at - t0) / 1000, grade, ph, hs, stOf(p)), d = D.board.hit(r.pt[0], r.pt[1]);
+        showRing(r);
         if(r.clean === 2){ D.sfx.clean(2); buzz([8, 30, 8]); } else if(r.clean === 1){ D.sfx.clean(1); buzz(8); }
         D.sfx.whoosh();
         D.board.throwAt(svg, r.pt[0], r.pt[1], turn + 1, { ms: flick ? 170 : 230 }, () => {
@@ -443,16 +473,18 @@
       function human(flick, hs, at){
         if(free) return looseDart(flick, hs, at);
         const p = pl[turn], s = (at - t0) / 1000, st = stOf(p);
-        phase = "flying"; locked = null; $("#ac").querySelectorAll("button").forEach(b => b.disabled = true);
-        const r = H.release(aim, s, grade, ph, hs, st);
+        phase = "flying"; $("#ac").querySelectorAll("button").forEach(b => b.disabled = true);
+        const r = H.release(aim, s, grade, ph, hs, st), up = r.clean === 2 && H.steady(grade) !== grade, want = D.board.hit(aim[0], aim[1]);
+        showRing(r);
         lastRel = { clean: r.clean, off: r.off, lag: performance.now() - at, b: hs.b, first: hs.first };
+        call("timing", "add", [r.off, lastRel.lag, r.clean, grade]); if($("#tm")) $("#tm").textContent = D.timing.line();
         if(r.clean === 2){ p.perfect++; D.sfx.clean(2); buzz([8, 30, 8]); } else if(r.clean === 1){ p.good++; D.sfx.clean(1); buzz(8); }
         if(r.clean) visitClean++; if(r.clean === 2) visitPerf++;
         const bo = H.bounce(r.pt, grade), c = bo ? { pt: r.pt, bo: true } : H.collide(r.pt, visitPts);
         const slow = !!chase, ms = chase ? (chase.kind === "max" ? (calm() ? 300 : 650) : 400) : flick ? 170 : 230;
         if(heart){ clearInterval(heart); heart = 0; }
-        throwDart(p, r.pt, c, ms, { clean: r.clean, off: r.off, slow }, res => {
-          if(res === null) later(() => { phase = "throw"; chips(); hint(); finish(); tag(); chaseCheck(); }, 380);
+        throwDart(p, r.pt, c, ms, { clean: r.clean, off: r.off, slow, want }, res => {
+          if(res === null) later(() => { phase = "throw"; if(up) grade = H.steady(grade); keepAim(p); chips(); hint(); finish(); tag(up); chaseCheck(); }, 380);
         });
       }
 
@@ -599,7 +631,7 @@
           sh.querySelectorAll(".answers button").forEach((b, j) => { b.disabled = true; if(q.opts[j] === q.a) b.classList.add("right"); else if(j === k) b.classList.add("wrong", "g" + Math.min(3, ans)); });
           const Hd = H.HANDS[grade];
           const say = tier === "hard" && ans > 0 ? T("A hard one missed: the yips.", "Een moeilijke gemist: bibberen.") : tier === "easy" && ans === 0 ? T("Right, but an easy one: a slight tremble.", "Goed, maar een makkelijke: licht trillend.") : L(Hd.say);
-          $("#vh").innerHTML = '<b class="h' + grade + '">' + L(Hd.name) + "</b><span>" + (pick == null ? T("Too late. ", "Te laat. ") : "") + say + (calmed ? T(" The nerves are gone.", " De zenuwen zijn weg.") : "") + (ans ? T(" It was: ", " Goed was: ") + esc(q.a) + "." : "") + "</span>";
+          $("#vh").innerHTML = '<b class="h' + grade + '">' + L(Hd.name) + "</b><span>" + (pick == null ? T("Too late. ", "Te laat. ") : "") + say + (grade === 3 ? T(" A PERFECT shakes it off.", " Een PERFECT schudt het af.") : "") + (calmed ? T(" The nerves are gone.", " De zenuwen zijn weg.") : "") + (ans ? T(" It was: ", " Goed was: ") + esc(q.a) + "." : "") + "</span>";
           if(ans === 0){ D.sfx.good(); buzz(10); } else { D.sfx.bad(); buzz([30, 40, 30]); }
           later(() => throwPhase(), ans === 0 ? 1100 : 1700);
         };

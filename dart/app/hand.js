@@ -7,7 +7,8 @@
    in the rest of it = GOOD, outside it = EARLY or LATE. Each dart finds its own first
    still point, so the ring has to be read: no fixed thumb rhythm does it. The grade sets
    the tempo, the window and how still the still point gets. Holding still too long tires
-   the arm.
+   the arm. A PERFECT shakes off the yips for the rest of the visit (steady), so a wrong
+   answer still leaves something to play for.
    Sizes are millimetres on a regulation board (treble bed 8 mm deep, ~33 mm wide).
    Darts already in the board block and deflect (collide), and the computer opponents
    are characters with their own throwing traits (OPP). */
@@ -39,8 +40,11 @@
      NUDGE: how much later it can come, drawn per dart, as a share of the hand's period P.
      This is what beats a fixed thumb rhythm: one hold is clean at most 2 hw / (NUDGE x P) of
      the time. Higher is harder to solve but a longer wait on the slow hands.
+     SPREAD: the ring's radius in hand scatters (sd in HANDS), before the factors above.
+     OPEN: how much wider the ring gets away from the still point (0.8 = 1.8x), the cue to wait.
      The computer's characters use none of these. _tests/throw-test.js guards them. */
   const CORE = 0.35, PERFECT = 0.45, GOOD = 0.72, LOOSE = 0.85, FIRST = 0.55, NUDGE = 0.4;
+  const SPREAD = 1.8, OPEN = 0.8;
   const FAT0 = 4, FATK = 0.12, FATMAX = 1.5;
   const gauss = () => { let u = 0, v = 0; while(!u) u = Math.random(); while(!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
 
@@ -73,6 +77,14 @@
     const tired = Math.min(FATMAX, 1 + FATK * Math.max(0, (hs.rest || 0) - FAT0));
     return { amp: base * tired, base, win: d < h.hw ? (d < h.hw * CORE ? 2 : 1) : 0, tired, off };
   }
+  /* the ring around the crosshair (mm): the spread of a dart let go now, so a hand you can't
+     trust looks like one. The crosshair shows the wobble already, so this is the hidden part:
+     about 5 darts in 6 land inside it, more where it has opened up. It has to be read in
+     advance, so it closes smoothly, then snaps tighter into GOOD and into PERFECT */
+  function ring(grade, st, br){
+    const h = mods(grade, st), m = br.win === 2 ? PERFECT : br.win ? GOOD : LOOSE;
+    return SPREAD * h.sd * m * (1 + OPEN * (br.base - h.minE) / (1 - h.minE)) * br.tired;
+  }
   /* the wobble at time s (the global motion clock, so the crosshair never jumps): smooth,
      never quite repeating. A shaky hand also pulls to one side; the side swings over every
      few seconds (so you can't simply aim the other way). */
@@ -83,12 +95,16 @@
     const r = h.deep * (0.6 * Math.sin(s * 2.9 * k + p * 1.3) + 0.4 * Math.sin(s * 6.7 * k + p * 0.7));
     return frame(aim, t * a, r * a);
   }
-  /* where the dart actually goes when released: { pt, clean: 0 | 1 GOOD | 2 PERFECT, off } */
+  /* where the dart actually goes when released: { pt, clean: 0 | 1 GOOD | 2 PERFECT, off, at (the
+     crosshair at that moment), ring (its radius) } */
   function release(aim, s, grade, ph, hs, st){
     const h = mods(grade, st), br = breath(hs, grade, st), m = br.win === 2 ? PERFECT : br.win ? GOOD : LOOSE;
     const w = wobble(aim, s, grade, ph, hs, st), e = frame(aim, gauss() * h.sd * 1.2 * m, gauss() * h.sd * 0.8 * m);
-    return { pt: [aim[0] + w[0] + e[0], aim[1] + w[1] + e[1]], clean: br.win, off: br.off };
+    return { pt: [aim[0] + w[0] + e[0], aim[1] + w[1] + e[1]], clean: br.win, off: br.off, at: [aim[0] + w[0], aim[1] + w[1]], ring: ring(grade, st, br) };
   }
+  /* a PERFECT shakes off the yips: the next dart of the visit is Shaky. Only the yips: on Shaky
+     skill already pays, and stepping up Tremble (an Easy right answer) makes Easy the best pick */
+  const steady = g => g === 3 ? 2 : g;
   /* a bad hand sometimes catches the wire and the dart drops out (no score) */
   const BOUNCE = [[0, 0], [0, 0], [0.5, 0.14], [0.7, 0.22], [0, 0]];
   function bounce(pt, grade){
@@ -249,8 +265,8 @@
   /* the four plain levels of before map onto characters */
   const CPU = { easy: { name: ["Easy", "Makkelijk"], id: "landlord" }, medium: { name: ["Medium", "Gemiddeld"], id: "molenaar" }, hard: { name: ["Hard", "Moeilijk"], id: "sequins" }, expert: { name: ["Expert", "Expert"], id: "volcano" } };
 
-  D.hand = { HANDS, TIERS, gradeFor, mods, firstStill, still, breath, wobble, release, bounce, frame, gauss,
+  D.hand = { HANDS, TIERS, gradeFor, mods, firstStill, still, breath, ring, wobble, release, steady, bounce, frame, gauss,
     collide, blocked, smartAim, blockDist, flightDist,
     OPP, LEVELS, opp, oppLeg, oppVisit, cpuThrow, cpuAim, CPU, handicap,
-    K: { CORE, PERFECT, GOOD, LOOSE, FIRST, NUDGE, FAT0, FATK, FATMAX } };
+    K: { CORE, PERFECT, GOOD, LOOSE, FIRST, NUDGE, SPREAD, OPEN, FAT0, FATK, FATMAX } };
 })(window.DART);

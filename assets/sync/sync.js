@@ -101,6 +101,10 @@ const SYNC_KEYS = {
   "ball4-tour": { rule: syncF({ v: SYNC_MAX, seen: SYNC_LOCAL, "*": SYNC_LATEST,
       stamps: syncU({ each: syncF({ t: SYNC_MIN, n: SYNC_MAX, "*": SYNC_LATEST }) }), visas: syncU({ each: SYNC_MIN }), title: SYNC_MIN,
       best: syncK(SYNC_MAX), runs: syncK(SYNC_MAX), total: SYNC_MAX }) },
+  /* the Euregio Zone: a won ground is never lost and keeps its first date, on each club's own road; the best out of ten can only rise and the quizzes add up. games is
+     every finished game, kept by its id, so a second phone can't give you a third game today. seen (the questions met lately, tried last) is only a preference, and out is what this phone still has to send, so both are this phone's */
+  "ball4-euregio": { rule: syncF({ v: SYNC_MAX, best: SYNC_MAX, runs: SYNC_MAX, seen: SYNC_LOCAL, out: SYNC_LOCAL, "*": SYNC_LATEST,
+      roads: syncK(syncU({ each: syncF({ t: SYNC_MIN, "*": SYNC_LATEST }) })), games: syncU({ id: "id", sort: "day", cap: 400 }) }) },
   "ball4-cele": { rule: SYNC_LATEST },
   "ball4-hilo": { rule: SYNC_LATEST },
   "ball4-simple": { rule: SYNC_LATEST },

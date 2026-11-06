@@ -312,6 +312,7 @@ function clOpenCard(id){ clGo("card", { card: id, from: null }); if(!CL.card[id]
 function clRender(st){
   b6Paper(true);
   clTeamsLoad();
+  clFilledGo();
   const v = clV();
   const page = { card: clCardPage, calls: clCallsPage, new: clNewPage, invite: clInvitePage, join: clJoinPage,
     table: clTablePage, reveal: clRevealPage, comp: clCompPage, club: clClubPage, match: clMatchPage, matches: clMatchesPage, quiz: x => clQzPage(x) }[v.s];
@@ -658,6 +659,22 @@ function clNeedName(){
   return true;
 }
 function clNew(){ if(!clNeedName()) return; clGo("new", { pick: "week", comps: [], teams: [] }); }
+/* A LEAGUE FILLED IN BEFOREHAND, from outside Call It (the Euregio Zone's Limburg League): the page opens with the name and the clubs set, and the
+   player only taps Start. It waits on LEAGUE_VIEW, so it's gone with the visit, and clFilledGo opens it the moment every rule a new league has is
+   met: a guest starts calling first, no username or no 16+ answer gets its sheet, an under-16 gets the same no as New league gives. o: {name,
+   teams, names, back}; back is what the page's ‹ does instead of going to Call It's home */
+function clNewFilled(o){
+  LEAGUE_VIEW.fill = o;
+  if(!clBlocked()) clNeedName();
+  render();
+}
+function clFilledGo(){
+  const f = LEAGUE_VIEW && LEAGUE_VIEW.fill, a = acct();
+  if(!f || clV().s !== "home" || clBlocked() || !a.username || !a.asked16 || !a.ageOk) return;
+  LEAGUE_VIEW.fill = null;
+  LEAGUE_VIEW.cl = { s: "new", pick: "clubs", comps: [], teams: f.teams.slice(), names: f.names, name: f.name, back: f.back };
+  try{ window.scrollTo(0, 0); }catch(e){}
+}
 /* the name box starts with your own league's name; your club's, when you have one, is among the chips */
 function clNameSug(){
   const a = acct(), u = a.username ? a.username.replace(/_/g, " ") : "";
@@ -901,7 +918,7 @@ function clNewPage(v){
   clPickFrom(v);
   const sug = clNameSug();
   if(v.pick !== "week") clPreviewSoon();
-  return b4Page({ title: "New league", ctx: "Call It", back: "clBack()", cls: "clpage", body:
+  return b4Page({ title: "New league", ctx: "Call It", back: v.back || "clBack()", cls: "clpage", body:
     b4Q("Name your league") +
     '<input id="clname" class="cl-input" maxlength="30" autocomplete="off" value="' + clE(v.name != null ? v.name : sug[0]) + '" aria-label="League name">' +
     '<div class="cl-chips">' + sug.slice(1).map(s => '<button onclick="clNameUse(this)">' + clE(s) + '</button>').join("") + '</div>' +
@@ -1009,7 +1026,7 @@ function clCopy(){ audio(); const v = clV(); try{ navigator.clipboard.writeText(
 /* ---------- join ---------- */
 function clJoinPage(v){
   const p = v.preview;
-  if(!p) return b4Page({ title: "Join a league", ctx: "Predictions", back: "clBack()", cls: "clpage", body:
+  if(!p) return b4Page({ title: "Join a league", ctx: "Predictions", back: v.back || "clBack()", cls: "clpage", body:
     b4Q("The league code", "6 letters and numbers, from the invite") +
     '<div class="lgjoin cl-join"><input id="clcode" maxlength="7" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="K7Q 2PM" aria-label="League code" value="' + clE(v.code || "") + '">' +
     '<button class="acsmall" onclick="clLook()">Look</button></div>' + (v.err ? '<p class="cl-err">' + clE(v.err) + '</p>' : "") });

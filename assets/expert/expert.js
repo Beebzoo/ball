@@ -419,6 +419,7 @@ function expClose(){
   if(from === "locker") return openLocker();
   if(from === "me") return openMe();
   if(from === "fanbase") return openFanbase();
+  if(from === "euregio") return ezReturn();
   render();
   try{ feelScrollBack("home"); }catch(e){}
 }
@@ -426,7 +427,7 @@ function expBack(){
   audio();
   try{ document.querySelectorAll(".cxmoment").forEach(e => e.remove()); }catch(e){}
   if(EXP_VIEW === "done"){ EXP_VIEW = "club"; EXD = null; render(); return; }
-  if(EXP_VIEW === "club" && EXP_FROM === "fanbase") return expClose();
+  if(EXP_VIEW === "club" && (EXP_FROM === "fanbase" || EXP_FROM === "euregio")) return expClose();
   if(EXP_VIEW === "club"){ EXP_VIEW = "pick"; render(); try{ feelScrollBack("expert:pick"); }catch(e){} return; }
   expClose();
 }

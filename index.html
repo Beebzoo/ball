@@ -11221,6 +11221,9 @@ const POOLS = {
            file:"assets/challenger/clubs.json", flags:null, ext:".png"},
   "eerste-clubs": {label:"Eerste Divisie clubs", group:"Second divisions", of:"eerste",
            file:"assets/eerste/clubs.json", flags:null, ext:".png"},
+  /* the Euregio League's sides (_tools/build-euregio-clubs.js). Of no quiz, so no list offers it: an away day alone plays on it (h2PoolOk) */
+  "euregio-clubs": {label:"Euregio League", group:"Euregio", of:"euregio",
+           file:"assets/euregio/clubs.json", flags:null, ext:".png"},
 };
 const QUIZZES = {
   classic: {label:"Let's Ball", ic:"trophy", ac:"#e9b84c",
@@ -11725,7 +11728,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 6 Nov 2026 · RACKET";
+const BUILD = "BALL 4 · 6 Nov 2026 · Euregio League";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -12633,7 +12636,7 @@ function maybeFinish(){
 // never write a null state: render() saves on every pass, so dropping back to
 // the menu would otherwise stamp "null" over the match you meant to resume
 function save(){
-  if(!S) return;
+  if(!S || S.ez) return;   // an away day is never parked: a reload is a match that didn't happen, and a parked Matchday stays parked
   if(MP && MP.role==="guest") return; // a mirrored match must never clobber this phone's own save
   try{ localStorage.setItem(SAVE_KEY, JSON.stringify(S)); }catch(e){}
   mpQueueState();
@@ -14799,7 +14802,7 @@ const h2Team  = w => (S.h2h.teams && S.h2h.teams[w]) || null;
    Asked on the way in AND on the way out, because a pool can arrive from a
    parked match rather than from a tap. */
 const h2PoolOk = id => !!(S && POOLS[id] &&
-  (id === (QUIZZES[S.mode] || {}).pool || POOLS[id].of === S.mode));
+  (id === (QUIZZES[S.mode] || {}).pool || POOLS[id].of === S.mode || (!!S.ez && id === "euregio-clubs")));
 const h2PoolId = () => {
   if(!S) return null;
   /* a pool the quiz does not offer is ignored rather than obeyed: it can only
@@ -15717,7 +15720,7 @@ function h2Draw(t, i, w){
        level and the card keeps showing the price of the pass, as it does for a relief. _tests/matchday-clubs-test.js holds every one of them
        to a whole match this way, at every level, without leaving its own deck. */
     const Q = QUIZZES[S.mode] || {};
-    if((Q.view || Q.women) && h2Near(t).some(o => take(null, o))){ S.qfall = null; return true; }
+    if((Q.view || Q.women || S.ez) && h2Near(t).some(o => take(null, o))){ S.qfall = null; return true; }
     /* THE QUIZ'S OWN DECK IS DRY at this level: a club, a country or a new league has a hundred-odd questions, and a
        match can ask more than its multiple choice holds. The whole of football tops it up (the card says so) rather
        than the pass being refused; never when the match is on the whole of football already */
@@ -26491,6 +26494,8 @@ const FYC_STASH_KEYS = ["ball4-prog", "ball4-club", "ball4-best", "ball4-mine", 
   "ball4-pub", "ball4-tm",
   /* World Tour's stamps and visas */
   "ball4-tour",
+  /* the Euregio Quiz's best score and its seen list */
+  "ball4-euregio",
   /* the home's Match Centre card, from the account's pins and club */
   "ball4-mc-strip", "ball4-pl-strip"];
 const FYC_STASH_ACCT = ["founded", "fav", "marketing", "replayed", "clubSeen", "clubRenamed", "fycAsked", "reported", "mky", "favPending"];
@@ -26991,11 +26996,12 @@ function legalRender(st){
     : H("What we keep") + P("Your email address (for signing in only; nobody else sees it), your username, your club's design, the club and national team you support and the country you live in (if you picked them), your game stats (matches, rating, XP, titles, leagues, answers to questions), and the reports you sent. Your game progress and settings, so they follow you to every phone you sign in on.") +
       H("Why") + P("To keep your club and your progress across phones, to run leagues with your friends, to rate how hard each question is, and to keep names in leagues clean.") +
       H("Who sees what") + P("League mates see your club name, crest, kit, scarf, @username, level and rating. Under 16, others see you as “Player NNNN” and your club stays private. Reports are anonymous. Fanbase Battle's public table shows totals per club only: passes, medals and fans, never a name.") +
+      H("The Euregio League") + P("If you're in a league with friends, each Euregio League game you finish goes to the server: the day, the ground, the club you played as, the score and who won. League mates see your totals, not your games one by one. In no league, nothing is kept.") +
       H("Emails") + P("Only the sign-in link, unless you ticked “Tell me about new modes”. You can switch that off any time in Settings.") +
       H("Your data, your call") + P("Export everything from Settings → Export my data. Delete your account in Settings: that removes your profile, club, matches, leagues and reports from the server.") +
       H("Crash reports and usage events") + P("If the app breaks it sends us the error, the build and a coarse browser label; a few events are counted (first open, a match done). Each carries a random id for this install, never your account, and is deleted after 180 days.") +
       H("Reminders") + P("Only if you turn them on: your browser's push address stays with us until you switch them off, in Settings or in your browser.") +
-      H("Where") + P("Stored with Supabase, our database provider, in Ireland (EU). Guests' games stay on their own phone and are never sent.")) + full });
+      H("Where") + P("Stored with Supabase, our database provider, in Ireland (EU). Guests' games stay on their own phone and are never sent, unless a guest joins a league: their Call It calls and Euregio League games then go under an anonymous account.")) + full });
 }
 /* ---------- PLAYER 2 ON THIS PHONE (Martijn, 21 Oct 2026) ----------
    Before a "vs a friend" Matchday, the friend can sign in on this phone. Their
@@ -27249,7 +27255,7 @@ function progMatchEnd(){
     gained += XP.match; parts.push({ label: "Match", xp: XP.match });
     if(won && ai){ gained += XP.win[ai]; parts.push({ label: "Win vs " + AI_NAME[ai], xp: XP.win[ai] }); p.wins += 1; }
     /* A SCARF the first time you win a Matchday as a team */
-    let team = null; try{ team = pitch && S.h2h ? h2Team(0) : null; }catch(e){}
+    let team = null; try{ team = pitch && S.h2h ? (S.ez ? S.ez.scarf : h2Team(0)) : null; }catch(e){}   // an away day's scarf is theirs
     const newScarf = !!(won && team && !(p.scarves || {})[team]);
     if(newScarf){ gained += XP.scarf; parts.push({ label: "New scarf", xp: XP.scarf }); }
     const onlineOpp = !ai ? progOnlineOpp() : null;
@@ -27277,7 +27283,7 @@ function progMatchEnd(){
     p.matches = (p.matches || 0) + 1;
     { const d = new Date(); if(d.getMonth() === 11 && pitch){ if(!p.snow || p.snow.year !== d.getFullYear()) p.snow = { year: d.getFullYear(), n: 0 }; p.snow.n++; } }
     qrFlush();
-    if(newScarf) progScarf(team, false, false);
+    if(newScarf) progScarf(team, !!S.ez, false);   // an away day says so on its own page
     if(rating && rating.div.i > rating.divBefore.i && rating.div.i >= 4) progTrophy("division", rating.div.name, "First time " + rating.div.name, "gold");
     /* league points, worked out here so the summary can say them; the
        server counts its own and its table is the one that matters */
@@ -27589,7 +27595,7 @@ function b6ScreenKey(){
   /* the games with a page of their own open and close like any other screen */
   let own = "";
   try{ own = [TT_VIEW ? "tt" : "", GW_VIEW ? "gw" : "", DD_VIEW ? "dd" : "", LB_VIEW ? "lb" : "", YR_VIEW ? "yr" : "", GTP_VIEW ? "gtp" : "", LISTS_VIEW ? "lists" : "",
-    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : "", EXP_VIEW ? "expert" : "", TRL_VIEW ? "trail" : "", SSN_VIEW ? "season" : "", DBY_VIEW ? "derby" : "", PUB_VIEW ? "pub" : "", TM_VIEW ? "tm" : "", FAN_VIEW ? "fanbase" : "", TOUR_VIEW ? "tour" : ""].join(""); }catch(e){}
+    FYC_VIEW ? "fyc" : "", CLUB_VIEW && !CLUB_VIEW.quiet ? "club" : "", LEGAL_VIEW ? "legal" : "", showBoard ? "board" : "", EXP_VIEW ? "expert" : "", TRL_VIEW ? "trail" : "", SSN_VIEW ? "season" : "", DBY_VIEW ? "derby" : "", PUB_VIEW ? "pub" : "", TM_VIEW ? "tm" : "", FAN_VIEW ? "fanbase" : "", TOUR_VIEW ? "tour" : "", EZ_VIEW ? "euregio" : ""].join(""); }catch(e){}
   return [ME_VIEW || "", LEAGUE_VIEW ? "league" + (LEAGUE_VIEW.sub || "") : "", LOCKER_VIEW ? "locker" + (typeof LOCKER_VIEW === "string" ? LOCKER_VIEW : "") : "", ALBUM_VIEW ? "album" : "", CUP_VIEW ? "cup" : "", DREAM_VIEW ? "dream" : "", b4Step || "", own, grp].join("|");
 }
 /* which tab's own front screen this is, or null for anything deeper */
@@ -28002,6 +28008,7 @@ function qrepNow(){
     if(DBY_VIEW === "duel" && typeof dbyQrep === "function") return dbyQrep();
     if(TM_VIEW === "run" && typeof tmQrep === "function") return tmQrep();
     if(TOUR_VIEW === "run" && typeof tourQrep === "function") return tourQrep();
+    if(EZ_VIEW === "run" && typeof ezQrep === "function") return ezQrep();
     if(!S) return null;
     if(S.phase === "ds_res" && S.dq){
       const Qd = dsQ(S.dq), anchor = document.querySelector("#stage .dsline.big");
@@ -29011,7 +29018,7 @@ function progQueueMatch(s, run){
     let comp = s.mode || "";
     if(pitch){ try{ comp = (s.h2h && s.h2h.pool) || h2PoolId() || comp; }catch(e){} }
     const payload = { id: s.mid, started: s.t0 || Date.now(), ended: Date.now(), kind, ai_level: ai, opp_user: opp,
-      competition: String(comp), team: pitch && s.h2h && s.h2h.teams ? s.h2h.teams[0] || null : null,
+      competition: String(comp), team: pitch && s.h2h && s.h2h.teams ? (s.ez ? s.ez.scarf : s.h2h.teams[0]) || null : null,
       score_for: cap(s.players[0].score), score_against: s.players[1] ? cap(s.players[1].score) : 0, pens: s.pens ? [s.pens[0] | 0, s.pens[1] | 0] : null,
       answers: run ? run.n : 0, right: run ? run.right : 0, hard_right: run ? run.hard || 0 : 0, max_down: s.maxDown || 0, won_competition: s.wonComp || null };
     try{ const f = payload.score_for, a = payload.score_against;
@@ -30239,6 +30246,7 @@ function themeInScope(){
   if(DBY_VIEW === "duel" || DBY_VIEW === "done") return false;
   if(TM_VIEW === "run" || TM_VIEW === "roll") return false;
   if(TOUR_VIEW === "run") return false;
+  if(EZ_VIEW === "run") return false;
   if(!S || S.phase === "setup") return true;
   return S.phase === "h_teams" || S.phase === "h_toss";
 }
@@ -30280,7 +30288,7 @@ function feelScreenKey(){
     if(LEGAL_VIEW) return "legal"; if(FYC_RENAME || FYC_VIEW) return "fyc"; if(CLUB_VIEW && !CLUB_VIEW.quiet) return "club";
     const setup = !S || S.phase === "setup";
     if(ME_VIEW && setup) return "me:" + ME_VIEW; if(LEAGUE_VIEW && setup) return "league"; if(LOCKER_VIEW && setup) return "locker:" + LOCKER_VIEW;
-    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(EXP_VIEW) return "expert:" + EXP_VIEW; if(TRL_VIEW) return "trail:" + TRL_VIEW; if(SSN_VIEW) return "season:" + SSN_VIEW; if(DBY_VIEW) return "derby:" + DBY_VIEW; if(PUB_VIEW) return "pub:" + PUB_VIEW; if(TM_VIEW) return "tm:" + TM_VIEW; if(FAN_VIEW) return "fanbase:" + FAN_VIEW; if(TOUR_VIEW) return "tour:" + TOUR_VIEW; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
+    if(ALBUM_VIEW) return "album"; if(CUP_VIEW) return "cup"; if(EXP_VIEW) return "expert:" + EXP_VIEW; if(TRL_VIEW) return "trail:" + TRL_VIEW; if(SSN_VIEW) return "season:" + SSN_VIEW; if(DBY_VIEW) return "derby:" + DBY_VIEW; if(PUB_VIEW) return "pub:" + PUB_VIEW; if(TM_VIEW) return "tm:" + TM_VIEW; if(FAN_VIEW) return "fanbase:" + FAN_VIEW; if(TOUR_VIEW) return "tour:" + TOUR_VIEW; if(EZ_VIEW) return "euregio:" + EZ_VIEW; if(TT_VIEW) return "tt"; if(GW_VIEW) return "gw"; if(DD_VIEW) return "dd"; if(LB_VIEW) return "lb";
     if(YR_VIEW) return "yr"; if(GTP_VIEW) return "gtp"; if(LISTS_VIEW) return "lists"; if(DREAM_VIEW) return "dream";
     if(setup) return showBoard ? "board" : b4Step ? "step:" + b4Step : "home";
     return "game:" + S.play + ":" + S.mode + (S.phase === "results" ? ":results" : "");
@@ -30381,6 +30389,7 @@ function renderMain(){
   if(TM_VIEW) return timeMachineDraw(st);
   if(FAN_VIEW) return fanbaseDraw(st);
   if(TOUR_VIEW) return tourDraw(st);
+  if(EZ_VIEW) return ezDraw(st);
   if(TT_VIEW) return ttRender(st);
   if(GW_VIEW) return gwRender(st);
   if(DD_VIEW) return ddRender(st);
@@ -38348,6 +38357,7 @@ const timeMachineShelfSub = () => { const s = tmStore(), far = Object.values(s.f
 
 /* the other games as a numbered collection: four to a row, each with its own drawn mark */
 const T3_GAME_IC = {
+  "Euregio Zone": '<path d="M12 21.5s-7.5-6.3-7.5-12a7.5 7.5 0 0 1 15 0c0 5.7-7.5 12-7.5 12zM9 9.5a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/>',
   "Season": '<path d="M4 6.5h8M4 12h8M4 17.5h8M17.5 19V6M14 9.5 17.5 6 21 9.5"/>',
   "Derby Duel": '<path d="M3 6l5-2 5 2v5.5c0 3.1-2.2 5.3-5 6.5-2.8-1.2-5-3.4-5-6.5zM15.5 8.2l.5-.2 5 2v5.5c0 3.1-2.2 5.3-5 6.5-1.7-.7-3.2-1.8-4.1-3.2"/>',
   "Fanbase Battle": '<path d="M3 21h18M9 21V11h6v10M3 21v-6h6M15 21v-8h6v8M12 11V3.5l5 2-5 2"/>',
@@ -38547,6 +38557,7 @@ function b6Shelf(){
     ["Derby Duel", derbyShelfSub(), "b6MarkSeen('derby');openDerby()"],
     ["Fanbase Battle", fanbaseShelfSub(), "openFanbase()"] ];
   const items = [
+    ["Euregio Zone", ezShelfSub(), "b6MarkSeen('euregio');openEuregio()"],
     ["Transfer Trail", trailShelfSub(), "b6MarkSeen('trail');openTrail()"],
     ["Time Machine", timeMachineShelfSub(), "b6MarkSeen('timemachine');openTimeMachine()"],
     ["Pub Night", pubShelfSub(), "b6MarkSeen('pub');openPub()"],
@@ -38647,6 +38658,48 @@ function tourDraw(st){
 }
 /* the home's line: New until the passport has been opened once, then the count */
 const tourShelfSub = () => { const s = tourStore(), n = Object.keys(s.stamps).length; return n || s.total ? "Stamps " + n + (s.total ? " of " + Math.max(n, s.total) : "") : "New"; };
+
+/* ---------- EUREGIO ZONE: the door ----------
+   Martijn, 6 Nov 2026: BALL starts in the Euregio, so the region gets a home. The page is assets/euregio/euregio.js + euregio.css, loaded on the
+   first open; ball4-euregio is read fresh every time, like World Tour's, because a sign-out and the cloud save both change it underneath us.
+   EZ_VIEW: null | pick | map | zone | away | run | done | won | table. While a match is on, EZ_VIEW is null and S.ez says whose it is. geo.js, the borders and the
+   Maas, comes down here too: it is big, nothing else wants it, and sw.js keeps it as it is read rather than making every phone fetch it. */
+const EZ_KEY = "ball4-euregio";
+let EZ_VIEW = null, EZ_LOAD = 0, EZ_WAIT = [], EZ_BACK_Y = null;
+B6_ADDED.euregio = "2026-11-06";
+function ezStore(){ try{ const s = JSON.parse(localStorage.getItem(EZ_KEY) || "null"); if(s && s.v) return s; }catch(e){} return { v: 1, best: 0, runs: 0, seen: [], as: null, roads: {}, games: [], out: [] }; }
+function ezSave(s){ try{ localStorage.setItem(EZ_KEY, JSON.stringify(s)); }catch(e){} }
+function ezNeed(then){
+  if(EZ_LOAD === 2 || typeof ezRender === "function"){ EZ_LOAD = 2; if(then) then(); return true; }
+  if(then) EZ_WAIT.push(then);
+  if(EZ_LOAD === 1) return false;
+  EZ_LOAD = 1;
+  let left = 3;
+  const done = ok => { if(!ok){ EZ_LOAD = -1; left = 0; EZ_WAIT = []; toast("Couldn't open that right now.", true); return; }
+    if(--left) return; EZ_LOAD = 2; const w = EZ_WAIT; EZ_WAIT = []; w.forEach(f => { try{ f(); }catch(e){} }); };
+  try{
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "assets/euregio/euregio.css"; css.onload = () => done(true); css.onerror = () => done(true); document.head.appendChild(css);
+    const sc = document.createElement("script"); sc.src = "assets/euregio/euregio.js"; sc.onload = () => done(typeof ezRender === "function"); sc.onerror = () => done(false); document.head.appendChild(sc);
+    /* a map with no borders is still a map */
+    const geo = document.createElement("script"); geo.src = "assets/euregio/geo.js"; geo.onload = () => done(true); geo.onerror = () => done(true); document.head.appendChild(geo);
+  }catch(e){ done(false); }
+  return false;
+}
+function openEuregio(){
+  b4Explain("euregio", () => {
+    if(EZ_LOAD === -1) EZ_LOAD = 0;
+    EZ_VIEW = "map"; ME_VIEW = null; LOCKER_VIEW = null; closeSheet(); render();
+    ezNeed(() => { if(EZ_VIEW){ render(); try{ window.scrollTo(0, 0); }catch(e){} } });
+  });
+}
+/* back from Club Expert or the new-league page, with the page where it was */
+function ezReturn(){ EZ_VIEW = "zone"; EZ_BACK_Y = FEEL_SCROLL["euregio:zone"] || 0; render(); }
+function ezDraw(st){
+  if(typeof ezRender === "function") return ezRender(st);
+  st.innerHTML = b4Page({ title: "Euregio League", ctx: "One moment", back: "EZ_VIEW=null;render()", cls: "ezpage" });
+}
+/* the home's line: New for its first month, then how far along the road you are, then your best */
+const ezShelfSub = () => { if(b6IsNew("euregio")) return "New"; const s = ezStore(), n = Object.keys((s.roads || {})[s.as] || {}).filter(k => k !== "final").length; return n ? n + " of 12 won" : s.runs ? "Best " + (s.best | 0) + " of 10" : "Your region, your clubs"; };
 
 function b6MoreSheet(k){
   audio();
@@ -39023,6 +39076,7 @@ const B4_HOW = {
   lists: ["The Lists", "Two kinds of list. Top 10: the numbers are on the board and you name the men behind them; a name outside the ten costs one of three balls. Name them all: a whole list against the clock, and a wrong name costs nothing. Know someone real who just misses the list? That's a deep cut, a bonus point. Two new lists every day, thousands more on the shelf."],
   gtp: ["Guess the player", "One mystery footballer a day, the same for everyone, and six guesses. Type any player: each guess shows four tiles against the secret one. Nation, position, year of birth and clubs: green is a match, gold is close (born within two years, or a club in common), and the arrow points to his year. Your guesses knit a scarf you can share."],
   career: ["Career Path", "A player's clubs come out one at a time, in order. Pick his name from four. Right on the first club is +15, every extra club costs 3, and a wrong name is −2. Ten players a game."],
+  euregio: ["Euregio Zone", "Football from where BALL began. Pick a club and take it on the road: twelve away days across three countries, one match each on that club's questions. Win to take the ground and its scarf, and the road opens further. Win them all and the Euregio XI wait at the Three-Country Point. Two games a day, win or lose. The quiz, the clubs and the Limburg League are a tap away."],
   tour: ["World Tour", "Your football passport. Every country is a stop, and each stop is ten multiple-choice questions on its league, twenty seconds each. Seven right wins the stamp. Miss it and nothing's lost: try again, and the questions you've seen come last. Your own country comes first. Stamp a whole region for its gold visa."],
   derby: ["Derby Duel", "Two friends, one phone, two clubs. Five questions each, twelve seconds a go, and every question is about the other one's club, climbing from easy to hard. The phone goes across between turns so nobody sees what's next. Level after ten is sudden death, one question each, up to three pairs. The record between you two is kept."],
   trail: ["Transfer Trail", "A player is named and you start at his first club. Where did he go next? Four clubs, one right. Keep following him move by move, and when his career ends the next man comes. One wrong step ends the run, and your score is the moves you got right. Loans are on the trail, but you're never asked about them."],
@@ -39987,6 +40041,7 @@ function askCancelMatch(){
 }
 function cancelMatch(){ closeSheet(); clearSave(); S=null; render(); toast("Match cancelled."); }
 function askEnd(){
+  if(S && S.ez) return ezAskMatchLeave();   // the whistle at 1-0 up would be a win for leaving
   if(isGuest()){ toast("Only the host phone can blow the whistle.", true); return; }
   sheet(`
     <h2>Blow the full-time whistle?</h2>
@@ -40018,7 +40073,9 @@ function endGame(){
       cupFiled(S.players[0].score, S.players[1].score, S.pens || null);
   }catch(e){}
   if(S.players.length===1){ closeSheet(); return soloFinish(); }
-  closeSheet(); stopTimer(); S.phase="results"; recordMatch(); render();
+  closeSheet(); stopTimer(); S.phase="results"; recordMatch();
+  if(S.ez) return ezNeed(() => ezFullTime());   // the Euregio League has a full time of its own
+  render();
   celebrate(S.players[0].score > Math.max(...S.players.slice(1).map(p=>p.score)) ? 3 : 2, {type: "matchWon"});
 }
 function rematch(){
@@ -40071,6 +40128,7 @@ function fullReset(){ clearSave(); S=null; render(); }
    not a reset, the save stays put so "Resume match in progress" is waiting. */
 function toMenu(){
   if(!S || S.phase==="setup") return;
+  if(S.ez) return ezAskMatchLeave();
   try{ dsStop(); }catch(e){}
   stopTimer(); save();
   const mid = S.phase!=="results" && S.play!=="daily";

@@ -1,6 +1,6 @@
 /* BALL quiz service worker: network-first so updates land instantly,
    cache fallback so the pub's dead wifi can't stop the game. */
-const CACHE = "ball-quiz-4-v85";
+const CACHE = "ball-quiz-4-v86";
 const NATFLAGS = "ad,ae,af,ag,al,am,ao,ar,at,au,az,ba,be,bf,bg,bi,bj,bm,bn,bo,br,by,ca,cd,cf,cg,ch,ci,cl,cm,cn,co,cr,cu,cv,cy,cz,de,dk,do,dz,ec,ee,eg,es,et,fi,fr,ga,gb,gd,ge,gh,gm,gn,gq,gr,gt,gw,gy,hn,hr,ht,hu,id,ie,il,in,iq,ir,is,it,jm,jo,jp,ke,kn,kr,kw,kz,lb,lc,li,lk,lr,lt,lu,lv,ly,ma,md,me,mg,mk,ml,mr,mt,mu,mw,mx,my,mz,na,ne,ng,nl,no,nz,pa,pe,ph,pk,pl,pt,py,qa,ro,rs,ru,rw,sa,sc,sd,se,si,sk,sl,sm,sn,so,sr,st,sv,sy,sz,td,tg,th,tl,tm,tn,tr,tt,tz,ua,ug,us,uy,uz,ve,vn,ws,xk,za,zm,zw".split(",");
 /* These two lists are generated, by _tools/build-stickers.py and by the
    Eredivisie build-ere.js, and they are declared HERE, above EXTRA_ASSETS,
@@ -61,6 +61,8 @@ const EXTRA_ASSETS = ["assets/vendor/ball3d.js", "assets/grass-match.jpg", "asse
   "assets/fanbase/fanbase.js", "assets/fanbase/fanbase.css",
   /* World Tour (loaded on its first open; the manifest says who's on the map, and a stop's decks come down with its first test and are kept as they are read) */
   "assets/tour/tour.js", "assets/tour/tour.css", "assets/q/manifest.json",
+  /* the Euregio Zone (loaded on its first open, its pool with the others; the map, the grass and the clubs' decks come down with the first open and are kept as they are read) */
+  "assets/euregio/euregio.js", "assets/euregio/euregio.css", "assets/euregio/clubs.json",
   /* The interface font, precached rather than fetched: a pub with no signal
      would otherwise fall back mid-match and reflow the whole menu. Both
      subsets, because latin alone drops the accented names. */

@@ -1,0 +1,285 @@
+/* BALL 4 · EUREGIO ZONE (euregio.js): the Euregio League on full-screen grass, then the house's green card on its paper, gold for what's yours. Tokens, not hex: a map
+   needs a river and white lines the house has no token for, so those are its own hsl tokens on .ezpage. A club's colours come from its look, as --ec1 and --ec2 on
+   the tile. The question screen is World Tour's, so nothing there is new to the player. */
+.ezpage .b6body{gap:10px}
+
+/* ---------- the quiz: a pitch, marked out ---------- */
+.ezquiz{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:15px 14px 16px;border-radius:18px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.ezquiz::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:radial-gradient(circle at 100% 50%,transparent 0 62px,rgba(248,241,221,.14) 62px 63.5px,transparent 63.5px),linear-gradient(90deg,transparent calc(100% - 1.5px),rgba(248,241,221,.14) calc(100% - 1.5px)),repeating-linear-gradient(90deg,rgba(248,241,221,.022) 0 36px,transparent 36px 72px)}
+.ezqtop{position:relative;display:flex;align-items:center;gap:12px}
+.ezqtop .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.ezqtop small{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-acc-hi)}
+.ezqtop b{font:italic 900 27px/1.02 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;text-wrap:balance}
+.ezqtop .m i{font:italic 400 13.5px/1.25 'Lora',Georgia,serif;color:var(--th-card-dim)}
+.ezbest{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.ezbest b{font:italic 900 36px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-hi);text-transform:none}
+.ezbest b small{font-size:18px;letter-spacing:0;color:var(--th-card-dim)}
+.ezbest i{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-card-dim)}
+.ezquiz .b4btn{position:relative;margin:0}
+.ezquiz .b4btn:disabled{cursor:default;opacity:.8}
+
+/* ---------- a European night ---------- */
+.ezslot:empty{display:none}
+.eznight{display:flex;align-items:center;gap:11px;width:100%;min-height:72px;padding:9px 12px;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-hero);color:var(--th-card-ink);box-shadow:var(--th-lift);cursor:pointer;text-align:left;transition:transform .12s var(--ease-pop);animation:ezIn .28s var(--ease-pop) both}
+.eznight:active{transform:translateY(1px) scale(.985)}
+.eznight .cbadge{flex:none;width:46px;height:46px}
+.eznight .m,.ezfav .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.eznight small,.ezfav small{font:800 11px/1.1 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--th-acc-hi)}
+.eznight b{font:italic 900 20px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:anywhere}
+.eznight i{font:italic 400 13px/1.15 'Lora',Georgia,serif;color:var(--th-card-dim)}
+.eznight .go,.ezfav .go{flex:none;font:800 26px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc-hi)}
+@keyframes ezIn{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
+
+/* ---------- the clubs ---------- */
+.ezh{justify-content:space-between}
+.ezh span{font-size:12px;letter-spacing:.12em;color:var(--th-dim)}
+.ezgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.eztile{position:relative;overflow:hidden;display:flex;align-items:center;gap:9px;min-height:64px;padding:7px 9px 7px 15px;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 3px 0 rgba(0,0,0,.08);cursor:pointer;text-align:left;transition:transform .12s var(--ease-pop)}
+.eztile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(90deg,var(--ec1) 0 4.5px,var(--ec2) 4.5px)}
+.eztile:active{transform:translateY(1px) scale(.985)}
+.eztile.won{background:var(--th-card);color:var(--th-card-ink);border-color:var(--th-acc)}
+.ezpatch{flex:none;display:block}
+.ezpatch.plain{display:grid;place-items:center;box-sizing:border-box;border-radius:6px 6px 12px 12px;background:var(--ec1);color:var(--ec2);box-shadow:inset 0 0 0 2px var(--ec2);font:800 11px/1 'Barlow Semi Condensed',sans-serif}
+.ezn{min-width:0;display:flex;flex-direction:column;gap:5px}
+.ezn b{font:italic 900 15.5px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:anywhere}
+.ezn small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--th-acc)}
+.ezpips{display:inline-flex;gap:4px}
+.ezpips i{width:12px;height:7px;transform:skewX(-14deg);background:transparent;border:1.5px solid var(--th-row-dim);opacity:.55;box-sizing:border-box}
+.ezpips i.on{background:var(--th-acc);border-color:var(--th-acc2);opacity:1}
+.ezfav{position:relative;overflow:hidden;display:flex;align-items:center;gap:13px;width:100%;padding:11px 12px 11px 19px;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift);cursor:pointer;text-align:left;transition:transform .12s var(--ease-pop)}
+.ezfav::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(90deg,var(--ec1) 0 5px,var(--ec2) 5px)}
+.ezfav:active{transform:translateY(1px) scale(.985)}
+.ezfav b{font:italic 900 24px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.ezfav .m i:not([class]){font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--th-acc)}
+.ezfav .ezpips i{width:18px;height:8px;border-color:var(--th-card-dim)}
+.ezfav .ezpips i.on{border-color:var(--th-acc)}
+
+/* ---------- the Limburg League ---------- */
+.ezleague{display:flex;flex-direction:column;gap:7px;padding:13px 14px 15px;border-radius:16px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card-2);color:var(--th-row-ink);box-shadow:var(--th-lift)}
+.ezlrow{display:flex;justify-content:space-between;gap:2px}
+.ezleague>b{margin-top:3px;font:italic 900 25px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+.ezleague p{margin:0;font:italic 400 14px/1.32 'Lora',Georgia,serif;color:var(--th-row-dim);text-wrap:pretty}
+.ezleague .b4btn{margin-top:5px}
+
+/* ---------- a question: World Tour's, one screen, no scroll ---------- */
+body.b6paper #stage:has(.ez-run){padding-bottom:0}
+.ez-run .b6body{gap:7px;min-height:100dvh;box-sizing:border-box;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+.ez-run.b6.b6m .b6band{height:104px!important}
+.ez-run .b6body>.b6stephead.m{height:92px;padding-top:calc(20px + env(safe-area-inset-top,0px))}
+.ez-run .b6stephead .b6backbtn{top:calc(16px + env(safe-area-inset-top,0px))}
+.ez-run .b6quit{top:calc(16px + env(safe-area-inset-top,0px))}
+.ez-run .b6stitle{font-size:27px}
+.ez-run .b6stitle.long{font-size:22px}
+.ez-run .b6ctx{margin-top:5px}
+.ezdash{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:34px;padding:7px 11px;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.ezmark{flex:none;display:grid;place-items:center;width:26px;height:30px;border-radius:50%}
+.ezmark:empty{height:26px;background:rgba(248,241,221,.1)}
+.ezdash b{flex:none;min-width:48px;text-align:right;font:italic 900 25px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-acc-hi)}
+.ezdash b small{font-size:15px;color:var(--th-card-dim)}
+.ezten{display:inline-flex;align-items:center;gap:5px}
+.ezten i{display:block;width:11px;height:11px;border-radius:50%;background:rgba(248,241,221,.14)}
+.ezten i.cur{box-shadow:0 0 0 2px var(--th-acc-hi);background:transparent}
+.ezten i.hit{background:var(--th-acc-hi)}
+.ezten i.miss{background:transparent;box-shadow:inset 0 0 0 2px var(--res-off-dark-ink);opacity:.6}
+.ezclock{flex-direction:row;align-items:center;gap:10px}
+.ezclock .bar{flex:1;height:9px;background:rgba(18,61,36,.14);border-radius:0;transform:skewX(-14deg)}
+.ezclock .bar i{background:var(--th-pill);border-radius:0;transition:none}
+.ezclock .digits{min-width:46px;text-align:right;font:italic 900 23px/1 'Barlow Semi Condensed',sans-serif;font-variant-numeric:tabular-nums;color:var(--th-ink)}
+.ezclock.hot .digits{color:var(--th-acc-text)}
+.ezclock.hot .bar i{background:var(--th-acc2)}
+.ezq{flex:1;display:flex;flex-direction:column;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);padding:13px 12px 10px;gap:9px;box-shadow:var(--th-lift)}
+.ezq::before,.ezq::after{display:none}
+.ezq .qtext{flex:1;display:flex;align-items:center;font:700 clamp(19px,2.9dvh,25px)/1.22 'Barlow Semi Condensed',sans-serif;text-wrap:pretty}
+.ezopts{display:flex;flex-direction:column;gap:7px}
+.ezopts .h2opt{min-height:47px;padding:8px 11px;font:700 16.5px/1.14 'Barlow Semi Condensed',sans-serif}
+.ezsay{min-height:18px;text-align:center;font:italic 400 13.5px/1.28 'Lora',Georgia,serif;color:var(--th-card-ink);text-wrap:pretty}
+.ez-run .qrep{margin:-3px 0 0}
+.ez-run .qrep button,.ez-run .qrep span{color:var(--th-dim)}
+.ez-run>.b6body>.b4btn{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:2;flex:none}
+
+/* ---------- full time: the ten, by club ---------- */
+.ezres{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px 6px;justify-items:center;margin:6px 0 2px;padding:15px 12px;border-radius:16px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);box-shadow:var(--th-lift)}
+.ezres span{position:relative;display:grid;place-items:center;width:42px;height:46px;border-radius:9px}
+.ezres span.hit{background:rgba(248,241,221,.1);box-shadow:inset 0 0 0 1.5px var(--th-acc)}
+.ezres span.miss>*{opacity:.32;filter:grayscale(.8)}
+.ez-done .b4q{text-align:center}
+.ez-done .b4btn.quiet{color:var(--th-ink)}
+
+/* ---------- the Euregio League: the map ---------- */
+.ezpage{--ez-line:hsl(50,67%,95%);--ez-label:hsl(60,100%,97%);--ez-maas:hsl(197,65%,60%);--ez-maas-deep:hsl(199,71%,18%)}
+.ezfull{position:fixed!important;inset:0;z-index:1;overflow:hidden;background:hsl(144,47%,22%)!important}
+.ezfull .b6band{display:none!important}
+.ezscroll{position:absolute;inset:0;z-index:1;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.ezscroll::-webkit-scrollbar{display:none}
+.ezfull .ezmap{background:hsl(144,47%,22%) url(grass.jpg) left top / 780px auto repeat}
+.ezfull .ezmap::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 45%,hsla(0,0%,0%,0) 55%,hsla(146,60%,6%,.28))}
+.ezfull .b6body{position:relative;z-index:2;background:none!important;pointer-events:none}
+.ezfull .b6body button{pointer-events:auto}
+.ezfull .b6stephead{position:relative;background:linear-gradient(180deg,hsla(146,60%,6%,.62),hsla(146,60%,6%,.34) 62%,hsla(146,60%,6%,0));height:124px!important;padding-top:22px!important;margin:0 -14px;pointer-events:none}
+.ezfull .b6stitle{font-size:34px}
+.ezfull .b6backbtn{top:20px}
+.ezfull .b6ctx{margin-top:9px}
+.ezas,.ezmore{position:absolute;top:calc(112px + env(safe-area-inset-top,0px));z-index:3;height:40px;padding:0 13px;border-radius:999px;border:1px solid hsla(0,0%,100%,.3);background:hsla(146,50%,6%,.46);color:var(--ez-line);font:800 12.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.ezpills{position:absolute;right:10px;top:calc(112px + env(safe-area-inset-top,0px));z-index:3;display:flex;gap:6px}
+.ezpills .ezmore{position:static}
+.ezas{left:10px;display:flex;align-items:center;gap:6px;max-width:52%;white-space:nowrap}
+.ezas .ezpatch{filter:drop-shadow(0 1px 1px hsla(0,0%,0%,.5))}
+.ezpan{position:absolute;bottom:calc(132px + env(safe-area-inset-bottom,0px));z-index:3;width:30px;height:54px;padding:0;border:0;background:hsla(146,50%,6%,.42);color:var(--ez-line);font:800 24px/1 'Barlow Semi Condensed',sans-serif;cursor:pointer}
+.ezpan.l{left:0;border-radius:0 12px 12px 0}
+.ezpan.r{right:0;border-radius:12px 0 0 12px}
+.ezfull.atw .ezpan.l,.ezfull.ate .ezpan.r{display:none}
+.ezleft{align-self:center;width:max-content;margin:0 auto 7px;padding:5px 11px;border-radius:999px;background:hsla(146,50%,6%,.62);color:var(--th-acc-hi);font:800 11.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.ezleft.none{color:var(--ez-line)}
+.ezleft.on{margin:-2px auto 0;background:var(--th-card)}
+.ezdock{position:absolute;left:14px;right:14px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:3}
+.ezmap{position:relative;overflow:hidden}
+.ezgeo{position:absolute;left:0;top:0;display:block}
+.ezc{stroke:none}
+.ezc.nl{fill:hsla(0,0%,100%,.075)}
+.ezc.be{fill:hsla(0,0%,0%,.02)}
+.ezc.de{fill:hsla(0,0%,0%,.2)}
+.ezc.lu{fill:hsla(0,0%,0%,.26)}
+.ezborder{fill:none;stroke:var(--ez-line);stroke-width:2.1;stroke-opacity:.82;stroke-linejoin:round}
+.ezmaas2{fill:none;stroke:var(--ez-maas-deep);stroke-width:7;stroke-linejoin:round;stroke-linecap:round;stroke-opacity:.45}
+.ezmaas{fill:none;stroke:var(--ez-maas);stroke-width:4.4;stroke-linejoin:round;stroke-linecap:round}
+.ezr{fill:none;stroke-linecap:round}
+.ezr.done{stroke:var(--th-acc1);stroke-width:4.4;filter:drop-shadow(0 1px 1px hsla(0,0%,0%,.5))}
+.ezr.open{stroke:hsl(0,0%,100%);stroke-width:3;stroke-dasharray:1.5 8}
+.ezr.lock{stroke:hsla(0,0%,100%,.34);stroke-width:2;stroke-dasharray:1.5 7}
+.ezarrow{fill:none;stroke:hsl(0,0%,100%);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.ezlab{position:absolute;font:800 11.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:hsla(60,100%,97%,.62);white-space:nowrap;transform-origin:left top;pointer-events:none}
+.ezsoon{position:absolute;z-index:1;width:7px;height:7px;margin:-3.5px;border-radius:50%;background:hsla(60,100%,97%,.6);box-shadow:0 0 0 1px hsla(0,0%,0%,.25)}
+.ezlab.river{font:italic 400 13px/1 'Lora',Georgia,serif;letter-spacing:.02em;text-transform:none;color:hsl(197,74%,85%)}
+.eznd{position:absolute;width:0;height:0;padding:0;border:0;background:none;z-index:2;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.eznd::after{content:"";position:absolute;left:-30px;top:-30px;width:60px;height:66px}
+.eznd .ezpatch{position:absolute;left:0;top:0;transform:translate(-50%,-50%);filter:drop-shadow(0 3px 3px hsla(0,0%,0%,.5))}
+.eznd em{position:absolute;left:-60px;width:120px;top:27px;text-align:center;font:700 12.5px/1 'Barlow Semi Condensed',sans-serif;font-style:normal;color:var(--ez-label);text-shadow:0 1px 2px hsla(0,0%,0%,.9),0 0 6px hsla(0,0%,0%,.55);pointer-events:none}
+.eznd.lab-t em{top:-42px}
+.eznd.won em,.eznd.home em{top:44px}
+.eznd.lab-t.won em{top:-42px}
+.eztag{position:absolute;left:-23px;width:46px;top:25px;padding:2px 0;box-sizing:border-box;text-align:center;border-radius:6px;background:linear-gradient(180deg,var(--th-acc1),var(--th-acc2));color:var(--th-acc-ink);box-shadow:0 1px 3px hsla(0,0%,0%,.5);font:italic 900 13px/1 'Barlow Semi Condensed',sans-serif;white-space:nowrap}
+.eztag.home{background:var(--ez-line);color:var(--th-ink);font:800 10px/1.3 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.eznd.open::before{content:"";position:absolute;left:-30px;top:-30px;width:60px;height:60px;box-sizing:border-box;border-radius:50%;border:2.5px solid var(--th-acc-hi);background:hsla(44,87%,73%,.2);box-shadow:0 0 14px hsla(44,87%,73%,.8)}
+.eznd.open::before{animation:ezPulse 1.9s ease-in-out infinite}
+@keyframes ezPulse{50%{transform:scale(1.1);box-shadow:0 0 22px hsla(44,87%,73%,.95)}}
+.eznd.locked .ezpatch{filter:grayscale(1) brightness(.72) contrast(.9);opacity:.8}
+.eznd.locked em{color:hsla(60,100%,97%,.72)}
+.ezstar{position:absolute;width:0;height:0;padding:0;border:0;background:none;z-index:2;cursor:pointer}
+.ezstar::after{content:"";position:absolute;left:-22px;top:-22px;width:44px;height:44px}
+.ezstar svg{position:absolute;left:-13px;top:-13px;width:26px;height:26px;fill:hsla(60,100%,97%,.28);stroke:var(--ez-label);stroke-width:1.3;filter:drop-shadow(0 1px 2px hsla(0,0%,0%,.6))}
+.ezstar.open svg,.ezstar.won svg{left:-17px;top:-17px;width:34px;height:34px;fill:var(--th-acc1);stroke:hsl(47,100%,88%)}
+.ezstar.open::before{content:"";position:absolute;left:-24px;top:-24px;width:48px;height:48px;box-sizing:border-box;border-radius:50%;border:2.5px solid var(--th-acc-hi);background:hsla(44,87%,73%,.22);box-shadow:0 0 16px hsla(44,87%,73%,.9);animation:ezPulse 1.9s ease-in-out infinite}
+.ezgo{display:flex;align-items:center;gap:12px;width:100%;min-height:76px;padding:9px 13px;box-sizing:border-box;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift);cursor:pointer;text-align:left;transition:transform .12s var(--ease-pop)}
+button.ezgo:active{transform:translateY(1px) scale(.985)}
+.ezgo.still{cursor:default}
+.ezgo .ezpatch{filter:drop-shadow(0 2px 3px hsla(0,0%,0%,.45))}
+.ezgo>svg{flex:none;width:44px;height:44px;fill:var(--th-acc1);stroke:hsl(47,100%,88%);stroke-width:.8}
+.ezgo .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.ezgo small{font:800 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-acc-hi)}
+.ezgo b{font:italic 900 27px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.ezgo i{font:italic 400 13px/1.15 'Lora',Georgia,serif;color:var(--th-card-dim);text-wrap:balance}
+.ezgo .go{flex:none;padding:10px 15px;border-radius:var(--th-pill-r);background:var(--th-pill);color:var(--th-acc-ink);font:italic 900 17px/1 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;box-shadow:0 3px 0 var(--th-acc-sh)}
+
+/* ---------- pick your club ---------- */
+.ezpickp .b6body{gap:9px}
+.ezpicks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ezpicks.one{grid-template-columns:minmax(0,1fr)}
+.ezpick{display:flex;align-items:center;gap:9px;min-height:62px;padding:7px 9px;border-radius:12px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-row);color:var(--th-row-ink);box-shadow:0 3px 0 hsla(0,0%,0%,.08);cursor:pointer;text-align:left;transition:transform .12s var(--ease-pop)}
+.ezpick:active{transform:translateY(1px) scale(.985)}
+.ezpick.on{background:var(--th-card);color:var(--th-card-ink);border-color:var(--th-acc)}
+.ezpick .m{min-width:0;display:flex;flex-direction:column;gap:3px}
+.ezpick b{font:italic 900 15.5px/1.05 'Barlow Semi Condensed',sans-serif;overflow-wrap:anywhere}
+.ezpick small{font:600 11.5px/1.1 'Barlow Semi Condensed',sans-serif;color:var(--th-row-dim)}
+.ezpick.on small{color:var(--th-card-dim)}
+.ezownc svg{display:block;height:44px;width:auto}
+
+/* ---------- the friends' table ---------- */
+.eztablep .b6body{gap:10px}
+.ezseg{margin:2px 0 0}
+.ezleagues{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+.ezleagues::-webkit-scrollbar{display:none}
+.ezleagues button{flex:none;min-height:38px;padding:0 13px;border-radius:999px;border:1.5px solid hsla(146,55%,15%,.3);background:none;color:var(--th-ink);font:700 14px/1 'Barlow Semi Condensed',sans-serif;cursor:pointer}
+.ezleagues button[aria-pressed="true"]{background:var(--th-card);color:var(--th-card-ink);border-color:var(--th-edge)}
+.ezname{display:flex;align-items:center;gap:8px;min-width:0;text-align:left}
+.ezname svg{flex:none;height:38px;width:auto}
+.ezname>span:last-child{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ezname b{font:italic 900 15px/1.05 'Barlow Semi Condensed',sans-serif;color:var(--th-acc-hi);overflow-wrap:anywhere}
+.ezname small{font:600 11.5px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-card-dim)}
+.ezinit{flex:none;display:grid;place-items:center;border-radius:50%;background:hsla(60,100%,97%,.12);color:var(--th-card-ink);font-family:'Barlow Semi Condensed',sans-serif;font-weight:800}
+.ezdots{display:flex;flex-wrap:wrap;gap:2px;max-width:118px}
+.ezdots i{width:8px;height:8px;box-sizing:border-box;border-radius:50%;box-shadow:0 0 0 1px hsla(0,0%,100%,.5)}
+.ezdots i.mt{background:none;box-shadow:inset 0 0 0 1px hsla(0,0%,100%,.3)}
+.ezdots i.fin{background:var(--th-acc-hi);box-shadow:0 0 0 1.5px var(--th-acc2)}
+.ezpts{font:italic 900 16px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc-hi)}
+.eztablep .b4table th:first-child{text-align:left}
+.eztablep .b4table td{padding-left:4px;padding-right:6px}
+.eztablep .b4table tr.me td{background:hsla(44,74%,60%,.16)}
+.eztablep .b4table tr.me td:first-child{box-shadow:inset 3px 0 0 var(--th-acc)}
+.eztablep .lgempty{color:var(--th-ink)}
+.eztableoffer{display:flex;flex-direction:column;gap:8px;padding:15px 14px 16px}
+.eztableoffer h2{margin:0;font:italic 900 25px/1.02 'Barlow Semi Condensed',sans-serif;text-transform:uppercase}
+.eztableoffer p{margin:0 0 4px;font:italic 400 14px/1.32 'Lora',Georgia,serif;color:var(--th-card-dim);text-wrap:pretty}
+.eztableoffer .b4btn{margin:0}
+
+/* ---------- the away day ---------- */
+.ezaway .b6body{gap:12px}
+.ezscarfrow{display:flex;justify-content:center;overflow:hidden;margin:0 -14px}
+.ezscarfrow canvas{display:block;max-width:none}
+.ezvs{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);align-items:center;gap:4px;padding:16px 10px 14px;border-radius:14px;border:2px var(--th-edge-style) var(--th-edge);background:var(--th-card);color:var(--th-card-ink);box-shadow:var(--th-lift)}
+.ezside{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;min-width:0}
+.ezside svg,.ezside img{height:92px;width:auto;display:block}
+.ezside b{font:italic 900 19px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.ezside small{font:italic 400 13px/1.1 'Lora',Georgia,serif;color:var(--th-card-dim)}
+.ezv{font:italic 900 26px/1 'Barlow Semi Condensed',sans-serif;color:var(--th-acc-hi);text-align:center}
+.ezbigstar{display:block}
+.ezbigstar svg{height:84px;fill:var(--th-acc1);stroke:hsl(47,100%,88%);stroke-width:.6}
+.ezfacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ezfact{padding:10px 12px;border-radius:11px;background:var(--th-card-2);border:1.5px solid hsla(146,55%,15%,.16);display:flex;flex-direction:column;gap:4px}
+.ezfact small{font:800 10.5px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--th-dim)}
+.ezfact b{font:700 16px/1.12 'Barlow Semi Condensed',sans-serif;color:var(--th-ink)}
+.ezline{margin:0;padding:2px 12px;text-align:center;font:italic 400 14.5px/1.4 'Lora',Georgia,serif;color:var(--th-ink);text-wrap:pretty}
+.ezaway .b4btn:disabled{cursor:default;opacity:.65}
+
+/* ---------- the win ---------- */
+.ezwon .b6body{gap:10px}
+.ezwon .b6stitle{padding:0 46px;font-size:clamp(21px,6.8vw,30px);line-height:1.02;text-align:center}
+.ezwon .b6ctx span{letter-spacing:.1em}
+.ezcard{border-radius:14px;overflow:hidden;border:2px solid var(--th-edge);box-shadow:var(--th-lift);background:hsl(144,47%,22%) url(grass.jpg) left top / 780px auto repeat}
+.ezmap.zoom{width:100%!important}
+.ezgift{display:flex;flex-direction:column;align-items:center;gap:7px;padding:10px 0 11px;border-radius:12px;background:var(--th-card);color:var(--th-card-ink);border:2px solid var(--th-edge);overflow:hidden}
+.ezgift canvas{display:block;max-width:none}
+.ezgift b{font:italic 900 17px/1.05 'Barlow Semi Condensed',sans-serif;text-align:center;padding:0 10px}
+.ezgift .ezbigstar svg{height:60px}
+
+/* ---------- short phones: the question keeps the screen, the band gives way ---------- */
+@media (max-height:720px){
+  .ez-run.b6.b6m .b6band{height:66px!important}
+  .ez-run .b6body>.b6stephead.m{height:54px;padding-top:calc(10px + env(safe-area-inset-top,0px))}
+  .ez-run .b6stephead .b6backbtn,.ez-run .b6quit{top:calc(6px + env(safe-area-inset-top,0px))}
+  .ez-run .b6stitle,.ez-run .b6stitle.long{font-size:20px}
+  .ez-run .b6ctx{display:none}
+  .ez-run .b6body{gap:5px}
+  .ezdash{padding:4px 10px}
+  .ezq{padding:9px 10px 7px;gap:6px}
+  .ezq .qtext{font-size:17.5px}
+  .ezopts{gap:5px}
+  .ezopts .h2opt{min-height:38px;padding:5px 9px;font-size:15px}
+}
+@media (max-width:374px){
+  .ezas,.ezmore{padding:0 10px;font-size:11.5px;letter-spacing:.06em}
+  .ezname b{font-size:14px}
+  .eztablep .ezh{font-size:12.5px;letter-spacing:.1em}
+  .eztablep .b4table th,.eztablep .b4table td{padding-left:3px;padding-right:4px}
+  .ezgo{min-height:66px;padding:7px 11px;gap:9px}
+  .ezgo b{font-size:22px}
+  .ezgo .go{padding:9px 12px;font-size:16px}
+  .ezwon .b6ctx span{font-size:11px;letter-spacing:.06em}
+  .ezten{gap:3px}
+  .ezqtop b{font-size:24px}
+  .ezn b{font-size:14.5px}
+  .eztile{padding-right:7px;gap:7px}
+}
+@media (prefers-reduced-motion:reduce){
+  .eznight,.eznd.open::before,.ezstar.open::before{animation:none}
+}

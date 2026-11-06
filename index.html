@@ -11725,7 +11725,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 6 Nov 2026 · DART, the new throw";
+const BUILD = "BALL 4 · 6 Nov 2026 · RACKET";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -38976,7 +38976,7 @@ function introSeen(){ try{ localStorage.setItem("ball4-intro", String(dayKey()))
    adds none of its own while it sits in the frame. A new sport is one line here and one in build-sports.js. */
 const SPORTS = {
   dart: { name: "DART", live: true, bar: "#1a110b", bg: "#120c08", ic: '<circle cx="12" cy="12" r="11" fill="#14110d"/><circle cx="12" cy="12" r="9.2" fill="#c8102e"/><circle cx="12" cy="12" r="7.4" fill="#efe3c6"/><circle cx="12" cy="12" r="5" fill="#1d7a3f"/><circle cx="12" cy="12" r="3.2" fill="#efe3c6"/><circle cx="12" cy="12" r="1.5" fill="#c8102e"/>' },
-  racket: { name: "RACKET", bar: "#174a96", bg: "#0f3168", ic: '<circle cx="12" cy="12" r="10.5" fill="#d9e84a"/><path d="M4.6 4.6a10.5 10.5 0 0 1 0 14.8M19.4 4.6a10.5 10.5 0 0 0 0 14.8" fill="none" stroke="#fbfde8" stroke-width="2"/>' }
+  racket: { name: "RACKET", live: true, bar: "#174a96", bg: "#0f3168", ic: '<circle cx="12" cy="12" r="10.5" fill="#d9e84a"/><path d="M4.6 4.6a10.5 10.5 0 0 1 0 14.8M19.4 4.6a10.5 10.5 0 0 0 0 14.8" fill="none" stroke="#fbfde8" stroke-width="2"/>' }
 };
 /* a sport goes live with live: true here and its folder in publish-site.js's SHIP (and a line in the privacy page and the
    terms: _plans/sports-launch.md). Until then it shows everywhere but the public site, and isn't published. */

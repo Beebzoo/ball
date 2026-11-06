@@ -1,0 +1,17 @@
+The files in this folder that came from elsewhere
+
+clips.json (the strokes)
+  Adapted from "A tennis action dataset: competitive performance of Caldas-Colombia tennis players" (Tennis-MoCap),
+  https://github.com/jdpulgarin/Tennis-MoCap
+  by J.D. Pulgarin-Giraldo, S. Garcia-Vega, L.G. Melo-Betancourt, S. Ramos-Bermudez, A.M. Alvarez-Meza and
+  G. Castellanos-Dominguez. Their paper: Pulgarin-Giraldo et al., "A Similarity Indicator for Differentiating Kinematic
+  Performance Between Qualified Tennis Players", LNCS 10125, pp. 309-317, 2017, https://doi.org/10.1007/978-3-319-52277-7_38
+  Licensed under Creative Commons Attribution-ShareAlike 3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/
+  Changed: strokes cut from the takes and moved onto another skeleton by _tools/mocap-clips.js.
+  This adapted file carries the same licence. RACKET shows this credit on the Match point screen.
+
+three.min.js
+  three.js r128, https://threejs.org, MIT licence, copyright 2010-2021 three.js authors.
+
+players.js, motion.js, stage.js
+  From BALL (our own code), copied as they are from assets/ball3d.

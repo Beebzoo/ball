@@ -1,0 +1,54 @@
+/* Match point in 3D: the court fills the screen, and the scoreboard, banners and question sit over it.
+   Loaded with the game, so the rest of RACKET never pays for it. */
+.m3d{ position: fixed; inset: 0; z-index: 20; overflow: hidden; background: #05080e; color: #fff; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+.m3d .c3d{ position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: min(100vw, calc(100dvh * 0.62)); overflow: hidden; container-type: inline-size; }
+.m3d #gl{ position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.c3d-hud{ position: absolute; inset: 0; }
+
+/* the match's own furniture, over the picture */
+.m3d .g-top{ position: absolute; top: 0; left: 0; right: 0; z-index: 3; margin: 0; padding-top: calc(8px + var(--safe-t, 0px)); background: linear-gradient(#0b1018cc, #0b101800); border: 0; box-shadow: none; transition: opacity .2s; }
+.m3d .sbug{ position: absolute; z-index: 3; left: 50%; transform: translateX(-50%); top: calc(44px + var(--safe-t, 0px)); width: min(94vw, 340px); margin: 0; opacity: .94; transition: opacity .2s; }
+.m3d .m-status{ position: absolute; z-index: 3; left: 0; right: 0; top: 24%; margin: 0; pointer-events: none; text-shadow: 0 2px 10px #000c; transition: opacity .15s; }
+.m3d .sheet{ display: none; }
+.m3d.ask .g-top, .m3d.ask .sbug, .m3d.ask .m-status{ opacity: 0; pointer-events: none; }
+.m3d-wait{ position: absolute; inset: 0; z-index: 2; display: grid; place-content: center; text-align: center; color: #a7b3c2; font-weight: 600; pointer-events: none; }
+
+/* the question, up top */
+#c3-card{ position: absolute; left: 0; right: 0; top: 0; padding: calc(5cqw + var(--safe-t, 0px)) 4cqw 6cqw; background: linear-gradient(#0b1018f2 62%, #0b101800); pointer-events: none; opacity: 0; transition: opacity .18s; }
+.m3d.ask #c3-card{ opacity: 1; }
+#c3-head{ display: flex; align-items: center; justify-content: space-between; gap: 2cqw; font: 700 3.2cqw var(--f-body, system-ui); color: #a7b3c2; letter-spacing: .04em; text-transform: uppercase; }
+#c3-head b{ color: #fff; font: 800 4.2cqw var(--f-head, system-ui); letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; white-space: nowrap; }
+#c3-head .lv{ padding: .3cqw 2cqw; border-radius: 99px; color: #0b1018; background: #e4f53c; font-size: 2.9cqw; }
+#c3-head .lv.t1{ background: #ffb03a; } #c3-head .lv.t2{ background: #ff5a4a; color: #fff; }
+#c3-head .live{ color: #ff8a7a; }
+#c3-q{ margin: 1.6cqw 0; font: 700 5cqw/1.22 var(--f-body, system-ui); min-height: 6cqw; text-shadow: 0 1px 6px #0009; }
+#c3-clk{ height: 1.2cqw; border-radius: 1cqw; background: #ffffff22; overflow: hidden; opacity: 0; }
+#c3-clk i{ display: block; height: 100%; width: 100%; background: #e4f53c; transform-origin: left; }
+
+/* the four answers: glass over the court, each on the side of its spot */
+.c3d-hud .spot{ position: absolute; width: 47cqw; min-height: 14.5cqw; transform: translate(-50%, -50%); padding: 1.5cqw 2cqw; border: 1.5px solid #ffffff4d; border-radius: 3cqw; background: #0b1018b8; color: #fff; font: 700 4.1cqw/1.15 var(--f-body, system-ui); text-align: center; display: grid; place-items: center; cursor: pointer; transition: background .12s, opacity .25s, border-color .12s; animation: c3rise .22s ease-out both; }
+.c3d-hud .spot small{ display: block; font-size: 3cqw; font-weight: 600; color: #a7b3c2; margin-top: .5cqw; }
+.c3d-hud .spot:active{ background: #ffffff33; }
+.c3d-hud .spot.right{ background: #2fc56f; border-color: #fff; opacity: 1; } .c3d-hud .spot.wrong{ background: #e85a5a; border-color: #fff; } .c3d-hud .spot.g1{ background: #f0a12a; color: #0b1018; border-color: #fff; }
+.c3d-hud .spot.fade{ opacity: .22; }
+.c3d-hud .spot:disabled{ pointer-events: none; }
+@keyframes c3rise{ from{ opacity: 0; transform: translate(-50%, -38%); } to{ opacity: 1; transform: translate(-50%, -50%); } }
+/* targets on a serve: three boxes on their side */
+.c3d-hud .tgt{ position: absolute; width: 29cqw; min-height: 17cqw; transform: translate(-50%, -50%); padding: 1.5cqw; border: 1.5px solid #ffffff4d; border-radius: 3cqw; background: #0b1018b8; color: #fff; font: 600 3.5cqw var(--f-body, system-ui); text-align: center; display: grid; gap: .6cqw; place-content: center; cursor: pointer; animation: c3rise .22s ease-out both; }
+.c3d-hud .tgt b{ font-size: 4.4cqw; } .c3d-hud .tgt small{ color: #a7b3c2; font-size: 3cqw; }
+
+/* the timing ring follows the ball */
+#c3-ring, #c3-goal{ position: absolute; left: 0; top: 0; border-radius: 50%; pointer-events: none; opacity: 0; will-change: transform; }
+#c3-ring{ width: 28cqw; height: 28cqw; margin: -14cqw 0 0 -14cqw; border: 3px solid #e4f53c; box-shadow: 0 0 12px #e4f53c99; }
+#c3-goal{ width: 11cqw; height: 11cqw; margin: -5.5cqw 0 0 -5.5cqw; border: 2px dashed #fff; }
+
+/* what just happened, in tennis words */
+#c3-msg{ position: absolute; left: 0; right: 0; top: 27%; padding: 0 4cqw; text-align: center; font: italic 800 8.4cqw/1.05 var(--f-head, system-ui); text-transform: uppercase; text-shadow: 0 2px 12px #000d; opacity: 0; transition: opacity .15s; pointer-events: none; }
+#c3-msg.show{ opacity: 1; } #c3-msg small{ display: block; margin-top: 1cqw; font: 600 4.2cqw var(--f-body, system-ui); text-transform: none; opacity: .95; }
+#c3-msg.good{ color: #e4f53c; } #c3-msg.bad{ color: #ffb3b3; }
+#c3-hint{ position: absolute; left: 0; right: 0; bottom: calc(6cqw + var(--safe-b, 0px)); text-align: center; font: 600 4cqw var(--f-body, system-ui); color: #fff; text-shadow: 0 1px 6px #000c; pointer-events: none; }
+#c3-vig{ position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 56%, #0000 42%, #0008 100%); }
+.c3d-hud.hush #c3-vig{ background: radial-gradient(ellipse at 50% 56%, #0000 26%, #000d 96%); }
+.c3d-hud.liveon #c3-card{ background: linear-gradient(#2a0d12f5 62%, #2a0d1200); }
+#c3-dip{ position: absolute; inset: 0; background: #05080e; opacity: 0; pointer-events: none; transition: opacity .16s; }
+#c3-dip.on{ opacity: 1; }

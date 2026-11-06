@@ -25,6 +25,11 @@ function pushLocal(){ try{ return JSON.parse(localStorage.getItem(PUSH_KEY)) || 
 function pushLocalSet(o){ try{ localStorage.setItem(PUSH_KEY, JSON.stringify(Object.assign(pushLocal(), o))); }catch(e){} }
 function pushWants(){ const w = pushLocal().wants; return { streak: !w || w.streak !== false, callit: !w || w.callit !== false }; }
 
+/* REMINDERS ARE CONSENT, AND IN THE NETHERLANDS THAT TAKES 16 (the privacy page, "Children"). Someone who told us they're
+   under 16 gets none. Someone we never asked, a guest, says so once on the ask. */
+function pushAge(){ try{ const a = acct(); return a.ageOk ? "ok" : a.asked16 ? "no" : pushLocal().over16 ? "ok" : "ask"; }catch(e){ return "ask"; } }
+const pushAgeTick = () => '<label class="fyccheck"><input type="checkbox" id="pushage"><span><b>I\'m 16 or older</b><small>Reminders are for 16 and over.</small></span></label>';
+
 /* ---------- can this phone take a push at all ---------- */
 function pushSupported(){
   try{
@@ -54,18 +59,20 @@ function pushKeyBytes(s){
 
 /* ---------- the one-time ask ---------- */
 const PUSH_WHY = { daily: "daily", lockin: "lockin" };
+const pushSheet = why => '<div class="pushsheet"><h2>A nudge when it matters</h2>' +
+  '<p class="pgsheetp">One nudge a day at most, only when your scarf is at risk or your card is about to lock. Nothing else, ever. Off again in Settings whenever you like.</p>' +
+  (pushAge() === "ask" ? pushAgeTick() : "") +
+  b4Btn("Remind me", "pushOn('" + why + "')") +
+  '<button class="acnot" onclick="pushLater()">Not now</button></div>';
 function pushAsk(reason){
   const L = pushLocal();
-  if(L.asked) return false;
+  if(L.asked || pushAge() === "no") return false;
   if(pushState() !== "off"){ pushLocalSet({ asked: Date.now(), why: reason, skipped: pushState() }); return false; }
   /* the ask wants an account to keep the address under; a guest is an anonymous user once the server answered */
   try{ if(!acct().signedIn) return false; }catch(e){ return false; }
   try{ if($("#overlay").classList.contains("show")) return false; }catch(e){}
   pushLocalSet({ asked: Date.now(), why: reason });
-  sheet('<div class="pushsheet"><h2>A nudge when it matters</h2>' +
-    '<p class="pgsheetp">One nudge a day at most, only when your scarf is at risk or your card is about to lock. Nothing else, ever. Off again in Settings whenever you like.</p>' +
-    b4Btn("Remind me", "pushOn('ask')") +
-    '<button class="acnot" onclick="pushLater()">Not now</button></div>');
+  sheet(pushSheet("ask"));
   try{ tlmEvent("push_ask", { why: reason }); }catch(e){}
   return true;
 }
@@ -73,6 +80,14 @@ function pushLater(){ closeSheet(); pushLocalSet({ later: Date.now() }); }
 
 /* ---------- on and off ---------- */
 async function pushOn(why){
+  const age = pushAge();
+  if(age === "no") return false;
+  if(age === "ask"){
+    const t = $("#pushage");
+    if(!t){ sheet(pushSheet(why)); return false; }
+    if(!t.checked){ toast("Reminders are for 16 and over.", true); return false; }
+    pushLocalSet({ over16: true });
+  }
   try{ closeSheet(); }catch(e){}
   if(!pushSupported()){ toast(pushNeedsInstall() ? "Add BALL to your home screen first, then turn reminders on in Settings." : "This browser can't take reminders.", true); return false; }
   let perm = "default";
@@ -107,7 +122,7 @@ async function pushSend(sub){
     return true;
   }catch(e){ return false; }
 }
-async function pushOff(){
+async function pushOff(quiet){
   const L = pushLocal();
   let endpoint = L.endpoint || null;
   try{
@@ -116,7 +131,7 @@ async function pushOff(){
   }catch(e){}
   pushLocalSet({ on: false, endpoint: null });
   try{ if(endpoint) sbClient().rpc("push_unsubscribe", { p_endpoint: endpoint }).then(() => {}, () => {}); }catch(e){}
-  toast("Reminders off.");
+  if(!quiet) toast("Reminders off.");
   try{ tlmEvent("push_off", {}); }catch(e){}
   pushRedraw();
 }
@@ -145,7 +160,7 @@ function pushDaySync(){ try{ if(threeToday().all) pushDay(dayKey(), true); }catc
 function pushEvent(kind, arg){
   if(kind === "daily" || kind === "lockin"){ setTimeout(() => { try{ pushAsk(kind); }catch(e){} }, PUSH_ASK_DELAY); return; }
   if(kind === "three"){ pushDay(arg, true); return; }
-  if(kind === "boot"){ pushBoot(); }
+  if(kind === "boot"){ if(pushAge() === "no" && pushLocal().on) pushOff(true); else pushBoot(); }
 }
 /* an app that has reminders on: the address can change under us (the browser rotates it), so it is sent again
    when it did; and if the phone revoked the permission, this phone says off */
@@ -165,7 +180,9 @@ async function pushBoot(){
 function pushSettingsHTML(){
   const st = pushState(), w = pushWants();
   let row;
-  if(st === "unsupported"){
+  if(pushAge() === "no"){
+    row = '<div class="accard pushcard"><span><small>Reminders</small><b>For 16 and over</b><em>You can turn them on once you\'re 16.</em></span></div>';
+  }else if(st === "unsupported"){
     row = '<div class="accard pushcard"><span><small>Reminders</small><b>Not on this browser</b><em>' +
       (pushNeedsInstall() ? "Add BALL to your home screen first, then come back here." : "This browser can't take reminders.") + '</em></span></div>';
   }else if(st === "denied"){

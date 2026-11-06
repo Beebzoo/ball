@@ -6536,6 +6536,20 @@
   /* your day, over the grass */
   .b6chipsw{position:absolute;left:0;right:0;top:calc(14px + env(safe-area-inset-top,0px));z-index:2;display:flex;justify-content:center;gap:6px;padding:0 12px;flex-wrap:nowrap;overflow:hidden}
   .b6chipsw:empty{display:none}
+  /* the sport switch: small, on the grass, and not on a new phone's first screen */
+  .sportsw{position:absolute;right:12px;top:calc(72px + env(safe-area-inset-top,0px));z-index:3;display:flex;gap:2px;padding:2px;border-radius:999px;
+    background:rgba(6,20,12,.46);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .sportsw button{display:grid;place-items:center;width:42px;height:34px;padding:0;border:0;border-radius:999px;background:none;cursor:pointer}
+  .sportsw svg{width:24px;height:24px}
+  .sportsw button:active{transform:scale(.92)}
+  .b6.home-done .sportsw{top:calc(60px + env(safe-area-inset-top,0px))}   /* clear of the grade, whose longest word runs the full width */
+  .b6.home-first .sportsw,.b6.step .sportsw,.sportsw:empty{display:none}
+  /* a sport over BALL: its own colour behind it, and inside the phone's safe area */
+  .sportframe{position:fixed;inset:0;z-index:400;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);animation:sportin .16s ease-out}
+  .sportframe[hidden]{display:none}
+  .sportframe iframe{display:block;width:100%;height:100%;border:0}
+  @keyframes sportin{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){ .sportframe{animation:none} }
   .b6chip{flex:none;display:flex;align-items:center;gap:5px;height:32px;padding:0 11px;white-space:nowrap;border-radius:999px;cursor:pointer;
     background:rgba(6,20,12,.42);border:1px solid rgba(255,255,255,.28);color:var(--th-card-ink);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
     font:700 13px/1 'Barlow Semi Condensed',sans-serif}
@@ -11701,7 +11715,7 @@ const playableAs = (id, play) => canEver(id, play) && modeLive(id);
    --bg and offered two buttons for it. BALL 3 is a floodlit night and nothing
    else, so the palette is bare :root, the meta is a literal, and the whole
    machine is four lines of nothing. */
-const BUILD = "BALL 4 · 5 Nov 2026 · xp everywhere";
+const BUILD = "BALL 4 · 6 Nov 2026 · every club, privacy, 16+";
 const DECKS = {};
 const TEAMS = {};
 /* the inline bank IS the classic deck. Same array, not a copy, so the five
@@ -26215,13 +26229,14 @@ async function fycFound(){
 function fycFounded(design){
   const st = fycState(), d = st.draft;
   st.founding = false;
-  acctLocalSet({ founded: true, fav: d.fav || null, marketing: !!d.marketing });
+  const news = !!d.marketing && acct().ageOk;   /* the news email is consent, and that takes 16 */
+  acctLocalSet({ founded: true, fav: d.fav || null, marketing: news });
   tlmOnce("found_club");
   fycMkySet({ fresh: Date.now() });      /* Make it yours: its card on Me, its sheet after the first match */
   try{ localStorage.setItem("ball4-club", JSON.stringify(design)); }catch(e){}
   guestReplay();
   const c = sbClient();
-  try{ if(c){ if(d.fav) c.rpc("set_favourites", { club: d.fav.club || null, nation: d.fav.nation || null, country: d.fav.country || null }).then(() => {}, () => {}); c.rpc("set_marketing", { ok: !!d.marketing }).then(() => {}, () => {}); } }catch(e){}
+  try{ if(c){ if(d.fav) c.rpc("set_favourites", { club: d.fav.club || null, nation: d.fav.nation || null, country: d.fav.country || null }).then(() => {}, () => {}); c.rpc("set_marketing", { ok: news }).then(() => {}, () => {}); } }catch(e){}
   /* the club you support: its scarf in your Locker from day one, no XP for it */
   try{ if(d.fav && d.fav.club && CLUBID[d.fav.club]){ const p = progLoad(); p.scarves = p.scarves || {}; if(!p.scarves[CLUBID[d.fav.club].name]) p.scarves[CLUBID[d.fav.club].name] = Date.now(); progSave(p); } }catch(e){}
   st.step = 8; st.done = true; st.pending = false; fycSave(st);
@@ -26512,6 +26527,8 @@ function fycAdopt(a){
   }
   /* the server has the 16+ answer: this phone doesn't ask it again */
   if(pr && typeof pr.age_ok === "boolean") acctLocalSet({ asked16: true });
+  /* under 16 there is no news email: one ticked before the age was known goes off, here and on the server */
+  if(pr && pr.age_ok === false && (acctLocal().marketing || pr.marketing_ok)){ acctLocalSet({ marketing: false }); try{ sbClient().rpc("set_marketing", { ok: false }).then(() => {}, () => {}); }catch(e){} }
   fycSave({ done: true, at: Date.now() });
   FYC_VIEW = false; FYC_EDIT = null; fycStopResend();
   /* through "Sign in" (a code, or Google coming back): home, with the club, and a welcome */
@@ -28286,7 +28303,7 @@ function renderSettings(st){
     ((typeof syncStatusHTML === "function" && syncStatusHTML()) ||   // one save on every phone: "Saved to your club · just now"
       '<div class="acsync">' + (a.server ? (q ? q + " thing" + (q === 1 ? "" : "s") + " waiting to sync" : (p.synced ? "✓ Synced" : "Connected")) : "Offline: everything is kept on this phone") + '</div>') +
     (fycClubOn() ? '<div class="b6hdr">Your club</div><button class="b6dark pgsmall" onclick="settingsRename()">Rename your club</button>' +
-      '<label class="fyccheck acnews"><input type="checkbox"' + (acctLocal().marketing ? " checked" : "") + ' onchange="fycMarketing(this.checked)"><span><b>Tell me about new modes</b><small>An email now and then. Off unless you tick it.</small></span></label>' : "") +
+      (a.ageOk ? '<label class="fyccheck acnews"><input type="checkbox"' + (acctLocal().marketing ? " checked" : "") + ' onchange="fycMarketing(this.checked)"><span><b>Tell me about new modes</b><small>An email now and then. Off unless you tick it.</small></span></label>' : "") : "") +
     pushSettingsRow() +
     feelSettingsHTML() +
     (SUP_SHOW ? '<div class="b6hdr">BALL Supporter</div><button class="b6dark pgsmall" onclick="openSupporter()">' + (isSupporter() ? "You're a Supporter · manage" : "Become a Supporter") + '</button>' : "") +
@@ -38932,6 +38949,7 @@ function renderSetup(st){
     <div class="b6${stepping ? " step" : ""}${home ? " home-" + home : ""}${chips ? " chipped" : ""}">
       <div class="b6band"></div>
       <div class="b6chipsw">${chips}</div>
+      <div class="sportsw">${sportButtons()}</div>
       <h1 class="mdp-slot" onclick="goHome()" title="Back to the start" aria-label="BALL, football quiz">${matchdayPro({intro: !b4IntroDone && introDue()})}</h1>
       <div class="b6body">${body}</div>
     </div>`;
@@ -38941,6 +38959,49 @@ let b4IntroDone = false;
 /* §13.6 (INTRO_ONCE_A_DAY): the kick-off intro on the first launch of the day; the day it played is kept on the phone */
 function introDue(){ if(!INTRO_ONCE_A_DAY) return true; try{ return localStorage.getItem("ball4-intro") !== String(dayKey()); }catch(e){ return true; } }
 function introSeen(){ try{ localStorage.setItem("ball4-intro", String(dayKey())); }catch(e){} }
+/* THE SPORT SWITCH (Martijn, 6 Nov 2026): "you can just switch and then it switches interface". DART and RACKET are their
+   own apps in dart/ and racket/ (copied from ../dart and ../racket by _tools/build-sports.js), so each brings its own look,
+   sounds and menus, and each also works alone at its own address. Here one opens in a full-screen frame over BALL and
+   stays loaded when you go back, so a game isn't lost. The phone's back closes it: one history entry is ours, and a sport
+   adds none of its own while it sits in the frame. A new sport is one line here and one in build-sports.js. */
+const SPORTS = {
+  dart: { name: "DART", bar: "#1a110b", bg: "#120c08", ic: '<circle cx="12" cy="12" r="11" fill="#14110d"/><circle cx="12" cy="12" r="9.2" fill="#c8102e"/><circle cx="12" cy="12" r="7.4" fill="#efe3c6"/><circle cx="12" cy="12" r="5" fill="#1d7a3f"/><circle cx="12" cy="12" r="3.2" fill="#efe3c6"/><circle cx="12" cy="12" r="1.5" fill="#c8102e"/>' },
+  racket: { name: "RACKET", bar: "#174a96", bg: "#0f3168", ic: '<circle cx="12" cy="12" r="10.5" fill="#d9e84a"/><path d="M4.6 4.6a10.5 10.5 0 0 1 0 14.8M19.4 4.6a10.5 10.5 0 0 0 0 14.8" fill="none" stroke="#fbfde8" stroke-width="2"/>' }
+};
+/* a sport goes live with live: true here and its folder in publish-site.js's SHIP (and a line in the privacy page and the
+   terms: _plans/sports-launch.md). Until then it shows everywhere but the public site, and isn't published. */
+const sportSeen = k => SPORTS[k].live || typeof location === "undefined" || location.hostname !== "ballquiz.app";
+const sportButtons = () => Object.keys(SPORTS).filter(sportSeen).map(k => `<button onclick="openSport('${k}')" aria-label="Switch to ${SPORTS[k].name}" title="${SPORTS[k].name}"><svg viewBox="0 0 24 24" aria-hidden="true">${SPORTS[k].ic}</svg></button>`).join("");
+const sportFrames = {};
+let sportOn = null, sportBar = null;
+function sportShow(k, on){
+  sportOn = on ? k : null; sportFrames[k].hidden = !on;
+  try{ sportFrames[k].firstChild.contentWindow.postMessage({ ball: on ? "show" : "hide" }, location.origin); }catch(e){}
+  const m = document.querySelector('meta[name="theme-color"]');   /* the phone's bar goes with the room */
+  if(m){ if(on){ sportBar = m.content; m.content = SPORTS[k].bar; } else if(sportBar) m.content = sportBar; }
+}
+function openSport(k){
+  if(sportOn || !SPORTS[k]) return;
+  if(!sportFrames[k]){
+    const f = sportFrames[k] = document.createElement("div");
+    f.className = "sportframe"; f.style.background = SPORTS[k].bg;
+    f.innerHTML = '<iframe src="' + k + '/index.html" title="' + SPORTS[k].name + '"></iframe>';
+    document.body.appendChild(f);
+  }
+  sportShow(k, true);
+  try{ b4Hist().pushState({ sport: k }, ""); }catch(e){}
+}
+function sportClose(){
+  if(!sportOn) return;
+  sportShow(sportOn, false);
+  try{ const H = b4Hist(); if(H.state && H.state.sport) H.back(); }catch(e){}
+}
+try{
+  if(typeof window !== "undefined" && window.addEventListener){
+    window.addEventListener("popstate", () => { if(sportOn) sportShow(sportOn, false); });
+    window.addEventListener("message", e => { if(e.origin === location.origin && e.data && e.data.to === "ball") sportClose(); });
+  }
+}catch(e){}
 /* ---------- WHAT EACH GAME IS, ONCE ----------
    The front page no longer explains anything, so the first tap on a game
    shows one card saying what it is, and the next tap goes straight in.

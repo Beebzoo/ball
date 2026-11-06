@@ -27,7 +27,8 @@ const EXP_LANDS = [["nl", "Netherlands"], ["be", "Belgium"], ["de", "Germany"], 
 const EXP_LOOKS = {
   excelsior: { code: "EXC", c1: "#e30613", c2: "#151515", p: "stripes" },
   "oh-leuven": { code: "OHL", c1: "#ffffff", c2: "#118a3a", p: "plain" },
-  "la-louviere": { code: "LAL", c1: "#118a3a", c2: "#ffffff", p: "plain" } };
+  "la-louviere": { code: "LAL", c1: "#118a3a", c2: "#ffffff", p: "plain" },
+  "roda-jc": { code: "ROD", c1: "#f7d117", c2: "#151515", p: "plain" } };
 
 let EX = null, EXD = null, EXP_SLUG = null, EXP_CD = null, EXP_UID = 0;
 
@@ -91,7 +92,8 @@ function expFav(){
   let f = null;
   try{ f = (acctLocal().fav || {}).club; }catch(e){}
   if(!f) try{ f = (mine().fav || {}).club; }catch(e){}
-  return f && clubExpertReady(bankClub(f)) ? f : null;
+  const c = f ? bankClub(f) : null;
+  return clubExpertReady(c) ? c[0] : null;
 }
 /* THE PICKER: only clubs at the bar. Your club first, then what you have under way and what you've won, then every country,
    yours first. */

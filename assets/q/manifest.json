@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05",
+ "built": "2026-11-06",
  "decks": [
   {
    "id": "classic",
@@ -7,9 +7,9 @@
    "kind": "classic",
    "cc": null,
    "file": "assets/q/classic.json",
-   "v": "fe2829b6",
+   "v": "72903a2b",
    "n": 7555,
-   "mc": 4533,
+   "mc": 4534,
    "tiers": {
     "easy": 1475,
     "normal": 1502,
@@ -41,15 +41,15 @@
    "kind": "league",
    "cc": "nl",
    "file": "assets/q/eredivisie.json",
-   "v": "b143ff5d",
-   "n": 2771,
-   "mc": 2043,
+   "v": "918bc446",
+   "n": 2827,
+   "mc": 2099,
    "tiers": {
-    "easy": 485,
-    "normal": 583,
-    "hard": 688,
-    "extreme": 578,
-    "ball": 437
+    "easy": 488,
+    "normal": 602,
+    "hard": 706,
+    "extreme": 587,
+    "ball": 444
    }
   },
   {
@@ -92,15 +92,15 @@
    "kind": "league",
    "cc": "de",
    "file": "assets/q/bundesliga.json",
-   "v": "1717551e",
-   "n": 1936,
-   "mc": 1729,
+   "v": "48d9e46f",
+   "n": 1994,
+   "mc": 1787,
    "tiers": {
-    "easy": 297,
-    "normal": 320,
-    "hard": 595,
-    "extreme": 449,
-    "ball": 275
+    "easy": 309,
+    "normal": 330,
+    "hard": 612,
+    "extreme": 461,
+    "ball": 282
    }
   },
   {
@@ -126,12 +126,12 @@
    "kind": "league",
    "cc": "be",
    "file": "assets/q/belgian.json",
-   "v": "46b43be5",
-   "n": 2118,
-   "mc": 1848,
+   "v": "b04a6a63",
+   "n": 2119,
+   "mc": 1849,
    "tiers": {
     "easy": 329,
-    "normal": 380,
+    "normal": 381,
     "hard": 638,
     "extreme": 500,
     "ball": 271
@@ -177,15 +177,15 @@
    "kind": "league",
    "cc": "de",
    "file": "assets/q/bundesliga2.json",
-   "v": "0d8ba3af",
-   "n": 332,
-   "mc": 248,
+   "v": "fb8fc0f2",
+   "n": 438,
+   "mc": 354,
    "tiers": {
-    "easy": 30,
-    "normal": 54,
-    "hard": 105,
-    "extreme": 108,
-    "ball": 35
+    "easy": 52,
+    "normal": 83,
+    "hard": 129,
+    "extreme": 125,
+    "ball": 49
    }
   },
   {
@@ -228,15 +228,15 @@
    "kind": "league",
    "cc": "nl",
    "file": "assets/q/eerste.json",
-   "v": "98141cf9",
-   "n": 716,
-   "mc": 410,
+   "v": "f86b6be7",
+   "n": 746,
+   "mc": 440,
    "tiers": {
-    "easy": 96,
-    "normal": 179,
-    "hard": 193,
-    "extreme": 159,
-    "ball": 89
+    "easy": 104,
+    "normal": 181,
+    "hard": 201,
+    "extreme": 169,
+    "ball": 91
    }
   },
   {
@@ -1397,15 +1397,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-ajax.json",
-   "v": "3bd56c0d",
-   "n": 767,
-   "mc": 505,
+   "v": "704475e1",
+   "n": 771,
+   "mc": 509,
    "tiers": {
     "easy": 122,
-    "normal": 178,
+    "normal": 179,
     "hard": 191,
-    "extreme": 138,
-    "ball": 138
+    "extreme": 140,
+    "ball": 139
    }
   },
   {
@@ -1414,15 +1414,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-psv.json",
-   "v": "aa79c40d",
-   "n": 442,
-   "mc": 309,
+   "v": "5b3feea4",
+   "n": 445,
+   "mc": 312,
    "tiers": {
     "easy": 67,
     "normal": 97,
     "hard": 113,
     "extreme": 100,
-    "ball": 65
+    "ball": 68
    }
   },
   {
@@ -1431,15 +1431,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-feyenoord.json",
-   "v": "a321a2dd",
-   "n": 378,
-   "mc": 219,
+   "v": "4c653c30",
+   "n": 380,
+   "mc": 221,
    "tiers": {
     "easy": 60,
     "normal": 96,
     "hard": 87,
     "extreme": 69,
-    "ball": 66
+    "ball": 68
    }
   },
   {
@@ -1448,14 +1448,14 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-az-alkmaar.json",
-   "v": "2eec28b1",
-   "n": 165,
-   "mc": 149,
+   "v": "60dfa6cc",
+   "n": 167,
+   "mc": 151,
    "tiers": {
     "easy": 31,
     "normal": 38,
     "hard": 34,
-    "extreme": 32,
+    "extreme": 34,
     "ball": 30
    }
   },
@@ -1465,14 +1465,14 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-twente.json",
-   "v": "51b96f24",
-   "n": 173,
-   "mc": 156,
+   "v": "92766a10",
+   "n": 175,
+   "mc": 158,
    "tiers": {
     "easy": 28,
-    "normal": 36,
+    "normal": 37,
     "hard": 50,
-    "extreme": 31,
+    "extreme": 32,
     "ball": 28
    }
   },
@@ -1482,15 +1482,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-fc-utrecht.json",
-   "v": "63ff5c4d",
-   "n": 143,
-   "mc": 121,
+   "v": "4b99567a",
+   "n": 144,
+   "mc": 122,
    "tiers": {
     "easy": 27,
     "normal": 29,
     "hard": 33,
     "extreme": 30,
-    "ball": 24
+    "ball": 25
    }
   },
   {
@@ -1516,15 +1516,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-sparta-rotterdam.json",
-   "v": "83019844",
-   "n": 137,
-   "mc": 115,
+   "v": "1d859fe7",
+   "n": 139,
+   "mc": 117,
    "tiers": {
     "easy": 23,
     "normal": 26,
     "hard": 32,
     "extreme": 29,
-    "ball": 27
+    "ball": 29
    }
   },
   {
@@ -1567,15 +1567,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-pec-zwolle.json",
-   "v": "bf9da133",
-   "n": 131,
-   "mc": 104,
+   "v": "a8e37ffd",
+   "n": 132,
+   "mc": 105,
    "tiers": {
     "easy": 22,
     "normal": 28,
     "hard": 32,
     "extreme": 29,
-    "ball": 20
+    "ball": 21
    }
   },
   {
@@ -1584,15 +1584,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-fc-groningen.json",
-   "v": "52c5b306",
-   "n": 137,
-   "mc": 115,
+   "v": "021ab9df",
+   "n": 138,
+   "mc": 116,
    "tiers": {
     "easy": 23,
     "normal": 26,
     "hard": 35,
     "extreme": 30,
-    "ball": 23
+    "ball": 24
    }
   },
   {
@@ -1601,15 +1601,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-fortuna-sittard.json",
-   "v": "2a2f8fcc",
-   "n": 127,
-   "mc": 116,
+   "v": "a49d0456",
+   "n": 152,
+   "mc": 141,
    "tiers": {
     "easy": 20,
-    "normal": 25,
-    "hard": 33,
-    "extreme": 29,
-    "ball": 20
+    "normal": 26,
+    "hard": 42,
+    "extreme": 40,
+    "ball": 24
    }
   },
   {
@@ -1618,15 +1618,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-telstar.json",
-   "v": "d81724eb",
-   "n": 130,
-   "mc": 109,
+   "v": "ae3ce499",
+   "n": 134,
+   "mc": 113,
    "tiers": {
     "easy": 21,
     "normal": 27,
-    "hard": 33,
-    "extreme": 28,
-    "ball": 21
+    "hard": 34,
+    "extreme": 30,
+    "ball": 22
    }
   },
   {
@@ -1635,7 +1635,7 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-nec-nijmegen.json",
-   "v": "539f367c",
+   "v": "9c280096",
    "n": 143,
    "mc": 121,
    "tiers": {
@@ -1652,15 +1652,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-ado-den-haag.json",
-   "v": "212efd66",
-   "n": 135,
-   "mc": 117,
+   "v": "34396e05",
+   "n": 138,
+   "mc": 120,
    "tiers": {
-    "easy": 24,
+    "easy": 25,
     "normal": 26,
     "hard": 31,
-    "extreme": 30,
-    "ball": 24
+    "extreme": 31,
+    "ball": 25
    }
   },
   {
@@ -1669,14 +1669,14 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-sc-cambuur.json",
-   "v": "3bfa8500",
-   "n": 129,
-   "mc": 111,
+   "v": "a5aca68b",
+   "n": 130,
+   "mc": 112,
    "tiers": {
     "easy": 23,
     "normal": 23,
     "hard": 33,
-    "extreme": 26,
+    "extreme": 27,
     "ball": 24
    }
   },
@@ -1686,15 +1686,66 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/club-willem-ii.json",
-   "v": "2b2db51a",
-   "n": 126,
-   "mc": 103,
+   "v": "f5be2b82",
+   "n": 127,
+   "mc": 104,
    "tiers": {
     "easy": 25,
     "normal": 25,
     "hard": 30,
-    "extreme": 27,
+    "extreme": 28,
     "ball": 19
+   }
+  },
+  {
+   "id": "club-vvv-venlo",
+   "label": "VVV Venlo",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-vvv-venlo.json",
+   "v": "2f67360c",
+   "n": 157,
+   "mc": 137,
+   "tiers": {
+    "easy": 8,
+    "normal": 24,
+    "hard": 51,
+    "extreme": 46,
+    "ball": 28
+   }
+  },
+  {
+   "id": "club-mvv-maastricht",
+   "label": "MVV Maastricht",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-mvv-maastricht.json",
+   "v": "b5f2ddd8",
+   "n": 153,
+   "mc": 124,
+   "tiers": {
+    "easy": 13,
+    "normal": 18,
+    "hard": 38,
+    "extreme": 45,
+    "ball": 39
+   }
+  },
+  {
+   "id": "club-roda-jc",
+   "label": "Roda JC",
+   "kind": "view",
+   "cc": "nl",
+   "file": "assets/q/club-roda-jc.json",
+   "v": "5f06c127",
+   "n": 152,
+   "mc": 121,
+   "tiers": {
+    "easy": 8,
+    "normal": 17,
+    "hard": 51,
+    "extreme": 49,
+    "ball": 27
    }
   },
   {
@@ -1703,15 +1754,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/ere-1956-1969.json",
-   "v": "a3b3388a",
-   "n": 211,
-   "mc": 150,
+   "v": "593cf2f8",
+   "n": 223,
+   "mc": 162,
    "tiers": {
-    "easy": 31,
-    "normal": 41,
-    "hard": 56,
-    "extreme": 55,
-    "ball": 28
+    "easy": 32,
+    "normal": 46,
+    "hard": 58,
+    "extreme": 57,
+    "ball": 30
    }
   },
   {
@@ -1720,14 +1771,14 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/ere-1970s.json",
-   "v": "4c482561",
-   "n": 237,
-   "mc": 169,
+   "v": "33e78f76",
+   "n": 244,
+   "mc": 176,
    "tiers": {
     "easy": 30,
-    "normal": 53,
-    "hard": 54,
-    "extreme": 61,
+    "normal": 54,
+    "hard": 57,
+    "extreme": 64,
     "ball": 39
    }
   },
@@ -1737,15 +1788,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/ere-1980s.json",
-   "v": "bcc9a836",
-   "n": 232,
-   "mc": 175,
+   "v": "49532d9e",
+   "n": 237,
+   "mc": 180,
    "tiers": {
     "easy": 33,
-    "normal": 45,
-    "hard": 67,
-    "extreme": 48,
-    "ball": 39
+    "normal": 47,
+    "hard": 68,
+    "extreme": 49,
+    "ball": 40
    }
   },
   {
@@ -1754,15 +1805,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/ere-1990s.json",
-   "v": "40bf3a01",
-   "n": 279,
-   "mc": 210,
+   "v": "3d980135",
+   "n": 292,
+   "mc": 223,
    "tiers": {
-    "easy": 61,
-    "normal": 58,
-    "hard": 71,
-    "extreme": 56,
-    "ball": 33
+    "easy": 62,
+    "normal": 63,
+    "hard": 75,
+    "extreme": 58,
+    "ball": 34
    }
   },
   {
@@ -1771,14 +1822,14 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/ere-2000s.json",
-   "v": "967431c0",
-   "n": 415,
-   "mc": 323,
+   "v": "86864ee4",
+   "n": 423,
+   "mc": 331,
    "tiers": {
-    "easy": 65,
-    "normal": 88,
-    "hard": 117,
-    "extreme": 88,
+    "easy": 66,
+    "normal": 90,
+    "hard": 121,
+    "extreme": 89,
     "ball": 57
    }
   },
@@ -1788,13 +1839,13 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/ere-2010s.json",
-   "v": "e480cc74",
-   "n": 724,
-   "mc": 581,
+   "v": "0a4d3868",
+   "n": 726,
+   "mc": 583,
    "tiers": {
     "easy": 84,
     "normal": 181,
-    "hard": 200,
+    "hard": 202,
     "extreme": 168,
     "ball": 91
    }
@@ -1805,15 +1856,15 @@
    "kind": "view",
    "cc": "nl",
    "file": "assets/q/ere-2020s.json",
-   "v": "ec82a6b4",
-   "n": 396,
-   "mc": 299,
+   "v": "b8d7c20d",
+   "n": 398,
+   "mc": 301,
    "tiers": {
     "easy": 90,
-    "normal": 109,
+    "normal": 110,
     "hard": 89,
     "extreme": 54,
-    "ball": 54
+    "ball": 55
    }
   },
   {
@@ -1822,7 +1873,7 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-anderlecht.json",
-   "v": "219db126",
+   "v": "21ce64ea",
    "n": 256,
    "mc": 217,
    "tiers": {
@@ -1839,7 +1890,7 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-club-brugge.json",
-   "v": "94e718e1",
+   "v": "68a99885",
    "n": 222,
    "mc": 189,
    "tiers": {
@@ -1873,15 +1924,15 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-genk.json",
-   "v": "4209b564",
-   "n": 127,
-   "mc": 112,
+   "v": "6376d672",
+   "n": 153,
+   "mc": 138,
    "tiers": {
-    "easy": 21,
-    "normal": 20,
-    "hard": 39,
-    "extreme": 27,
-    "ball": 20
+    "easy": 24,
+    "normal": 27,
+    "hard": 44,
+    "extreme": 37,
+    "ball": 21
    }
   },
   {
@@ -1890,14 +1941,14 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-gent.json",
-   "v": "39fd295f",
-   "n": 114,
-   "mc": 103,
+   "v": "2c0c0275",
+   "n": 116,
+   "mc": 105,
    "tiers": {
     "easy": 14,
     "normal": 16,
     "hard": 38,
-    "extreme": 28,
+    "extreme": 30,
     "ball": 18
    }
   },
@@ -1924,14 +1975,14 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-standard-liege.json",
-   "v": "19aa4891",
-   "n": 132,
-   "mc": 122,
+   "v": "a91d8a14",
+   "n": 151,
+   "mc": 141,
    "tiers": {
     "easy": 15,
-    "normal": 24,
-    "hard": 38,
-    "extreme": 26,
+    "normal": 26,
+    "hard": 48,
+    "extreme": 33,
     "ball": 29
    }
   },
@@ -1941,15 +1992,15 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-mechelen.json",
-   "v": "ba5dcfc7",
-   "n": 111,
-   "mc": 103,
+   "v": "e486a1af",
+   "n": 112,
+   "mc": 104,
    "tiers": {
     "easy": 13,
     "normal": 17,
     "hard": 34,
     "extreme": 27,
-    "ball": 20
+    "ball": 21
    }
   },
   {
@@ -1958,15 +2009,15 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-cercle-brugge.json",
-   "v": "d28e59ae",
-   "n": 101,
-   "mc": 94,
+   "v": "46d9a104",
+   "n": 102,
+   "mc": 95,
    "tiers": {
     "easy": 12,
     "normal": 16,
     "hard": 33,
     "extreme": 24,
-    "ball": 16
+    "ball": 17
    }
   },
   {
@@ -2009,7 +2060,7 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-charleroi.json",
-   "v": "c142844c",
+   "v": "9d13498f",
    "n": 98,
    "mc": 96,
    "tiers": {
@@ -2026,15 +2077,15 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-sint-truidense.json",
-   "v": "472518e1",
-   "n": 104,
-   "mc": 103,
+   "v": "ea32776c",
+   "n": 150,
+   "mc": 149,
    "tiers": {
     "easy": 13,
-    "normal": 15,
-    "hard": 35,
-    "extreme": 26,
-    "ball": 15
+    "normal": 22,
+    "hard": 50,
+    "extreme": 41,
+    "ball": 24
    }
   },
   {
@@ -2077,15 +2128,15 @@
    "kind": "view",
    "cc": "be",
    "file": "assets/q/club-beveren.json",
-   "v": "ac07877a",
-   "n": 93,
-   "mc": 92,
+   "v": "9b5d70be",
+   "n": 95,
+   "mc": 94,
    "tiers": {
     "easy": 9,
     "normal": 12,
     "hard": 29,
     "extreme": 25,
-    "ball": 18
+    "ball": 20
    }
   },
   {
@@ -2128,15 +2179,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-bayern-munchen.json",
-   "v": "40dbb1ed",
-   "n": 615,
-   "mc": 494,
+   "v": "60c3d27a",
+   "n": 621,
+   "mc": 500,
    "tiers": {
     "easy": 156,
-    "normal": 152,
+    "normal": 153,
     "hard": 149,
-    "extreme": 69,
-    "ball": 89
+    "extreme": 71,
+    "ball": 92
    }
   },
   {
@@ -2162,15 +2213,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-bayer-leverkusen.json",
-   "v": "d6c19933",
-   "n": 148,
-   "mc": 141,
+   "v": "1db92d5e",
+   "n": 150,
+   "mc": 143,
    "tiers": {
-    "easy": 22,
+    "easy": 23,
     "normal": 29,
     "hard": 46,
     "extreme": 34,
-    "ball": 17
+    "ball": 18
    }
   },
   {
@@ -2213,15 +2264,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-vfb-stuttgart.json",
-   "v": "5e283221",
-   "n": 154,
-   "mc": 147,
+   "v": "eeb24545",
+   "n": 155,
+   "mc": 148,
    "tiers": {
     "easy": 16,
     "normal": 25,
     "hard": 67,
     "extreme": 34,
-    "ball": 12
+    "ball": 13
    }
   },
   {
@@ -2230,15 +2281,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-freiburg.json",
-   "v": "98e49c74",
-   "n": 106,
-   "mc": 105,
+   "v": "b39322f7",
+   "n": 108,
+   "mc": 107,
    "tiers": {
     "easy": 14,
     "normal": 15,
     "hard": 37,
     "extreme": 25,
-    "ball": 15
+    "ball": 17
    }
   },
   {
@@ -2247,15 +2298,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-borussia-monchengladbach.json",
-   "v": "8d2cc54f",
-   "n": 118,
-   "mc": 111,
+   "v": "beece5ed",
+   "n": 127,
+   "mc": 120,
    "tiers": {
     "easy": 15,
     "normal": 18,
     "hard": 39,
-    "extreme": 28,
-    "ball": 18
+    "extreme": 33,
+    "ball": 22
    }
   },
   {
@@ -2281,15 +2332,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-werder-bremen.json",
-   "v": "a3764847",
-   "n": 117,
-   "mc": 108,
+   "v": "67c5fcd6",
+   "n": 123,
+   "mc": 114,
    "tiers": {
-    "easy": 14,
-    "normal": 20,
+    "easy": 15,
+    "normal": 23,
     "hard": 42,
-    "extreme": 26,
-    "ball": 15
+    "extreme": 27,
+    "ball": 16
    }
   },
   {
@@ -2332,15 +2383,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-augsburg.json",
-   "v": "ab7f55e8",
-   "n": 101,
-   "mc": 100,
+   "v": "ff3fa81d",
+   "n": 104,
+   "mc": 103,
    "tiers": {
     "easy": 11,
     "normal": 15,
     "hard": 37,
-    "extreme": 27,
-    "ball": 11
+    "extreme": 29,
+    "ball": 12
    }
   },
   {
@@ -2349,15 +2400,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-koln.json",
-   "v": "03ea6832",
-   "n": 117,
-   "mc": 113,
+   "v": "bfeee7f0",
+   "n": 119,
+   "mc": 115,
    "tiers": {
     "easy": 16,
     "normal": 17,
     "hard": 36,
-    "extreme": 30,
-    "ball": 18
+    "extreme": 31,
+    "ball": 19
    }
   },
   {
@@ -2366,15 +2417,15 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-hamburger-sv.json",
-   "v": "e8b094dc",
-   "n": 125,
-   "mc": 122,
+   "v": "71fa440a",
+   "n": 127,
+   "mc": 124,
    "tiers": {
     "easy": 15,
     "normal": 15,
     "hard": 47,
-    "extreme": 28,
-    "ball": 20
+    "extreme": 29,
+    "ball": 21
    }
   },
   {
@@ -2383,14 +2434,14 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-schalke-04.json",
-   "v": "16827d2f",
-   "n": 121,
-   "mc": 112,
+   "v": "7e116a00",
+   "n": 125,
+   "mc": 116,
    "tiers": {
     "easy": 17,
-    "normal": 19,
-    "hard": 38,
-    "extreme": 27,
+    "normal": 21,
+    "hard": 39,
+    "extreme": 28,
     "ball": 20
    }
   },
@@ -2417,15 +2468,49 @@
    "kind": "view",
    "cc": "de",
    "file": "assets/q/club-paderborn.json",
-   "v": "13452e35",
-   "n": 82,
-   "mc": 82,
+   "v": "7654df0c",
+   "n": 83,
+   "mc": 83,
    "tiers": {
     "easy": 6,
     "normal": 14,
     "hard": 29,
     "extreme": 25,
-    "ball": 8
+    "ball": 9
+   }
+  },
+  {
+   "id": "club-alemannia-aachen",
+   "label": "Alemannia Aachen",
+   "kind": "view",
+   "cc": "de",
+   "file": "assets/q/club-alemannia-aachen.json",
+   "v": "f41ffdb6",
+   "n": 162,
+   "mc": 162,
+   "tiers": {
+    "easy": 17,
+    "normal": 25,
+    "hard": 44,
+    "extreme": 46,
+    "ball": 30
+   }
+  },
+  {
+   "id": "club-fortuna-dusseldorf",
+   "label": "Fortuna Düsseldorf",
+   "kind": "view",
+   "cc": "de",
+   "file": "assets/q/club-fortuna-dusseldorf.json",
+   "v": "85389350",
+   "n": 164,
+   "mc": 163,
+   "tiers": {
+    "easy": 18,
+    "normal": 26,
+    "hard": 45,
+    "extreme": 44,
+    "ball": 31
    }
   },
   {
@@ -2502,15 +2587,15 @@
    "kind": "special",
    "cc": null,
    "file": "assets/q/careers.json",
-   "v": "b47637e0",
-   "n": 2729,
-   "mc": 2729,
+   "v": "b54fddaa",
+   "n": 3215,
+   "mc": 3215,
    "tiers": {
-    "easy": 267,
-    "normal": 693,
-    "hard": 998,
-    "extreme": 771,
-    "ball": 0
+    "easy": 272,
+    "normal": 744,
+    "hard": 1156,
+    "extreme": 948,
+    "ball": 95
    }
   },
   {
@@ -2655,15 +2740,15 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/bundesliga-1960s.json",
-   "v": "636de6b8",
-   "n": 91,
-   "mc": 79,
+   "v": "a50cb765",
+   "n": 103,
+   "mc": 91,
    "tiers": {
-    "easy": 8,
+    "easy": 10,
     "normal": 8,
-    "hard": 27,
-    "extreme": 32,
-    "ball": 16
+    "hard": 33,
+    "extreme": 34,
+    "ball": 18
    }
   },
   {
@@ -2672,15 +2757,15 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/bundesliga-1970s.json",
-   "v": "10e47dc6",
-   "n": 116,
-   "mc": 104,
+   "v": "f6b3dc96",
+   "n": 138,
+   "mc": 126,
    "tiers": {
-    "easy": 7,
-    "normal": 20,
-    "hard": 35,
-    "extreme": 28,
-    "ball": 26
+    "easy": 11,
+    "normal": 24,
+    "hard": 41,
+    "extreme": 34,
+    "ball": 28
    }
   },
   {
@@ -2689,15 +2774,15 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/bundesliga-1980s.json",
-   "v": "22d9f532",
-   "n": 103,
-   "mc": 95,
+   "v": "9f5a4367",
+   "n": 113,
+   "mc": 105,
    "tiers": {
-    "easy": 4,
-    "normal": 13,
-    "hard": 28,
-    "extreme": 40,
-    "ball": 18
+    "easy": 6,
+    "normal": 15,
+    "hard": 29,
+    "extreme": 43,
+    "ball": 20
    }
   },
   {
@@ -2706,13 +2791,13 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/bundesliga-1990s.json",
-   "v": "ac2b2a4c",
-   "n": 167,
-   "mc": 143,
+   "v": "98f1a81c",
+   "n": 168,
+   "mc": 144,
    "tiers": {
     "easy": 5,
     "normal": 19,
-    "hard": 59,
+    "hard": 60,
     "extreme": 51,
     "ball": 33
    }
@@ -2723,14 +2808,14 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/bundesliga-2000s.json",
-   "v": "c832b0d0",
-   "n": 311,
-   "mc": 277,
+   "v": "162d2482",
+   "n": 316,
+   "mc": 282,
    "tiers": {
-    "easy": 19,
-    "normal": 47,
-    "hard": 102,
-    "extreme": 101,
+    "easy": 20,
+    "normal": 48,
+    "hard": 104,
+    "extreme": 102,
     "ball": 42
    }
   },
@@ -2740,15 +2825,15 @@
    "kind": "view",
    "cc": null,
    "file": "assets/q/bundesliga-2010s.json",
-   "v": "1230610a",
-   "n": 552,
-   "mc": 518,
+   "v": "d0447fa5",
+   "n": 555,
+   "mc": 521,
    "tiers": {
     "easy": 82,
-    "normal": 99,
+    "normal": 101,
     "hard": 209,
     "extreme": 101,
-    "ball": 61
+    "ball": 62
    }
   },
   {
@@ -2927,13 +3012,13 @@
    "kind": "view",
    "cc": "en",
    "file": "assets/q/club-arsenal.json",
-   "v": "70976272",
-   "n": 455,
-   "mc": 374,
+   "v": "f20c3801",
+   "n": 456,
+   "mc": 375,
    "tiers": {
     "easy": 102,
     "normal": 130,
-    "hard": 115,
+    "hard": 116,
     "extreme": 43,
     "ball": 65
    }
@@ -2944,14 +3029,14 @@
    "kind": "view",
    "cc": "en",
    "file": "assets/q/club-aston-villa.json",
-   "v": "51f30fc4",
-   "n": 141,
-   "mc": 137,
+   "v": "c64b6268",
+   "n": 142,
+   "mc": 138,
    "tiers": {
     "easy": 31,
     "normal": 28,
     "hard": 41,
-    "extreme": 26,
+    "extreme": 27,
     "ball": 15
    }
   },
@@ -3097,15 +3182,15 @@
    "kind": "view",
    "cc": "en",
    "file": "assets/q/club-liverpool.json",
-   "v": "4f59c000",
-   "n": 554,
-   "mc": 451,
+   "v": "d534f106",
+   "n": 557,
+   "mc": 454,
    "tiers": {
     "easy": 157,
-    "normal": 168,
+    "normal": 169,
     "hard": 105,
-    "extreme": 58,
-    "ball": 66
+    "extreme": 59,
+    "ball": 67
    }
   },
   {
@@ -3114,15 +3199,15 @@
    "kind": "view",
    "cc": "en",
    "file": "assets/q/club-manchester-city.json",
-   "v": "5a335ff7",
-   "n": 315,
-   "mc": 239,
+   "v": "1354de14",
+   "n": 317,
+   "mc": 241,
    "tiers": {
     "easy": 102,
     "normal": 78,
-    "hard": 67,
+    "hard": 68,
     "extreme": 35,
-    "ball": 33
+    "ball": 34
    }
   },
   {
@@ -3199,14 +3284,14 @@
    "kind": "view",
    "cc": "en",
    "file": "assets/q/club-tottenham.json",
-   "v": "b67b3772",
-   "n": 277,
-   "mc": 204,
+   "v": "f9eef992",
+   "n": 280,
+   "mc": 207,
    "tiers": {
     "easy": 62,
     "normal": 81,
-    "hard": 66,
-    "extreme": 33,
+    "hard": 67,
+    "extreme": 35,
     "ball": 35
    }
   },
@@ -3301,15 +3386,15 @@
    "kind": "view",
    "cc": "es",
    "file": "assets/q/club-atletico-madrid.json",
-   "v": "22b57243",
-   "n": 270,
-   "mc": 203,
+   "v": "60fcf6a1",
+   "n": 272,
+   "mc": 205,
    "tiers": {
     "easy": 51,
     "normal": 61,
-    "hard": 89,
+    "hard": 90,
     "extreme": 44,
-    "ball": 25
+    "ball": 26
    }
   },
   {
@@ -3318,15 +3403,15 @@
    "kind": "view",
    "cc": "es",
    "file": "assets/q/club-barcelona.json",
-   "v": "3649e6f2",
-   "n": 846,
-   "mc": 626,
+   "v": "48ac81d0",
+   "n": 847,
+   "mc": 627,
    "tiers": {
     "easy": 231,
     "normal": 211,
     "hard": 183,
     "extreme": 92,
-    "ball": 129
+    "ball": 130
    }
   },
   {
@@ -3403,15 +3488,15 @@
    "kind": "view",
    "cc": "es",
    "file": "assets/q/club-levante.json",
-   "v": "d6cc15d6",
-   "n": 14,
-   "mc": 12,
+   "v": "b3f3337a",
+   "n": 16,
+   "mc": 14,
    "tiers": {
     "easy": 1,
     "normal": 3,
     "hard": 7,
-    "extreme": 2,
-    "ball": 1
+    "extreme": 3,
+    "ball": 2
    }
   },
   {
@@ -3471,14 +3556,14 @@
    "kind": "view",
    "cc": "es",
    "file": "assets/q/club-real-madrid.json",
-   "v": "ea6dc7d5",
-   "n": 873,
-   "mc": 636,
+   "v": "cb8dda3f",
+   "n": 874,
+   "mc": 637,
    "tiers": {
     "easy": 230,
     "normal": 223,
     "hard": 185,
-    "extreme": 109,
+    "extreme": 110,
     "ball": 126
    }
   },
@@ -3539,7 +3624,7 @@
    "kind": "view",
    "cc": "es",
    "file": "assets/q/club-villarreal.json",
-   "v": "81a2d439",
+   "v": "34dc6ae1",
    "n": 96,
    "mc": 84,
    "tiers": {
@@ -3573,14 +3658,14 @@
    "kind": "view",
    "cc": "es",
    "file": "assets/q/club-deportivo-la-coruna.json",
-   "v": "98b6388c",
-   "n": 83,
-   "mc": 79,
+   "v": "8995415b",
+   "n": 84,
+   "mc": 80,
    "tiers": {
     "easy": 8,
     "normal": 13,
     "hard": 23,
-    "extreme": 27,
+    "extreme": 28,
     "ball": 12
    }
   },
@@ -3675,15 +3760,15 @@
    "kind": "view",
    "cc": "it",
    "file": "assets/q/club-fiorentina.json",
-   "v": "d2d4b4b8",
-   "n": 95,
-   "mc": 86,
+   "v": "39d91ec6",
+   "n": 96,
+   "mc": 87,
    "tiers": {
     "easy": 14,
     "normal": 20,
     "hard": 23,
     "extreme": 21,
-    "ball": 17
+    "ball": 18
    }
   },
   {
@@ -3726,14 +3811,14 @@
    "kind": "view",
    "cc": "it",
    "file": "assets/q/club-juventus.json",
-   "v": "e4458bf5",
-   "n": 457,
-   "mc": 347,
+   "v": "39e8c3d7",
+   "n": 458,
+   "mc": 348,
    "tiers": {
     "easy": 97,
     "normal": 124,
     "hard": 118,
-    "extreme": 59,
+    "extreme": 60,
     "ball": 59
    }
   },
@@ -3777,15 +3862,15 @@
    "kind": "view",
    "cc": "it",
    "file": "assets/q/club-milan.json",
-   "v": "6daac39c",
-   "n": 312,
-   "mc": 248,
+   "v": "de5731bd",
+   "n": 316,
+   "mc": 252,
    "tiers": {
     "easy": 69,
     "normal": 87,
-    "hard": 68,
-    "extreme": 53,
-    "ball": 35
+    "hard": 69,
+    "extreme": 54,
+    "ball": 37
    }
   },
   {
@@ -3845,14 +3930,14 @@
    "kind": "view",
    "cc": "it",
    "file": "assets/q/club-sassuolo.json",
-   "v": "b092c9ec",
-   "n": 14,
-   "mc": 12,
+   "v": "f80223d6",
+   "n": 15,
+   "mc": 13,
    "tiers": {
     "easy": 2,
     "normal": 3,
     "hard": 3,
-    "extreme": 4,
+    "extreme": 5,
     "ball": 2
    }
   },
@@ -3947,14 +4032,14 @@
    "kind": "view",
    "cc": "pt",
    "file": "assets/q/club-benfica.json",
-   "v": "75b98892",
-   "n": 402,
-   "mc": 245,
+   "v": "b652469e",
+   "n": 403,
+   "mc": 246,
    "tiers": {
     "easy": 58,
     "normal": 88,
     "hard": 121,
-    "extreme": 67,
+    "extreme": 68,
     "ball": 68
    }
   },

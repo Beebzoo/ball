@@ -1,0 +1,286 @@
+/* 501 Match only: the loupe, the flying darts, the lit beds, the score pops and the
+   "on a finish" bits. Owned by the match work; loaded after arena.css. */
+
+/* the loupe: a zoomed circle of the board around the aim, above the finger */
+.loupe{ position: absolute; z-index: 22; width: 136px; height: 136px; border-radius: 50%; overflow: hidden; pointer-events: none;
+  background: #0d0b09; border: 3px solid var(--gold); box-shadow: 0 10px 30px #000c, 0 0 0 1px #000, inset 0 0 18px #000a; }
+.loupe[hidden]{ display: none; }
+.loupe .board.lp{ width: 100%; height: 100%; display: block; }
+.loupe .board.lp .darts{ opacity: .5; }
+.loupe .board.lp .bnum{ display: none; }
+.board.lp .aim .cross circle, .board.lp .aim .cross line{ stroke-width: .5; }
+.board.lp .aim .cross{ filter: drop-shadow(0 0 .4px #000) drop-shadow(0 0 .8px #000); }
+.board.lp .aim .cross circle:first-child{ stroke: var(--gold); }
+.lp-l{ position: absolute; left: 50%; bottom: 7px; transform: translateX(-50%); padding: 1px 8px; border-radius: 999px; background: #000c;
+  font: 800 13px/1.3 var(--f-body); letter-spacing: .04em; color: #fff; white-space: nowrap; }
+
+/* darts that fly in do their own movement (board.js), not the drop-in of the Checkout game */
+.board .dart.fly .dart-in{ animation: none; }
+
+/* the bed a dart scored in flashes; the next checkout bed glows */
+.board .bed path{ fill: currentColor; }
+.board .bed.flash{ color: #fff; pointer-events: none; animation: bedflash .75s ease-out both; }
+@keyframes bedflash{ 0%{ opacity: .75; } 100%{ opacity: 0; } }
+.board .bed.tgt{ color: var(--gold); pointer-events: none; animation: bedglow 1.2s ease-in-out infinite alternate; }
+.board .bed.tgt path{ stroke: var(--gold); stroke-width: 1.4; }
+@keyframes bedglow{ from{ opacity: .15; } to{ opacity: .5; } }
+
+/* the board takes the hit */
+.m-board .board.shake{ animation: bshake .24s cubic-bezier(.3,.7,.4,1); }
+@keyframes bshake{ 0%{ transform: translate(0, 0); } 20%{ transform: translate(1.5px, -2px) rotate(.3deg); } 45%{ transform: translate(-1.5px, 1px) rotate(-.2deg); } 70%{ transform: translate(.6px, -.4px); } 100%{ transform: none; } }
+
+/* the score of a dart pops up from where it landed */
+.m-pop{ position: absolute; z-index: 21; pointer-events: none; text-align: center; transform: translate(-50%, -130%); animation: m-pop .95s cubic-bezier(.2,.9,.3,1) both; white-space: nowrap; }
+.m-pop b{ display: block; font: 400 28px/1 var(--f-head); letter-spacing: .03em; color: #fff; text-shadow: 0 2px 0 #000, 0 0 12px #000; }
+.m-pop span{ display: block; font: 800 14px/1.1 var(--f-body); color: var(--gold); text-shadow: 0 1px 0 #000, 0 0 8px #000; }
+.m-pop.big b{ color: var(--gold); font-size: 34px; }
+.m-pop.miss b{ color: var(--dim); font-size: 22px; }
+.m-pop.bo b{ color: var(--red); font-size: 24px; }
+@keyframes m-pop{ 0%{ opacity: 0; transform: translate(-50%, -100%) scale(.5); } 18%{ opacity: 1; transform: translate(-50%, -130%) scale(1.12); } 70%{ opacity: 1; transform: translate(-50%, -150%) scale(1); } 100%{ opacity: 0; transform: translate(-50%, -175%) scale(.95); } }
+
+/* aim chips: the one you locked */
+.aimchips button.on{ background: var(--gold); border-color: var(--gold); color: #1a140f; }
+.aimchips button:disabled{ opacity: .5; }
+.slots span.bo{ color: var(--red); font-size: 13px; }
+
+/* on a finish: the route big above the slots */
+.m-fin{ text-align: center; }
+.m-fin.show{ margin-top: 4px; animation: in .3s both; }
+.m-fin .lbl{ color: var(--gold); }
+.m-fin div{ display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 2px; }
+.m-fin b{ font: 400 30px/1.1 var(--f-head); letter-spacing: .03em; color: var(--cream); opacity: .7; }
+.m-fin b.now{ color: var(--gold); opacity: 1; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px; }
+.m-fin i{ font-style: normal; color: var(--dim); }
+
+/* the pressure question (a visit that starts on a finish) */
+.sheet.pressure{ border-top: 2px solid var(--gold); box-shadow: 0 -20px 60px #000c, 0 -2px 30px #f2c14e33; }
+.pq{ display: flex; align-items: baseline; gap: 10px; margin: 2px 0 6px; flex-wrap: wrap; }
+.pq span{ font: 800 11px var(--f-body); letter-spacing: .14em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: var(--red); color: #fff; align-self: center; }
+.pq b{ font: 400 34px/1 var(--f-chalk); color: var(--chalk); }
+.pq em{ font: 400 24px/1 var(--f-head); font-style: normal; letter-spacing: .03em; color: var(--gold); }
+.st td small{ font: 600 11px var(--f-body); color: #cfe6d877; }
+/* pops and the loupe may poke past the board's sides: never a sideways scroll */
+/* clip score pops at the screen edge, not at the column (the board runs to the edges on a phone) */
+.screen.s-match{ overflow-x: clip; }
+
+/* ---------- the breathing hand: a ring around the crosshair swells and settles; at the
+   still point it tightens and turns gold (GOOD), its core is PERFECT ---------- */
+.board .aim .cross circle.breath{ display: none; fill: none; stroke: #ffffffa0; stroke-width: 1.3; stroke-dasharray: 3 2.4; transition: stroke .08s; }
+.board.lp .aim .cross circle.breath{ stroke-width: .45; stroke-dasharray: 1 .8; }
+.board .aim.breathe .cross circle.breath{ display: inline; }
+.board .aim.win1 .cross circle.breath{ stroke: var(--gold); stroke-dasharray: none; }
+.board .aim.win2 .cross circle.breath{ stroke: #fff3b0; stroke-dasharray: none; stroke-width: 2.4; filter: drop-shadow(0 0 3px #ffc94a) drop-shadow(0 0 6px #ffc94a); }
+.board.lp .aim.win2 .cross circle.breath{ stroke-width: .8; filter: drop-shadow(0 0 1px #ffc94a); }
+.board .aim.win2 .cross .c0{ fill: var(--gold); }
+.board .aim.tired .cross circle.breath{ stroke: #ff8a93; }
+/* aim point on another dart: blocked */
+.board .aim.blocked .cross circle, .board .aim.blocked .cross line{ stroke: #ff6b77; }
+.lp-l.blk{ background: #8c1420e6; }
+/* nerves on a double: a reddish crosshair; on fire: gold */
+.board .aim.nerves .cross line{ stroke: #ffb3b9; }
+.board .aim.fire .cross line, .board .aim.fire .cross circle:first-child{ stroke: var(--gold); }
+.handtag .nv{ margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: #d22a37; color: #fff; }
+.handtag .fi{ margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: linear-gradient(90deg, #ff8a3a, #f2c14e); color: #1a1008; }
+.h4{ color: #9fdcff; }
+.handtag.h4{ background: #4da3ff33; color: #cfeeff; }
+
+/* the score bug: momentum pips, "last" never truncated, on fire glow */
+#app.s-match .sbp .sbx .mpips{ flex: none; display: inline-flex; gap: 2px; }
+#app.s-match .sbp .sbx .mpips b{ width: 6px; height: 9px; border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%; background: linear-gradient(0deg, #ff6a2a, #ffd36b); box-shadow: 0 0 4px #ff8a3a; }
+#app.s-match .sbp .sbx .ag{ overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+#app.s-match .sbp .sbx .last{ flex: none; font-weight: 800; color: #d8d6e6; }
+#app.s-match .sbp.fire .nm{ text-shadow: 0 0 10px #ff8a3a; }
+
+/* the chyron over the board: for the maximum / match dart / nine-dart watch */
+.m-chy{ position: absolute; left: 50%; top: 2px; z-index: 21; transform: translate(-50%, -8px); opacity: 0; pointer-events: none; white-space: nowrap;
+  padding: 4px 14px; border-radius: 4px; font: 400 18px/1.1 var(--f-head); letter-spacing: .08em; text-transform: uppercase;
+  background: linear-gradient(180deg, #ffe08a, #f2c14e 55%, #d9a228); color: #16110a; box-shadow: 0 6px 18px #000a; transition: opacity .2s, transform .25s; }
+.m-chy.show{ opacity: 1; transform: translate(-50%, 0); animation: chybeat .75s ease-in-out infinite; }
+.m-chy.match{ background: linear-gradient(180deg, #ff5a66, #d22a37); color: #fff; }
+.m-chy.nine{ background: linear-gradient(180deg, #8fd0ff, #3c8fe0); color: #06121f; animation: none; }
+@keyframes chybeat{ 0%, 100%{ box-shadow: 0 6px 18px #000a; } 15%{ box-shadow: 0 6px 18px #000a, 0 0 0 4px #ffc94a55; } }
+/* the slow-motion zoom on the bed for the third dart (transform-origin set from match.js) */
+.m-board .board.big{ transition: transform .65s cubic-bezier(.45, 0, .55, 1); }
+.m-board.zoom .board.big{ transform: scale(1.35); }
+.m-board.unzoom .board.big{ transition-duration: .3s; }
+@media (prefers-reduced-motion: reduce){ .m-board.zoom .board.big{ transform: none; } .m-chy.show{ animation: none; } }
+
+/* score pops: the clean-release tag, off a dart, Robin Hood */
+.m-pop .tag{ display: inline-block; margin-top: 3px; padding: 1px 7px; border-radius: 3px; font: 800 11px/1.3 var(--f-body); font-style: normal; letter-spacing: .14em; }
+.m-pop .tag.t2{ background: linear-gradient(90deg, #ffe08a, #f2c14e); color: #1a1008; box-shadow: 0 0 12px #ffc94a; }
+.m-pop .tag.t1{ background: #ffffffd9; color: #1a1410; }
+.m-pop .tag.t0{ background: #00000099; color: #ffb3b9; }
+.m-pop span.dfl{ color: #ffb3b9; font-size: 12px; }
+.m-pop.robin b{ color: #9be7b0; font-size: 30px; }
+
+/* pick your question (one tap) */
+.sheet.choose .tiers{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+.sheet .tier{ display: grid; gap: 4px; padding: 14px 6px 12px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); text-align: center; color: var(--cream); }
+.sheet .tier b{ font: 400 22px/1 var(--f-head); letter-spacing: .04em; text-transform: uppercase; }
+.sheet .tier small{ font: 600 11.5px/1.25 var(--f-body); color: var(--dim); }
+.sheet .tier.t-easy b{ color: var(--gold); } .sheet .tier.t-medium b{ color: #8fe0b4; } .sheet .tier.t-hard b{ color: #9fdcff; }
+.sheet .tier.last{ border-color: var(--gold); box-shadow: 0 0 0 2px #f2c14e55; }
+.sheet .tier:active{ transform: scale(.96); }
+.sheet .lbl.tq{ margin-top: 14px; }
+.sheet .lbl .tb{ display: inline-block; margin-right: 8px; padding: 1px 7px; border-radius: 3px; font: 800 10.5px/1.4 var(--f-body); font-style: normal; letter-spacing: .12em; text-transform: uppercase; background: #ffffff1c; vertical-align: 1px; }
+.sheet .lbl .tb.t-easy{ color: var(--gold); } .sheet .lbl .tb.t-medium{ color: #8fe0b4; } .sheet .lbl .tb.t-hard{ color: #9fdcff; background: #4da3ff2a; }
+/* the question clock freezes where it was: green for right, red for wrong */
+.clock.ok i{ background: linear-gradient(90deg, #19985a, #8fe0b4); box-shadow: 0 0 10px #19985a88; }
+.clock.no i{ background: linear-gradient(90deg, #d22a37, #ff8a93); box-shadow: none; }
+
+/* the opponent picker: grouped by level */
+.opps .opp-lv{ margin: 12px 0 6px; font: 800 11px var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.opps .opp-lv:first-child{ margin-top: 0; }
+.opp-g{ display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 8px; }
+.opp{ display: grid; gap: 3px; align-content: start; text-align: left; padding: 10px 11px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); color: var(--cream); min-width: 0; }
+.opp .o-n{ display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
+.opp .o-n b{ font: 400 19px/1.05 var(--f-head); letter-spacing: .03em; text-transform: uppercase; }
+.opp .o-n i{ font: 800 10px var(--f-body); font-style: normal; letter-spacing: .1em; color: var(--dim); }
+.opp small{ font: 700 12px var(--f-body); color: var(--dim); }
+.opp em{ font: 500 12px/1.3 var(--f-body); font-style: normal; color: #cfcbe0; }
+.opp.on{ background: linear-gradient(180deg, #fffaf0, #efe2c2); border-color: #fff; color: #1a1410; box-shadow: 0 0 0 2px var(--ac, var(--red)); }
+.opp.on small, .opp.on .o-n i{ color: #6a5b45; } .opp.on em{ color: #3c3226; }
+.opp:active{ transform: scale(.97); }
+
+/* the walk-on card: nickname and the tell */
+.banner.walk .w-nick, .banner.walk .w-tell{ position: relative; z-index: 2; width: fit-content; max-width: min(340px, 92%); margin-left: auto; margin-right: auto; padding: 3px 12px; border-radius: 6px; background: #07081ae0; box-shadow: 0 6px 18px #000a; text-shadow: none; }
+.banner.walk .w-nick{ margin-top: 8px; font: 400 20px var(--f-head); letter-spacing: .06em; text-transform: uppercase; color: var(--gold); }
+.banner.walk .w-tell{ margin-top: 6px; font-size: 14px; line-height: 1.35; color: #d8d6e6; }
+
+/* the end screen: a new personal best */
+.m-pb{ display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: 4px 10px; margin: 0 0 12px; padding: 10px 14px; border-radius: 12px;
+  background: linear-gradient(90deg, #f2c14e26, #f2c14e10); border: 1px solid #f2c14e66; animation: in .4s both; }
+.m-pb span{ font: 800 11px var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.m-pb b{ font: 400 20px var(--f-head); text-transform: uppercase; }
+.m-pb em{ font: 400 22px var(--f-chalk); font-style: normal; color: var(--chalk); }
+
+/* the setup: one line per choice, Game on always in sight */
+.ms .lead{ margin: 2px 0 6px; font-size: 14px; text-wrap: balance; }
+.ms-row{ display: grid; grid-template-columns: 82px minmax(0, 1fr); align-items: center; gap: 8px; padding: 6px 0; }
+.ms-row > span{ font: 800 11px var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.ms-row.wide{ grid-template-columns: minmax(0, 1fr); gap: 5px; }
+.ms-row .chips{ display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; }
+.ms-row .chips button{ display: block; min-height: 44px; padding: 8px 2px; border-radius: 12px; font-size: 14px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 340px){ .ms-row .chips button{ font-size: 12.5px; } }
+.ms-opp{ display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; padding: 8px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); color: var(--cream); text-align: left; }
+.ms-opp b{ font: 400 19px/1.05 var(--f-head); letter-spacing: .03em; text-transform: uppercase; }
+.ms-opp small{ flex: 1; font: 700 12px var(--f-body); color: var(--dim); white-space: nowrap; }
+.ms-opp i{ font: 800 18px/1 var(--f-body); color: var(--gold); transition: transform .15s; }
+.ms-opp.open i{ transform: rotate(90deg); }
+.ms .opps{ padding: 6px 0 4px; }
+.ms-note{ margin: 0; padding: 0 0 4px 90px; font-size: 13px; color: var(--dim); }
+.ms-note b{ color: var(--gold); }
+.ms-go{ position: sticky; bottom: 0; z-index: 4; margin: 6px -16px 0; padding: 12px 16px calc(14px + var(--safe-b)); background: linear-gradient(180deg, #0c0f2200, #0c0f22 16px, #0c0f22 calc(100% - 12px), #0c0f2200); }
+.ms-go .go{ margin-top: 0; }
+.ms-go .count{ margin: 8px 0 0; text-align: center; }
+.ms-go .count:empty{ display: none; }
+
+/* the guided first throw: the words sit low on the board, away from the finger and the loupe */
+.m-coach{ position: absolute; left: 50%; bottom: 8px; z-index: 21; transform: translateX(-50%); width: max-content; max-width: 90%; padding: 7px 14px 8px; border-radius: 12px; text-align: center; pointer-events: none;
+  background: #0b0a09eb; border: 1px solid var(--gold); box-shadow: 0 8px 22px #000a; animation: in .25s both; }
+.m-coach[hidden]{ display: none; }
+.m-coach small{ display: block; margin-bottom: 1px; font: 800 10.5px/1.3 var(--f-body); letter-spacing: .13em; text-transform: uppercase; color: var(--gold); }
+.m-coach b{ font: 700 15px/1.25 var(--f-body); color: #fff; }
+
+/* the end screen: the score small, XP and Rematch above the stats; Rematch stays in sight however long the XP card gets */
+.end.m-end{ padding-top: 0; }
+.m-end .verdict{ margin: 2px 0 0; }
+.m-end .chalk.huge{ font-size: 64px; margin: 0 0 8px; }
+.m-end .m-act{ position: sticky; bottom: 10px; z-index: 4; margin: 12px 0 18px; }
+.m-end .m-act .go{ margin-top: 0; }
+
+/* the walk-on card: the caller's voice, one tap */
+.w-voice{ position: relative; z-index: 2; display: block; min-height: 40px; margin: 12px auto 0; padding: 8px 16px; border-radius: 999px; border: 1px solid #ffffff38; background: #07081ae0; color: #d8d6e6; font: 700 13px var(--f-body); box-shadow: 0 6px 18px #000a; animation: ar-up .4s .75s both; }
+.w-voice.on{ border-color: var(--gold); color: var(--gold); }
+.w-voice:active{ transform: scale(.96); }
+
+/* ---------- the match fits the window ----------
+   Everything of a visit stays on screen without scrolling, on any phone and however much the
+   browser's bars take: the board gives way, the rest doesn't. --bs is the board's side, the
+   width of the screen unless the height runs out. --chrome is the height of everything else,
+   a finish included, so the board never moves during a visit. Over 780 px high the match looks
+   as it always did. */
+#app.s-match:has(.g-body.m){
+  --chrome: 400px;
+  --bs: min(100% + 32px, 100dvh - var(--chrome) - var(--safe-t) - var(--safe-b));
+  padding-top: 0; padding-bottom: calc(6px + var(--safe-b));
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+}
+.sheet, .banner{ max-height: 100dvh; overflow-y: auto; overscroll-behavior: contain; }
+
+/* short: one line per player in the score bug (the checkout route stays, the average goes), a
+   tighter panel, the finish on one line */
+@media (max-height: 780px){
+  #app.s-match:has(.g-body.m){ --chrome: 270px; }
+  #app.s-match .g-top:has(+ .g-body.m){ padding-top: calc(4px + var(--safe-t)); padding-bottom: 3px; }
+  #app.s-match .sbp{ grid-template-columns: 14px minmax(0, 1fr) auto 30px 64px; grid-template-rows: 31px; padding: 0 0 0 8px; column-gap: 6px; }
+  #app.s-match .sbp .nm{ font-size: 19px; }
+  #app.s-match .sbp .nm small{ display: none; }
+  #app.s-match .sbp .sbx{ grid-row: 1; grid-column: 3; }
+  #app.s-match .sbp .sbx .ag, #app.s-match .sbp .sbx:has(em) .last{ display: none; }
+  #app.s-match .sbp .lg{ grid-row: 1; grid-column: 4; margin: 0; font-size: 20px; }
+  #app.s-match .sbp .lf{ grid-row: 1; grid-column: 5; margin: 0; font-size: 27px; }
+  #app.s-match .m-board{ margin-top: 3px; }
+  #app.s-match .m-info{ min-height: 0; margin-top: 4px; padding: 6px 10px; }
+  #app.s-match .m-info .slots{ margin-top: 0; }
+  #app.s-match .slots span{ height: 28px; }
+  #app.s-match .aimchips{ margin-top: 5px; min-height: 38px; }
+  #app.s-match .aimchips button{ padding: 7px 0; }
+  #app.s-match .m-hint{ margin-top: 4px; font-size: 12.5px; line-height: 1.3; min-height: 2.6em; }
+  #app.s-match .m-fin.show{ display: flex; align-items: center; justify-content: center; gap: 10px; height: 24px; margin: 0 0 3px; }
+  #app.s-match .m-fin div{ margin: 0; gap: 6px; }
+  #app.s-match .m-fin b{ font-size: 21px; }
+  #app.s-match .m-fin b.now{ text-decoration-thickness: 2px; text-underline-offset: 3px; }
+}
+/* shorter: the route lives in the score bug and the glow on the board, the board keeps the room */
+@media (max-height: 620px) and (orientation: portrait){
+  #app.s-match:has(.g-body.m){ --chrome: 243px; }
+  #app.s-match .m-fin, #app.s-match .m-fin.show{ display: none; }
+}
+/* the question and the walk-on on a short screen */
+@media (max-height: 640px){
+  #app.s-match .sheet{ padding: 10px 14px calc(12px + var(--safe-b)); }
+  #app.s-match .sheet .clock{ margin: 0 0 8px; }
+  #app.s-match .sheet .q{ font-size: 17px; line-height: 1.25; margin: 3px 0 8px; }
+  #app.s-match .sheet .answers{ gap: 7px; }
+  #app.s-match .sheet .answers button{ padding: 7px 10px; font-size: 15px; gap: 9px; }
+  #app.s-match .sheet .answers i{ width: 26px; height: 26px; }
+  #app.s-match .verdict-h{ min-height: 2.4em; margin-top: 6px; }
+  #app.s-match .verdict-h b{ font-size: 18px; }
+  #app.s-match .verdict-h span{ font-size: 13px; }
+  #app.s-match .banner.walk .pass-n{ margin-top: 10px; padding: 12px 20px 9px; font-size: 42px; }
+  #app.s-match .banner.walk .vs{ width: 40px; height: 40px; margin: -9px auto; font-size: 18px; }
+  #app.s-match .banner.walk .go{ margin-top: 12px; padding-top: 12px; padding-bottom: 12px; }
+}
+/* a phone on its side: the board down the left at full height, the rest beside it. A real layout
+   rather than a "turn your phone" message: a message would sit over a running question clock */
+@media (orientation: landscape) and (max-height: 520px){
+  .shell:has(.g-body.m){ max-width: none; }
+  #app.s-match:has(.g-body.m){
+    --left: max(8px, env(safe-area-inset-left, 0px));
+    --bs: min(100dvh - 8px - var(--safe-t) - var(--safe-b), 56vw);
+    display: grid; grid-template-columns: var(--bs) minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; column-gap: 14px;
+    height: 100dvh; padding: 0 max(12px, env(safe-area-inset-right, 0px)) 0 var(--left);
+  }
+  #app.s-match .g-body.m{ display: contents; }
+  #app.s-match .g-top:has(+ .g-body.m){ grid-column: 2; grid-row: 1; grid-template-columns: auto minmax(0, 1fr) auto; margin: 0; padding-left: 0; padding-right: 0; }
+  #app.s-match .g-top:has(+ .g-body.m) b{ overflow: hidden; text-overflow: ellipsis; text-align: center; letter-spacing: .1em; }
+  #app.s-match .g-top .back{ white-space: nowrap; }
+  #app.s-match .sb{ grid-column: 2; grid-row: 2; }
+  #app.s-match .m-board{ grid-column: 1; grid-row: 1 / -1; align-self: center; margin: 0; }
+  #app.s-match .m-info{ grid-column: 2; grid-row: 3; }
+  #app.s-match .visit{ left: calc(var(--left) + var(--bs) / 2); }
+  #app.s-match .sheet, #app.s-match .banner:not(.walk){ max-width: 680px; }
+  #app.s-match .sheet .answers{ grid-template-columns: 1fr 1fr; }
+  #app.s-match .sheet .q{ font-size: 16px; }
+  #app.s-match .sheet .answers button{ padding: 5px 10px; font-size: 14px; }
+  #app.s-match .banner.walk{ display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-content: center; justify-items: center; max-width: none; padding: 6px 16px calc(8px + var(--safe-b)); background: rgba(5,6,13,.62); }
+  #app.s-match .banner.walk > *{ grid-column: 1 / -1; }
+  #app.s-match .banner.walk .pass-n, #app.s-match .banner.walk .pass-n + .vs + .pass-n{ grid-column: 1; width: 100%; margin: 8px 0 0; padding: 9px 18px 6px; font-size: 34px; }
+  #app.s-match .banner.walk .pass-n + .vs + .pass-n{ grid-column: 3; }
+  #app.s-match .banner.walk .vs{ grid-column: 2; align-self: center; margin: 8px -12px 0; width: 38px; height: 38px; font-size: 17px; }
+  #app.s-match .banner.walk .w-nick{ margin-top: 6px; font-size: 16px; }
+  #app.s-match .banner.walk .w-tell{ margin-top: 4px; max-width: min(560px, 92%); font-size: 13px; }
+  #app.s-match .banner.walk .w-voice{ min-height: 36px; margin-top: 6px; padding: 6px 14px; }
+  #app.s-match .banner.walk .go{ margin-top: 8px; padding-top: 10px; padding-bottom: 10px; }
+}

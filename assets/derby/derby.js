@@ -35,7 +35,7 @@ const DBY_TIER = { easy: "Easy", normal: "Normal", hard: "Hard", extreme: "Extre
 const DBY_LANDS = [["nl", "Netherlands"], ["be", "Belgium"], ["en", "England"], ["de", "Germany"], ["es", "Spain"], ["it", "Italy"], ["pt", "Portugal"], ["sc", "Scotland"]];
 /* the identity file's spelling → the bank's, for the three that differ */
 const DBY_ALIAS = { "excelsior-rotterdam": "excelsior", "oud-heverlee-leuven": "oh-leuven", "raal-la-louviere": "la-louviere" };
-const DBY_IDENT = { excelsior: "excelsior-rotterdam", "oh-leuven": "oud-heverlee-leuven", "la-louviere": "raal-la-louviere" };
+const DBY_IDENT = { excelsior: "excelsior-rotterdam", "oh-leuven": "oud-heverlee-leuven", "la-louviere": "raal-la-louviere", "roda-jc": "roda-jc-kerkrade" };
 
 /* THE REAL ONES, a club's main rival first. Only pairs that are both in the game (derby-test.js). The Dutch and Belgian rows are from
    Wikipedia's lists of derbies in the two countries (5 Nov 2026). The third column is what the fixture is called, where it is called

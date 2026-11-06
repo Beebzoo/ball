@@ -1,0 +1,18 @@
+{"decks":[
+  {"id":"spelregels","sport":"darts","name":["The basics","De basis"]},
+  {"id":"legendes","sport":"darts","name":["Legends","Legendes"]},
+  {"id":"modern","sport":"darts","name":["Today","Nu"]},
+  {"id":"toernooien","sport":"darts","name":["Tournaments","Toernooien"]},
+  {"id":"bijnamen","sport":"darts","name":["Nicknames","Bijnamen"]},
+  {"id":"nederland","sport":"darts","name":["Dutch darts","Oranje"]},
+  {"id":"spelers","sport":"darts","name":["The players","De spelers"]},
+  {"id":"geschiedenis","sport":"darts","name":["History","Geschiedenis"]},
+  {"id":"vermaak","sport":"darts","name":["Just for fun","Voor de lol"]},
+  {"id":"wereld","sport":"darts","name":["Around the world","De wereld rond"]},
+  {"id":"snooker-regels","sport":"snooker","name":["Rules","Spelregels"]},
+  {"id":"snooker-legendes","sport":"snooker","name":["Legends","Legendes"]},
+  {"id":"snooker-nu","sport":"snooker","name":["The tour now","De tour nu"]},
+  {"id":"snooker-crucible","sport":"snooker","name":["The Crucible","De Crucible"]},
+  {"id":"snooker-bijnamen","sport":"snooker","name":["Nicknames","Bijnamen"]},
+  {"id":"snooker-wereld","sport":"snooker","name":["Snooker world","Snookerwereld"]}
+]}

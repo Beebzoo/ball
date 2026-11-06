@@ -1,0 +1,51 @@
+/* The World Championship predictor (app/poule.js): the list, the draw entry, the picks and
+   results per round, and the table. */
+.pl-comps{ display: grid; gap: 10px; }
+.pl-comp{ position: relative; display: grid; gap: 2px; padding: 12px 40px 12px 14px; border-radius: 18px; text-decoration: none; border: 1px solid #f0bd5533;
+  background: radial-gradient(120% 140% at 100% 0%, #ec34421f, transparent 55%), linear-gradient(160deg, #3d2b1d, #21150e 72%); box-shadow: var(--sh-1); }
+.pl-comp.s-snooker{ background: radial-gradient(120% 140% at 100% 0%, #2fa35c26, transparent 55%), linear-gradient(160deg, #3d2b1d, #21150e 72%); }
+.pl-comp b{ font: 400 21px/1.1 var(--f-head); text-transform: uppercase; letter-spacing: .03em; }
+.pl-comp small{ font-size: 13px; color: var(--dim); }
+.pl-comp > i{ position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font: 400 26px var(--f-head); font-style: normal; color: var(--gold); }
+.pl-sp{ font: 800 10px var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.pl-in{ width: 100%; padding: 11px 12px; border-radius: 12px; border: 1px solid var(--line); background: #1a110b; color: var(--cream); font: 600 15px var(--f-body); }
+.pl-in:focus{ outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px #f0bd5526; }
+.pl-ta{ width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: #1a110b; color: var(--cream); font: 500 14px/1.5 var(--f-body); resize: vertical; }
+.pl-ta:focus{ outline: none; border-color: var(--gold); }
+.pl-tabs{ display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 4px; }
+.pl-tabs button{ text-align: center; }
+.pl-who{ margin-bottom: 4px; }
+.pl-who button{ display: flex; align-items: center; gap: 6px; }
+.pl-who .av{ width: 22px; height: 22px; font-size: 11px; }
+.pl-champ{ margin: 0; font: 400 24px var(--f-head); letter-spacing: .03em; }
+.pl-pts{ margin-left: auto; font: 700 11px var(--f-body); color: var(--gold); letter-spacing: .08em; }
+.pl-fx{ display: grid; gap: 6px; }
+.pl-m{ display: grid; grid-template-columns: 1fr 18px 1fr 22px; align-items: center; gap: 4px; padding: 4px; border-radius: 14px; background: #ffffff07; border: 1px solid #ffe2b512; position: relative; }
+.pl-m.done{ opacity: .9; }
+.pl-v{ text-align: center; font: 400 14px var(--f-chalk); color: var(--dim); }
+.pl-side{ min-width: 0; padding: 9px 6px; border-radius: 10px; border: 1px solid #ffe2b51c; background: linear-gradient(180deg, #3a281b, #24170f); color: var(--cream); font: 700 13.5px/1.2 var(--f-body); text-align: center; overflow-wrap: anywhere; }
+.pl-side:active:not(:disabled){ transform: scale(.97); }
+.pl-side:disabled{ cursor: default; }
+.pl-side.tbd{ display: block; color: var(--dim); font-weight: 600; font-style: italic; background: none; border-style: dashed; }
+.pl-side.pick{ border-color: var(--gold); background: linear-gradient(180deg, #fff7e3, #efdcb0); color: #1a1008; box-shadow: 0 0 0 1px var(--gold); }
+.pl-side.won{ border-color: #6ff0ae; box-shadow: 0 0 0 1px #6ff0ae55; }
+.pl-side.won.res, .pl-side.won:not(.pick){ background: linear-gradient(180deg, #23a866, #138850); color: #fff; }
+.pl-side.lost{ opacity: .5; text-decoration: line-through; text-decoration-color: #ffffff55; }
+.pl-side em{ font-style: normal; font-weight: 800; color: #138850; }
+.pl-tag{ text-align: center; font-style: normal; }
+.pl-tag i{ font-style: normal; font-weight: 800; }
+.pl-tag .ok{ color: #6ff0ae; } .pl-tag .no{ color: #ff8a93; } .pl-tag .dim{ color: var(--dim); }
+em.ok{ font-style: normal; color: #6ff0ae; } em.no{ font-style: normal; color: #ff8a93; }
+.pl-oth{ position: absolute; right: 26px; top: -7px; display: flex; gap: 2px; }
+.pl-oth .av{ width: 15px; height: 15px; font-size: 8px; box-shadow: 0 0 0 2px var(--bg); }
+.pl-undo{ width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line); background: #ffffff0a; color: var(--dim); font-size: 13px; line-height: 1; padding: 0; }
+.pl-names{ display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.pl-names .pl-in{ padding: 8px 10px; font-size: 13px; }
+.pl-del{ margin-top: 24px; font-size: 18px; }
+.pl-st td{ font-size: 22px; }
+.pl-st td.pl-ch{ font: 700 12px/1.2 var(--f-body); color: var(--chalk); }
+.pl-rounds{ display: grid; gap: 6px; }
+.pl-rounds > div{ display: flex; align-items: center; gap: 6px; }
+.pl-rounds b{ min-width: 30px; padding: 3px 0; border-radius: 8px; text-align: center; font: 400 18px var(--f-chalk); background: #ffffff0a; }
+.pl-rounds b.gold{ background: #f0bd5530; color: var(--gold); }
+.pl-rounds .av{ width: 26px; height: 26px; font-size: 13px; }

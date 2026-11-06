@@ -1,0 +1,209 @@
+/* The arena around the 501 Match. Owned by the arena work; loaded after style.css.
+   - .arena (built by arena.js, fixed behind the page): canvases for the stage and the crowd,
+     the spotlight cone and pool on the board (--bx --by --br = the board's centre and
+     radius on screen), beams, haze, a colour wash for big moments.
+   - .ar-fx (fixed on top, never takes a touch): the TV stings and confetti.
+   - The match screen itself (score bug, board surround, sheets, walk-on) is restyled
+     here by class, so it looks like TV even before the arena mounts. */
+
+/* ---------- the layers ---------- */
+body.arena-on{ background: #05060d; }
+body.arena-on .shell{ position: relative; z-index: 1; background: none; box-shadow: none; border-color: transparent; }
+.arena{ position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; contain: strict; --bx: 50vw; --by: 45vh; --br: 180px; }
+.arena canvas{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+.arena .ar-cone{
+  position: absolute; top: 0; left: calc(var(--bx) - var(--br) * 1.3); width: calc(var(--br) * 2.6); height: calc(var(--by) + var(--br) * .5);
+  clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
+  background: linear-gradient(rgba(255,242,220,.10), rgba(255,236,205,.20) 55%, rgba(255,236,205,0));
+}
+.arena .ar-pool{
+  position: absolute; left: calc(var(--bx) - var(--br) * 1.7); top: calc(var(--by) - var(--br) * 1.7); width: calc(var(--br) * 3.4); height: calc(var(--br) * 3.4); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255,228,185,.55) 0, rgba(255,214,165,.30) 58%, rgba(255,200,150,.10) 78%, rgba(255,200,150,0) 100%);
+  transition: opacity .3s;
+}
+.arena.bust .ar-pool{ opacity: .45; }
+
+/* beams from the truss, slowly sweeping */
+.ar-beams{ position: absolute; inset: 0; }
+.ar-beams i{
+  position: absolute; top: 14px; width: 150px; margin-left: -75px; height: 125vh; transform-origin: 50% 0;
+  clip-path: polygon(47% 0, 53% 0, 100% 100%, 0 100%);
+  background: linear-gradient(rgba(190,205,255,.30), rgba(190,205,255,.08) 55%, rgba(190,205,255,0) 85%);
+  animation: ar-sway 11s ease-in-out infinite alternate;
+}
+.ar-beams i:nth-child(1){ left: 6%;  --a: 28deg; --b: 8deg;  animation-duration: 12s; }
+.ar-beams i:nth-child(2){ left: 22%; --a: 18deg; --b: -6deg; animation-duration: 9s; background: linear-gradient(rgba(170,120,255,.30), rgba(170,120,255,.07) 55%, transparent 85%); }
+.ar-beams i:nth-child(3){ left: 38%; --a: 10deg; --b: -14deg; animation-duration: 13s; }
+.ar-beams i:nth-child(4){ left: 62%; --a: -10deg; --b: 14deg; animation-duration: 10s; }
+.ar-beams i:nth-child(5){ left: 78%; --a: -18deg; --b: 6deg; animation-duration: 12.5s; background: linear-gradient(rgba(110,160,255,.32), rgba(110,160,255,.07) 55%, transparent 85%); }
+.ar-beams i:nth-child(6){ left: 94%; --a: -28deg; --b: -8deg; animation-duration: 9.5s; }
+@keyframes ar-sway{ from{ transform: rotate(var(--a)); } to{ transform: rotate(var(--b)); } }
+/* the hot set: gold, fast, only on big moments and the walk-on */
+.ar-beams.hot{ opacity: 0; transition: opacity .25s; }
+.ar-beams.hot i{ background: linear-gradient(rgba(255,214,120,.42), rgba(255,200,90,.10) 60%, transparent 88%); animation-duration: 1.6s; animation-play-state: paused; }
+.ar-beams.hot i:nth-child(odd){ background: linear-gradient(rgba(255,255,255,.38), rgba(255,255,255,.08) 60%, transparent 88%); animation-duration: 1.3s; }
+.arena.hot .ar-beams.hot, .arena.walk .ar-beams.hot{ opacity: 1; }
+.arena.hot .ar-beams.hot i, .arena.walk .ar-beams.hot i{ animation-play-state: running; }
+.arena.walk .ar-beams.hot i{ animation-duration: 3.2s; }
+.arena.walk .ar-beams.hot i:nth-child(odd){ animation-duration: 2.6s; }
+
+/* haze */
+.ar-haze i{ position: absolute; width: 120vmax; height: 60vmax; border-radius: 50%; opacity: .55; animation: ar-drift 26s ease-in-out infinite alternate; }
+.ar-haze i:nth-child(1){ left: -40vmax; top: 10vh; background: radial-gradient(closest-side, rgba(130,120,220,.22), transparent); }
+.ar-haze i:nth-child(2){ right: -40vmax; top: 35vh; background: radial-gradient(closest-side, rgba(90,130,230,.20), transparent); animation-duration: 33s; animation-direction: alternate-reverse; }
+@keyframes ar-drift{ from{ transform: translate3d(-6vmax, 0, 0); } to{ transform: translate3d(8vmax, -3vmax, 0); } }
+
+/* the colour wash for a big moment */
+.ar-wash{ position: absolute; inset: 0; opacity: 0; }
+.arena.hot .ar-wash{ background: radial-gradient(ellipse at 50% 110%, rgba(255,196,80,.30), transparent 60%), radial-gradient(ellipse at 50% -10%, rgba(255,230,160,.22), transparent 55%); animation: ar-hot 2.6s ease-out both; }
+.arena.bust .ar-wash{ background: radial-gradient(ellipse at 50% 60%, transparent 30%, rgba(200,20,35,.38)); animation: ar-bust 1.3s ease-out both; }
+@keyframes ar-hot{ 0%{ opacity: 0; } 8%{ opacity: 1; } 20%{ opacity: .55; } 30%{ opacity: 1; } 100%{ opacity: 0; } }
+@keyframes ar-bust{ 0%{ opacity: 0; } 10%{ opacity: 1; } 100%{ opacity: 0; } }
+.arena.result .ar-cone, .arena.result .ar-pool{ opacity: .5; }
+
+/* ---------- the match screen in TV dress ---------- */
+.arena-on #app.s-match .g-top{ background: linear-gradient(rgba(5,6,13,.92) 55%, rgba(5,6,13,0)); }
+#app.s-match .g-top:has(+ .g-body.m) > span::after{
+  content: "LIVE"; display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px 3px 7px; border-radius: 4px;
+  font: 800 11px var(--f-body); letter-spacing: .16em; color: #fff; background: #d22a37cc; box-shadow: 0 0 14px #d22a3766;
+}
+
+/* the score bug */
+#app.s-match .sb{
+  position: relative; gap: 0; border: 0; border-radius: 8px; overflow: hidden;
+  background: linear-gradient(90deg, var(--red), var(--gold)) top / 100% 3px no-repeat, linear-gradient(180deg, rgba(20,22,40,.94), rgba(8,9,18,.96));
+  box-shadow: 0 10px 30px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.07);
+  padding-top: 3px;
+}
+#app.s-match .sbp{ grid-template-columns: 16px 1fr 40px 92px; padding: 7px 0 7px 8px; opacity: 1; column-gap: 8px; background: none; }
+#app.s-match .sbp + .sbp{ border-top: 1px solid rgba(255,255,255,.08); }
+#app.s-match .sbp.on{ background: linear-gradient(90deg, rgba(242,193,78,.13), rgba(242,193,78,0) 60%); }
+#app.s-match .sbp .dot{ width: 0; height: 0; border-radius: 0; background: none; border: 7px solid transparent; border-left: 10px solid var(--gold); border-right: 0; box-shadow: none; opacity: 0; transform: translateX(-4px); transition: opacity .2s, transform .2s; }
+#app.s-match .sbp.on .dot{ opacity: 1; transform: none; background: none; border-color: transparent; border-left-color: var(--gold); filter: drop-shadow(0 0 6px rgba(242,193,78,.8)); }
+#app.s-match .sbp .nm{ font-size: 22px; color: #fff; }
+#app.s-match .sbp:not(.on) .nm{ color: #b8b6c8; }
+#app.s-match .sbp .lg{ grid-row: 1 / 3; grid-column: 3; align-self: stretch; margin: -7px 0; display: grid; place-items: center; font-size: 24px; color: var(--gold); background: rgba(255,255,255,.05); border-left: 1px solid rgba(255,255,255,.06); }
+#app.s-match .sbp .lg:empty{ background: none; border: 0; }
+#app.s-match .sbp .lf{
+  grid-row: 1 / 3; grid-column: 4; align-self: stretch; margin: -7px 0; display: grid; place-items: center;
+  font: 400 38px/1 var(--f-head); letter-spacing: .02em; text-shadow: none; color: #e9e7f2; background: rgba(255,255,255,.07);
+  transition: background .25s, color .25s;
+}
+#app.s-match .sbp.on .lf{ background: linear-gradient(180deg, #ffe08a, #f2c14e 55%, #d9a228); color: #16110a; }
+#app.s-match .sbp .sbx{ grid-column: 2 / 3; font-size: 12px; color: #9d9bb0; gap: 6px; align-items: center; }
+/* one line, always: the board must not jump when a checkout route appears */
+#app.s-match .sbp .sbx{ flex-wrap: nowrap; white-space: nowrap; overflow: hidden; min-width: 0; }
+#app.s-match .sbp .sbx em{ flex: none; }
+#app.s-match .sbp .sbx span{ overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+#app.s-match .sbp .sbx em{ padding: 1px 6px; border-radius: 3px; background: rgba(242,193,78,.16); color: var(--gold); letter-spacing: .04em; }
+#app.s-match .sbp.on .sbx em{ background: var(--gold); color: #16110a; }
+
+/* the board on the stage: a surround with a lit LED ring */
+#app.s-match .m-board{ isolation: isolate; }
+#app.s-match .m-board::before{
+  content: ""; position: absolute; z-index: -1; left: 50%; top: 50%; width: 100%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, #15151c 0 90%, #2b2b36 91%, #101017 93%, #1d1d26 97%, #0b0b10 100%);
+  box-shadow: 0 0 0 2px rgba(255,222,170,.45), 0 0 22px 4px rgba(255,200,130,.30), 0 0 70px 16px rgba(255,180,110,.13);
+  transition: box-shadow .3s;
+}
+.ar-max #app.s-match .m-board::before, .ar-co #app.s-match .m-board::before{ box-shadow: 0 0 0 3px rgba(255,220,120,.95), 0 0 30px 8px rgba(255,200,80,.6), 0 0 90px 26px rgba(255,190,80,.25); }
+#app.s-match .handtag{ backdrop-filter: none; box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+
+/* under the board */
+/* a solid broadcast panel: the arena never shows through the route strip, the slots or the chips */
+#app.s-match .m-info{ position: relative; margin: 6px 0 0; padding: 8px 10px 10px; border-radius: 10px; overflow: hidden; background: linear-gradient(90deg, rgba(210,42,55,.8), rgba(242,193,78,.8)) top / 100% 2px no-repeat, linear-gradient(180deg, rgba(10,11,22,.95), rgba(6,7,14,.93)); box-shadow: 0 10px 24px rgba(0,0,0,.55); }
+#app.s-match .m-fin .lbl{ text-shadow: none; }
+#app.s-match .m-hint{ color: #c9c6d8; text-shadow: 0 1px 6px #000, 0 0 12px #000; }
+#app.s-match .slots span{ background: rgba(8,9,18,.55); border-color: rgba(255,255,255,.18); }
+#app.s-match .slots span.used{ background: linear-gradient(180deg, rgba(24,26,46,.95), rgba(10,11,22,.95)); border-color: rgba(242,193,78,.5); }
+#app.s-match .aimchips span{ color: #c9c6d8; text-shadow: 0 1px 4px #000; }
+#app.s-match .aimchips button{ background: rgba(14,15,30,.82); border-color: rgba(255,255,255,.16); color: #fff; }
+#app.s-match .aimchips button.fin{ border-color: var(--gold); color: var(--gold); }
+
+/* the question sheet and the banners: broadcast panels */
+#app.s-match .sheet, #app.s-match .banner:not(.walk){
+  background: linear-gradient(90deg, var(--red), var(--gold)) top / 100% 3px no-repeat, linear-gradient(180deg, rgba(18,20,38,.97), rgba(7,8,16,.98));
+  border-top: 0; box-shadow: 0 -18px 60px rgba(0,0,0,.75);
+}
+#app.s-match .sheet .lbl{ color: #b9b7cc; }
+#app.s-match .sheet .answers button:not(.right):not(.wrong){ background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.13); }
+#app.s-match .banner:not(.walk) .pass-n{ color: var(--gold); text-shadow: 0 0 24px rgba(242,193,78,.35); }
+
+/* walk-on: name cards slide in under sweeping lights */
+#app.s-match .banner.walk{
+  background: radial-gradient(ellipse 80% 60% at 50% 42%, rgba(5,6,13,.12), rgba(5,6,13,.6) 85%);
+  backdrop-filter: none; overflow: hidden; padding-left: 0; padding-right: 0;
+}
+#app.s-match .banner.walk::before{
+  content: ""; position: absolute; top: -20%; bottom: -20%; width: 40%; left: -50%; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,240,210,.16), transparent); transform: skewX(-18deg);
+  animation: ar-sweep 3.2s 0.3s ease-in-out infinite;
+}
+@keyframes ar-sweep{ from{ left: -50%; } 60%, to{ left: 130%; } }
+#app.s-match .banner.walk .lbl{ align-self: center; display: inline-block; padding: 5px 14px; border-radius: 3px; background: #d22a37; color: #fff; letter-spacing: .2em; box-shadow: 0 6px 20px rgba(0,0,0,.5); animation: ar-up .4s both; }
+#app.s-match .banner.walk .pass-n{
+  position: relative; width: min(92%, 440px); margin: 14px auto 0; padding: 18px 24px 14px; font-size: 56px; line-height: .95; color: #fff; overflow-wrap: anywhere;
+  background: linear-gradient(100deg, #e0303e, #8e1420); clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  text-shadow: 0 3px 0 rgba(0,0,0,.35); animation: ar-card-l .7s .15s cubic-bezier(.2,.9,.25,1) both;
+}
+#app.s-match .banner.walk .pass-n + .vs + .pass-n{ margin-top: 0; color: #17110a; text-shadow: none; background: linear-gradient(100deg, #ffe08a, #e2a92a); animation: ar-card-r .7s .55s cubic-bezier(.2,.9,.25,1) both; }
+#app.s-match .banner.walk .vs{
+  position: relative; z-index: 1; width: 52px; height: 52px; margin: -12px auto; border-radius: 50%; display: grid; place-items: center;
+  background: #0b0b14; border: 2px solid var(--gold); color: #fff; font-size: 22px; box-shadow: 0 0 24px rgba(242,193,78,.45); animation: ar-pop .4s .45s both;
+}
+#app.s-match .banner.walk .go{ margin-top: 34px; animation: ar-up .4s .9s both; }
+@keyframes ar-card-l{ from{ transform: translateX(-110vw); } }
+@keyframes ar-card-r{ from{ transform: translateX(110vw); } }
+@keyframes ar-pop{ from{ transform: scale(0); } }
+@keyframes ar-up{ from{ transform: translateY(14px); opacity: 0; } }
+
+/* the visit score: a TV panel instead of chalk */
+#app.s-match .visit b{
+  font: 400 84px/1 var(--f-head); color: #fff; padding: 10px 30px 6px; letter-spacing: .02em;
+  background: linear-gradient(var(--gold), var(--gold)) top / 100% 4px no-repeat, linear-gradient(180deg, rgba(22,24,44,.96), rgba(8,9,18,.96));
+  clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%); text-shadow: none;
+}
+#app.s-match .visit span{ display: inline-block; margin-top: 6px; padding: 3px 12px; background: var(--red); color: #fff; font-size: 18px; text-shadow: none; }
+#app.s-match .visit.bust b{ color: #fff; background: linear-gradient(#ff6a74, #ff6a74) top / 100% 4px no-repeat, linear-gradient(180deg, #b51d2a, #5e0c14); }
+.arena-on.ar-max #app.s-match .visit, .arena-on.ar-co #app.s-match .visit{ opacity: 0 !important; }
+
+/* ---------- the TV stings ---------- */
+.ar-fx{ position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; }
+.ar-fx canvas.ar-conf{ position: absolute; inset: 0; width: 100%; height: 100%; }
+.ar-sting{ position: absolute; left: 0; right: 0; top: 44%; height: 0; animation: ar-out var(--ms, 2s) linear both; }
+.ar-band{
+  position: absolute; left: -5%; right: -5%; top: -66px; height: 132px; transform-origin: 50% 50%;
+  background: linear-gradient(90deg, rgba(6,7,15,0), rgba(6,7,15,.93) 12%, rgba(6,7,15,.93) 88%, rgba(6,7,15,0));
+  border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); transform: skewY(-3deg) scaleX(0);
+  animation: ar-band .38s .02s cubic-bezier(.2,.9,.3,1) forwards; overflow: hidden;
+}
+.ar-band::after{ content: ""; position: absolute; top: 0; bottom: 0; width: 30%; left: -40%; background: linear-gradient(90deg, transparent, rgba(255,240,200,.28), transparent); transform: skewX(-20deg); animation: ar-shine .9s .35s ease-in-out both; }
+.ar-in{ position: absolute; left: 0; right: 0; top: 0; text-align: center; display: grid; justify-items: center; transform: translateY(-50%); }
+.ar-big{
+  display: block; font: 400 clamp(62px, 20vw, 120px)/.92 var(--f-head); text-transform: uppercase; letter-spacing: .01em; padding: 0 .1em;
+  background: linear-gradient(180deg, #fffbe6 0%, #ffe08a 35%, #f2c14e 60%, #b47a10 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 3px 0 #000) drop-shadow(0 0 18px rgba(242,193,78,.45));
+  animation: ar-slam .5s .08s cubic-bezier(.2,1.5,.4,1) both;
+}
+.ar-sub{ display: inline-block; margin-top: 8px; padding: 4px 12px; font: 800 13px var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: #fff; background: var(--red); animation: ar-up .4s .3s both; }
+.s180 .ar-big{ font-size: clamp(96px, 34vw, 190px); }
+.s180 .ar-band{ height: 170px; top: -85px; }
+.sgs .ar-band{ border-color: #fff; }
+.smatch{ top: 40%; }
+.smatch .ar-band{ height: 200px; top: -100px; }
+.smatch .ar-big{ font-size: clamp(52px, 15vw, 104px); }
+.smatch .ar-sub{ font-size: 16px; background: var(--gold); color: #16110a; }
+@keyframes ar-band{ to{ transform: skewY(-3deg) scaleX(1); } }
+@keyframes ar-shine{ from{ left: -40%; } to{ left: 120%; } }
+@keyframes ar-slam{ from{ transform: scale(2.4); opacity: 0; } 60%{ opacity: 1; } }
+@keyframes ar-out{ 0%, 86%{ opacity: 1; } 100%{ opacity: 0; } }
+
+/* ---------- calm for reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  .ar-beams i, .ar-haze i, #app.s-match .banner.walk::before{ animation: none !important; }
+  .ar-beams.hot{ display: none; }
+  .arena.hot .ar-wash, .arena.bust .ar-wash{ animation: ar-bust 1.3s linear both; }
+  .ar-band, .ar-big, .ar-sub, .ar-band::after,
+  #app.s-match .banner.walk .pass-n, #app.s-match .banner.walk .vs, #app.s-match .banner.walk .go, #app.s-match .banner.walk .lbl{ animation: none !important; }
+  .ar-band{ transform: skewY(-3deg); }
+}

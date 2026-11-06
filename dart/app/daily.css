@@ -1,0 +1,19 @@
+/* Checkout of the day: the card at the top of Home and the screens around the throw (daily.js) */
+.dy-card{ margin: 2px 0 6px; color: var(--cream); text-decoration: none; }
+.dy-card .cod-t{ line-height: 1.25; }
+.dy-card.done .cod-t::before{ display: none; }
+
+.dy .lbl{ text-align: center; }
+.dy-stage{ position: relative; width: min(64vw, 250px); margin: 8px auto 14px; }
+.dy-board .board{ width: 100%; display: block; filter: drop-shadow(0 14px 24px #000a); }
+.dy-board .bnum{ display: none; }
+.dy-stage .chalk{ position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 2px 14px 0; border-radius: 12px; font-size: 68px; line-height: 1.05; background: #0b0e22d9; box-shadow: 0 0 0 1px #ffffff1f, 0 10px 26px #0009; }
+.dy .lead{ margin: 12px 0 8px; }
+.dy .go{ margin-top: 10px; }
+.dy-st{ margin: 0 0 12px; text-align: center; font: 700 14px var(--f-body); color: var(--gold); }
+
+/* not .end: on that the arena stages a match result over the page */
+.dy-end{ text-align: center; padding-top: 10px; overflow-x: clip; }
+.dy-line{ margin: 0 0 10px; padding: 11px 12px; border-radius: 12px; text-align: center; font: 700 14px/1.3 var(--f-body); color: var(--cream); background: #ffffff0d; border: 1px dashed #ffffff26; user-select: text; -webkit-user-select: text; }
+.dy-end .row{ margin-top: 12px; }
+.dy-row:has(> :only-child){ grid-template-columns: 1fr; }
